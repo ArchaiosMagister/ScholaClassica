@@ -4,7 +4,8 @@ import {createClient} from 'npm:@supabase/supabase-js@2.119.0';
 import {authorizeVerifiedTeacher} from '../_shared/teacher-authorization.mjs';
 
 const header={ 'content-type':'application/json; charset=utf-8','cache-control':'no-store','vary':'Origin' };
-const originAllowed=(origin:string|null)=>origin==='https://archaiosmagister.github.io';
+// El dominio docente se configura explícitamente y debe ser un ORIGEN AISLADO.
+const originAllowed=(origin:string|null)=>Boolean(env('SCHOLA_ALLOWED_ORIGIN'))&&origin===env('SCHOLA_ALLOWED_ORIGIN');
 function reply(status:number,data:unknown,origin:string|null){
   const cors=originAllowed(origin)?{'access-control-allow-origin':origin!}:{};
   return new Response(JSON.stringify(data),{status,headers:{...header,...cors}});

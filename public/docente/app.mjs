@@ -4,7 +4,7 @@ const el=id=>document.getElementById(id);
 const sections=['unavailable','login','enroll','verify','teacher'];
 const CLIENT_VERSION='2.119.0';
 const SCRIPT_URL='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@'+CLIENT_VERSION;
-let config,client,enrollment=null,busy=false,requestSerial=0;
+let config,client,enrollment=null,busy=false;
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
 function state(section,message=''){
   for(const id of sections)el(id).hidden=id!==section;
@@ -156,12 +156,12 @@ async function init(){
     el('username').value=config.username;
     await loadSDK();
     client=window.supabase.createClient(config.url,config.publishableKey,{
-      auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false,storageKey:'schola-docente-auth'}
+      auth:{persistSession:false,autoRefreshToken:true,detectSessionInUrl:false}
     });
     await checkSession();
     // En cambios de token, comprobar de nuevo los permisos; no asumir que sigue habiendo 2FA.
     client.auth.onAuthStateChange(event=>{
-      if(event==='SIGNED_OUT'){requestSerial++;state('login','Sesión cerrada')}
+      if(event==='SIGNED_OUT')state('login','Sesión cerrada')
     });
   }catch(error){
     console.warn('Inicio docente no disponible',error?.name||'error');
