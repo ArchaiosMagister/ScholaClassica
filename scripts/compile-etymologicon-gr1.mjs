@@ -268,7 +268,14 @@ export function compileTeacherAudit(){
     const etymon=byEtymon.get(row.id);
     assert.ok(etymon,'El significado no corresponde a un étimo auditado: '+row.id);
     assert.equal(etymon.meaning,null,'Se intentó sobrescribir una glosa ya completa: '+row.id);
-    assert.ok(etymon.lemma.startsWith(row.lemma),'La grafía no concuerda con el Excel: '+row.id);
+    assert.equal(itemIdGreek(etymon.lemma),row.id,'El lema no corresponde al étimo del Excel: '+row.id);
+    if(!etymon.lemma.startsWith(row.lemma)){
+      etymon.spellingReviewNeeded={
+        approvedAuditLemma:etymon.lemma,
+        lexiconHeadword:row.lemma,
+        status:'accentuation_to_check_without_rewriting_audit'
+      };
+    }
     assert.ok(row.meaning.trim().length>0,'Glosa vacía: '+row.id);
     assert.ok(['dictionary_entry_checked','meaning_draft_pending_dictionary_check'].includes(row.status));
     const partial=etymon.meaningEvidence?.status==='partial_compound';
