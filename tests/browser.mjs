@@ -4,7 +4,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,join,extname,sep} from 'node:path';
 import {chromium} from 'playwright';
 const root=resolve(import.meta.dirname,'../dist');
-const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
+const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.webmanifest':'application/manifest+json'};
 const server=createServer(async(req,res)=>{
   try{
     const path=new URL(req.url,'http://localhost/').pathname;
@@ -65,6 +65,55 @@ try{
   await page.setViewportSize({width:1280,height:900});
   assert.equal(errors.length,0,'Error JavaScript de Etymologicon: '+errors.join(' | '));
 
+  // Instalación PWA: manifiesto independiente, caché delimitada y recursos
+  // disponibles tras desconectar la red (incluidos banco y motor corrector).
+  const manifest=await page.evaluate(async()=>{
+    const link=document.querySelector('link[rel="manifest"]');
+    const response=await fetch(link.href);
+    return response.json();
+  });
+  assert.equal(manifest.scope,'./');
+  assert.equal(manifest.start_url,'./index.html');
+  assert.equal(manifest.display,'standalone');
+  assert.ok(manifest.icons.some(x=>x.purpose==='maskable'&&x.sizes==='512x512'));
+  assert.equal(await page.locator('link[rel="apple-touch-icon"]').count(),1);
+  const scopeHandle=await page.waitForFunction(async()=>{
+    const reg=await navigator.serviceWorker.getRegistration();
+    return reg?.active&&navigator.serviceWorker.controller?reg.scope:false;
+  },null,{timeout:15000});
+  const etymScope=await scopeHandle.jsonValue();
+  assert.ok(etymScope.endsWith('/apps/etymologicon/'),'SW debe limitarse al módulo: '+etymScope);
+  const etymCaches=await page.evaluate(async()=>await caches.keys());
+  assert.ok(etymCaches.some(x=>x.startsWith('schola-etymologicon-')),
+    'No existe caché offline de Etymologicon');
+  await page.context().setOffline(true);
+  const offlinePage=await page.goto(base+'/apps/etymologicon/',{waitUntil:'load'});
+  assert.equal(offlinePage.status(),200,'Etymologicon debe abrir sin conexión tras la precarga');
+  await page.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
+  const offlineResources=await page.evaluate(async()=>{
+    const urls=['./manifest.webmanifest','./icons/icon-192.png',
+      './data/gr1.json','./corrector/write-two.mjs'];
+    return Promise.all(urls.map(async path=>{
+      const response=await fetch(path);
+      return response.ok;
+    }));
+  });
+  assert.ok(offlineResources.every(Boolean),'Un recurso esencial de Etymologicon no está disponible offline');
+  await page.locator('#etymon-select').selectOption('grc:προσ');
+  await page.getByLabel('Primer derivado').fill('proselito');
+  await page.getByLabel('Segundo derivado').fill('prosodia');
+  await page.getByRole('button',{name:'Corregir respuestas'}).click();
+  assert.equal((await page.locator('#result-total').textContent()).trim(),'1,5 / 2 puntos',
+    'El corrector debe funcionar íntegramente offline');
+  await page.locator('#unit-select').selectOption('UD1');
+  assert.ok(await page.locator('#etymon-select option').count()>0,
+    'El selector de unidades también debe funcionar offline');
+  await page.context().setOffline(false);
+  await page.getByRole('button',{name:'Buscar actualizaciones'}).click();
+  await page.waitForFunction(()=>!document.querySelector('#check-update').disabled,
+    null,{timeout:12000});
+  assert.equal(errors.length,0,'PWA Etymologicon sin errores JS: '+errors.join(' | '));
+
   await page.goto(base+'/');
   await page.evaluate(async()=>{await caches.open('otra-aplicacion-no-borrar')});
   const evolutio=await page.goto(base+'/apps/evolucion-fonetica/index.html',{waitUntil:'networkidle'});
@@ -73,6 +122,8 @@ try{
   const names=await page.evaluate(async()=>await caches.keys());
   assert.ok(names.includes('otra-aplicacion-no-borrar'),'Evolutio no debe borrar las cachés de otras aplicaciones');
   assert.ok(names.some(x=>x.startsWith('schola-evolutio-')),'Falta la caché integrada de Evolutio');
+  assert.ok(names.some(x=>x.startsWith('schola-etymologicon-')),
+    'Evolutio no debe eliminar la caché de Etymologicon');
   assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio muestra error inicial');
   await page.context().setOffline(true);
   await page.reload({waitUntil:'load'});

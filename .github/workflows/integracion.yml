@@ -57,7 +57,7 @@ jobs:
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Navegar por ScholaClassica y Appendix en Chromium
+      - name: Probar navegación, PWA offline y aislamiento de cachés en Chromium
         run: npm run test:browser
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
         uses: actions/upload-artifact@v4

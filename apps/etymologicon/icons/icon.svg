@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t d">
+<title id="t">Etymologicon</title><desc id="d">Épsilon griega dorada sobre un libro abierto, fondo azul oscuro</desc>
+<rect width="512" height="512" rx="96" fill="#142d4d"/>
+<circle cx="256" cy="218" r="174" fill="#22466d" stroke="#e7b96b" stroke-width="8"/>
+<g fill="#fff4dc">
+<path d="M174 112h160v34H220v79h100v33H220v81h114v34H174z"/>
+<path d="M144 386c45-17 82-14 112 8 30-22 67-25 112-8v52c-43-17-82-15-112 8-30-23-69-25-112-8z"/>
+</g>
+<path d="M256 394v50" stroke="#e7b96b" stroke-width="9" stroke-linecap="round"/>
+<path d="M128 450h256" stroke="#e7b96b" stroke-width="8" stroke-linecap="round"/>
+</svg>

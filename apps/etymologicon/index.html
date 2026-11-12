@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Etymologicon: práctica de derivados etimológicos griegos de Griego I con corrección automática y explicaciones.">
   <meta name="theme-color" content="#172e49">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Etymologicon">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.mjs"></script>
   <title>Etymologicon · ScholaClassica</title>
@@ -66,6 +72,21 @@
           </select>
         </div>
         <p id="pool-size" class="counter" aria-live="polite"></p>
+        <div class="separator"></div>
+        <section aria-labelledby="offline-title" class="offline-tools">
+          <h3 id="offline-title">Instalación y uso sin conexión</h3>
+          <p id="offline-status" class="offline-status" role="status" aria-live="polite">Preparando el modo sin conexión…</p>
+          <button type="button" id="install-button" class="primary-button full" hidden>Instalar Etymologicon</button>
+          <button type="button" id="check-update" class="secondary-button full">Buscar actualizaciones</button>
+          <button type="button" id="apply-update" class="primary-button full" hidden>Aplicar nueva versión</button>
+          <details class="install-help">
+            <summary>¿Cómo se instala?</summary>
+            <p><strong>iPhone o iPad (Safari):</strong> pulsa Compartir y después «Añadir a pantalla de inicio».</p>
+            <p><strong>Android (Chrome):</strong> utiliza «Instalar aplicación» o «Añadir a pantalla de inicio».</p>
+            <p><strong>Ordenador:</strong> utiliza la opción de instalación de tu navegador, cuando esté disponible.</p>
+            <p>La primera instalación y descarga del banco requieren conexión. Después podrás practicar sin ella.</p>
+          </details>
+        </section>
       </aside>
 
       <section class="panel exercise" aria-labelledby="exercise-title">

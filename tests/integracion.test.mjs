@@ -39,7 +39,9 @@ test('Evolutio conserva todo el motor y banco, salvo la adaptación aislada del 
 });
 test('Etymologicon se construye con su pantalla, corrector y banco reducido, sin publicar material docente interno',()=>{
   const dir=join(out,'apps/etymologicon');
-  for(const file of ['index.html','style.css','app.mjs','corrector/write-two.mjs','data/gr1.json'])
+  for(const file of ['index.html','style.css','app.mjs','corrector/write-two.mjs','data/gr1.json',
+    'manifest.webmanifest','sw.js','icons/icon.svg','icons/icon-192.png','icons/icon-512.png',
+    'icons/icon-maskable-512.png','icons/apple-touch-icon.png'])
     assert.ok(existsSync(join(dir,file)),'Archivo faltante: '+file);
   const learner=JSON.parse(readFileSync(join(dir,'data/gr1.json'),'utf8'));
   assert.equal(learner.schema,'etymologicon-audited-catalog/v1');
