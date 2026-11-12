@@ -212,7 +212,7 @@ try{
   assert.equal((await page.locator('#stats-inverse').textContent()).trim(),'1');
   assert.equal((await page.locator('#stats-inverse-correct').textContent()).trim(),'1');
   await page.getByRole('button',{name:'Otra palabra'}).click();
-  await page.locator('details.virtual-keyboard summary').click();
+  await page.locator('#inverse-section details.virtual-keyboard summary').click();
   await page.getByRole('button',{name:'Insertar λ'}).click();
   assert.ok((await page.locator('#inverse-answer').inputValue()).includes('λ'));
   await page.locator('#inverse-answer').fill('loogs');
