@@ -42,6 +42,6 @@ test('la fuente lexicográfica permanece diferenciada de una revisión directa a
 });
 test('diferencias exactas frente al banco original del generador',()=>{
  const s=compileTeacherAudit().summary;
- assert.deepEqual(s.addedComparedWithGenerator,['atelocardia','atelectasia','geniogloso','helioterapia','prosélito','prosodia']);
+ assert.deepEqual(s.addedComparedWithGenerator,['atelectasia','atelocardia','geniogloso','helioterapia','prosodia','prosélito']);
  assert.deepEqual(s.removedComparedWithGenerator,['heliópolis']);
 });
