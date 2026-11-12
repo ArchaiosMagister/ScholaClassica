@@ -260,6 +260,7 @@ try{
   assert.ok((await page.locator('#pool-size').textContent()).includes('16 palabras'));
   await page.locator('#practice-mode').selectOption('general');
   await page.locator('details.virtual-keyboard').last().locator('summary').click();
+  await page.locator('#decomposition-first').focus();
   await page.getByRole('button',{name:'Insertar λ'}).last().click();
   assert.ok((await page.locator('#decomposition-first').inputValue()).includes('λ'));
   await page.locator('#activity-type').selectOption('writing');
