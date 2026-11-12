@@ -150,3 +150,33 @@ button{min-height:46px;border-radius:10px;padding:11px 17px;font-weight:700;bord
  .progress-heading{display:block}
  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
  .stat{padding:12px}}
+
+
+/* Tarjetas y relación de etimologías: los temas utilizan las mismas variables */
+.study-section{margin:24px 0;border-top:1px solid var(--line);padding-top:22px}
+.study-section h3{margin:0 0 8px;font-size:1.18rem}
+.study-note{font-size:.95rem;color:var(--muted);margin:6px 0 18px}
+.flashcard-back{border:1px solid var(--line);border-radius:14px;margin-top:18px;
+ padding:20px;background:var(--bg)}
+.flashcard-back p{margin:0 0 13px}
+.derivative-list{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:14px 0 22px;list-style:none}
+.derivative-list li{background:var(--panel);border:1px solid var(--line);
+ border-radius:999px;padding:7px 13px;overflow-wrap:anywhere}
+.study-feedback{font-size:.95rem;min-height:1.7em;color:var(--accent);font-weight:650}
+.matching-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+ gap:18px;margin:22px 0}
+.matching-columns h4{font-size:.94rem;margin:0 0 12px;color:var(--muted)}
+.matching-choices{display:grid;gap:10px}
+.match-option{width:100%;min-height:56px;text-align:left;padding:13px;
+ border-radius:12px;border:1.5px solid var(--field-border);background:var(--field);
+ color:var(--ink);font-weight:640;overflow-wrap:anywhere}
+.match-option[lang="grc"]{font:600 1.3rem Georgia,"Times New Roman",serif}
+.match-option[aria-pressed="true"]{outline:3px solid var(--accent);
+ outline-offset:0;background:var(--bg)}
+.match-option.matched{border-color:var(--success);background:var(--success-bg);
+ color:var(--success);opacity:.85}
+.match-option:disabled{cursor:default}
+.matching-score{font-weight:800;background:var(--success-bg);color:var(--success);
+ border:1px solid var(--success);padding:15px;border-radius:12px}
+@media(max-width:480px){.matching-columns{gap:10px}.match-option{padding:10px;
+ font-size:.91rem}.match-option[lang="grc"]{font-size:1.1rem}}

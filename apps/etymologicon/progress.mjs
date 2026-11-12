@@ -12,7 +12,8 @@ const MODES=new Set(['general','errors','unit']);
 
 export function emptyProgress(){
   return {schema:PROGRESS_SCHEMA,updatedAt:null,
-    courses:{gr1:{records:{}},gr2:{records:{}}}};
+    courses:{gr1:{records:{}},gr2:{records:{}}},
+    activities:{cards:{records:{}},matching:{records:{}}}};
 }
 function plain(value){
   return value!==null&&typeof value==='object'&&!Array.isArray(value)&&
@@ -72,7 +73,7 @@ export function validateProgress(input,etymons){
   const ids=knownIds(etymons);
   assert(plain(input),'el contenido debe ser un objeto');
   assert(input.schema===PROGRESS_SCHEMA,'versión no compatible');
-  assert(Object.keys(input).every(k=>['schema','updatedAt','courses','exportedAt'].includes(k)),
+  assert(Object.keys(input).every(k=>['schema','updatedAt','courses','activities','exportedAt'].includes(k)),
     'propiedad inesperada');
   assert(input.updatedAt===null||iso(input.updatedAt),'fecha de actualización');
   if(Object.hasOwn(input,'exportedAt'))assert(iso(input.exportedAt),'fecha de exportación');
@@ -87,6 +88,42 @@ export function validateProgress(input,etymons){
       assert(course==='gr1'&&ids.has(id),'étimo desconocido o curso aún no activo: '+id);
       validateRecord(record,id);
       result.courses.gr1.records[id]={...record};
+    }
+  }
+  // Compatibilidad hacia atrás: las copias v1 anteriores a estas modalidades
+  // no incluían «activities»; se recuperan sin descartar el progreso escrito.
+  if(Object.hasOwn(input,'activities')){
+    assert(keysExact(input.activities,['cards','matching']),'actividades adicionales');
+    for(const type of ['cards','matching']){
+      const section=input.activities[type];
+      assert(keysExact(section,['records']),'estructura de '+type);
+      assert(plain(section.records),'registros de '+type);
+      assert(Object.keys(section.records).length<=ids.size,'demasiados registros de '+type);
+      for(const [id,record] of Object.entries(section.records)){
+        assert(ids.has(id),'étimo desconocido en '+type+': '+id);
+        const names=type==='cards'
+          ?['attempts','remembered','forgotten','streak','needsReview','lastPracticed']
+          :['attempts','correct','incorrect','streak','needsReview','lastPracticed'];
+        assert(keysExact(record,names),'campos de '+type+' '+id);
+        for(const field of names.filter(x=>!['needsReview','lastPracticed'].includes(x)))
+          assert(natural(record[field]),field+' de '+id);
+        assert(record.attempts>0&&record.attempts<=MAX_ATTEMPTS,
+          'número de repasos en '+id);
+        const successes=type==='cards'?record.remembered:record.correct;
+        const failures=type==='cards'?record.forgotten:record.incorrect;
+        assert(record.attempts===successes+failures,'suma de éxitos y fallos en '+id);
+        assert(record.streak<=record.attempts&&record.streak<=successes,
+          'racha incoherente en '+id);
+        assert(iso(record.lastPracticed),'fecha de '+type+' '+id);
+        assert(Date.parse(record.lastPracticed)<=Date.now()+86400000,'fecha futura en '+id);
+        assert(typeof record.needsReview==='boolean','marca de repaso en '+id);
+        if(failures===0)assert(!record.needsReview,'sin fallos pero con repaso en '+id);
+        if(record.streak>=2)assert(!record.needsReview,'repaso ya completado en '+id);
+        if(record.streak===0)assert(record.needsReview,'último intento fallido sin repaso en '+id);
+        if(record.streak>0&&record.streak<2&&failures>0)
+          assert(record.needsReview,'repaso pendiente prematuramente eliminado en '+id);
+        result.activities[type].records[id]={...record};
+      }
     }
   }
   result.updatedAt=input.updatedAt;
@@ -162,6 +199,75 @@ export function recordExercise(state,etymons,result,at=new Date().toISOString())
   checked.updatedAt=at;
   return validateProgress(checked,etymons);
 }
+
+/** Autoevaluación de tarjetas: no se asignan 1/0,5/0 puntos objetivos. */
+export function recordCardReview(state,etymons,etymonId,remembered,at=new Date().toISOString()){
+  const checked=validateProgress(state,etymons);
+  assert(knownIds(etymons).has(etymonId),'étimo de tarjeta no autorizado');
+  assert(typeof remembered==='boolean','autoevaluación inválida');
+  assert(iso(at),'fecha de tarjeta');
+  const previous=checked.activities.cards.records[etymonId]||
+    {attempts:0,remembered:0,forgotten:0,streak:0,needsReview:false,lastPracticed:at};
+  assert(previous.attempts<MAX_ATTEMPTS,'demasiadas tarjetas');
+  const streak=remembered?previous.streak+1:0;
+  const forgotten=previous.forgotten+(remembered?0:1);
+  checked.activities.cards.records[etymonId]={
+    attempts:previous.attempts+1,remembered:previous.remembered+Number(remembered),
+    forgotten,streak,
+    needsReview:remembered?(streak<2&&forgotten>0):true,lastPracticed:at
+  };
+  checked.updatedAt=at;
+  return validateProgress(checked,etymons);
+}
+/**
+ * Una ronda completa registra un resultado por étimo. Si un emparejamiento
+ * necesitó reintentos, cuenta como fallo para el repaso, aunque se terminara.
+ */
+export function recordMatchingRound(state,etymons,results,at=new Date().toISOString()){
+  const checked=validateProgress(state,etymons);
+  const allowed=knownIds(etymons);
+  assert(Array.isArray(results)&&results.length>=2&&results.length<=8,
+    'una ronda debe contener entre dos y ocho pares');
+  const ids=new Set();
+  assert(iso(at),'fecha de ronda');
+  for(const item of results){
+    assert(item&&allowed.has(item.etymonId)&&!ids.has(item.etymonId),
+      'étimo ajeno o repetido en ronda');
+    ids.add(item.etymonId);
+    assert(typeof item.firstTry==='boolean','resultado de relación inválido');
+    const prev=checked.activities.matching.records[item.etymonId]||
+      {attempts:0,correct:0,incorrect:0,streak:0,needsReview:false,lastPracticed:at};
+    assert(prev.attempts<MAX_ATTEMPTS,'demasiados emparejamientos');
+    const streak=item.firstTry?prev.streak+1:0;
+    const incorrect=prev.incorrect+Number(!item.firstTry);
+    checked.activities.matching.records[item.etymonId]={
+      attempts:prev.attempts+1,correct:prev.correct+Number(item.firstTry),
+      incorrect,streak,
+      needsReview:item.firstTry?(streak<2&&incorrect>0):true,lastPracticed:at
+    };
+  }
+  checked.updatedAt=at;
+  return validateProgress(checked,etymons);
+}
+/** No mezcla las calificaciones objetivas con la autoevaluación de tarjetas. */
+export function activitySummary(state){
+  const cards=Object.values(state.activities.cards.records);
+  const matches=Object.values(state.activities.matching.records);
+  return {
+    cardsReviewed:cards.reduce((n,r)=>n+r.attempts,0),
+    cardsRemembered:cards.reduce((n,r)=>n+r.remembered,0),
+    cardsForgotten:cards.reduce((n,r)=>n+r.forgotten,0),
+    pairsPracticed:matches.reduce((n,r)=>n+r.attempts,0),
+    pairsFirstTry:matches.reduce((n,r)=>n+r.correct,0),
+    pairsWithRetries:matches.reduce((n,r)=>n+r.incorrect,0)
+  };
+}
+export function needsAnyReview(state,id){
+  return Boolean(state.courses.gr1.records[id]?.needsReview||
+    state.activities.cards.records[id]?.needsReview||
+    state.activities.matching.records[id]?.needsReview);
+}
+
 export function progressSummary(state,etymons){
   const records=state.courses.gr1.records;
   const all=Object.values(records);
@@ -178,8 +284,8 @@ export function progressSummary(state,etymons){
     return {unit,available:members.length,exercises,average:exercises?points/exercises:0};
   });
   return {...total,average:total.exercises?total.points/total.exercises:0,
-    needingReview:etymons.filter(e=>e.editorialStatus==='approved_for_documented_derivatives'&&records[e.id]?.needsReview).length,
-    practiced:all.length,byUnit};
+    needingReview:etymons.filter(e=>e.editorialStatus==='approved_for_documented_derivatives'&&needsAnyReview(state,e.id)).length,
+    practiced:all.length,byUnit,...activitySummary(state)};
 }
 export function filteredEtyma(etymons,state,{mode='general',unit='all'}={}){
   if(!MODES.has(mode))throw new Error('Modo desconocido');
@@ -190,7 +296,7 @@ export function filteredEtyma(etymons,state,{mode='general',unit='all'}={}){
   }
   if(mode==='errors'){
     const records=state.courses.gr1.records;
-    return eligible.filter(e=>records[e.id]?.needsReview===true);
+    return eligible.filter(e=>needsAnyReview(state,e.id));
   }
   return eligible;
 }
@@ -204,13 +310,16 @@ export function chooseAdaptive(pool,state,{excludeId=null,random=Math.random}={}
   if(!Array.isArray(pool)||pool.length===0)return null;
   const candidates=pool.length>1?pool.filter(e=>e.id!==excludeId):pool;
   const records=state.courses.gr1.records;
-  const total=candidates.reduce((s,e)=>s+reviewWeight(records[e.id]),0);
+  const weight=e=>reviewWeight(records[e.id])+
+    (state.activities.cards.records[e.id]?.needsReview?4:0)+
+    (state.activities.matching.records[e.id]?.needsReview?4:0);
+  const total=candidates.reduce((s,e)=>s+weight(e),0);
   const value=random();
   if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>=1)
     throw new RangeError('El generador debe devolver un número entre 0 y 1.');
   let position=value*total;
   for(const e of candidates){
-    position-=reviewWeight(records[e.id]);
+    position-=weight(e);
     if(position<0)return e;
   }
   return candidates.at(-1);

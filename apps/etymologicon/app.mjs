@@ -1,11 +1,13 @@
 import {createWriteTwoCorrector} from './corrector/write-two.mjs';
+import {createStudyController} from './activities-ui.mjs';
 import {emptyProgress,loadProgress,saveProgress,removeProgress,exportProgress,
   importProgress,recordExercise,progressSummary,filteredEtyma,chooseAdaptive}
   from './progress.mjs';
 
 const $=id=>document.getElementById(id);
 const ui={
-  course:$('course-select'),mode:$('practice-mode'),unit:$('unit-select'),etymon:$('etymon-select'),
+  course:$('course-select'),activity:$('activity-type'),mode:$('practice-mode'),unit:$('unit-select'),etymon:$('etymon-select'),
+  etymonField:$('etymon-field'),
   random:$('random-button'),theme:$('theme-select'),poolSize:$('pool-size'),
   loadState:$('load-state'),error:$('load-error'),retry:$('retry-button'),
   content:$('exercise-content'),lemma:$('exercise-title'),meaning:$('meaning'),
@@ -14,6 +16,8 @@ const ui={
   instruction:$('exercise-instruction'),head:$('etymon-head'),empty:$('practice-empty'),
   total:$('result-total'),items:$('result-items'),next:$('next-button'),
   exercises:$('stats-exercises'),average:$('stats-average'),exact:$('stats-exact'),
+  cards:$('stats-cards'),cardsForgotten:$('stats-cards-forgotten'),
+  pairs:$('stats-pairs'),pairsCorrect:$('stats-pairs-correct'),
   typo:$('stats-typos'),wrong:$('stats-wrong'),pending:$('stats-pending'),
   unitStats:$('stats-units'),progressStatus:$('progress-status'),
   exportProgress:$('export-progress'),importFile:$('import-file'),
@@ -25,7 +29,7 @@ const themeKey='scholaclassica-etymologicon-theme-v1';
 const themes=new Set(['auto','light','dark','oled']);
 const fmt=new Intl.NumberFormat('es-ES',{maximumFractionDigits:1});
 let catalog=null,engine=null,eligible=[],pool=[],progress=emptyProgress();
-let graded=false,pendingImport=null,storageLocked=false;
+let graded=false,pendingImport=null,storageLocked=false,studyController=null;
 const storage=(()=>{
   try{return window.localStorage;}
   catch{return {getItem(){throw new Error('No storage');},
@@ -71,10 +75,16 @@ function currentEtymon(){
 }
 function renderEtymon(){
   const item=currentEtymon();
-  ui.empty.hidden=Boolean(item);
-  ui.head.hidden=!item;
-  ui.form.hidden=!item;
-  ui.instruction.hidden=!item;
+  const kind=ui.activity.value;
+  const matching=kind==='matching';
+  ui.etymonField.hidden=matching;
+  ui.empty.hidden=matching||Boolean(item);
+  ui.head.hidden=matching||!item;
+  ui.lemma.hidden=matching||!item;
+  ui.meaning.hidden=matching||kind==='cards'||!item;
+  ui.form.hidden=matching||kind!=='writing'||!item;
+  ui.instruction.hidden=matching||kind!=='writing'||!item;
+  ui.random.textContent=matching?'Otra ronda':kind==='cards'?'Otra tarjeta':'Otro étimo';
   if(!item){
     ui.lemma.textContent='';
     ui.meaning.textContent='';
@@ -84,12 +94,13 @@ function renderEtymon(){
       ?'Todavía no tienes étimos pendientes de repaso. Practica primero en «Repaso general», o vuelve cuando hayas cometido alguna falta.'
       :'No hay étimos disponibles para esta selección.';
     clearAnswers();
-    return;
+  }else{
+    ui.lemma.textContent=item.lemma;
+    ui.meaning.textContent=item.meaning;
+    ui.unitSummary.textContent=item.units.join(' · ');
+    clearAnswers();
   }
-  ui.lemma.textContent=item.lemma;
-  ui.meaning.textContent=item.meaning;
-  ui.unitSummary.textContent=item.units.join(' · ');
-  clearAnswers();
+  studyController?.render({kind,item,pool});
 }
 function updateEtymonChoices({preserve=true}={}){
   const selected=preserve?ui.etymon.value:null;
@@ -110,6 +121,10 @@ function updateEtymonChoices({preserve=true}={}){
   renderEtymon();
 }
 function nextRandom(){
+  if(ui.activity.value==='matching'){
+    updateEtymonChoices({preserve:false});
+    return;
+  }
   const previous=ui.etymon.value;
   updateEtymonChoices({preserve:false});
   if(!pool.length)return;
@@ -131,6 +146,10 @@ function renderStatistics(){
   ui.typo.textContent=String(stats.typo);
   ui.wrong.textContent=String(stats.incorrect);
   ui.pending.textContent=String(stats.needingReview);
+  ui.cards.textContent=String(stats.cardsReviewed);
+  ui.cardsForgotten.textContent=String(stats.cardsForgotten);
+  ui.pairs.textContent=String(stats.pairsPracticed);
+  ui.pairsCorrect.textContent=String(stats.pairsFirstTry);
   ui.unitStats.replaceChildren(...stats.byUnit.map(({unit,exercises,average})=>{
     const tr=document.createElement('tr');
     for(const value of [unit,String(exercises),exercises?fmt.format(average):'—']){
@@ -215,6 +234,7 @@ ui.next.addEventListener('click',nextRandom);
 ui.random.addEventListener('click',nextRandom);
 ui.etymon.addEventListener('change',renderEtymon);
 ui.mode.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
+ui.activity.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
 ui.unit.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
 
 async function loadCatalog(){
@@ -235,6 +255,16 @@ async function loadCatalog(){
     catalog=data;
     engine=corrector;
     eligible=accepted;
+    studyController=createStudyController({
+      catalog:data,etymons:accepted,commitProgress:update=>{
+        progress=update(progress);
+        const saved=storageLocked
+          ?{saved:false,warning:'No se han sobrescrito los datos dañados. Exporta una copia de tu sesión antes de restablecerlos.'}
+          :saveProgress(storage,progress,eligible);
+        showProgressStatus(saved.saved?'Progreso guardado en este dispositivo.':saved.warning);
+        renderStatistics();
+      }
+    });
     const loaded=loadProgress(storage,eligible);
     progress=loaded.state;
     storageLocked=!loaded.persisted;
@@ -245,12 +275,13 @@ async function loadCatalog(){
     ui.unit.replaceChildren(option('all','Todas las unidades'),...units.map(u=>option(u,u)));
     ui.unit.value='all';
     ui.mode.value='general';
+    ui.activity.value='writing';
     ui.unit.disabled=true;
     ui.loadState.hidden=true;
     ui.content.hidden=false;
     updateEtymonChoices({preserve:false});
   }catch(error){
-    catalog=null;engine=null;eligible=[];pool=[];
+    catalog=null;engine=null;studyController=null;eligible=[];pool=[];
     ui.loadState.hidden=true;
     ui.error.hidden=false;
     console.error('Etymologicon: no se pudo preparar la actividad',error);

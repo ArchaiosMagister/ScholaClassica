@@ -45,3 +45,7 @@ La primera visita requiere HTTPS (o localhost en pruebas) y conexión para guard
 ## Progreso local en Etymologicon
 
 Etymologicon incorpora repaso general adaptativo, repaso de errores y selección por unidad, con estadísticas por étimo y unidad, conservación offline, exportación/importación JSON validada y borrado voluntario. No almacena respuestas escritas ni requiere cuentas. Griego II permanece reservado. Véase [`docs/ETIMOLOGICON_PROGRESO_Y_REPASO.md`](docs/ETIMOLOGICON_PROGRESO_Y_REPASO.md).
+
+## Modalidades adicionales de Etymologicon
+
+Se incorporan **tarjetas de memoria** (revelar significado y derivados, autoevaluación de recuerdo) y **relación de étimos y derivados** (rondas de hasta cuatro parejas unívocas del banco auditado), con estadísticas diferenciadas y repetición inteligente común. Ambos ejercicios funcionan sin conexión tras instalar la PWA. Véase [`docs/ETIMOLOGICON_TARJETAS_RELACIONES.md`](docs/ETIMOLOGICON_TARJETAS_RELACIONES.md). La escritura de dos derivados y su nota 1 / 0,5 / 0 se mantienen.

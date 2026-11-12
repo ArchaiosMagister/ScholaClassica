@@ -68,3 +68,19 @@ test('el módulo de progreso tiene conexión con la interfaz y se precarga como 
   assert.match(app,/exportProgress\(progress,eligible\)/);
   assert.match(app,/window\.confirm\(/);
 });
+
+test('tarjetas y relación usan el mismo catálogo auditado y conservan estadísticas separadas',()=>{
+  const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+  const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
+  const ui=readFileSync(new URL('../apps/etymologicon/activities-ui.mjs',import.meta.url),'utf8');
+  const study=readFileSync(new URL('../apps/etymologicon/study.mjs',import.meta.url),'utf8');
+  for(const id of ['activity-type','flashcard-section','flashcard-back','flashcard-reveal',
+    'flashcard-remembered','flashcard-forgotten','matching-section','matching-greek',
+    'matching-spanish','matching-score','stats-cards','stats-pairs','stats-pairs-correct'])
+    assert.ok(html.includes('id="'+id+'"'),id);
+  assert.match(app,/createStudyController/);
+  assert.match(app,/studyController\?\.render\(\{kind,item,pool\}\)/);
+  assert.match(ui,/recordCardReview\(state,etymons,currentCard.id,remembered\)/);
+  assert.match(ui,/recordMatchingRound\(state,etymons,results\)/);
+  assert.match(study,/owners\.get\(derivativeId\)\.size===1/);
+});

@@ -14,6 +14,7 @@
     "etymology:compile": "node scripts/compile-etymologicon-gr1.mjs",
     "etymology:corrector:test": "node --test tests/etymologicon-corrector.test.mjs",
     "etymology:pwa:test": "node --test tests/etymologicon-pwa.test.mjs",
-    "etymology:progress:test": "node --test tests/etymologicon-progress.test.mjs"
+    "etymology:progress:test": "node --test tests/etymologicon-progress.test.mjs",
+    "etymology:study:test": "node --test tests/etymologicon-study.test.mjs"
   }
 }

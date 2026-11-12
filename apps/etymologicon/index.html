@@ -48,6 +48,14 @@
           </select>
         </div>
         <div class="field">
+          <label for="activity-type">Actividad</label>
+          <select id="activity-type">
+            <option value="writing" selected>Escribir dos derivados</option>
+            <option value="cards">Tarjetas de memoria</option>
+            <option value="matching">Relacionar étimos y derivados</option>
+          </select>
+        </div>
+        <div class="field">
           <label for="practice-mode">Modo de práctica</label>
           <select id="practice-mode">
             <option value="general" selected>Repaso general · inteligente</option>
@@ -63,7 +71,7 @@
           </select>
           <p class="field-help">Puedes practicar una unidad o realizar un repaso general.</p>
         </div>
-        <div class="field">
+        <div class="field" id="etymon-field">
           <label for="etymon-select">Elegir étimo</label>
           <select id="etymon-select" disabled>
             <option value="">Cargando el banco académico…</option>
@@ -110,6 +118,35 @@
           <p id="meaning" class="meaning"></p>
           <p class="instruction" id="exercise-instruction">Escribe dos derivados castellanos diferentes. Cada respuesta vale 1 punto como máximo.</p>
 
+
+          <section id="flashcard-section" class="study-section" aria-label="Tarjeta de memoria" hidden>
+            <p class="study-note">Intenta recordar el significado y al menos dos derivados antes de revelar la respuesta.</p>
+            <button id="flashcard-reveal" type="button" class="primary-button">Mostrar significado y derivados</button>
+            <div id="flashcard-back" class="flashcard-back" hidden>
+              <p><strong>Significado:</strong> <span id="flashcard-meaning"></span></p>
+              <p><strong>Derivados admitidos:</strong></p>
+              <ul id="flashcard-derivatives" class="derivative-list"></ul>
+              <div id="flashcard-actions" class="actions">
+                <button type="button" id="flashcard-remembered" class="primary-button">Lo recordaba</button>
+                <button type="button" id="flashcard-forgotten" class="secondary-button">Necesito repasarlo</button>
+              </div>
+              <p id="flashcard-feedback" class="study-feedback" role="status" aria-live="polite"></p>
+            </div>
+          </section>
+          <section id="matching-section" class="study-section" aria-labelledby="matching-title" hidden>
+            <h3 id="matching-title">Relaciona cada étimo con un derivado</h3>
+            <p class="study-note">Selecciona primero una palabra griega y después su derivado castellano. Puedes volver a intentarlo si te equivocas.</p>
+            <div id="matching-game" hidden>
+              <div class="matching-columns">
+                <div><h4>Étimos griegos</h4><div id="matching-greek" class="matching-choices"></div></div>
+                <div><h4>Derivados castellanos</h4><div id="matching-spanish" class="matching-choices"></div></div>
+              </div>
+              <p id="matching-feedback" class="study-feedback" role="status" aria-live="polite"></p>
+              <p id="matching-score" class="matching-score" tabindex="-1" hidden></p>
+            </div>
+            <p id="matching-empty" class="empty-practice" hidden>No hay suficientes parejas inequívocas para esta selección. Cambia de unidad o selecciona «Repaso general».</p>
+          </section>
+
           <form id="answer-form" novalidate>
             <div class="answer-grid">
               <div class="field">
@@ -151,7 +188,7 @@
           <p class="eyebrow">Progreso privado · Griego I</p>
           <h2 id="progress-title">Mi aprendizaje</h2>
         </div>
-        <p class="muted">Solo en este dispositivo. Las palabras escritas no se almacenan.</p>
+        <p class="muted">Solo en este dispositivo. Las palabras escritas no se almacenan; las tarjetas se autoevalúan.</p>
       </div>
       <div class="stat-grid" aria-label="Estadísticas del repaso">
         <div class="stat"><strong id="stats-exercises">0</strong><span>Ejercicios</span></div>
@@ -160,6 +197,10 @@
         <div class="stat"><strong id="stats-typos">0</strong><span>Con faltas</span></div>
         <div class="stat"><strong id="stats-wrong">0</strong><span>Sin puntuar</span></div>
         <div class="stat"><strong id="stats-pending">0</strong><span>Étimos para repasar</span></div>
+        <div class="stat"><strong id="stats-cards">0</strong><span>Tarjetas estudiadas</span></div>
+        <div class="stat"><strong id="stats-cards-forgotten">0</strong><span>Tarjetas que costó recordar</span></div>
+        <div class="stat"><strong id="stats-pairs">0</strong><span>Parejas practicadas</span></div>
+        <div class="stat"><strong id="stats-pairs-correct">0</strong><span>Parejas al primer intento</span></div>
       </div>
       <details class="unit-progress">
         <summary>Estadísticas por unidad</summary>
@@ -200,7 +241,7 @@
         <p><strong>0,5 puntos</strong> · Derivado reconocible con una o más faltas ortográficas inequívocas.</p>
         <p><strong>0 puntos</strong> · Respuesta no admitida, ambigua, excluida o repetida.</p>
       </div>
-      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Este es el primer ejercicio de Etymologicon; las demás modalidades se incorporarán progresivamente.</p>
+      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Las tarjetas no tienen nota objetiva; las relaciones se registran por aciertos al primer intento. Otras modalidades se incorporarán progresivamente.</p>
     </section>
   </main>
   <footer class="footer">
