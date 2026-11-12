@@ -89,12 +89,13 @@ try{
   await page.locator('#import-file').setInputFiles({
     name:'invalido.json',mimeType:'application/json',buffer:Buffer.from('{datos corruptos')
   });
-  assert.ok((await page.locator('#progress-status').textContent()).includes('Importación rechazada'));
+  await page.waitForFunction(()=>document.querySelector('#progress-status')?.textContent.includes('Importación rechazada'),
+    null,{timeout:10000});
   assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'0');
   await page.locator('#import-file').setInputFiles({
     name:'progreso.json',mimeType:'application/json',buffer:Buffer.from(exported)
   });
-  assert.equal(await page.locator('#import-preview').isVisible(),true);
+  await page.locator('#import-preview').waitFor({state:'visible',timeout:10000});
   assert.ok((await page.locator('#import-description').textContent()).includes('4 ejercicios'));
   await page.getByRole('button',{name:'Confirmar importación'}).click();
   assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'4');
