@@ -4,7 +4,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,join,extname,sep} from 'node:path';
 import {chromium} from 'playwright';
 const root=resolve(import.meta.dirname,'../dist');
-const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
+const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
 const server=createServer(async(req,res)=>{
   try{
     const path=new URL(req.url,'http://localhost/').pathname;
@@ -32,7 +32,7 @@ try{
   await page.evaluate(async()=>{await caches.open('otra-aplicacion-no-borrar')});
   const evolutio=await page.goto(base+'/apps/evolucion-fonetica/index.html',{waitUntil:'networkidle'});
   assert.equal(evolutio.status(),200);
-  await page.evaluate(async()=>{await navigator.serviceWorker.ready});
+  await page.waitForFunction(async()=>Boolean((await navigator.serviceWorker.getRegistration())?.active),null,{timeout:12000});
   const names=await page.evaluate(async()=>await caches.keys());
   assert.ok(names.includes('otra-aplicacion-no-borrar'),'Evolutio no debe borrar las cachés de otras aplicaciones');
   assert.ok(names.some(x=>x.startsWith('schola-evolutio-')),'Falta la caché integrada de Evolutio');
