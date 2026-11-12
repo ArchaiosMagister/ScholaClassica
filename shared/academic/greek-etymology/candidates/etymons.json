@@ -1,0 +1,2129 @@
+{
+  "schema": "etymologicon-candidates/v1",
+  "sourceCommit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0",
+  "items": [
+    {
+      "id": "grc:ανθρωποσ",
+      "sourceForm": "ἄνθρωπος",
+      "sourceSpellings": [
+        "ἄνθρωπος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:βιβλιον",
+      "sourceForm": "βιβλίον",
+      "sourceSpellings": [
+        "βιβλίον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1,
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry2",
+        "gr1:ud2:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:γραφω",
+      "sourceForm": "γράφω | γράμμα",
+      "sourceSpellings": [
+        "γράφω | γράμμα"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δημοσ",
+      "sourceForm": "δήμος",
+      "sourceSpellings": [
+        "δήμος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ζωον",
+      "sourceForm": "ζῷον",
+      "sourceSpellings": [
+        "ζῷον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1,
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry5",
+        "gr1:ud2:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:θεοσ",
+      "sourceForm": "θέος",
+      "sourceSpellings": [
+        "θέος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:κρατοσ",
+      "sourceForm": "κράτος",
+      "sourceSpellings": [
+        "κράτος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:λογοσ",
+      "sourceForm": "λόγος",
+      "sourceSpellings": [
+        "λόγος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        1,
+        11
+      ],
+      "sourceReferences": [
+        "gr1:ud1:entry8",
+        "gr1:ud11:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:εργον",
+      "sourceForm": "ἔργον",
+      "sourceSpellings": [
+        "ἔργον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δωρον",
+      "sourceForm": "δῶρον",
+      "sourceSpellings": [
+        "δῶρον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry4"
+      ],
+      "legacyHasTwoDerivatives": false,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:χρονοσ",
+      "sourceForm": "χρόνος",
+      "sourceSpellings": [
+        "χρόνος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ξυλον",
+      "sourceForm": "ξύλον",
+      "sourceSpellings": [
+        "ξύλον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:σοφοσ",
+      "sourceForm": "σοφός | σοφία",
+      "sourceSpellings": [
+        "σοφός | σοφία"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:διδασκω",
+      "sourceForm": "διδάσκω",
+      "sourceSpellings": [
+        "διδάσκω"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ιπποσ",
+      "sourceForm": "ἵππος",
+      "sourceSpellings": [
+        "ἵππος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry9"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:βιοσ",
+      "sourceForm": "βίος",
+      "sourceSpellings": [
+        "βίος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        2
+      ],
+      "sourceReferences": [
+        "gr1:ud2:entry10"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δοξα",
+      "sourceForm": "δόξα",
+      "sourceSpellings": [
+        "δόξα"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δικη",
+      "sourceForm": "δίκη",
+      "sourceSpellings": [
+        "δίκη"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry2"
+      ],
+      "legacyHasTwoDerivatives": false,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:οικια",
+      "sourceForm": "οἰκία",
+      "sourceSpellings": [
+        "οἰκία"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:νομοσ",
+      "sourceForm": "νόμος",
+      "sourceSpellings": [
+        "νόμος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ψυχη",
+      "sourceForm": "ψυχή",
+      "sourceSpellings": [
+        "ψυχή"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αρχη",
+      "sourceForm": "ἀρχή | ἄρχω",
+      "sourceSpellings": [
+        "ἀρχή | ἄρχω"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δεσποτησ",
+      "sourceForm": "δεσπότης",
+      "sourceSpellings": [
+        "δεσπότης"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:φωνη",
+      "sourceForm": "φωνή",
+      "sourceSpellings": [
+        "φωνή"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        3
+      ],
+      "sourceReferences": [
+        "gr1:ud3:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αμφι",
+      "sourceForm": "ἀμφί",
+      "sourceSpellings": [
+        "ἀμφί"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ανα",
+      "sourceForm": "ἀνά",
+      "sourceSpellings": [
+        "ἀνά"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αντι",
+      "sourceForm": "ἀντί",
+      "sourceSpellings": [
+        "ἀντί"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:απο",
+      "sourceForm": "ἀπό",
+      "sourceSpellings": [
+        "ἀπό"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δια",
+      "sourceForm": "διά",
+      "sourceSpellings": [
+        "διά"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:εκ",
+      "sourceForm": "ἐκ | ἐξ",
+      "sourceSpellings": [
+        "ἐκ | ἐξ"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:εν",
+      "sourceForm": "ἐν",
+      "sourceSpellings": [
+        "ἐν"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:κατα",
+      "sourceForm": "κατά",
+      "sourceSpellings": [
+        "κατά"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:μετα",
+      "sourceForm": "μετά",
+      "sourceSpellings": [
+        "μετά"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry9"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:παρα",
+      "sourceForm": "παρά",
+      "sourceSpellings": [
+        "παρά"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry10"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:περι",
+      "sourceForm": "περί",
+      "sourceSpellings": [
+        "περί"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry11"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:προ",
+      "sourceForm": "πρό",
+      "sourceSpellings": [
+        "πρό"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry12"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:προσ",
+      "sourceForm": "πρός",
+      "sourceSpellings": [
+        "πρός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry13"
+      ],
+      "legacyHasTwoDerivatives": false,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:υπερ",
+      "sourceForm": "ὑπέρ",
+      "sourceSpellings": [
+        "ὑπέρ"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry14"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:υπο",
+      "sourceForm": "ὑπό",
+      "sourceSpellings": [
+        "ὑπό"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        4
+      ],
+      "sourceReferences": [
+        "gr1:ud4:entry15"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:λεγω",
+      "sourceForm": "λέγω | λόγος",
+      "sourceSpellings": [
+        "λέγω | λόγος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:μεγασ",
+      "sourceForm": "μέγας",
+      "sourceSpellings": [
+        "μέγας"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:μικροσ",
+      "sourceForm": "μικρός",
+      "sourceSpellings": [
+        "μικρός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:μακροσ",
+      "sourceForm": "μακρός",
+      "sourceSpellings": [
+        "μακρός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πολυσ",
+      "sourceForm": "πολύς",
+      "sourceSpellings": [
+        "πολύς"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:καλοσ",
+      "sourceForm": "καλός",
+      "sourceSpellings": [
+        "καλός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:κακοσ",
+      "sourceForm": "κακός",
+      "sourceSpellings": [
+        "κακός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:θανατοσ",
+      "sourceForm": "θάνατος",
+      "sourceSpellings": [
+        "θάνατος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        5
+      ],
+      "sourceReferences": [
+        "gr1:ud5:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:φερω",
+      "sourceForm": "φέρω",
+      "sourceSpellings": [
+        "φέρω"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αγω",
+      "sourceForm": "ἄγω",
+      "sourceSpellings": [
+        "ἄγω"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αγγελλω",
+      "sourceForm": "ἀγγέλλω | ἄγγελλος",
+      "sourceSpellings": [
+        "ἀγγέλλω | ἄγγελλος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πολισ",
+      "sourceForm": "πόλις",
+      "sourceSpellings": [
+        "πόλις",
+        "πόλις, −έως"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6,
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry4",
+        "gr1:ud8:entry11"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:υδωρ",
+      "sourceForm": "ὕδωρ",
+      "sourceSpellings": [
+        "ὕδωρ"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:φιλοσ",
+      "sourceForm": "φίλος",
+      "sourceSpellings": [
+        "φίλος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:στρατηγοσ",
+      "sourceForm": "στρατηγός",
+      "sourceSpellings": [
+        "στρατηγός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πραττω",
+      "sourceForm": "πράττω | πράγμα",
+      "sourceSpellings": [
+        "πράττω | πράγμα"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:φοβοσ",
+      "sourceForm": "φόβος",
+      "sourceSpellings": [
+        "φόβος",
+        "φοβός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6,
+        11
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry9",
+        "gr1:ud11:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:γη",
+      "sourceForm": "γῆ",
+      "sourceSpellings": [
+        "γῆ"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        6
+      ],
+      "sourceReferences": [
+        "gr1:ud6:entry10"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αυτοσ",
+      "sourceForm": "αὐτός",
+      "sourceSpellings": [
+        "αὐτός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        7
+      ],
+      "sourceReferences": [
+        "gr1:ud7:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δενδρον",
+      "sourceForm": "δένδρον",
+      "sourceSpellings": [
+        "δένδρον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        7
+      ],
+      "sourceReferences": [
+        "gr1:ud7:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:θαλαττα",
+      "sourceForm": "θάλαττα (−σσα)",
+      "sourceSpellings": [
+        "θάλαττα (−σσα)"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        7
+      ],
+      "sourceReferences": [
+        "gr1:ud7:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:παιδιον",
+      "sourceForm": "παιδίον",
+      "sourceSpellings": [
+        "παιδίον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        7
+      ],
+      "sourceReferences": [
+        "gr1:ud7:entry4"
+      ],
+      "legacyHasTwoDerivatives": false,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ημερα",
+      "sourceForm": "ἡμέρα",
+      "sourceSpellings": [
+        "ἡμέρα"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        7
+      ],
+      "sourceReferences": [
+        "gr1:ud7:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:οδοσ",
+      "sourceForm": "ὁδός",
+      "sourceSpellings": [
+        "ὁδός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        7
+      ],
+      "sourceReferences": [
+        "gr1:ud7:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ηλιοσ",
+      "sourceForm": "ἥλιος",
+      "sourceSpellings": [
+        "ἥλιος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        7
+      ],
+      "sourceReferences": [
+        "gr1:ud7:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:παισ",
+      "sourceForm": "παῖς, παιδός",
+      "sourceSpellings": [
+        "παῖς, παιδός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πλουτοσ",
+      "sourceForm": "πλοῦτος, −ου",
+      "sourceSpellings": [
+        "πλοῦτος, −ου"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:χρημα",
+      "sourceForm": "χρήμα, −ματος",
+      "sourceSpellings": [
+        "χρήμα, −ματος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:δερμα",
+      "sourceForm": "δέρμα, −ματος",
+      "sourceSpellings": [
+        "δέρμα, −ματος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:εικων",
+      "sourceForm": "εἰκών, −ονος",
+      "sourceSpellings": [
+        "εἰκών, −ονος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ρητωρ",
+      "sourceForm": "ῥήτωρ, −ορος",
+      "sourceSpellings": [
+        "ῥήτωρ, −ορος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:σωμα",
+      "sourceForm": "σῶμα, −ματος",
+      "sourceSpellings": [
+        "σῶμα, −ματος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:γερων",
+      "sourceForm": "γέρων, −οντος",
+      "sourceSpellings": [
+        "γέρων, −οντος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πνευμα",
+      "sourceForm": "πνεῦμα, −ματος",
+      "sourceSpellings": [
+        "πνεῦμα, −ματος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry9"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ανηρ",
+      "sourceForm": "ἀνήρ, ἀνδρός",
+      "sourceSpellings": [
+        "ἀνήρ, ἀνδρός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry10"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:γυνη",
+      "sourceForm": "γυνή, γυναικός",
+      "sourceSpellings": [
+        "γυνή, γυναικός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        8,
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud8:entry12",
+        "gr1:ud10:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αιμα",
+      "sourceForm": "αἷμα, −ματος",
+      "sourceSpellings": [
+        "αἷμα, −ματος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:γαστηρ",
+      "sourceForm": "γάστηρ, −τρός",
+      "sourceSpellings": [
+        "γάστηρ, −τρός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ηπαρ",
+      "sourceForm": "ἧπαρ, ἥπατος",
+      "sourceSpellings": [
+        "ἧπαρ, ἥπατος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:καρδια",
+      "sourceForm": "καρδία",
+      "sourceSpellings": [
+        "καρδία"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:κεφαλη",
+      "sourceForm": "κεφαλή",
+      "sourceSpellings": [
+        "κεφαλή"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:λαρυγξ",
+      "sourceForm": "λάρυγξ, −υγγος",
+      "sourceSpellings": [
+        "λάρυγξ, −υγγος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:οστεον",
+      "sourceForm": "ὀστέον",
+      "sourceSpellings": [
+        "ὀστέον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:οφθαλμοσ",
+      "sourceForm": "ὀφθαλμός",
+      "sourceSpellings": [
+        "ὀφθαλμός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πουσ",
+      "sourceForm": "πούς, ποδός",
+      "sourceSpellings": [
+        "πούς, ποδός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry9"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ρισ",
+      "sourceForm": "ῥίς, ῥινός",
+      "sourceSpellings": [
+        "ῥίς, ῥινός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry10"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:χειρ",
+      "sourceForm": "χείρ, χειρός",
+      "sourceSpellings": [
+        "χείρ, χειρός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        9
+      ],
+      "sourceReferences": [
+        "gr1:ud9:entry11"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ατελο−",
+      "sourceForm": "ἀτέλο−",
+      "sourceSpellings": [
+        "ἀτέλο−"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry1"
+      ],
+      "legacyHasTwoDerivatives": false,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:βλεφαρον",
+      "sourceForm": "βλέφαρον",
+      "sourceSpellings": [
+        "βλέφαρον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:γενειον",
+      "sourceForm": "γένειον",
+      "sourceSpellings": [
+        "γένειον"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry3"
+      ],
+      "legacyHasTwoDerivatives": false,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:−ιτισ",
+      "sourceForm": "−ῖτις",
+      "sourceSpellings": [
+        "−ῖτις"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ουσ",
+      "sourceForm": "οὖς, ὠτός",
+      "sourceSpellings": [
+        "οὖς, ὠτός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πλαστοσ",
+      "sourceForm": "πλαστός",
+      "sourceSpellings": [
+        "πλαστός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:προκτοσ",
+      "sourceForm": "πρόκτος",
+      "sourceSpellings": [
+        "πρόκτος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:τομη",
+      "sourceForm": "τομή",
+      "sourceSpellings": [
+        "τομή"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        10
+      ],
+      "sourceReferences": [
+        "gr1:ud10:entry9"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:μανια",
+      "sourceForm": "μανία",
+      "sourceSpellings": [
+        "μανία"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        11
+      ],
+      "sourceReferences": [
+        "gr1:ud11:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:μισεω",
+      "sourceForm": "μισέω",
+      "sourceSpellings": [
+        "μισέω"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        11
+      ],
+      "sourceReferences": [
+        "gr1:ud11:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:φιλια",
+      "sourceForm": "φιλία",
+      "sourceSpellings": [
+        "φιλία"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        11
+      ],
+      "sourceReferences": [
+        "gr1:ud11:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ψευδοσ",
+      "sourceForm": "ψευδός",
+      "sourceSpellings": [
+        "ψευδός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        11
+      ],
+      "sourceReferences": [
+        "gr1:ud11:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:αλγοσ",
+      "sourceForm": "ἄλγος",
+      "sourceSpellings": [
+        "ἄλγος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry1"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:γλωττα",
+      "sourceForm": "γλῶττα",
+      "sourceSpellings": [
+        "γλῶττα"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry2"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ισοσ",
+      "sourceForm": "ἴσος",
+      "sourceSpellings": [
+        "ἴσος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry3"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:κρυπτω",
+      "sourceForm": "κρύπτω",
+      "sourceSpellings": [
+        "κρύπτω"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry4"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:μονοσ",
+      "sourceForm": "μόνος",
+      "sourceSpellings": [
+        "μόνος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry5"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ομοιοσ",
+      "sourceForm": "ὁμοῖος",
+      "sourceSpellings": [
+        "ὁμοῖος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry6"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πρωτοσ",
+      "sourceForm": "πρῶτος",
+      "sourceSpellings": [
+        "πρῶτος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry7"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:πυρ",
+      "sourceForm": "πῦρ, πυρός",
+      "sourceSpellings": [
+        "πῦρ, πυρός"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry8"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:σκοπεω",
+      "sourceForm": "σκοπέω",
+      "sourceSpellings": [
+        "σκοπέω"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry9"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:ταχυσ",
+      "sourceForm": "ταχύς, −εια, −υ",
+      "sourceSpellings": [
+        "ταχύς, −εια, −υ"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry10"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:χρωμα",
+      "sourceForm": "χρῶμα",
+      "sourceSpellings": [
+        "χρῶμα"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry11"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:κοσμοσ",
+      "sourceForm": "κόσμος",
+      "sourceSpellings": [
+        "κόσμος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry12"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    },
+    {
+      "id": "grc:οροσ",
+      "sourceForm": "ὅρος",
+      "sourceSpellings": [
+        "ὅρος"
+      ],
+      "meaning": null,
+      "components": [],
+      "orthographicVariants": [],
+      "observedUnits": [
+        12
+      ],
+      "sourceReferences": [
+        "gr1:ud12:entry13"
+      ],
+      "legacyHasTwoDerivatives": true,
+      "verificationStatus": "pending_review",
+      "eligible": false
+    }
+  ]
+}

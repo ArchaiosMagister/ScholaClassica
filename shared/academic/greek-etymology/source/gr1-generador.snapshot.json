@@ -1,0 +1,505 @@
+{
+  "schema": "etymologicon-generator-source/v1",
+  "provenance": {
+    "repository": "ArchaiosMagister/GeneradorExamenes",
+    "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0",
+    "path": "index.html",
+    "symbol": "greekEtymologyUnits",
+    "extractedOn": "2026-11-12"
+  },
+  "course": "gr1",
+  "units": [
+    [
+      [
+        "ἄνθρωπος",
+        "antropología, antropomorfo"
+      ],
+      [
+        "βιβλίον",
+        "biblioteca, bibliografía"
+      ],
+      [
+        "γράφω | γράμμα",
+        "grafología, gramática"
+      ],
+      [
+        "δήμος",
+        "democracia, demografía"
+      ],
+      [
+        "ζῷον",
+        "zoología, zoológico"
+      ],
+      [
+        "θέος",
+        "teología, teocracia"
+      ],
+      [
+        "κράτος",
+        "aristocracia, democracia"
+      ],
+      [
+        "λόγος",
+        "logopedia, filología"
+      ]
+    ],
+    [
+      [
+        "βιβλίον",
+        "biblioteca, bibliografía"
+      ],
+      [
+        "ζῷον",
+        "zoología, zoológico"
+      ],
+      [
+        "ἔργον",
+        "ergonomía, energía"
+      ],
+      [
+        "δῶρον",
+        ""
+      ],
+      [
+        "χρόνος",
+        "cronómetro, cronología"
+      ],
+      [
+        "ξύλον",
+        "xilófono, xilografía"
+      ],
+      [
+        "σοφός | σοφία",
+        "filosofía, sofista"
+      ],
+      [
+        "διδάσκω",
+        "didáctica, didascalia"
+      ],
+      [
+        "ἵππος",
+        "hipódromo, hipopótamo"
+      ],
+      [
+        "βίος",
+        "biografía, biología"
+      ]
+    ],
+    [
+      [
+        "δόξα",
+        "ortodoxia, doxología"
+      ],
+      [
+        "δίκη",
+        ""
+      ],
+      [
+        "οἰκία",
+        "economía, ecología"
+      ],
+      [
+        "νόμος",
+        "autonomía, astronomía"
+      ],
+      [
+        "ψυχή",
+        "psicología, psiquiatría"
+      ],
+      [
+        "ἀρχή | ἄρχω",
+        "monarquía, anarquía"
+      ],
+      [
+        "δεσπότης",
+        "déspota, despotismo"
+      ],
+      [
+        "φωνή",
+        "fonética, teléfono"
+      ]
+    ],
+    [
+      [
+        "ἀμφί",
+        "anfibio, anfiteatro"
+      ],
+      [
+        "ἀνά",
+        "anáfora, anacronismo"
+      ],
+      [
+        "ἀντί",
+        "antídoto, antibiótico"
+      ],
+      [
+        "ἀπό",
+        "apogeo, apóstrofo"
+      ],
+      [
+        "διά",
+        "diámetro, diagonal"
+      ],
+      [
+        "ἐκ | ἐξ",
+        "éxodo, exorcismo"
+      ],
+      [
+        "ἐν",
+        "enciclopedia, entusiasmo"
+      ],
+      [
+        "κατά",
+        "catástrofe, catálogo"
+      ],
+      [
+        "μετά",
+        "metáfora, metástasis"
+      ],
+      [
+        "παρά",
+        "paradoja, paráfrasis"
+      ],
+      [
+        "περί",
+        "perímetro, periscopio"
+      ],
+      [
+        "πρό",
+        "prólogo, pronóstico"
+      ],
+      [
+        "πρός",
+        ""
+      ],
+      [
+        "ὑπέρ",
+        "hipérbole, hipertensión"
+      ],
+      [
+        "ὑπό",
+        "hipotermia, hipótesis"
+      ]
+    ],
+    [
+      [
+        "λέγω | λόγος",
+        "lógica, logopedia"
+      ],
+      [
+        "μέγας",
+        "megalomanía, megáfono"
+      ],
+      [
+        "μικρός",
+        "microscopio, microbio"
+      ],
+      [
+        "μακρός",
+        "macroeconomía, macrobiótico"
+      ],
+      [
+        "πολύς",
+        "políglota, polígono"
+      ],
+      [
+        "καλός",
+        "caligrafía, calidoscopio"
+      ],
+      [
+        "κακός",
+        "cacofonía, cacografía"
+      ],
+      [
+        "θάνατος",
+        "tanatología, eutanasia"
+      ]
+    ],
+    [
+      [
+        "φέρω",
+        "metáfora, periferia"
+      ],
+      [
+        "ἄγω",
+        "pedagogía, demagogia"
+      ],
+      [
+        "ἀγγέλλω | ἄγγελλος",
+        "ángel, evangelio"
+      ],
+      [
+        "πόλις",
+        "política, metrópoli"
+      ],
+      [
+        "ὕδωρ",
+        "hidrógeno, hidroterapia"
+      ],
+      [
+        "φίλος",
+        "filantropía, filosofía"
+      ],
+      [
+        "στρατηγός",
+        "estrategia, estratégico"
+      ],
+      [
+        "πράττω | πράγμα",
+        "pragmático, pragmatismo"
+      ],
+      [
+        "φόβος",
+        "fobia, claustrofobia"
+      ],
+      [
+        "γῆ",
+        "geografía, geología"
+      ]
+    ],
+    [
+      [
+        "αὐτός",
+        "autonomía, automóvil"
+      ],
+      [
+        "δένδρον",
+        "dendrita, dendrología"
+      ],
+      [
+        "θάλαττα (−σσα)",
+        "talasoterapia, talasocracia"
+      ],
+      [
+        "παιδίον",
+        ""
+      ],
+      [
+        "ἡμέρα",
+        "efeméride, hemeroteca"
+      ],
+      [
+        "ὁδός",
+        "método, éxodo"
+      ],
+      [
+        "ἥλιος",
+        "heliocentrismo, heliópolis"
+      ]
+    ],
+    [
+      [
+        "παῖς, παιδός",
+        "pediatría, pedagogía"
+      ],
+      [
+        "πλοῦτος, −ου",
+        "plutocracia, plutócrata"
+      ],
+      [
+        "χρήμα, −ματος",
+        "crematística, crematístico"
+      ],
+      [
+        "δέρμα, −ματος",
+        "dermatología, epidermis"
+      ],
+      [
+        "εἰκών, −ονος",
+        "icono, iconografía"
+      ],
+      [
+        "ῥήτωρ, −ορος",
+        "retórica, rétor"
+      ],
+      [
+        "σῶμα, −ματος",
+        "somático, cromosoma"
+      ],
+      [
+        "γέρων, −οντος",
+        "geriatría, gerontología"
+      ],
+      [
+        "πνεῦμα, −ματος",
+        "neumático, neumología"
+      ],
+      [
+        "ἀνήρ, ἀνδρός",
+        "androcentrismo, andrógino"
+      ],
+      [
+        "πόλις, −έως",
+        "política, metrópoli"
+      ],
+      [
+        "γυνή, γυναικός",
+        "ginecología, misógino"
+      ]
+    ],
+    [
+      [
+        "αἷμα, −ματος",
+        "hematología, anemia"
+      ],
+      [
+        "γάστηρ, −τρός",
+        "gastritis, gastroenteritis"
+      ],
+      [
+        "ἧπαρ, ἥπατος",
+        "hepatitis, hepático"
+      ],
+      [
+        "καρδία",
+        "cardiología, taquicardia"
+      ],
+      [
+        "κεφαλή",
+        "cefalea, encéfalo"
+      ],
+      [
+        "λάρυγξ, −υγγος",
+        "laringitis, laringología"
+      ],
+      [
+        "ὀστέον",
+        "osteología, osteoporosis"
+      ],
+      [
+        "ὀφθαλμός",
+        "oftalmología, oftálmico"
+      ],
+      [
+        "πούς, ποδός",
+        "podología, podómetro"
+      ],
+      [
+        "ῥίς, ῥινός",
+        "rinoplastia, rinitis"
+      ],
+      [
+        "χείρ, χειρός",
+        "quiromancia, quirófano"
+      ]
+    ],
+    [
+      [
+        "ἀτέλο−",
+        ""
+      ],
+      [
+        "βλέφαρον",
+        "blefaritis, blefaroplastia"
+      ],
+      [
+        "γένειον",
+        "genioplastia"
+      ],
+      [
+        "γυνή, γυναικός",
+        "ginecología, ginecólogo"
+      ],
+      [
+        "−ῖτις",
+        "artritis, dermatitis"
+      ],
+      [
+        "οὖς, ὠτός",
+        "otitis, otorrinolaringología"
+      ],
+      [
+        "πλαστός",
+        "plástico, plastilina"
+      ],
+      [
+        "πρόκτος",
+        "proctología, proctitis"
+      ],
+      [
+        "τομή",
+        "anatomía, tomografía"
+      ]
+    ],
+    [
+      [
+        "μανία",
+        "megalomanía, cleptomanía"
+      ],
+      [
+        "λόγος",
+        "logopedia, filología"
+      ],
+      [
+        "μισέω",
+        "misógino, misántropo"
+      ],
+      [
+        "φιλία",
+        "filosofía, filantropía"
+      ],
+      [
+        "φοβός",
+        "fobia, claustrofobia"
+      ],
+      [
+        "ψευδός",
+        "seudónimo, seudociencia"
+      ]
+    ],
+    [
+      [
+        "ἄλγος",
+        "analgesia, neuralgia"
+      ],
+      [
+        "γλῶττα",
+        "políglota, glosario"
+      ],
+      [
+        "ἴσος",
+        "isósceles, isobara"
+      ],
+      [
+        "κρύπτω",
+        "criptografía, cripta"
+      ],
+      [
+        "μόνος",
+        "monólogo, monarquía"
+      ],
+      [
+        "ὁμοῖος",
+        "homeopatía, homeostasis"
+      ],
+      [
+        "πρῶτος",
+        "prototipo, protocolo"
+      ],
+      [
+        "πῦρ, πυρός",
+        "piromanía, pirómano"
+      ],
+      [
+        "σκοπέω",
+        "microscopio, telescopio"
+      ],
+      [
+        "ταχύς, −εια, −υ",
+        "taquicardia, taquígrafo"
+      ],
+      [
+        "χρῶμα",
+        "cromático, cromosoma"
+      ],
+      [
+        "κόσμος",
+        "cosmología, cosmopolita"
+      ],
+      [
+        "ὅρος",
+        "horizonte, aforismo"
+      ]
+    ]
+  ]
+}

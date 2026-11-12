@@ -1,0 +1,2349 @@
+{
+  "schema": "etymologicon-candidates/v1",
+  "sourceCommit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0",
+  "items": [
+    {
+      "id": "grc:ανθρωποσ→es:antropología",
+      "etymonId": "grc:ανθρωποσ",
+      "derivativeId": "es:antropología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry1"
+      ]
+    },
+    {
+      "id": "grc:ανθρωποσ→es:antropomorfo",
+      "etymonId": "grc:ανθρωποσ",
+      "derivativeId": "es:antropomorfo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry1"
+      ]
+    },
+    {
+      "id": "grc:βιβλιον→es:biblioteca",
+      "etymonId": "grc:βιβλιον",
+      "derivativeId": "es:biblioteca",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry2",
+        "gr1:ud2:entry1"
+      ]
+    },
+    {
+      "id": "grc:βιβλιον→es:bibliografía",
+      "etymonId": "grc:βιβλιον",
+      "derivativeId": "es:bibliografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry2",
+        "gr1:ud2:entry1"
+      ]
+    },
+    {
+      "id": "grc:γραφω→es:grafología",
+      "etymonId": "grc:γραφω",
+      "derivativeId": "es:grafología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry3"
+      ]
+    },
+    {
+      "id": "grc:γραφω→es:gramática",
+      "etymonId": "grc:γραφω",
+      "derivativeId": "es:gramática",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry3"
+      ]
+    },
+    {
+      "id": "grc:δημοσ→es:democracia",
+      "etymonId": "grc:δημοσ",
+      "derivativeId": "es:democracia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry4"
+      ]
+    },
+    {
+      "id": "grc:δημοσ→es:demografía",
+      "etymonId": "grc:δημοσ",
+      "derivativeId": "es:demografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry4"
+      ]
+    },
+    {
+      "id": "grc:ζωον→es:zoología",
+      "etymonId": "grc:ζωον",
+      "derivativeId": "es:zoología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry5",
+        "gr1:ud2:entry2"
+      ]
+    },
+    {
+      "id": "grc:ζωον→es:zoológico",
+      "etymonId": "grc:ζωον",
+      "derivativeId": "es:zoológico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry5",
+        "gr1:ud2:entry2"
+      ]
+    },
+    {
+      "id": "grc:θεοσ→es:teología",
+      "etymonId": "grc:θεοσ",
+      "derivativeId": "es:teología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry6"
+      ]
+    },
+    {
+      "id": "grc:θεοσ→es:teocracia",
+      "etymonId": "grc:θεοσ",
+      "derivativeId": "es:teocracia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry6"
+      ]
+    },
+    {
+      "id": "grc:κρατοσ→es:aristocracia",
+      "etymonId": "grc:κρατοσ",
+      "derivativeId": "es:aristocracia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry7"
+      ]
+    },
+    {
+      "id": "grc:κρατοσ→es:democracia",
+      "etymonId": "grc:κρατοσ",
+      "derivativeId": "es:democracia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry7"
+      ]
+    },
+    {
+      "id": "grc:λογοσ→es:logopedia",
+      "etymonId": "grc:λογοσ",
+      "derivativeId": "es:logopedia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry8",
+        "gr1:ud11:entry2"
+      ]
+    },
+    {
+      "id": "grc:λογοσ→es:filología",
+      "etymonId": "grc:λογοσ",
+      "derivativeId": "es:filología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud1:entry8",
+        "gr1:ud11:entry2"
+      ]
+    },
+    {
+      "id": "grc:εργον→es:ergonomía",
+      "etymonId": "grc:εργον",
+      "derivativeId": "es:ergonomía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry3"
+      ]
+    },
+    {
+      "id": "grc:εργον→es:energía",
+      "etymonId": "grc:εργον",
+      "derivativeId": "es:energía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry3"
+      ]
+    },
+    {
+      "id": "grc:χρονοσ→es:cronómetro",
+      "etymonId": "grc:χρονοσ",
+      "derivativeId": "es:cronómetro",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry5"
+      ]
+    },
+    {
+      "id": "grc:χρονοσ→es:cronología",
+      "etymonId": "grc:χρονοσ",
+      "derivativeId": "es:cronología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry5"
+      ]
+    },
+    {
+      "id": "grc:ξυλον→es:xilófono",
+      "etymonId": "grc:ξυλον",
+      "derivativeId": "es:xilófono",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry6"
+      ]
+    },
+    {
+      "id": "grc:ξυλον→es:xilografía",
+      "etymonId": "grc:ξυλον",
+      "derivativeId": "es:xilografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry6"
+      ]
+    },
+    {
+      "id": "grc:σοφοσ→es:filosofía",
+      "etymonId": "grc:σοφοσ",
+      "derivativeId": "es:filosofía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry7"
+      ]
+    },
+    {
+      "id": "grc:σοφοσ→es:sofista",
+      "etymonId": "grc:σοφοσ",
+      "derivativeId": "es:sofista",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry7"
+      ]
+    },
+    {
+      "id": "grc:διδασκω→es:didáctica",
+      "etymonId": "grc:διδασκω",
+      "derivativeId": "es:didáctica",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry8"
+      ]
+    },
+    {
+      "id": "grc:διδασκω→es:didascalia",
+      "etymonId": "grc:διδασκω",
+      "derivativeId": "es:didascalia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry8"
+      ]
+    },
+    {
+      "id": "grc:ιπποσ→es:hipódromo",
+      "etymonId": "grc:ιπποσ",
+      "derivativeId": "es:hipódromo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry9"
+      ]
+    },
+    {
+      "id": "grc:ιπποσ→es:hipopótamo",
+      "etymonId": "grc:ιπποσ",
+      "derivativeId": "es:hipopótamo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry9"
+      ]
+    },
+    {
+      "id": "grc:βιοσ→es:biografía",
+      "etymonId": "grc:βιοσ",
+      "derivativeId": "es:biografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry10"
+      ]
+    },
+    {
+      "id": "grc:βιοσ→es:biología",
+      "etymonId": "grc:βιοσ",
+      "derivativeId": "es:biología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud2:entry10"
+      ]
+    },
+    {
+      "id": "grc:δοξα→es:ortodoxia",
+      "etymonId": "grc:δοξα",
+      "derivativeId": "es:ortodoxia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry1"
+      ]
+    },
+    {
+      "id": "grc:δοξα→es:doxología",
+      "etymonId": "grc:δοξα",
+      "derivativeId": "es:doxología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry1"
+      ]
+    },
+    {
+      "id": "grc:οικια→es:economía",
+      "etymonId": "grc:οικια",
+      "derivativeId": "es:economía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry3"
+      ]
+    },
+    {
+      "id": "grc:οικια→es:ecología",
+      "etymonId": "grc:οικια",
+      "derivativeId": "es:ecología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry3"
+      ]
+    },
+    {
+      "id": "grc:νομοσ→es:autonomía",
+      "etymonId": "grc:νομοσ",
+      "derivativeId": "es:autonomía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry4"
+      ]
+    },
+    {
+      "id": "grc:νομοσ→es:astronomía",
+      "etymonId": "grc:νομοσ",
+      "derivativeId": "es:astronomía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry4"
+      ]
+    },
+    {
+      "id": "grc:ψυχη→es:psicología",
+      "etymonId": "grc:ψυχη",
+      "derivativeId": "es:psicología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry5"
+      ]
+    },
+    {
+      "id": "grc:ψυχη→es:psiquiatría",
+      "etymonId": "grc:ψυχη",
+      "derivativeId": "es:psiquiatría",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry5"
+      ]
+    },
+    {
+      "id": "grc:αρχη→es:monarquía",
+      "etymonId": "grc:αρχη",
+      "derivativeId": "es:monarquía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry6"
+      ]
+    },
+    {
+      "id": "grc:αρχη→es:anarquía",
+      "etymonId": "grc:αρχη",
+      "derivativeId": "es:anarquía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry6"
+      ]
+    },
+    {
+      "id": "grc:δεσποτησ→es:déspota",
+      "etymonId": "grc:δεσποτησ",
+      "derivativeId": "es:déspota",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry7"
+      ]
+    },
+    {
+      "id": "grc:δεσποτησ→es:despotismo",
+      "etymonId": "grc:δεσποτησ",
+      "derivativeId": "es:despotismo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry7"
+      ]
+    },
+    {
+      "id": "grc:φωνη→es:fonética",
+      "etymonId": "grc:φωνη",
+      "derivativeId": "es:fonética",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry8"
+      ]
+    },
+    {
+      "id": "grc:φωνη→es:teléfono",
+      "etymonId": "grc:φωνη",
+      "derivativeId": "es:teléfono",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud3:entry8"
+      ]
+    },
+    {
+      "id": "grc:αμφι→es:anfibio",
+      "etymonId": "grc:αμφι",
+      "derivativeId": "es:anfibio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry1"
+      ]
+    },
+    {
+      "id": "grc:αμφι→es:anfiteatro",
+      "etymonId": "grc:αμφι",
+      "derivativeId": "es:anfiteatro",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry1"
+      ]
+    },
+    {
+      "id": "grc:ανα→es:anáfora",
+      "etymonId": "grc:ανα",
+      "derivativeId": "es:anáfora",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry2"
+      ]
+    },
+    {
+      "id": "grc:ανα→es:anacronismo",
+      "etymonId": "grc:ανα",
+      "derivativeId": "es:anacronismo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry2"
+      ]
+    },
+    {
+      "id": "grc:αντι→es:antídoto",
+      "etymonId": "grc:αντι",
+      "derivativeId": "es:antídoto",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry3"
+      ]
+    },
+    {
+      "id": "grc:αντι→es:antibiótico",
+      "etymonId": "grc:αντι",
+      "derivativeId": "es:antibiótico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry3"
+      ]
+    },
+    {
+      "id": "grc:απο→es:apogeo",
+      "etymonId": "grc:απο",
+      "derivativeId": "es:apogeo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry4"
+      ]
+    },
+    {
+      "id": "grc:απο→es:apóstrofo",
+      "etymonId": "grc:απο",
+      "derivativeId": "es:apóstrofo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry4"
+      ]
+    },
+    {
+      "id": "grc:δια→es:diámetro",
+      "etymonId": "grc:δια",
+      "derivativeId": "es:diámetro",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry5"
+      ]
+    },
+    {
+      "id": "grc:δια→es:diagonal",
+      "etymonId": "grc:δια",
+      "derivativeId": "es:diagonal",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry5"
+      ]
+    },
+    {
+      "id": "grc:εκ→es:éxodo",
+      "etymonId": "grc:εκ",
+      "derivativeId": "es:éxodo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry6"
+      ]
+    },
+    {
+      "id": "grc:εκ→es:exorcismo",
+      "etymonId": "grc:εκ",
+      "derivativeId": "es:exorcismo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry6"
+      ]
+    },
+    {
+      "id": "grc:εν→es:enciclopedia",
+      "etymonId": "grc:εν",
+      "derivativeId": "es:enciclopedia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry7"
+      ]
+    },
+    {
+      "id": "grc:εν→es:entusiasmo",
+      "etymonId": "grc:εν",
+      "derivativeId": "es:entusiasmo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry7"
+      ]
+    },
+    {
+      "id": "grc:κατα→es:catástrofe",
+      "etymonId": "grc:κατα",
+      "derivativeId": "es:catástrofe",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry8"
+      ]
+    },
+    {
+      "id": "grc:κατα→es:catálogo",
+      "etymonId": "grc:κατα",
+      "derivativeId": "es:catálogo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry8"
+      ]
+    },
+    {
+      "id": "grc:μετα→es:metáfora",
+      "etymonId": "grc:μετα",
+      "derivativeId": "es:metáfora",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry9"
+      ]
+    },
+    {
+      "id": "grc:μετα→es:metástasis",
+      "etymonId": "grc:μετα",
+      "derivativeId": "es:metástasis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry9"
+      ]
+    },
+    {
+      "id": "grc:παρα→es:paradoja",
+      "etymonId": "grc:παρα",
+      "derivativeId": "es:paradoja",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry10"
+      ]
+    },
+    {
+      "id": "grc:παρα→es:paráfrasis",
+      "etymonId": "grc:παρα",
+      "derivativeId": "es:paráfrasis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry10"
+      ]
+    },
+    {
+      "id": "grc:περι→es:perímetro",
+      "etymonId": "grc:περι",
+      "derivativeId": "es:perímetro",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry11"
+      ]
+    },
+    {
+      "id": "grc:περι→es:periscopio",
+      "etymonId": "grc:περι",
+      "derivativeId": "es:periscopio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry11"
+      ]
+    },
+    {
+      "id": "grc:προ→es:prólogo",
+      "etymonId": "grc:προ",
+      "derivativeId": "es:prólogo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry12"
+      ]
+    },
+    {
+      "id": "grc:προ→es:pronóstico",
+      "etymonId": "grc:προ",
+      "derivativeId": "es:pronóstico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry12"
+      ]
+    },
+    {
+      "id": "grc:υπερ→es:hipérbole",
+      "etymonId": "grc:υπερ",
+      "derivativeId": "es:hipérbole",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry14"
+      ]
+    },
+    {
+      "id": "grc:υπερ→es:hipertensión",
+      "etymonId": "grc:υπερ",
+      "derivativeId": "es:hipertensión",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry14"
+      ]
+    },
+    {
+      "id": "grc:υπο→es:hipotermia",
+      "etymonId": "grc:υπο",
+      "derivativeId": "es:hipotermia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry15"
+      ]
+    },
+    {
+      "id": "grc:υπο→es:hipótesis",
+      "etymonId": "grc:υπο",
+      "derivativeId": "es:hipótesis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud4:entry15"
+      ]
+    },
+    {
+      "id": "grc:λεγω→es:lógica",
+      "etymonId": "grc:λεγω",
+      "derivativeId": "es:lógica",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry1"
+      ]
+    },
+    {
+      "id": "grc:λεγω→es:logopedia",
+      "etymonId": "grc:λεγω",
+      "derivativeId": "es:logopedia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry1"
+      ]
+    },
+    {
+      "id": "grc:μεγασ→es:megalomanía",
+      "etymonId": "grc:μεγασ",
+      "derivativeId": "es:megalomanía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry2"
+      ]
+    },
+    {
+      "id": "grc:μεγασ→es:megáfono",
+      "etymonId": "grc:μεγασ",
+      "derivativeId": "es:megáfono",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry2"
+      ]
+    },
+    {
+      "id": "grc:μικροσ→es:microscopio",
+      "etymonId": "grc:μικροσ",
+      "derivativeId": "es:microscopio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry3"
+      ]
+    },
+    {
+      "id": "grc:μικροσ→es:microbio",
+      "etymonId": "grc:μικροσ",
+      "derivativeId": "es:microbio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry3"
+      ]
+    },
+    {
+      "id": "grc:μακροσ→es:macroeconomía",
+      "etymonId": "grc:μακροσ",
+      "derivativeId": "es:macroeconomía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry4"
+      ]
+    },
+    {
+      "id": "grc:μακροσ→es:macrobiótico",
+      "etymonId": "grc:μακροσ",
+      "derivativeId": "es:macrobiótico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry4"
+      ]
+    },
+    {
+      "id": "grc:πολυσ→es:políglota",
+      "etymonId": "grc:πολυσ",
+      "derivativeId": "es:políglota",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry5"
+      ]
+    },
+    {
+      "id": "grc:πολυσ→es:polígono",
+      "etymonId": "grc:πολυσ",
+      "derivativeId": "es:polígono",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry5"
+      ]
+    },
+    {
+      "id": "grc:καλοσ→es:caligrafía",
+      "etymonId": "grc:καλοσ",
+      "derivativeId": "es:caligrafía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry6"
+      ]
+    },
+    {
+      "id": "grc:καλοσ→es:calidoscopio",
+      "etymonId": "grc:καλοσ",
+      "derivativeId": "es:calidoscopio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry6"
+      ]
+    },
+    {
+      "id": "grc:κακοσ→es:cacofonía",
+      "etymonId": "grc:κακοσ",
+      "derivativeId": "es:cacofonía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry7"
+      ]
+    },
+    {
+      "id": "grc:κακοσ→es:cacografía",
+      "etymonId": "grc:κακοσ",
+      "derivativeId": "es:cacografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry7"
+      ]
+    },
+    {
+      "id": "grc:θανατοσ→es:tanatología",
+      "etymonId": "grc:θανατοσ",
+      "derivativeId": "es:tanatología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry8"
+      ]
+    },
+    {
+      "id": "grc:θανατοσ→es:eutanasia",
+      "etymonId": "grc:θανατοσ",
+      "derivativeId": "es:eutanasia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud5:entry8"
+      ]
+    },
+    {
+      "id": "grc:φερω→es:metáfora",
+      "etymonId": "grc:φερω",
+      "derivativeId": "es:metáfora",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry1"
+      ]
+    },
+    {
+      "id": "grc:φερω→es:periferia",
+      "etymonId": "grc:φερω",
+      "derivativeId": "es:periferia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry1"
+      ]
+    },
+    {
+      "id": "grc:αγω→es:pedagogía",
+      "etymonId": "grc:αγω",
+      "derivativeId": "es:pedagogía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry2"
+      ]
+    },
+    {
+      "id": "grc:αγω→es:demagogia",
+      "etymonId": "grc:αγω",
+      "derivativeId": "es:demagogia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry2"
+      ]
+    },
+    {
+      "id": "grc:αγγελλω→es:ángel",
+      "etymonId": "grc:αγγελλω",
+      "derivativeId": "es:ángel",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry3"
+      ]
+    },
+    {
+      "id": "grc:αγγελλω→es:evangelio",
+      "etymonId": "grc:αγγελλω",
+      "derivativeId": "es:evangelio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry3"
+      ]
+    },
+    {
+      "id": "grc:πολισ→es:política",
+      "etymonId": "grc:πολισ",
+      "derivativeId": "es:política",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry4",
+        "gr1:ud8:entry11"
+      ]
+    },
+    {
+      "id": "grc:πολισ→es:metrópoli",
+      "etymonId": "grc:πολισ",
+      "derivativeId": "es:metrópoli",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry4",
+        "gr1:ud8:entry11"
+      ]
+    },
+    {
+      "id": "grc:υδωρ→es:hidrógeno",
+      "etymonId": "grc:υδωρ",
+      "derivativeId": "es:hidrógeno",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry5"
+      ]
+    },
+    {
+      "id": "grc:υδωρ→es:hidroterapia",
+      "etymonId": "grc:υδωρ",
+      "derivativeId": "es:hidroterapia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry5"
+      ]
+    },
+    {
+      "id": "grc:φιλοσ→es:filantropía",
+      "etymonId": "grc:φιλοσ",
+      "derivativeId": "es:filantropía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry6"
+      ]
+    },
+    {
+      "id": "grc:φιλοσ→es:filosofía",
+      "etymonId": "grc:φιλοσ",
+      "derivativeId": "es:filosofía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry6"
+      ]
+    },
+    {
+      "id": "grc:στρατηγοσ→es:estrategia",
+      "etymonId": "grc:στρατηγοσ",
+      "derivativeId": "es:estrategia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry7"
+      ]
+    },
+    {
+      "id": "grc:στρατηγοσ→es:estratégico",
+      "etymonId": "grc:στρατηγοσ",
+      "derivativeId": "es:estratégico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry7"
+      ]
+    },
+    {
+      "id": "grc:πραττω→es:pragmático",
+      "etymonId": "grc:πραττω",
+      "derivativeId": "es:pragmático",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry8"
+      ]
+    },
+    {
+      "id": "grc:πραττω→es:pragmatismo",
+      "etymonId": "grc:πραττω",
+      "derivativeId": "es:pragmatismo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry8"
+      ]
+    },
+    {
+      "id": "grc:φοβοσ→es:fobia",
+      "etymonId": "grc:φοβοσ",
+      "derivativeId": "es:fobia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry9",
+        "gr1:ud11:entry5"
+      ]
+    },
+    {
+      "id": "grc:φοβοσ→es:claustrofobia",
+      "etymonId": "grc:φοβοσ",
+      "derivativeId": "es:claustrofobia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry9",
+        "gr1:ud11:entry5"
+      ]
+    },
+    {
+      "id": "grc:γη→es:geografía",
+      "etymonId": "grc:γη",
+      "derivativeId": "es:geografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry10"
+      ]
+    },
+    {
+      "id": "grc:γη→es:geología",
+      "etymonId": "grc:γη",
+      "derivativeId": "es:geología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud6:entry10"
+      ]
+    },
+    {
+      "id": "grc:αυτοσ→es:autonomía",
+      "etymonId": "grc:αυτοσ",
+      "derivativeId": "es:autonomía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry1"
+      ]
+    },
+    {
+      "id": "grc:αυτοσ→es:automóvil",
+      "etymonId": "grc:αυτοσ",
+      "derivativeId": "es:automóvil",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry1"
+      ]
+    },
+    {
+      "id": "grc:δενδρον→es:dendrita",
+      "etymonId": "grc:δενδρον",
+      "derivativeId": "es:dendrita",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry2"
+      ]
+    },
+    {
+      "id": "grc:δενδρον→es:dendrología",
+      "etymonId": "grc:δενδρον",
+      "derivativeId": "es:dendrología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry2"
+      ]
+    },
+    {
+      "id": "grc:θαλαττα→es:talasoterapia",
+      "etymonId": "grc:θαλαττα",
+      "derivativeId": "es:talasoterapia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry3"
+      ]
+    },
+    {
+      "id": "grc:θαλαττα→es:talasocracia",
+      "etymonId": "grc:θαλαττα",
+      "derivativeId": "es:talasocracia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry3"
+      ]
+    },
+    {
+      "id": "grc:ημερα→es:efeméride",
+      "etymonId": "grc:ημερα",
+      "derivativeId": "es:efeméride",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry5"
+      ]
+    },
+    {
+      "id": "grc:ημερα→es:hemeroteca",
+      "etymonId": "grc:ημερα",
+      "derivativeId": "es:hemeroteca",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry5"
+      ]
+    },
+    {
+      "id": "grc:οδοσ→es:método",
+      "etymonId": "grc:οδοσ",
+      "derivativeId": "es:método",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry6"
+      ]
+    },
+    {
+      "id": "grc:οδοσ→es:éxodo",
+      "etymonId": "grc:οδοσ",
+      "derivativeId": "es:éxodo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry6"
+      ]
+    },
+    {
+      "id": "grc:ηλιοσ→es:heliocentrismo",
+      "etymonId": "grc:ηλιοσ",
+      "derivativeId": "es:heliocentrismo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry7"
+      ]
+    },
+    {
+      "id": "grc:ηλιοσ→es:heliópolis",
+      "etymonId": "grc:ηλιοσ",
+      "derivativeId": "es:heliópolis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud7:entry7"
+      ]
+    },
+    {
+      "id": "grc:παισ→es:pediatría",
+      "etymonId": "grc:παισ",
+      "derivativeId": "es:pediatría",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry1"
+      ]
+    },
+    {
+      "id": "grc:παισ→es:pedagogía",
+      "etymonId": "grc:παισ",
+      "derivativeId": "es:pedagogía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry1"
+      ]
+    },
+    {
+      "id": "grc:πλουτοσ→es:plutocracia",
+      "etymonId": "grc:πλουτοσ",
+      "derivativeId": "es:plutocracia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry2"
+      ]
+    },
+    {
+      "id": "grc:πλουτοσ→es:plutócrata",
+      "etymonId": "grc:πλουτοσ",
+      "derivativeId": "es:plutócrata",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry2"
+      ]
+    },
+    {
+      "id": "grc:χρημα→es:crematística",
+      "etymonId": "grc:χρημα",
+      "derivativeId": "es:crematística",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry3"
+      ]
+    },
+    {
+      "id": "grc:χρημα→es:crematístico",
+      "etymonId": "grc:χρημα",
+      "derivativeId": "es:crematístico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry3"
+      ]
+    },
+    {
+      "id": "grc:δερμα→es:dermatología",
+      "etymonId": "grc:δερμα",
+      "derivativeId": "es:dermatología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry4"
+      ]
+    },
+    {
+      "id": "grc:δερμα→es:epidermis",
+      "etymonId": "grc:δερμα",
+      "derivativeId": "es:epidermis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry4"
+      ]
+    },
+    {
+      "id": "grc:εικων→es:icono",
+      "etymonId": "grc:εικων",
+      "derivativeId": "es:icono",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry5"
+      ]
+    },
+    {
+      "id": "grc:εικων→es:iconografía",
+      "etymonId": "grc:εικων",
+      "derivativeId": "es:iconografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry5"
+      ]
+    },
+    {
+      "id": "grc:ρητωρ→es:retórica",
+      "etymonId": "grc:ρητωρ",
+      "derivativeId": "es:retórica",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry6"
+      ]
+    },
+    {
+      "id": "grc:ρητωρ→es:rétor",
+      "etymonId": "grc:ρητωρ",
+      "derivativeId": "es:rétor",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry6"
+      ]
+    },
+    {
+      "id": "grc:σωμα→es:somático",
+      "etymonId": "grc:σωμα",
+      "derivativeId": "es:somático",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry7"
+      ]
+    },
+    {
+      "id": "grc:σωμα→es:cromosoma",
+      "etymonId": "grc:σωμα",
+      "derivativeId": "es:cromosoma",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry7"
+      ]
+    },
+    {
+      "id": "grc:γερων→es:geriatría",
+      "etymonId": "grc:γερων",
+      "derivativeId": "es:geriatría",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry8"
+      ]
+    },
+    {
+      "id": "grc:γερων→es:gerontología",
+      "etymonId": "grc:γερων",
+      "derivativeId": "es:gerontología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry8"
+      ]
+    },
+    {
+      "id": "grc:πνευμα→es:neumático",
+      "etymonId": "grc:πνευμα",
+      "derivativeId": "es:neumático",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry9"
+      ]
+    },
+    {
+      "id": "grc:πνευμα→es:neumología",
+      "etymonId": "grc:πνευμα",
+      "derivativeId": "es:neumología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry9"
+      ]
+    },
+    {
+      "id": "grc:ανηρ→es:androcentrismo",
+      "etymonId": "grc:ανηρ",
+      "derivativeId": "es:androcentrismo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry10"
+      ]
+    },
+    {
+      "id": "grc:ανηρ→es:andrógino",
+      "etymonId": "grc:ανηρ",
+      "derivativeId": "es:andrógino",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry10"
+      ]
+    },
+    {
+      "id": "grc:γυνη→es:ginecología",
+      "etymonId": "grc:γυνη",
+      "derivativeId": "es:ginecología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry12",
+        "gr1:ud10:entry4"
+      ]
+    },
+    {
+      "id": "grc:γυνη→es:misógino",
+      "etymonId": "grc:γυνη",
+      "derivativeId": "es:misógino",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud8:entry12"
+      ]
+    },
+    {
+      "id": "grc:αιμα→es:hematología",
+      "etymonId": "grc:αιμα",
+      "derivativeId": "es:hematología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry1"
+      ]
+    },
+    {
+      "id": "grc:αιμα→es:anemia",
+      "etymonId": "grc:αιμα",
+      "derivativeId": "es:anemia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry1"
+      ]
+    },
+    {
+      "id": "grc:γαστηρ→es:gastritis",
+      "etymonId": "grc:γαστηρ",
+      "derivativeId": "es:gastritis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry2"
+      ]
+    },
+    {
+      "id": "grc:γαστηρ→es:gastroenteritis",
+      "etymonId": "grc:γαστηρ",
+      "derivativeId": "es:gastroenteritis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry2"
+      ]
+    },
+    {
+      "id": "grc:ηπαρ→es:hepatitis",
+      "etymonId": "grc:ηπαρ",
+      "derivativeId": "es:hepatitis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry3"
+      ]
+    },
+    {
+      "id": "grc:ηπαρ→es:hepático",
+      "etymonId": "grc:ηπαρ",
+      "derivativeId": "es:hepático",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry3"
+      ]
+    },
+    {
+      "id": "grc:καρδια→es:cardiología",
+      "etymonId": "grc:καρδια",
+      "derivativeId": "es:cardiología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry4"
+      ]
+    },
+    {
+      "id": "grc:καρδια→es:taquicardia",
+      "etymonId": "grc:καρδια",
+      "derivativeId": "es:taquicardia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry4"
+      ]
+    },
+    {
+      "id": "grc:κεφαλη→es:cefalea",
+      "etymonId": "grc:κεφαλη",
+      "derivativeId": "es:cefalea",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry5"
+      ]
+    },
+    {
+      "id": "grc:κεφαλη→es:encéfalo",
+      "etymonId": "grc:κεφαλη",
+      "derivativeId": "es:encéfalo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry5"
+      ]
+    },
+    {
+      "id": "grc:λαρυγξ→es:laringitis",
+      "etymonId": "grc:λαρυγξ",
+      "derivativeId": "es:laringitis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry6"
+      ]
+    },
+    {
+      "id": "grc:λαρυγξ→es:laringología",
+      "etymonId": "grc:λαρυγξ",
+      "derivativeId": "es:laringología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry6"
+      ]
+    },
+    {
+      "id": "grc:οστεον→es:osteología",
+      "etymonId": "grc:οστεον",
+      "derivativeId": "es:osteología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry7"
+      ]
+    },
+    {
+      "id": "grc:οστεον→es:osteoporosis",
+      "etymonId": "grc:οστεον",
+      "derivativeId": "es:osteoporosis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry7"
+      ]
+    },
+    {
+      "id": "grc:οφθαλμοσ→es:oftalmología",
+      "etymonId": "grc:οφθαλμοσ",
+      "derivativeId": "es:oftalmología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry8"
+      ]
+    },
+    {
+      "id": "grc:οφθαλμοσ→es:oftálmico",
+      "etymonId": "grc:οφθαλμοσ",
+      "derivativeId": "es:oftálmico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry8"
+      ]
+    },
+    {
+      "id": "grc:πουσ→es:podología",
+      "etymonId": "grc:πουσ",
+      "derivativeId": "es:podología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry9"
+      ]
+    },
+    {
+      "id": "grc:πουσ→es:podómetro",
+      "etymonId": "grc:πουσ",
+      "derivativeId": "es:podómetro",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry9"
+      ]
+    },
+    {
+      "id": "grc:ρισ→es:rinoplastia",
+      "etymonId": "grc:ρισ",
+      "derivativeId": "es:rinoplastia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry10"
+      ]
+    },
+    {
+      "id": "grc:ρισ→es:rinitis",
+      "etymonId": "grc:ρισ",
+      "derivativeId": "es:rinitis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry10"
+      ]
+    },
+    {
+      "id": "grc:χειρ→es:quiromancia",
+      "etymonId": "grc:χειρ",
+      "derivativeId": "es:quiromancia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry11"
+      ]
+    },
+    {
+      "id": "grc:χειρ→es:quirófano",
+      "etymonId": "grc:χειρ",
+      "derivativeId": "es:quirófano",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud9:entry11"
+      ]
+    },
+    {
+      "id": "grc:βλεφαρον→es:blefaritis",
+      "etymonId": "grc:βλεφαρον",
+      "derivativeId": "es:blefaritis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry2"
+      ]
+    },
+    {
+      "id": "grc:βλεφαρον→es:blefaroplastia",
+      "etymonId": "grc:βλεφαρον",
+      "derivativeId": "es:blefaroplastia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry2"
+      ]
+    },
+    {
+      "id": "grc:γενειον→es:genioplastia",
+      "etymonId": "grc:γενειον",
+      "derivativeId": "es:genioplastia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry3"
+      ]
+    },
+    {
+      "id": "grc:γυνη→es:ginecólogo",
+      "etymonId": "grc:γυνη",
+      "derivativeId": "es:ginecólogo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry4"
+      ]
+    },
+    {
+      "id": "grc:−ιτισ→es:artritis",
+      "etymonId": "grc:−ιτισ",
+      "derivativeId": "es:artritis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry5"
+      ]
+    },
+    {
+      "id": "grc:−ιτισ→es:dermatitis",
+      "etymonId": "grc:−ιτισ",
+      "derivativeId": "es:dermatitis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry5"
+      ]
+    },
+    {
+      "id": "grc:ουσ→es:otitis",
+      "etymonId": "grc:ουσ",
+      "derivativeId": "es:otitis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry6"
+      ]
+    },
+    {
+      "id": "grc:ουσ→es:otorrinolaringología",
+      "etymonId": "grc:ουσ",
+      "derivativeId": "es:otorrinolaringología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry6"
+      ]
+    },
+    {
+      "id": "grc:πλαστοσ→es:plástico",
+      "etymonId": "grc:πλαστοσ",
+      "derivativeId": "es:plástico",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry7"
+      ]
+    },
+    {
+      "id": "grc:πλαστοσ→es:plastilina",
+      "etymonId": "grc:πλαστοσ",
+      "derivativeId": "es:plastilina",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry7"
+      ]
+    },
+    {
+      "id": "grc:προκτοσ→es:proctología",
+      "etymonId": "grc:προκτοσ",
+      "derivativeId": "es:proctología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry8"
+      ]
+    },
+    {
+      "id": "grc:προκτοσ→es:proctitis",
+      "etymonId": "grc:προκτοσ",
+      "derivativeId": "es:proctitis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry8"
+      ]
+    },
+    {
+      "id": "grc:τομη→es:anatomía",
+      "etymonId": "grc:τομη",
+      "derivativeId": "es:anatomía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry9"
+      ]
+    },
+    {
+      "id": "grc:τομη→es:tomografía",
+      "etymonId": "grc:τομη",
+      "derivativeId": "es:tomografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud10:entry9"
+      ]
+    },
+    {
+      "id": "grc:μανια→es:megalomanía",
+      "etymonId": "grc:μανια",
+      "derivativeId": "es:megalomanía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry1"
+      ]
+    },
+    {
+      "id": "grc:μανια→es:cleptomanía",
+      "etymonId": "grc:μανια",
+      "derivativeId": "es:cleptomanía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry1"
+      ]
+    },
+    {
+      "id": "grc:μισεω→es:misógino",
+      "etymonId": "grc:μισεω",
+      "derivativeId": "es:misógino",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry3"
+      ]
+    },
+    {
+      "id": "grc:μισεω→es:misántropo",
+      "etymonId": "grc:μισεω",
+      "derivativeId": "es:misántropo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry3"
+      ]
+    },
+    {
+      "id": "grc:φιλια→es:filosofía",
+      "etymonId": "grc:φιλια",
+      "derivativeId": "es:filosofía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry4"
+      ]
+    },
+    {
+      "id": "grc:φιλια→es:filantropía",
+      "etymonId": "grc:φιλια",
+      "derivativeId": "es:filantropía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry4"
+      ]
+    },
+    {
+      "id": "grc:ψευδοσ→es:seudónimo",
+      "etymonId": "grc:ψευδοσ",
+      "derivativeId": "es:seudónimo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry6"
+      ]
+    },
+    {
+      "id": "grc:ψευδοσ→es:seudociencia",
+      "etymonId": "grc:ψευδοσ",
+      "derivativeId": "es:seudociencia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud11:entry6"
+      ]
+    },
+    {
+      "id": "grc:αλγοσ→es:analgesia",
+      "etymonId": "grc:αλγοσ",
+      "derivativeId": "es:analgesia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry1"
+      ]
+    },
+    {
+      "id": "grc:αλγοσ→es:neuralgia",
+      "etymonId": "grc:αλγοσ",
+      "derivativeId": "es:neuralgia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry1"
+      ]
+    },
+    {
+      "id": "grc:γλωττα→es:políglota",
+      "etymonId": "grc:γλωττα",
+      "derivativeId": "es:políglota",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry2"
+      ]
+    },
+    {
+      "id": "grc:γλωττα→es:glosario",
+      "etymonId": "grc:γλωττα",
+      "derivativeId": "es:glosario",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry2"
+      ]
+    },
+    {
+      "id": "grc:ισοσ→es:isósceles",
+      "etymonId": "grc:ισοσ",
+      "derivativeId": "es:isósceles",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry3"
+      ]
+    },
+    {
+      "id": "grc:ισοσ→es:isobara",
+      "etymonId": "grc:ισοσ",
+      "derivativeId": "es:isobara",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry3"
+      ]
+    },
+    {
+      "id": "grc:κρυπτω→es:criptografía",
+      "etymonId": "grc:κρυπτω",
+      "derivativeId": "es:criptografía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry4"
+      ]
+    },
+    {
+      "id": "grc:κρυπτω→es:cripta",
+      "etymonId": "grc:κρυπτω",
+      "derivativeId": "es:cripta",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry4"
+      ]
+    },
+    {
+      "id": "grc:μονοσ→es:monólogo",
+      "etymonId": "grc:μονοσ",
+      "derivativeId": "es:monólogo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry5"
+      ]
+    },
+    {
+      "id": "grc:μονοσ→es:monarquía",
+      "etymonId": "grc:μονοσ",
+      "derivativeId": "es:monarquía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry5"
+      ]
+    },
+    {
+      "id": "grc:ομοιοσ→es:homeopatía",
+      "etymonId": "grc:ομοιοσ",
+      "derivativeId": "es:homeopatía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry6"
+      ]
+    },
+    {
+      "id": "grc:ομοιοσ→es:homeostasis",
+      "etymonId": "grc:ομοιοσ",
+      "derivativeId": "es:homeostasis",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry6"
+      ]
+    },
+    {
+      "id": "grc:πρωτοσ→es:prototipo",
+      "etymonId": "grc:πρωτοσ",
+      "derivativeId": "es:prototipo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry7"
+      ]
+    },
+    {
+      "id": "grc:πρωτοσ→es:protocolo",
+      "etymonId": "grc:πρωτοσ",
+      "derivativeId": "es:protocolo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry7"
+      ]
+    },
+    {
+      "id": "grc:πυρ→es:piromanía",
+      "etymonId": "grc:πυρ",
+      "derivativeId": "es:piromanía",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry8"
+      ]
+    },
+    {
+      "id": "grc:πυρ→es:pirómano",
+      "etymonId": "grc:πυρ",
+      "derivativeId": "es:pirómano",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry8"
+      ]
+    },
+    {
+      "id": "grc:σκοπεω→es:microscopio",
+      "etymonId": "grc:σκοπεω",
+      "derivativeId": "es:microscopio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry9"
+      ]
+    },
+    {
+      "id": "grc:σκοπεω→es:telescopio",
+      "etymonId": "grc:σκοπεω",
+      "derivativeId": "es:telescopio",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry9"
+      ]
+    },
+    {
+      "id": "grc:ταχυσ→es:taquicardia",
+      "etymonId": "grc:ταχυσ",
+      "derivativeId": "es:taquicardia",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry10"
+      ]
+    },
+    {
+      "id": "grc:ταχυσ→es:taquígrafo",
+      "etymonId": "grc:ταχυσ",
+      "derivativeId": "es:taquígrafo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry10"
+      ]
+    },
+    {
+      "id": "grc:χρωμα→es:cromático",
+      "etymonId": "grc:χρωμα",
+      "derivativeId": "es:cromático",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry11"
+      ]
+    },
+    {
+      "id": "grc:χρωμα→es:cromosoma",
+      "etymonId": "grc:χρωμα",
+      "derivativeId": "es:cromosoma",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry11"
+      ]
+    },
+    {
+      "id": "grc:κοσμοσ→es:cosmología",
+      "etymonId": "grc:κοσμοσ",
+      "derivativeId": "es:cosmología",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry12"
+      ]
+    },
+    {
+      "id": "grc:κοσμοσ→es:cosmopolita",
+      "etymonId": "grc:κοσμοσ",
+      "derivativeId": "es:cosmopolita",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry12"
+      ]
+    },
+    {
+      "id": "grc:οροσ→es:horizonte",
+      "etymonId": "grc:οροσ",
+      "derivativeId": "es:horizonte",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry13"
+      ]
+    },
+    {
+      "id": "grc:οροσ→es:aforismo",
+      "etymonId": "grc:οροσ",
+      "derivativeId": "es:aforismo",
+      "relationType": "undetermined",
+      "verificationStatus": "pending_review",
+      "eligibleFor": [],
+      "sourceReferences": [
+        "gr1:ud12:entry13"
+      ]
+    }
+  ]
+}

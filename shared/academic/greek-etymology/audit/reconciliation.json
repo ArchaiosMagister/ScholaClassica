@@ -1,0 +1,79 @@
+{
+  "schema": "etymologicon-reconciliation/v1",
+  "referenceCommit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0",
+  "evidence": "Derived from the exact greekEtymologyUnits JavaScript literal, not from the unavailable audited Excel.",
+  "current": {
+    "unitCount": 12,
+    "occurrences": 117,
+    "uniqueEtymons": 111,
+    "legacyEligible": 105,
+    "distinctDerivativeForms": 196,
+    "distinctEtymonDerivativeRelations": 212,
+    "academicVerifiedEtymons": 0,
+    "academicVerifiedRelations": 0
+  },
+  "reportedExternalAudit": {
+    "uniqueEtymons": 111,
+    "eligibleEtymons": 108,
+    "admittedDerivatives": 201,
+    "status": "not_individually_reconciled"
+  },
+  "discrepancies": {
+    "eligibleVersusLegacy": 3,
+    "derivativesVersusCurrent": 5
+  },
+  "excludedLegacy": [
+    {
+      "id": "grc:δωρον",
+      "sourceForm": "δῶρον",
+      "reason": "fewer_than_two_derivatives_in_generator"
+    },
+    {
+      "id": "grc:δικη",
+      "sourceForm": "δίκη",
+      "reason": "fewer_than_two_derivatives_in_generator"
+    },
+    {
+      "id": "grc:προσ",
+      "sourceForm": "πρός",
+      "reason": "fewer_than_two_derivatives_in_generator"
+    },
+    {
+      "id": "grc:παιδιον",
+      "sourceForm": "παιδίον",
+      "reason": "fewer_than_two_derivatives_in_generator"
+    },
+    {
+      "id": "grc:ατελο−",
+      "sourceForm": "ἀτέλο−",
+      "reason": "fewer_than_two_derivatives_in_generator"
+    },
+    {
+      "id": "grc:γενειον",
+      "sourceForm": "γένειον",
+      "reason": "fewer_than_two_derivatives_in_generator"
+    }
+  ],
+  "sourceSpellingChanges": [
+    {
+      "id": "grc:πολισ",
+      "spellings": [
+        "πόλις",
+        "πόλις, −έως"
+      ]
+    },
+    {
+      "id": "grc:φοβοσ",
+      "spellings": [
+        "φόβος",
+        "φοβός"
+      ]
+    }
+  ],
+  "missingEvidence": [
+    "Complete audited workbook with editorial decisions for each etymon–derivative pair",
+    "Authenticated meanings and didactic definitions with DLE or alternative source citations",
+    "Approved orthographic variants and relationship types"
+  ],
+  "publicationAllowed": false
+}

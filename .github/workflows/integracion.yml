@@ -45,6 +45,8 @@ jobs:
       - name: Validar Appendix original
         working-directory: .sources/appendix
         run: node scripts/validate-site.mjs
+      - name: Auditar esquema y candidatos de Etymologicon sin habilitar respuestas
+        run: npm run etymology:audit
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
       - name: Comprobar copia exacta, enlaces y aislamiento de herramientas docentes
