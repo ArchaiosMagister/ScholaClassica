@@ -10,6 +10,7 @@
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:browser": "node tests/browser.mjs",
+    "test:browser:vocabula": "node tests/vocabula-browser.mjs",
     "etymology:audit": "node scripts/validate-etymologicon.mjs",
     "etymology:compile": "node scripts/compile-etymologicon-gr1.mjs",
     "etymology:corrector:test": "node --test tests/etymologicon-corrector.test.mjs",

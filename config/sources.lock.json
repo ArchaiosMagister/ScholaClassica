@@ -12,7 +12,8 @@
     "vocabula": {
       "repository": "ArchaiosMagister/VocabulaLatinaGraecaque",
       "sha": "0e16505b7631298a0448c4160a5d258f82732bfe",
-      "integrated": false
+      "integrated": true,
+      "target": "apps/vocabulario"
     },
     "evolutio": {
       "repository": "ArchaiosMagister/EvolucionFonetica",

@@ -2,9 +2,10 @@
 
 1. **Appendix grammaticæ — integrado y verificado:** copia inmutable, rutas por lengua y curso, contenido en castellano/valenciano y pruebas de Chromium.
 2. **Evolutio — integrado y verificado:** datos y motor conservados, adaptación aislada del service worker exclusivamente en el artefacto, tests de funcionamiento offline y de coexistencia entre cachés.
-3. **Vocabula Latina Græcaque — pendiente:** conservar ejercicios, filtros, progreso y Supabase. Sustituir los enlaces a datos cambiantes por índices versionados de integración, sin alterar el repositorio original.
+3. **Vocabula Latina Græcaque — léxico integrado:** ejercicios, filtros y progreso local conservados mediante copia desde commit fijado; la gestión docente sigue en su servidor Supabase, sin alterarlo. Se excluyen las dos páginas de práctica morfológica y gramatical, pendientes de reconstrucción.
 4. **GeneradorExamenes — pendiente:** diseñar protección efectiva del área docente antes de incluirlo en la plataforma; preservar HTML autónomo, borradores, edición bidireccional, lematización y exportaciones Word.
-5. **Proyectos nuevos — pendientes:** derivación etimológica griega, modificación preverbial y latinismos, después de la integración de las aplicaciones actuales.
+5. **Repaso morfológico revisado — pendiente:** nuevo módulo de ScholaClassica con banco auditable, progresión curricular y corrección de sincretismos.
+6. **Proyectos nuevos — pendientes:** modificación preverbial y latinismos; Etymologicon ya está en fase de pruebas.
 
 ## Puertas de calidad
 

@@ -6,9 +6,9 @@ import {createHash} from 'node:crypto';
 const root=resolve(import.meta.dirname,'..'),out=join(root,'dist');
 const hash=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 const locks=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
-test('solo se copian los dos repositorios originales; Etymologicon es nativo',()=>{
-  assert.deepEqual(Object.entries(locks.sources).filter(([,item])=>item.integrated).map(([key])=>key).sort(),['appendix','evolutio']);
-  for(const path of ['apps/examenes','apps/vocabulario'])assert.equal(existsSync(join(out,path)),false);
+test('se integran tres fuentes fijadas; Etymologicon es nativo y los exámenes siguen fuera',()=>{
+  assert.deepEqual(Object.entries(locks.sources).filter(([,item])=>item.integrated).map(([key])=>key).sort(),['appendix','evolutio','vocabula']);
+  assert.equal(existsSync(join(out,'apps/examenes')),false);
 });
 function crawl(dir,prefix=''){
   return readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.name==='.git'||e.name==='.github'?[]:
