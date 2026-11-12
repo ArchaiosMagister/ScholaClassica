@@ -13,7 +13,7 @@ const MODES=new Set(['general','errors','unit']);
 export function emptyProgress(){
   return {schema:PROGRESS_SCHEMA,updatedAt:null,
     courses:{gr1:{records:{}},gr2:{records:{}}},
-    activities:{cards:{records:{}},matching:{records:{}}}};
+    activities:{cards:{records:{}},matching:{records:{}},mcq:{records:{}},inverse:{records:{}}}};
 }
 function plain(value){
   return value!==null&&typeof value==='object'&&!Array.isArray(value)&&
@@ -93,8 +93,10 @@ export function validateProgress(input,etymons){
   // Compatibilidad hacia atrás: las copias v1 anteriores a estas modalidades
   // no incluían «activities»; se recuperan sin descartar el progreso escrito.
   if(Object.hasOwn(input,'activities')){
-    assert(keysExact(input.activities,['cards','matching']),'actividades adicionales');
-    for(const type of ['cards','matching']){
+    const oldFormat=keysExact(input.activities,['cards','matching']);
+    const newFormat=keysExact(input.activities,['cards','matching','mcq','inverse']);
+    assert(oldFormat||newFormat,'actividades adicionales');
+    for(const type of oldFormat?['cards','matching']:['cards','matching','mcq','inverse']){
       const section=input.activities[type];
       assert(keysExact(section,['records']),'estructura de '+type);
       assert(plain(section.records),'registros de '+type);
@@ -250,22 +252,50 @@ export function recordMatchingRound(state,etymons,results,at=new Date().toISOStr
   return validateProgress(checked,etymons);
 }
 /** No mezcla las calificaciones objetivas con la autoevaluación de tarjetas. */
+/** Cuestionarios e inversos son pruebas objetivas: un intento = 1/0. */
+export function recordQuizAttempt(state,etymons,kind,etymonId,correct,at=new Date().toISOString()){
+  const checked=validateProgress(state,etymons);
+  assert(['mcq','inverse'].includes(kind),'actividad de cuestionario desconocida');
+  assert(knownIds(etymons).has(etymonId),'étimo desconocido');
+  assert(typeof correct==='boolean','resultado incorrecto');
+  assert(iso(at),'fecha del cuestionario');
+  const prev=checked.activities[kind].records[etymonId]||
+    {attempts:0,correct:0,incorrect:0,streak:0,needsReview:false,lastPracticed:at};
+  assert(prev.attempts<MAX_ATTEMPTS,'demasiados ejercicios');
+  const streak=correct?prev.streak+1:0;
+  const incorrect=prev.incorrect+Number(!correct);
+  checked.activities[kind].records[etymonId]={
+    attempts:prev.attempts+1,
+    correct:prev.correct+Number(correct),incorrect,streak,
+    needsReview:correct?(streak<2&&incorrect>0):true,lastPracticed:at
+  };
+  checked.updatedAt=at;
+  return validateProgress(checked,etymons);
+}
 export function activitySummary(state){
   const cards=Object.values(state.activities.cards.records);
   const matches=Object.values(state.activities.matching.records);
+  const mcq=Object.values(state.activities.mcq.records);
+  const inverse=Object.values(state.activities.inverse.records);
   return {
     cardsReviewed:cards.reduce((n,r)=>n+r.attempts,0),
     cardsRemembered:cards.reduce((n,r)=>n+r.remembered,0),
     cardsForgotten:cards.reduce((n,r)=>n+r.forgotten,0),
     pairsPracticed:matches.reduce((n,r)=>n+r.attempts,0),
     pairsFirstTry:matches.reduce((n,r)=>n+r.correct,0),
-    pairsWithRetries:matches.reduce((n,r)=>n+r.incorrect,0)
+    pairsWithRetries:matches.reduce((n,r)=>n+r.incorrect,0),
+    mcqAttempted:mcq.reduce((n,r)=>n+r.attempts,0),
+    mcqCorrect:mcq.reduce((n,r)=>n+r.correct,0),
+    inverseAttempted:inverse.reduce((n,r)=>n+r.attempts,0),
+    inverseCorrect:inverse.reduce((n,r)=>n+r.correct,0)
   };
 }
 export function needsAnyReview(state,id){
   return Boolean(state.courses.gr1.records[id]?.needsReview||
     state.activities.cards.records[id]?.needsReview||
-    state.activities.matching.records[id]?.needsReview);
+    state.activities.matching.records[id]?.needsReview||
+    state.activities.mcq.records[id]?.needsReview||
+    state.activities.inverse.records[id]?.needsReview);
 }
 
 export function progressSummary(state,etymons){
@@ -312,7 +342,9 @@ export function chooseAdaptive(pool,state,{excludeId=null,random=Math.random}={}
   const records=state.courses.gr1.records;
   const weight=e=>reviewWeight(records[e.id])+
     (state.activities.cards.records[e.id]?.needsReview?4:0)+
-    (state.activities.matching.records[e.id]?.needsReview?4:0);
+    (state.activities.matching.records[e.id]?.needsReview?4:0)+
+    (state.activities.mcq.records[e.id]?.needsReview?4:0)+
+    (state.activities.inverse.records[e.id]?.needsReview?4:0);
   const total=candidates.reduce((s,e)=>s+weight(e),0);
   const value=random();
   if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>=1)

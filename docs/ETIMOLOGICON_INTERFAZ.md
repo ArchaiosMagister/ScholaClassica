@@ -1,3 +1,5 @@
+> **Ampliación:** respuesta múltiple y ejercicios inversos con conversión latina a griega y teclado virtual.
+
 > **Modalidades nuevas:** tarjetas de memoria y asociación étimo–derivado. Ver [tarjetas y relaciones](ETIMOLOGICON_TARJETAS_RELACIONES.md).
 
 > Actualización: estadísticas locales, modos de repaso y exportación/importación implementados en fase posterior. Véase [PROGRESO_Y_REPASO](ETIMOLOGICON_PROGRESO_Y_REPASO.md).

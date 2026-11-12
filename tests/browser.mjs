@@ -162,6 +162,66 @@ try{
   assert.equal(await page.locator('#answer-form').isVisible(),true);
   assert.equal(await page.locator('#matching-section').isHidden(),true);
 
+  // Respuesta múltiple: solo un derivado aprobado; nota independiente.
+  await page.locator('#activity-type').selectOption('mcq');
+  await page.locator('#etymon-select').selectOption('grc:προσ');
+  assert.equal(await page.locator('#mcq-section').isVisible(),true);
+  assert.equal(await page.locator('#mcq-options button').count(),4);
+  const multipleIds=await page.evaluate(async()=>{
+    const catalog=await fetch('./data/gr1.json').then(r=>r.json());
+    const own=new Set(catalog.etymons.find(e=>e.id==='grc:προσ').teacherApprovedDerivatives);
+    const options=[...document.querySelectorAll('#mcq-options button')].map(x=>x.dataset.derivativeId);
+    return {correct:options.find(id=>own.has(id)),wrong:options.find(id=>!own.has(id))};
+  });
+  assert.ok(multipleIds.correct&&multipleIds.wrong);
+  await page.locator('#mcq-options button[data-derivative-id="'+multipleIds.wrong+'"]').click();
+  assert.ok((await page.locator('#mcq-feedback').textContent()).includes('0 / 1 punto'));
+  assert.equal((await page.locator('#stats-mcq').textContent()).trim(),'1');
+  assert.equal((await page.locator('#stats-mcq-correct').textContent()).trim(),'0');
+  await page.locator('#mcq-options button[data-derivative-id="'+multipleIds.correct+'"]').evaluate(el=>el.click());
+  assert.equal((await page.locator('#stats-mcq').textContent()).trim(),'1',
+    'La pregunta se debe calificar solamente una vez');
+  await page.getByRole('button',{name:'Otra pregunta'}).click();
+  const currentCorrectId=await page.evaluate(async()=>{
+    const catalog=await fetch('./data/gr1.json').then(r=>r.json());
+    const selected=document.querySelector('#etymon-select').value;
+    const owned=new Set(catalog.etymons.find(e=>e.id===selected).teacherApprovedDerivatives);
+    return [...document.querySelectorAll('#mcq-options button')]
+      .map(x=>x.dataset.derivativeId).find(id=>owned.has(id));
+  });
+  await page.locator('#mcq-options button[data-derivative-id="'+currentCorrectId+'"]').click();
+  assert.equal((await page.locator('#stats-mcq').textContent()).trim(),'2');
+  assert.equal((await page.locator('#stats-mcq-correct').textContent()).trim(),'1');
+
+  // Inversa: transliteración sin instalar teclado griego, vista previa,
+  // respuesta griega sin tildes/espíritus y teclado virtual.
+  await page.locator('#activity-type').selectOption('inverse');
+  assert.equal(await page.locator('#inverse-section').isVisible(),true);
+  assert.ok(await page.locator('#inverse-word').textContent());
+  await page.locator('#inverse-answer').fill('philos');
+  assert.ok((await page.locator('#inverse-preview').textContent()).includes('φίλος'));
+  const currentHeadword=await page.evaluate(async()=>{
+    const catalog=await fetch('./data/gr1.json').then(r=>r.json());
+    const id=document.querySelector('#etymon-select').value;
+    return catalog.etymons.find(e=>e.id===id).lemma.split(/[|,]/)[0]
+      .replace(/\s*\(.*/,'').trim().normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ');
+  });
+  await page.locator('#inverse-answer').fill(currentHeadword);
+  await page.getByRole('button',{name:'Comprobar étimo'}).click();
+  assert.ok((await page.locator('#inverse-feedback').textContent()).includes('1 / 1 punto'));
+  assert.equal((await page.locator('#stats-inverse').textContent()).trim(),'1');
+  assert.equal((await page.locator('#stats-inverse-correct').textContent()).trim(),'1');
+  await page.getByRole('button',{name:'Otra palabra'}).click();
+  await page.locator('details.virtual-keyboard summary').click();
+  await page.getByRole('button',{name:'Insertar λ'}).click();
+  assert.ok((await page.locator('#inverse-answer').inputValue()).includes('λ'));
+  await page.locator('#inverse-answer').fill('loogs');
+  await page.getByRole('button',{name:'Comprobar étimo'}).click();
+  assert.ok((await page.locator('#inverse-feedback').textContent()).includes('0 / 1 punto'));
+  assert.equal((await page.locator('#stats-inverse').textContent()).trim(),'2');
+  await page.locator('#activity-type').selectOption('writing');
+  assert.equal(await page.locator('#answer-form').isVisible(),true);
+
   await page.locator('#theme-select').selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
   await page.reload({waitUntil:'networkidle'});
@@ -201,7 +261,7 @@ try{
   const offlineResources=await page.evaluate(async()=>{
     const urls=['./manifest.webmanifest','./icons/icon-192.png',
       './data/gr1.json','./corrector/write-two.mjs','./progress.mjs',
-      './study.mjs','./activities-ui.mjs'];
+      './study.mjs','./activities-ui.mjs','./quiz.mjs','./quiz-ui.mjs'];
     return Promise.all(urls.map(async path=>{
       const response=await fetch(path);
       return response.ok;
@@ -246,6 +306,28 @@ try{
   }
   assert.ok((await page.locator('#matching-score').textContent()).includes('4 de 4 parejas'));
   assert.equal((await page.locator('#stats-pairs').textContent()).trim(),'8');
+  await page.locator('#activity-type').selectOption('mcq');
+  assert.equal(await page.locator('#mcq-options button').count(),4);
+  const mcqCorrectId=await page.evaluate(async()=>{
+    const catalog=await fetch('./data/gr1.json').then(r=>r.json());
+    const id=document.querySelector('#etymon-select').value;
+    const approved=new Set(catalog.etymons.find(x=>x.id===id).teacherApprovedDerivatives);
+    return [...document.querySelectorAll('#mcq-options button')]
+      .map(x=>x.dataset.derivativeId).find(x=>approved.has(x));
+  });
+  await page.locator('#mcq-options button[data-derivative-id="'+mcqCorrectId+'"]').click();
+  assert.equal((await page.locator('#stats-mcq').textContent()).trim(),'3');
+  await page.locator('#activity-type').selectOption('inverse');
+  const greekWord=await page.evaluate(async()=>{
+    const catalog=await fetch('./data/gr1.json').then(r=>r.json());
+    const id=document.querySelector('#etymon-select').value;
+    return catalog.etymons.find(x=>x.id===id).lemma.split(/[|,]/)[0]
+      .replace(/\s*\(.*/,'').trim().normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ');
+  });
+  await page.locator('#inverse-answer').fill(greekWord);
+  await page.getByRole('button',{name:'Comprobar étimo'}).click();
+  assert.ok((await page.locator('#inverse-feedback').textContent()).includes('1 / 1 punto'));
+  assert.equal((await page.locator('#stats-inverse').textContent()).trim(),'3');
   await page.locator('#activity-type').selectOption('writing');
   await page.context().setOffline(false);
   await page.getByRole('button',{name:'Buscar actualizaciones'}).click();

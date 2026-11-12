@@ -55,7 +55,7 @@ export async function buildEtymologicon({root,out}){
   // Generación de SW con versión de caché derivada de TODO el contenido.
   // No hay SW compartido de ScholaClassica: el alcance es solo este módulo.
   const core=[
-    'index.html','style.css','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','corrector/write-two.mjs',
+    'index.html','style.css','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','corrector/write-two.mjs',
     'data/gr1.json','manifest.webmanifest','icons/icon.svg',
     'icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png',
     'icons/apple-touch-icon.png'
