@@ -18,20 +18,22 @@ const server=createServer(async(req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 let browser;
-const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',email:'test-docente@example.com',username:'MagisterArchaios'};
+const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',turnstileSiteKey:'0x4AAAAAAA0000000000000000',username:'MagisterArchaios'};
 const install=async(page,allow=true)=>{
   await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(config)}));
   await page.addInitScript((allow)=>{
     const mock={session:false,aal:'aal1',factor:false,allow};
     window.__teacherMock=mock;
     const success=data=>({data,error:null});
+    window.turnstile={render:()=>1,getResponse:()=> 'valid-turnstile-token',reset:()=>{}};
     const auth={
-      getSession:async()=>success({session:mock.session?{access_token:'fake'}:null}),
-      getUser:async()=>success({user:mock.session?{id:'docente'}:null}),
-      signInWithPassword:async({email,password})=>{
-        if(email!=='test-docente@example.com'||password!=='clave-correcta')return{data:null,error:new Error('invalid')};
+      setSession:async({access_token,refresh_token})=>{
+        if(access_token!=='mock-access'||refresh_token!=='mock-refresh')
+          return {data:null,error:new Error('invalid session')};
         mock.session=true;return success({user:{id:'docente'}});
       },
+      getSession:async()=>success({session:mock.session?{access_token:'fake'}:null}),
+      getUser:async()=>success({user:mock.session?{id:'docente'}:null}),
       mfa:{
         getAuthenticatorAssuranceLevel:async()=>success({currentLevel:mock.aal,nextLevel:mock.factor?'aal2':'aal1'}),
         listFactors:async()=>success({totp:mock.factor?[{id:'factor',status:'verified'}]:[]}),
@@ -44,10 +46,22 @@ const install=async(page,allow=true)=>{
       signOut:async()=>{mock.session=false;mock.aal='aal1';return success({})},
       onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})
     };
-    const functions={invoke:async()=>mock.allow?
-      success({authorized:true,items:[{source:'vocabula',title:'palabra',course:'lat1',
-        summary:'<img src=x onerror=alert(1)>',created_at:'2026-11-12T12:00:00Z'}]}):
-      {data:{authorized:false},error:null}};
+    const functions={invoke:async(name,options)=>{
+      if(name==='schola-login'){
+        mock.loginCalls=(mock.loginCalls||0)+1;
+        if(options?.body?.username!=='MagisterArchaios'||
+          options.body?.password!=='clave-correcta'||
+          options.body?.turnstileToken!=='valid-turnstile-token')
+          return {data:null,error:new Error('invalid')};
+        return success({access_token:'mock-access',refresh_token:'mock-refresh'});
+      }
+      if(name!=='schola-inbox')throw new Error('Unexpected endpoint');
+      mock.inboxCalls=(mock.inboxCalls||0)+1;
+      if(mock.aal!=='aal2')return {data:{authorized:false},error:null};
+      return mock.allow?success({authorized:true,items:[{source:'vocabula',
+        title:'palabra',course:'lat1',summary:'<img src=x onerror=alert(1)>',
+        created_at:'2026-11-12T12:00:00Z'}]}):{data:{authorized:false},error:null};
+    }};
     window.supabase={createClient:()=>({auth,functions})};
   },allow);
 };
@@ -72,12 +86,14 @@ try{
   await good.locator('#login-form button').click();
   await good.locator('#enroll').waitFor({state:'visible'});
   assert.equal(await good.locator('#teacher').isVisible(),false,'No se habilita nada tras solo contraseña');
+  assert.deepEqual(await good.evaluate(()=>[window.__teacherMock.loginCalls||0,window.__teacherMock.inboxCalls||0]),[1,0]);
   await good.locator('#enroll-start').click();
   await good.locator('#totp-secret').waitFor({state:'visible'});
   assert.equal(await good.locator('#totp-secret').inputValue(),'ABCDEF123456');
   await good.locator('#enroll-code').fill('123456');
   await good.locator('#enroll-form button').click();
   await good.locator('#teacher').waitFor({state:'visible'});
+  assert.equal(await good.evaluate(()=>window.__teacherMock.inboxCalls),1);
   assert.equal(await good.locator('.notice').count(),1);
   assert.ok((await good.locator('.notice p').textContent()).includes('<img'));
   assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
