@@ -40,6 +40,28 @@ sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
 await writeFile(swPath,sw);
 await buildEtymologicon({root,out});
+
+const vocabulaLock=lock.sources.vocabula;
+if(!vocabulaLock?.integrated||vocabulaLock.target!=='apps/vocabulario')throw Error('Lock incompatible: Vocabula');
+const vocabulaSource=resolve(process.env.VOCABULA_SOURCE||join(root,'.sources/vocabula'));
+const vocabulaHead=execFileSync('git',['-C',vocabulaSource,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
+if(vocabulaHead!==vocabulaLock.sha)throw Error('Vocabula sin fijar: esperado '+vocabulaLock.sha+'; recibido '+vocabulaHead);
+const vocabulaDestination=join(out,'apps/vocabulario');
+await mkdir(vocabulaDestination,{recursive:true});
+const vocabulaFiles=['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js'];
+for(const file of vocabulaFiles)await cp(join(vocabulaSource,file),join(vocabulaDestination,file));
+await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
+const vocabulaIndex=join(vocabulaDestination,'index.html');
+let vocabulaHTML=await readFile(vocabulaIndex,'utf8');
+const sourceTab='<a class="study-tab" href="gramatica.html">Gramática</a>';
+const sourceScript='<script src="teacher.js?v=20261112" defer></script>';
+if(!vocabulaHTML.includes(sourceTab)||!vocabulaHTML.includes(sourceScript))throw Error('Vocabula cambió su navegación o scripts: revisar adaptación');
+vocabulaHTML=vocabulaHTML.replace(sourceTab,'<a class="study-tab" href="../gramatica/index.html">Gramática de consulta</a>')
+  .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>');
+await writeFile(vocabulaIndex,vocabulaHTML);
+await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
+console.log('ScholaClassica: Vocabula integrado como léxico ('+vocabulaHead.slice(0,12)+'); morfología reservada');
+
 await writeFile(join(out,'.nojekyll'),'');
 console.log('ScholaClassica: Evolutio integrado con caché aislada ('+phoneticsHead.slice(0,12)+')');
 console.log('ScholaClassica: Appendix integrado sin modificar la fuente ('+head.slice(0,12)+')');
