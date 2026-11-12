@@ -53,3 +53,7 @@ Se incorporan **tarjetas de memoria** (revelar significado y derivados, autoeval
 ## Opción múltiple e identificación inversa
 
 Etymologicon añade preguntas de cuatro opciones y reconocimiento de étimos griegos desde derivados castellanos, con transliteración y teclado virtual. Utiliza el banco cerrado, sin aceptar atribuciones ambiguas, y funciona offline. Detalles: docs/ETIMOLOGICON_RESPUESTA_MULTIPLE_INVERSOS.md.
+
+## Descomposición etimológica en Griego I
+
+Etymologicon incorpora un primer banco cerrado de **16 palabras castellanas con dos componentes griegos contrastados** mediante DLE. Las restantes 185 fichas siguen pendientes de auditoría individual para esta modalidad; no se consideran automáticamente incorrectas. Los ejercicios admiten griego o transliteración latina, muestran la explicación filológica, puntúan hasta 2 y funcionan offline. Ver [`docs/ETIMOLOGICON_DESCOMPOSICION_PILOTO.md`](docs/ETIMOLOGICON_DESCOMPOSICION_PILOTO.md).

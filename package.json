@@ -16,6 +16,7 @@
     "etymology:pwa:test": "node --test tests/etymologicon-pwa.test.mjs",
     "etymology:progress:test": "node --test tests/etymologicon-progress.test.mjs",
     "etymology:study:test": "node --test tests/etymologicon-study.test.mjs",
-    "etymology:quiz:test": "node --test tests/etymologicon-quiz.test.mjs"
+    "etymology:quiz:test": "node --test tests/etymologicon-quiz.test.mjs",
+    "etymology:decomposition:test": "node --test tests/etymologicon-decomposition.test.mjs"
   }
 }

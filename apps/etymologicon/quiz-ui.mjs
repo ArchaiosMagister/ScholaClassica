@@ -1,7 +1,7 @@
 import {createQuizBank} from './quiz.mjs';
+import {attachGreekKeyboard} from './greek-keyboard.mjs';
 import {recordQuizAttempt} from './progress.mjs';
 
-const GREEK_KEYS='α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ ς τ υ φ χ ψ ω'.split(' ');
 
 /**
  * Controladores de respuesta múltiple e identificación inversa.
@@ -24,23 +24,8 @@ export function createQuizController({catalog,etymons,commitProgress}){
     x.textContent=label;
     return x;
   };
-  for(const character of GREEK_KEYS){
-    const key=el('button',character);
-    key.type='button';
-    key.className='greek-key';
-    key.lang='grc';
-    key.setAttribute('aria-label','Insertar '+character);
-    key.addEventListener('click',()=>{
-      if(activeMode!=='inverse'||completed||!currentInverse)return;
-      const input=els.answer;
-      const start=input.selectionStart??input.value.length;
-      const end=input.selectionEnd??input.value.length;
-      input.setRangeText(character,start,end,'end');
-      input.dispatchEvent(new Event('input',{bubbles:true}));
-      input.focus();
-    });
-    els.keyboard.append(key);
-  }
+  attachGreekKeyboard(els.keyboard,()=>els.answer,
+    ()=>activeMode==='inverse'&&!completed&&Boolean(currentInverse));
   function renderMcq(item){
     currentMcq=item?bank.mcq(item.id):null;
     completed=false;

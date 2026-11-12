@@ -1,0 +1,587 @@
+{
+  "schema": "etymologicon-decomposition-pilot/v1",
+  "course": "gr1",
+  "sourceBank": "etymologicon-audited-catalog/v1",
+  "reviewDate": "2026-11-12",
+  "publicationAllowed": false,
+  "caution": "Descomposición didáctica de bases y elementos compositivos; no pretende reconstruir sin matices el trayecto histórico de cada palabra, ni verificar otros derivados.",
+  "items": [
+    {
+      "id": "decomp:gr1:filosofia",
+      "derivativeId": "es:filosofía",
+      "form": "filosofía",
+      "meaning": "Conjunto de saberes que examina racionalmente la realidad y el conocimiento.",
+      "parts": [
+        {
+          "etymonId": "grc:φιλοσ",
+          "greek": "φίλος",
+          "gloss": "amigo, querido",
+          "latinAccepted": [
+            "philos",
+            "filos"
+          ],
+          "combiningForm": "fil(o)-"
+        },
+        {
+          "etymonId": "grc:σοφοσ",
+          "greek": "σοφία",
+          "gloss": "sabiduría",
+          "latinAccepted": [
+            "sophia",
+            "sofia"
+          ],
+          "combiningForm": "sofía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/filosof%C3%ADa",
+        "route": "griego_compuesto_via_latin",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE registra latín philosophia ← griego φιλοσοφία; la segmentación en φίλος y σοφία es didáctica, no una cita de dos lemas independientes."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:antropologia",
+      "derivativeId": "es:antropología",
+      "form": "antropología",
+      "meaning": "Conjunto de ciencias dedicadas al estudio del ser humano.",
+      "parts": [
+        {
+          "etymonId": "grc:ανθρωποσ",
+          "greek": "ἄνθρωπος",
+          "gloss": "ser humano",
+          "latinAccepted": [
+            "anthropos",
+            "antropos"
+          ],
+          "combiningForm": "antrop(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/antropolog%C3%ADa",
+        "route": "derivado_griego_via_latin_cientifico",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE registra latín científico anthropologia derivado del griego ἀνθρωπολόγος; -logía es un elemento compositivo."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:democracia",
+      "derivativeId": "es:democracia",
+      "form": "democracia",
+      "meaning": "Sistema político en el que el pueblo ejerce la soberanía.",
+      "parts": [
+        {
+          "etymonId": "grc:δημοσ",
+          "greek": "δῆμος",
+          "gloss": "pueblo",
+          "latinAccepted": [
+            "demos"
+          ],
+          "combiningForm": "dem(o)-"
+        },
+        {
+          "etymonId": "grc:κρατοσ",
+          "greek": "κράτος",
+          "gloss": "poder, autoridad",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ],
+          "combiningForm": "-cracia"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/democracia",
+        "route": "griego_compuesto_via_latin_tardio",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "DLE: latín tardío democratia ← griego δημοκρατία. Se distingue el compuesto atestiguado de sus bases docentes."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:biologia",
+      "derivativeId": "es:biología",
+      "form": "biología",
+      "meaning": "Ciencia que estudia los seres vivos.",
+      "parts": [
+        {
+          "etymonId": "grc:βιοσ",
+          "greek": "βίος",
+          "gloss": "vida",
+          "latinAccepted": [
+            "bios"
+          ],
+          "combiningForm": "bi(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/biolog%C3%ADa",
+        "route": "composicion_culta_via_frances",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE documenta francés biologie ← βίος + -λογία; -logía significa estudio, no literalmente «palabra» en el tecnicismo."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:zoologia",
+      "derivativeId": "es:zoología",
+      "form": "zoología",
+      "meaning": "Ciencia que se ocupa del estudio de los animales.",
+      "parts": [
+        {
+          "etymonId": "grc:ζωον",
+          "greek": "ζῷον",
+          "gloss": "ser vivo, animal",
+          "latinAccepted": [
+            "zoon",
+            "zoion"
+          ],
+          "combiningForm": "zo(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/zoolog%C3%ADa",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE identifica zoo- y -logía; zoo- procede de ζῷον y -logía funciona como elemento compositivo."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:psicologia",
+      "derivativeId": "es:psicología",
+      "form": "psicología",
+      "meaning": "Ciencia que estudia la mente y la conducta.",
+      "parts": [
+        {
+          "etymonId": "grc:ψυχη",
+          "greek": "ψυχή",
+          "gloss": "alma, mente",
+          "latinAccepted": [
+            "psyche",
+            "psykhe"
+          ],
+          "combiningForm": "psic(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/psicolog%C3%ADa",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE segmenta psico- y -logía; ψυχή y λόγος se emplean aquí como bases etimológicas docentes."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:bibliografia",
+      "derivativeId": "es:bibliografía",
+      "form": "bibliografía",
+      "meaning": "Relación de libros y escritos sobre una materia o utilizados como fuentes.",
+      "parts": [
+        {
+          "etymonId": "grc:βιβλιον",
+          "greek": "βιβλίον",
+          "gloss": "libro, escrito",
+          "latinAccepted": [
+            "biblion"
+          ],
+          "combiningForm": "bibli(o)-"
+        },
+        {
+          "etymonId": "grc:γραφω",
+          "greek": "γράφω",
+          "gloss": "escribir; base de -grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ],
+          "combiningForm": "-grafía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/bibliograf%C3%ADa",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE segmenta biblio- y -grafía; -grafía deriva de la familia de γραφή / γράφω, no equivale a una forma verbal literal."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:demografia",
+      "derivativeId": "es:demografía",
+      "form": "demografía",
+      "meaning": "Estudio estadístico de una población humana.",
+      "parts": [
+        {
+          "etymonId": "grc:δημοσ",
+          "greek": "δῆμος",
+          "gloss": "pueblo",
+          "latinAccepted": [
+            "demos"
+          ],
+          "combiningForm": "dem(o)-"
+        },
+        {
+          "etymonId": "grc:γραφω",
+          "greek": "γράφω",
+          "gloss": "escribir; base de -grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ],
+          "combiningForm": "-grafía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/demograf%C3%ADa",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "DLE: demo- y -grafía. Se identifican las bases del banco, distinguidas de los elementos compositivos efectivos."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:megafono",
+      "derivativeId": "es:megáfono",
+      "form": "megáfono",
+      "meaning": "Dispositivo utilizado para amplificar la voz a distancia.",
+      "parts": [
+        {
+          "etymonId": "grc:μεγασ",
+          "greek": "μέγας",
+          "gloss": "grande",
+          "latinAccepted": [
+            "megas"
+          ],
+          "combiningForm": "mega-"
+        },
+        {
+          "etymonId": "grc:φωνη",
+          "greek": "φωνή",
+          "gloss": "voz, sonido",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ],
+          "combiningForm": "-fono"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/meg%C3%A1fono",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "DLE: mega- y -fono. El compuesto significa refuerzo de la voz, no cualquier objeto grande que suene."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:cromosoma",
+      "derivativeId": "es:cromosoma",
+      "form": "cromosoma",
+      "meaning": "Estructura celular formada por ADN y proteínas que porta información genética.",
+      "parts": [
+        {
+          "etymonId": "grc:χρωμα",
+          "greek": "χρῶμα",
+          "gloss": "color",
+          "latinAccepted": [
+            "chroma",
+            "croma"
+          ],
+          "combiningForm": "crom(o)-"
+        },
+        {
+          "etymonId": "grc:σωμα",
+          "greek": "σῶμα",
+          "gloss": "cuerpo",
+          "latinAccepted": [
+            "soma"
+          ],
+          "combiningForm": "-soma"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/cromosoma",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE identifica cromo- y σῶμα, con el sentido compositivo de color y cuerpo."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:microscopio",
+      "derivativeId": "es:microscopio",
+      "form": "microscopio",
+      "meaning": "Instrumento para observar objetos demasiado pequeños a simple vista.",
+      "parts": [
+        {
+          "etymonId": "grc:μικροσ",
+          "greek": "μικρός",
+          "gloss": "pequeño",
+          "latinAccepted": [
+            "mikros",
+            "micros"
+          ],
+          "combiningForm": "micr(o)-"
+        },
+        {
+          "etymonId": "grc:σκοπεω",
+          "greek": "σκοπέω",
+          "gloss": "observar, examinar; familia de -scopio",
+          "latinAccepted": [
+            "skopeo",
+            "scopeo"
+          ],
+          "combiningForm": "-scopio"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/microscopio",
+        "route": "composicion_culta_via_latin_cientifico",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "DLE: latín científico microscopium ← μικρο- y -scopium; σκοπέω pertenece a la familia léxica del segundo elemento, no es su forma compositiva literal."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:taquicardia",
+      "derivativeId": "es:taquicardia",
+      "form": "taquicardia",
+      "meaning": "Frecuencia excesivamente rápida de las contracciones cardíacas.",
+      "parts": [
+        {
+          "etymonId": "grc:ταχυσ",
+          "greek": "ταχύς",
+          "gloss": "rápido",
+          "latinAccepted": [
+            "tachys",
+            "takhys"
+          ],
+          "combiningForm": "taqui-"
+        },
+        {
+          "etymonId": "grc:καρδια",
+          "greek": "καρδία",
+          "gloss": "corazón",
+          "latinAccepted": [
+            "kardia",
+            "cardia"
+          ],
+          "combiningForm": "-cardia"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/taquicardia",
+        "route": "griego_compuesto_via_latin_cientifico",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE documenta explícitamente ταχύς y καρδία a través del latín científico tachycardia."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:gerontologia",
+      "derivativeId": "es:gerontología",
+      "form": "gerontología",
+      "meaning": "Ciencia que estudia la vejez y los fenómenos que la caracterizan.",
+      "parts": [
+        {
+          "etymonId": "grc:γερων",
+          "greek": "γέρων",
+          "gloss": "anciano",
+          "latinAccepted": [
+            "geron"
+          ],
+          "combiningForm": "geront(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/gerontolog%C3%ADa",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE segmenta geronto- y -logía, relacionado con γέρων y el sufijo de estudio."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:hematologia",
+      "derivativeId": "es:hematología",
+      "form": "hematología",
+      "meaning": "Especialidad que estudia la sangre y sus alteraciones.",
+      "parts": [
+        {
+          "etymonId": "grc:αιμα",
+          "greek": "αἷμα",
+          "gloss": "sangre",
+          "latinAccepted": [
+            "haima",
+            "aima"
+          ],
+          "combiningForm": "hemat(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/hematolog%C3%ADa",
+        "route": "elementos_compositivos",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "El DLE segmenta hemato- y -logía; el tema hemat- se corresponde con αἷμα, αἵματος."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:filologia",
+      "derivativeId": "es:filología",
+      "form": "filología",
+      "meaning": "Estudio de las lenguas, las literaturas y los textos escritos.",
+      "parts": [
+        {
+          "etymonId": "grc:φιλοσ",
+          "greek": "φίλος",
+          "gloss": "amigo, querido",
+          "latinAccepted": [
+            "philos",
+            "filos"
+          ],
+          "combiningForm": "fil(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/filolog%C3%ADa",
+        "route": "griego_compuesto_via_latin",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "DLE: latín philologia ← griego φιλολογία; aquí φιλο- y -λογία se explican como elementos de composición."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    },
+    {
+      "id": "decomp:gr1:teologia",
+      "derivativeId": "es:teología",
+      "form": "teología",
+      "meaning": "Estudio o doctrina acerca de la divinidad.",
+      "parts": [
+        {
+          "etymonId": "grc:θεοσ",
+          "greek": "θεός",
+          "gloss": "dios, divinidad",
+          "latinAccepted": [
+            "theos",
+            "teos"
+          ],
+          "combiningForm": "te(o)-"
+        },
+        {
+          "etymonId": "grc:λογοσ",
+          "greek": "λόγος",
+          "gloss": "palabra, razonamiento; base de -logía",
+          "latinAccepted": [
+            "logos"
+          ],
+          "combiningForm": "-logía"
+        }
+      ],
+      "evidence": {
+        "authority": "RAE-ASALE · Diccionario de la lengua española",
+        "url": "https://dle.rae.es/teolog%C3%ADa",
+        "route": "griego_compuesto_via_latin_tardio",
+        "checkedOn": "2026-11-12",
+        "editorialNote": "DLE: latín tardío theologia ← griego θεολογία, procedente de θεολόγος; se diferencian estas formas de θεός y λόγος."
+      },
+      "verificationStatus": "approved_for_guided_decomposition",
+      "enabledForExams": false
+    }
+  ]
+}
