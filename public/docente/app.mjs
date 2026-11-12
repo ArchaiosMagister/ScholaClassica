@@ -58,7 +58,7 @@ async function loadCaptcha(){
     });
   }
   if(!window.turnstile?.render)throw Error('Control antirrobots no disponible');
-  captchaId=window.turnstile.render('#turnstile-widget',{sitekey:config.turnstileSiteKey,theme:'auto'});
+  captchaId=window.turnstile.render('#turnstile-widget',{sitekey:config.turnstileSiteKey,theme:'auto',action:'schola-login'});
 }
 async function checkSession(){
   const {data:{session},error}=await client.auth.getSession();
