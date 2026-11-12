@@ -1,15 +1,20 @@
 # Plan de integración progresiva
 
-1. **Appendix grammaticæ — completada:** copiar desde commit fijado sin modificar bytes, validar todas las rutas esenciales, español/valenciano y navegación por materia y curso. Construir portal público solo como artefacto de CI, **sin deploy**.
-2. **Evolutio — integración en curso:** se copia el motor y los datos exactos; se adapta en el ensamblaje el service worker para borrar solo cachés con su prefijo. Se añaden pruebas de desconexión y coexistencia con otra caché del mismo origen.
-3. **Vocabula Latina Græcaque:** conservar ejercicios, filtros y progreso. Verificar servicio docente y cargar índices offline versionados para eliminar enlaces de dependencia a main no fijados.
-4. **GeneradorExamenes:** integración tras definir el acceso realmente protegido, preservando borradores, HTML offline, edición bidireccional, exportaciones Word y todo su CI.
+1. **Appendix grammaticæ — integrado y verificado:** copia inmutable, rutas por lengua y curso, contenido en castellano/valenciano y pruebas de Chromium.
+2. **Evolutio — integrado y verificado:** datos y motor conservados, adaptación aislada del service worker exclusivamente en el artefacto, tests de funcionamiento offline y de coexistencia entre cachés.
+3. **Vocabula Latina Græcaque — pendiente:** conservar ejercicios, filtros, progreso y Supabase. Sustituir los enlaces a datos cambiantes por índices versionados de integración, sin alterar el repositorio original.
+4. **GeneradorExamenes — pendiente:** diseñar protección efectiva del área docente antes de incluirlo en la plataforma; preservar HTML autónomo, borradores, edición bidireccional, lematización y exportaciones Word.
+5. **Proyectos nuevos — pendientes:** derivación etimológica griega, modificación preverbial y latinismos, después de la integración de las aplicaciones actuales.
 
-## Criterios para aprobar cada fase
+## Puertas de calidad
 
-- Todos los tests del original y los nuevos de integración pasan.
-- Ningún archivo del origen cambia.
-- Los dos idiomas, los enlaces relativos y rutas de unidades funcionan.
-- No se publican herramientas docentes que se pretenden restringir.
-- El resultado de construcción queda trazado a SHA inmutable.
-- No se habilita GitHub Pages hasta superar pruebas de aplicación y autorización.
+- CI del original y de ScholaClassica sin fallos.
+- Ningún repositorio original modificado.
+- Navegación por latín y griego y por herramientas.
+- Rutas relativas, castellano y valenciano comprobados.
+- Progreso y bancos conservados, sin ascender automáticamente estados filológicos.
+- Cachés PWA aisladas y comprobación de funcionamiento sin conexión.
+- Generador docente no expuesto sin autenticación y autorización de servidor.
+- Publicación en GitHub Pages solo tras validación técnica y docente.
+
+**Estado de publicación:** GitHub Pages de ScholaClassica no activado. `dist/` es una salida de pruebas.

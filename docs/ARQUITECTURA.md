@@ -1,29 +1,39 @@
-# Arquitectura inicial
+# Arquitectura de integración de ScholaClassica
 
-## Principio
+## Estado actual: dos módulos integrados
 
-Integración por módulos independientes, sin bifurcar el desarrollo ni modificar los repositorios originales. En fase 2 se integran Appendix grammaticæ y Evolutio mediante commits inmutables.
+La plataforma se construye desde repositorios originales mediante checkout **solo de lectura** de commits fijados en `config/sources.lock.json`. No hay una segunda copia editable del código. Ningún archivo fuente de Appendix ni de Evolutio se ha modificado.
 
-```
+```text
 ScholaClassica/
-  public/              portada modular
-  config/              referencias exactas a commits auditados
-  scripts/build.mjs    ensamblaje local sin tocar la fuente
-  tests/               pruebas de rutas, identidad de bytes y navegador
-  dist/                salida de prueba, nunca versionada ni publicada
-    apps/gramatica/    copia intacta de Appendix, incluidas las rutas val/\n    apps/evolucion-fonetica/  copia de Evolutio con service worker aislado
+  public/                       portada y navegación comunes
+  config/sources.lock.json      SHA exactos de los orígenes
+  scripts/build.mjs             ensamblaje reproducible
+  tests/                        pruebas estáticas y de Chromium
+  dist/                         artefacto temporal, no publicado
+    apps/gramatica/             Appendix íntegro, incluidos ES y VAL
+    apps/evolucion-fonetica/    Evolutio íntegro salvo sw.js adaptado
 ```
 
-La compilación no agrega scripts ni estilos dentro de Appendix: sus contenidos se copian sin cambios, con las mismas rutas relativas, para evitar regresiones en la enseñanza. Evolutio también se copia sin alterar el código fuente ni su banco; solo se sobreescribe su \`sw.js\` en \`dist/\` para limitar el borrado a cachés con el prefijo \`schola-evolutio-\`.
+## Adaptaciones permitidas
 
-## Sincronización futura
+- **Appendix:** copia idéntica a su fuente, con todas las rutas relativas y los contenidos de castellano y valenciano preservados.
+- **Evolutio:** motor, banco, páginas, temas e iconos idénticos a su fuente. Solo se modifica `dist/apps/evolucion-fonetica/sw.js` **después de copiarlo**, para que la eliminación de versiones antiguas afecte únicamente a cachés con prefijo `schola-evolutio-`. El service worker del repositorio original no se toca.
+- **Portal:** agrega enlaces por lengua, curso y herramienta, pero no interfiere con la aplicación que se abre.
 
-Los repositorios originales continúan siendo la única fuente editable en esta etapa. `config/sources.lock.json` fija un SHA por repositorio y un indicador de integración. En una etapa posterior, un workflow dedicado podrá crear propuestas de actualización cuando un origen avance; nunca debe actualizar directamente el sitio de alumnado sin validación. Cada propuesta tendrá pruebas de regresión y recibirá aprobación antes del despliegue.
+Las pruebas comprueban la igualdad byte a byte de todos los archivos (excepto la adaptación documentada del service worker), el funcionamiento sin conexión de Evolutio y la conservación de una caché ajena. Estas comprobaciones se hacen en Chromium, no sustituyen las pruebas posteriores en iPhone/iPad.
 
-## Pendientes
+## Sincronización
 
-- Evolutio: su service worker borra cachés ajenas del mismo origen. Corregir exclusivamente en una copia superpuesta de integración, conservando el original sin cambios.
-- Vocabula: respetar backend Supabase y la dependencia de un índice UniMorph alojado en GeneradorExamenes; copiar al build un índice versionado.
-- GeneradorExamenes: no exponer su interfaz desde ScholaClassica antes de resolver autenticación de servidor y autorización. Se conserva su versión autónoma y exportación Word.
-- Definir una política clara de subrutas y caché única a nivel ScholaClassica.
-- Añadir traducción de la interfaz principal al valenciano cuando esté fijado el vocabulario de UI, sin alterar las dos versiones de Appendix.
+Los repositorios originales son las fuentes editables durante esta fase. Cada importación depende del SHA exacto registrado; si no coincide, la construcción falla. La automatización que proponga nuevas revisiones cuando cambie un origen aún está pendiente. **No** existe una sincronización automática de `main` en tiempo real y no debe afirmarse lo contrario.
+
+## Seguridad y publicación
+
+La salida de CI se conserva como artefacto de pruebas. No hay workflow de GitHub Pages para ScholaClassica. El generador docente se mantiene fuera de `dist/` hasta disponer de autenticación y autorización reales; ocultar una página en un sitio estático no proporcionaría seguridad.
+
+## Próximos pasos
+
+1. Integrar Vocabula sin romper el servicio Supabase ni depender de índices externos de una rama `main` cambiante.
+2. Definir el alojamiento y la autorización del generador de exámenes.
+3. Diseñar una PWA de portal y unificar gradualmente la identidad visual cuando todos los módulos estén estables.
+4. Implementar propuestas de actualización automáticas con pruebas y revisión.
