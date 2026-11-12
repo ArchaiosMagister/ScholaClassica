@@ -85,8 +85,7 @@ test('el service worker tiene un hash derivado del contenido completo, y no se b
 });
 test('los archivos precargados coinciden exactamente con los publicados por el módulo',()=>{
   const template=readFileSync(join(root,'scripts/etymologicon-sw.template.js'),'utf8');
-  const names=[...template.matchAll(/'\.\/([^']+)'/g)].map(x=>x[1]);
-  const expected=['',...core]; // entrada de carpeta y los 11 recursos
+  const names=[...template.matchAll(/'\.\/([^']*)'/g)].map(x=>x[1]);
   for(const item of core)assert.ok(names.includes(item),'Recurso sin precargar: '+item);
   assert.ok(names.includes(''),'Falta precargar el inicio con barra final');
   assert.equal(new Set(names).size,names.length,'No debe precargar dos veces una ruta');
