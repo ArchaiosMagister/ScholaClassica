@@ -74,7 +74,17 @@ test('las glosas agrupadas previamente aprobadas permanecen independientes del n
  for(const id of ['grc:γραφω','grc:σοφοσ','grc:αρχη','grc:λεγω']){
    const e=byId.get(id);
    assert.equal(e.meaningEvidence.status,'partial_compound');
-   assert.equal(e.meaningCompletionEvidence.verifiedSources.length,2);
+   const evidence=e.meaningCompletionEvidence;
+  assert.equal(evidence.components.parts.length,2);
+  if(evidence.verifiedSources){
+    assert.equal(evidence.verifiedSources.length,2);
+  }else{
+    // ἀρχή / ἄρχω se validó antes de la revisión de las 29 propuestas:
+    // se acreditan ambos miembros directamente dentro de la pareja.
+    assert.equal(e.id,'grc:αρχη');
+    assert.ok(evidence.components.parts.every(part=>part.individualEvidence?.checked &&
+      part.individualEvidence.url.startsWith('https://')));
+  }
    assert.equal(e.lexicalReview,undefined);
  }
  assert.equal(catalog.correctionPolicy.correctDerivative,1);
