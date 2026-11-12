@@ -1,0 +1,25 @@
+.docente-heading{padding:45px 0 18px;max-width:750px}
+.docente-heading h1{font-size:clamp(2.2rem,6vw,3.3rem);margin-bottom:8px}
+.docente-heading>p:last-child{color:#567086}
+#status{min-height:1.7em;margin:12px 0;font-weight:600}
+.access-card{max-width:740px;border:1px solid #ccdbe8;border-radius:16px;padding:26px;background:#fff;margin:12px 0 30px}
+.access-card h2{margin-bottom:12px}
+.access-card p{color:#526679}
+.access-card label{display:block;font-weight:650;margin:14px 0 6px}
+.access-card input{width:100%;max-width:440px;border:1px solid #8299ac;border-radius:8px;padding:12px;font:inherit;background:white;color:#152838}
+.access-card button,.logout button{display:inline-block;padding:11px 17px;border-radius:9px;border:1px solid #456782;cursor:pointer;font:inherit;font-weight:650;background:#f1f6fb;color:#132d43;margin-top:14px}
+.access-card button.primary{background:#173f69;border-color:#173f69;color:white}
+.access-card button:disabled{opacity:.6;cursor:wait}
+.access-card form{display:grid;justify-items:start}
+.access-card img{display:block;max-width:100%;height:auto;border:1px solid #ccdbe8;border-radius:10px;margin:16px 0;background:white}
+.hint{font-size:.88rem}
+.teacher-summary{border-top:1px solid #d6e1e9;margin-top:20px;padding-top:12px}
+.teacher-summary h3{margin:0}
+.notices{display:grid;gap:12px;margin:15px 0}
+.notice{border:1px solid #ccdbe8;border-radius:10px;padding:16px}
+.notice h3{font-size:1.12rem;margin:0 0 6px}
+.notice p{margin:6px 0}
+.notice small{color:#567086}
+.notice a{display:inline-block;margin-top:10px;text-decoration:underline}
+.logout{padding-bottom:50px}
+@media(prefers-color-scheme:dark){.access-card{background:#1b2937;border-color:#41566c}.access-card p,.docente-heading>p:last-child,.notice small{color:#b7c9d8}.access-card input{background:#142434;color:#ecf4ff;border-color:#738ca2}.notice{border-color:#41566c}.access-card button{background:#304960;color:#e5f2ff}.access-card button.primary{background:#316da2;border-color:#548ac0;color:#fff}}
