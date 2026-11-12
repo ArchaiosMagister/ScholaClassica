@@ -29,6 +29,21 @@ try{
     assert.equal(errors.length,0,'Error JavaScript en '+route+': '+errors.join(' | '));
   }
   await page.goto(base+'/');
+  await page.evaluate(async()=>{await caches.open('otra-aplicacion-no-borrar')});
+  const evolutio=await page.goto(base+'/apps/evolucion-fonetica/index.html',{waitUntil:'networkidle'});
+  assert.equal(evolutio.status(),200);
+  await page.evaluate(async()=>{await navigator.serviceWorker.ready});
+  const names=await page.evaluate(async()=>await caches.keys());
+  assert.ok(names.includes('otra-aplicacion-no-borrar'),'Evolutio no debe borrar las cachés de otras aplicaciones');
+  assert.ok(names.some(x=>x.startsWith('schola-evolutio-')),'Falta la caché integrada de Evolutio');
+  assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio muestra error inicial');
+  await page.context().setOffline(true);
+  await page.reload({waitUntil:'load'});
+  await page.waitForFunction(()=>!document.querySelector('#app .loading'),null,{timeout:10000});
+  assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio falla sin conexión');
+  await page.context().setOffline(false);
+  assert.equal(errors.length,0,'Error JavaScript de Evolutio: '+errors.join(' | '));
+  await page.goto(base+'/');
   await page.getByRole('tab',{name:'Por herramienta'}).click();
   assert.equal(await page.locator('#panel-herramientas').isVisible(),true);
   assert.equal(await page.locator('#panel-lenguas').isVisible(),false);

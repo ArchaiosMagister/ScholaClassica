@@ -1,7 +1,7 @@
 name: Validar integración sin publicar
 on:
   push:
-    branches: [main, integracion/appendix-inicial]
+    branches: [main, 'integracion/**']
   pull_request:
   workflow_dispatch:
 
@@ -28,6 +28,16 @@ jobs:
           ref: a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c
           path: .sources/appendix
           persist-credentials: false
+      - name: Obtener Evolutio original en commit fijado (solo lectura)
+        uses: actions/checkout@v4
+        with:
+          repository: ArchaiosMagister/EvolucionFonetica
+          ref: 0897aae01b6d4c905aafa1c1a6bac5af0810c812
+          path: .sources/evolutio
+          persist-credentials: false
+      - name: Validar Evolutio original
+        working-directory: .sources/evolutio
+        run: npm test
       - name: Validar Appendix original
         working-directory: .sources/appendix
         run: node scripts/validate-site.mjs
@@ -44,7 +54,7 @@ jobs:
       - name: Archivar resultado de construcción como artefacto de pruebas (sin desplegar)
         uses: actions/upload-artifact@v4
         with:
-          name: scholaclassica-integracion-appendix
+          name: scholaclassica-integracion-fase2
           path: dist/
           if-no-files-found: error
           retention-days: 7
