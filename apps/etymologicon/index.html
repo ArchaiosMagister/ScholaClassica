@@ -53,6 +53,8 @@
             <option value="writing" selected>Escribir dos derivados</option>
             <option value="cards">Tarjetas de memoria</option>
             <option value="matching">Relacionar étimos y derivados</option>
+            <option value="mcq">Respuesta múltiple</option>
+            <option value="inverse">Identificar étimos griegos</option>
           </select>
         </div>
         <div class="field">
@@ -147,6 +149,40 @@
             <p id="matching-empty" class="empty-practice" hidden>No hay suficientes parejas inequívocas para esta selección. Cambia de unidad o selecciona «Repaso general».</p>
           </section>
 
+
+          <section id="mcq-section" class="study-section" aria-labelledby="mcq-title" hidden>
+            <h3 id="mcq-title">¿Qué derivado pertenece a este étimo?</h3>
+            <p class="study-note">Elige una de las cuatro palabras castellanas del banco aprobado.</p>
+            <div id="mcq-options" class="quiz-options" role="group" aria-label="Opciones de respuesta múltiple"></div>
+            <p id="mcq-feedback" class="study-feedback" role="status" aria-live="polite"></p>
+          </section>
+
+          <section id="inverse-section" class="study-section" aria-labelledby="inverse-title" hidden>
+            <h3 id="inverse-title">Identifica el étimo griego</h3>
+            <p class="study-note">Escribe el étimo del que procede este derivado castellano. Puedes escribir con letras latinas o directamente en griego.</p>
+            <p class="inverse-spanish" id="inverse-word" lang="es"></p>
+            <form id="inverse-form" novalidate>
+              <div class="field">
+                <label for="inverse-answer">Étimo griego o transliteración latina</label>
+                <input id="inverse-answer" type="text" maxlength="80" spellcheck="false"
+                  autocorrect="off" autocapitalize="off" autocomplete="off"
+                  aria-describedby="inverse-preview inverse-help" placeholder="p. ej., philosophos">
+                <p id="inverse-help" class="field-help">No es necesario escribir acentos ni espíritus. La transliteración debe identificar exactamente el étimo.</p>
+              </div>
+              <p id="inverse-preview" class="transliteration-preview" aria-live="polite">Conversión a griego: —</p>
+              <details class="virtual-keyboard">
+                <summary>Teclado griego virtual</summary>
+                <div id="greek-keyboard" class="greek-keyboard" role="group" aria-label="Teclado griego"></div>
+                <p class="field-help">Los caracteres se insertan en la casilla. También puedes usar el teclado físico o escribir en caracteres latinos.</p>
+              </details>
+              <div class="actions">
+                <button type="submit" id="inverse-submit" class="primary-button">Comprobar étimo</button>
+                <button type="button" id="inverse-clear" class="secondary-button">Borrar respuesta</button>
+              </div>
+            </form>
+            <p id="inverse-feedback" class="study-feedback" role="status" aria-live="polite"></p>
+          </section>
+
           <form id="answer-form" novalidate>
             <div class="answer-grid">
               <div class="field">
@@ -201,6 +237,10 @@
         <div class="stat"><strong id="stats-cards-forgotten">0</strong><span>Tarjetas que costó recordar</span></div>
         <div class="stat"><strong id="stats-pairs">0</strong><span>Parejas practicadas</span></div>
         <div class="stat"><strong id="stats-pairs-correct">0</strong><span>Parejas al primer intento</span></div>
+        <div class="stat"><strong id="stats-mcq">0</strong><span>Preguntas de opción múltiple</span></div>
+        <div class="stat"><strong id="stats-mcq-correct">0</strong><span>Preguntas acertadas</span></div>
+        <div class="stat"><strong id="stats-inverse">0</strong><span>Étimos identificados: intentos</span></div>
+        <div class="stat"><strong id="stats-inverse-correct">0</strong><span>Étimos identificados: aciertos</span></div>
       </div>
       <details class="unit-progress">
         <summary>Estadísticas por unidad</summary>
@@ -241,7 +281,7 @@
         <p><strong>0,5 puntos</strong> · Derivado reconocible con una o más faltas ortográficas inequívocas.</p>
         <p><strong>0 puntos</strong> · Respuesta no admitida, ambigua, excluida o repetida.</p>
       </div>
-      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Las tarjetas no tienen nota objetiva; las relaciones se registran por aciertos al primer intento. Otras modalidades se incorporarán progresivamente.</p>
+      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Las tarjetas no tienen nota objetiva; la relación, la respuesta múltiple y la identificación inversa registran aciertos por separado. Otras modalidades se incorporarán progresivamente.</p>
     </section>
   </main>
   <footer class="footer">

@@ -1,3 +1,5 @@
+> **Ampliación:** preguntas de respuesta múltiple e identificación inversa, con transliteración y teclado virtual. Ver ETIMOLOGICON_RESPUESTA_MULTIPLE_INVERSOS.md.
+
 # Etymologicon · tarjetas de memoria y relación de étimos
 
 Estado: dos nuevas modalidades incorporadas a la versión de pruebas de ScholaClassica. No se habilita despliegue público ni Griego II.

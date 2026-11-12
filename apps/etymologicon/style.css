@@ -180,3 +180,29 @@ button{min-height:46px;border-radius:10px;padding:11px 17px;font-weight:700;bord
  border:1px solid var(--success);padding:15px;border-radius:12px}
 @media(max-width:480px){.matching-columns{gap:10px}.match-option{padding:10px;
  font-size:.91rem}.match-option[lang="grc"]{font-size:1.1rem}}
+
+
+/* Preguntas de opción múltiple y escritura inversa: tema y accesibilidad */
+.quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.quiz-option{width:100%;min-height:58px;text-align:left;background:var(--field);
+ border:1.5px solid var(--field-border);color:var(--ink);overflow-wrap:anywhere}
+.quiz-option:hover:not(:disabled){background:var(--bg)}
+.quiz-option.quiz-correct{border-color:var(--success);background:var(--success-bg);
+ color:var(--success);opacity:1}
+.quiz-option.quiz-incorrect{border-color:var(--error);background:var(--error-bg);
+ color:var(--error);opacity:1}
+.inverse-spanish{font-weight:780;font-size:clamp(1.75rem,4vw,2.7rem);
+ letter-spacing:-.03em;margin:10px 0 24px;overflow-wrap:anywhere}
+.transliteration-preview{padding:12px 14px;border:1px solid var(--line);
+ border-radius:10px;background:var(--bg);font:1.2rem Georgia,serif;
+ min-height:50px;overflow-wrap:anywhere}
+.virtual-keyboard{border:1px solid var(--line);border-radius:12px;
+ padding:12px;margin:14px 0 20px}
+.virtual-keyboard summary{cursor:pointer;font-weight:680}
+.greek-keyboard{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;
+ margin:13px 0}
+.greek-key{min-width:0;padding:7px 0;font:600 1.15rem Georgia,serif;
+ border:1px solid var(--field-border);background:var(--field);color:var(--ink);
+ border-radius:7px}
+@media(max-width:550px){.quiz-options{grid-template-columns:1fr}
+ .greek-keyboard{grid-template-columns:repeat(5,minmax(0,1fr))}}

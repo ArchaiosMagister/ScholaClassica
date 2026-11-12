@@ -84,3 +84,23 @@ test('tarjetas y relación usan el mismo catálogo auditado y conservan estadís
   assert.match(ui,/recordMatchingRound\(state,etymons,results\)/);
   assert.match(study,/owners\.get\(derivativeId\)\.size===1/);
 });
+
+test('opciones múltiples y teclado griego conectados al motor del banco cerrado',()=>{
+ const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+ const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
+ const controller=readFileSync(new URL('../apps/etymologicon/quiz-ui.mjs',import.meta.url),'utf8');
+ for(const id of ['mcq-section','mcq-options','mcq-feedback','inverse-section',
+   'inverse-word','inverse-answer','inverse-preview','greek-keyboard','inverse-form',
+   'inverse-feedback','stats-mcq','stats-mcq-correct','stats-inverse','stats-inverse-correct'])
+   assert.ok(html.includes('id="'+id+'"'),id);
+ assert.match(html,/value="mcq"/);
+ assert.match(html,/value="inverse"/);
+ assert.match(app,/from '\.\/quiz-ui\.mjs'/);
+ assert.match(app,/quizController\?\.render\(\{kind,item,pool\}\)/);
+ assert.match(controller,/createQuizBank\(catalog\)/);
+ assert.match(controller,/bank\.gradeMcq\(currentMcq,opt\.id\)/);
+ assert.match(controller,/bank\.gradeInverse\(currentInverse,els\.answer\.value\)/);
+ assert.match(controller,/recordQuizAttempt\(state,etymons,'mcq'/);
+ assert.match(controller,/recordQuizAttempt\(state,etymons,'inverse'/);
+ assert.match(controller,/input\.setRangeText\(character,start,end,'end'\)/);
+});
