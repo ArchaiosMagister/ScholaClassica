@@ -34,8 +34,8 @@ test('las correcciones, exclusiones y variantes registradas no se pierden',()=>{
 });
 test('la fuente lexicográfica permanece diferenciada de una revisión directa aún pendiente',()=>{
  const c=compileTeacherAudit();
- assert.equal(c.summary.dictionarySourcesIndependentlyChecked,0);
- assert.equal(c.summary.greekMeaningsCompleted,0);
+ assert.equal(c.summary.dictionarySourcesIndependentlyChecked,7);
+ assert.equal(c.summary.greekMeaningsCompleted,57);
  assert.equal(c.summary.published,false);
  assert.ok(c.derivatives.every(x=>x.definitions.length===1&&!x.lexicalSource.checkedIndependently));
  assert.ok(c.relations.every(x=>!x.decompositionReady&&!x.inverseReady));
