@@ -1,3 +1,5 @@
+> **Revisión posterior de significados:** se han cotejado también las 51 glosas inicialmente solo docentes. Consulta [la auditoría individual](../../../docs/ETIMOLOGICON_REVISION_51_GLOSAS.md). Se mantienen las decisiones de inclusión/exclusión del Excel.
+
 # Banco académico de etimología griega · Etymologicon
 
 Módulo de datos para ScholaClassica. **No es todavía un banco de respuestas autorizado.**

@@ -14,7 +14,7 @@ test('las 54 glosas restantes cubren sin duplicaciones los 111 étimos',()=>{
  assert.equal(bank.summary.greekMeaningsPending,0);
  assert.equal(bank.summary.meaningCompletionChecked,50);
  assert.equal(bank.summary.meaningCompletionDrafts,0);
- assert.equal(bank.summary.greekMeaningsPendingIndependentReview,51);
+ assert.equal(bank.summary.greekMeaningsPendingIndependentReview,0);
 });
 test('la versión previa conserva 29 borradores y el catálogo revisado aporta fuentes académicas',()=>{
  const prev=data.entries.filter(x=>x.status==='meaning_draft_pending_dictionary_check');
@@ -23,8 +23,8 @@ test('la versión previa conserva 29 borradores y el catálogo revisado aporta f
  assert.equal(revised.length,29);
  assert.ok(revised.every(x=>x.independentLexicographicReview));
  assert.ok(revised.every(x=>x.meaningCompletionEvidence.verifiedSources.length>0));
- assert.equal(bank.summary.meaningsWithExternalEvidence,60);
- assert.equal(bank.summary.meaningsOnlyTeacherCurriculum,51);
+ assert.equal(bank.summary.meaningsWithExternalEvidence,111);
+ assert.equal(bank.summary.meaningsOnlyTeacherCurriculum,0);
 });
 test('lemas compuestos se representan con ambos miembros; ἐκ y ἐξ son alomorfos',()=>{
  for(const e of ['γράφω | γράμμα','σοφός | σοφία','ἀρχή | ἄρχω','λέγω | λόγος']){

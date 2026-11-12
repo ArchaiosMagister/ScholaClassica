@@ -369,7 +369,63 @@ export function compileTeacherAudit(){
   assert.equal(verifiedDictionary,25);
   assert.equal(verifiedContext,4);
   assert.equal(etymons.filter(x=>x.meaningReviewStatus==='meaning_draft_pending_dictionary_check').length,0);
-  // Una glosa de borrador no convierte el étimo en elegible para nuevas modalidades.
+  // Cuarta capa: contraste individual de los 51 significados que provenían
+  // exclusivamente del vocabulario docente. Su procedencia original no cambia.
+  const teacherReview=JSON.parse(readFileSync(join(base,'review/teacher-glosses-lexicon-v1.json'),'utf8'));
+  assert.equal(teacherReview.schema,'etymologicon-teacher-lexicon-review/v1');
+  assert.equal(teacherReview.course,'gr1');
+  assert.equal(teacherReview.publicationAllowed,false);
+  assert.equal(teacherReview.records.length,51);
+  const sourceTeacher=new Map(evidence.teacherGlosses
+    .filter(row=>!row.primaryLemmaOnly)
+    .map(row=>[row.etymonId,row]));
+  assert.equal(sourceTeacher.size,51);
+  const seenTeacherReview=new Set();
+  let teacherVerified=0,teacherIndexRefs=0;
+  for(const row of teacherReview.records){
+    assert.ok(!seenTeacherReview.has(row.etymonId),'Glosa escolar revisada dos veces: '+row.etymonId);
+    seenTeacherReview.add(row.etymonId);
+    const earlier=sourceTeacher.get(row.etymonId);
+    assert.ok(earlier,'No existe la glosa escolar original: '+row.etymonId);
+    assert.equal(row.sourceLemma,earlier.sourceLemma,'Se ha cambiado el lema fuente: '+row.etymonId);
+    assert.equal(row.sourceGloss,earlier.curricularGloss,'Se ha cambiado la glosa docente: '+row.etymonId);
+    assert.equal(row.changeApprovedDerivatives,false);
+    assert.equal(row.changeExamEligibility,false);
+    const e=byEtymon.get(row.etymonId);
+    assert.ok(e,'No existe el étimo auditado: '+row.etymonId);
+    assert.equal(e.meaningEvidence?.kind,'teacher_curriculum','Se ha borrado la procedencia docente: '+row.etymonId);
+    assert.equal(e.meaningEvidence?.status,'curriculum_crosschecked');
+    assert.equal(e.meaningEvidence?.lexicographicConfirmation,false);
+    assert.equal(e.independentLexicographicReview,false,'No revisar dos veces un étimo ya contrastado: '+row.etymonId);
+    assert.ok(row.reviewedMeaning?.trim().length>0,'Falta significado revisado: '+row.etymonId);
+    assert.ok(row.headword?.trim().length>0,'Falta lema de diccionario: '+row.etymonId);
+    assert.ok(row.reference?.url && /^https:\/\//.test(row.reference.url),'Falta referencia externa: '+row.etymonId);
+    assert.ok(/^https:\/\/(atlas\.perseus\.tufts\.edu|logeion\.uchicago\.edu)\//.test(row.reference.url),
+      'Fuente lexicográfica no acreditada: '+row.etymonId);
+    assert.ok(['lexicographic_entry','lexicon_headword_index','logeion_dictionary_entry'].includes(row.reference.kind));
+    assert.equal(row.reference.reviewedOn,'2026-11-12');
+    assert.ok(row.editorialNote?.trim(),'Se necesita una nota que justifique la glosa: '+row.etymonId);
+    if(row.reference.kind==='lexicon_headword_index')teacherIndexRefs++;
+    e.teacherSourceGloss=e.meaning;
+    e.meaning=row.reviewedMeaning;
+    e.meaningReviewStatus='teacher_gloss_lexically_checked';
+    e.independentLexicographicReview=true;
+    e.lexicalReview={
+      status:'teacher_gloss_lexically_checked',
+      documentedHeadword:row.headword,
+      originalGloss:row.sourceGloss,
+      reviewedMeaning:row.reviewedMeaning,
+      source:row.reference,
+      editorialNote:row.editorialNote
+    };
+    teacherVerified++;
+  }
+  assert.equal(seenTeacherReview.size,51);
+  assert.equal(teacherVerified,51);
+  assert.equal(teacherIndexRefs,1);
+  assert.equal(etymons.filter(e=>e.meaningReviewStatus==='teacher_gloss_lexically_checked').length,51);
+  assert.equal(etymons.filter(e=>e.independentLexicographicReview===false).length,0);
+  // Una glosa revisada no habilita automáticamente nuevas relaciones o ejercicios.
   for(const rel of relations)assert.ok(!rel.inverseReady&&!rel.decompositionReady);
   const summary={
     etymons:etymons.length,eligibleEtymons:108,consultOnlyEtymons:3,
@@ -380,14 +436,16 @@ export function compileTeacherAudit(){
     meaningCompletionChecked:checkedNew+verifiedDictionary,
     reviewedDraftMeanings:auditedIds.size,
     academicContextEvidences:verifiedContext,
-    meaningsWithExternalEvidence:externalMeanings+checkedNew+auditedIds.size,
-    meaningsOnlyTeacherCurriculum:curricular,
+    meaningsWithExternalEvidence:externalMeanings+checkedNew+auditedIds.size+teacherVerified,
+    reviewedTeacherGlosses:teacherVerified,
+    teacherDictionaryIndexReferences:teacherIndexRefs,
+    meaningsOnlyTeacherCurriculum:curricular-teacherVerified,
     meaningCompletionDrafts:draftNew-auditedIds.size,
     previouslyPartialCompoundGlosses:completedPairs,
-    greekMeaningsPendingIndependentReview:curricular,
+    greekMeaningsPendingIndependentReview:curricular-teacherVerified,
     greekMeaningsFromTeacherCurriculum:curricular,
     partialCompoundGlosses:0,
-    greekMeaningsFromExternalLexicons:externalMeanings+checkedNew+verifiedDictionary,
+    greekMeaningsFromExternalLexicons:externalMeanings+checkedNew+verifiedDictionary+teacherVerified,
     spanishEntriesOnlyAttested:attestedOnly,
     greekMeaningsPending:0,
     published:false
@@ -399,7 +457,7 @@ export function compileTeacherAudit(){
     course:'gr1',
     greek2:{course:'gr2',status:'awaiting_teacher_inventory',etymons:[]},
     status:'editorially_reconciled_not_published',
-    caution:'Los 111 étimos tienen glosa didáctica: 56 apoyados en artículos lexicográficos y 4 en testimonios académicos, 51 basados en vocabulario docente sin contraste externo individual. La revisión de glosas no habilita por sí sola ejercicios inversos ni de composición.',
+    caution:'Los 111 étimos cuentan con glosas revisadas y referencias externas documentadas, con distinta calidad de respaldo: 107 referencias lexicográficas o equivalentes y 4 testimonios académicos. La revisión no sustituye las decisiones etimológicas ni habilita ejercicios inversos o de composición.',
     correctionPolicy,
     etymons,derivatives,relations,excluded,editorialDecisions,summary
   };

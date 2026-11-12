@@ -1,0 +1,841 @@
+{
+  "schema": "etymologicon-teacher-lexicon-review/v1",
+  "course": "gr1",
+  "reviewDate": "2026-11-12",
+  "source": {
+    "repository": "ArchaiosMagister/GeneradorExamenes",
+    "path": "data/greek1-materials.json",
+    "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+  },
+  "status": "lexically_crosschecked_no_exam_side_effects",
+  "summary": {
+    "reviewedTeacherOnly": 51,
+    "references": 51,
+    "recordedSpellingWarnings": 4,
+    "priorExternallyBacked": 60,
+    "totalEtymaWithExternalEvidence": 111,
+    "derivativesUntouched": 201,
+    "relationsUntouched": 217,
+    "sourceRepositoryModified": false,
+    "rewordedGlosses": 49
+  },
+  "records": [
+    {
+      "etymonId": "grc:ανθρωποσ",
+      "sourceLemma": "ἄνθρωπος, –ου",
+      "sourceGloss": "hombre",
+      "headword": "ἄνθρωπος",
+      "reviewedMeaning": "ser humano; persona; hombre en sentido genérico",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Acunliffe_lex-n906/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Cunliffe (Scaife ATLAS)"
+      },
+      "editorialNote": "No limitarlo al varón adulto: ἀνήρ expresa más específicamente «varón, hombre adulto».",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:βιβλιον",
+      "sourceLemma": "βιβλίον, –ου",
+      "sourceGloss": "libro",
+      "headword": "βιβλίον",
+      "reviewedMeaning": "papiro; documento o escrito; libro",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n19916/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "De «hoja o escrito en papiro» procede el valor «libro». La definición escolar «libro» es útil pero históricamente incompleta.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:δημοσ",
+      "sourceLemma": "δῆμος, –ου",
+      "sourceGloss": "pueblo",
+      "headword": "δῆμος",
+      "reviewedMeaning": "pueblo; comunidad de ciudadanos; distrito o territorio",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n24436/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La acepción política «pueblo» es adecuada; LSJ registra también sentido territorial.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ζωον",
+      "sourceLemma": "ζῷον, –ου",
+      "sourceGloss": "animal",
+      "headword": "ζῷον",
+      "reviewedMeaning": "ser vivo; animal",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n46488/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "No significa exclusivamente animal no humano; puede designar un ser vivo.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:θεοσ",
+      "sourceLemma": "θέος, –ου",
+      "sourceGloss": "dios",
+      "headword": "θεός",
+      "reviewedMeaning": "dios; divinidad",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n15123/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Middle Liddell (Scaife ATLAS)"
+      },
+      "editorialNote": "La grafía aprobada es θεός; el vocabulario anterior registra «θέος», con acento incorrectamente colocado. θεός puede emplearse también referido a una diosa.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:λογοσ",
+      "sourceLemma": "λόγος, –ου",
+      "sourceGloss": "palabra",
+      "headword": "λόγος",
+      "reviewedMeaning": "palabra; discurso; explicación; razonamiento; razón",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n63772/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "«Palabra» es la glosa inicial correcta, pero su variedad de sentidos es fundamental para los derivados de λόγος.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:δωρον",
+      "sourceLemma": "δῶρον, –ου",
+      "sourceGloss": "regalo",
+      "headword": "δῶρον",
+      "reviewedMeaning": "regalo; don; ofrenda",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n29828/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Conservar solo para consulta según el inventario editorial; no se habilita para el sorteo por tener menos de dos derivados autorizados.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ξυλον",
+      "sourceLemma": "ξύλον, –ου",
+      "sourceGloss": "madera",
+      "headword": "ξύλον",
+      "reviewedMeaning": "madera; leño; objeto o pieza de madera",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n71751/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "En griego clásico se refiere especialmente a madera cortada o preparada para usar.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:διδασκω",
+      "sourceLemma": "διδάσκω",
+      "sourceGloss": "enseñar",
+      "headword": "διδάσκω",
+      "reviewedMeaning": "enseñar; instruir",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n26412/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Se usa para enseñar una materia o instruir a una persona.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ιπποσ",
+      "sourceLemma": "ἵππος, –ου",
+      "sourceGloss": "caballo",
+      "headword": "ἵππος",
+      "reviewedMeaning": "caballo; yegua según el género y el contexto",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/headword/%E1%BC%B5%CF%80%CF%80%CE%BF%CF%82/",
+        "kind": "lexicon_headword_index",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La página lexicográfica reúne sentidos de caballo/yegua; la glosa escolar es correcta.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:βιοσ",
+      "sourceLemma": "βίος, –ου",
+      "sourceGloss": "vida",
+      "headword": "βίος",
+      "reviewedMeaning": "vida; modo o curso de vida; medio de subsistencia",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n19972/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "No es completamente intercambiable con ζωή: βίος subraya a menudo la trayectoria, forma de vida o sustento.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:δικη",
+      "sourceLemma": "δίκη, –ης",
+      "sourceGloss": "justicia",
+      "headword": "δίκη",
+      "reviewedMeaning": "justicia; derecho; procedimiento judicial; pena o castigo",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n26943/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Además del sentido de justicia puede designar proceso judicial. Se mantiene solo para consulta por decisión docente.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:οικια",
+      "sourceLemma": "οἰκία, –ας",
+      "sourceGloss": "casa",
+      "headword": "οἰκία",
+      "reviewedMeaning": "casa; vivienda; edificio habitado",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n72287/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La glosa escolar «casa» es exacta; distinguir οἰκία (vivienda) de οἶκος (hogar, casa, patrimonio), según contexto.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:νομοσ",
+      "sourceLemma": "νόμος, –ου",
+      "sourceGloss": "ley",
+      "headword": "νόμος",
+      "reviewedMeaning": "ley; norma; uso o costumbre",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n71005/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "El término incluye costumbre anterior o paralela a la codificación jurídica.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:δεσποτησ",
+      "sourceLemma": "δεσπότης, –ου",
+      "sourceGloss": "amo, señor",
+      "headword": "δεσπότης",
+      "reviewedMeaning": "amo; dueño; señor",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n24206/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Especialmente el amo de una casa o de esclavos, no siempre un gobernante político.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:απο",
+      "sourceLemma": "ἀπό + genitivo",
+      "sourceGloss": "de, desde",
+      "headword": "ἀπό",
+      "reviewedMeaning": "de; desde; lejos de",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n4297/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Middle Liddell (Scaife ATLAS)"
+      },
+      "editorialNote": "Preposición con genitivo que expresa separación u origen.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:δια",
+      "sourceLemma": "διά + acusativo",
+      "sourceGloss": "a través de, por, a causa de",
+      "headword": "διά",
+      "reviewedMeaning": "a través de; por medio de (con genitivo); a causa de, por (con acusativo)",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n24517/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "No presentar «a causa de» como equivalente general con genitivo: depende del caso.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:εν",
+      "sourceLemma": "ἐν + dativo",
+      "sourceGloss": "en",
+      "headword": "ἐν",
+      "reviewedMeaning": "en; dentro de; entre",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n34700/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Preposición que rige dativo; también expresa localización figurada.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:μετα",
+      "sourceLemma": "μετά + genitivo | acusativo",
+      "sourceGloss": "entre, con’ (gen.) | después de’ (ac.)",
+      "headword": "μετά",
+      "reviewedMeaning": "con; entre (con genitivo); después de (con acusativo)",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n66572/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La glosa del vocabulario docente contiene signos de puntuación mezclados; normalizar sin modificar el original.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:περι",
+      "sourceLemma": "περί + genitivo",
+      "sourceGloss": "alrededor de, sobre",
+      "headword": "περί",
+      "reviewedMeaning": "alrededor de; acerca de; sobre",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n81017/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Rige varios casos: con genitivo puede significar «acerca de»; con acusativo expresa a menudo entorno o referencia.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:προσ",
+      "sourceLemma": "πρός + acusativo",
+      "sourceGloss": "a, hacia, junto a",
+      "headword": "πρός",
+      "reviewedMeaning": "a; hacia; en dirección a; frente a",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n88443/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La ficha docente se centra en el acusativo; LSJ también documenta usos con genitivo y dativo.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:υπο",
+      "sourceLemma": "ὐπό + genitivo",
+      "sourceGloss": "debajo de, por",
+      "headword": "ὑπό",
+      "reviewedMeaning": "debajo de; bajo; por (agente con genitivo)",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n108092/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Con genitivo de agente puede equivaler a «por» en pasivas; otras acepciones dependen del caso. La ficha previa usa «ὐπό» con espíritu no canónico.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:μεγασ",
+      "sourceLemma": "μέγας, μεγάλη, μέγα",
+      "sourceGloss": "grande",
+      "headword": "μέγας",
+      "reviewedMeaning": "grande; alto; importante; poderoso",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n65552/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La extensión puede ser física, cuantitativa o figurada.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:μικροσ",
+      "sourceLemma": "μίκρος, –α, –ον",
+      "sourceGloss": "pequeño/a",
+      "headword": "μικρός",
+      "reviewedMeaning": "pequeño; corto; poco importante",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n67762/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "También se documenta la variante σμικρός; no constituye un étimo nuevo.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:πολυσ",
+      "sourceLemma": "πολύς, πολλή, πολύ",
+      "sourceGloss": "mucho/a",
+      "headword": "πολύς",
+      "reviewedMeaning": "mucho; numeroso; abundante",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n85306/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Cambia de terminación según género y de matiz según nombre contable o no contable.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:καλοσ",
+      "sourceLemma": "καλός, –η, –ον",
+      "sourceGloss": "bonito/a",
+      "headword": "καλός",
+      "reviewedMeaning": "bello; hermoso; bueno; noble",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n52840/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "No se limita a belleza física: tiene sentidos estéticos, prácticos y morales.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:κακοσ",
+      "sourceLemma": "κακός, –η, –ον",
+      "sourceGloss": "malo/a",
+      "headword": "κακός",
+      "reviewedMeaning": "malo; perverso; deficiente; cobarde según contexto",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n52332/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Además de «malo», puede juzgar capacidad, calidad o valor moral.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:θανατοσ",
+      "sourceLemma": "θάνατος, –ου",
+      "sourceGloss": "muerte",
+      "headword": "θάνατος",
+      "reviewedMeaning": "muerte; pena de muerte en determinados contextos",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n47876/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "El sentido básico escolar «muerte» es correcto.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:φερω",
+      "sourceLemma": "φέρω",
+      "sourceGloss": "llevar",
+      "headword": "φέρω",
+      "reviewedMeaning": "llevar; transportar; traer; soportar; producir",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n34639/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Middle Liddell (Scaife ATLAS)"
+      },
+      "editorialNote": "En contraste frecuente con ἄγω, φέρω se usa especialmente para cosas transportadas.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:αγω",
+      "sourceLemma": "ἄγω",
+      "sourceGloss": "conducir",
+      "headword": "ἄγω",
+      "reviewedMeaning": "conducir; llevar; guiar; traer",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n367/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Middle Liddell (Scaife ATLAS)"
+      },
+      "editorialNote": "Especialmente seres animados; también conducir un ejército o llevar un asunto.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:υδωρ",
+      "sourceLemma": "ὕδωρ, ὕδατος (τὸ)",
+      "sourceGloss": "agua",
+      "headword": "ὕδωρ",
+      "reviewedMeaning": "agua",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n33429/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Middle Liddell (Scaife ATLAS)"
+      },
+      "editorialNote": "Genitivo ὕδατος; no confundir la raíz con una forma flexionada diferente.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:φιλοσ",
+      "sourceLemma": "φίλος, –ου",
+      "sourceGloss": "amigo",
+      "headword": "φίλος",
+      "reviewedMeaning": "amigo; querido; amado",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n111463/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Puede ser sustantivo «amigo» o adjetivo «querido».",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:στρατηγοσ",
+      "sourceLemma": "στρατηγός, –ου",
+      "sourceGloss": "estratego",
+      "headword": "στρατηγός",
+      "reviewedMeaning": "general; jefe o comandante de un ejército",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n97121/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "«Estratego» es una transliteración útil en el ámbito histórico; la traducción didáctica es «general».",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:φοβοσ",
+      "sourceLemma": "φόβος, –ου",
+      "sourceGloss": "miedo",
+      "headword": "φόβος",
+      "reviewedMeaning": "miedo; temor; espanto",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n111908/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La glosa «miedo» es correcta. φόβος (diacríticos Unicode descompuestos) y φόβος son la misma grafía normalizada, no dos variantes ortográficas.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:γη",
+      "sourceLemma": "γή, –ης",
+      "sourceGloss": "tierra",
+      "headword": "γῆ",
+      "reviewedMeaning": "tierra; suelo; territorio",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alexicon-thucydideum-1022/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Lexicon Thucydideum (Scaife ATLAS)"
+      },
+      "editorialNote": "El nominativo normalizado es γῆ, con circunflejo; comprobar en fuente previa la acentuación γή.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:θαλαττα",
+      "sourceLemma": "θάλαττα, –ης",
+      "sourceGloss": "mar",
+      "headword": "θάλαττα",
+      "reviewedMeaning": "mar",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n47735/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Variante ática de θάλασσα, documentada en su entrada lexicográfica; no debe tratarse como errata.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ημερα",
+      "sourceLemma": "ἡμέρα, –ας",
+      "sourceGloss": "día",
+      "headword": "ἡμέρα",
+      "reviewedMeaning": "día; tiempo diurno",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n14689/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Middle Liddell (Scaife ATLAS)"
+      },
+      "editorialNote": "Puede designar el día por oposición a la noche y, en ciertos contextos, una jornada completa.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:οδοσ",
+      "sourceLemma": "ὁδός, –ου (ἡ)",
+      "sourceGloss": "camino",
+      "headword": "ὁδός",
+      "reviewedMeaning": "camino; vía; recorrido; viaje",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n72092/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "También se emplea metafóricamente como «procedimiento» o «modo de proceder».",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ηλιοσ",
+      "sourceLemma": "ἥλιος, –ου",
+      "sourceGloss": "sol",
+      "headword": "ἥλιος",
+      "reviewedMeaning": "sol; Helios cuando funciona como nombre divino",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n46892/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "No confundir el astro con el teónimo, aunque comparten forma.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:παισ",
+      "sourceLemma": "παῖς, παιδός (ὁ o ἡ)",
+      "sourceGloss": "niño/a",
+      "headword": "παῖς",
+      "reviewedMeaning": "niño; niña; hijo o hija; criado según contexto",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n76703/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "El sustantivo es de género masculino o femenino; puede significar «sirviente» en algunos contextos.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:πλουτοσ",
+      "sourceLemma": "πλοῦτος, –ου",
+      "sourceGloss": "riqueza",
+      "headword": "πλοῦτος",
+      "reviewedMeaning": "riqueza; abundancia de bienes",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n83987/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Se contrapone con frecuencia a πενία, «pobreza».",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:χρημα",
+      "sourceLemma": "χρῆμα, –ατος (τὸ)",
+      "sourceGloss": "cosa’ (sing.), ‘riqueza’ (pl.)",
+      "headword": "χρῆμα",
+      "reviewedMeaning": "cosa; asunto (singular); bienes; dinero; riqueza (especialmente en plural)",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n114624/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La riqueza se expresa especialmente con el plural χρήματα; no equivale siempre a «riqueza» en singular.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:δερμα",
+      "sourceLemma": "δέρμα, –ματος (τὸ)",
+      "sourceGloss": "piel",
+      "headword": "δέρμα",
+      "reviewedMeaning": "piel; cuero; pellejo",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n24132/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Incluye piel humana y cuero de animales.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ρητωρ",
+      "sourceLemma": "ῥήτωρ, −ορος (ὁ)",
+      "sourceGloss": "orador",
+      "headword": "ῥήτωρ",
+      "reviewedMeaning": "orador; persona que habla en público; retórico",
+      "reference": {
+        "url": "https://logeion.uchicago.edu/%CF%81%CC%94%CE%B7%CC%81%CF%84%CF%89%CF%81",
+        "kind": "logeion_dictionary_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Logeion / LSJ"
+      },
+      "editorialNote": "La acepción ática destacada es la del orador que interviene en la asamblea pública.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:σωμα",
+      "sourceLemma": "σῶμα, –ματος (τὸ)",
+      "sourceGloss": "cuerpo",
+      "headword": "σῶμα",
+      "reviewedMeaning": "cuerpo; cadáver en algunos contextos poéticos",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n102000/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "En Homero puede designar particularmente el cadáver; en otros autores también el cuerpo vivo.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:γερων",
+      "sourceLemma": "γέρων, −οντος (ὁ)",
+      "sourceGloss": "anciano",
+      "headword": "γέρων",
+      "reviewedMeaning": "anciano; hombre viejo; miembro del consejo de ancianos",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n6860/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "Middle Liddell (Scaife ATLAS)"
+      },
+      "editorialNote": "En ciertos sistemas políticos los «ancianos» eran una institución.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ανηρ",
+      "sourceLemma": "ἀνήρ, ἀνδρός (ὁ)",
+      "sourceGloss": "hombre",
+      "headword": "ἀνήρ",
+      "reviewedMeaning": "hombre adulto; varón; marido",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n8665/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Frente a ἄνθρωπος («ser humano») es más específicamente un varón o adulto.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:γυνη",
+      "sourceLemma": "γυνή, γυναικός (ἡ)",
+      "sourceGloss": "mujer",
+      "headword": "γυνή",
+      "reviewedMeaning": "mujer; esposa",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n23069/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Genitivo γυναικός; sentido «esposa» según el contexto.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:κεφαλη",
+      "sourceLemma": "κεφαλῆ, –ῆς",
+      "sourceGloss": "cabeza",
+      "headword": "κεφαλή",
+      "reviewedMeaning": "cabeza; extremo o parte principal de algo",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n56991/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "La ficha antigua figura como κεφαλῆ, -ῆς; el nominativo lexicográfico es κεφαλή, -ῆς.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:ρισ",
+      "sourceLemma": "ῥίς, ῥινός (ἡ)",
+      "sourceGloss": "nariz",
+      "headword": "ῥίς",
+      "reviewedMeaning": "nariz; hocico",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n92533/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Genitivo ῥινός, importante para el tema de composición rin(o)-.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    },
+    {
+      "etymonId": "grc:πρωτοσ",
+      "sourceLemma": "πρῶτος, –η, –ον",
+      "sourceGloss": "primero/a",
+      "headword": "πρῶτος",
+      "reviewedMeaning": "primero; inicial; anterior en una serie",
+      "reference": {
+        "url": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n91038/",
+        "kind": "lexicographic_entry",
+        "reviewedOn": "2026-11-12",
+        "authority": "LSJ (Scaife ATLAS)"
+      },
+      "editorialNote": "Funciona como adjetivo ordinal; no debe confundirse con πρῶτον adverbial.",
+      "changeExamEligibility": false,
+      "changeApprovedDerivatives": false
+    }
+  ],
+  "publicationAllowed": false
+}

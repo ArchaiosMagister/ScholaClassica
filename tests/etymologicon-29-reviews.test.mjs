@@ -29,12 +29,12 @@ test('las 29 propuestas se revisaron sin omitir ni repetir fichas',()=>{
 test('ninguna de las 29 propuestas permanece como pendiente sin fuente',()=>{
  assert.equal(catalog.summary.reviewedDraftMeanings,29);
  assert.equal(catalog.summary.meaningCompletionDrafts,0);
- assert.equal(catalog.summary.meaningsWithExternalEvidence,60);
- assert.equal(catalog.summary.meaningsOnlyTeacherCurriculum,51);
- assert.equal(catalog.summary.greekMeaningsFromExternalLexicons,56);
+ assert.equal(catalog.summary.meaningsWithExternalEvidence,111);
+ assert.equal(catalog.summary.meaningsOnlyTeacherCurriculum,0);
+ assert.equal(catalog.summary.greekMeaningsFromExternalLexicons,107);
  assert.equal(catalog.summary.academicContextEvidences,4);
  assert.equal(catalog.summary.greekMeaningsCompleted,111);
- assert.equal(catalog.summary.greekMeaningsPendingIndependentReview,51);
+ assert.equal(catalog.summary.greekMeaningsPendingIndependentReview,0);
 });
 test('la revisión de compuestos conserva dos fuentes y evita falsas equivalencias',()=>{
  for(const lemma of ['πράττω | πράγμα','γράφω | γράμμα','σοφός | σοφία','λέγω | λόγος']){
