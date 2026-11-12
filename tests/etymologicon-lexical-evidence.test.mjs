@@ -14,10 +14,10 @@ test('55 glosas escolares se vinculan por lema y no suplantan una comprobación 
 });
 test('significados adicionales externos están relacionados con la misma entrada griega',()=>{
  const c=compileTeacherAudit();
- const expected=[['κράτος','poder'],['ἔργον','trabajo'],['χρόνος','tiempo'],['δόξα','opinión'],['καρδία','corazón'],['ἀτελής, –ές','incompleto']];
- for(const [lemma,term] of expected){
-   const item=c.etymons.find(e=>e.lemma===lemma);
-   assert.ok(item,'Étimo faltante: '+lemma);
+ const expected=[['grc:κρατοσ','poder'],['grc:εργον','trabajo'],['grc:χρονοσ','tiempo'],['grc:δοξα','opinión'],['grc:καρδια','corazón'],['grc:ατελησ','incompleto']];
+ for(const [id,term] of expected){
+   const item=c.etymons.find(e=>e.id===id);
+   assert.ok(item,'Étimo faltante: '+id);
    assert.ok(item.meaning.includes(term));
    assert.equal(item.meaningEvidence.status,'externally_checked');
    assert.equal(item.independentLexicographicReview,true);
@@ -41,7 +41,9 @@ test('solo las definiciones contrastadas tienen revisión externa; la atelocardi
  }
  assert.equal(get('atelocardia').dictionaryReview.status,'term_attested_definition_pending');
  assert.equal(get('atelocardia').dictionaryReview.didacticCrosscheck,null);
- assert.deepEqual(get('seudónimo').officialOrthographicVariants,['pseudónimo']);
+ assert.ok(get('seudónimo').officialOrthographicVariants.includes('pseudónimo'));
+ assert.ok(get('seudónimo').officialOrthographicVariants.includes('seudónima'));
+ assert.ok(get('seudónimo').officialOrthographicVariants.includes('pseudónima'));
  assert.ok(get('políglota').officialOrthographicVariants.includes('poliglota'));
 });
 test('el catálogo mantiene intactos los 111 étimos y 201 derivados sin publicación',()=>{
