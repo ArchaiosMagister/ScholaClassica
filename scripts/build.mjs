@@ -1,6 +1,7 @@
 import {cp,rm,mkdir,readFile,writeFile,stat} from 'node:fs/promises';
 import {resolve,join,sep} from 'node:path';
 import {execFileSync} from 'node:child_process';
+import {buildEtymologicon} from './build-etymologicon.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -38,6 +39,7 @@ if(!/const VERSION='[^']+';/.test(sw)||!sw.includes('keys.filter(key=>key!==VERS
 sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1';")
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
 await writeFile(swPath,sw);
+await buildEtymologicon({root,out});
 await writeFile(join(out,'.nojekyll'),'');
 console.log('ScholaClassica: Evolutio integrado con caché aislada ('+phoneticsHead.slice(0,12)+')');
 console.log('ScholaClassica: Appendix integrado sin modificar la fuente ('+head.slice(0,12)+')');

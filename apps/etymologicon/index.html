@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Etymologicon: práctica de derivados etimológicos griegos de Griego I con corrección automática y explicaciones.">
+  <meta name="theme-color" content="#172e49">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+  <title>Etymologicon · ScholaClassica</title>
+</head>
+<body>
+  <a class="skip-link" href="#actividad">Saltar al ejercicio</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true">Ε</span>
+        <span class="brand-type">Etymologicon <small>ScholaClassica</small></span>
+      </div>
+      <nav aria-label="Navegación">
+        <a href="../../index.html">Volver a ScholaClassica</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell" id="actividad">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">Ἐτυμολογικόν · Taller de etimología griega</p>
+      <h1 id="intro-title">El origen de las palabras</h1>
+      <p>Escribe <strong>dos derivados castellanos diferentes</strong> del étimo griego. Recibirás la corrección al instante, con las faltas ortográficas señaladas.</p>
+      <p class="preview-note">Módulo en pruebas de integración. Todavía no está publicado para el alumnado.</p>
+    </section>
+
+    <div class="workspace">
+      <aside class="panel settings" aria-labelledby="settings-title">
+        <h2 id="settings-title">Prepara tu ejercicio</h2>
+        <div class="field">
+          <label for="course-select">Curso</label>
+          <select id="course-select">
+            <option value="gr1" selected>Griego I</option>
+            <option value="gr2" disabled>Griego II · próximamente</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="unit-select">Unidad</label>
+          <select id="unit-select" disabled>
+            <option value="all">Todas las unidades</option>
+          </select>
+          <p class="field-help">Puedes practicar una unidad o realizar un repaso general.</p>
+        </div>
+        <div class="field">
+          <label for="etymon-select">Elegir étimo</label>
+          <select id="etymon-select" disabled>
+            <option value="">Cargando el banco académico…</option>
+          </select>
+        </div>
+        <button class="secondary-button full" id="random-button" type="button" disabled>Otro étimo</button>
+        <div class="separator"></div>
+        <div class="field">
+          <label for="theme-select">Tema visual</label>
+          <select id="theme-select">
+            <option value="auto">Automático</option>
+            <option value="light">Claro</option>
+            <option value="dark">Oscuro</option>
+            <option value="oled">OLED · negro puro</option>
+          </select>
+        </div>
+        <p id="pool-size" class="counter" aria-live="polite"></p>
+      </aside>
+
+      <section class="panel exercise" aria-labelledby="exercise-title">
+        <p id="load-state" class="load-state" role="status">Preparando el banco de Griego I…</p>
+        <div id="exercise-content" hidden>
+          <div class="etymon-head">
+            <p class="eyebrow">Étimo seleccionado</p>
+            <p id="unit-summary" class="unit-summary"></p>
+          </div>
+          <h2 id="exercise-title" class="greek-word" lang="grc"></h2>
+          <p id="meaning" class="meaning"></p>
+          <p class="instruction">Escribe dos derivados castellanos diferentes. Cada respuesta vale 1 punto como máximo.</p>
+
+          <form id="answer-form" novalidate>
+            <div class="answer-grid">
+              <div class="field">
+                <label for="answer-1">Primer derivado</label>
+                <input id="answer-1" name="first" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe una palabra">
+              </div>
+              <div class="field">
+                <label for="answer-2">Segundo derivado</label>
+                <input id="answer-2" name="second" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe otra palabra">
+              </div>
+            </div>
+            <div class="actions">
+              <button id="grade-button" type="submit" class="primary-button">Corregir respuestas</button>
+              <button id="clear-button" type="button" class="secondary-button">Borrar respuestas</button>
+            </div>
+          </form>
+          <section id="results" class="results" aria-labelledby="results-title" hidden>
+            <div class="result-header">
+              <div>
+                <p class="eyebrow">Corrección automática</p>
+                <h3 id="results-title">Resultado del ejercicio</h3>
+              </div>
+              <strong id="result-total" class="result-total" tabindex="-1" aria-live="polite"></strong>
+            </div>
+            <ol id="result-items" class="result-items"></ol>
+            <p class="result-note">Una respuesta que no figura en el banco cerrado no se considera necesariamente incorrecta desde el punto de vista filológico.</p>
+            <button type="button" class="primary-button" id="next-button">Practicar otro étimo</button>
+          </section>
+        </div>
+        <div id="load-error" class="load-error" role="alert" hidden>
+          <p>No se ha podido cargar el banco académico. Comprueba la conexión y vuelve a intentarlo.</p>
+          <button type="button" id="retry-button" class="secondary-button">Reintentar</button>
+        </div>
+      </section>
+    </div>
+    <section class="about" aria-labelledby="about-title">
+      <h2 id="about-title">Cómo se puntúa</h2>
+      <div class="rules">
+        <p><strong>1 punto</strong> · Derivado correcto, con su grafía exacta o una variante admitida.</p>
+        <p><strong>0,5 puntos</strong> · Derivado reconocible con una o más faltas ortográficas inequívocas.</p>
+        <p><strong>0 puntos</strong> · Respuesta no admitida, ambigua, excluida o repetida.</p>
+      </div>
+      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Este es el primer ejercicio de Etymologicon; las demás modalidades se incorporarán progresivamente.</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <span>Etymologicon · Griego I</span>
+    <span>ScholaClassica · Banco docente auditado</span>
+  </footer>
+</body>
+</html>

@@ -22,12 +22,49 @@ try{
   browser=await chromium.launch({headless:true});
   const page=await browser.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  for(const route of ['/','/apps/gramatica/index.html','/apps/gramatica/val/index.html','/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1','/apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1','/apps/gramatica/val/curso.html?lengua=griego&curso=1&unidad=1']){
+  for(const route of ['/','/apps/gramatica/index.html','/apps/gramatica/val/index.html','/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1','/apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1','/apps/gramatica/val/curso.html?lengua=griego&curso=1&unidad=1','/apps/etymologicon/index.html']){
     const r=await page.goto(base+route,{waitUntil:'networkidle'});
     assert.equal(r.status(),200,route);
     assert.ok(await page.locator('header').count(),'Falta encabezado en '+route);
     assert.equal(errors.length,0,'Error JavaScript en '+route+': '+errors.join(' | '));
   }
+  // Etymologicon: integración funcional del motor con la pantalla y el banco filtrado.
+  const etymologicon=await page.goto(base+'/apps/etymologicon/index.html',{waitUntil:'networkidle'});
+  assert.equal(etymologicon.status(),200);
+  await page.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
+  assert.equal(await page.locator('#etymon-select option').count(),108);
+  assert.equal(await page.locator('#course-select option[value="gr2"]').isDisabled(),true);
+  await page.locator('#etymon-select').selectOption('grc:προσ');
+  assert.ok((await page.locator('#exercise-title').textContent()).includes('πρός'));
+  await page.getByLabel('Primer derivado').fill('proselito');
+  await page.getByLabel('Segundo derivado').fill('prosodia');
+  await page.getByRole('button',{name:'Corregir respuestas'}).click();
+  assert.equal((await page.locator('#result-total').textContent()).trim(),'1,5 / 2 puntos');
+  assert.ok((await page.locator('#result-items').textContent()).includes('prosélito'));
+  assert.ok(await page.locator('#result-items mark').count()>=2,'Las erratas deben resaltarse visualmente');
+  await page.getByLabel('Primer derivado').fill('prosélito');
+  assert.equal(await page.locator('#results').isHidden(),true,'Al editar no debe quedar una nota desactualizada');
+  await page.getByLabel('Segundo derivado').fill('prosélito');
+  await page.getByRole('button',{name:'Corregir respuestas'}).click();
+  assert.equal((await page.locator('#result-total').textContent()).trim(),'1 / 2 puntos');
+  assert.ok((await page.locator('#result-items').textContent()).includes('Derivado repetido'));
+  await page.locator('#unit-select').selectOption('UD1');
+  assert.ok(await page.locator('#etymon-select option').count()>0,'Filtro por unidad vacío');
+  await page.locator('#unit-select').selectOption('all');
+  assert.equal(await page.locator('#etymon-select option').count(),108);
+  await page.getByRole('button',{name:'Otro étimo'}).click();
+  assert.equal(await page.locator('#results').isHidden(),true,'El siguiente étimo debe limpiar el resultado anterior');
+  await page.locator('#theme-select').selectOption('oled');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
+  await page.reload({waitUntil:'networkidle'});
+  await page.locator('#exercise-content').waitFor({state:'visible',timeout:10000});
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
+  await page.setViewportSize({width:390,height:844});
+  const layoutFits=await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+2);
+  assert.equal(layoutFits,true,'La interfaz debe adaptarse a un móvil de 390 px');
+  await page.setViewportSize({width:1280,height:900});
+  assert.equal(errors.length,0,'Error JavaScript de Etymologicon: '+errors.join(' | '));
+
   await page.goto(base+'/');
   await page.evaluate(async()=>{await caches.open('otra-aplicacion-no-borrar')});
   const evolutio=await page.goto(base+'/apps/evolucion-fonetica/index.html',{waitUntil:'networkidle'});
