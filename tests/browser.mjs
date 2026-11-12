@@ -33,7 +33,7 @@ try{
   assert.equal(await page.locator('#panel-herramientas').isVisible(),true);
   assert.equal(await page.locator('#panel-lenguas').isVisible(),false);
   await page.getByRole('tab',{name:'Por lengua'}).click();
-  await page.getByRole('link',{name:/Griego I/}).click();
+  await page.getByRole('link',{name:'Griego I',exact:true}).click();
   assert.match(page.url(),/\/apps\/gramatica\/curso\.html\?lengua=griego/);
   console.log('OK: navegación ScholaClassica y Appendix ES/VAL en Chromium');
 }finally{if(browser)await browser.close();await new Promise(ok=>server.close(ok))}
