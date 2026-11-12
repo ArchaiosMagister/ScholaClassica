@@ -1,0 +1,50 @@
+name: Validar integración sin publicar
+on:
+  push:
+    branches: [main, integracion/appendix-inicial]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Código de ScholaClassica
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Obtener Appendix original en commit fijado (solo lectura)
+        uses: actions/checkout@v4
+        with:
+          repository: ArchaiosMagister/Appendix-grammaticae
+          ref: a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c
+          path: .sources/appendix
+          persist-credentials: false
+      - name: Validar Appendix original
+        working-directory: .sources/appendix
+        run: node scripts/validate-site.mjs
+      - name: Construir ScholaClassica sin despliegue
+        run: npm run build
+      - name: Comprobar copia exacta, enlaces y aislamiento de herramientas docentes
+        run: npm test
+      - name: Preparar Chromium para prueba de navegación
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Navegar por ScholaClassica y Appendix en Chromium
+        run: npm run test:browser
+      - name: Archivar resultado privado de construcción (no publicar)
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-integracion-appendix
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7

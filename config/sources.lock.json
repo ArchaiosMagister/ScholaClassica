@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "date": "2026-11-12",
+  "note": "SHA de auditoría, no seguimiento implícito de main",
+  "sources": {
+    "appendix": {
+      "repository": "ArchaiosMagister/Appendix-grammaticae",
+      "sha": "a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c",
+      "integrated": true,
+      "target": "apps/gramatica"
+    },
+    "vocabula": {
+      "repository": "ArchaiosMagister/VocabulaLatinaGraecaque",
+      "sha": "0e16505b7631298a0448c4160a5d258f82732bfe",
+      "integrated": false
+    },
+    "evolutio": {
+      "repository": "ArchaiosMagister/EvolucionFonetica",
+      "sha": "0897aae01b6d4c905aafa1c1a6bac5af0810c812",
+      "integrated": false
+    },
+    "examenes": {
+      "repository": "ArchaiosMagister/GeneradorExamenes",
+      "sha": "31bd9c8bf1bf8d1be434a15fcb32239564f5f1d9",
+      "integrated": false
+    }
+  }
+}
