@@ -47,18 +47,19 @@ Los valores anteriores son **marcadores ficticios**. El resultado `dist-docente/
 
 ## Inicio de sesión privado — preparación, no despliegue
 
-La función `supabase/functions/schola-login/index.ts` recibe únicamente usuario, contraseña y un token de Cloudflare Turnstile. El servidor:
+La función `supabase/functions/schola-login/index.ts` recibe usuario, contraseña y un token de Cloudflare Turnstile, pero **no contiene la dirección de correo ni el secreto de Turnstile en el código**.
 
-1. Rechaza cualquier origen que no coincida con el hostname HTTPS docente independiente.
-2. Comprueba el token de Turnstile mediante Siteverify, incluyendo el hostname y la acción `schola-login`. Si el servicio antirrobots falla, **deniega el inicio de sesión**.
-3. Resuelve `MagisterArchaios` al correo configurado en el secreto `SCHOLA_AUTH_LOGIN_EMAIL` y verifica la contraseña con **Supabase Auth**, sin utilizar una clave privilegiada.
-4. Verifica que Supabase Auth ha devuelto exclusivamente la UUID designada; devuelve al navegador una sesión **AAL1** efímera. La bandeja seguirá bloqueada hasta que el TOTP eleve la sesión a **AAL2**.
+El servidor verifica el origen HTTPS independiente, valida el formato de la solicitud y resuelve `MagisterArchaios` al correo privado guardado en el secreto `SCHOLA_AUTH_LOGIN_EMAIL`. A continuación solicita a **Supabase Auth** la comprobación conjunta de contraseña y token Turnstile mediante `signInWithPassword({options:{captchaToken}})`.
 
-Para el servidor son imprescindibles `SCHOLA_AUTH_LOGIN_EMAIL`, `SCHOLA_TURNSTILE_SECRET`, `SCHOLA_TEACHER_USER_ID`, `SCHOLA_ALLOWED_ORIGIN` y las variables gestionadas `SUPABASE_URL` y `SUPABASE_ANON_KEY`. Los dos primeros son secretos sensibles: no copiarlos a GitHub, GitHub Actions ni a los ficheros estáticos.
+Esta arquitectura protege también el endpoint **directo** `/auth/v1/token`: es imprescindible habilitar **Authentication > Bot and Abuse Protection > CAPTCHA > Cloudflare Turnstile** en el proyecto de identidad. La clave secreta de Turnstile se configura allí, no como secreto de la función. Si esa protección no está habilitada, la función podría ser esquivada llamando directamente a Supabase Auth.
 
-`supabase/config.toml` establece `verify_jwt=false` solo para `schola-login` (antes del primer factor); se mantiene `verify_jwt=true` para `schola-inbox`. La función de login requiere siempre Turnstile y no equivale a una autorización de administrador.
+Por precaución, `schola-login` devuelve **503** si no se configura el indicador operativo `SCHOLA_AUTH_CAPTCHA_ENFORCED=confirmed`. Este indicador **no demuestra técnicamente que CAPTCHA esté activo**: solo debe establecerse después de probar desde una cuenta de prueba que un inicio de sesión directo sin token o con token inválido es rechazado por Supabase Auth.
 
-Antes de activar este componente será necesario crear un widget de Turnstile en Cloudflare, registrar allí el hostname docente real, guardar la clave privada en Supabase y validar sus límites de peticiones. El proveedor de identidad propuesto es el proyecto actual de Vocabula, pero **no se ha creado todavía ninguna cuenta**.
+La función requiere además `SCHOLA_AUTH_LOGIN_EMAIL`, `SCHOLA_TEACHER_USER_ID` y `SCHOLA_ALLOWED_ORIGIN` como secretos, y las variables gestionadas `SUPABASE_URL` y `SUPABASE_ANON_KEY`. Devuelve una sesión **AAL1** exclusivamente si Supabase Auth autentica a la UUID docente exacta. Esta sesión **no da acceso a los avisos** sin completar TOTP y alcanzar **AAL2**.
+
+`supabase/config.toml` establece `verify_jwt=false` solo para `schola-login`, ya que todavía no existe una sesión de usuario. En `schola-inbox` se conserva `verify_jwt=true` y las comprobaciones adicionales de identidad y AAL2.
+
+**Antes de activar esta función** habrá que crear el widget de Turnstile en Cloudflare, registrar el hostname docente real, activar el proveedor Turnstile con su secreto en Supabase Auth, realizar pruebas de rechazo de CAPTCHA por la vía directa y, solo entonces, habilitar la función. No se ha activado ninguno de esos servicios.
 
 ## Endpoint de avisos — preparación, no despliegue
 
@@ -77,7 +78,7 @@ GitHub Actions comprueba copia y navegación de las aplicaciones, construcción 
 
 Antes del primer despliegue será imprescindible:
 - Disponer del correo de acceso y del origen HTTPS independiente, y crear manualmente la cuenta en el panel seguro de Supabase.
-- Revisar seguridad real de Supabase Auth y limitar los registros públicos. Configurar Cloudflare Turnstile con su clave privada en servidor.
+- Revisar seguridad real de Supabase Auth y limitar los registros públicos. Configurar Cloudflare Turnstile **dentro de Supabase Auth** y comprobar que su endpoint directo rechaza contraseñas sin CAPTCHA.
 - Desplegar `dist-docente/` únicamente en un alojamiento HTTPS aislado que respete el archivo `_headers` generado, incluyendo CSP, `frame-ancestors 'none'`, `Referrer-Policy`, `X-Content-Type-Options` y `Cache-Control: no-store`; confirmar las cabeceras con una prueba HTTP real.
 - Sustituir la carga desde CDN del SDK por un recurso con integridad verificada y probar inicio de sesión en iPhone, iPad y Mac.
 - Probar recuperación, caducidad y revocación de sesiones, así como la lectura y los enlaces de avisos de ambos orígenes.
