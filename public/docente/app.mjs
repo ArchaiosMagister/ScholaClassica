@@ -30,7 +30,9 @@ function validConfig(value){
   return value?.enabled===true&&/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value.url||'')&&
     typeof value.publishableKey==='string'&&value.publishableKey.length>20&&
     typeof value.email==='string'&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.email)&&
-    value.username==='MagisterArchaios';
+    value.username==='MagisterArchaios'&&value.origin===location.origin&&
+    location.hostname!=='archaiosmagister.github.io'&&
+    (location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname));
 }
 async function loadSDK(){
   if(window.supabase?.createClient)return;
@@ -88,7 +90,9 @@ async function fetchNotices(){
       ' · '+(item.course||'Sin curso')+' · '+(item.created_at?new Date(item.created_at).toLocaleDateString('es-ES'):'Sin fecha');
     const detail=document.createElement('p');detail.textContent=item.summary||'';
     const link=document.createElement('a');
-    link.href=item.source==='vocabula'?'../apps/vocabulario/index.html':'https://archaiosmagister.github.io/Palabra-del-dia/';
+    link.href=item.source==='vocabula'
+      ?'https://archaiosmagister.github.io/VocabulaLatinaGraecaque/'
+      :(item.course?.includes('4.º')?'https://archaiosmagister.github.io/Palabra-del-dia/4eso/':'https://archaiosmagister.github.io/Palabra-del-dia/');
     link.target='_blank';link.rel='noopener noreferrer';link.textContent='Abrir aplicación original';
     article.append(heading,origin,detail,link);el('notices').append(article);
   }

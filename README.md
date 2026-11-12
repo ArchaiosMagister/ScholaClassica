@@ -64,3 +64,8 @@ Etymologicon añade preguntas de cuatro opciones y reconocimiento de étimos gri
 ## Descomposición etimológica en Griego I
 
 Etymologicon incorpora un primer banco cerrado de **16 palabras castellanas con dos componentes griegos contrastados** mediante DLE. Las restantes 185 fichas siguen pendientes de auditoría individual para esta modalidad; no se consideran automáticamente incorrectas. Los ejercicios admiten griego o transliteración latina, muestran la explicación filológica, puntúan hasta 2 y funcionan offline. Ver [`docs/ETIMOLOGICON_DESCOMPOSICION_PILOTO.md`](docs/ETIMOLOGICON_DESCOMPOSICION_PILOTO.md).
+
+
+## Construcción aislada de la zona docente (sin publicación)
+
+El portal general se genera en `dist/`, con el acceso docente expresamente desactivado. La zona privada se construye **por separado** con `npm run build:docente`, que genera `dist-docente/` en modo bloqueado por defecto. La activación requiere un hostname HTTPS distinto del de las herramientas del alumnado, una cuenta Supabase Auth y configuración explícita. El proyecto Supabase actual de Vocabula es el candidato provisional para albergar esta cuenta, sin afectar a su sistema de sesiones propio. **No se ha creado ningún usuario ni desplegado el sitio o la función.** Véase `docs/DOCENTE_AUTENTICACION.md`.

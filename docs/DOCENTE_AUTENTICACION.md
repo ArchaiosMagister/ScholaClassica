@@ -1,43 +1,73 @@
-# Zona docente — seguridad y bandeja unificada (fase inicial)
+# Zona docente — aprovisionamiento y seguridad (fase II, sin desplegar)
 
-## Estado verificable
+## Decisión provisional documentada
 
-- Pantalla de usuario `MagisterArchaios`, contraseña y TOTP con QR y clave manual.
-- Se usa el SDK oficial de Supabase Auth, fijado a versión `2.119.0`, con registro público deshabilitado por diseño de la interfaz.
-- **El acceso a datos no depende de la interfaz**: la función `schola-inbox` comprueba la sesión contra Supabase Auth mediante `getUser(token)`, verifica `aal2`, `auth.uid` y una UUID docente permitida desde variables de entorno.
-- La API consulta en solo lectura los registros pendientes de `vocab_reports` y `word_proposals` en dos proyectos diferentes. No devuelve identificadores de alumnos ni permite aprobar, editar o borrar.
-- Los datos se presentan con `textContent` (no mediante `innerHTML`) y los enlaces de origen están fijados en el cliente.
-- El artefacto de CI **no contiene credenciales ni activa la zona privada**. Para acceder efectivamente, falta aprovisionar cuenta, MFA y función de servidor.
-- No se toca Palabra del día, Vocabula ni GeneradorExamenes. No se ha desplegado la web pública ni la función.
+Se han inspeccionado en solo lectura los dos proyectos de Supabase:
 
-## Decisión de infraestructura
+| Proyecto | Autenticación actual | Función en el diseño |
+| --- | --- | --- |
+| `Vocabulario_clasico` | Sin usuarios en `auth.users`; el login propio utiliza otras tablas | **Candidato preferente para la identidad de ScholaClassica** |
+| `Palabra_del_dia` | Contiene usuarios anónimos asociados a sus aplicaciones | Origen de propuestas y estadísticas, sin compartir login ni modificar su Auth |
 
-La identidad docente tendrá un **proyecto de Supabase Auth designado como central**. Puede aprovechar uno de los proyectos existentes o crearse otro, previa valoración de costes. El código no queda acoplado a una elección: `SUPABASE_URL` de la Edge Function y `SCHOLA_AUTH_URL` en la construcción deben señalar al **mismo proyecto**.
+No se ha alterado ninguna configuración de los proyectos ni creado cuentas. Usar el primero evita un tercer proyecto y mantiene separadas las identidades de alumnos de Palabra del día; **es una elección reversible antes de activarse**.
 
-No creamos ni migramos cuentas automáticamente. Supabase Auth utiliza email/contraseña; para mostrar solo un usuario en la pantalla se requiere crear una cuenta con un **alias de email dedicado al acceso docente**. El alias se configura como `SCHOLA_AUTH_LOGIN_EMAIL` durante la construcción, no dentro del repositorio. Ese email aparecerá en el artefacto estático, por lo que debe ser un alias, no una dirección privada.
+## Aislamiento por origen — condición indispensable
 
-## Configuración antes de activar (todavía pendiente)
+GitHub Pages utiliza el **mismo origen** `https://archaiosmagister.github.io` para todos los repositorios bajo ese usuario. Un directorio `/ScholaClassica/docente/` **no es un aislamiento de seguridad**. Por ello:
 
-1. Designar el proyecto de identidad; crear **manualmente** una cuenta de correo verificado mediante Supabase Auth, bloquear el registro público y establecer contraseña robusta. Anotar la UUID de la cuenta, sin introducirla en HTML.
-2. Configurar el segundo factor TOTP en Supabase Auth. La pantalla de acceso permite al primer inicio registrar el QR/clave en Contraseñas de Apple. Verificarlo con seis cifras para alcanzar `aal2`.
-3. Publicar la función `supabase/functions/schola-inbox/index.ts` en el proyecto de Auth (sin hacerlo desde este PR). Ajustar `SCHOLA_TEACHER_USER_ID` al UUID exacto del docente y `VOCABULA_SUPABASE_URL`, `VOCABULA_SERVICE_ROLE_KEY`, `PALABRA_SUPABASE_URL`, `PALABRA_SERVICE_ROLE_KEY` como secretos de Edge Function. Esas claves privilegiadas **nunca** van al portal.
-4. Definir el secreto de función `SCHOLA_ALLOWED_ORIGIN` con el origen HTTPS exacto de una **web docente separada**. No usar el origen compartido `https://archaiosmagister.github.io` donde se ejecutan las aplicaciones de alumnos.
-5. Construir con `SCHOLA_AUTH_URL`, `SCHOLA_AUTH_PUBLISHABLE_KEY`, `SCHOLA_AUTH_LOGIN_EMAIL`. Solo esas variables públicas generan `dist/docente/auth-config.json` habilitado; si falta alguna, permanece `{"enabled":false}`.
-6. Probar contra cuenta real: acceso normal, alta de TOTP, cierre de sesión, denegación en `aal1`, usuario distinto, caducidad y avisos de ambos proyectos. No activar ni publicar hasta superar pruebas manuales y automatizadas.
-7. Preparar recuperación de segundo factor por un canal independiente y políticas de revocación de sesiones. **No guardar clave TOTP de recuperación en GitHub.**
+- `npm run build` genera `dist/` público y siempre coloca `dist/docente/auth-config.json` en `{"enabled":false}`. Si se le pasan variables `SCHOLA_AUTH_*`, aborta expresamente.
+- `npm run build:docente` genera **otro artefacto** `dist-docente/`, con HTML, CSS y JS mínimos. No incluye ninguna aplicación de alumnos ni banco privado.
+- La activación exige `SCHOLA_DOCENTE_ORIGIN` con un origen **HTTPS diferente** del origen compartido de alumnado, por ejemplo un subdominio del que se tenga el control o un hostname propio de alojamiento separado. La compilación rechaza la activación en `https://archaiosmagister.github.io`, en HTTP y en localhost.
+- La Edge Function de lectura también rechaza un origen compartido/HTTP, aunque no debe tratarse el encabezado `Origin` como prueba de identidad: autentica el JWT con Supabase Auth y exige `aal2` más la UUID docente exacta.
 
-### Precauciones
+Ninguna de las dos compilaciones ejecuta despliegue. GitHub Actions archiva únicamente el artefacto **público y bloqueado**, no el preparado para el servidor docente.
 
-- Supabase Auth exige una dirección de correo real; el usuario visible no es, por sí solo, una credencial reconocida por Supabase.
-- HTML/JS del área son públicos en GitHub Pages. Lo protegido son sus datos/operaciones en servidor, no el código fuente.
-- **Aislamiento por origen obligatorio antes de la puesta en marcha**: en GitHub Pages, las webs bajo `archaiosmagister.github.io` comparten un origen aunque estén en rutas diferentes. Un fallo XSS de otra aplicación puede comprometer la sesión docente si se usa el mismo origen. La versión inicial de la interfaz usa sesiones **solo en memoria** (`persistSession:false`), sin conservar tokens en localStorage, por lo que será preciso iniciar sesión al recargar la página. Antes de activarla, alojar la zona docente bajo **otro hostname**, establecer CSP restrictiva y distribuir el SDK con integridad comprobada.
-- Configurar rate limiting y MFA obligatoria a nivel de servidor; se deniegan sesiones `aal1`.
-- El SDK web procede de un CDN con versión fijada: antes de producción, conviene distribuir una copia de versión inmutable con integridad comprobada y una Content Security Policy adecuada.
-- Con `scope: 'global'` el cierre de sesión revoca sesiones en Supabase Auth; verificarlo en el entorno real. Para máxima seguridad se exige TLS.
-- Las URLs de Palabra del día apuntan provisionalmente al portal original; revisar enlaces exactos según curso antes de dar por terminada la bandeja.
-- La función devuelve como máximo 100 avisos por origen por petición; la paginación y los avisos resueltos se tratarán en otra fase.
+## Creación y protección de la cuenta
 
-Referencias:
-- https://supabase.com/docs/guides/auth/auth-mfa
-- https://supabase.com/docs/guides/auth/auth-mfa/totp
-- https://supabase.com/docs/reference/javascript/installing
+Una vez elegido el correo de acceso y el hostname aislado:
+
+1. Designar Vocabula como proveedor de identidad mediante la URL actual del proyecto. Preferir una clave pública `sb_publishable_...`; **nunca** usar `service_role` o `sb_secret_` en el navegador.
+2. Configurar Supabase Auth para **no aceptar nuevos registros públicos** y habilitar el factor `TOTP`. Esta medida se aplicará de forma controlada para no alterar ninguna función vigente de Vocabula. Antes de hacerlo, verificar la configuración de Auth en el panel del proyecto.
+3. Crear la cuenta individual del docente mediante el panel seguro de Supabase Auth, con un **alias de correo dedicado** y verificado. Su usuario visible seguirá siendo `MagisterArchaios`. No compartir ni guardar la contraseña en ChatGPT o GitHub.
+4. Registrar el TOTP en Contraseñas de Apple mediante QR o clave de configuración; verificar un código de seis cifras y confirmar que la sesión alcanza `aal2`. Establecer un método de recuperación independiente.
+5. Registrar exclusivamente la UUID de esa cuenta como `SCHOLA_TEACHER_USER_ID` en los secretos del proyecto de identidad; nunca introducir esa variable en el frontend.
+6. Establecer también `SCHOLA_ALLOWED_ORIGIN` como el nuevo origen HTTPS privado, comprobar límites de intentos, configuración de sesiones y recuperación de segundo factor.
+
+**Para construir la web privada** (sin desplegarla), definir solamente variables públicas en el entorno de compilación:
+
+```bash
+SCHOLA_DOCENTE_ORIGIN=https://docente.ejemplo.test \
+SCHOLA_AUTH_URL=https://PROJECT_REF.supabase.co \
+SCHOLA_AUTH_PUBLISHABLE_KEY=sb_publishable_PUBLICA \
+SCHOLA_AUTH_LOGIN_EMAIL=alias-docente@example.test \
+npm run build:docente
+```
+
+Los valores anteriores son **marcadores ficticios**. El resultado `dist-docente/auth-config.json` contiene alias, URL y clave *publicable*, nunca la contraseña ni el secreto TOTP. El artefacto no se publica automáticamente.
+
+## Endpoint de avisos — preparación, no despliegue
+
+La función `supabase/functions/schola-inbox/index.ts` valida `getUser(token)`, usuario exacto y `aal2`. Tras autorizar, consulta de forma limitada y en solo lectura:
+
+- `Vocabula: public.vocab_reports`: solo `pending` y `reviewing`.
+- `Palabra del día: public.word_proposals`: solo `pending`.
+
+Se requieren secretos **solo en el servidor**: `SCHOLA_TEACHER_USER_ID`, `SCHOLA_ALLOWED_ORIGIN`, `VOCABULA_SUPABASE_URL`, `VOCABULA_SERVICE_ROLE_KEY`, `PALABRA_SUPABASE_URL`, `PALABRA_SERVICE_ROLE_KEY`. El uso de claves privilegiadas para consultar ambos orígenes está sujeto a una auditoría de mínimo privilegio antes de la activación. **No introducir estas claves en la configuración de la web**.
+
+La función no puede actualizar ni aprobar sugerencias. Los enlaces llevan a las webs originales y se generan exclusivamente con URLs fijas conocidas, no con texto del alumnado.
+
+## Pruebas y bloqueos de producción
+
+GitHub Actions comprueba copia y navegación de las aplicaciones, construcción docente desactivada, origen aislado, rechazo de claves privadas/HTTP, usuario no autorizado, sesión `aal1`, TOTP y visualización segura de contenido de un aviso. Las pruebas de login y bandeja utilizan respuestas simuladas: **no acreditan una autenticación real con Apple ni con las bases de datos de producción**.
+
+Antes del primer despliegue será imprescindible:
+- Disponer del alias de correo y del origen HTTPS independiente.
+- Revisar seguridad real de Supabase Auth y limitar los registros públicos.
+- Proteger el contenido de `dist-docente/` con cabeceras HTTP de seguridad (`Content-Security-Policy` y `frame-ancestors 'none'`, `Referrer-Policy`, `X-Content-Type-Options`, sin caché de respuestas privadas).
+- Sustituir la carga desde CDN del SDK por un recurso con integridad verificada y probar inicio de sesión en iPhone, iPad y Mac.
+- Probar recuperación, caducidad y revocación de sesiones, así como la lectura y los enlaces de avisos de ambos orígenes.
+- Revisar los avisos de seguridad que muestran los proyectos originales sin modificar sus políticas de forma imprevista.
+
+## Estado
+
+**Sin publicación y sin credenciales reales.** No se ha modificado ningún repositorio original ni la base de datos de las dos aplicaciones. El generador de exámenes y la práctica morfológica permanecen aplazados.

@@ -40,3 +40,10 @@ La salida de CI se conserva como artefacto de pruebas. No hay workflow de GitHub
 2. Definir el alojamiento y la autorización del generador de exámenes.
 3. Diseñar una PWA de portal y unificar gradualmente la identidad visual cuando todos los módulos estén estables.
 4. Implementar propuestas de actualización automáticas con pruebas y revisión.
+
+
+## Identidad docente y aislamiento del alojamiento
+
+La zona docente se compila **independientemente** con `npm run build:docente`, dando `dist-docente/`. En ausencia de credenciales públicas, se genera con `enabled:false`. El portal general `npm run build` **rechaza variables de identidad docente** y fuerza `dist/docente/auth-config.json` a desactivado. Ninguno de los dos artefactos se despliega desde GitHub Actions.
+
+La cuenta docente ha de residir en Supabase Auth, con acceso restringido a una UUID designada y una sesión `aal2` (TOTP). La función de avisos consulta únicamente registros pendientes y no modifica los sistemas originales. Se requiere un origen HTTPS diferente del de las apps públicas. Véase `docs/DOCENTE_AUTENTICACION.md`.

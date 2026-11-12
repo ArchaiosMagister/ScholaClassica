@@ -18,7 +18,7 @@ const server=createServer(async(req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 let browser;
-const config={enabled:true,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',email:'test-docente@example.com',username:'MagisterArchaios'};
+const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',email:'test-docente@example.com',username:'MagisterArchaios'};
 const install=async(page,allow=true)=>{
   await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(config)}));
   await page.addInitScript((allow)=>{
