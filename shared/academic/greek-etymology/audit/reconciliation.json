@@ -1,7 +1,7 @@
 {
   "schema": "etymologicon-reconciliation/v1",
   "referenceCommit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0",
-  "evidence": "Derived from the exact greekEtymologyUnits JavaScript literal, not from the unavailable audited Excel.",
+  "evidence": "Previous candidate baseline remains frozen; separate uploaded editorial audit is now imported with manifest and runtime compilation.",
   "current": {
     "unitCount": 12,
     "occurrences": 117,
@@ -16,7 +16,7 @@
     "uniqueEtymons": 111,
     "eligibleEtymons": 108,
     "admittedDerivatives": 201,
-    "status": "not_individually_reconciled"
+    "status": "reconciled_from_uploaded_workbook"
   },
   "discrepancies": {
     "eligibleVersusLegacy": 3,
@@ -71,9 +71,31 @@
     }
   ],
   "missingEvidence": [
-    "Complete audited workbook with editorial decisions for each etymon–derivative pair",
-    "Authenticated meanings and didactic definitions with DLE or alternative source citations",
-    "Approved orthographic variants and relationship types"
+    "Greek meanings for all 111 etyma (not given in the uploaded Etimos sheet)",
+    "Independent lexicographic verification of cited sources",
+    "Individually documented decomposition and inverse question components"
   ],
-  "publicationAllowed": false
+  "publicationAllowed": false,
+  "teacherAudit": {
+    "filename": "Auditoria_etimologica_Griego_I_2026-11-12.xlsx",
+    "sha256": "c2f16a97c305120be771e6aff71bf1649ffeee1171669e64660d25481e16adaf",
+    "etymons": 111,
+    "eligibleEtymons": 108,
+    "acceptedDerivatives": 201,
+    "excludedDerivatives": 1,
+    "relations": 217,
+    "decisions": 22,
+    "newVersusCandidate": [
+      "atelectasia",
+      "atelocardia",
+      "geniogloso",
+      "helioterapia",
+      "prosélito",
+      "prosodia"
+    ],
+    "removedVersusCandidate": [
+      "heliópolis"
+    ],
+    "externalLexicalSourcesIndependentlyChecked": false
+  }
 }

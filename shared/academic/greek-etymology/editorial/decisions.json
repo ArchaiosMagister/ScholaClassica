@@ -1,6 +1,9 @@
 {
   "schema": "etymologicon-editorial/v1",
   "source": "teacher_verified_audit",
-  "imported": false,
+  "imported": true,
+  "decisionCount": 22,
+  "sourceReference": "source/teacher-audit-manifest.json",
+  "storage": "editorial decisions preserved in compressed audit snapshot; catalog compiled on demand",
   "decisions": []
 }

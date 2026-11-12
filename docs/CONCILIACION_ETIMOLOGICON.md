@@ -1,3 +1,5 @@
+> **Conciliación posterior (2026-11-12):** el Excel docente ya se ha incorporado. Consulta [ETIMOLOGICON_BANCO_CONCILIADO.md](ETIMOLOGICON_BANCO_CONCILIADO.md). El texto inferior documenta exclusivamente el estado preliminar, previo a recibir el archivo.
+
 # Etymologicon · conciliación académica, fase 1
 
 **Fecha:** 12 de noviembre de 2026  

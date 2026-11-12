@@ -93,11 +93,15 @@ export function auditEtymologicon() {
   assert.equal(gr2.course,'gr2');
   assert.equal(gr2.status,'awaiting_teacher_inventory');
   assert.deepEqual(gr2.units,[],'No hay inventario autorizado de Griego II');
-  assert.equal(editorial.imported,false,'La auditoría docente todavía no está incorporada');
-  assert.deepEqual(editorial.decisions,[],'No se deben presumir decisiones no contrastadas');
+  assert.equal(editorial.imported,true,'La auditoría docente debe estar registrada como importada');
+  assert.equal(editorial.decisionCount,22,'Deben constar las 22 decisiones editoriales');
+  assert.deepEqual(editorial.decisions,[],'No duplicar decisiones: se cargan desde la instantánea editorial');
   assert.equal(report.referenceCommit,snapshot.provenance.commit);
   assert.equal(report.publicationAllowed,false);
-  assert.equal(report.reportedExternalAudit.status,'not_individually_reconciled');
+  assert.equal(report.reportedExternalAudit.status,'reconciled_from_uploaded_workbook');
+  assert.equal(report.teacherAudit.acceptedDerivatives,201);
+  assert.equal(report.teacherAudit.relations,217);
+  assert.equal(report.teacherAudit.decisions,22);
   assert.equal(report.reportedExternalAudit.uniqueEtymons,111);
   assert.equal(report.reportedExternalAudit.eligibleEtymons,108);
   assert.equal(report.reportedExternalAudit.admittedDerivatives,201);

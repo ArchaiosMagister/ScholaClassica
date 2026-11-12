@@ -12,3 +12,7 @@ El esquema oficial está en `model-v1.schema.json`. Los candidatos se mantienen 
 
 Consulta `docs/CONCILIACION_ETIMOLOGICON.md` y ejecuta `npm run etymology:audit` desde la raíz.
 
+
+## Conciliación docente completada
+
+Se ha incorporado el inventario auditado individual de Griego I como fuente editorial inmutable: **111 étimos, 108 elegibles, 201 derivados admitidos y 217 relaciones**. Lee [el informe](../../../docs/ETIMOLOGICON_BANCO_CONCILIADO.md), o ejecuta `npm run etymology:compile`. Las candidatas originales siguen pendientes por separado y no se sobrescriben. La fuente DLE citada en el Excel aún no se ha vuelto a verificar de forma independiente, no hay significados griegos completos y el módulo no se ha publicado.
