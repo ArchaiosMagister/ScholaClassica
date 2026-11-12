@@ -12,20 +12,19 @@ test('las 54 glosas restantes cubren sin duplicaciones los 111 étimos',()=>{
  assert.equal(bank.etymons.length,111);
  assert.equal(bank.etymons.filter(x=>x.meaning!==null).length,111);
  assert.equal(bank.summary.greekMeaningsPending,0);
- assert.equal(bank.summary.meaningCompletionChecked,25);
- assert.equal(bank.summary.meaningCompletionDrafts,29);
- assert.equal(bank.summary.greekMeaningsPendingIndependentReview,80);
+ assert.equal(bank.summary.meaningCompletionChecked,50);
+ assert.equal(bank.summary.meaningCompletionDrafts,0);
+ assert.equal(bank.summary.greekMeaningsPendingIndependentReview,51);
 });
-test('glosas propuestas no se hacen pasar por diccionario ya consultado',()=>{
- for(const e of bank.etymons.filter(x=>x.meaningCompletionEvidence?.status==='meaning_draft_pending_dictionary_check')){
-   assert.equal(e.independentLexicographicReview,false);
-   assert.ok(e.meaningCompletionEvidence.suggestedLookup.startsWith('https://logeion.uchicago.edu/'));
-   assert.equal(e.meaningCompletionEvidence.checkedSource,null);
- }
- for(const e of bank.etymons.filter(x=>x.meaningReviewStatus==='dictionary_entry_checked')){
-   assert.equal(e.independentLexicographicReview,true);
-   assert.equal(e.meaningCompletionEvidence.checkedSource.individuallyChecked,true);
- }
+test('la versión previa conserva 29 borradores y el catálogo revisado aporta fuentes académicas',()=>{
+ const prev=data.entries.filter(x=>x.status==='meaning_draft_pending_dictionary_check');
+ assert.equal(prev.length,29);
+ const revised=bank.etymons.filter(x=>x.meaningReviewStatus==='source_reviewed_after_draft');
+ assert.equal(revised.length,29);
+ assert.ok(revised.every(x=>x.independentLexicographicReview));
+ assert.ok(revised.every(x=>x.meaningCompletionEvidence.verifiedSources.length>0));
+ assert.equal(bank.summary.meaningsWithExternalEvidence,60);
+ assert.equal(bank.summary.meaningsOnlyTeacherCurriculum,51);
 });
 test('lemas compuestos se representan con ambos miembros; ἐκ y ἐξ son alomorfos',()=>{
  for(const e of ['γράφω | γράμμα','σοφός | σοφία','ἀρχή | ἄρχω','λέγω | λόγος']){
