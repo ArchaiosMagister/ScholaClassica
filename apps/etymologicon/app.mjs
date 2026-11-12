@@ -187,3 +187,120 @@ async function loadCatalog(){
 }
 ui.retry.addEventListener('click',loadCatalog);
 loadCatalog();
+
+// La instalación es opcional: la actividad sigue funcionando aunque el
+// navegador no admita service workers o bloquee la instalación.
+const offlineStatus=$('offline-status');
+const installButton=$('install-button');
+const checkUpdate=$('check-update');
+const applyUpdate=$('apply-update');
+let installPrompt=null;
+let registration=null;
+let activationRequested=false;
+let checking=false;
+const standalone=()=>window.matchMedia('(display-mode: standalone)').matches||
+  window.navigator.standalone===true;
+
+function reportOfflineState(){
+  if(!navigator.onLine){
+    offlineStatus.textContent=navigator.serviceWorker?.controller
+      ?'Sin conexión: puedes estudiar con el banco guardado.'
+      :'Sin conexión: el banco debe descargarse primero con internet.';
+    return;
+  }
+  if(registration?.waiting){
+    offlineStatus.textContent='Hay una nueva versión preparada. Aplícala cuando termines el ejercicio.';
+  }else if(registration?.active){
+    offlineStatus.textContent='Recursos guardados: podrás practicar sin conexión.';
+  }else{
+    offlineStatus.textContent='La instalación requiere HTTPS o localhost.';
+  }
+}
+function showWaitingWorker(){
+  const waiting=registration?.waiting;
+  applyUpdate.hidden=!waiting;
+  reportOfflineState();
+}
+function observeInstallingWorker(worker){
+  if(!worker)return;
+  worker.addEventListener('statechange',()=>{
+    if(worker.state==='installed')showWaitingWorker();
+    if(worker.state==='activated')reportOfflineState();
+  });
+}
+async function setupOffline(){
+  if(!('serviceWorker' in navigator)){
+    offlineStatus.textContent='Este navegador no admite el funcionamiento sin conexión.';
+    checkUpdate.disabled=true;
+    return;
+  }
+  try{
+    registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
+    observeInstallingWorker(registration.installing);
+    registration.addEventListener('updatefound',()=>observeInstallingWorker(registration.installing));
+    showWaitingWorker();
+    navigator.serviceWorker.ready.then(()=>reportOfflineState()).catch(()=>{});
+  }catch(error){
+    offlineStatus.textContent='No se ha podido preparar la instalación offline. El ejercicio online sigue disponible.';
+    checkUpdate.disabled=true;
+    console.warn('Etymologicon: registro de PWA no disponible',error);
+  }
+}
+window.addEventListener('beforeinstallprompt',event=>{
+  event.preventDefault();
+  installPrompt=event;
+  installButton.hidden=standalone();
+});
+installButton.addEventListener('click',async()=>{
+  if(!installPrompt)return;
+  const prompt=installPrompt;
+  installPrompt=null;
+  installButton.hidden=true;
+  await prompt.prompt();
+  // El navegador decide si el usuario acepta; no afirmar instalación
+  // hasta recibir 'appinstalled'.
+});
+window.addEventListener('appinstalled',()=>{
+  installPrompt=null;
+  installButton.hidden=true;
+  offlineStatus.textContent='Etymologicon se ha instalado correctamente.';
+});
+checkUpdate.addEventListener('click',async()=>{
+  if(!registration||checking)return;
+  checking=true;
+  checkUpdate.disabled=true;
+  offlineStatus.textContent='Buscando una versión nueva…';
+  try{
+    await registration.update();
+    showWaitingWorker();
+    if(!registration.waiting)reportOfflineState();
+  }catch{
+    offlineStatus.textContent=navigator.onLine
+      ?'No se ha podido comprobar la actualización.'
+      :'Sin conexión: sigues usando la versión guardada.';
+  }finally{
+    checking=false;
+    checkUpdate.disabled=false;
+  }
+});
+applyUpdate.addEventListener('click',()=>{
+  const waiting=registration?.waiting;
+  if(!waiting)return;
+  activationRequested=true;
+  applyUpdate.disabled=true;
+  offlineStatus.textContent='Aplicando la nueva versión…';
+  waiting.postMessage({type:'ETYM_ACTIVATE_UPDATE'});
+});
+navigator.serviceWorker?.addEventListener('controllerchange',()=>{
+  if(activationRequested){
+    activationRequested=false;
+    location.reload();
+  }else{
+    reportOfflineState();
+  }
+});
+window.addEventListener('online',reportOfflineState);
+window.addEventListener('offline',reportOfflineState);
+if(standalone())installButton.hidden=true;
+setupOffline();
+

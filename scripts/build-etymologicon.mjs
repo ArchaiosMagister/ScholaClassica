@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import {cp,mkdir,writeFile,stat} from 'node:fs/promises';
+import {cp,mkdir,writeFile,stat,readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {compileTeacherAudit} from './compile-etymologicon-gr1.mjs';
 
@@ -51,5 +52,25 @@ export async function buildEtymologicon({root,out}){
   const catalog=createLearnerCatalog(compileTeacherAudit());
   await mkdir(join(destination,'data'),{recursive:true});
   await writeFile(join(destination,'data/gr1.json'),JSON.stringify(catalog)+'\n','utf8');
+  // Generación de SW con versión de caché derivada de TODO el contenido.
+  // No hay SW compartido de ScholaClassica: el alcance es solo este módulo.
+  const core=[
+    'index.html','style.css','app.mjs','corrector/write-two.mjs',
+    'data/gr1.json','manifest.webmanifest','icons/icon.svg',
+    'icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png',
+    'icons/apple-touch-icon.png'
+  ];
+  const template=await readFile(join(root,'scripts/etymologicon-sw.template.js'),'utf8');
+  assert.equal(template.split('__ETYM_CACHE_VERSION__').length,2,'Marcador único de versión offline');
+  const digester=createHash('sha256');
+  digester.update(template);
+  for(const item of core){
+    digester.update(item+'\0');
+    digester.update(await readFile(join(destination,item)));
+  }
+  const version=digester.digest('hex').slice(0,20);
+  const worker=template.replace('__ETYM_CACHE_VERSION__',version);
+  await writeFile(join(destination,'sw.js'),worker,'utf8');
+
   console.log('ScholaClassica: Etymologicon preparado en dist/apps/etymologicon/ (111 étimos, 201 derivados, sin desplegar)');
 }

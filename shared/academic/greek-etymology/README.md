@@ -1,3 +1,5 @@
+> **PWA Etymologicon preparada:** manifiesto, iconos específicos, caché exclusiva y versión de actualización basada en contenido. [Guía de instalación y verificación](../../../docs/ETIMOLOGICON_PWA.md). Aún sin despliegue público.
+
 > **Interfaz en pruebas:** el ejercicio de dos derivados ya se puede abrir desde el artefacto de ScholaClassica; su motor es el mismo corrector académico y las fuentes originales permanecen intactas. Véase [la interfaz funcional](../../../docs/ETIMOLOGICON_INTERFAZ.md).
 
 > **Nuevo:** corrector determinista de dos derivados implementado como módulo independiente. Véase [especificación y pruebas](../../../docs/ETIMOLOGICON_CORRECTOR.md). Aún no existe interfaz de alumno ni PWA propia de Etymologicon.

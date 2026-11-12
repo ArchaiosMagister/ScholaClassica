@@ -1,3 +1,5 @@
+> **Actualización:** se ha preparado la PWA independiente y sus recursos offline. Consulta [instalación y funcionamiento sin conexión](ETIMOLOGICON_PWA.md). El resto de esta guía describe la primera interfaz funcional.
+
 # Etymologicon · Primera interfaz funcional
 
 **Alcance:** ejercicio «Escribe dos derivados castellanos a partir de un étimo griego», sin publicación pública.
@@ -35,4 +37,4 @@ El resultado tiene una tarjeta por respuesta, con su estado y la puntuación ind
 - Tests Chromium: carga, filtros, escritura, nota de 1,5/2, resaltado de erratas, duplicados, limpieza de resultados al editar, selección de otro étimo, tema OLED y persistencia, y adaptación a pantalla de 390 px.
 - Continúan ejecutándose todos los tests previos de Appendix y Evolutio, incluidas comprobaciones de caché, enlaces e integridad de las fuentes.
 
-**No se ha habilitado GitHub Pages ni un despliegue público.** Todavía no se ha implementado la PWA autónoma, su modo sin conexión ni las otras siete modalidades de ejercicios. Los repositorios originales siguen intactos.
+**No se ha habilitado GitHub Pages ni un despliegue público.** La instalación PWA y el funcionamiento sin conexión ya están preparados y comprobados mediante navegador automatizado; consulta [ETIMOLOGICON_PWA.md](ETIMOLOGICON_PWA.md). Aún faltan las otras siete modalidades de ejercicios. Los repositorios originales siguen intactos.
