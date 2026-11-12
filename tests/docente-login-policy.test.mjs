@@ -33,13 +33,15 @@ test('una identidad de profesor exige un usuario exacto y tokens de sesión',()=
   assert.equal(authorizedInitialSession({...user,is_anonymous:true},session,id),false);
   assert.equal(authorizedInitialSession(user,{access_token:'ok'},id),false);
 });
-test('el login lee email solo de secretos y exige Siteverify ANTES de la contraseña',()=>{
+test('el login preserva el email y delega Turnstile en Supabase Auth',()=>{
   const server=readFileSync(join(root,'supabase/functions/schola-login/index.ts'),'utf8');
   const client=readFileSync(join(root,'public/docente/app.mjs'),'utf8');
   const build=readFileSync(join(root,'scripts/build-docente.mjs'),'utf8');
   const toml=readFileSync(join(root,'supabase/config.toml'),'utf8');
   assert.ok(server.includes("env('SCHOLA_AUTH_LOGIN_EMAIL')"));
   assert.match(server,/SCHOLA_AUTH_CAPTCHA_ENFORCED/);
+  assert.ok(server.indexOf('captchaReady=env')<server.indexOf('auth.auth.signInWithPassword'));
+  assert.ok(server.includes("env('SCHOLA_AUTH_LOGIN_EMAIL')"));
   assert.match(server,/options:\{captchaToken:body\.turnstileToken\}/);
   assert.ok(!server.includes('turnstile/v0/siteverify'));
   assert.ok(!server.includes('SCHOLA_TURNSTILE_SECRET'));
