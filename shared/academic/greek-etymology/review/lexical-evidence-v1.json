@@ -1,0 +1,904 @@
+{
+  "schema": "etymologicon-lexical-evidence/v1",
+  "reviewedAt": "2026-11-12",
+  "sourceRule": "Teacher curriculum glossary can supply provisional meanings; external dictionaries and each checked Spanish article are recorded separately. No entry is upgraded by etymological resemblance alone.",
+  "teacherGlosses": [
+    {
+      "etymonId": "grc:ανθρωποσ",
+      "sourceLemma": "ἄνθρωπος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "hombre",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:βιβλιον",
+      "sourceLemma": "βιβλίον, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "libro",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:γραφω",
+      "sourceLemma": "γράφω",
+      "primaryLemmaOnly": true,
+      "curricularGloss": "escribir",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:δημοσ",
+      "sourceLemma": "δῆμος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "pueblo",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ζωον",
+      "sourceLemma": "ζῷον, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "animal",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:θεοσ",
+      "sourceLemma": "θέος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "dios",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:λογοσ",
+      "sourceLemma": "λόγος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "palabra",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:δωρον",
+      "sourceLemma": "δῶρον, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "regalo",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ξυλον",
+      "sourceLemma": "ξύλον, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "madera",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:σοφοσ",
+      "sourceLemma": "σοφός, –ου",
+      "primaryLemmaOnly": true,
+      "curricularGloss": "sabio",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:διδασκω",
+      "sourceLemma": "διδάσκω",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "enseñar",
+      "unitOfOrigin": "UD9",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ιπποσ",
+      "sourceLemma": "ἵππος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "caballo",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:βιοσ",
+      "sourceLemma": "βίος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "vida",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:δικη",
+      "sourceLemma": "δίκη, –ης",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "justicia",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:οικια",
+      "sourceLemma": "οἰκία, –ας",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "casa",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:νομοσ",
+      "sourceLemma": "νόμος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "ley",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:αρχη",
+      "sourceLemma": "ἀρχή, –ῆς",
+      "primaryLemmaOnly": true,
+      "curricularGloss": "gobierno’, ‘origen",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:δεσποτησ",
+      "sourceLemma": "δεσπότης, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "amo, señor",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:απο",
+      "sourceLemma": "ἀπό + genitivo",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "de, desde",
+      "unitOfOrigin": "Preposiciones",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:δια",
+      "sourceLemma": "διά + acusativo",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "a través de, por, a causa de",
+      "unitOfOrigin": "Preposiciones",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:εν",
+      "sourceLemma": "ἐν + dativo",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "en",
+      "unitOfOrigin": "Preposiciones",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:μετα",
+      "sourceLemma": "μετά + genitivo | acusativo",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "entre, con’ (gen.) | después de’ (ac.)",
+      "unitOfOrigin": "Preposiciones",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:περι",
+      "sourceLemma": "περί + genitivo",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "alrededor de, sobre",
+      "unitOfOrigin": "Preposiciones",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:προσ",
+      "sourceLemma": "πρός + acusativo",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "a, hacia, junto a",
+      "unitOfOrigin": "Preposiciones",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:υπο",
+      "sourceLemma": "ὐπό + genitivo",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "debajo de, por",
+      "unitOfOrigin": "Preposiciones",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:λεγω",
+      "sourceLemma": "λέγω",
+      "primaryLemmaOnly": true,
+      "curricularGloss": "decir’, ‘hablar",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:μεγασ",
+      "sourceLemma": "μέγας, μεγάλη, μέγα",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "grande",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:μικροσ",
+      "sourceLemma": "μίκρος, –α, –ον",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "pequeño/a",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:πολυσ",
+      "sourceLemma": "πολύς, πολλή, πολύ",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "mucho/a",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:καλοσ",
+      "sourceLemma": "καλός, –η, –ον",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "bonito/a",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:κακοσ",
+      "sourceLemma": "κακός, –η, –ον",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "malo/a",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:θανατοσ",
+      "sourceLemma": "θάνατος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "muerte",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:φερω",
+      "sourceLemma": "φέρω",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "llevar",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:αγω",
+      "sourceLemma": "ἄγω",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "conducir",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:υδωρ",
+      "sourceLemma": "ὕδωρ, ὕδατος (τὸ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "agua",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:φιλοσ",
+      "sourceLemma": "φίλος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "amigo",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:στρατηγοσ",
+      "sourceLemma": "στρατηγός, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "estratego",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:φοβοσ",
+      "sourceLemma": "φόβος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "miedo",
+      "unitOfOrigin": "UD10",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:γη",
+      "sourceLemma": "γή, –ης",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "tierra",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:θαλαττα",
+      "sourceLemma": "θάλαττα, –ης",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "mar",
+      "unitOfOrigin": "UDs 1–4",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ημερα",
+      "sourceLemma": "ἡμέρα, –ας",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "día",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:οδοσ",
+      "sourceLemma": "ὁδός, –ου (ἡ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "camino",
+      "unitOfOrigin": "UD5",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ηλιοσ",
+      "sourceLemma": "ἥλιος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "sol",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:παισ",
+      "sourceLemma": "παῖς, παιδός (ὁ o ἡ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "niño/a",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:πλουτοσ",
+      "sourceLemma": "πλοῦτος, –ου",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "riqueza",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:χρημα",
+      "sourceLemma": "χρῆμα, –ατος (τὸ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "cosa’ (sing.), ‘riqueza’ (pl.)",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:δερμα",
+      "sourceLemma": "δέρμα, –ματος (τὸ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "piel",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ρητωρ",
+      "sourceLemma": "ῥήτωρ, −ορος (ὁ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "orador",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:σωμα",
+      "sourceLemma": "σῶμα, –ματος (τὸ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "cuerpo",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:γερων",
+      "sourceLemma": "γέρων, −οντος (ὁ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "anciano",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ανηρ",
+      "sourceLemma": "ἀνήρ, ἀνδρός (ὁ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "hombre",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:γυνη",
+      "sourceLemma": "γυνή, γυναικός (ἡ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "mujer",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:κεφαλη",
+      "sourceLemma": "κεφαλῆ, –ῆς",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "cabeza",
+      "unitOfOrigin": "UDs 6–7",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:ρισ",
+      "sourceLemma": "ῥίς, ῥινός (ἡ)",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "nariz",
+      "unitOfOrigin": "UD8",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    },
+    {
+      "etymonId": "grc:πρωτοσ",
+      "sourceLemma": "πρῶτος, –η, –ον",
+      "primaryLemmaOnly": false,
+      "curricularGloss": "primero/a",
+      "unitOfOrigin": "UD10",
+      "review": "teacher_curriculum_crossreference",
+      "source": {
+        "repository": "ArchaiosMagister/GeneradorExamenes",
+        "path": "data/greek1-materials.json",
+        "commit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0"
+      },
+      "externalDictionaryChecked": false
+    }
+  ],
+  "externallyCheckedGreekMeanings": [
+    {
+      "etymonId": "grc:κρατοσ",
+      "lemma": "κράτος",
+      "meaning": "poder; dominio; autoridad",
+      "reference": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n59741/",
+      "source": "Liddell–Scott–Jones, Scaife ATLAS",
+      "kind": "classical_lexicon"
+    },
+    {
+      "etymonId": "grc:εργον",
+      "lemma": "ἔργον",
+      "meaning": "trabajo; obra",
+      "reference": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n42214/",
+      "source": "Liddell–Scott–Jones, Scaife ATLAS",
+      "kind": "classical_lexicon"
+    },
+    {
+      "etymonId": "grc:χρονοσ",
+      "lemma": "χρόνος",
+      "meaning": "tiempo; período",
+      "reference": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Acunliffe_lex-n9664/",
+      "source": "Cunliffe, Scaife ATLAS",
+      "kind": "classical_lexicon"
+    },
+    {
+      "etymonId": "grc:δοξα",
+      "lemma": "δόξα",
+      "meaning": "opinión; fama; reputación",
+      "reference": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n28002/",
+      "source": "Liddell–Scott–Jones, Scaife ATLAS",
+      "kind": "classical_lexicon"
+    },
+    {
+      "etymonId": "grc:καρδια",
+      "lemma": "καρδία",
+      "meaning": "corazón",
+      "reference": "https://dicciomed.usal.es/lexema/corazon",
+      "source": "Dicciomed, Universidad de Salamanca",
+      "kind": "etymological_lexicon"
+    },
+    {
+      "etymonId": "grc:ατελησ",
+      "lemma": "ἀτελής, –ές",
+      "meaning": "incompleto; imperfecto",
+      "reference": "https://dle.rae.es/atelectasia",
+      "source": "DLE (RAE-ASALE), etimología de atelectasia",
+      "kind": "etymon_cited_in_spanish_dictionary"
+    }
+  ],
+  "spanishDictionaryReviews": [
+    {
+      "word": "prosodia",
+      "ref": "https://dle.rae.es/prosodia",
+      "authority": "DLE RAE-ASALE",
+      "scope": "headword_definition_and_etymology",
+      "didacticCrosscheck": "Estudio de la pronunciación, acentuación y rasgos prosódicos de la lengua.",
+      "lexicalReview": "confirmed",
+      "reviewDate": "2026-11-12"
+    },
+    {
+      "word": "prosélito",
+      "ref": "https://dle.rae.es/pros%C3%A9lito",
+      "authority": "DLE RAE-ASALE",
+      "scope": "headword_definition_and_etymology",
+      "didacticCrosscheck": "Persona incorporada a una religión o ganada para una doctrina.",
+      "lexicalReview": "confirmed",
+      "reviewDate": "2026-11-12"
+    },
+    {
+      "word": "atelectasia",
+      "ref": "https://dle.rae.es/atelectasia",
+      "authority": "DLE RAE-ASALE",
+      "scope": "headword_definition_and_etymology",
+      "didacticCrosscheck": "Expansión pulmonar incompleta o colapso parcial de los pulmones.",
+      "lexicalReview": "confirmed",
+      "reviewDate": "2026-11-12"
+    },
+    {
+      "word": "helioterapia",
+      "ref": "https://dle.rae.es/helioterapia",
+      "authority": "DLE RAE-ASALE",
+      "scope": "headword_definition_and_etymology",
+      "didacticCrosscheck": "Uso terapéutico de la exposición a los rayos solares.",
+      "lexicalReview": "confirmed",
+      "reviewDate": "2026-11-12"
+    },
+    {
+      "word": "seudónimo",
+      "ref": "https://dle.rae.es/seud%C3%B3nimo",
+      "authority": "DLE RAE-ASALE",
+      "scope": "headword_definition_and_variant",
+      "didacticCrosscheck": "Nombre que utiliza alguien, especialmente un autor, en lugar del suyo.",
+      "attestedVariant": "pseudónimo",
+      "lexicalReview": "confirmed",
+      "reviewDate": "2026-11-12"
+    },
+    {
+      "word": "políglota",
+      "ref": "https://dle.rae.es/pol%C3%ADglota",
+      "authority": "DLE RAE-ASALE",
+      "scope": "headword_definition_and_variant",
+      "didacticCrosscheck": "Persona que habla varias lenguas; también se aplica a textos en varias lenguas.",
+      "attestedVariant": "poliglota",
+      "lexicalReview": "confirmed",
+      "reviewDate": "2026-11-12"
+    },
+    {
+      "word": "geniogloso",
+      "ref": "https://teachmeanatomy.info/es/enciclopedia/g/geniogloso/",
+      "authority": "TeachMeAnatomy",
+      "scope": "anatomical_term_and_definition_only",
+      "didacticCrosscheck": "Músculo de la lengua que nace en la mandíbula y ayuda a protruirla y deprimirla.",
+      "lexicalReview": "confirmed_specialized_not_DLE",
+      "reviewDate": "2026-11-12"
+    },
+    {
+      "word": "atelocardia",
+      "ref": "https://dicciomed.usal.es/lexema/corazon",
+      "authority": "Dicciomed, Universidad de Salamanca",
+      "scope": "attestation_only",
+      "didacticCrosscheck": null,
+      "lexicalReview": "term_attested_definition_pending",
+      "reviewDate": "2026-11-12"
+    }
+  ],
+  "publicationAllowed": false
+}

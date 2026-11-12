@@ -175,12 +175,94 @@ export function compileTeacherAudit(){
   const removed=[...oldWords].filter(w=>!actualWords.has(w)).sort();
   assert.deepEqual(added,['atelocardia','atelectasia','geniogloso','helioterapia','prosélito','prosodia'].sort());
   assert.deepEqual(removed,['heliópolis']);
+  // Los significados y contrastes externos se importan por una capa separada;
+  // nunca se deducen de las letras de un derivado ni se escriben en el Excel.
+  const evidence=JSON.parse(readFileSync(join(base,'review/lexical-evidence-v1.json'),'utf8'));
+  assert.equal(evidence.schema,'etymologicon-lexical-evidence/v1');
+  assert.equal(evidence.publicationAllowed,false);
+  const normalizeMeaning=gloss=>String(gloss).replace(/[‘’“”]/g,'').replace(/\s*\|\s*/g,'; ').trim();
+  let curricular=0, curricularPartial=0, externalMeanings=0, reviewedDefinitions=0, attestedOnly=0;
+  const seenMeanings=new Set();
+  for(const row of evidence.teacherGlosses){
+    const etymon=byEtymon.get(row.etymonId);
+    assert.ok(etymon,'Significado escolar sin étimo: '+row.etymonId);
+    assert.ok(!seenMeanings.has(row.etymonId),'Glosa escolar duplicada: '+row.etymonId);
+    assert.equal(row.source.repository,'ArchaiosMagister/GeneradorExamenes');
+    assert.equal(row.source.path,'data/greek1-materials.json');
+    assert.match(row.source.commit,/^[0-9a-f]{40}$/);
+    assert.equal(row.externalDictionaryChecked,false);
+    assert.ok(row.curricularGloss);
+    seenMeanings.add(row.etymonId);
+    etymon.meaningEvidence={
+      kind:'teacher_curriculum',status:row.primaryLemmaOnly?'partial_compound':'curriculum_crosschecked',
+      primaryLemma:row.sourceLemma,glossAsRecorded:row.curricularGloss,reference:row.source,lexicographicConfirmation:false
+    };
+    if(row.primaryLemmaOnly){
+      assert.ok(etymon.lemma.includes('|'),'Se marcó como compuesto un lema simple: '+etymon.lemma);
+      curricularPartial++;
+      // No equivale a un significado de ambos miembros del étimo compuesto.
+    }else{
+      etymon.meaning=normalizeMeaning(row.curricularGloss);
+      curricular++;
+    }
+  }
+  for(const row of evidence.externallyCheckedGreekMeanings){
+    const etymon=byEtymon.get(row.etymonId);
+    assert.ok(etymon,'Significado lexicográfico sin étimo: '+row.etymonId);
+    assert.ok(!seenMeanings.has(row.etymonId),'Conflicto entre glosa escolar y lexicográfica: '+row.etymonId);
+    assert.ok(/^https:\/\/(atlas\.perseus\.tufts\.edu|dicciomed\.usal\.es|dle\.rae\.es)\//.test(row.reference));
+    assert.ok(row.meaning);
+    seenMeanings.add(row.etymonId);
+    etymon.meaning=row.meaning;
+    etymon.meaningEvidence={
+      kind:row.kind,status:'externally_checked',source:row.source,url:row.reference,
+      lexicographicConfirmation:true
+    };
+    etymon.independentLexicographicReview=true;
+    externalMeanings++;
+  }
+  const seenDictionary=new Set();
+  for(const row of evidence.spanishDictionaryReviews){
+    const did=itemIdSpanish(row.word),derivative=derivatives.find(x=>x.id===did);
+    assert.ok(derivative,'Revisión castellana sin derivado activo: '+row.word);
+    assert.ok(!seenDictionary.has(did),'Revisión castellana repetida: '+did);
+    assert.ok(/^https:\/\//.test(row.ref),'URL inválida de contraste: '+row.word);
+    assert.ok(['confirmed','confirmed_specialized_not_DLE','term_attested_definition_pending'].includes(row.lexicalReview));
+    seenDictionary.add(did);
+    // El campo 'lexicalSource' conserva la referencia original del Excel:
+    // esta fuente independiente se añade sin reescribir esa procedencia.
+    derivative.dictionaryReview={
+      status:row.lexicalReview,scope:row.scope,authority:row.authority,
+      url:row.ref,checkedAt:row.reviewDate,didacticCrosscheck:row.didacticCrosscheck||null,
+      attestedVariant:row.attestedVariant||null
+    };
+    if(row.lexicalReview==='term_attested_definition_pending'){
+      assert.equal(row.scope,'attestation_only');
+      attestedOnly++;
+    }else{
+      assert.ok(row.didacticCrosscheck,'Falta definición contrastada: '+row.word);
+      reviewedDefinitions++;
+    }
+  }
+  assert.equal(evidence.teacherGlosses.length,55);
+  assert.equal(curricularPartial,4);
+  assert.equal(curricular,51);
+  assert.equal(externalMeanings,6);
+  assert.equal(reviewedDefinitions,7);
+  assert.equal(attestedOnly,1);
+  assert.equal(etymons.filter(x=>x.meaning!==null).length,57);
+  assert.equal(etymons.filter(x=>x.meaning===null).length,54);
   const summary={
     etymons:etymons.length,eligibleEtymons:108,consultOnlyEtymons:3,
     acceptedDerivatives:201,excludedDerivatives:1,relations:relations.length,editorialDecisions:22,
     addedComparedWithGenerator:added,removedComparedWithGenerator:removed,
-    dictionarySourcesIndependentlyChecked:0,
-    greekMeaningsCompleted:0,
+    dictionarySourcesIndependentlyChecked:reviewedDefinitions,
+    greekMeaningsCompleted:curricular+externalMeanings,
+    greekMeaningsFromTeacherCurriculum:curricular,
+    partialCompoundGlosses:curricularPartial,
+    greekMeaningsFromExternalLexicons:externalMeanings,
+    spanishEntriesOnlyAttested:attestedOnly,
+    greekMeaningsPending:etymons.length-curricular-externalMeanings,
     published:false
   };
   return {
@@ -190,7 +272,7 @@ export function compileTeacherAudit(){
     course:'gr1',
     greek2:{course:'gr2',status:'awaiting_teacher_inventory',etymons:[]},
     status:'editorially_reconciled_not_published',
-    caution:'Fuentes registradas en Excel, pero sus consultas no se han contrastado de nuevo una a una.',
+    caution:'Siete definiciones españolas y seis significados griegos tienen contraste externo documentado; los demás registros no se han revisado lexicográficamente uno a uno.',
     correctionPolicy,
     etymons,derivatives,relations,excluded,editorialDecisions,summary
   };
