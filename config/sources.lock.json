@@ -17,7 +17,8 @@
     "evolutio": {
       "repository": "ArchaiosMagister/EvolucionFonetica",
       "sha": "0897aae01b6d4c905aafa1c1a6bac5af0810c812",
-      "integrated": false
+      "integrated": true,
+      "target": "apps/evolucion-fonetica"
     },
     "examenes": {
       "repository": "ArchaiosMagister/GeneradorExamenes",

@@ -2,7 +2,7 @@
 
 ## Principio
 
-Integración por módulos independientes, sin bifurcar el desarrollo ni modificar los repositorios originales. En fase 1 se integra únicamente Appendix grammaticæ.
+Integración por módulos independientes, sin bifurcar el desarrollo ni modificar los repositorios originales. En fase 2 se integran Appendix grammaticæ y Evolutio mediante commits inmutables.
 
 ```
 ScholaClassica/
@@ -11,10 +11,10 @@ ScholaClassica/
   scripts/build.mjs    ensamblaje local sin tocar la fuente
   tests/               pruebas de rutas, identidad de bytes y navegador
   dist/                salida de prueba, nunca versionada ni publicada
-    apps/gramatica/    copia intacta de Appendix, incluidas las rutas val/
+    apps/gramatica/    copia intacta de Appendix, incluidas las rutas val/\n    apps/evolucion-fonetica/  copia de Evolutio con service worker aislado
 ```
 
-La compilación no agrega scripts ni estilos dentro de Appendix: sus contenidos se copian sin cambios, con las mismas rutas relativas, para evitar regresiones en la enseñanza.
+La compilación no agrega scripts ni estilos dentro de Appendix: sus contenidos se copian sin cambios, con las mismas rutas relativas, para evitar regresiones en la enseñanza. Evolutio también se copia sin alterar el código fuente ni su banco; solo se sobreescribe su \`sw.js\` en \`dist/\` para limitar el borrado a cachés con el prefijo \`schola-evolutio-\`.
 
 ## Sincronización futura
 

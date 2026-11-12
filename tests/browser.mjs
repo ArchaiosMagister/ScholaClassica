@@ -4,7 +4,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,join,extname,sep} from 'node:path';
 import {chromium} from 'playwright';
 const root=resolve(import.meta.dirname,'../dist');
-const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
+const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
 const server=createServer(async(req,res)=>{
   try{
     const path=new URL(req.url,'http://localhost/').pathname;
@@ -28,6 +28,21 @@ try{
     assert.ok(await page.locator('header').count(),'Falta encabezado en '+route);
     assert.equal(errors.length,0,'Error JavaScript en '+route+': '+errors.join(' | '));
   }
+  await page.goto(base+'/');
+  await page.evaluate(async()=>{await caches.open('otra-aplicacion-no-borrar')});
+  const evolutio=await page.goto(base+'/apps/evolucion-fonetica/index.html',{waitUntil:'networkidle'});
+  assert.equal(evolutio.status(),200);
+  await page.waitForFunction(async()=>Boolean((await navigator.serviceWorker.getRegistration())?.active),null,{timeout:12000});
+  const names=await page.evaluate(async()=>await caches.keys());
+  assert.ok(names.includes('otra-aplicacion-no-borrar'),'Evolutio no debe borrar las cachés de otras aplicaciones');
+  assert.ok(names.some(x=>x.startsWith('schola-evolutio-')),'Falta la caché integrada de Evolutio');
+  assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio muestra error inicial');
+  await page.context().setOffline(true);
+  await page.reload({waitUntil:'load'});
+  await page.waitForFunction(()=>!document.querySelector('#app .loading'),null,{timeout:10000});
+  assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio falla sin conexión');
+  await page.context().setOffline(false);
+  assert.equal(errors.length,0,'Error JavaScript de Evolutio: '+errors.join(' | '));
   await page.goto(base+'/');
   await page.getByRole('tab',{name:'Por herramienta'}).click();
   assert.equal(await page.locator('#panel-herramientas').isVisible(),true);
