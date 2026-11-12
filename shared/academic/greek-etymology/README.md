@@ -1,5 +1,3 @@
-> **Nuevo:** corrector determinista de dos derivados implementado como módulo independiente. Véase [especificación y pruebas](../../../docs/ETIMOLOGICON_CORRECTOR.md). Aún no existe interfaz de alumno ni PWA propia de Etymologicon.
-
 > **Revisión posterior de significados:** se han cotejado también las 51 glosas inicialmente solo docentes. Consulta [la auditoría individual](../../../docs/ETIMOLOGICON_REVISION_51_GLOSAS.md). Se mantienen las decisiones de inclusión/exclusión del Excel.
 
 # Banco académico de etimología griega · Etymologicon

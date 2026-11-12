@@ -6,7 +6,7 @@ import {createHash} from 'node:crypto';
 const root=resolve(import.meta.dirname,'..'),out=join(root,'dist');
 const hash=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 const locks=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
-test('solo se incorporan gramática y evolución fonética',()=>{
+test('solo se copian los dos repositorios originales; Etymologicon es nativo',()=>{
   assert.deepEqual(Object.entries(locks.sources).filter(([,item])=>item.integrated).map(([key])=>key).sort(),['appendix','evolutio']);
   for(const path of ['apps/examenes','apps/vocabulario'])assert.equal(existsSync(join(out,path)),false);
 });
@@ -37,9 +37,29 @@ test('Evolutio conserva todo el motor y banco, salvo la adaptación aislada del 
   assert.match(sw,/const CACHE_PREFIX='schola-evolutio-';/);
   assert.match(sw,/keys\.filter\(key=>key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION\)/);
 });
+test('Etymologicon se construye con su pantalla, corrector y banco reducido, sin publicar material docente interno',()=>{
+  const dir=join(out,'apps/etymologicon');
+  for(const file of ['index.html','style.css','app.mjs','corrector/write-two.mjs','data/gr1.json'])
+    assert.ok(existsSync(join(dir,file)),'Archivo faltante: '+file);
+  const learner=JSON.parse(readFileSync(join(dir,'data/gr1.json'),'utf8'));
+  assert.equal(learner.schema,'etymologicon-audited-catalog/v1');
+  assert.equal(learner.course,'gr1');
+  assert.equal(learner.etymons.length,111);
+  assert.equal(learner.derivatives.length,201);
+  assert.equal(learner.relations.length,217);
+  assert.equal(learner.etymons.filter(x=>x.editorialStatus==='approved_for_documented_derivatives').length,108);
+  assert.ok(!('editorialDecisions' in learner));
+  assert.ok(!('definitions' in learner.derivatives[0]));
+  assert.ok(!('source' in learner.etymons[0]));
+  assert.ok(!JSON.stringify(learner).includes('originalWorkbook'));
+  const html=readFileSync(join(dir,'index.html'),'utf8');
+  assert.ok(html.includes('id="answer-1"'));
+  assert.ok(html.includes('id="answer-2"'));
+  assert.ok(html.includes('id="result-total"'));
+});
 test('el portal ofrece dos tipos de navegación y no expone el generador',()=>{
   const html=readFileSync(join(out,'index.html'),'utf8');
-  for(const name of ['Por lengua','Por herramienta','Latín I','Latín II','Griego I','Griego II','Evolución fonética','Abrir Evolutio','Profesorado'])
+  for(const name of ['Por lengua','Por herramienta','Latín I','Latín II','Griego I','Griego II','Evolución fonética','Abrir Evolutio','Etymologicon','Profesorado'])
     assert.ok(html.includes(name),name);
   assert.ok(!/href=["'][^"']*(GeneradorExamenes|apps\/examenes)/i.test(html));
   assert.ok(!html.includes('serviceWorker.register('));
