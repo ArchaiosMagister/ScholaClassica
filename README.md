@@ -9,7 +9,7 @@ Plataforma modular de estudio de latín y griego en construcción **sin publicac
 - **Etymologicon**: primera modalidad nativa de dos derivados castellanos, corrección determinista (1 / 0,5 / 0) e interfaz con filtros de Griego I. Preparada como **PWA independiente** para instalar y practicar sin conexión tras descargar los recursos, en `dist/apps/etymologicon/`. Su servicio offline no afecta a otras aplicaciones.
 - **Vocabula Latina Græcaque**: léxico integrado desde un commit fijado. Se mantienen los ejercicios, el progreso local y el servicio Supabase; la morfología antigua no se incorpora, en espera de un módulo académico revisado.
 - **GeneradorExamenes**: todavía no incluido en el resultado.
-- **Zona docente**: no publicada; pendiente de autenticación y autorización verificadas en servidor.
+- **Zona docente**: primera interfaz de usuario, contraseña y TOTP; función de lectura de avisos con autorización en servidor. **No activada ni desplegada**: falta aprovisionar la identidad central, secretos y verificar el extremo a extremo.
 - Los repositorios originales siguen siendo las únicas fuentes editables de sus aplicaciones durante la migración.
 
 ## Construcción reproducible
@@ -39,7 +39,7 @@ El artefacto incorpora solamente recursos de **vocabulario**; copia de forma id�
 
 Las versiones originales están fijadas en `config/sources.lock.json`. No se copian archivos editables duplicados al repositorio: se importan durante la compilación; una actualización requiere aprobar una nueva versión auditada. La creación automática de propuestas de actualización aún está pendiente. El proceso no realiza escrituras en ningún repositorio externo.
 
-Documentación: `docs/ARQUITECTURA.md`, `docs/SEGURIDAD.md`, `docs/PLAN_INTEGRACION.md`.
+Documentación: `docs/ARQUITECTURA.md`, `docs/SEGURIDAD.md`, `docs/DOCENTE_AUTENTICACION.md`, `docs/PLAN_INTEGRACION.md`.
 
 ## Instalación y modo offline de Etymologicon
 

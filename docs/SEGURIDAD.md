@@ -1,7 +1,15 @@
-# Seguridad docente — decisión pendiente de implementación
+# Seguridad de la zona docente
 
-La futura sección del profesor debe requerir autenticación **y autorización en servidor**. Ocultar enlaces o limitar páginas con JavaScript en GitHub Pages no protege archivos estáticos. ScholaClassica no publica en su primera fase una copia del generador ni fichas docentes nuevas.
+Existe una **primera implementación no activada** de autenticación central con Supabase Auth y TOTP, más un endpoint de avisos de solo lectura. Véase [DOCENTE_AUTENTICACION.md](DOCENTE_AUTENTICACION.md).
 
-Modelo candidato: identidad gestionada por Supabase Auth, permisos establecidos mediante claims de aplicación o registros protegidos con RLS, operaciones sensibles atendidas por API/Edge Functions y controles de autorización en cada operación. La elección definitiva requiere decidir qué hacer con la URL pública original del generador; conservarla significa que esa versión seguirá siendo accesible independientemente del acceso protegido a ScholaClassica.
+**No es una zona privada operativa en producción**: el artefacto normal contiene `docente/auth-config.json` con `enabled:false`; no hay identidad ni claves configuradas, y `schola-inbox` no está desplegada.
 
-No reutilizar los códigos de alumno de Palabra del día; dicha aplicación está excluida. No incluir claves de service role en HTML/JS público. La autenticación no puede depender de secretos en el navegador. Ningún sistema de login se declara implementado.
+## Límites de la protección
+
+- GitHub Pages publica HTML, CSS y JavaScript: son públicos por definición; nunca colocar allí datos o herramientas realmente secretos.
+- La Edge Function `schola-inbox` rechaza peticiones que no correspondan a una cuenta previamente designada y a una sesión validada por Supabase Auth con TOTP (`aal2`). No depende de ocultar enlaces.
+- Las claves privilegiadas de los orígenes viven exclusivamente en secretos de función. Se han probado rutas negativas con simulaciones; falta validar el extremo a extremo con Supabase Auth real.
+- El GeneradorExamenes original mantiene su URL y alojamiento independientes; ScholaClassica no puede proteger una web publicada en otro dominio solo mediante un enlace o un login en este portal. No se incorpora a `dist/`.
+- No se reutilizan los códigos de alumno de Palabra del día. La consulta de propuestas externas no realiza cambios ni guarda información personal del alumnado en ScholaClassica.
+
+Pendientes imprescindibles: aprovisionamiento de cuenta e identidad central, secretos, configuración de CAPTCHA/rate limiting, recuperación y revocación, pruebas reales de TOTP con Contraseñas de Apple, auditoría en dispositivos y decisión final sobre un CDN frente a SDK vendorizado.
