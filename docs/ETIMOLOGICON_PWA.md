@@ -17,7 +17,7 @@ Una vez **completada** la instalación del trabajador offline, el alumno puede v
 
 La página contiene una sección «Instalación y uso sin conexión»: mensaje sobre la disponibilidad offline, botón «Buscar actualizaciones», botón «Aplicar nueva versión» cuando exista una versión preparada, botón «Instalar Etymologicon» cuando el navegador emita el evento \`beforeinstallprompt\`, e instrucciones de instalación manual en Safari.
 
-**Primera instalación:** requiere una conexión y que el navegador permita service workers. Si no lo permite, la actividad online sigue funcionando, pero no se promete funcionamiento offline. Las preferencias visuales continúan en \`localStorage\`; no se guardan por ahora estadísticas ni respuestas personales.
+**Primera instalación:** requiere una conexión y que el navegador permita service workers. Si no lo permite, la actividad online sigue funcionando, pero no se promete funcionamiento offline. Las preferencias visuales y las estadísticas agregadas se guardan por separado en \`localStorage\`. No se conservan las palabras escritas. El nuevo módulo de progreso también se precarga para trabajar sin conexión.
 
 ## Aislamiento y actualización sin regresiones
 
@@ -42,3 +42,7 @@ Las versiones nuevas no llaman a \`skipWaiting()\` automáticamente. Cuando hay 
 
 Griego II sigue sin banco y la primera modalidad de dos derivados conserva su puntuación exacta y sus decisiones docentes.
 
+
+## Progreso y copia de seguridad offline
+
+Las estadísticas y la repetición inteligente ya se gestionan en el cliente, sin API ni servidor. La PWA precarga `progress.mjs` y conserva los datos locales cuando actualiza el banco o el corrector. El alumnado puede exportar, importar tras validación y confirmación, o borrar voluntariamente sus estadísticas. Consulta [la guía de progreso](ETIMOLOGICON_PROGRESO_Y_REPASO.md).

@@ -9,7 +9,7 @@ const moduleDir=join(root,'dist/apps/etymologicon');
 const fromModule=path=>readFileSync(join(moduleDir,path));
 const read=path=>fromModule(path).toString('utf8');
 const core=[
-  'index.html','style.css','app.mjs','corrector/write-two.mjs',
+  'index.html','style.css','app.mjs','progress.mjs','corrector/write-two.mjs',
   'data/gr1.json','manifest.webmanifest','icons/icon.svg',
   'icons/icon-192.png','icons/icon-512.png',
   'icons/icon-maskable-512.png','icons/apple-touch-icon.png'

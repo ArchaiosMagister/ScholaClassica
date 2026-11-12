@@ -52,3 +52,19 @@ test('el primer módulo de Etymologicon utiliza imports relativos compatibles co
   assert.match(ui,/fetch\('\.\/data\/gr1\.json'\)/);
   assert.match(ui,/engine\.grade\(item\.id,\[ui\.first\.value,ui\.second\.value\]\)/);
 });
+
+test('el módulo de progreso tiene conexión con la interfaz y se precarga como PWA',()=>{
+  const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+  const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
+  for(const id of ['practice-mode','stats-exercises','stats-average','stats-pending',
+    'export-progress','import-file','import-preview','confirm-import','reset-progress','stats-units'])
+    assert.ok(html.includes('id="'+id+'"'),id);
+  assert.match(app,/from '\.\/progress\.mjs'/);
+  assert.match(app,/recordExercise\(progress,eligible,result\)/);
+  assert.match(app,/saveProgress\(storage,progress,eligible\)/);
+  assert.match(app,/filteredEtyma\(eligible,progress/);
+  assert.match(app,/chooseAdaptive\(pool,progress/);
+  assert.match(app,/importProgress\(await file\.text\(\),eligible\)/);
+  assert.match(app,/exportProgress\(progress,eligible\)/);
+  assert.match(app,/window\.confirm\(/);
+});

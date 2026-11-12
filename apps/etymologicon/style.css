@@ -109,3 +109,44 @@ button{min-height:46px;border-radius:10px;padding:11px 17px;font-weight:700;bord
 .install-help{font-size:.87rem;border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink)}
 .install-help summary{font-weight:700;cursor:pointer}
 .install-help p{color:var(--muted);margin:12px 0 0}
+
+
+/* Seguimiento del aprendizaje, privado y persistente en el dispositivo */
+.empty-practice{border:1px dashed var(--line);border-radius:12px;background:var(--bg);
+ padding:20px;color:var(--muted);font-weight:550}
+.progress-panel{margin-top:26px}
+.progress-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.progress-heading h2{margin:0 0 18px;font-size:1.35rem}
+.progress-heading .muted{margin:0;max-width:370px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:6px 0 24px}
+.stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:15px;
+ display:flex;flex-direction:column;gap:4px;min-width:0}
+.stat strong{color:var(--accent);font-size:clamp(1.3rem,2.3vw,1.8rem);line-height:1.2}
+.stat span{font-size:.84rem;color:var(--muted)}
+.unit-progress{border-top:1px solid var(--line);padding:15px 0;margin-bottom:12px}
+.unit-progress summary{font-weight:700;cursor:pointer}
+.unit-progress .field-help{margin:10px 0}
+.stats-table-wrap{overflow-x:auto}
+.stats-table-wrap table{border-collapse:collapse;width:100%;min-width:250px;text-align:left}
+.stats-table-wrap th,.stats-table-wrap td{border-bottom:1px solid var(--line);padding:9px 10px}
+.stats-table-wrap th{color:var(--muted);font-size:.85rem}
+.stats-table-wrap td:not(:first-child),.stats-table-wrap th:not(:first-child){text-align:right}
+.progress-management{border-top:1px solid var(--line);padding-top:18px}
+.progress-management h3{font-size:1.07rem;margin:0 0 6px}
+.progress-management .muted{margin:4px 0 18px}
+.progress-actions{display:flex;align-items:end;flex-wrap:wrap;gap:12px}
+.file-field{min-width:230px;flex:1}
+.file-field label{display:block;font-weight:680;font-size:.91rem;margin-bottom:5px}
+.file-field input{height:auto;min-height:46px;padding:9px;cursor:pointer}
+.file-field input::file-selector-button{border:1px solid var(--line);
+ border-radius:8px;background:var(--panel);color:var(--ink);padding:5px 9px;margin-right:8px;cursor:pointer}
+.danger-button{border-color:var(--error);color:var(--error)}
+.import-preview{margin-top:18px;background:var(--bg);border:1px solid var(--accent);border-radius:12px;padding:16px}
+.import-preview p{margin:0 0 12px}
+.import-warning{font-weight:680;color:var(--warning)}
+.progress-status{font-size:.88rem;line-height:1.55;color:var(--muted);margin:18px 0 0}
+@media(max-width:720px){.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.progress-actions,.progress-actions>button,.file-field{width:100%}
+ .progress-heading{display:block}
+ .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .stat{padding:12px}}
