@@ -19,6 +19,8 @@
     "etymology:study:test": "node --test tests/etymologicon-study.test.mjs",
     "etymology:quiz:test": "node --test tests/etymologicon-quiz.test.mjs",
     "etymology:decomposition:test": "node --test tests/etymologicon-decomposition.test.mjs",
-    "test:browser:docente": "node tests/docente-browser.mjs"
+    "test:browser:docente": "node tests/docente-browser.mjs",
+    "build:docente": "node scripts/build-docente.mjs",
+    "test:docente:aislamiento": "node --test tests/docente-aislamiento.test.mjs"
   }
 }

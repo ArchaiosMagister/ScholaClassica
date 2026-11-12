@@ -15,25 +15,11 @@ await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 await cp(join(root,'public'),out,{recursive:true,force:true});
 
-const authKeys=['SCHOLA_AUTH_URL','SCHOLA_AUTH_PUBLISHABLE_KEY','SCHOLA_AUTH_LOGIN_EMAIL'];
-const supplied=authKeys.filter(key=>Boolean(process.env[key]?.trim()));
-if(supplied.length>0&&supplied.length!==authKeys.length)
-  throw Error('Configuración docente incompleta: se requieren URL, clave pública y email dedicado');
-if(supplied.length===authKeys.length){
-  const url=process.env.SCHOLA_AUTH_URL.trim();
-  const key=process.env.SCHOLA_AUTH_PUBLISHABLE_KEY.trim();
-  const email=process.env.SCHOLA_AUTH_LOGIN_EMAIL.trim();
-  if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url)||
-    !((key.startsWith('sb_publishable_')||key.startsWith('eyJ'))&&key.length>20)||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-    throw Error('Configuración docente no válida; no utilizar una clave secreta');
-  await writeFile(join(out,'docente/auth-config.json'),JSON.stringify({
-    enabled:true,url,publishableKey:key,email,username:'MagisterArchaios'
-  }));
-  console.log('Zona docente configurada mediante variables públicas; su activación sigue exigiendo servidor con aal2');
-}else{
-  console.log('Zona docente sin credenciales públicas: acceso bloqueado hasta aprovisionamiento');
-}
+// Nunca habilitar la identidad docente dentro del mismo origen que el alumnado.
+// La zona privada se construye por separado con scripts/build-docente.mjs.
+if(Object.keys(process.env).some(name=>name.startsWith('SCHOLA_AUTH_')||name==='SCHOLA_DOCENTE_ORIGIN'))
+  throw Error('El portal público no admite credenciales de identidad docente; utiliza npm run build:docente');
+await writeFile(join(out,'docente/auth-config.json'),JSON.stringify({enabled:false})+'\\n');
 
 const destination=join(out,'apps/gramatica');
 await mkdir(join(out,'apps'),{recursive:true});
