@@ -24,7 +24,7 @@ test('la autorización docente exige cuenta, sujeto y nivel aal2 verificados',()
   assert.equal(check({...claims,role:'anon'}),false);
   assert.equal(check({...claims,is_anonymous:true}),false);
   assert.equal(check(claims,{...teacher,is_anonymous:true}),false);
-  assert.equal(check(claims,undefined),false);
+  assert.equal(check(claims,null),false);
   assert.equal(check(claims,teacher,'UUID-OTRA'),false);
   assert.equal(authorizeVerifiedTeacher({verifiedUser:teacher,accessToken:'false',teacherUserId:teacherId}),false);
 });
