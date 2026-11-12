@@ -65,6 +65,8 @@ jobs:
         run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
+      - name: Preparar artefacto docente separado y desactivado (sin desplegar)
+        run: npm run build:docente
       - name: Comprobar copia exacta, enlaces y aislamiento de herramientas docentes
         run: npm test
       - name: Preparar Chromium para prueba de navegación

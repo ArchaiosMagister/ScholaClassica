@@ -5,7 +5,17 @@ import {authorizeVerifiedTeacher} from '../_shared/teacher-authorization.mjs';
 
 const header={ 'content-type':'application/json; charset=utf-8','cache-control':'no-store','vary':'Origin' };
 // El dominio docente se configura explícitamente y debe ser un ORIGEN AISLADO.
-const originAllowed=(origin:string|null)=>Boolean(env('SCHOLA_ALLOWED_ORIGIN'))&&origin===env('SCHOLA_ALLOWED_ORIGIN');
+function authorizedOrigin(){
+  const configured=env('SCHOLA_ALLOWED_ORIGIN');
+  try{
+    const url=new URL(configured);
+    return url.protocol==='https:'&&url.origin===configured&&url.pathname==='/'&&
+      url.hostname!=='archaiosmagister.github.io'&&
+      url.hostname!=='localhost'&&url.hostname!=='127.0.0.1'
+      ?configured:null;
+  }catch{return null}
+}
+const originAllowed=(origin:string|null)=>Boolean(authorizedOrigin())&&origin===authorizedOrigin();
 function reply(status:number,data:unknown,origin:string|null){
   const cors=originAllowed(origin)?{'access-control-allow-origin':origin!}:{};
   return new Response(JSON.stringify(data),{status,headers:{...header,...cors}});
