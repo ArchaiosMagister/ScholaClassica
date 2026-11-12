@@ -5,7 +5,7 @@ export function allowedTeacherOrigin(raw){
   if(typeof raw!=='string')return null;
   try{
     const url=new URL(raw);
-    if(url.protocol!=='https:'||raw!==url.origin||
+    if(url.protocol!=='https:'||url.port||raw!==url.origin||
       url.hostname==='archaiosmagister.github.io'||
       url.hostname==='localhost'||url.hostname==='127.0.0.1')return null;
     return url.origin;
