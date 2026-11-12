@@ -3,6 +3,7 @@ import {cp,mkdir,writeFile,stat,readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {compileTeacherAudit} from './compile-etymologicon-gr1.mjs';
+import {createDecompositionCatalog} from './compile-etymologicon-decomposition.mjs';
 
 /**
  * Exportación mínima para el navegador: solo campos necesarios para practicar.
@@ -52,11 +53,14 @@ export async function buildEtymologicon({root,out}){
   const catalog=createLearnerCatalog(compileTeacherAudit());
   await mkdir(join(destination,'data'),{recursive:true});
   await writeFile(join(destination,'data/gr1.json'),JSON.stringify(catalog)+'\n','utf8');
+  const decomposition=createDecompositionCatalog(catalog);
+  await writeFile(join(destination,'data/gr1-decomposition.json'),
+    JSON.stringify(decomposition)+'\n','utf8');
   // Generación de SW con versión de caché derivada de TODO el contenido.
   // No hay SW compartido de ScholaClassica: el alcance es solo este módulo.
   const core=[
-    'index.html','style.css','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','corrector/write-two.mjs',
-    'data/gr1.json','manifest.webmanifest','icons/icon.svg',
+    'index.html','style.css','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs',
+    'data/gr1.json','data/gr1-decomposition.json','manifest.webmanifest','icons/icon.svg',
     'icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png',
     'icons/apple-touch-icon.png'
   ];

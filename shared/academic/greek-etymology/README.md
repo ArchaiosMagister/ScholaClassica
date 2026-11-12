@@ -1,3 +1,5 @@
+> **Descomposición:** piloto cerrado de 16 derivados (185 pendientes de contraste individual), con distinción entre étimos y elementos compositivos. [Informe de auditoría](../../../docs/ETIMOLOGICON_DESCOMPOSICION_PILOTO.md). Sin publicación ni modificación de relaciones originales.
+
 > **Práctica nueva:** opción múltiple e identificación inversa restringidas al banco cerrado y a relaciones de atribución única.
 
 > **Modalidades de estudio:** tarjetas y emparejamientos basados exclusivamente en el inventario aprobado; estadísticas independientes y repaso inteligente común. [Documentación](../../../docs/ETIMOLOGICON_TARJETAS_RELACIONES.md).

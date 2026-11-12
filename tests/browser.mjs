@@ -222,6 +222,49 @@ try{
   await page.locator('#activity-type').selectOption('writing');
   assert.equal(await page.locator('#answer-form').isVisible(),true);
 
+  // Piloto de composición con evidencias DLE, no todos los 201 derivados.
+  await page.locator('#activity-type').selectOption('decomposition');
+  assert.equal(await page.locator('#decomposition-section').isVisible(),true);
+  assert.equal(await page.locator('#answer-form').isHidden(),true);
+  assert.equal(await page.locator('#etymon-field').isHidden(),true);
+  assert.ok((await page.locator('#pool-size').textContent()).includes('16 palabras'));
+  const firstCompound=await page.evaluate(async()=>{
+    const audit=await fetch('./data/gr1-decomposition.json').then(r=>r.json());
+    const selected=document.querySelector('#decomposition-word').textContent;
+    return audit.entries.find(e=>e.form===selected);
+  });
+  assert.ok(firstCompound&&firstCompound.parts.length===2);
+  await page.locator('#decomposition-first').fill(firstCompound.parts[0].latinAccepted[0]);
+  await page.locator('#decomposition-second').fill(firstCompound.parts[1].latinAccepted[0]);
+  await page.getByRole('button',{name:'Corregir descomposición'}).click();
+  assert.ok((await page.locator('#decomposition-score').textContent()).includes('2 / 2 puntos'));
+  assert.equal((await page.locator('#stats-decomposition').textContent()).trim(),'1');
+  assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
+  assert.ok((await page.locator('#decomposition-route').textContent()).length>20);
+  assert.ok((await page.locator('#decomposition-source').getAttribute('href')).startsWith('https://dle.rae.es/'));
+  await page.getByRole('button',{name:'Otra palabra'}).click();
+  assert.notEqual((await page.locator('#decomposition-word').textContent()),firstCompound.form);
+  const secondCompound=await page.evaluate(async()=>{
+    const audit=await fetch('./data/gr1-decomposition.json').then(r=>r.json());
+    return audit.entries.find(e=>e.form===document.querySelector('#decomposition-word').textContent);
+  });
+  await page.locator('#decomposition-first').fill('sohpia');
+  await page.locator('#decomposition-second').fill(secondCompound.parts[1].greek
+    .normalize('NFD').replace(/\p{M}/gu,''));
+  await page.getByRole('button',{name:'Corregir descomposición'}).click();
+  assert.ok((await page.locator('#decomposition-score').textContent()).includes('1 / 2 puntos'));
+  assert.equal((await page.locator('#stats-decomposition').textContent()).trim(),'2');
+  assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
+  await page.locator('#practice-mode').selectOption('unit');
+  await page.locator('#unit-select').selectOption('UD12');
+  assert.ok((await page.locator('#pool-size').textContent()).includes('16 palabras'));
+  await page.locator('#practice-mode').selectOption('general');
+  await page.locator('details.virtual-keyboard').last().locator('summary').click();
+  await page.getByRole('button',{name:'Insertar λ'}).last().click();
+  assert.ok((await page.locator('#decomposition-first').inputValue()).includes('λ'));
+  await page.locator('#activity-type').selectOption('writing');
+  assert.equal(await page.locator('#answer-form').isVisible(),true);
+
   await page.locator('#theme-select').selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
   await page.reload({waitUntil:'networkidle'});
@@ -261,7 +304,9 @@ try{
   const offlineResources=await page.evaluate(async()=>{
     const urls=['./manifest.webmanifest','./icons/icon-192.png',
       './data/gr1.json','./corrector/write-two.mjs','./progress.mjs',
-      './study.mjs','./activities-ui.mjs','./quiz.mjs','./quiz-ui.mjs'];
+      './study.mjs','./activities-ui.mjs','./quiz.mjs','./quiz-ui.mjs',
+      './decomposition.mjs','./decomposition-ui.mjs',
+      './greek-keyboard.mjs','./data/gr1-decomposition.json'];
     return Promise.all(urls.map(async path=>{
       const response=await fetch(path);
       return response.ok;
@@ -328,6 +373,19 @@ try{
   await page.getByRole('button',{name:'Comprobar étimo'}).click();
   assert.ok((await page.locator('#inverse-feedback').textContent()).includes('1 / 1 punto'));
   assert.equal((await page.locator('#stats-inverse').textContent()).trim(),'3');
+  await page.locator('#activity-type').selectOption('decomposition');
+  assert.equal(await page.locator('#decomposition-section').isVisible(),true);
+  const offlineCompound=await page.evaluate(async()=>{
+    const data=await fetch('./data/gr1-decomposition.json').then(r=>r.json());
+    return data.entries.find(x=>x.form===document.querySelector('#decomposition-word').textContent);
+  });
+  await page.locator('#decomposition-first').fill(offlineCompound.parts[0].greek
+    .normalize('NFD').replace(/\p{M}/gu,''));
+  await page.locator('#decomposition-second').fill(offlineCompound.parts[1].latinAccepted[0]);
+  await page.getByRole('button',{name:'Corregir descomposición'}).click();
+  assert.ok((await page.locator('#decomposition-score').textContent()).includes('2 / 2 puntos'));
+  assert.equal((await page.locator('#stats-decomposition').textContent()).trim(),'3');
+  assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'2');
   await page.locator('#activity-type').selectOption('writing');
   await page.context().setOffline(false);
   await page.getByRole('button',{name:'Buscar actualizaciones'}).click();

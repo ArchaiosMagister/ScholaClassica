@@ -13,7 +13,7 @@ const MODES=new Set(['general','errors','unit']);
 export function emptyProgress(){
   return {schema:PROGRESS_SCHEMA,updatedAt:null,
     courses:{gr1:{records:{}},gr2:{records:{}}},
-    activities:{cards:{records:{}},matching:{records:{}},mcq:{records:{}},inverse:{records:{}}}};
+    activities:{cards:{records:{}},matching:{records:{}},mcq:{records:{}},inverse:{records:{}},decomposition:{records:{}}}};
 }
 function plain(value){
   return value!==null&&typeof value==='object'&&!Array.isArray(value)&&
@@ -94,9 +94,13 @@ export function validateProgress(input,etymons){
   // no incluían «activities»; se recuperan sin descartar el progreso escrito.
   if(Object.hasOwn(input,'activities')){
     const oldFormat=keysExact(input.activities,['cards','matching']);
-    const newFormat=keysExact(input.activities,['cards','matching','mcq','inverse']);
-    assert(oldFormat||newFormat,'actividades adicionales');
-    for(const type of oldFormat?['cards','matching']:['cards','matching','mcq','inverse']){
+    const priorFormat=keysExact(input.activities,['cards','matching','mcq','inverse']);
+    const newFormat=keysExact(input.activities,['cards','matching','mcq','inverse','decomposition']);
+    assert(oldFormat||priorFormat||newFormat,'actividades adicionales');
+    const types=oldFormat?['cards','matching']:
+      priorFormat?['cards','matching','mcq','inverse']:
+        ['cards','matching','mcq','inverse','decomposition'];
+    for(const type of types){
       const section=input.activities[type];
       assert(keysExact(section,['records']),'estructura de '+type);
       assert(plain(section.records),'registros de '+type);
@@ -255,7 +259,7 @@ export function recordMatchingRound(state,etymons,results,at=new Date().toISOStr
 /** Cuestionarios e inversos son pruebas objetivas: un intento = 1/0. */
 export function recordQuizAttempt(state,etymons,kind,etymonId,correct,at=new Date().toISOString()){
   const checked=validateProgress(state,etymons);
-  assert(['mcq','inverse'].includes(kind),'actividad de cuestionario desconocida');
+  assert(['mcq','inverse','decomposition'].includes(kind),'actividad de cuestionario desconocida');
   assert(knownIds(etymons).has(etymonId),'étimo desconocido');
   assert(typeof correct==='boolean','resultado incorrecto');
   assert(iso(at),'fecha del cuestionario');
@@ -277,6 +281,7 @@ export function activitySummary(state){
   const matches=Object.values(state.activities.matching.records);
   const mcq=Object.values(state.activities.mcq.records);
   const inverse=Object.values(state.activities.inverse.records);
+  const decomposition=Object.values(state.activities.decomposition.records);
   return {
     cardsReviewed:cards.reduce((n,r)=>n+r.attempts,0),
     cardsRemembered:cards.reduce((n,r)=>n+r.remembered,0),
@@ -287,7 +292,9 @@ export function activitySummary(state){
     mcqAttempted:mcq.reduce((n,r)=>n+r.attempts,0),
     mcqCorrect:mcq.reduce((n,r)=>n+r.correct,0),
     inverseAttempted:inverse.reduce((n,r)=>n+r.attempts,0),
-    inverseCorrect:inverse.reduce((n,r)=>n+r.correct,0)
+    inverseCorrect:inverse.reduce((n,r)=>n+r.correct,0),
+    decompositionAttempted:decomposition.reduce((n,r)=>n+r.attempts,0),
+    decompositionPerfect:decomposition.reduce((n,r)=>n+r.correct,0)
   };
 }
 export function needsAnyReview(state,id){
@@ -295,7 +302,8 @@ export function needsAnyReview(state,id){
     state.activities.cards.records[id]?.needsReview||
     state.activities.matching.records[id]?.needsReview||
     state.activities.mcq.records[id]?.needsReview||
-    state.activities.inverse.records[id]?.needsReview);
+    state.activities.inverse.records[id]?.needsReview||
+    state.activities.decomposition.records[id]?.needsReview);
 }
 
 export function progressSummary(state,etymons){
@@ -344,7 +352,8 @@ export function chooseAdaptive(pool,state,{excludeId=null,random=Math.random}={}
     (state.activities.cards.records[e.id]?.needsReview?4:0)+
     (state.activities.matching.records[e.id]?.needsReview?4:0)+
     (state.activities.mcq.records[e.id]?.needsReview?4:0)+
-    (state.activities.inverse.records[e.id]?.needsReview?4:0);
+    (state.activities.inverse.records[e.id]?.needsReview?4:0)+
+    (state.activities.decomposition.records[e.id]?.needsReview?4:0);
   const total=candidates.reduce((s,e)=>s+weight(e),0);
   const value=random();
   if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>=1)

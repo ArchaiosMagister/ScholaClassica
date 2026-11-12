@@ -104,3 +104,25 @@ test('opciones múltiples y teclado griego conectados al motor del banco cerrado
  assert.match(controller,/recordQuizAttempt\(state,etymons,'inverse'/);
  assert.match(controller,/input\.setRangeText\(character,start,end,'end'\)/);
 });
+
+
+test('la interfaz de descomposición reutiliza el teclado y el corrector sin cambiar la escritura',()=>{
+ const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+ const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
+ const controller=readFileSync(new URL('../apps/etymologicon/decomposition-ui.mjs',import.meta.url),'utf8');
+ const keyboard=readFileSync(new URL('../apps/etymologicon/greek-keyboard.mjs',import.meta.url),'utf8');
+ for(const id of ['decomposition-section','decomposition-word','decomposition-form',
+   'decomposition-first','decomposition-second','decomposition-preview-first',
+   'decomposition-preview-second','decomposition-keyboard','decomposition-results',
+   'decomposition-score','decomposition-answers','decomposition-source',
+   'stats-decomposition','stats-decomposition-perfect'])
+   assert.ok(html.includes('id="'+id+'"'),id);
+ assert.match(html,/value="decomposition"/);
+ assert.match(app,/createDecompositionController/);
+ assert.match(app,/fetch\('\.\/data\/gr1-decomposition\.json'\)/);
+ assert.match(app,/decompositionController\?\.render/);
+ assert.match(controller,/createDecompositionBank\(data\)/);
+ assert.match(controller,/recordQuizAttempt\(state,etymons,'decomposition'/);
+ assert.match(controller,/attachGreekKeyboard\(els\.keyboard/);
+ assert.match(keyboard,/input\.setRangeText\(character,start,end,'end'\)/);
+});

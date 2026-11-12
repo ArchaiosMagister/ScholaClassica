@@ -55,6 +55,7 @@
             <option value="matching">Relacionar étimos y derivados</option>
             <option value="mcq">Respuesta múltiple</option>
             <option value="inverse">Identificar étimos griegos</option>
+            <option value="decomposition">Descomponer palabras castellanas</option>
           </select>
         </div>
         <div class="field">
@@ -183,6 +184,47 @@
             <p id="inverse-feedback" class="study-feedback" role="status" aria-live="polite"></p>
           </section>
 
+
+          <section id="decomposition-section" class="study-section" aria-labelledby="decomposition-title" hidden>
+            <p class="eyebrow">Componentes griegos · piloto contrastado</p>
+            <h3 id="decomposition-title">Descompón esta palabra castellana</h3>
+            <p class="inverse-spanish" id="decomposition-word" lang="es"></p>
+            <p class="study-note">Identifica por orden las dos bases griegas. Puedes escribir en griego, sin acentos ni espíritus, o emplear los caracteres latinos. Se distinguen los lemas y los elementos compositivos.</p>
+            <form id="decomposition-form" novalidate>
+              <div class="answer-grid">
+                <div class="field">
+                  <label for="decomposition-first">Primer componente griego</label>
+                  <input id="decomposition-first" type="text" maxlength="80" autocapitalize="off"
+                    autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Escribe un étimo">
+                  <p id="decomposition-preview-first" class="decomposition-preview" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="decomposition-second">Segundo componente griego</label>
+                  <input id="decomposition-second" type="text" maxlength="80" autocapitalize="off"
+                    autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Escribe el otro étimo">
+                  <p id="decomposition-preview-second" class="decomposition-preview" aria-live="polite"></p>
+                </div>
+              </div>
+              <details class="virtual-keyboard">
+                <summary>Teclado griego virtual</summary>
+                <p class="field-help">Selecciona la casilla en la que quieras escribir antes de tocar una letra.</p>
+                <div id="decomposition-keyboard" class="greek-keyboard" role="group" aria-label="Teclado griego para descomposición"></div>
+              </details>
+              <div class="actions">
+                <button class="primary-button" type="submit">Corregir descomposición</button>
+                <button class="secondary-button" type="button" id="decomposition-clear">Borrar componentes</button>
+              </div>
+            </form>
+            <div id="decomposition-results" class="decomposition-results" aria-live="polite" hidden>
+              <p id="decomposition-score" class="matching-score" tabindex="-1"></p>
+              <ol id="decomposition-answers" class="result-items"></ol>
+              <p id="decomposition-meaning" class="study-note"></p>
+              <p id="decomposition-route" class="study-note"></p>
+              <a id="decomposition-source" target="_blank" rel="noopener noreferrer">Consultar el artículo del DLE (RAE-ASALE)</a>
+            </div>
+            <p id="decomposition-empty" class="empty-practice" role="status" hidden>No hay descomposiciones acreditadas para esta selección. Cambia de unidad o modo de repaso.</p>
+          </section>
+
           <form id="answer-form" novalidate>
             <div class="answer-grid">
               <div class="field">
@@ -241,6 +283,8 @@
         <div class="stat"><strong id="stats-mcq-correct">0</strong><span>Preguntas acertadas</span></div>
         <div class="stat"><strong id="stats-inverse">0</strong><span>Étimos identificados: intentos</span></div>
         <div class="stat"><strong id="stats-inverse-correct">0</strong><span>Étimos identificados: aciertos</span></div>
+        <div class="stat"><strong id="stats-decomposition">0</strong><span>Descomposiciones practicadas</span></div>
+        <div class="stat"><strong id="stats-decomposition-perfect">0</strong><span>Descomposiciones perfectas</span></div>
       </div>
       <details class="unit-progress">
         <summary>Estadísticas por unidad</summary>
@@ -281,7 +325,7 @@
         <p><strong>0,5 puntos</strong> · Derivado reconocible con una o más faltas ortográficas inequívocas.</p>
         <p><strong>0 puntos</strong> · Respuesta no admitida, ambigua, excluida o repetida.</p>
       </div>
-      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Las tarjetas no tienen nota objetiva; la relación, la respuesta múltiple y la identificación inversa registran aciertos por separado. Otras modalidades se incorporarán progresivamente.</p>
+      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Las tarjetas no tienen nota objetiva; las demás actividades registran aciertos por separado. La descomposición solo emplea un piloto filológico cerrado, no todos los derivados castellanos.</p>
     </section>
   </main>
   <footer class="footer">
