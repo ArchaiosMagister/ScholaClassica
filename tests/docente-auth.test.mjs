@@ -33,6 +33,8 @@ test('el endpoint verifica el token en Supabase antes de interpretar claims y no
   assert.match(server,/identity\.auth\.getUser\(match\[1\]\)/);
   assert.match(server,/authorizeVerifiedTeacher\(/);
   assert.match(server,/SCHOLA_TEACHER_USER_ID/);
+  assert.match(server,/SCHOLA_ALLOWED_ORIGIN/);
+  assert.ok(!server.includes("origin==='https://archaiosmagister.github.io'"));
   assert.match(server,/VOCABULA_SERVICE_ROLE_KEY/);
   assert.match(server,/PALABRA_SERVICE_ROLE_KEY/);
   assert.match(server,/\.eq\('status','pending'\)/);
@@ -49,6 +51,8 @@ test('la zona docente se publica bloqueada por defecto, sin claves privilegiadas
   assert.match(html,/id="enroll-code"/);
   assert.match(js,/getAuthenticatorAssuranceLevel/);
   assert.match(js,/challengeAndVerify/);
+  assert.match(js,/persistSession:false/);
+  assert.ok(!js.includes('localStorage'));
   assert.match(js,/client\.functions\.invoke\('schola-inbox'/);
   assert.ok(!js.includes('service_role'));
   assert.ok(!html.includes('GeneradorExamenes'));
