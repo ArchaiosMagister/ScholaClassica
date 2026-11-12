@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 import {
-  allowedTeacherOrigin,validTeacherLogin,turnstileAccepted,authorizedInitialSession
+  allowedTeacherOrigin,validTeacherLogin,authorizedInitialSession
 } from '../supabase/functions/_shared/teacher-login-policy.mjs';
 const root=resolve(import.meta.dirname,'..');
 const origin='https://docente.ejemplo.test';
@@ -24,14 +24,6 @@ test('rechaza usuarios desconocidos, campos malformados y solicitudes enormes',(
   assert.equal(validTeacherLogin({...login,turnstileToken:'x'.repeat(2049)}),false);
   assert.equal(validTeacherLogin(null),false);
 });
-test('un Turnstile válido también exige acción y hostname correctos',()=>{
-  const ok={success:true,hostname:'docente.ejemplo.test',action:'schola-login'};
-  assert.equal(turnstileAccepted(ok,origin),true);
-  assert.equal(turnstileAccepted({...ok,success:false},origin),false);
-  assert.equal(turnstileAccepted({...ok,hostname:'otro.test'},origin),false);
-  assert.equal(turnstileAccepted({...ok,action:'otro'},origin),false);
-  assert.equal(turnstileAccepted(null,origin),false);
-});
 test('una identidad de profesor exige un usuario exacto y tokens de sesión',()=>{
   const id='00000000-0000-4000-8000-000000000111';
   const user={id,is_anonymous:false};
@@ -47,8 +39,10 @@ test('el login lee email solo de secretos y exige Siteverify ANTES de la contras
   const build=readFileSync(join(root,'scripts/build-docente.mjs'),'utf8');
   const toml=readFileSync(join(root,'supabase/config.toml'),'utf8');
   assert.ok(server.includes("env('SCHOLA_AUTH_LOGIN_EMAIL')"));
-  assert.ok(server.indexOf('turnstileAccepted(captcha,permitted)')<server.indexOf('auth.auth.signInWithPassword'));
-  assert.match(server,/https:\/\/challenges\.cloudflare\.com\/turnstile\/v0\/siteverify/);
+  assert.match(server,/SCHOLA_AUTH_CAPTCHA_ENFORCED/);
+  assert.match(server,/options:\{captchaToken:body\.turnstileToken\}/);
+  assert.ok(!server.includes('turnstile/v0/siteverify'));
+  assert.ok(!server.includes('SCHOLA_TURNSTILE_SECRET'));
   assert.match(toml,/\[functions\.schola-login\]\s+verify_jwt = false/);
   assert.match(toml,/\[functions\.schola-inbox\]\s+verify_jwt = true/);
   assert.ok(!client.includes('config.email'));
