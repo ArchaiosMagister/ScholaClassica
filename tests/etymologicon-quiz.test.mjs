@@ -131,6 +131,7 @@ test('estadísticas separadas, repetición y exportaciones retrocompatibles',()=
   const older=structuredClone(state);
   delete older.activities.mcq;
   delete older.activities.inverse;
+  delete older.activities.decomposition;
   const migrated=validateProgress(older,eligible);
   assert.equal(migrated.activities.mcq.records['grc:προσ'],undefined);
   assert.equal(migrated.activities.inverse.records['grc:προσ'],undefined);
