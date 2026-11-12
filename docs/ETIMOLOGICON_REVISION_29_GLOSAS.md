@@ -1,3 +1,5 @@
+> Actualización (12-11-2026): las 51 glosas docentes restantes también se han contrastado. Consulta [la auditoría de las 51](ETIMOLOGICON_REVISION_51_GLOSAS.md). Los recuentos siguientes describen el estado histórico previo.
+
 # Etymologicon · revisión individual de las 29 glosas pendientes
 
 Revisión fechada el 12 de noviembre de 2026. Se han documentado las **29 propuestas** de Griego I anteriormente identificadas como `meaning_draft_pending_dictionary_check`. La capa nueva de decisiones está en `shared/academic/greek-etymology/review/meaning-drafts-audit-v1.json` y **no sobrescribe** la fuente editorial ni la lista histórica de glosas.

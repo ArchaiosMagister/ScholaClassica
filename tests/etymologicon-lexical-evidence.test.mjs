@@ -22,7 +22,7 @@ test('significados adicionales externos están relacionados con la misma entrada
    assert.equal(item.meaningEvidence.status,'externally_checked');
    assert.equal(item.independentLexicographicReview,true);
  }
- assert.equal(c.summary.greekMeaningsFromExternalLexicons,56);
+ assert.equal(c.summary.greekMeaningsFromExternalLexicons,107);
  assert.equal(c.summary.greekMeaningsCompleted,111);
  assert.equal(c.summary.greekMeaningsPending,0);
 });
