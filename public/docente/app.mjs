@@ -30,7 +30,9 @@ function validConfig(value){
   return value?.enabled===true&&/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value.url||'')&&
     typeof value.publishableKey==='string'&&value.publishableKey.length>20&&
     typeof value.email==='string'&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.email)&&
-    value.username==='MagisterArchaios'&&value.origin===location.origin&&location.protocol==='https:';
+    value.username==='MagisterArchaios'&&value.origin===location.origin&&
+    location.hostname!=='archaiosmagister.github.io'&&
+    (location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname));
 }
 async function loadSDK(){
   if(window.supabase?.createClient)return;
