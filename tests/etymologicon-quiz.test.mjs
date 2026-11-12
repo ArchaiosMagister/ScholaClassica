@@ -108,9 +108,10 @@ test('la ambigüedad entre lemas no se resuelve arbitrariamente ni por translite
   };
   const local=createQuizBank(fake);
   assert.equal(local.preview('philos').status,'ambiguous');
-  const q=local.inverse('grc:a',{random:()=>0});
-  assert.equal(local.gradeInverse(q,'philos').status,'ambiguous');
-  assert.equal(local.gradeInverse(q,'φίλος').status,'ambiguous');
+  assert.equal(local.inverse('grc:a',{random:()=>0}),null,
+    'Un lema homógrafo ambiguo ni siquiera debe entrar en el sorteo inverso');
+  assert.equal(local.inverseEligibleIds.length,0);
+  assert.equal(local.preview('φίλος').status,'ambiguous');
 });
 test('estadísticas separadas, repetición y exportaciones retrocompatibles',()=>{
   let state=recordQuizAttempt(emptyProgress(),eligible,'mcq','grc:προσ',false,at);
