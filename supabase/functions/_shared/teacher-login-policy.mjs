@@ -18,10 +18,6 @@ export function validTeacherLogin(body){
     typeof body.turnstileToken==='string'&&
     body.turnstileToken.length>=10&&body.turnstileToken.length<=2048;
 }
-export function turnstileAccepted(result,origin){
-  if(!origin||!result||result.success!==true||result.action!=='schola-login')return false;
-  try{return result.hostname===new URL(origin).hostname}catch{return false}
-}
 export function authorizedInitialSession(user,session,teacherId){
   return Boolean(teacherId&&user?.id&&user.id===teacherId&&
     user.is_anonymous!==true&&session?.access_token&&session?.refresh_token);
