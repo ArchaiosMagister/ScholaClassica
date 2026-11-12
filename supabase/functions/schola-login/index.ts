@@ -1,9 +1,9 @@
 // Primer factor del docente: el correo es secreto de la función, nunca del navegador.
-// Debe desplegarse con verify_jwt=false; exige CAPTCHA verificado por servidor.
+// Debe desplegarse con verify_jwt=false. Supabase Auth debe exigir Turnstile para TODOS los logins.
 // La sesión resultante es AAL1 y NO autoriza a leer avisos.
 import {createClient} from 'npm:@supabase/supabase-js@2.119.0';
 import {
-  allowedTeacherOrigin,validTeacherLogin,turnstileAccepted,authorizedInitialSession
+  allowedTeacherOrigin,validTeacherLogin,authorizedInitialSession
 } from '../_shared/teacher-login-policy.mjs';
 
 function env(name:string){return Deno.env.get(name)?.trim()||''}
@@ -32,10 +32,10 @@ Deno.serve(async request=>{
     return reply(413,{error:'Solicitud demasiado grande'},permitted);
   const userId=env('SCHOLA_TEACHER_USER_ID');
   const loginEmail=env('SCHOLA_AUTH_LOGIN_EMAIL');
-  const turnstileSecret=env('SCHOLA_TURNSTILE_SECRET');
+  const captchaReady=env('SCHOLA_AUTH_CAPTCHA_ENFORCED')==='confirmed';
   const authUrl=env('SUPABASE_URL');
   const authKey=env('SUPABASE_ANON_KEY');
-  if(!userId||!loginEmail||!turnstileSecret||!authUrl||!authKey)
+  if(!userId||!loginEmail||!captchaReady||!authUrl||!authKey)
     return reply(503,{error:'Servicio de acceso no configurado'},permitted);
   try{
     const raw=await request.text();
@@ -43,21 +43,16 @@ Deno.serve(async request=>{
     const body=JSON.parse(raw);
     if(!validTeacherLogin(body))
       return reply(401,{error:'Credenciales no válidas'},permitted);
-    const captchaResponse=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{
-      method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},
-      body:new URLSearchParams({secret:turnstileSecret,response:body.turnstileToken}),
-      signal:AbortSignal.timeout(8000)
-    });
-    if(!captchaResponse.ok)return reply(503,{error:'Verificación no disponible'},permitted);
-    const captcha=await captchaResponse.json();
-    if(!turnstileAccepted(captcha,permitted))
-      return reply(403,{error:'Verificación de seguridad no superada'},permitted);
+    // El CAPTCHA se verifica dentro de Supabase Auth, también si alguien
+    // intenta entrar directamente en /auth/v1/token, sin pasar por esta función.
+    // Debe habilitarse Bot and Abuse Protection > Cloudflare Turnstile en Auth.
     // Cliente sin clave privilegiada: todas las peticiones se autentican con Auth.
     const auth=createClient(authUrl,authKey,{
       auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}
     });
     const login=await auth.auth.signInWithPassword({
-      email:loginEmail,password:body.password
+      email:loginEmail,password:body.password,
+      options:{captchaToken:body.turnstileToken}
     });
     if(login.error||!authorizedInitialSession(login.data?.user,login.data?.session,userId))
       return reply(401,{error:'Credenciales no válidas'},permitted);
