@@ -47,6 +47,8 @@ jobs:
         run: node scripts/validate-site.mjs
       - name: Auditar esquema y candidatos de Etymologicon sin habilitar respuestas
         run: npm run etymology:audit
+      - name: Conciliar el Excel docente de Etymologicon con sus comprobaciones
+        run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
       - name: Comprobar copia exacta, enlaces y aislamiento de herramientas docentes
@@ -57,6 +59,12 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Navegar por ScholaClassica y Appendix en Chromium
         run: npm run test:browser
+      - name: Archivar catálogo académico para inspección (sin publicar la webapp)
+        uses: actions/upload-artifact@v4
+        with:
+          name: etymologicon-gr1-auditoria-docente
+          path: build/etymologicon/gr1-audited.json
+          retention-days: 7
       - name: Archivar resultado de construcción como artefacto de pruebas (sin desplegar)
         uses: actions/upload-artifact@v4
         with:

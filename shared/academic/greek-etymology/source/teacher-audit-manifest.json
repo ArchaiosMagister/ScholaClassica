@@ -1,0 +1,16 @@
+{
+  "schema": "etymologicon-teacher-audit-manifest/v1",
+  "sourceFile": "Auditoria_etimologica_Griego_I_2026-11-12.xlsx",
+  "workbookSha256": "c2f16a97c305120be771e6aff71bf1649ffeee1171669e64660d25481e16adaf",
+  "format": "Compact JSON extraction, gzip, base64; all etyma, definitions, variants, statuses, decisions and source notes preserved",
+  "partPaths": [
+    "source/teacher-audit-gr1-2026-11-12.part0.b64",
+    "source/teacher-audit-gr1-2026-11-12.part1.b64",
+    "source/teacher-audit-gr1-2026-11-12.part2.b64",
+    "source/teacher-audit-gr1-2026-11-12.part3.b64"
+  ],
+  "compressedSha256": "f2da6c719425bbdad6126b6deca4dcbd4414970da875278e51fe770feabcf382",
+  "payloadSha256": "36a2f1efb36d6a7f627fe51a228758d8ab3d17a833e50a08a474cafbe701cb6d",
+  "sourceGeneratorCommit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0",
+  "publicationAllowed": false
+}
