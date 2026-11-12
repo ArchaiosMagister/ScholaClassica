@@ -102,7 +102,9 @@ test('opciones múltiples y teclado griego conectados al motor del banco cerrado
  assert.match(controller,/bank\.gradeInverse\(currentInverse,els\.answer\.value\)/);
  assert.match(controller,/recordQuizAttempt\(state,etymons,'mcq'/);
  assert.match(controller,/recordQuizAttempt\(state,etymons,'inverse'/);
- assert.match(controller,/input\.setRangeText\(character,start,end,'end'\)/);
+ const keyboard=readFileSync(new URL('../apps/etymologicon/greek-keyboard.mjs',import.meta.url),'utf8');
+ assert.match(controller,/attachGreekKeyboard\(els\.keyboard/);
+ assert.match(keyboard,/input\.setRangeText\(character,start,end,'end'\)/);
 });
 
 
