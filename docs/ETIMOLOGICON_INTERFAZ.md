@@ -1,3 +1,5 @@
+> Actualización: estadísticas locales, modos de repaso y exportación/importación implementados en fase posterior. Véase [PROGRESO_Y_REPASO](ETIMOLOGICON_PROGRESO_Y_REPASO.md).
+
 > **Actualización:** se ha preparado la PWA independiente y sus recursos offline. Consulta [instalación y funcionamiento sin conexión](ETIMOLOGICON_PWA.md). El resto de esta guía describe la primera interfaz funcional.
 
 # Etymologicon · Primera interfaz funcional

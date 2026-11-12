@@ -48,9 +48,66 @@ try{
   await page.getByRole('button',{name:'Corregir respuestas'}).click();
   assert.equal((await page.locator('#result-total').textContent()).trim(),'1 / 2 puntos');
   assert.ok((await page.locator('#result-items').textContent()).includes('Derivado repetido'));
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'2');
+  assert.equal((await page.locator('#stats-pending').textContent()).trim(),'1');
+  // Modo errores: sólo vuelve el étimo que requiere repetición.
+  await page.locator('#practice-mode').selectOption('errors');
+  assert.equal(await page.locator('#etymon-select option').count(),1);
+  assert.equal(await page.locator('#etymon-select').inputValue(),'grc:προσ');
+  await page.getByLabel('Primer derivado').fill('prosélito');
+  await page.getByLabel('Segundo derivado').fill('prosodia');
+  await page.getByRole('button',{name:'Corregir respuestas'}).click();
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'3');
+  assert.equal((await page.locator('#stats-pending').textContent()).trim(),'1',
+    'Una repetición correcta no debe borrar inmediatamente el error anterior');
+  await page.getByRole('button',{name:'Borrar respuestas'}).click();
+  await page.getByLabel('Primer derivado').fill('prosélito');
+  await page.getByLabel('Segundo derivado').fill('prosodia');
+  await page.getByRole('button',{name:'Corregir respuestas'}).click();
+  assert.equal((await page.locator('#stats-pending').textContent()).trim(),'0',
+    'Dos repeticiones perfectas deben cerrar el error');
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'4');
+  await page.getByRole('button',{name:'Practicar otro étimo'}).click();
+  assert.equal(await page.locator('#practice-empty').isVisible(),true);
+  assert.equal(await page.locator('#answer-form').isHidden(),true);
+  await page.locator('#practice-mode').selectOption('general');
+  assert.equal(await page.locator('#etymon-select option').count(),108);
+  // Exportación sin datos personales ni respuestas, borrado voluntario e importación.
+  const pendingDownload=page.waitForEvent('download');
+  await page.getByRole('button',{name:'Exportar progreso'}).click();
+  const download=await pendingDownload;
+  assert.match(download.suggestedFilename(),/etymologicon-progreso-.*\.json$/);
+  const exported=await readFile(await download.path(),'utf8');
+  const parsed=JSON.parse(exported);
+  assert.equal(parsed.schema,'etymologicon-progress/v1');
+  assert.equal(parsed.courses.gr1.records['grc:προσ'].attempts,4);
+  assert.deepEqual(parsed.courses.gr2.records,{});
+  assert.ok(!exported.includes('"submitted"'));
+  page.once('dialog',dialog=>dialog.accept());
+  await page.getByRole('button',{name:'Borrar mis estadísticas'}).click();
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'0');
+  await page.locator('#import-file').setInputFiles({
+    name:'invalido.json',mimeType:'application/json',buffer:Buffer.from('{datos corruptos')
+  });
+  await page.waitForFunction(()=>document.querySelector('#progress-status')?.textContent.includes('Importación rechazada'),
+    null,{timeout:10000});
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'0');
+  await page.locator('#import-file').setInputFiles({
+    name:'progreso.json',mimeType:'application/json',buffer:Buffer.from(exported)
+  });
+  await page.locator('#import-preview').waitFor({state:'visible',timeout:10000});
+  assert.ok((await page.locator('#import-description').textContent()).includes('4 ejercicios'));
+  await page.getByRole('button',{name:'Confirmar importación'}).click();
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'4');
+  assert.equal((await page.locator('#stats-pending').textContent()).trim(),'0');
+  await page.reload({waitUntil:'networkidle'});
+  await page.locator('#exercise-content').waitFor({state:'visible',timeout:10000});
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'4',
+    'Las estadísticas deben sobrevivir a una recarga de la PWA');
+  await page.locator('#practice-mode').selectOption('unit');
   await page.locator('#unit-select').selectOption('UD1');
   assert.ok(await page.locator('#etymon-select option').count()>0,'Filtro por unidad vacío');
-  await page.locator('#unit-select').selectOption('all');
+  await page.locator('#practice-mode').selectOption('general');
   assert.equal(await page.locator('#etymon-select option').count(),108);
   await page.getByRole('button',{name:'Otro étimo'}).click();
   assert.equal(await page.locator('#results').isHidden(),true,'El siguiente étimo debe limpiar el resultado anterior');
@@ -92,7 +149,7 @@ try{
   await page.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
   const offlineResources=await page.evaluate(async()=>{
     const urls=['./manifest.webmanifest','./icons/icon-192.png',
-      './data/gr1.json','./corrector/write-two.mjs'];
+      './data/gr1.json','./corrector/write-two.mjs','./progress.mjs'];
     return Promise.all(urls.map(async path=>{
       const response=await fetch(path);
       return response.ok;
@@ -105,9 +162,13 @@ try{
   await page.getByRole('button',{name:'Corregir respuestas'}).click();
   assert.equal((await page.locator('#result-total').textContent()).trim(),'1,5 / 2 puntos',
     'El corrector debe funcionar íntegramente offline');
+  assert.equal((await page.locator('#stats-exercises').textContent()).trim(),'5',
+    'El progreso se debe registrar incluso sin conexión');
+  await page.locator('#practice-mode').selectOption('unit');
   await page.locator('#unit-select').selectOption('UD1');
   assert.ok(await page.locator('#etymon-select option').count()>0,
     'El selector de unidades también debe funcionar offline');
+  await page.locator('#practice-mode').selectOption('general');
   await page.context().setOffline(false);
   await page.getByRole('button',{name:'Buscar actualizaciones'}).click();
   await page.waitForFunction(()=>!document.querySelector('#check-update').disabled,

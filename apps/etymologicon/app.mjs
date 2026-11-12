@@ -1,19 +1,37 @@
 import {createWriteTwoCorrector} from './corrector/write-two.mjs';
+import {emptyProgress,loadProgress,saveProgress,removeProgress,exportProgress,
+  importProgress,recordExercise,progressSummary,filteredEtyma,chooseAdaptive}
+  from './progress.mjs';
 
 const $=id=>document.getElementById(id);
 const ui={
-  course:$('course-select'),unit:$('unit-select'),etymon:$('etymon-select'),
+  course:$('course-select'),mode:$('practice-mode'),unit:$('unit-select'),etymon:$('etymon-select'),
   random:$('random-button'),theme:$('theme-select'),poolSize:$('pool-size'),
   loadState:$('load-state'),error:$('load-error'),retry:$('retry-button'),
   content:$('exercise-content'),lemma:$('exercise-title'),meaning:$('meaning'),
   unitSummary:$('unit-summary'),form:$('answer-form'),first:$('answer-1'),
   second:$('answer-2'),clear:$('clear-button'),results:$('results'),
-  total:$('result-total'),items:$('result-items'),next:$('next-button')
+  instruction:$('exercise-instruction'),head:$('etymon-head'),empty:$('practice-empty'),
+  total:$('result-total'),items:$('result-items'),next:$('next-button'),
+  exercises:$('stats-exercises'),average:$('stats-average'),exact:$('stats-exact'),
+  typo:$('stats-typos'),wrong:$('stats-wrong'),pending:$('stats-pending'),
+  unitStats:$('stats-units'),progressStatus:$('progress-status'),
+  exportProgress:$('export-progress'),importFile:$('import-file'),
+  resetProgress:$('reset-progress'),importPreview:$('import-preview'),
+  importDescription:$('import-description'),confirmImport:$('confirm-import'),
+  cancelImport:$('cancel-import')
 };
 const themeKey='scholaclassica-etymologicon-theme-v1';
 const themes=new Set(['auto','light','dark','oled']);
 const fmt=new Intl.NumberFormat('es-ES',{maximumFractionDigits:1});
-let catalog=null,engine=null,eligible=[],pool=[];
+let catalog=null,engine=null,eligible=[],pool=[],progress=emptyProgress();
+let graded=false,pendingImport=null,storageLocked=false;
+const storage=(()=>{
+  try{return window.localStorage;}
+  catch{return {getItem(){throw new Error('No storage');},
+    setItem(){throw new Error('No storage');},
+    removeItem(){throw new Error('No storage');}};}
+})();
 
 function option(value,label){
   const item=document.createElement('option');
@@ -37,6 +55,7 @@ ui.theme.addEventListener('change',()=>{
 });
 
 function hideResults(){
+  graded=false;
   ui.results.hidden=true;
   ui.items.replaceChildren();
   ui.total.textContent='';
@@ -52,10 +71,18 @@ function currentEtymon(){
 }
 function renderEtymon(){
   const item=currentEtymon();
+  ui.empty.hidden=Boolean(item);
+  ui.head.hidden=!item;
+  ui.form.hidden=!item;
+  ui.instruction.hidden=!item;
   if(!item){
     ui.lemma.textContent='';
     ui.meaning.textContent='';
     ui.unitSummary.textContent='';
+    const noMistakes=ui.mode.value==='errors';
+    ui.empty.textContent=noMistakes
+      ?'Todavía no tienes étimos pendientes de repaso. Practica primero en «Repaso general», o vuelve cuando hayas cometido alguna falta.'
+      :'No hay étimos disponibles para esta selección.';
     clearAnswers();
     return;
   }
@@ -66,8 +93,15 @@ function renderEtymon(){
 }
 function updateEtymonChoices({preserve=true}={}){
   const selected=preserve?ui.etymon.value:null;
-  const unit=ui.unit.value;
-  pool=eligible.filter(e=>unit==='all'||e.units.includes(unit));
+  const mode=ui.mode.value;
+  ui.unit.disabled=mode!=='unit';
+  if(mode==='unit'&&ui.unit.value==='all'){
+    const first=ui.unit.querySelector('option[value^="UD"]');
+    if(first)ui.unit.value=first.value;
+  }
+  pool=filteredEtyma(eligible,progress,{
+    mode,unit:mode==='unit'?ui.unit.value:'all'
+  });
   ui.etymon.replaceChildren(...pool.map(e=>option(e.id,e.lemma)));
   ui.etymon.disabled=pool.length===0;
   ui.random.disabled=pool.length===0;
@@ -76,13 +110,36 @@ function updateEtymonChoices({preserve=true}={}){
   renderEtymon();
 }
 function nextRandom(){
+  const previous=ui.etymon.value;
+  updateEtymonChoices({preserve:false});
   if(!pool.length)return;
-  const current=ui.etymon.value;
-  const choices=pool.length===1?pool:pool.filter(e=>e.id!==current);
-  const chosen=choices[Math.floor(Math.random()*choices.length)];
+  const chosen=chooseAdaptive(pool,progress,{excludeId:previous});
+  if(!chosen)return;
   ui.etymon.value=chosen.id;
   renderEtymon();
   ui.first.focus();
+}
+function showProgressStatus(message){
+  ui.progressStatus.textContent=message;
+}
+function renderStatistics(){
+  if(!eligible.length)return;
+  const stats=progressSummary(progress,eligible);
+  ui.exercises.textContent=String(stats.exercises);
+  ui.average.textContent=stats.exercises?fmt.format(stats.average):'—';
+  ui.exact.textContent=String(stats.exact);
+  ui.typo.textContent=String(stats.typo);
+  ui.wrong.textContent=String(stats.incorrect);
+  ui.pending.textContent=String(stats.needingReview);
+  ui.unitStats.replaceChildren(...stats.byUnit.map(({unit,exercises,average})=>{
+    const tr=document.createElement('tr');
+    for(const value of [unit,String(exercises),exercises?fmt.format(average):'—']){
+      const cell=document.createElement('td');
+      cell.textContent=value;
+      tr.append(cell);
+    }
+    return tr;
+  }));
 }
 function text(parent,value){
   parent.append(document.createTextNode(value));
@@ -141,15 +198,23 @@ function displayResult(result){
 ui.form.addEventListener('submit',event=>{
   event.preventDefault();
   const item=currentEtymon();
-  if(!engine||!item)return;
+  if(!engine||!item||graded)return;
   const result=engine.grade(item.id,[ui.first.value,ui.second.value]);
+  progress=recordExercise(progress,eligible,result);
+  const saved=storageLocked
+    ?{saved:false,warning:'Los datos antiguos no se han sobrescrito porque no pudieron leerse. Exporta tu sesión y usa la importación o el borrado voluntario para resolverlo.'}
+    :saveProgress(storage,progress,eligible);
+  showProgressStatus(saved.saved?'Progreso guardado en este dispositivo.':saved.warning);
+  graded=true;
   displayResult(result);
+  renderStatistics();
 });
 ui.form.addEventListener('input',hideResults);
 ui.clear.addEventListener('click',()=>clearAnswers({focus:true}));
 ui.next.addEventListener('click',nextRandom);
 ui.random.addEventListener('click',nextRandom);
 ui.etymon.addEventListener('change',renderEtymon);
+ui.mode.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
 ui.unit.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
 
 async function loadCatalog(){
@@ -170,11 +235,17 @@ async function loadCatalog(){
     catalog=data;
     engine=corrector;
     eligible=accepted;
+    const loaded=loadProgress(storage,eligible);
+    progress=loaded.state;
+    storageLocked=!loaded.persisted;
+    showProgressStatus(loaded.warning||'El progreso se guarda solo en este dispositivo, sin cuentas ni servidor.');
+    renderStatistics();
     const units=[...new Set(eligible.flatMap(e=>e.units))].sort((a,b)=>
       Number(a.slice(2))-Number(b.slice(2)));
     ui.unit.replaceChildren(option('all','Todas las unidades'),...units.map(u=>option(u,u)));
     ui.unit.value='all';
-    ui.unit.disabled=false;
+    ui.mode.value='general';
+    ui.unit.disabled=true;
     ui.loadState.hidden=true;
     ui.content.hidden=false;
     updateEtymonChoices({preserve:false});
@@ -186,6 +257,89 @@ async function loadCatalog(){
   }
 }
 ui.retry.addEventListener('click',loadCatalog);
+
+function cancelImport(){
+  pendingImport=null;
+  ui.importPreview.hidden=true;
+  ui.importFile.value='';
+}
+ui.exportProgress.addEventListener('click',()=>{
+  if(!eligible.length)return;
+  const json=exportProgress(progress,eligible);
+  const blob=new Blob([json],{type:'application/json;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='etymologicon-progreso-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),2000);
+  showProgressStatus('Archivo de progreso preparado para descargar. Consérvalo en un lugar seguro.');
+});
+ui.importFile.addEventListener('change',async()=>{
+  cancelImportExceptFile();
+  if(!eligible.length)return;
+  const file=ui.importFile.files?.[0];
+  if(!file)return;
+  if(file.size>250000){
+    showProgressStatus('No se ha importado: el archivo supera el límite de 250 KB.');
+    ui.importFile.value='';
+    return;
+  }
+  try{
+    pendingImport=importProgress(await file.text(),eligible);
+    const summary=progressSummary(pendingImport,eligible);
+    ui.importDescription.textContent='Archivo válido: '+summary.exercises+
+      ' ejercicios de Griego I, '+summary.needingReview+
+      ' étimos pendientes. ¿Quieres reemplazar tus estadísticas actuales?';
+    ui.importPreview.hidden=false;
+    showProgressStatus('Archivo comprobado. Confirma expresamente para reemplazar el progreso.');
+  }catch(error){
+    pendingImport=null;
+    ui.importFile.value='';
+    showProgressStatus('Importación rechazada: '+error.message+' Tus estadísticas no han cambiado.');
+  }
+});
+function cancelImportExceptFile(){
+  pendingImport=null;
+  ui.importPreview.hidden=true;
+}
+ui.confirmImport.addEventListener('click',()=>{
+  if(!pendingImport||!eligible.length)return;
+  const checked=pendingImport;
+  const saved=saveProgress(storage,checked,eligible);
+  if(!saved.saved){
+    showProgressStatus(saved.warning+' No se ha reemplazado el progreso actual.');
+    return;
+  }
+  progress=checked;
+  storageLocked=false;
+  cancelImport();
+  renderStatistics();
+  updateEtymonChoices({preserve:false});
+  showProgressStatus('Progreso importado y guardado. Las estadísticas anteriores han sido reemplazadas.');
+});
+ui.cancelImport.addEventListener('click',()=>{
+  cancelImport();
+  showProgressStatus('Importación cancelada; tus estadísticas no han cambiado.');
+});
+ui.resetProgress.addEventListener('click',()=>{
+  if(!eligible.length)return;
+  const accepted=window.confirm('¿Borrar todas las estadísticas de Griego I en este dispositivo? Esta acción no se puede deshacer. Puedes exportarlas antes.');
+  if(!accepted)return;
+  if(!removeProgress(storage)){
+    showProgressStatus('No ha sido posible borrar el progreso almacenado.');
+    return;
+  }
+  progress=emptyProgress();
+  storageLocked=false;
+  cancelImport();
+  renderStatistics();
+  updateEtymonChoices({preserve:false});
+  showProgressStatus('Estadísticas borradas de este dispositivo. El tema y otras aplicaciones no se han modificado.');
+});
+
 loadCatalog();
 
 // La instalación es opcional: la actividad sigue funcionando aunque el

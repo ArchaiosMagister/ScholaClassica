@@ -4,7 +4,7 @@
 const CACHE_PREFIX='schola-etymologicon-';
 const CACHE_NAME=CACHE_PREFIX+'__ETYM_CACHE_VERSION__';
 const CORE=[
-  './','./index.html','./style.css','./app.mjs','./corrector/write-two.mjs',
+  './','./index.html','./style.css','./app.mjs','./progress.mjs','./corrector/write-two.mjs',
   './data/gr1.json','./manifest.webmanifest','./icons/icon.svg',
   './icons/icon-192.png','./icons/icon-512.png',
   './icons/icon-maskable-512.png','./icons/apple-touch-icon.png'

@@ -41,3 +41,7 @@ La compilación añade `manifest.webmanifest`, iconos 192/512, icono maskable 51
 La primera visita requiere HTTPS (o localhost en pruebas) y conexión para guardar todos los recursos y el banco auditado; después se puede abrir directamente Etymologicon sin red. La actualización del banco y del motor se aplica de manera conjunta después de pulsar «Aplicar nueva versión». En iOS/iPadOS se usa Safari > Compartir > Añadir a pantalla de inicio; en Android/ordenadores se puede utilizar la opción de instalación del navegador cuando esté disponible. La pantalla muestra instrucciones integradas.
 
 **Todavía no se ha desplegado la web:** el artefacto de GitHub Actions sirve para pruebas técnicas, no constituye una URL HTTPS instalable para alumnado. Falta comprobar la experiencia de instalación en dispositivos físicos antes de publicarla. Detalles y pruebas: [`docs/ETIMOLOGICON_PWA.md`](docs/ETIMOLOGICON_PWA.md).
+
+## Progreso local en Etymologicon
+
+Etymologicon incorpora repaso general adaptativo, repaso de errores y selección por unidad, con estadísticas por étimo y unidad, conservación offline, exportación/importación JSON validada y borrado voluntario. No almacena respuestas escritas ni requiere cuentas. Griego II permanece reservado. Véase [`docs/ETIMOLOGICON_PROGRESO_Y_REPASO.md`](docs/ETIMOLOGICON_PROGRESO_Y_REPASO.md).

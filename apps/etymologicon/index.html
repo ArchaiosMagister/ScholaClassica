@@ -48,6 +48,15 @@
           </select>
         </div>
         <div class="field">
+          <label for="practice-mode">Modo de práctica</label>
+          <select id="practice-mode">
+            <option value="general" selected>Repaso general · inteligente</option>
+            <option value="errors">Repasar mis errores</option>
+            <option value="unit">Practicar una unidad</option>
+          </select>
+          <p class="field-help">Los étimos con más dificultades reaparecen con mayor frecuencia.</p>
+        </div>
+        <div class="field">
           <label for="unit-select">Unidad</label>
           <select id="unit-select" disabled>
             <option value="all">Todas las unidades</option>
@@ -92,13 +101,14 @@
       <section class="panel exercise" aria-labelledby="exercise-title">
         <p id="load-state" class="load-state" role="status">Preparando el banco de Griego I…</p>
         <div id="exercise-content" hidden>
-          <div class="etymon-head">
+          <p id="practice-empty" class="empty-practice" role="status" hidden></p>
+          <div class="etymon-head" id="etymon-head">
             <p class="eyebrow">Étimo seleccionado</p>
             <p id="unit-summary" class="unit-summary"></p>
           </div>
           <h2 id="exercise-title" class="greek-word" lang="grc"></h2>
           <p id="meaning" class="meaning"></p>
-          <p class="instruction">Escribe dos derivados castellanos diferentes. Cada respuesta vale 1 punto como máximo.</p>
+          <p class="instruction" id="exercise-instruction">Escribe dos derivados castellanos diferentes. Cada respuesta vale 1 punto como máximo.</p>
 
           <form id="answer-form" novalidate>
             <div class="answer-grid">
@@ -135,6 +145,54 @@
         </div>
       </section>
     </div>
+    <section class="panel progress-panel" id="progress-panel" aria-labelledby="progress-title">
+      <div class="progress-heading">
+        <div>
+          <p class="eyebrow">Progreso privado · Griego I</p>
+          <h2 id="progress-title">Mi aprendizaje</h2>
+        </div>
+        <p class="muted">Solo en este dispositivo. Las palabras escritas no se almacenan.</p>
+      </div>
+      <div class="stat-grid" aria-label="Estadísticas del repaso">
+        <div class="stat"><strong id="stats-exercises">0</strong><span>Ejercicios</span></div>
+        <div class="stat"><strong id="stats-average">—</strong><span>Media sobre 2</span></div>
+        <div class="stat"><strong id="stats-exact">0</strong><span>Respuestas correctas</span></div>
+        <div class="stat"><strong id="stats-typos">0</strong><span>Con faltas</span></div>
+        <div class="stat"><strong id="stats-wrong">0</strong><span>Sin puntuar</span></div>
+        <div class="stat"><strong id="stats-pending">0</strong><span>Étimos para repasar</span></div>
+      </div>
+      <details class="unit-progress">
+        <summary>Estadísticas por unidad</summary>
+        <p class="field-help">Un étimo puede pertenecer a varias unidades; sus ejercicios aparecen en cada una.</p>
+        <div class="stats-table-wrap">
+          <table>
+            <thead><tr><th>Unidad</th><th>Ejercicios</th><th>Media / 2</th></tr></thead>
+            <tbody id="stats-units"></tbody>
+          </table>
+        </div>
+      </details>
+      <div class="progress-management">
+        <h3>Guardar o recuperar mis estadísticas</h3>
+        <p class="muted">Puedes crear un archivo JSON para trasladar tus estadísticas a otro dispositivo. La importación reemplaza las estadísticas actuales únicamente después de confirmarla.</p>
+        <div class="progress-actions">
+          <button type="button" id="export-progress" class="secondary-button">Exportar progreso</button>
+          <div class="file-field">
+            <label for="import-file">Importar archivo JSON</label>
+            <input id="import-file" type="file" accept=".json,application/json">
+          </div>
+          <button type="button" id="reset-progress" class="secondary-button danger-button">Borrar mis estadísticas</button>
+        </div>
+        <div id="import-preview" class="import-preview" hidden>
+          <p id="import-description"></p>
+          <p class="import-warning">Al confirmar, se sustituirán todas las estadísticas actuales de Griego I. Puedes exportarlas primero.</p>
+          <div class="actions">
+            <button type="button" id="confirm-import" class="primary-button">Confirmar importación</button>
+            <button type="button" id="cancel-import" class="secondary-button">Cancelar</button>
+          </div>
+        </div>
+        <p id="progress-status" class="progress-status" role="status" aria-live="polite">Preparando el almacenamiento local…</p>
+      </div>
+    </section>
     <section class="about" aria-labelledby="about-title">
       <h2 id="about-title">Cómo se puntúa</h2>
       <div class="rules">
