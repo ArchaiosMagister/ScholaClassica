@@ -29,7 +29,7 @@ Una vez elegido el correo de acceso y el hostname aislado:
 1. Designar Vocabula como proveedor de identidad mediante la URL actual del proyecto. Preferir una clave pública `sb_publishable_...`; **nunca** usar `service_role` o `sb_secret_` en el navegador.
 2. Configurar Supabase Auth para **no aceptar nuevos registros públicos** y habilitar el factor `TOTP`. Esta medida se aplicará de forma controlada para no alterar ninguna función vigente de Vocabula. Antes de hacerlo, verificar la configuración de Auth en el panel del proyecto.
 3. Crear la cuenta individual del docente mediante el panel seguro de Supabase Auth, con un **alias de correo dedicado** y verificado. Su usuario visible seguirá siendo `MagisterArchaios`. No compartir ni guardar la contraseña en ChatGPT o GitHub.
-4. Registrar el TOTP en Contraseñas de Apple mediante QR o clave de configuración; verificar un código de seis cifras y confirmar que la sesión alcanza `aal2`. Establecer un método de recuperación independiente.
+4. Registrar el TOTP en Contraseñas de Apple mediante QR o clave de configuración; verificar un código de seis cifras y confirmar que la sesión alcanza `aal2`. Establecer un método de recuperación independiente, no guardado en este repositorio.
 5. Registrar exclusivamente la UUID de esa cuenta como `SCHOLA_TEACHER_USER_ID` en los secretos del proyecto de identidad; nunca introducir esa variable en el frontend.
 6. Establecer también `SCHOLA_ALLOWED_ORIGIN` como el nuevo origen HTTPS privado, comprobar límites de intentos, configuración de sesiones y recuperación de segundo factor.
 
@@ -39,11 +39,26 @@ Una vez elegido el correo de acceso y el hostname aislado:
 SCHOLA_DOCENTE_ORIGIN=https://docente.ejemplo.test \
 SCHOLA_AUTH_URL=https://PROJECT_REF.supabase.co \
 SCHOLA_AUTH_PUBLISHABLE_KEY=sb_publishable_PUBLICA \
-SCHOLA_AUTH_LOGIN_EMAIL=alias-docente@example.test \
+SCHOLA_TURNSTILE_SITE_KEY=0x4AAAAAAA_PUBLICA \
 npm run build:docente
 ```
 
-Los valores anteriores son **marcadores ficticios**. El resultado `dist-docente/auth-config.json` contiene alias, URL y clave *publicable*, nunca la contraseña ni el secreto TOTP. El artefacto no se publica automáticamente.
+Los valores anteriores son **marcadores ficticios**. El resultado `dist-docente/auth-config.json` contiene solamente usuario visible, URL y clave *publicable* de Supabase, hostname y clave pública de Turnstile. **No contiene el email docente, la contraseña, los tokens ni el secreto TOTP.** El correo de acceso se configura exclusivamente como secreto de la función de servidor `schola-login` bajo `SCHOLA_AUTH_LOGIN_EMAIL` (nunca como variable de compilación). El artefacto no se publica automáticamente.
+
+## Inicio de sesión privado — preparación, no despliegue
+
+La función `supabase/functions/schola-login/index.ts` recibe únicamente usuario, contraseña y un token de Cloudflare Turnstile. El servidor:
+
+1. Rechaza cualquier origen que no coincida con el hostname HTTPS docente independiente.
+2. Comprueba el token de Turnstile mediante Siteverify, incluyendo el hostname y la acción `schola-login`. Si el servicio antirrobots falla, **deniega el inicio de sesión**.
+3. Resuelve `MagisterArchaios` al correo configurado en el secreto `SCHOLA_AUTH_LOGIN_EMAIL` y verifica la contraseña con **Supabase Auth**, sin utilizar una clave privilegiada.
+4. Verifica que Supabase Auth ha devuelto exclusivamente la UUID designada; devuelve al navegador una sesión **AAL1** efímera. La bandeja seguirá bloqueada hasta que el TOTP eleve la sesión a **AAL2**.
+
+Para el servidor son imprescindibles `SCHOLA_AUTH_LOGIN_EMAIL`, `SCHOLA_TURNSTILE_SECRET`, `SCHOLA_TEACHER_USER_ID`, `SCHOLA_ALLOWED_ORIGIN` y las variables gestionadas `SUPABASE_URL` y `SUPABASE_ANON_KEY`. Los dos primeros son secretos sensibles: no copiarlos a GitHub, GitHub Actions ni a los ficheros estáticos.
+
+`supabase/config.toml` establece `verify_jwt=false` solo para `schola-login` (antes del primer factor); se mantiene `verify_jwt=true` para `schola-inbox`. La función de login requiere siempre Turnstile y no equivale a una autorización de administrador.
+
+Antes de activar este componente será necesario crear un widget de Turnstile en Cloudflare, registrar allí el hostname docente real, guardar la clave privada en Supabase y validar sus límites de peticiones. El proveedor de identidad propuesto es el proyecto actual de Vocabula, pero **no se ha creado todavía ninguna cuenta**.
 
 ## Endpoint de avisos — preparación, no despliegue
 
@@ -61,9 +76,9 @@ La función no puede actualizar ni aprobar sugerencias. Los enlaces llevan a las
 GitHub Actions comprueba copia y navegación de las aplicaciones, construcción docente desactivada, origen aislado, rechazo de claves privadas/HTTP, usuario no autorizado, sesión `aal1`, TOTP y visualización segura de contenido de un aviso. Las pruebas de login y bandeja utilizan respuestas simuladas: **no acreditan una autenticación real con Apple ni con las bases de datos de producción**.
 
 Antes del primer despliegue será imprescindible:
-- Disponer del alias de correo y del origen HTTPS independiente.
-- Revisar seguridad real de Supabase Auth y limitar los registros públicos.
-- Proteger el contenido de `dist-docente/` con cabeceras HTTP de seguridad (`Content-Security-Policy` y `frame-ancestors 'none'`, `Referrer-Policy`, `X-Content-Type-Options`, sin caché de respuestas privadas).
+- Disponer del correo de acceso y del origen HTTPS independiente, y crear manualmente la cuenta en el panel seguro de Supabase.
+- Revisar seguridad real de Supabase Auth y limitar los registros públicos. Configurar Cloudflare Turnstile con su clave privada en servidor.
+- Desplegar `dist-docente/` únicamente en un alojamiento HTTPS aislado que respete el archivo `_headers` generado, incluyendo CSP, `frame-ancestors 'none'`, `Referrer-Policy`, `X-Content-Type-Options` y `Cache-Control: no-store`; confirmar las cabeceras con una prueba HTTP real.
 - Sustituir la carga desde CDN del SDK por un recurso con integridad verificada y probar inicio de sesión en iPhone, iPad y Mac.
 - Probar recuperación, caducidad y revocación de sesiones, así como la lectura y los enlaces de avisos de ambos orígenes.
 - Revisar los avisos de seguridad que muestran los proyectos originales sin modificar sus políticas de forma imprevista.
