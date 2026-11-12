@@ -1,0 +1,487 @@
+{
+  "schema": "etymologicon-29-meaning-review/v1",
+  "date": "2026-11-12",
+  "course": "gr1",
+  "scope": "Review exactly 29 formerly draft headwords; source metadata distinguishes dictionary entries from academic lexical annotations and specialized attestation.",
+  "policy": "The review confirms didactic glosses only; no automatic verification of etymon-derivative links, no change of exam eligibility, no deployment.",
+  "previousStatus": "meaning_draft_pending_dictionary_check",
+  "currentStatus": "evidence_confirmed",
+  "counts": {
+    "reviewed": 29,
+    "dictionaryEntries": 25,
+    "citedLexiconInCorpus": 3,
+    "specializedAttestation": 1,
+    "remainingDrafts": 0
+  },
+  "records": [
+    {
+      "id": "grc:ανα",
+      "lemma": "ἀνά",
+      "previousMeaning": "arriba; hacia arriba; de nuevo",
+      "reviewedMeaning": "hacia arriba; a lo largo de; de nuevo (en composición)",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "cited_lexicon_in_corpus",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/nodes/urn%3Acts%3AgreekLit%3Atlg0012.tlg002.perseus-grc2%3A3.390/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "El valor «de nuevo» pertenece a determinados compuestos; no es traducción universal de la preposición.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:αντι",
+      "lemma": "ἀντί",
+      "previousMeaning": "enfrente de; contra; en lugar de",
+      "reviewedMeaning": "frente a; contra; en lugar de; a cambio de",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n9778/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Rige habitualmente genitivo y sus acepciones dependen del contexto.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:εκ",
+      "lemma": "ἐκ",
+      "previousMeaning": "de; desde dentro; fuera de",
+      "reviewedMeaning": "de; desde el interior de; fuera de",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n31575/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "ἐξ es el alomorfo empleado ante vocal.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:υπερ",
+      "lemma": "ὑπέρ",
+      "previousMeaning": "por encima de; más allá de; en favor de",
+      "reviewedMeaning": "por encima de; más allá de; en favor de",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n107183/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Los valores varían según el caso: genitivo o acusativo.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:μακροσ",
+      "lemma": "μακρός",
+      "previousMeaning": "largo; extenso; distante",
+      "reviewedMeaning": "largo; alto; distante; duradero",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n20217/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "La glosa antigua omitía usos en altura y duración.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:πολισ",
+      "lemma": "πόλις",
+      "previousMeaning": "ciudad; ciudad-estado",
+      "reviewedMeaning": "ciudad; comunidad política; ciudad-estado",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n84494/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "No limitar «polis» al espacio urbano material.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:πραττω",
+      "lemma": "πράττω",
+      "previousMeaning": "hacer, realizar (πράττω); hecho, asunto (πρᾶγμα)",
+      "reviewedMeaning": "hacer, realizar, actuar (πράττω); hecho, acción, asunto (πρᾶγμα)",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n86219/",
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alexicon-thucydideum-3904/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "La variante πράσσω de πράττω no implica un segundo concepto; πράγμα sí es otro lema.",
+      "headwordPartsVerified": 2,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:αυτοσ",
+      "lemma": "αὐτός",
+      "previousMeaning": "mismo; propio; él mismo",
+      "reviewedMeaning": "mismo; él mismo; el mismo",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n17907/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "«El mismo» se expresa con artículo; «él mismo» puede ser intensivo.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:δενδρον",
+      "lemma": "δένδρον",
+      "previousMeaning": "árbol",
+      "reviewedMeaning": "árbol",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n24022/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "LSJ registra también δένδρεον como forma relacionada.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:παιδιον",
+      "lemma": "παιδίον",
+      "previousMeaning": "niño; criatura",
+      "reviewedMeaning": "niño pequeño; criatura",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n76596/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Es diminutivo de παῖς. Permanece solo de consulta en la programación.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:εικων",
+      "lemma": "εἰκών",
+      "previousMeaning": "imagen; representación; semejanza",
+      "reviewedMeaning": "imagen; retrato; semejanza",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n9688/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Distinguir representación real, semejanza y uso figurado.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:ηπαρ",
+      "lemma": "ἧπαρ",
+      "previousMeaning": "hígado",
+      "reviewedMeaning": "hígado",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "cited_lexicon_in_corpus",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/nodes/urn%3Acts%3AgreekLit%3Atlg0012.tlg001.perseus-grc2%3A13.412/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "El pasaje consultado incluye la glosa de Cunliffe.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:λαρυγξ",
+      "lemma": "λάρυγξ",
+      "previousMeaning": "laringe",
+      "reviewedMeaning": "laringe; garganta",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "specialized_academic_attestation",
+      "sourceRefs": [
+        "https://appsweb-cepam.unice.fr/etygram/node/1440"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Fuente Etygram académica con atestiguación histórica. Distinguir λάρυγξ de φάρυγξ, aunque hay usos históricos próximos.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:χειρ",
+      "lemma": "χείρ",
+      "previousMeaning": "mano",
+      "reviewedMeaning": "mano; brazo",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n35678/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "«Mano» es el sentido principal; puede incluir el brazo en ciertos contextos.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:βλεφαρον",
+      "lemma": "βλέφαρον",
+      "previousMeaning": "párpado",
+      "reviewedMeaning": "párpado",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "cited_lexicon_in_corpus",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/nodes/urn%3Acts%3AgreekLit%3Atlg0012.tlg001.perseus-grc2%3A10.187/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "En la poesía homérica documentada aparece sobre todo en plural o dual.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:ουσ",
+      "lemma": "οὖς",
+      "previousMeaning": "oreja; oído",
+      "reviewedMeaning": "oreja; oído",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n76028/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Tema ὠτ- en el genitivo ὠτός y diversos compuestos.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:τομη",
+      "lemma": "τομή",
+      "previousMeaning": "corte; incisión",
+      "reviewedMeaning": "corte; incisión; división",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n104250a/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Incluye uso quirúrgico y sentido abstracto de división.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:μισεω",
+      "lemma": "μισέω",
+      "previousMeaning": "odiar; aborrecer",
+      "reviewedMeaning": "odiar; aborrecer",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n67974/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Verbo; no confundirlo con el sustantivo μῖσος.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:φιλια",
+      "lemma": "φιλία",
+      "previousMeaning": "amistad; afecto",
+      "reviewedMeaning": "amistad; afecto",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n111023/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Sentido de amistad y cariño, distinto de ἔρως.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:αλγοσ",
+      "lemma": "ἄλγος",
+      "previousMeaning": "dolor; sufrimiento",
+      "reviewedMeaning": "dolor físico o anímico; sufrimiento",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n3903/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Comprende dolor corporal y sufrimiento moral.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:γλωττα",
+      "lemma": "γλῶττα",
+      "previousMeaning": "lengua; habla; idioma",
+      "reviewedMeaning": "lengua (órgano); lengua, idioma",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n22425/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "γλῶττα es variante ática de γλῶσσα; no étimo distinto.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:ισοσ",
+      "lemma": "ἴσος",
+      "previousMeaning": "igual; equivalente",
+      "reviewedMeaning": "igual; equivalente",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n51148/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "También igualdad en cantidad, dimensión o condición.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:κρυπτω",
+      "lemma": "κρύπτω",
+      "previousMeaning": "ocultar; esconder",
+      "reviewedMeaning": "ocultar; esconder; cubrir",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n60245/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "«Cubrir» puede implicar ocultación.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:μονοσ",
+      "lemma": "μόνος",
+      "previousMeaning": "solo; único",
+      "reviewedMeaning": "solo; único; aislado",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n68641/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Distinguir «único» de «solitario» según contexto.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:σκοπεω",
+      "lemma": "σκοπέω",
+      "previousMeaning": "observar; examinar; considerar",
+      "reviewedMeaning": "observar; examinar; considerar",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n95111/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "La observación visual puede evolucionar a examen o reflexión.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:ταχυσ",
+      "lemma": "ταχύς",
+      "previousMeaning": "rápido; veloz",
+      "reviewedMeaning": "rápido; veloz",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n102736/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "Adjetivo de velocidad; no confundir con el adverbio ταχέως.",
+      "headwordPartsVerified": 1,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:γραφω",
+      "lemma": "γράφω",
+      "previousMeaning": "escribir (γράφω); letra o escrito (γράμμα)",
+      "reviewedMeaning": "trazar, dibujar o escribir (γράφω); letra, carácter escrito (γράμμα)",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n7087/",
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Amiddle-liddell.perseus-eng2-n7059/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "La pareja reúne verbo y sustantivo; la grafía griega original del Excel se conserva.",
+      "headwordPartsVerified": 2,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:σοφοσ",
+      "lemma": "σοφός",
+      "previousMeaning": "sabio (σοφός); sabiduría (σοφία)",
+      "reviewedMeaning": "sabio, hábil (σοφός); sabiduría, destreza (σοφία)",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n95661/",
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n95641/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "La primera acepción de σοφία puede ser destreza técnica; no únicamente sabiduría filosófica.",
+      "headwordPartsVerified": 2,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    },
+    {
+      "id": "grc:λεγω",
+      "lemma": "λέγω",
+      "previousMeaning": "decir o hablar (λέγω); palabra o discurso (λόγος)",
+      "reviewedMeaning": "decir, hablar (λέγω); palabra, discurso, razón (λόγος)",
+      "reviewStatus": "evidence_confirmed",
+      "sourceType": "dictionary",
+      "sourceRefs": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n62205/",
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n63772/"
+      ],
+      "reviewedAt": "2026-11-12",
+      "reviewNote": "λέγω también puede significar recoger o contar en usos históricos; separar los lemas.",
+      "headwordPartsVerified": 2,
+      "originalStatus": "meaning_draft_pending_dictionary_check",
+      "reviewDoesNotChangeExamEligibility": true
+    }
+  ],
+  "publicationAllowed": false
+}

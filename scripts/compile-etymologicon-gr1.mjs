@@ -315,6 +315,60 @@ export function compileTeacherAudit(){
   assert.equal(draftNew,29);
   assert.equal(completedPairs,4);
   assert.equal(etymons.filter(x=>x.meaning===null).length,0);
+  // Tercera capa: la auditoría documental resuelve las 29 glosas que aún
+  // constaban como propuestas. Se conserva íntegra la versión anterior.
+  const meaningAudit=JSON.parse(readFileSync(join(base,'review/meaning-drafts-audit-v1.json'),'utf8'));
+  assert.equal(meaningAudit.schema,'etymologicon-29-meaning-review/v1');
+  assert.equal(meaningAudit.course,'gr1');
+  assert.equal(meaningAudit.publicationAllowed,false);
+  assert.equal(meaningAudit.records.length,29);
+  const auditedIds=new Set();
+  let verifiedDictionary=0,verifiedContext=0;
+  for(const item of meaningAudit.records){
+    assert.equal(item.originalStatus,'meaning_draft_pending_dictionary_check');
+    assert.equal(item.reviewStatus,'evidence_confirmed');
+    assert.equal(item.reviewDoesNotChangeExamEligibility,true);
+    assert.ok(!auditedIds.has(item.id),'Glosa repetida: '+item.id);
+    auditedIds.add(item.id);
+    const e=byEtymon.get(item.id);
+    assert.ok(e,'Revisión sobre étimo inexistente: '+item.id);
+    assert.equal(e.meaningReviewStatus,'meaning_draft_pending_dictionary_check',
+      'Se intentó revisar una entrada ya contrastada o diferente: '+item.id);
+    assert.equal(e.meaning,item.previousMeaning,'La glosa histórica ha cambiado inesperadamente: '+item.id);
+    assert.equal(e.meaningCompletionEvidence?.status,'meaning_draft_pending_dictionary_check');
+    assert.ok(item.reviewedMeaning?.trim(),'Significado revisado vacío: '+item.id);
+    assert.ok(['dictionary','cited_lexicon_in_corpus','specialized_academic_attestation'].includes(item.sourceType));
+    assert.ok(Array.isArray(item.sourceRefs)&&item.sourceRefs.length>=1);
+    assert.ok(item.sourceRefs.every(url=>/^https:\/\//.test(url)),'URL lexicográfica ausente o inválida: '+item.id);
+    assert.equal(item.headwordPartsVerified,item.sourceRefs.length);
+    const components=e.meaningCompletionEvidence.components;
+    if(components?.type==='associated_lexemes')
+      assert.equal(item.sourceRefs.length,2,'Deben documentarse ambos lemas: '+item.id);
+    else
+      assert.equal(item.sourceRefs.length,1,'Una entrada simple debe tener un enlace principal: '+item.id);
+    e.meaning=item.reviewedMeaning;
+    e.independentLexicographicReview=true;
+    e.meaningReviewStatus='source_reviewed_after_draft';
+    if(e.meaningEvidence?.kind==='new_meaning_batch')
+      e.meaningEvidence={...e.meaningEvidence,status:'source_reviewed_after_draft'};
+    // Preserve teacher_curriculum/partial_compound provenance for paired lemmata.
+    e.meaningCompletionEvidence={
+      ...e.meaningCompletionEvidence,
+      status:'source_reviewed_after_draft',
+      previousDraftGloss:item.previousMeaning,
+      reviewedAt:item.reviewedAt,
+      verifiedSources:item.sourceRefs,
+      reviewSourceType:item.sourceType,
+      reviewNote:item.reviewNote,
+      suggestedLookup:null
+    };
+    if(item.sourceType==='dictionary')verifiedDictionary++;
+    else verifiedContext++;
+  }
+  assert.equal(auditedIds.size,29);
+  assert.equal(verifiedDictionary,25);
+  assert.equal(verifiedContext,4);
+  assert.equal(etymons.filter(x=>x.meaningReviewStatus==='meaning_draft_pending_dictionary_check').length,0);
   // Una glosa de borrador no convierte el étimo en elegible para nuevas modalidades.
   for(const rel of relations)assert.ok(!rel.inverseReady&&!rel.decompositionReady);
   const summary={
@@ -323,13 +377,17 @@ export function compileTeacherAudit(){
     addedComparedWithGenerator:added,removedComparedWithGenerator:removed,
     dictionarySourcesIndependentlyChecked:reviewedDefinitions,
     greekMeaningsCompleted:etymons.length,
-    meaningCompletionChecked:checkedNew,
-    meaningCompletionDrafts:draftNew,
+    meaningCompletionChecked:checkedNew+verifiedDictionary,
+    reviewedDraftMeanings:auditedIds.size,
+    academicContextEvidences:verifiedContext,
+    meaningsWithExternalEvidence:externalMeanings+checkedNew+auditedIds.size,
+    meaningsOnlyTeacherCurriculum:curricular,
+    meaningCompletionDrafts:draftNew-auditedIds.size,
     previouslyPartialCompoundGlosses:completedPairs,
-    greekMeaningsPendingIndependentReview:curricular+draftNew,
+    greekMeaningsPendingIndependentReview:curricular,
     greekMeaningsFromTeacherCurriculum:curricular,
     partialCompoundGlosses:0,
-    greekMeaningsFromExternalLexicons:externalMeanings+checkedNew,
+    greekMeaningsFromExternalLexicons:externalMeanings+checkedNew+verifiedDictionary,
     spanishEntriesOnlyAttested:attestedOnly,
     greekMeaningsPending:0,
     published:false
@@ -341,7 +399,7 @@ export function compileTeacherAudit(){
     course:'gr1',
     greek2:{course:'gr2',status:'awaiting_teacher_inventory',etymons:[]},
     status:'editorially_reconciled_not_published',
-    caution:'Los 111 étimos disponen de glosas didácticas; 31 tienen contraste externo de acepción, 51 proceden del vocabulario escolar y 29 son propuestas por cotejar individualmente. Ninguna glosa habilita sola ejercicios inversos o de composición.',
+    caution:'Los 111 étimos tienen glosa didáctica: 56 apoyados en artículos lexicográficos y 4 en testimonios académicos, 51 basados en vocabulario docente sin contraste externo individual. La revisión de glosas no habilita por sí sola ejercicios inversos ni de composición.',
     correctionPolicy,
     etymons,derivatives,relations,excluded,editorialDecisions,summary
   };

@@ -1,3 +1,5 @@
+> Actualización: las 29 glosas provisionales han recibido documentación individual. Véase [revisión de 29 glosas](ETIMOLOGICON_REVISION_29_GLOSAS.md). Los recuentos del informe inferior corresponden al estado anterior.
+
 # Etymologicon · glosas griegas pendientes (fase 2)
 
 Actualización: 12 de noviembre de 2026.
