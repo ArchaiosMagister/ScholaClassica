@@ -1,0 +1,23 @@
+import {cp,rm,mkdir,readFile,writeFile,stat} from 'node:fs/promises';
+import {resolve,join,sep} from 'node:path';
+import {execFileSync} from 'node:child_process';
+const root=resolve(import.meta.dirname,'..');
+const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
+const out=join(root,'dist');
+const lock=JSON.parse(await readFile(join(root,'config/sources.lock.json'),'utf8'));
+if(lock.sources.appendix.integrated!==true||lock.sources.appendix.target!=='apps/gramatica')throw Error('Lock incompatible: Appendix');
+const head=execFileSync('git',['-C',source,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
+if(head!==lock.sources.appendix.sha)throw Error('Appendix sin fijar: esperado '+lock.sources.appendix.sha+'; recibido '+head);
+await stat(join(source,'assets/curriculum.json'));
+await stat(join(source,'val/curriculum.json'));
+await rm(out,{recursive:true,force:true});
+await mkdir(out,{recursive:true});
+await cp(join(root,'public'),out,{recursive:true,force:true});
+const destination=join(out,'apps/gramatica');
+await mkdir(join(out,'apps'),{recursive:true});
+await cp(source,destination,{recursive:true,force:true,filter:path=>{
+  const relative=path.slice(source.length).split(sep).filter(Boolean);
+  return !relative.some(piece=>piece==='.git'||piece==='.github');
+}});
+await writeFile(join(out,'.nojekyll'),'');
+console.log('ScholaClassica: Appendix integrado sin modificar la fuente ('+head.slice(0,12)+')');

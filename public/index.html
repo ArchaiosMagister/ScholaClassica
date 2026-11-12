@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ScholaClassica: gramática, vocabulario y ejercicios de latín y griego organizados por lengua y por herramienta.">
+  <meta name="theme-color" content="#14283f">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <title>ScholaClassica · Latín y Griego</title>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-head">
+  <div class="head-inner">
+    <a class="brand" href="./" aria-label="ScholaClassica, inicio"><span class="brand-symbol" aria-hidden="true">Σ</span> Schola<span>Classica</span></a>
+    <nav aria-label="Navegación principal"><a href="#modulos">Herramientas</a><a href="#profesorado">Profesorado</a></nav>
+  </div>
+</header>
+<main id="contenido" class="container">
+  <section class="hero">
+    <p class="eyebrow">Un espacio común para las lenguas clásicas</p>
+    <h1>ScholaClassica</h1>
+    <p>Gramática latina y griega, por cursos y unidades. Las demás herramientas se incorporarán progresivamente, sin alterar sus aplicaciones originales.</p>
+    <p class="status"><span aria-hidden="true">●</span> Primera integración en pruebas. No es todavía la web destinada al alumnado.</p>
+  </section>
+  <section id="modulos" aria-labelledby="explorar">
+    <div class="section-heading"><div><p class="eyebrow">Estudia como prefieras</p><h2 id="explorar">Explorar los contenidos</h2></div><span class="phase">Fase 1 · Gramática</span></div>
+    <div class="tabs" role="tablist" aria-label="Forma de explorar">
+      <button type="button" id="tab-lenguas" role="tab" aria-controls="panel-lenguas" aria-selected="true">Por lengua</button>
+      <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Por herramienta</button>
+    </div>
+    <div id="panel-lenguas" role="tabpanel" aria-labelledby="tab-lenguas">
+      <div class="columns">
+        <article class="card latin">
+          <p class="overline">Lingua Latina</p><h3>Latín</h3><p>Gramática y sintaxis con acceso por curso y por unidad.</p>
+          <div class="linkgroup">
+            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=1&amp;unidad=1">Latín I <span aria-hidden="true">↗</span></a>
+            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=2">Latín II <span aria-hidden="true">↗</span></a>
+            <a href="apps/gramatica/morfologia.html">Morfología latina <span aria-hidden="true">↗</span></a>
+            <a href="apps/gramatica/sintaxis.html">Sintaxis latina <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="card greek">
+          <p class="overline">Ἑλληνικὴ γλῶττα</p><h3>Griego</h3><p>Gramática y sintaxis con acceso por curso y por unidad.</p>
+          <div class="linkgroup">
+            <a href="apps/gramatica/curso.html?lengua=griego&amp;curso=1&amp;unidad=1">Griego I <span aria-hidden="true">↗</span></a>
+            <a href="apps/gramatica/curso.html?lengua=griego&amp;curso=2">Griego II <span aria-hidden="true">↗</span></a>
+            <a href="apps/gramatica/griego-morfologia.html">Morfología griega <span aria-hidden="true">↗</span></a>
+            <a href="apps/gramatica/griego-sintaxis.html">Sintaxis griega <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" hidden>
+      <div class="columns">
+        <article class="card neutral">
+          <p class="overline">Disponible en esta fase</p><h3>Biblioteca de gramática</h3>
+          <p>Appendix grammaticæ: morfología, sintaxis, paradigmas y contenidos por unidad, en castellano y valenciano.</p>
+          <div class="linkgroup"><a href="apps/gramatica/index.html">Abrir gramática <span aria-hidden="true">↗</span></a><a href="apps/gramatica/val/index.html" lang="ca-valencia">Obrir en valencià <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="card neutral upcoming">
+          <p class="overline">Próximas integraciones</p><h3>Herramientas de práctica</h3>
+          <p>Vocabulario y morfología, evolución fonética y otros ejercicios. Permanecen disponibles en sus webs originales mientras se integran.</p>
+          <span class="muted">Aún no integradas en ScholaClassica</span>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="profesorado" class="teacher" aria-labelledby="teacher-title">
+    <div><p class="eyebrow">Acceso docente</p><h2 id="teacher-title">Herramientas del profesorado</h2><p>El generador de exámenes se incorporará después de implantar una autenticación y una autorización efectivas. No se ofrecen enlaces ni recursos docentes desprotegidos desde esta plataforma.</p></div>
+    <span class="teacher-status">Pendiente de integración segura</span>
+  </section>
+  <section class="future" aria-labelledby="future-title">
+    <h2 id="future-title">Próximamente</h2>
+    <p>Derivación etimológica griega, modificación preverbial y latinismos se desarrollarán como módulos después de integrar las aplicaciones existentes.</p>
+  </section>
+</main>
+<footer class="footer"><div class="container"><span>ScholaClassica · Integración técnica en pruebas</span><span>Castellano y valenciano en Appendix grammaticæ</span></div></footer>
+</body>
+</html>

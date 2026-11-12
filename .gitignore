@@ -1,0 +1,4 @@
+.sources/
+dist/
+node_modules/
+*.log
