@@ -4,7 +4,8 @@ const el=id=>document.getElementById(id);
 const sections=['unavailable','login','enroll','verify','teacher'];
 const CLIENT_VERSION='2.119.0';
 const SCRIPT_URL='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@'+CLIENT_VERSION;
-let config,client,enrollment=null,busy=false;
+const CAPTCHA_URL='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+let config,client,enrollment=null,busy=false,captchaId=null;
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
 function state(section,message=''){
   for(const id of sections)el(id).hidden=id!==section;
@@ -29,7 +30,8 @@ async function safely(operation){
 function validConfig(value){
   return value?.enabled===true&&/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value.url||'')&&
     typeof value.publishableKey==='string'&&value.publishableKey.length>20&&
-    typeof value.email==='string'&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.email)&&
+    typeof value.turnstileSiteKey==='string'&&/^0x[A-Za-z0-9_-]{16,64}$/.test(value.turnstileSiteKey)&&
+    !('email' in value)&&
     value.username==='MagisterArchaios'&&value.origin===location.origin&&
     location.hostname!=='archaiosmagister.github.io'&&
     (location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname));
@@ -45,6 +47,18 @@ async function loadSDK(){
     document.head.append(script);
   });
   if(!window.supabase?.createClient)throw Error('Biblioteca no disponible');
+}
+async function loadCaptcha(){
+  if(!window.turnstile?.render){
+    await new Promise((resolve,reject)=>{
+      const script=document.createElement('script');
+      script.src=CAPTCHA_URL;script.async=true;script.defer=true;
+      script.onload=resolve;script.onerror=()=>reject(Error('No se ha cargado el control antirrobots'));
+      document.head.append(script);
+    });
+  }
+  if(!window.turnstile?.render)throw Error('Control antirrobots no disponible');
+  captchaId=window.turnstile.render('#turnstile-widget',{sitekey:config.turnstileSiteKey,theme:'auto'});
 }
 async function checkSession(){
   const {data:{session},error}=await client.auth.getSession();
@@ -74,6 +88,7 @@ async function fetchNotices(){
   el('notices-state').textContent='Consultando los servicios de origen…';
   const response=await client.functions.invoke('schola-inbox',{method:'POST',body:{}});
   if(response.error||response.data?.error||!response.data?.authorized){
+    await client.auth.signOut({scope:'local'});
     el('notices-state').textContent='No se ha autorizado la consulta. La información privada permanece bloqueada.';
     state('unavailable','Acceso docente no autorizado por el servidor');
     return;
@@ -105,9 +120,26 @@ el('login-form').addEventListener('submit',event=>{
     const password=el('password').value;
     el('password').value='';
     if(username!==config.username||!password){state('login','Credenciales incorrectas');return}
-    const response=await client.auth.signInWithPassword({email:config.email,password});
-    if(response.error){state('login','Credenciales incorrectas o acceso no disponible');return}
-    await checkSession();
+    const token=window.turnstile?.getResponse?.(captchaId);
+    if(typeof token!=='string'||token.length<10){
+      state('login','Completa primero la comprobación de seguridad');return;
+    }
+    try{
+      // El correo NO viaja al navegador: el servidor resuelve el usuario.
+      const response=await client.functions.invoke('schola-login',{
+        method:'POST',body:{username,password,turnstileToken:token}
+      });
+      if(response.error||!response.data?.access_token||!response.data?.refresh_token){
+        state('login','Credenciales incorrectas o acceso no disponible');return;
+      }
+      const installed=await client.auth.setSession({
+        access_token:response.data.access_token,refresh_token:response.data.refresh_token
+      });
+      if(installed.error)throw installed.error;
+      await checkSession();
+    }finally{
+      window.turnstile?.reset?.(captchaId);
+    }
   });
 });
 el('enroll-start').addEventListener('click',()=>void safely(async()=>{
@@ -159,6 +191,7 @@ async function init(){
     if(!validConfig(config)){state('unavailable','Configuración docente no activada');return}
     el('username').value=config.username;
     await loadSDK();
+    await loadCaptcha();
     client=window.supabase.createClient(config.url,config.publishableKey,{
       auth:{persistSession:false,autoRefreshToken:true,detectSessionInUrl:false}
     });

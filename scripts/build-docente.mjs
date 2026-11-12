@@ -7,7 +7,9 @@ const root=resolve(import.meta.dirname,'..');
 const output=resolve(root,process.env.SCHOLA_DOCENTE_OUTPUT||'dist-docente');
 if(!output.startsWith(root+sep)||output===root)throw Error('Salida docente fuera del repositorio');
 
-const required=['SCHOLA_DOCENTE_ORIGIN','SCHOLA_AUTH_URL','SCHOLA_AUTH_PUBLISHABLE_KEY','SCHOLA_AUTH_LOGIN_EMAIL'];
+const required=['SCHOLA_DOCENTE_ORIGIN','SCHOLA_AUTH_URL','SCHOLA_AUTH_PUBLISHABLE_KEY','SCHOLA_TURNSTILE_SITE_KEY'];
+if(process.env.SCHOLA_AUTH_LOGIN_EMAIL)
+  throw Error('Nunca debe incluirse el correo docente en un artefacto público: configúralo solo como secreto del servidor');
 const present=required.filter(name=>Boolean(process.env[name]?.trim()));
 if(present.length!==0&&present.length!==required.length)
   throw Error('Configuración docente incompleta: faltan variables obligatorias');
@@ -35,10 +37,10 @@ if(enabled){
   authOrigin=new URL(rawAuth).origin;
   const key=process.env.SCHOLA_AUTH_PUBLISHABLE_KEY.trim();
   validatePublicKey(key);
-  const email=process.env.SCHOLA_AUTH_LOGIN_EMAIL.trim();
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-    throw Error('Se necesita un alias de email docente válido');
-  config={enabled:true,origin,url:authOrigin,publishableKey:key,email,username:'MagisterArchaios'};
+  const siteKey=process.env.SCHOLA_TURNSTILE_SITE_KEY.trim();
+  if(!/^0x[A-Za-z0-9_-]{16,64}$/.test(siteKey))
+    throw Error('La clave pública de Turnstile no es válida');
+  config={enabled:true,origin,url:authOrigin,publishableKey:key,turnstileSiteKey:siteKey,username:'MagisterArchaios'};
 }
 const portalUrl=process.env.SCHOLA_PORTAL_URL?.trim()||'https://archaiosmagister.github.io/ScholaClassica/';
 if(!/^https:\/\/[a-z0-9.-]+(?:\/[A-Za-z0-9/_-]*)?\/?$/i.test(portalUrl))throw Error('URL del portal no válida');
@@ -55,10 +57,22 @@ html=html.replace('href="../style.css"','href="./portal.css"')
 const connect=authOrigin?authOrigin+' wss://'+new URL(authOrigin).host:'';
 const csp=[
   "default-src 'none'","base-uri 'none'","object-src 'none'","form-action 'self'",
-  "script-src 'self' https://cdn.jsdelivr.net","style-src 'self'","img-src 'self' data:",
-  "connect-src 'self' "+connect,"upgrade-insecure-requests"
+  "script-src 'self' https://cdn.jsdelivr.net https://challenges.cloudflare.com","style-src 'self'","img-src 'self' data:",
+  "connect-src 'self' https://challenges.cloudflare.com "+connect,
+  "frame-src https://challenges.cloudflare.com","upgrade-insecure-requests"
 ].join('; ');
 html=html.replace('<head>','<head>\n  <meta http-equiv="Content-Security-Policy" content="'+csp+'">');
 await writeFile(join(output,'index.html'),html);
 await writeFile(join(output,'auth-config.json'),JSON.stringify(config)+'\n');
+const headers=[
+  '/*',
+  '  Content-Security-Policy: '+csp.replace(/; upgrade-insecure-requests/,'; upgrade-insecure-requests; frame-ancestors \'none\''),
+  '  X-Content-Type-Options: nosniff',
+  '  Referrer-Policy: no-referrer',
+  '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
+  '  Cross-Origin-Opener-Policy: same-origin',
+  '  Cache-Control: no-store',
+  ''
+].join('\n');
+await writeFile(join(output,'_headers'),headers);
 console.log(enabled?'Artefacto docente aislado preparado para revisión; no desplegado':'Artefacto docente aislado desactivado; no desplegado');
