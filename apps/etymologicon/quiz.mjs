@@ -124,6 +124,15 @@ export function createQuizBank(catalog){
       byLatin.get(translit).add(e);
     }
   }
+  // Las fichas que contienen varios lemas (p. ej. separados por barras)
+  // no son preguntas inversas inequívocas. Tampoco se ofrecen si dos
+  // étimos tienen la misma grafía al eliminar los diacríticos.
+  const inverseEligibleIds=[...inverseCandidates.keys()].filter(id=>{
+    const lemma=headword(etyma.get(id).lemma);
+    return /^[\p{Script=Greek}\p{M}\s-]+$/u.test(lemma)&&
+      byGreek.get(greekKey(lemma))?.size===1;
+  });
+  const inverseEligible=new Set(inverseEligibleIds);
   const getIds=(map,key)=>[...(map.get(key)||[])];
   function preview(input){
     const value=String(input??'').trim();
@@ -168,7 +177,7 @@ export function createQuizBank(catalog){
   }
   function inverse(targetId,{random=Math.random}={}){
     const e=etyma.get(targetId),candidateIds=inverseCandidates.get(targetId);
-    if(!e||!candidateIds?.length)return null;
+    if(!e||!candidateIds?.length||!inverseEligible.has(targetId))return null;
     const derivative=derivatives.get(draw(candidateIds,random));
     return {etymonId:targetId,derivativeId:derivative.id,derivative:derivative.form,
       canonicalLemma:headword(e.lemma),source:'approved_direct_relation_unique_owner'};
@@ -194,5 +203,5 @@ export function createQuizBank(catalog){
       correct:p.matches[0]===question.etymonId,correctLemma:question.canonicalLemma};
   }
   return Object.freeze({mcq,inverse,preview,gradeMcq,gradeInverse,
-    inverseEligibleIds:[...inverseCandidates.keys()]});
+    inverseEligibleIds});
 }
