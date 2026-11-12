@@ -1,3 +1,5 @@
+> **Modalidades de estudio:** tarjetas y emparejamientos basados exclusivamente en el inventario aprobado; estadísticas independientes y repaso inteligente común. [Documentación](../../../docs/ETIMOLOGICON_TARJETAS_RELACIONES.md).
+
 > **Seguimiento del aprendizaje:** estadísticas locales por étimo, repaso de errores, selección ponderada y copias de seguridad JSON verificadas. [Documentación](../../../docs/ETIMOLOGICON_PROGRESO_Y_REPASO.md). Sin publicación pública.
 
 > **PWA Etymologicon preparada:** manifiesto, iconos específicos, caché exclusiva y versión de actualización basada en contenido. [Guía de instalación y verificación](../../../docs/ETIMOLOGICON_PWA.md). Aún sin despliegue público.

@@ -111,6 +111,57 @@ try{
   assert.equal(await page.locator('#etymon-select option').count(),108);
   await page.getByRole('button',{name:'Otro étimo'}).click();
   assert.equal(await page.locator('#results').isHidden(),true,'El siguiente étimo debe limpiar el resultado anterior');
+  // Las tarjetas se mantienen ocultas hasta revelar la solución y su
+  // autoevaluación NO altera las notas objetivas del corrector.
+  await page.locator('#activity-type').selectOption('cards');
+  await page.locator('#etymon-select').selectOption('grc:προσ');
+  assert.equal(await page.locator('#flashcard-section').isVisible(),true);
+  assert.equal(await page.locator('#flashcard-back').isHidden(),true);
+  assert.equal(await page.locator('#answer-form').isHidden(),true);
+  assert.equal(await page.locator('#meaning').isHidden(),true);
+  await page.getByRole('button',{name:'Mostrar significado y derivados'}).click();
+  assert.equal(await page.locator('#flashcard-back').isVisible(),true);
+  assert.ok((await page.locator('#flashcard-derivatives').textContent()).includes('prosélito'));
+  await page.getByRole('button',{name:'Necesito repasarlo'}).click();
+  assert.equal((await page.locator('#stats-cards').textContent()).trim(),'1');
+  assert.equal((await page.locator('#stats-cards-forgotten').textContent()).trim(),'1');
+  await page.locator('#practice-mode').selectOption('errors');
+  assert.equal(await page.locator('#etymon-select option').count(),1);
+  await page.locator('#practice-mode').selectOption('general');
+  // La relación usa derivados unívocos para los étimos mostrados.
+  await page.locator('#activity-type').selectOption('matching');
+  assert.equal(await page.locator('#matching-section').isVisible(),true);
+  assert.equal(await page.locator('#etymon-field').isHidden(),true);
+  const pairs=await page.evaluate(async()=>{
+    const catalog=await fetch('./data/gr1.json').then(r=>r.json());
+    const {createStudyBank}=await import('./study.mjs');
+    const bank=createStudyBank(catalog);
+    const spanish=[...document.querySelectorAll('#matching-spanish button')].map(x=>x.dataset.id);
+    return [...document.querySelectorAll('#matching-greek button')].map(x=>({
+      id:x.dataset.id,
+      derivativeId:spanish.find(id=>bank.getCard(x.dataset.id).derivatives.some(d=>d.id===id))
+    }));
+  });
+  assert.equal(pairs.length,4);
+  assert.ok(pairs.every(p=>p.derivativeId));
+  const greekButton=id=>page.locator('#matching-greek button[data-id="'+id+'"]');
+  const spanishButton=id=>page.locator('#matching-spanish button[data-id="'+id+'"]');
+  await greekButton(pairs[0].id).click();
+  await spanishButton(pairs[1].derivativeId).click();
+  assert.ok((await page.locator('#matching-feedback').textContent()).includes('No corresponde'));
+  for(const pair of pairs){
+    await greekButton(pair.id).click();
+    await spanishButton(pair.derivativeId).click();
+  }
+  assert.ok((await page.locator('#matching-score').textContent()).includes('3 de 4 parejas'));
+  assert.equal((await page.locator('#stats-pairs').textContent()).trim(),'4');
+  assert.equal((await page.locator('#stats-pairs-correct').textContent()).trim(),'3');
+  await page.getByRole('button',{name:'Otra ronda'}).click();
+  assert.equal(await page.locator('#matching-score').isHidden(),true);
+  await page.locator('#activity-type').selectOption('writing');
+  assert.equal(await page.locator('#answer-form').isVisible(),true);
+  assert.equal(await page.locator('#matching-section').isHidden(),true);
+
   await page.locator('#theme-select').selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
   await page.reload({waitUntil:'networkidle'});
@@ -149,7 +200,8 @@ try{
   await page.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
   const offlineResources=await page.evaluate(async()=>{
     const urls=['./manifest.webmanifest','./icons/icon-192.png',
-      './data/gr1.json','./corrector/write-two.mjs','./progress.mjs'];
+      './data/gr1.json','./corrector/write-two.mjs','./progress.mjs',
+      './study.mjs','./activities-ui.mjs'];
     return Promise.all(urls.map(async path=>{
       const response=await fetch(path);
       return response.ok;
@@ -169,6 +221,32 @@ try{
   assert.ok(await page.locator('#etymon-select option').count()>0,
     'El selector de unidades también debe funcionar offline');
   await page.locator('#practice-mode').selectOption('general');
+  await page.locator('#activity-type').selectOption('cards');
+  await page.locator('#etymon-select').selectOption('grc:προσ');
+  await page.getByRole('button',{name:'Mostrar significado y derivados'}).click();
+  await page.getByRole('button',{name:'Lo recordaba'}).click();
+  assert.equal((await page.locator('#stats-cards').textContent()).trim(),'2');
+  await page.locator('#activity-type').selectOption('matching');
+  assert.equal(await page.locator('#matching-section').isVisible(),true);
+  assert.equal(await page.locator('#matching-greek button').count(),4);
+  // Todas las correspondencias se resuelven a partir del banco cacheado.
+  const offlinePairs=await page.evaluate(async()=>{
+    const catalog=await fetch('./data/gr1.json').then(r=>r.json());
+    const {createStudyBank}=await import('./study.mjs');
+    const bank=createStudyBank(catalog);
+    const spanish=[...document.querySelectorAll('#matching-spanish button')].map(x=>x.dataset.id);
+    return [...document.querySelectorAll('#matching-greek button')].map(x=>({
+      id:x.dataset.id,
+      derivativeId:spanish.find(id=>bank.getCard(x.dataset.id).derivatives.some(d=>d.id===id))
+    }));
+  });
+  for(const pair of offlinePairs){
+    await page.locator('#matching-greek button[data-id="'+pair.id+'"]').click();
+    await page.locator('#matching-spanish button[data-id="'+pair.derivativeId+'"]').click();
+  }
+  assert.ok((await page.locator('#matching-score').textContent()).includes('4 de 4 parejas'));
+  assert.equal((await page.locator('#stats-pairs').textContent()).trim(),'8');
+  await page.locator('#activity-type').selectOption('writing');
   await page.context().setOffline(false);
   await page.getByRole('button',{name:'Buscar actualizaciones'}).click();
   await page.waitForFunction(()=>!document.querySelector('#check-update').disabled,

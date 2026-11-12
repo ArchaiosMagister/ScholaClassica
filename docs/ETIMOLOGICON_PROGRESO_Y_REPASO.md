@@ -1,3 +1,5 @@
+> **Modalidades añadidas:** tarjetas y relación de derivados comparten el repaso inteligente mediante estadísticas diferenciadas. Ver [tarjetas y relaciones](ETIMOLOGICON_TARJETAS_RELACIONES.md). Las copias previas JSON siguen siendo compatibles.
+
 # Etymologicon · progreso privado y repetición inteligente
 
 **Estado:** desarrollo de Griego I integrado en ScholaClassica y probado como PWA offline. Sin publicación pública.
