@@ -252,17 +252,86 @@ export function compileTeacherAudit(){
   assert.equal(attestedOnly,1);
   assert.equal(etymons.filter(x=>x.meaning!==null).length,57);
   assert.equal(etymons.filter(x=>x.meaning===null).length,54);
+  // Segunda capa de significados: todos los étimos tienen traducción didáctica,
+  // pero la cobertura no equivale a 111 consultas lexicográficas individuales.
+  const completion=JSON.parse(readFileSync(join(base,'review/meaning-completion-v1.json'),'utf8'));
+  assert.equal(completion.schema,'etymologicon-greek-meaning-completion/v1');
+  assert.equal(completion.course,'gr1');
+  assert.equal(completion.publicationAllowed,false);
+  assert.equal(completion.preexistingMeanings,57);
+  assert.equal(completion.entries.length,54);
+  const assigned=new Set();
+  let checkedNew=0,draftNew=0,completedPairs=0;
+  for(const row of completion.entries){
+    assert.ok(!assigned.has(row.id),'Significado duplicado en segundo lote: '+row.id);
+    assigned.add(row.id);
+    const etymon=byEtymon.get(row.id);
+    assert.ok(etymon,'El significado no corresponde a un étimo auditado: '+row.id);
+    assert.equal(etymon.meaning,null,'Se intentó sobrescribir una glosa ya completa: '+row.id);
+    assert.equal(itemIdGreek(etymon.lemma),row.id,'El lema no corresponde al étimo del Excel: '+row.id);
+    if(!etymon.lemma.startsWith(row.lemma)){
+      etymon.spellingReviewNeeded={
+        approvedAuditLemma:etymon.lemma,
+        lexiconHeadword:row.lemma,
+        status:'accentuation_to_check_without_rewriting_audit'
+      };
+    }
+    assert.ok(row.meaning.trim().length>0,'Glosa vacía: '+row.id);
+    assert.ok(['dictionary_entry_checked','meaning_draft_pending_dictionary_check'].includes(row.status));
+    const partial=etymon.meaningEvidence?.status==='partial_compound';
+    if(etymon.meaningEvidence)assert.ok(partial,'No sobrescribir un significado de procedencia previa: '+row.id);
+    const hasComponents=!!row.components;
+    if(partial){
+      assert.ok(hasComponents&&row.components.parts.length===2,'Pareja léxica incompleta: '+row.id);
+      for(const part of row.components.parts)assert.ok(part.lemma&&part.meaning);
+      completedPairs++;
+    }
+    if(row.status==='dictionary_entry_checked'){
+      assert.ok(row.reference?.individuallyChecked,'Sin marca de comprobación individual: '+row.id);
+      assert.ok(/^https:\/\//.test(row.reference.url),'URL de diccionario no válida: '+row.id);
+      checkedNew++;
+    }else{
+      assert.equal(row.reference,null,'No se puede adjuntar una fuente no consultada: '+row.id);
+      assert.ok(/^https:\/\/logeion\.uchicago\.edu\//.test(row.proposedLookup),'Referencia de futura consulta ausente: '+row.id);
+      draftNew++;
+    }
+    if(row.components){
+      assert.ok(['allomorphs','associated_lexemes'].includes(row.components.type),'Tipo de agrupación no válido');
+      assert.equal(row.components.parts.length,2,'Agrupación con cantidad incorrecta de miembros');
+      if(row.components.type==='allomorphs')assert.equal(etymon.id,'grc:εκ','La alternancia ἐκ/ἐξ es única');
+    }
+    etymon.meaning=row.meaning;
+    etymon.meaningReviewStatus=row.status;
+    etymon.meaningCompletionEvidence={
+      batch:'meaning-completion-v1',status:row.status,
+      checkedSource:row.reference||null,suggestedLookup:row.proposedLookup||null,
+      components:row.components||null,philologicalCaution:row.philologicalCaution||null
+    };
+    if(!etymon.meaningEvidence)etymon.meaningEvidence={kind:'new_meaning_batch',status:row.status};
+    if(row.status==='dictionary_entry_checked')etymon.independentLexicographicReview=true;
+  }
+  assert.equal(assigned.size,54);
+  assert.equal(checkedNew,25);
+  assert.equal(draftNew,29);
+  assert.equal(completedPairs,4);
+  assert.equal(etymons.filter(x=>x.meaning===null).length,0);
+  // Una glosa de borrador no convierte el étimo en elegible para nuevas modalidades.
+  for(const rel of relations)assert.ok(!rel.inverseReady&&!rel.decompositionReady);
   const summary={
     etymons:etymons.length,eligibleEtymons:108,consultOnlyEtymons:3,
     acceptedDerivatives:201,excludedDerivatives:1,relations:relations.length,editorialDecisions:22,
     addedComparedWithGenerator:added,removedComparedWithGenerator:removed,
     dictionarySourcesIndependentlyChecked:reviewedDefinitions,
-    greekMeaningsCompleted:curricular+externalMeanings,
+    greekMeaningsCompleted:etymons.length,
+    meaningCompletionChecked:checkedNew,
+    meaningCompletionDrafts:draftNew,
+    previouslyPartialCompoundGlosses:completedPairs,
+    greekMeaningsPendingIndependentReview:curricular+draftNew,
     greekMeaningsFromTeacherCurriculum:curricular,
-    partialCompoundGlosses:curricularPartial,
-    greekMeaningsFromExternalLexicons:externalMeanings,
+    partialCompoundGlosses:0,
+    greekMeaningsFromExternalLexicons:externalMeanings+checkedNew,
     spanishEntriesOnlyAttested:attestedOnly,
-    greekMeaningsPending:etymons.length-curricular-externalMeanings,
+    greekMeaningsPending:0,
     published:false
   };
   return {
@@ -272,7 +341,7 @@ export function compileTeacherAudit(){
     course:'gr1',
     greek2:{course:'gr2',status:'awaiting_teacher_inventory',etymons:[]},
     status:'editorially_reconciled_not_published',
-    caution:'Siete definiciones españolas y seis significados griegos tienen contraste externo documentado; los demás registros no se han revisado lexicográficamente uno a uno.',
+    caution:'Los 111 étimos disponen de glosas didácticas; 31 tienen contraste externo de acepción, 51 proceden del vocabulario escolar y 29 son propuestas por cotejar individualmente. Ninguna glosa habilita sola ejercicios inversos o de composición.',
     correctionPolicy,
     etymons,derivatives,relations,excluded,editorialDecisions,summary
   };

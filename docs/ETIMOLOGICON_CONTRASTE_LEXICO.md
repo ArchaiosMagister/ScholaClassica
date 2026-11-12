@@ -1,3 +1,5 @@
+> Actualización: las 54 glosas restantes se han preparado en la segunda fase. Consulta [ETIMOLOGICON_GLOSAS_GRIEGAS.md](ETIMOLOGICON_GLOSAS_GRIEGAS.md) para el estado de verificación. Este informe refleja la fase anterior.
+
 # Etymologicon · contraste de significados y definiciones (fase léxica 1)
 
 Actualizado el 12 de noviembre de 2026. No se publica ninguna aplicación.

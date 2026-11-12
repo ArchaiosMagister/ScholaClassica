@@ -7,8 +7,8 @@ test('55 glosas escolares se vinculan por lema y no suplantan una comprobación 
  const c=compileTeacherAudit();
  const escolar=c.etymons.filter(e=>e.meaningEvidence?.kind==='teacher_curriculum');
  assert.equal(escolar.length,55);
- assert.equal(escolar.filter(x=>x.meaning!==null).length,51);
- assert.equal(escolar.filter(x=>x.meaning===null&&x.meaningEvidence.status==='partial_compound').length,4);
+ assert.equal(escolar.filter(x=>x.meaning!==null).length,55);
+ assert.equal(escolar.filter(x=>x.meaningCompletionEvidence?.components&&x.meaningEvidence.status==='partial_compound').length,4);
  assert.ok(escolar.every(e=>!e.meaningEvidence.lexicographicConfirmation));
  assert.equal(c.summary.greekMeaningsFromTeacherCurriculum,51);
 });
@@ -22,9 +22,9 @@ test('significados adicionales externos están relacionados con la misma entrada
    assert.equal(item.meaningEvidence.status,'externally_checked');
    assert.equal(item.independentLexicographicReview,true);
  }
- assert.equal(c.summary.greekMeaningsFromExternalLexicons,6);
- assert.equal(c.summary.greekMeaningsCompleted,57);
- assert.equal(c.summary.greekMeaningsPending,54);
+ assert.equal(c.summary.greekMeaningsFromExternalLexicons,31);
+ assert.equal(c.summary.greekMeaningsCompleted,111);
+ assert.equal(c.summary.greekMeaningsPending,0);
 });
 test('solo las definiciones contrastadas tienen revisión externa; la atelocardia solo consta registrada',()=>{
  const c=compileTeacherAudit();
