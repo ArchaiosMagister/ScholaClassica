@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   validar:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - name: Código de ScholaClassica
@@ -41,7 +41,7 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Navegar por ScholaClassica y Appendix en Chromium
         run: npm run test:browser
-      - name: Archivar resultado privado de construcción (no publicar)
+      - name: Archivar resultado de construcción como artefacto de pruebas (sin desplegar)
         uses: actions/upload-artifact@v4
         with:
           name: scholaclassica-integracion-appendix
