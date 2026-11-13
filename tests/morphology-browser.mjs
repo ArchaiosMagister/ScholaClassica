@@ -54,7 +54,7 @@ try{
  await page.locator('#answers button').first().click();
  assert.ok(await page.locator('#feedback').isVisible());
  assert.ok((await page.locator('#feedback').textContent()).includes('Solución:'));
- assert.ok((await page.locator('#source').getAttribute('href')).includes('unidad=3'));
+ assert.equal(await page.locator('.evidence-links, #source, #source-secondary, #source-tertiary').count(),0);
  assert.equal(await page.locator('#answers button:disabled').count(),4);
  await page.locator('#next').click();
  assert.ok(await page.locator('#session').isVisible());
