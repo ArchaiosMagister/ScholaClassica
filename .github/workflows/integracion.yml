@@ -96,11 +96,15 @@ jobs:
         run: npm run test:browser:vocabula
       - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
         run: npm run test:browser:docente
-      - name: Archivar auditoría nominal griega (incorporados y descartados)
+      - name: Archivar catálogo íntegro de nombres, pruebas y pendientes (sin publicar)
         uses: actions/upload-artifact@v4
         with:
-          name: morfologia-gr1-auditoria-ampliacion
-          path: build/morfologia/auditoria-sustantivos-griegos.json
+          name: morfologia-auditoria-nominal-completa
+          path: |
+            build/morfologia/auditoria-sustantivos-griegos.json
+            build/morfologia/auditoria-sustantivos-latinos.json
+            build/morfologia/catalogo-nominal-total.json
+            build/morfologia/contraste-nominal-secundario.json
           if-no-files-found: error
           retention-days: 14
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
