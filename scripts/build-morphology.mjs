@@ -347,11 +347,28 @@ export async function buildMorphology({out,lock}){
     vocabulaSha:lock.sources.vocabula.sha,
     existingRecords:[...data.records,...latin.records]
   });
-  // Las fuentes griega y latina completas son suplementarias y nunca
-  // alteran las fichas ya superadas por la primera fuente fija.
+  // Atribución individual: las nuevas formas proceden del repositorio
+  // UniMorph completo, NO del subconjunto de Vocabula. El enunciado y la
+  // unidad sí se obtienen del vocabulario docente (SHA fijado).
+  const sourced=(records,language,sha)=>records.map(record=>({
+    ...record,evidence:{...record.evidence,
+      source:'UniMorph '+(language==='griego'?'grc':'lat')+
+        ' completo + enunciado Vocabula + cotejo curricular Appendix',
+      file:'unimorph/'+(language==='griego'?'grc/grc':'lat/lat'),
+      unimorphDatasetSha:sha,unimorphSource:'repositorio oficial completo',
+      license:'CC BY-SA 3.0',
+      review:'conciliación interfuentes; pendiente de revisión docente individual',
+      notes:record.evidence.notes+
+        ' Fuente morfológica íntegra fijada en su propio SHA; no generada por analogía.'
+    }
+  }));
+  const extraGreekRecords=sourced(extraGreek.records,'griego',lock.sources.unimorphGrc.sha);
+  const extraLatinRecords=sourced(extraLatin.records,'latin',lock.sources.unimorphLat.sha);
+  // Las fuentes completas son suplementarias: nunca alteran un registro
+  // que ya hubiera superado las comprobaciones del primer importador.
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     records:[...data.records,...greekNouns,...bulk.records,...latin.records,
-      ...extraGreek.records,...extraLatin.records]};
+      ...extraGreekRecords,...extraLatinRecords]};
   assert.equal(finalBank.records.length,92+bulk.records.length+latin.records.length+
     extraGreek.records.length+extraLatin.records.length);
   assert.equal(new Set(finalBank.records.map(record=>record.id)).size,finalBank.records.length);
