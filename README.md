@@ -9,7 +9,7 @@ Plataforma modular de estudio de latín y griego en construcción **sin publicac
 - **Etymologicon**: primera modalidad nativa de dos derivados castellanos, corrección determinista (1 / 0,5 / 0) e interfaz con filtros de Griego I. Preparada como **PWA independiente** para instalar y practicar sin conexión tras descargar los recursos, en `dist/apps/etymologicon/`. Su servicio offline no afecta a otras aplicaciones.
 - **Vocabula Latina Græcaque**: léxico integrado desde un commit fijado. Se mantienen los ejercicios, el progreso local y el servicio Supabase; la morfología antigua no se incorpora, en espera de un módulo académico revisado.
 - **GeneradorExamenes**: todavía no incluido en el resultado.
-- **Zona docente**: usuario, contraseña y TOTP; función de inicio de sesión con correo exclusivamente en servidor y control Turnstile, además de bandeja de avisos con autorización de segundo factor. **No activada ni desplegada**: falta aprovisionar la identidad central, secretos y un **origen HTTPS aislado** para la zona privada (no compartir el origen de las aplicaciones públicas), además de verificar el extremo a extremo.
+- **Zona docente**: usuario, contraseña y TOTP mediante Supabase Auth, además de bandeja de avisos de Vocabula y Palabra del día. Se prepara su integración en GitHub Pages, con autorización real en servidor, sin Cloudflare ni servicio adicional. **No activada**: faltan cuenta, secretos y prueba real de extremo a extremo.
 - Los repositorios originales siguen siendo las únicas fuentes editables de sus aplicaciones durante la migración.
 
 ## Conciliación académica de Evolutio en valenciano (fase inicial)
@@ -79,13 +79,13 @@ Etymologicon incorpora un primer banco cerrado de **16 palabras castellanas con 
 El portal general se genera en `dist/`, con el acceso docente expresamente desactivado. La zona privada se construye **por separado** con `npm run build:docente`, que genera `dist-docente/` en modo bloqueado por defecto. La activación requiere un hostname HTTPS distinto del de las herramientas del alumnado, una cuenta Supabase Auth y configuración explícita. El proyecto Supabase actual de Vocabula es el candidato provisional para albergar esta cuenta, sin afectar a su sistema de sesiones propio. **No se ha creado ningún usuario ni desplegado el sitio o las funciones; el correo docente no se incorpora al artefacto público.** Véase `docs/DOCENTE_AUTENTICACION.md`.
 
 
-## Alojamiento docente: Cloudflare Pages (sin activar)
+## Alojamiento docente: GitHub Pages + Supabase Auth (en desarrollo)
 
-Se ha elegido Cloudflare Pages para un **origen separado** del portal público. Su publicación será por **Direct Upload manual**, sin integración automática con GitHub. El artefacto `dist-docente/` incluye cabeceras `_headers` verificables, `robots.txt` y `404.html`, y **permanece desactivado por defecto**. Una versión activada necesita el SDK Supabase local con huella SHA-256 revisada; no se carga desde CDN. CI ejecuta `npm run audit:docente:cloudflare` y no sube el sitio a Cloudflare. Procedimiento y bloqueos: [`docs/CLOUDFLARE_PAGES_DOCENTE.md`](docs/CLOUDFLARE_PAGES_DOCENTE.md).
+Se ha descartado Cloudflare y no se necesita dominio propio. La zona docente se integrará en `/ScholaClassica/docente/` con **contraseña y TOTP** a través de Supabase Auth, cuenta docente individual y autorización en servidor por UUID exacta y `aal2`. El portal sigue publicando su configuración docente con `enabled:false` hasta la activación expresamente revisada. La aplicación de Palabra del día **permanece independiente** y conserva su panel de profesor; su bandeja de propuestas se consulta centralmente junto a los avisos de Vocabula.
 
+GitHub Pages comparte origen entre repositorios del mismo usuario: ninguna información privada ni clave privilegiada puede estar en los archivos estáticos. La función de avisos requiere JWT, identidad verificada y segundo factor, y no almacena avisos en las PWA. La activación requiere un SDK Supabase local verificado y la preparación de usuario y secretos en Supabase; no se han habilitado aún.
 
-El procedimiento de aprovisionamiento sin publicación y los paneles de Cloudflare/Supabase están documentados en [`docs/ACTIVACION_GUIADA_DOCENTE.md`](docs/ACTIVACION_GUIADA_DOCENTE.md). El preflight estático de una construcción docente activa puede ejecutarse con `npm run check:docente:readiness`; por diseño falla si el acceso permanece desactivado o faltan dependencias verificadas. **No existe aún un proyecto Pages ni una cuenta docente real activada.**
-
+El procedimiento vigente es [`docs/DOCENTE_GITHUB_PAGES_ACTIVACION.md`](docs/DOCENTE_GITHUB_PAGES_ACTIVACION.md). Los antiguos documentos de Cloudflare se conservan solo como historial de diseño, **no** como instrucciones de activación.
 
 ## Itinerario por asignatura y curso
 
@@ -105,7 +105,7 @@ Evolutio se ha vuelto a integrar desde el commit auditado `901dacb125ee7894ea9d1
 
 Se ha autorizado la publicación **del portal de alumnado** mediante GitHub Pages. El flujo `.github/workflows/integracion.yml` ejecuta la construcción fijada por SHA, la auditoría de seguridad, las pruebas estáticas y las pruebas de navegador (incluida la subruta `/ScholaClassica/`), y **solo si pasan** publica `dist/` desde `main` mediante GitHub Actions. Las solicitudes de cambio (*pull requests*) no pueden desplegar.
 
-El área docente sigue desactivada en el portal público (`docente/auth-config.json` contiene `enabled:false`). Cloudflare Pages, Supabase Auth y TOTP no se activan mediante este flujo. Tampoco se modifica ninguno de los repositorios originales ni se incluye GeneradorExamenes.
+El área docente sigue desactivada en el portal público (`docente/auth-config.json` contiene `enabled:false`). Supabase Auth y TOTP no se activan mediante este flujo. Tampoco se modifica ninguno de los repositorios originales ni se incluye GeneradorExamenes.
 
 **Activación inicial de GitHub Pages:** si la configuración de GitHub Pages del repositorio todavía está desactivada, el propietario debe elegir `Settings → Pages → Build and deployment → Source → GitHub Actions`. Este ajuste requiere acceso administrativo y no se realiza por el token del propio workflow. A partir de entonces, el proceso de despliegue utiliza las credenciales temporales de GitHub Actions, sin secretos personales. El estado publicado solo se confirma cuando el trabajo `publicar` aparece como `success` y la URL pública responde correctamente.
 
