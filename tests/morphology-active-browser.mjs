@@ -96,6 +96,38 @@ try{
   await page.locator('#check-table').click();
   assert.match(await page.locator('#feedback').textContent(),/8 casillas/);
   await page.locator('#new').click();
+  // Triple concordancia: sustantivo individual, artículo y adjetivo del banco.
+  await page.locator('#unit').selectOption('5');
+  await page.locator('#activity').selectOption('noun-phrase-written');
+  assert.equal(await page.locator('#kind').inputValue(),'sintagma');
+  await page.locator('#start').click();
+  assert.ok(await page.locator('#written-response').isVisible());
+  assert.ok(await page.locator('#greek-keyboard').isVisible());
+  assert.match(await page.locator('#question-title').textContent(),/posición atributiva/);
+  const nominal=await page.evaluate(async()=>{
+    const {makeGreekNounPhraseQuestions}=await import('./greek-noun-phrases.mjs');
+    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
+    const title=document.querySelector('#paradigm').textContent;
+    const prompt=document.querySelector('#question-title').textContent;
+    const q=makeGreekNounPhraseQuestions(data,{language:'griego',unit:5,limit:30,
+      rng:()=>.45}).find(item=>item.paradigm===title&&item.prompt===prompt);
+    if(!q)return null;
+    return q.acceptedForms;
+  });
+  assert.equal(nominal?.length,2,'Las dos posiciones deben proceder del banco');
+  await page.locator('#answer-input').fill(nominal[1]);
+  await page.locator('#check-written').click();
+  assert.match(await page.locator('#feedback').textContent(),/Correcto/);
+  assert.ok(await page.locator('#source').isVisible());
+  assert.ok(await page.locator('#source-secondary').isVisible());
+  assert.ok(await page.locator('#source-tertiary').isVisible());
+  assert.match(await page.locator('#source-tertiary').textContent(),/Vocabula\/UniMorph/);
+  await page.locator('#new').click();
+  await page.locator('#activity').selectOption('noun-phrase-table');
+  await page.locator('#start').click();
+  assert.equal(await page.locator('#table-cells input').count(),8);
+  assert.ok(await page.locator('#greek-keyboard').isVisible());
+  await page.locator('#new').click();
 
   // Reapertura offline en móvil: corrección, banco, estilos y teclado están precargados.
   await page.waitForFunction(async()=>{
@@ -145,9 +177,28 @@ try{
   await page.locator('#check-table').click();
   assert.match(await page.locator('#feedback').textContent(),/12 casillas/);
   assert.ok(await page.locator('#source-secondary').isVisible());
+  await page.locator('#new').click();
+  const offlineGreek=await page.goto(base+'index.html?subject=gr1',{waitUntil:'load'});
+  assert.equal(offlineGreek.status(),200);
+  await page.waitForFunction(()=>!document.querySelector('#start').disabled);
+  await page.locator('#unit').selectOption('7');
+  await page.locator('#activity').selectOption('noun-phrase-table');
+  await page.locator('#start').click();
+  assert.equal(await page.locator('#table-cells input').count(),8);
+  const present=await page.evaluate(async()=>{
+    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
+    return data.records.filter(r=>r.id.startsWith('griego-sustantivo-')).length;
+  });
+  assert.equal(present,8);
+  await page.locator('#table-cells input').evaluateAll(fields=>{
+    for(const field of fields){field.value='x';field.dispatchEvent(new Event('input',{bubbles:true}))}
+  });
+  await page.locator('#check-table').click();
+  assert.match(await page.locator('#feedback').textContent(),/8 casillas/);
+  assert.ok(await page.locator('#source-tertiary').isVisible());
   await page.context().setOffline(false);
   assert.deepEqual(errors,[]);
-  console.log('OK: escritura, teclado, pronombres y sintagmas latinos/griegos en modo offline móvil');
+  console.log('OK: ocho sustantivos y sintagmas triples griegos offline, sin regresiones latinas');
 }finally{
   if(browser)await browser.close();
   await new Promise(done=>server.close(done));
