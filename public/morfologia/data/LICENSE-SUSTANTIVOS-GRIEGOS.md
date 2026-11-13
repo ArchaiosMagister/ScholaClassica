@@ -6,6 +6,8 @@ banco de morfología de ScholaClassica proceden del subconjunto
 [VocabulaLatinaGraecaque](https://github.com/ArchaiosMagister/VocabulaLatinaGraecaque),
 fijado en `0e16505b7631298a0448c4160a5d258f82732bfe`.
 
+**Licencia abreviada de este lote de datos: CC BY-SA 3.0.**
+
 **Origen:** [UniMorph Ancient Greek](https://github.com/unimorph/grc).
 **Licencia de los datos derivados:** [Creative Commons Attribution–ShareAlike
 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Este lote y sus formas
