@@ -11,6 +11,7 @@ import {compileLatinNounExpansion,readLatinNounSource} from './latin-noun-bulk.m
 import {readNounSecondaryEvidence,crosscheckNounInventory} from './noun-secondary-evidence.mjs';
 import {triageNounCandidates} from './nominal-pending-triage.mjs';
 import {readFullUnimorphNouns} from './unimorph-full-source.mjs';
+import {compileGreekIrregularNouns} from './irregular-greek-nouns.mjs';
 import {execFileSync} from 'node:child_process';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -362,15 +363,21 @@ export async function buildMorphology({out,lock}){
         ' Fuente morfológica íntegra fijada en su propio SHA; no generada por analogía.'
     }
   }));
+  const irregularGreek=compileGreekIrregularNouns({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    vocabulaData:sourceData.vocabulaData,
+    vocabulaSha:lock.sources.vocabula.sha,
+    existingRecords:[...greekNouns,...bulk.records,...extraGreek.records]
+  });
   const extraGreekRecords=sourced(extraGreek.records,'griego',lock.sources.unimorphGrc.sha);
   const extraLatinRecords=sourced(extraLatin.records,'latin',lock.sources.unimorphLat.sha);
   // Las fuentes completas son suplementarias: nunca alteran un registro
   // que ya hubiera superado las comprobaciones del primer importador.
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     records:[...data.records,...greekNouns,...bulk.records,...latin.records,
-      ...extraGreekRecords,...extraLatinRecords]};
+      ...extraGreekRecords,...extraLatinRecords,...irregularGreek]};
   assert.equal(finalBank.records.length,92+bulk.records.length+latin.records.length+
-    extraGreek.records.length+extraLatin.records.length);
+    extraGreek.records.length+extraLatin.records.length+irregularGreek.length);
   assert.equal(new Set(finalBank.records.map(record=>record.id)).size,finalBank.records.length);
   assert.ok(bulk.records.length>=10,'Expansión griega inusualmente pequeña: revisar fuentes');
   assert.ok(latin.records.length>=10,'Expansión latina inusualmente pequeña: revisar fuentes');
@@ -390,6 +397,12 @@ export async function buildMorphology({out,lock}){
   // fuera de dist para no publicar como válidas formas todavía sin contraste.
   const auditDir=join(root,'build/morfologia');
   await mkdir(auditDir,{recursive:true});
+  await writeFile(join(auditDir,'irregulares-griegos-cotejados.json'),
+    JSON.stringify({schema:'schola-grc-irregular-source/v1',
+      sourceSha:lock.sources.vocabula.sha,
+      count:irregularGreek.length,
+      records:irregularGreek.map(r=>({id:r.id,entry:r.paradigm,
+        references:r.evidence.references,forms:r.forms.length}))},null,2)+'\n');
   await writeFile(join(auditDir,'lote-unimorph-completo.json'),
     JSON.stringify(fullSupplement,null,2)+'\n');
   await writeFile(join(auditDir,'auditoria-unimorph-original.json'),
@@ -437,6 +450,7 @@ export async function buildMorphology({out,lock}){
     JSON.stringify(secondary,null,2)+'\n');
   console.log('UniMorph completo: nuevos sustantivos griegos '+extraGreek.records.length+
     ' y latinos '+extraLatin.records.length+' (sin repetir corpus original)');
+  console.log('Irregulares griegos cotejados: '+irregularGreek.length);
   console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
     (8+bulk.records.length)+' sustantivos griegos y '+latin.records.length+
     ' latinos añadidos; pendientes griego '+bulk.review.length+
