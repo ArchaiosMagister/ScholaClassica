@@ -21,7 +21,9 @@ test('únicamente cambia index.html para enlazar Appendix y elegir asignatura',(
   const expected=from
     .replace('<option value="dark">Oscuro</option>','<option value="dark">Oscuro</option><option value="oled">OLED</option>')
     .replace('<a class="study-tab" href="gramatica.html">Gramática</a>','<a class="study-tab" href="../gramatica/index.html">Gramática de consulta</a>')
-    .replace('<script src="teacher.js?v=20261112" defer></script>','<script src="teacher.js?v=20261112" defer></script><script src="schola-bridge.js" defer></script>');
+    .replace('<script src="teacher.js?v=20261112" defer></script>','<script src="teacher.js?v=20261112" defer></script><script src="schola-bridge.js" defer></script>')
+    .replace('src="theme.js?v=1"','src="theme.js?v=1-oled1"')
+    .replace('href="style.css?v=20261109-tabs1"','href="style.css?v=20261109-tabs1-oled1"');
   assert.notEqual(from,to);
   assert.equal(to,expected);
   const bridge=readFileSync(join(target,'schola-bridge.js'),'utf8');
