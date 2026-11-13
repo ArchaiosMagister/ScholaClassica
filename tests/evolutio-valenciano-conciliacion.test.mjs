@@ -53,7 +53,7 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
 test('Estados editoriales honestos: 221 documentados léxicamente, 20 propuestas, 281 sin propuesta',()=>{
  assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:221,propuestas:20,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:28,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
+  analisisEditoriales:39,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -114,10 +114,10 @@ test('Propuestas sin fuente no se promueven a verificadas',()=>{
  extraneous.proposals.push({latin:'ficticium',form:'fictici',lexicalStatus:'proposta',reference:null});
  assert.throws(()=>assembleEvolutioValenciano(bank,extraneous,norms,lock.sources.evolutio.sha),/sin étimo/);
 });
-test('28 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
+test('39 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
  const good=matrix.records.filter(w=>['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(w.valenciano.estadoNormas));
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
- assert.equal(good.length,28);
+ assert.equal(good.length,39);
  assert.equal(disputed.length,0);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
@@ -185,7 +185,7 @@ test('Auditoría de las 215 candidaturas: 195 etimologías contrastadas, 20 pend
   assert.ok(original.has(item.latin),item.latin);
   const corresponding=record(item.latin);
   assert.equal(corresponding.valenciano.resultado,item.form);
-  if(['cælum','ocŭlum'].includes(item.latin)){
+  if(['cælum','ocŭlum','scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum'].includes(item.latin)){
     assert.equal(corresponding.valenciano.estadoNormas,'analisi_editorial_revisada');
     assert.ok(Array.isArray(corresponding.valenciano.normas));
     assert.equal(corresponding.valenciano.aptoParaPractica,false);
@@ -291,5 +291,31 @@ test('Tres decisiones docentes nuevas: leyes y segmentos regenerables, sin autor
   assert.equal(row.aptoParaPractica,false);
  }
  assert.match(record('ocŭlum').valenciano.explicacion,/cl-/);
- assert.equal(matrix.summary.analisisEditoriales,28);
+ assert.equal(matrix.summary.analisisEditoriales,39);
+});
+
+test('Once fichas patrimoniales nuevas tienen cambios localizados y permanecen no publicables',()=>{
+ const expected={
+  scutum:['PROT','APOC','FIX_M'],spartum:['PROT','APOC','FIX_M'],
+  spicam:['PROT','SONOR','FIX_M'],aurum:['MONOP','APOC','FIX_M'],
+  causam:['MONOP','FIX_M'],cannam:['PALAT','FIX_M'],
+  cupam:['SONOR','FIX_M'],'rŏtam':['SONOR','FIX_M'],
+  'fŏntem':['APOC','FIX_M'],salutem:['APOC','FIX_M'],
+  senatum:['APOC','FIX_M']
+ };
+ const revised=revision.analyses.filter(e=>Object.hasOwn(expected,e.latin));
+ assert.equal(revised.length,11);
+ for(const [latin,rules] of Object.entries(expected)){
+  const v=record(latin).valenciano;
+  assert.deepEqual(v.normas.map(x=>x.rule),rules,latin);
+  assert.equal(v.estadoNormas,'analisi_editorial_revisada');
+  assert.equal(v.dnvIndividualChecked,false);
+  assert.equal(v.aprobadoDocente,false);
+  assert.equal(v.aptoParaPractica,false);
+  for(const change of v.normas){
+   for(const [a,b] of change.spans){
+    assert.ok(a>=0&&a<b&&b<=[...latin].length,latin);
+   }
+  }
+ }
 });
