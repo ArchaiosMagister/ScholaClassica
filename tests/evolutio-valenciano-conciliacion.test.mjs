@@ -185,7 +185,7 @@ test('Auditoría de las 215 candidaturas: 195 etimologías contrastadas, 20 pend
   assert.ok(original.has(item.latin),item.latin);
   const corresponding=record(item.latin);
   assert.equal(corresponding.valenciano.resultado,item.form);
-  if(revision.analyses.some(e=>e.latin===item.latin))){
+  if(revision.analyses.some(e=>e.latin===item.latin)){
     assert.equal(corresponding.valenciano.estadoNormas,'analisi_editorial_revisada');
     assert.ok(Array.isArray(corresponding.valenciano.normas));
     assert.equal(corresponding.valenciano.aptoParaPractica,false);
