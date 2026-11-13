@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {existsSync,readFileSync,readdirSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
+import {mergeCatalog,matchCatalog} from '../public/docente/vocabula-catalog.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'.sources/vocabula'),target=join(root,'dist/apps/vocabulario');
 const names=['choice.js','config.js','data.js','scope.js'];
@@ -59,4 +60,30 @@ test('no se publica la morfología anterior ni backend o datos internos',()=>{
   for(const file of ['gramatica.html','morfologia.html','gramatica.js','morfologia.js','gramatica-importada.js','backend','data','scripts','tests','docs'])
     assert.equal(existsSync(join(target,file)),false,'Se copió inesperadamente '+file);
   assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','icons'].sort());
+});
+
+test('La búsqueda docente combina las 2055 fichas originales y las aportaciones',()=>{
+  const generated=JSON.parse(readFileSync(join(root,'dist/docente/vocabula-catalog.json'),'utf8'));
+  const original=JSON.parse(readFileSync(join(source,'data.js'),'utf8')
+    .replace(/^window\\.VOCAB\\s*=\\s*/,'').replace(/;\\s*$/,''));
+  assert.equal(generated.schema,1);
+  assert.equal(generated.words.length,original.length);
+  assert.ok(generated.words.length>=2000);
+  assert.deepEqual(generated.words[0].form,original[0].form);
+  assert.ok(!JSON.stringify(generated).includes('teacher_note'));
+  const extra={id:'00000000-0000-4000-8000-000000000111',subject:'lat1',
+    form:'Ephesius, –a, –um',meaning:'de Éfeso, efesio',
+    answers:['efesio'],units:['UD 10'],in_exam:false,active:true};
+  const catalog=mergeCatalog(generated.words,[extra]);
+  const magnus=matchCatalog(catalog,{subject:'lat1',search:'magnus'});
+  assert.equal(magnus.total,1);
+  assert.equal(magnus.rows[0].origin,'original');
+  assert.equal(magnus.rows[0].in_exam,true);
+  const added=matchCatalog(catalog,{subject:'lat1',search:'Ephesius'});
+  assert.equal(added.total,1);
+  assert.equal(added.rows[0].origin,'docente');
+  assert.deepEqual(added.rows[0].units,['UD 10']);
+  const lat2=matchCatalog(catalog,{subject:'lat2',search:'bellum'});
+  assert.ok(lat2.total>=1);
+  assert.ok(lat2.rows.every(row=>row.units.every(unit=>!/^UD\\s*\\d+/i.test(unit))));
 });
