@@ -67,7 +67,7 @@ ui.theme.addEventListener('change',()=>{
 
 function revealGreekMeaning(){
   if(currentEtymon()&&ui.meaning.textContent.trim())
-    ui.meaningCard.hidden=false;
+    {ui.meaningCard.hidden=false;ui.meaningCard.focus();}
 }
 function hideResults(){
   ui.meaningCard.hidden=true;
@@ -253,7 +253,7 @@ function displayResult(result){
   ui.results.hidden=false;
   // Refuerzo semántico tras reconocer al menos una respuesta (incluye 0,5 por falta).
   if(result.total>0)revealGreekMeaning();
-  ui.total.focus();
+  if(result.total===0)ui.total.focus();
 }
 ui.form.addEventListener('submit',event=>{
   event.preventDefault();
