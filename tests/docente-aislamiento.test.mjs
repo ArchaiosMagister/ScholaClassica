@@ -41,8 +41,10 @@ test('sin cuenta activada solo se obtiene un artefacto independiente bloqueado',
     const html=readFileSync(join(output,'index.html'),'utf8');
     assert.ok(html.includes('Content-Security-Policy'));
     assert.ok(html.includes('href="./portal.css"'));
+    assert.ok(html.includes('src="./theme.js"'));
+    assert.match(readFileSync(join(output,'theme.js'),'utf8'),/scholaclassica-aspecto-v1/);
     assert.ok(html.includes('https://archaiosmagister.github.io/ScholaClassica/'));
-    for(const file of ['portal.css','style.css','app.mjs','index.html','auth-config.json','_headers','robots.txt','404.html'])
+    for(const file of ['portal.css','style.css','theme.js','app.mjs','index.html','auth-config.json','_headers','robots.txt','404.html'])
       assert.equal(existsSync(join(output,file)),true,file);
     assert.equal(existsSync(join(output,'vendor/supabase.js')),false);
     for(const file of ['apps/vocabulario/index.html','apps/examenes/index.html'])

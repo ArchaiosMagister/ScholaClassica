@@ -22,14 +22,21 @@ function compareApp(source,target,exceptions=[],extras=[]){
     assert.equal(hash(join(source,file)),hash(join(target,file)),'Copia alterada: '+file);
   }
 }
-test('Appendix completo, en castellano y valenciano, conserva los bytes originales',()=>{
-  compareApp(join(root,'.sources/appendix'),join(out,'apps/gramatica'));
+test('Appendix castellano y valenciano mantiene originales salvo adaptaciones visuales de dist',()=>{
+  const appendixSource=join(root,'.sources/appendix'),appendixTarget=join(out,'apps/gramatica');
+  const pages=crawl(appendixSource).filter(path=>path.endsWith('.html'));
+  compareApp(appendixSource,appendixTarget,['assets/style.css','assets/language-colors.css','assets/theme.js',...pages]);
+  for(const page of pages){
+    const original=readFileSync(join(appendixSource,page),'utf8');
+    const expected=original.replace(/(assets\/(?:theme\.js|style\.css|language-colors\.css)\?v=[a-zA-Z0-9-]+)(?=["'])/g,'$1-oled1');
+    assert.equal(readFileSync(join(appendixTarget,page),'utf8'),expected,'HTML de Appendix: '+page);
+  }
   for(const file of ['index.html','curso.html','val/index.html','val/curso.html','assets/curriculum.json','val/curriculum.json'])
     assert.ok(existsSync(join(out,'apps/gramatica',file)),file);
 });
 test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y mantiene SW aislado',()=>{
   const source=join(root,'.sources/evolutio'),target=join(out,'apps/evolucion-fonetica');
-  const adapted=['sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json'];
+  const adapted=['sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json','style.css'];
   compareApp(source,target,adapted,['src/result-difficulty.mjs']);
   for(const file of adapted)assert.notEqual(hash(join(source,file)),hash(join(target,file)),'Adaptación no aplicada: '+file);
   for(const file of ['index.html','src/engine.mjs','src/rules.mjs','src/latin.mjs','data/pilot.json','manifest.webmanifest'])
@@ -38,7 +45,7 @@ test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y m
   assert.match(sw,/const CACHE_PREFIX='schola-evolutio-';/);
   assert.match(sw,/keys\.filter\(key=>key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION\)/);
   assert.match(sw,/src\/result-difficulty\.mjs/);
-  assert.match(sw,/resultado-v2/);
+  assert.match(sw,/resultado-v3/);
   const original=JSON.parse(readFileSync(join(source,'data/difficulty.json'),'utf8'));
   const reclassified=JSON.parse(readFileSync(join(target,'data/difficulty.json'),'utf8'));
   assert.equal(original.method,'criterio-didactico-v1');

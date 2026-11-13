@@ -5,7 +5,7 @@ import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'.sources/vocabula'),target=join(root,'dist/apps/vocabulario');
-const names=['app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js'];
+const names=['app.js','choice.js','config.js','data.js','scope.js','teacher.js'];
 const digest=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 test('Vocabula importa vocabulario y servicio docente sin alterar sus recursos',()=>{
   for(const file of names)assert.equal(digest(join(target,file)),digest(join(source,file)),'Se modificó '+file);
@@ -19,8 +19,11 @@ test('únicamente cambia index.html para enlazar Appendix y elegir asignatura',(
   const from=readFileSync(join(source,'index.html'),'utf8');
   const to=readFileSync(join(target,'index.html'),'utf8');
   const expected=from
+    .replace('<option value="dark">Oscuro</option>','<option value="dark">Oscuro</option><option value="oled">OLED</option>')
     .replace('<a class="study-tab" href="gramatica.html">Gramática</a>','<a class="study-tab" href="../gramatica/index.html">Gramática de consulta</a>')
-    .replace('<script src="teacher.js?v=20261112" defer></script>','<script src="teacher.js?v=20261112" defer></script><script src="schola-bridge.js" defer></script>');
+    .replace('<script src="teacher.js?v=20261112" defer></script>','<script src="teacher.js?v=20261112" defer></script><script src="schola-bridge.js" defer></script>')
+    .replace('src="theme.js?v=1"','src="theme.js?v=1-oled1"')
+    .replace('href="style.css?v=20261109-tabs1"','href="style.css?v=20261109-tabs1-oled1"');
   assert.notEqual(from,to);
   assert.equal(to,expected);
   const bridge=readFileSync(join(target,'schola-bridge.js'),'utf8');

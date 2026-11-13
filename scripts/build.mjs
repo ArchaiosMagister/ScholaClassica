@@ -6,6 +6,7 @@ import {buildPortalPwa} from './build-portal-pwa.mjs';
 import {buildMorphology} from './build-morphology.mjs';
 import {buildMorphologyPwa} from './build-morphology-pwa.mjs';
 import {adaptEvolutioDifficulty} from './adapt-evolutio-difficulty.mjs';
+import {adaptAppendixOled,adaptEvolutioOled,adaptVocabulaOled} from './adapt-integrated-oled.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -31,6 +32,7 @@ await cp(source,destination,{recursive:true,force:true,filter:path=>{
   const relative=path.slice(source.length).split(sep).filter(Boolean);
   return !relative.some(piece=>piece==='.git'||piece==='.github');
 }});
+await adaptAppendixOled(destination);
 const phonetics=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
 const phoneticsLock=lock.sources.evolutio;
 if(!phoneticsLock.integrated||phoneticsLock.target!=='apps/evolucion-fonetica')throw Error('Lock incompatible: Evolutio');
@@ -42,6 +44,7 @@ await cp(phonetics,phoneticsDestination,{recursive:true,force:true,filter:path=>
   const relative=path.slice(phonetics.length).split(sep).filter(Boolean);
   return !relative.some(piece=>piece==='.git'||piece==='.github');
 }});
+await adaptEvolutioOled(phoneticsDestination);
 // Dificultad ajustada SOLO en el artefacto de ScholaClassica. La fuente fija
 // y su banco de palabras no se modifican. Importación y verificación reproducibles.
 const levelReport=await adaptEvolutioDifficulty({root,target:phoneticsDestination});
@@ -51,7 +54,7 @@ const swPath=join(phoneticsDestination,'sw.js');
 let sw=await readFile(swPath,'utf8');
 if(!/const VERSION='[^']+';/.test(sw)||!sw.includes('keys.filter(key=>key!==VERSION)'))
   throw Error('Cambió el service worker original de Evolutio; revisar adaptación antes de publicar');
-sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1-resultado-v2';")
+sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1-resultado-v3';")
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
 const cacheItem="'./src/difficulty.mjs',";
 if(!sw.includes(cacheItem)||sw.includes('./src/result-difficulty.mjs'))throw Error('Evolutio cambió la lista precargada de dificultad: revisar');
@@ -73,13 +76,16 @@ await mkdir(vocabulaDestination,{recursive:true});
 const vocabulaFiles=['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js'];
 for(const file of vocabulaFiles)await cp(join(vocabulaSource,file),join(vocabulaDestination,file));
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
+await adaptVocabulaOled(vocabulaDestination);
 const vocabulaIndex=join(vocabulaDestination,'index.html');
 let vocabulaHTML=await readFile(vocabulaIndex,'utf8');
 const sourceTab='<a class="study-tab" href="gramatica.html">Gramática</a>';
 const sourceScript='<script src="teacher.js?v=20261112" defer></script>';
 if(!vocabulaHTML.includes(sourceTab)||!vocabulaHTML.includes(sourceScript))throw Error('Vocabula cambió su navegación o scripts: revisar adaptación');
 vocabulaHTML=vocabulaHTML.replace(sourceTab,'<a class="study-tab" href="../gramatica/index.html">Gramática de consulta</a>')
-  .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>');
+  .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>')
+  .replace('src="theme.js?v=1"','src="theme.js?v=1-oled1"')
+  .replace('href="style.css?v=20261109-tabs1"','href="style.css?v=20261109-tabs1-oled1"');
 await writeFile(vocabulaIndex,vocabulaHTML);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
 
