@@ -83,6 +83,8 @@ jobs:
         run: npm run test:browser:pages
       - name: Probar morfología curricular, corrección y caché offline
         run: npm run test:browser:morfologia
+      - name: Probar producción escrita, teclado griego y repaso local sin conexión
+        run: npm run test:browser:morfologia:activa
       - name: Probar Vocabula integrado en Chromium con servicio simulado
         run: npm run test:browser:vocabula
       - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
