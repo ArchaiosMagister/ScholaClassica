@@ -1,0 +1,157 @@
+{
+  "schema": "schola-evolutio-valenciano-rules/v1",
+  "date": "2026-11-13",
+  "locale": "ca-ES-valencia",
+  "notice": "Catálogo docente, todavía no habilitado para ejercicios. No se propagan normas ni fragmentos de las fichas castellanas.",
+  "selectable": [
+    {
+      "id": "AFER",
+      "name": "AFÈRESI",
+      "position": 1,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "APOC",
+      "name": "APÒCOPE",
+      "position": 2,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "ASMIL",
+      "name": "ASSIMILACIÓ",
+      "position": 3,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "CONS",
+      "name": "CONSONANTITZACIÓ",
+      "position": 4,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "DIPT",
+      "name": "DIFTONGACIÓ",
+      "position": 5,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "DISIMIL",
+      "name": "DISSIMILACIÓ",
+      "position": 6,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "EPENT",
+      "name": "EPÈNTESI",
+      "position": 7,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "GRIE",
+      "name": "EVOLUCIÓ DE GRAFIES GREGUES",
+      "position": 8,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "METAT",
+      "name": "METÀTESI",
+      "position": 9,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "MONOP",
+      "name": "MONOFTONGACIÓ",
+      "position": 10,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "ABER",
+      "name": "OBERTURA",
+      "position": 11,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "PALAT",
+      "name": "PALATALITZACIÓ",
+      "position": 12,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "PROT",
+      "name": "PRÒTESI",
+      "position": 13,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "SIMPL",
+      "name": "SIMPLIFICACIÓ",
+      "position": 14,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "SINC",
+      "name": "SÍNCOPE",
+      "position": 15,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "SONOR",
+      "name": "SONORITZACIÓ",
+      "position": 16,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    },
+    {
+      "id": "VOC",
+      "name": "VOCALITZACIÓ",
+      "position": 17,
+      "origin": "repertori_docent",
+      "spansVerificados": false
+    }
+  ],
+  "fixed": {
+    "id": "FIX_M",
+    "name": "PÈRDUA FIXA DE -M FINAL",
+    "selectable": false,
+    "origin": "repertori_docent",
+    "note": "Se conserva como norma fija, independiente de la apòcope; no se infieren posiciones sin análisis de cada ficha."
+  },
+  "spanishSpecialNotTransferable": [
+    {
+      "id": "ASPIR",
+      "name": "Aspiración"
+    },
+    {
+      "id": "MIN_MBR",
+      "name": "-MIN- → -MBR-"
+    },
+    {
+      "id": "CUL",
+      "name": "Evolución de -CUL-"
+    }
+  ],
+  "policy": {
+    "rulesRequireIndependentProof": true,
+    "spansRequireIndependentProof": true,
+    "castellanoRulesNeverCopied": true,
+    "doNotAssumeCastellanoAnswer": true,
+    "cultismsRequireTransmissionReview": true,
+    "teacherApprovalForPlayability": true,
+    "allowChangeDuringSessionOnlyWithFullyVerifiedPairedCards": true
+  }
+}
