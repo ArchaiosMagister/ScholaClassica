@@ -61,7 +61,7 @@ Se ha recorrido el inventario completo de las **215 propuestas originales**. **1
 ## Ficheros
 
 - `shared/academic/evolutio-valenciano/normas.json`: **17 normas valencianas exactamente como las facilitó el docente**, más `FIX_M` no seleccionable. Las categorías castellanas `ASPIR`, `MIN_MBR` y `CUL` no se transfieren automáticamente.
-- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 218 correspondencias con referencia etimológica (26 iniciales y 195 del lote auditado) y 20 propuestas reservadas; ninguna ficha nueva incorpora leyes sin verificación.
+- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 221 correspondencias con referencia etimológica (26 iniciales y 195 del lote auditado) y 20 propuestas reservadas; ninguna ficha nueva incorpora leyes sin verificación.
 - `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo de las 215 propuestas originales: **195** cotejos etimológicos documentados, **20** reservas, cuatro relaciones directas descartadas y referencias individuales solo cuando corresponde.
 - `shared/academic/evolutio-valenciano/matriz-522.json`: todas las fichas por **ID original**, forma latina, respuestas castellanas, procedencia y resultado valenciano documentado/propuesto/pendiente. Cada fila conserva campos separados para normas, explicación, dificultad, aprobación docente y disponibilidad en práctica; permanecen vacíos/bloqueados hasta revisarse.
 - `scripts/reconcile-evolutio-valenciano.mjs`: generador determinista que comprueba el SHA del origen y rechaza duplicados, candidaturas ajenas al banco y documentación falsa.
@@ -102,6 +102,6 @@ Para poder alternar de lengua **a mitad de una misma sesión**, el futuro motor 
 
 ## Siguiente etapa
 
-Realizar la auditoría **fonética por palabra** de las correspondencias documentadas, empezando por los resultados patrimoniales más claros, con tramos en el étimo, explicación en valenciano y registro separado de cambios no seleccionables. Para las 23 candidaturas reservadas, solo corregir el étimo o aprobar una cadena histórica cuando la fuente lo permita; las cuatro derivaciones directas descartadas nunca se habilitarán bajo su forma actual. Contrastar las grafías y variantes de uso valenciano en el DNV de la AVL antes del uso docente. Las **281 fichas sin propuesta** permanecen intactas.
+Realizar la auditoría **fonética por palabra** de las correspondencias documentadas, empezando por los resultados patrimoniales más claros, con tramos en el étimo, explicación en valenciano y registro separado de cambios no seleccionables. Para las 20 candidaturas reservadas, solo corregir el étimo o aprobar una cadena histórica cuando la fuente lo permita; las cuatro derivaciones directas descartadas nunca se habilitarán bajo su forma actual. Contrastar las grafías y variantes de uso valenciano en el DNV de la AVL antes del uso docente. Las **281 fichas sin propuesta** permanecen intactas.
 
 **Alcance de esta entrega:** curación etimológica, evidencias, incidencias y controles. Sin cambiar el motor, sin cambiar la web pública y sin modificar los repositorios independientes.
