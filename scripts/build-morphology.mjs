@@ -323,7 +323,7 @@ export async function buildMorphology({out,lock}){
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8]},
     records:[...data.records,...greekNouns,...latin4]};
   assert.equal(finalBank.records.length,220);
-  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,144);
+  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,220);
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
