@@ -10,7 +10,8 @@ const CASES=[['nominativo','NOM'],['vocativo','VOC'],['acusativo','ACC'],
 const NUMBERS=[['singular','SG'],['plural','PL']];
 const TAGS=new Set(CASES.flatMap(([,c])=>NUMBERS.map(([,n])=>'N;'+c+';'+n)));
 const ARTICLES=new Map([['ὁ','masculino'],['ἡ','femenino'],['τὸ','neutro']]);
-const GROUPS=new Map([['UD 1–4',4],['UD 5',5],['UD 6–7',7]]);
+const GROUPS=new Map([['UD 1–4',4],['UD 5',5],['UD 6–7',7],
+  ['UD 8',8],['UD 9',9],['UD 10',10]]);
 const noQuantity=text=>String(text||'').normalize('NFD')
   .replace(/[\u0304\u0306]/gu,'').normalize('NFC');
 const key=text=>noQuantity(text).normalize('NFD')
@@ -30,7 +31,14 @@ function declension(nom,gen,gender){
     return {name:'1.ª declinación (α)',unit:3,topic:'Primera declinación',marker:'–ας'};
   if((ends('ης')||ends('ας'))&&endsGen('ου')&&gender==='masculino')
     return {name:'1.ª declinación masculina',unit:3,topic:'Primera declinación',marker:'–ου'};
-  return null; // La tercera declinación se habilitará con su unidad curricular.
+  // Appendix UD8 incluye los temas consonánticos de la 3.ª, entre ellos
+  // oclusivas, nasales, nasales + t y líquidas. Se excluyen los temas
+  // vocálicos/sibilantes, que requieren reglas y unidades posteriores.
+  const stem=g.endsWith('ος')?g.slice(0,-2):'';
+  if(stem&&/[βγδθκλμνπρτφχ]$/u.test(stem))
+    return {name:'3.ª declinación, tema consonántico',unit:8,
+      topic:'Tercera declinación: consonantes',marker:'Tercera declinación · tabla 109'};
+  return null;
 }
 function sourceRows(unimorphParts){
   assert.equal(unimorphParts.length,8,'Se esperan las ocho partes fijadas de UniMorph');
@@ -85,8 +93,8 @@ function checkLexGen(entry,genitive){
     throw Error('Genitivo del enunciado distinto al paradigma');
 }
 function checkLexGender(entry,gender){
-  const declared=entry.form.match(/\((ὁ|ἡ|τὸ)\)/u)?.[1];
-  if(declared&&ARTICLES.get(declared)!==gender)
+  const declared=entry.form.match(/\((ὁ|ἡ|τὸ|τό)\)/u)?.[1];
+  if(declared&&(declared==='τό'?'neutro':ARTICLES.get(declared))!==gender)
     throw Error('Género contradice el enunciado docente');
   if(/\([^)]*(?:\s+o\s+|\/)[^)]*\)/u.test(entry.form))
     throw Error('Género de uso variable: necesita decisión docente');
@@ -142,18 +150,19 @@ export function compileGreekNounExpansion({
       continue;
     }
     try{
-      if(!matching.length)throw Error('Sin unidad curricular acreditada hasta UD7');
+      if(!matching.length)throw Error('Sin unidad curricular acreditada: se conserva el lema para cotejo');
       const checked=checkedForms(display,grouped.get(lemma)||[]);
       checkLexGen(entry,checked.genitive);
       checkLexGender(entry,checked.gender);
       const decl=declension(display,checked.genitive,checked.gender);
-      if(!decl)throw Error('Tipo irregular o tercera declinación: revisión posterior');
+      if(!decl)throw Error('Modelo flexivo no acreditado por Appendix UD1–UD10');
       checkCurriculum(curriculum,decl);
       const unit=Math.min(...entry.units.filter(u=>GROUPS.has(u)).map(u=>GROUPS.get(u)));
-      if(decl.unit>unit)throw Error('Modelo no explicado en la unidad indicada');
+      const enabledUnit=Math.max(decl.unit,unit);
+      if(enabledUnit>10)throw Error('Modelo todavía no habilitado en la interfaz');
       const record={
         id:'griego-sustantivo-import-'+entry.id,language:'griego',
-        unit,kind:'sustantivo',gender:checked.gender,
+        unit:enabledUnit,kind:'sustantivo',gender:checked.gender,
         paradigm:checked.nominative+', '+checked.genitive+' ('+
           [...ARTICLES].find(([,g])=>g===checked.gender)[0]+') · '+decl.name,
         forms:checked.forms,
@@ -172,7 +181,7 @@ export function compileGreekNounExpansion({
       };
       records.push(record);
       catalog.push({...state,status:'incorporado',recordId:record.id,
-        unit,gender:record.gender,formCount:record.forms.length});
+        unit:enabledUnit,gender:record.gender,formCount:record.forms.length});
     }catch(e){reject(String(e?.message||e));}
   }
   records.sort((a,b)=>a.unit-b.unit||a.id.localeCompare(b.id));
@@ -180,5 +189,5 @@ export function compileGreekNounExpansion({
   return {records,review,catalog,audit:{candidates:candidates.length,
     uniqueLemmas:byLemma.size,alreadyIncluded:accepted.size,
     incorporated:records.length,reviewNeeded:review.length,
-    sourceSha:vocabulaSha,excludedBeyondUd7:true}};
+    sourceSha:vocabulaSha,excludedBeyondUd10:true}};
 }
