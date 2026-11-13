@@ -17,8 +17,8 @@
     "decisionesDocentesAplicadas": 3,
     "nuevosAnalisisEditorials": 104,
     "cierreIndividualRegistrado": 221,
-    "discrepanciasDocentesReservadas": 6,
-    "contrastesHistoricosPendientes": 83
+    "discrepanciasDocentesReservadas": 3,
+    "contrastesHistoricosPendientes": 86
   },
   "records": [
     {
@@ -2305,10 +2305,10 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "discrepancia_documentada",
+      "estadoPreexistente": "contrast_historic_pendent",
       "leyesPreexistentes": [],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "criteri_docent_pendent_individual",
+      "estadoAuditoria": "contrast_historic_pendent_amb_dictamen_individual",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -4701,7 +4701,7 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "discrepancia_documentada",
+      "estadoPreexistente": "contrast_historic_pendent",
       "leyesPreexistentes": [],
       "indicadoresParaAuditoria": [
         {
@@ -4711,7 +4711,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "criteri_docent_pendent_individual",
+      "estadoAuditoria": "contrast_historic_pendent_amb_dictamen_individual",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -5670,7 +5670,7 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "discrepancia_documentada",
+      "estadoPreexistente": "contrast_historic_pendent",
       "leyesPreexistentes": [],
       "indicadoresParaAuditoria": [
         {
@@ -5686,7 +5686,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "criteri_docent_pendent_individual",
+      "estadoAuditoria": "contrast_historic_pendent_amb_dictamen_individual",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -13019,5 +13019,5 @@
       "scope": "correspondencia léxica individual archivada en cada ficha"
     }
   ],
-  "scopeClarification": "221 casos amb dictamen individual: 132 anàlisis editorials revisades, 83 contrastos històrics pendents i sis discrepàncies docents. No hi ha lleis verificades integralment ni fitxes publicables."
+  "scopeClarification": "221 dictàmens: 132 anàlisis editorials no certificades, 86 reserves històriques o de transmissió i tres decisions docents. Cap fitxa publicable."
 }
