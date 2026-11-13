@@ -69,3 +69,8 @@ Etymologicon incorpora un primer banco cerrado de **16 palabras castellanas con 
 ## Construcción aislada de la zona docente (sin publicación)
 
 El portal general se genera en `dist/`, con el acceso docente expresamente desactivado. La zona privada se construye **por separado** con `npm run build:docente`, que genera `dist-docente/` en modo bloqueado por defecto. La activación requiere un hostname HTTPS distinto del de las herramientas del alumnado, una cuenta Supabase Auth y configuración explícita. El proyecto Supabase actual de Vocabula es el candidato provisional para albergar esta cuenta, sin afectar a su sistema de sesiones propio. **No se ha creado ningún usuario ni desplegado el sitio o las funciones; el correo docente no se incorpora al artefacto público.** Véase `docs/DOCENTE_AUTENTICACION.md`.
+
+
+## Alojamiento docente: Cloudflare Pages (sin activar)
+
+Se ha elegido Cloudflare Pages para un **origen separado** del portal público. Su publicación será por **Direct Upload manual**, sin integración automática con GitHub. El artefacto `dist-docente/` incluye cabeceras `_headers` verificables, `robots.txt` y `404.html`, y **permanece desactivado por defecto**. Una versión activada necesita el SDK Supabase local con huella SHA-256 revisada; no se carga desde CDN. CI ejecuta `npm run audit:docente:cloudflare` y no sube el sitio a Cloudflare. Procedimiento y bloqueos: [`docs/CLOUDFLARE_PAGES_DOCENTE.md`](docs/CLOUDFLARE_PAGES_DOCENTE.md).
