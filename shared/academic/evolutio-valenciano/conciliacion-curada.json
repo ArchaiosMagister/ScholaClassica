@@ -1589,19 +1589,220 @@
         "date": "2026-11-13"
       },
       "notes": "Poll 1 'pollo' procede de pŭllu, no poll 'piojo' ni 'álamo'."
+    },
+    {
+      "latin": "iurare",
+      "form": "jurar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jurar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "spicam",
+      "form": "espiga",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espiga",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "lignum",
+      "form": "lleny",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lleny",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "LLENY 1 'embarcación' es el sentido documentado desde lignum 'madera', con evolución semántica; no asumir uso cotidiano con significado de 'leño'."
+    },
+    {
+      "latin": "cæcare",
+      "form": "cegar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cegar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "laudare",
+      "form": "lloar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa."
+    },
+    {
+      "latin": "luctam",
+      "form": "lluita",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "sŏmnum",
+      "form": "son",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=son",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos."
+    },
+    {
+      "latin": "stylum",
+      "form": "estil",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estil",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión."
+    },
+    {
+      "latin": "caput",
+      "form": "cap",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cap",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "DCVB deriva cap 'cabeza' de la forma vulgar capum, variante de caput; registrar esta etapa intermedia."
+    },
+    {
+      "latin": "furcam",
+      "form": "forca",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "mataxam",
+      "form": "madeixa",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "sagitta",
+      "form": "sageta",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sageta",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "serpĕntem",
+      "form": "serp",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=serp",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "El DCVB da SERP de latín serp(e), no directamente serpĕntem: requiere explicación de base contraída/otra flexión y revisión del étimo exacto."
+    },
+    {
+      "latin": "stabĭlem",
+      "form": "estable",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estable",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular."
+    },
+    {
+      "latin": "stagnum",
+      "form": "estany",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estany",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "ESTANY 1 'lago' procede de stagnu; distinguir ESTANY 2 'estaño' de stannu."
+    },
+    {
+      "latin": "mŏllem",
+      "form": "moll",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=moll",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "MOLL 6 adjetivo 'blando' procede de mŏlle; no confundir con homógrafos de médula, pez, muelle portuario o italiano molo."
     }
   ],
   "proposals": [
     {
       "latin": "germanum",
       "form": "germà",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "iurare",
-      "form": "jurar",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1614,29 +1815,8 @@
       "notes": null
     },
     {
-      "latin": "spicam",
-      "form": "espiga",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "lignum",
-      "form": "lleny",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "bŏnam",
       "form": "bona",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "cæcare",
-      "form": "cegar",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1653,25 +1833,11 @@
       "form": "dau",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "La etimología de DAU a partir de datum se describe como incierta en DCVB; no considerar verificada."
     },
     {
       "latin": "draconem",
       "form": "dragó",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "laudare",
-      "form": "lloar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "luctam",
-      "form": "lluita",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1698,13 +1864,6 @@
       "notes": null
     },
     {
-      "latin": "sŏmnum",
-      "form": "son",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "sponsam",
       "form": "esposa",
       "lexicalStatus": "proposta",
@@ -1714,13 +1873,6 @@
     {
       "latin": "squamam",
       "form": "escama",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "stylum",
-      "form": "estil",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1754,13 +1906,6 @@
       "notes": null
     },
     {
-      "latin": "caput",
-      "form": "cap",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "fŏrtia",
       "form": "força",
       "lexicalStatus": "proposta",
@@ -1768,29 +1913,8 @@
       "notes": null
     },
     {
-      "latin": "furcam",
-      "form": "forca",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "martium",
       "form": "març",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mataxam",
-      "form": "madeixa",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mŏllem",
-      "form": "moll",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1814,28 +1938,14 @@
       "form": "pluja",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": "DCVB remite a la base vulgar plŏia: hay que contrastar el étimo concreto antes de aprobar."
-    },
-    {
-      "latin": "sagitta",
-      "form": "sageta",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
+      "notes": "PLUJA procede directamente del latín vulgar *plŏia, variante de plŭvia; requiere justificar paso intermedio antes de generar cambios."
     },
     {
       "latin": "sensum",
       "form": "seny",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "serpĕntem",
-      "form": "serp",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
+      "notes": "El DCVB indica que SENY 2 'juicio' procede del germánico sinn, probablemente cruzado con latín sensus: no es étimo latino directo; mantener fuera de ejercicios."
     },
     {
       "latin": "signa",
@@ -1847,20 +1957,6 @@
     {
       "latin": "sponsum",
       "form": "espòs",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "stabĭlem",
-      "form": "estable",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "stagnum",
-      "form": "estany",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
