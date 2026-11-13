@@ -9,8 +9,8 @@ const moduleDir=join(root,'dist/apps/etymologicon');
 const fromModule=path=>readFileSync(join(moduleDir,path));
 const read=path=>fromModule(path).toString('utf8');
 const core=[
-  'index.html','style.css','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs',
-  'data/gr1.json','data/gr1-decomposition.json','manifest.webmanifest','icons/icon.svg',
+  'index.html','estudio.html','style.css','estudio.css','estudio.mjs','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs',
+  'data/gr1.json','data/gr1-study.json','data/gr1-decomposition.json','manifest.webmanifest','icons/icon.svg',
   'icons/icon-192.png','icons/icon-512.png',
   'icons/icon-maskable-512.png','icons/apple-touch-icon.png'
 ];

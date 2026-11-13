@@ -40,6 +40,7 @@ test('Evolutio conserva todo el motor y banco, salvo la adaptación aislada del 
 test('Etymologicon se construye con su pantalla, corrector y banco ampliado y cerrado, sin publicar material docente interno',()=>{
   const dir=join(out,'apps/etymologicon');
   for(const file of ['index.html','style.css','app.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs','data/gr1.json',
+    'estudio.html','estudio.mjs','estudio.css','data/gr1-study.json',
     'manifest.webmanifest','sw.js','icons/icon.svg','icons/icon-192.png','icons/icon-512.png',
     'icons/icon-maskable-512.png','icons/apple-touch-icon.png'])
     assert.ok(existsSync(join(dir,file)),'Archivo faltante: '+file);
@@ -53,6 +54,12 @@ test('Etymologicon se construye con su pantalla, corrector y banco ampliado y ce
   assert.equal(learner.etymons.filter(x=>x.editorialStatus==='approved_for_documented_derivatives').length,108);
   assert.ok(!('editorialDecisions' in learner));
   assert.ok(!('definitions' in learner.derivatives[0]));
+  const study=JSON.parse(readFileSync(join(dir,'data/gr1-study.json'),'utf8'));
+  assert.equal(study.schema,'etymologicon-study-catalog/v1');
+  assert.equal(study.words.length,487);
+  assert.equal(study.etymons.length,111);
+  assert.ok(study.words.every(w=>w.definition&&w.components?.length&&w.dleUrl));
+  assert.ok(study.words.find(w=>w.form==='filosofía').components.length>=2);
   assert.ok(!('source' in learner.etymons[0]));
   assert.ok(!JSON.stringify(learner).includes('originalWorkbook'));
   const html=readFileSync(join(dir,'index.html'),'utf8');

@@ -108,6 +108,29 @@ try{
     assert.ok(await page.locator('header').count(),'Falta encabezado en '+route);
     assert.equal(errors.length,0,'Error JavaScript en '+route+': '+errors.join(' | '));
   }
+  // Glosario académico de Griego I: 487 fichas, componentes y búsqueda de doble étimo.
+  const studyPage=await page.goto(base+'/apps/etymologicon/estudio.html',{waitUntil:'networkidle'});
+  assert.equal(studyPage.status(),200);
+  await page.locator('#study-loading').waitFor({state:'hidden',timeout:12000});
+  assert.ok((await page.locator('#study-count').textContent()).includes('487 palabras'));
+  assert.equal(await page.locator('.lexicon-group').count(),111);
+  await page.locator('#study-search').fill('filología');
+  await page.locator('.lexicon-group').first().locator('summary').click();
+  assert.ok(await page.locator('.lexical-word').count()>0);
+  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('φίλος'));
+  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('λόγος'));
+  await page.locator('#study-search').fill('filosofía');
+  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('σοφία'));
+  await page.locator('#study-search').fill('misoginia');
+  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('γυνή'));
+  await page.locator('#study-search').fill('');
+  await page.locator('#study-unit').selectOption('UD1');
+  assert.ok((await page.locator('.lexicon-group').count())<111);
+  await page.locator('#study-unit').selectOption('all');
+  await page.locator('#study-theme').selectOption('oled');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
+  assert.equal(errors.length,0,'Error JavaScript del glosario: '+errors.join(' | '));
+
   // Etymologicon: integración funcional del motor con la pantalla y el banco filtrado.
   const etymologicon=await page.goto(base+'/apps/etymologicon/index.html',{waitUntil:'networkidle'});
   assert.equal(etymologicon.status(),200);
