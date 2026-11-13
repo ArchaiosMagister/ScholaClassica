@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import {compileAdditionalMorphology} from './morphology-expansion.mjs';
 import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
 import {compileMorphologyUd8to14} from './morphology-ud8-14.mjs';
+import {compileLatin4} from './morphology-latin4.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -311,13 +312,21 @@ export async function buildMorphology({out,lock}){
     curriculum:JSON.parse(await readFile(path,'utf8')),
     ...sourceData,vocabulaSha:lock.sources.vocabula.sha
   });
+  const latin4=compileLatin4({
+    baseRecords:data.records,vocabulaSha:lock.sources.vocabula.sha,
+    teacherParadigmsJs:await readFile(join(vocabulaSource,'gramatica-paradigmas.js'),'utf8'),
+    teacherImperfectsJs:await readFile(join(vocabulaSource,'gramatica-latin-imperfectos.js'),'utf8'),
+    syllabusJs:await readFile(join(vocabulaSource,'gramatica-contenidos.js'),'utf8'),
+    latinAdjectivesHtml:await readFile(join(source,'adjetivos.html'),'utf8')
+  });
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
-    records:[...data.records,...greekNouns]};
-  assert.equal(finalBank.records.length,144);
-  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,144);
+    coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8]},
+    records:[...data.records,...greekNouns,...latin4]};
+  assert.equal(finalBank.records.length,220);
+  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,220);
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
   console.log('Morfología: '+finalBank.records.length+
-    ' paradigmas curriculares; ocho sustantivos griegos conciliados con Vocabula/UniMorph');
+    ' fichas: 144 de Latín I/Griego I y 76 para Latín 4.º ESO UD1–UD8');
 }

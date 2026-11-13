@@ -1,14 +1,14 @@
 // Motor puro, sin generación de flexiones ni redes externas.
 import {selectReviewCandidates} from './review.mjs';
 const fold=s=>String(s).normalize('NFC').trim();
-export const COURSE_LABELS={latin:'Latín I',griego:'Griego I'};
+export const COURSE_LABELS={latin:'Latín I',griego:'Griego I',latin4:'Latín · 4.º de ESO'};
 export function validateBank(bank){
   if(bank?.schema!=='schola-morphology-source/v1'||!/^[a-f0-9]{40}$/.test(bank.appendixSha))
     throw Error('Banco morfológico no documentado');
   if(!Array.isArray(bank.records)||bank.records.length===0)throw Error('Banco vacío');
   const ids=new Set();
   for(const record of bank.records){
-    if(!['latin','griego'].includes(record.language)||
+    if(!['latin','griego','latin4'].includes(record.language)||
        !Number.isInteger(record.unit)||!bank.coverage?.[record.language]?.includes(record.unit)||
        !['sustantivo','verbo','desinencia','artículo','adjetivo','pronombre'].includes(record.kind)||
        !Array.isArray(record.forms)||record.forms.length<6||

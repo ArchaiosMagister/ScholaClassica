@@ -92,10 +92,28 @@ try{
  assert.equal(await page.locator('#answers button').count(),4);
  const found=await page.evaluate(async()=>{
    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
-   return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego};
+   return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego,latin4:data.coverage.latin4};
  });
- assert.equal(found.paradigms,144);
+ assert.equal(found.paradigms,220);
+ assert.deepEqual(found.latin4,[1,2,3,4,5,6,7,8]);
  assert.deepEqual(found.latin,[1,2,3,4,5,6,7,8,9,10]);assert.deepEqual(found.greek,[1,2,3,4,5,6,7,8,9,10,11,12,13,14]);
+ // La página y su banco están precargados también para 4.º sin conexión.
+ await page.goto(app+'index.html?subject=lat4',{waitUntil:'load'});
+ await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
+ assert.equal(await page.locator('#subject').inputValue(),'latin4');
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),
+   ['UD1','UD2','UD3','UD4','UD5','UD6','UD7','UD8']);
+ await page.locator('#unit').selectOption('3');
+ assert.equal(await page.locator('#activity option[value="phrase-table"]').evaluate(o=>o.disabled),false);
+ await page.locator('#activity').selectOption('phrase-written');
+ await page.locator('#start').click();
+ assert.ok(await page.locator('#answer-input').isVisible());
+ await page.locator('#new').click();
+ await page.locator('#unit').selectOption('6');
+ await page.locator('#activity').selectOption('form');
+ await page.locator('#kind').selectOption('verbo');
+ await page.locator('#start').click();
+ assert.equal(await page.locator('#answers button').count(),4);
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
  console.log('OK: perfectos UD4, adjetivos UD5, concordancia griega y caché offline propia en GitHub Pages');
