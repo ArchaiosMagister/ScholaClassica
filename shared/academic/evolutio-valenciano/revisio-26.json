@@ -2,7 +2,7 @@
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
   "status": "auditoria_docent_sense_publicacio",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m.",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica.",
   "analyses": [
     {
       "latin": "focum",
@@ -1099,6 +1099,290 @@
       "playable": false,
       "changes": [],
       "explanation": "fĕbrem → febre: només pèrdua fixa de -m final; no diftongació de ĕ tònica."
+    },
+    {
+      "latin": "spinam",
+      "form": "espina",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "spans": [],
+          "note": "Pròtesi de e- davant s inicial seguida de consonant."
+        }
+      ],
+      "explanation": "spinam → espina: pròtesi d'e- inicial davant sp-; la -m final desapareix com a norma fixa."
+    },
+    {
+      "latin": "spumam",
+      "form": "espuma",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "spans": [],
+          "note": "Pròtesi de e- davant sp- inicial."
+        }
+      ],
+      "explanation": "spumam → espuma: pròtesi d'e- davant sp-, sense substituir el resultat per escuma; pèrdua fixa de -m."
+    },
+    {
+      "latin": "peccatum",
+      "form": "pecat",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "cc",
+          "at": 2,
+          "note": "Simplificació de la geminada -cc- en -c-."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de la vocal final -u."
+        }
+      ],
+      "explanation": "peccatum → pecat: simplificació de -cc-, apòcope de -u i pèrdua fixa de -m."
+    },
+    {
+      "latin": "passum",
+      "form": "pas",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "ss",
+          "at": 2,
+          "note": "Reducció fonètica de la s geminada en s simple."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "passum → pas: simplificació de -ss- en -s-, apòcope de -u i pèrdua fixa de -m."
+    },
+    {
+      "latin": "pŏrcum",
+      "form": "porc",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final, sense diftongació de ŏ tònica."
+        }
+      ],
+      "explanation": "pŏrcum → porc: apòcope de -u i pèrdua fixa de -m; no diftonga la ŏ tònica."
+    },
+    {
+      "latin": "pellem",
+      "form": "pell",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "ll",
+          "at": 2,
+          "note": "Palatalització fonètica de -ll- llatina geminada, amb la mateixa grafia."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final."
+        }
+      ],
+      "explanation": "pellem → pell: palatalització fonètica de -ll-, apòcope de -e i pèrdua fixa de -m."
+    },
+    {
+      "latin": "uallem",
+      "form": "vall",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "ll",
+          "at": 2,
+          "note": "Palatalització de la geminada lateral -ll-."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de la vocal final -e."
+        }
+      ],
+      "explanation": "uallem → vall: palatalització de la -ll- geminada, apòcope de -e i pèrdua fixa de -m. La u inicial llatina té valor consonàntic."
+    },
+    {
+      "latin": "uitem",
+      "form": "vit",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final."
+        }
+      ],
+      "explanation": "uitem → vit: apòcope de -e i pèrdua fixa de -m; la u consonàntica inicial es representa v."
+    },
+    {
+      "latin": "uoluntatem",
+      "form": "voluntat",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de la vocal final -e."
+        }
+      ],
+      "explanation": "uoluntatem → voluntat: apòcope de -e i pèrdua fixa de -m; u inicial consonàntica > v gràfica."
+    },
+    {
+      "latin": "securum",
+      "form": "segur",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SONOR",
+          "find": "c",
+          "at": 2,
+          "note": "Sonorització intervocàlica de c > g."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "securum → segur: sonorització de -c- intervocàlica en -g-, apòcope de -u i pèrdua fixa de -m."
+    },
+    {
+      "latin": "ferum",
+      "form": "fer",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de la vocal final -u."
+        }
+      ],
+      "explanation": "ferum → fer: apòcope de -u i pèrdua fixa de -m. Diferenciar de ferro < fĕrrum."
+    },
+    {
+      "latin": "septem",
+      "form": "set",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "pt",
+          "at": 2,
+          "note": "Simplificació del grup consonàntic -pt- a -t-."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final."
+        }
+      ],
+      "explanation": "septem → set: simplificació del grup -pt-, apòcope de -e i pèrdua fixa de -m."
+    },
+    {
+      "latin": "fibram",
+      "form": "fibra",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "fibram → fibra: pèrdua fixa de -m final sense una altra llei seleccionable demostrada."
+    },
+    {
+      "latin": "temperare",
+      "form": "temperar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Apòcope de la -e final de l'infinitiu."
+        }
+      ],
+      "explanation": "temperare → temperar: apòcope de -e final, sense pèrdua de -m (és un infinitiu)."
+    },
+    {
+      "latin": "ordinare",
+      "form": "ordenar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Apòcope de la -e final de l'infinitiu."
+        }
+      ],
+      "explanation": "ordinare → ordenar: apòcope de -e final; el timbre de la vocal interior s'explica separadament sense assignar una llei no acreditada."
     }
   ],
   "pending": []
