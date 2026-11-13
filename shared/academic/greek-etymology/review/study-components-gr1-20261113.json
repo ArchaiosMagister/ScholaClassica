@@ -1278,7 +1278,7 @@
       },
       {
         "greek": "φωνή",
-        "gloss": "voz"
+        "gloss": "sonido"
       }
     ],
     "macrocéfalo": [
@@ -1403,6 +1403,694 @@
       {
         "greek": "γράμμα",
         "gloss": "registro, escritura"
+      }
+    ],
+    "antropólogo": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio, especialista"
+      }
+    ],
+    "antropometría": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "μέτρον",
+        "gloss": "medida"
+      }
+    ],
+    "antroposofía": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "σοφία",
+        "gloss": "sabiduría"
+      }
+    ],
+    "antropografía": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "describir"
+      }
+    ],
+    "autóctono": [
+      {
+        "greek": "αὐτός",
+        "gloss": "propio, mismo"
+      },
+      {
+        "greek": "χθών",
+        "gloss": "tierra"
+      }
+    ],
+    "autónomo": [
+      {
+        "greek": "αὐτός",
+        "gloss": "por sí mismo"
+      },
+      {
+        "greek": "νόμος",
+        "gloss": "norma, gobierno"
+      }
+    ],
+    "autocracia": [
+      {
+        "greek": "αὐτός",
+        "gloss": "por sí mismo"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder"
+      }
+    ],
+    "demagogo": [
+      {
+        "greek": "δῆμος",
+        "gloss": "pueblo"
+      },
+      {
+        "greek": "ἄγω",
+        "gloss": "conducir"
+      }
+    ],
+    "psicopedagogía": [
+      {
+        "greek": "ψυχή",
+        "gloss": "mente"
+      },
+      {
+        "greek": "παῖς",
+        "gloss": "niño"
+      },
+      {
+        "greek": "ἄγω",
+        "gloss": "conducir, educar"
+      }
+    ],
+    "polícromo": [
+      {
+        "greek": "πολύς",
+        "gloss": "muchos"
+      },
+      {
+        "greek": "χρῶμα",
+        "gloss": "color"
+      }
+    ],
+    "isomorfismo": [
+      {
+        "greek": "ἴσος",
+        "gloss": "igual"
+      },
+      {
+        "greek": "μορφή",
+        "gloss": "forma"
+      }
+    ],
+    "isófono": [
+      {
+        "greek": "ἴσος",
+        "gloss": "igual"
+      },
+      {
+        "greek": "φωνή",
+        "gloss": "sonido"
+      }
+    ],
+    "ginecocracia": [
+      {
+        "greek": "γυνή",
+        "gloss": "mujer"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder"
+      }
+    ],
+    "cefalópodo": [
+      {
+        "greek": "κεφαλή",
+        "gloss": "cabeza"
+      },
+      {
+        "greek": "πούς",
+        "gloss": "pie"
+      }
+    ],
+    "geometría": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "μέτρον",
+        "gloss": "medida"
+      }
+    ],
+    "hipérbaton": [
+      {
+        "greek": "ὑπέρ",
+        "gloss": "más allá"
+      },
+      {
+        "greek": "βαίνω",
+        "gloss": "avanzar, pasar"
+      }
+    ],
+    "hiperbólico": [
+      {
+        "greek": "ὑπέρ",
+        "gloss": "exceso"
+      },
+      {
+        "greek": "βάλλω",
+        "gloss": "lanzar"
+      }
+    ],
+    "hipertrofia": [
+      {
+        "greek": "ὑπέρ",
+        "gloss": "exceso"
+      },
+      {
+        "greek": "τροφή",
+        "gloss": "nutrición, crecimiento"
+      }
+    ],
+    "hipocondríaco": [
+      {
+        "greek": "ὑπό",
+        "gloss": "debajo"
+      },
+      {
+        "greek": "χόνδρος",
+        "gloss": "cartílago, costillas"
+      }
+    ],
+    "hipogeo": [
+      {
+        "greek": "ὑπό",
+        "gloss": "debajo"
+      },
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      }
+    ],
+    "hipotenusa": [
+      {
+        "greek": "ὑπό",
+        "gloss": "debajo"
+      },
+      {
+        "greek": "τείνω",
+        "gloss": "tender, extender"
+      }
+    ],
+    "hipodérmico": [
+      {
+        "greek": "ὑπό",
+        "gloss": "debajo"
+      },
+      {
+        "greek": "δέρμα",
+        "gloss": "piel"
+      }
+    ],
+    "hidroeléctrico": [
+      {
+        "greek": "ὕδωρ",
+        "gloss": "agua"
+      },
+      {
+        "greek": "ἤλεκτρον",
+        "gloss": "electricidad (formación moderna)"
+      }
+    ],
+    "hidrosfera": [
+      {
+        "greek": "ὕδωρ",
+        "gloss": "agua"
+      },
+      {
+        "greek": "σφαῖρα",
+        "gloss": "esfera"
+      }
+    ],
+    "hidrología": [
+      {
+        "greek": "ὕδωρ",
+        "gloss": "agua"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "cardiograma": [
+      {
+        "greek": "καρδία",
+        "gloss": "corazón"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "registro escrito"
+      }
+    ],
+    "cardiopatía": [
+      {
+        "greek": "καρδία",
+        "gloss": "corazón"
+      },
+      {
+        "greek": "πάθος",
+        "gloss": "afección"
+      }
+    ],
+    "andropausia": [
+      {
+        "greek": "ἀνήρ",
+        "gloss": "varón"
+      },
+      {
+        "greek": "παῦσις",
+        "gloss": "cesación"
+      }
+    ],
+    "androfobia": [
+      {
+        "greek": "ἀνήρ",
+        "gloss": "varón"
+      },
+      {
+        "greek": "φόβος",
+        "gloss": "miedo"
+      }
+    ],
+    "aerofobia": [
+      {
+        "greek": "ἀήρ",
+        "gloss": "aire"
+      },
+      {
+        "greek": "φόβος",
+        "gloss": "miedo"
+      }
+    ],
+    "agorafobia": [
+      {
+        "greek": "ἀγορά",
+        "gloss": "plaza pública"
+      },
+      {
+        "greek": "φόβος",
+        "gloss": "miedo"
+      }
+    ],
+    "acrofobia": [
+      {
+        "greek": "ἄκρος",
+        "gloss": "altura, extremo"
+      },
+      {
+        "greek": "φόβος",
+        "gloss": "miedo"
+      }
+    ],
+    "aracnofobia": [
+      {
+        "greek": "ἀράχνη",
+        "gloss": "araña"
+      },
+      {
+        "greek": "φόβος",
+        "gloss": "miedo"
+      }
+    ],
+    "gastralgia": [
+      {
+        "greek": "γαστήρ",
+        "gloss": "estómago"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "odontalgia": [
+      {
+        "greek": "ὀδούς",
+        "gloss": "diente"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "otalgia": [
+      {
+        "greek": "οὖς",
+        "gloss": "oído"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "mialgia": [
+      {
+        "greek": "μῦς",
+        "gloss": "músculo"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "pirotecnia": [
+      {
+        "greek": "πῦρ",
+        "gloss": "fuego"
+      },
+      {
+        "greek": "τέχνη",
+        "gloss": "técnica, arte"
+      }
+    ],
+    "pirólisis": [
+      {
+        "greek": "πῦρ",
+        "gloss": "fuego"
+      },
+      {
+        "greek": "λύω",
+        "gloss": "disolver, descomponer"
+      }
+    ],
+    "monoteísmo": [
+      {
+        "greek": "μόνος",
+        "gloss": "único"
+      },
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      }
+    ],
+    "politeísmo": [
+      {
+        "greek": "πολύς",
+        "gloss": "muchos"
+      },
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      }
+    ],
+    "teocentrismo": [
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      },
+      {
+        "greek": "κέντρον",
+        "gloss": "centro"
+      }
+    ],
+    "teocracia": [
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder"
+      }
+    ],
+    "teodicea": [
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      },
+      {
+        "greek": "δίκη",
+        "gloss": "justicia (familia léxica, no étimo examinable)"
+      }
+    ],
+    "teosofía": [
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      },
+      {
+        "greek": "σοφία",
+        "gloss": "sabiduría"
+      }
+    ],
+    "tetrarquía": [
+      {
+        "greek": "τέτταρες",
+        "gloss": "cuatro"
+      },
+      {
+        "greek": "ἀρχή",
+        "gloss": "poder"
+      }
+    ],
+    "plutocracia": [
+      {
+        "greek": "πλοῦτος",
+        "gloss": "riqueza"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder"
+      }
+    ],
+    "timocracia": [
+      {
+        "greek": "τιμή",
+        "gloss": "honor, estimación"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder"
+      }
+    ],
+    "panteísmo": [
+      {
+        "greek": "πᾶν",
+        "gloss": "todo"
+      },
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      }
+    ],
+    "tanatofobia": [
+      {
+        "greek": "θάνατος",
+        "gloss": "muerte"
+      },
+      {
+        "greek": "φόβος",
+        "gloss": "miedo"
+      }
+    ],
+    "oligarquía": [
+      {
+        "greek": "ὀλίγος",
+        "gloss": "poco"
+      },
+      {
+        "greek": "ἀρχή",
+        "gloss": "poder"
+      }
+    ],
+    "polimorfo": [
+      {
+        "greek": "πολύς",
+        "gloss": "muchos"
+      },
+      {
+        "greek": "μορφή",
+        "gloss": "forma"
+      }
+    ],
+    "poliedro": [
+      {
+        "greek": "πολύς",
+        "gloss": "muchos"
+      },
+      {
+        "greek": "ἕδρα",
+        "gloss": "cara"
+      }
+    ],
+    "poligamia": [
+      {
+        "greek": "πολύς",
+        "gloss": "muchos"
+      },
+      {
+        "greek": "γάμος",
+        "gloss": "matrimonio"
+      }
+    ],
+    "monogamia": [
+      {
+        "greek": "μόνος",
+        "gloss": "uno solo"
+      },
+      {
+        "greek": "γάμος",
+        "gloss": "matrimonio"
+      }
+    ],
+    "psicosomático": [
+      {
+        "greek": "ψυχή",
+        "gloss": "mente"
+      },
+      {
+        "greek": "σῶμα",
+        "gloss": "cuerpo"
+      }
+    ],
+    "somatización": [
+      {
+        "greek": "σῶμα",
+        "gloss": "cuerpo"
+      },
+      {
+        "greek": "−ίζω",
+        "gloss": "convertir en, hacer"
+      }
+    ],
+    "psicoterapia": [
+      {
+        "greek": "ψυχή",
+        "gloss": "mente"
+      },
+      {
+        "greek": "θεραπεία",
+        "gloss": "tratamiento"
+      }
+    ],
+    "hemoterapia": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      },
+      {
+        "greek": "θεραπεία",
+        "gloss": "tratamiento"
+      }
+    ],
+    "hepatomegalia": [
+      {
+        "greek": "ἧπαρ",
+        "gloss": "hígado"
+      },
+      {
+        "greek": "μέγας",
+        "gloss": "grande"
+      }
+    ],
+    "encefalitis": [
+      {
+        "greek": "ἐν",
+        "gloss": "dentro"
+      },
+      {
+        "greek": "κεφαλή",
+        "gloss": "cabeza"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "estratagema": [
+      {
+        "greek": "στρατηγός",
+        "gloss": "general"
+      },
+      {
+        "greek": "−ημα",
+        "gloss": "resultado de una acción"
+      }
+    ],
+    "logopedia": [
+      {
+        "greek": "λόγος",
+        "gloss": "palabra"
+      },
+      {
+        "greek": "παιδεία",
+        "gloss": "educación"
+      }
+    ],
+    "ortografía": [
+      {
+        "greek": "ὀρθός",
+        "gloss": "recto, correcto"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir"
+      }
+    ],
+    "metafísica": [
+      {
+        "greek": "μετά",
+        "gloss": "más allá"
+      },
+      {
+        "greek": "φύσις",
+        "gloss": "naturaleza"
+      }
+    ],
+    "metamorfosis": [
+      {
+        "greek": "μετά",
+        "gloss": "cambio"
+      },
+      {
+        "greek": "μορφή",
+        "gloss": "forma"
+      }
+    ],
+    "metonimia": [
+      {
+        "greek": "μετά",
+        "gloss": "cambio"
+      },
+      {
+        "greek": "ὄνομα",
+        "gloss": "nombre"
+      }
+    ],
+    "metátesis": [
+      {
+        "greek": "μετά",
+        "gloss": "cambio"
+      },
+      {
+        "greek": "θέσις",
+        "gloss": "posición"
       }
     ]
   }
