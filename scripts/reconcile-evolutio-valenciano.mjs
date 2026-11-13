@@ -31,6 +31,21 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
    record.valenciano.estadoNormas=entry.status==='criteri_pendent'
     ?'discrepancia_documentada':'contrast_historic_pendent';
    record.valenciano.notas=[record.valenciano.notas,entry.reason].filter(Boolean).join(' ');
+   if(entry.teacherDecision){
+    const d=entry.teacherDecision;
+    const expected={
+     octo:'reserva_fonetica',
+     dictum:'reserva_fonetica',
+     'sigĭllum':'estudi_historic_no_avaluable'
+    };
+    if(entry.status!=='contrast_historic_pendent'||!Object.hasOwn(expected,entry.latin)
+       ||d.date!=='2026-11-13'||d.scope!=='criterio_de_clasificacion'
+       ||d.approval!=='accepted'||d.studyMode!==expected[entry.latin]
+       ||typeof d.decision!=='string'||!d.decision.trim())
+     throw Error('Decisió docent de reserva no autoritzada: '+entry.latin);
+    record.valenciano.criterioDocente=d;
+    record.valenciano.modalidadEstudio=d.studyMode;
+   }
    continue;
   }
   if(!entry.explanation||!Array.isArray(entry.changes))
