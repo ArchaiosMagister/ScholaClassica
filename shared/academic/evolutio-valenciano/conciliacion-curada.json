@@ -1,0 +1,1801 @@
+{
+  "schema": "schola-evolutio-va-curation/v1",
+  "date": "2026-11-13",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.",
+  "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
+  "documented": [
+    {
+      "latin": "focum",
+      "form": "foc",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=foc",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "noctem",
+      "form": "nit",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nit",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "clauem",
+      "form": "clau",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=clau",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Sentido de llave: clau, femenino; no confundir con clau masculino 'clavo'."
+    },
+    {
+      "latin": "lupum",
+      "form": "llop",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llop",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "matrem",
+      "form": "mare",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mare",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "filium",
+      "form": "fill",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fill",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "uitam",
+      "form": "vida",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vida",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "tĕrram",
+      "form": "terra",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=terra",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "pŏrtam",
+      "form": "porta",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=porta",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "fĕrrum",
+      "form": "ferro",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ferro",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "pontem",
+      "form": "pont",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pont",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "buccam",
+      "form": "boca",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=boca",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "chartam",
+      "form": "carta",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=carta",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "annum",
+      "form": "any",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=any",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "farinam",
+      "form": "farina",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=farina",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "fabam",
+      "form": "fava",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fava",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "catenam",
+      "form": "cadena",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cadena",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "gallinam",
+      "form": "gallina",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gallina",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "scalam",
+      "form": "escala",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=escala",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "cuppam",
+      "form": "copa",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=copa",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "caballum",
+      "form": "cavall",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cavall",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "caulem",
+      "form": "col",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=col",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "collum",
+      "form": "coll",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=coll",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "flammam",
+      "form": "flama",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=flama",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "ollam",
+      "form": "olla",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=olla",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    },
+    {
+      "latin": "mel",
+      "form": "mel",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mel",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": null
+    }
+  ],
+  "proposals": [
+    {
+      "latin": "aucam",
+      "form": "oca",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cadere",
+      "form": "caure",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cælum",
+      "form": "cel",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "comitem",
+      "form": "comte",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "crucem",
+      "form": "creu",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "germanum",
+      "form": "germà",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "homĭnem",
+      "form": "home",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "iurare",
+      "form": "jurar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "maiorem",
+      "form": "major",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "maium",
+      "form": "maig",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "mensem",
+      "form": "mes",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "multum",
+      "form": "molt",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ocŭlum",
+      "form": "ull",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pœnam",
+      "form": "pena",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "radium",
+      "form": "raig",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "scutum",
+      "form": "escut",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "spartum",
+      "form": "espart",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "spatium",
+      "form": "espai",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "spicam",
+      "form": "espiga",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uittam",
+      "form": "veta",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "scholam",
+      "form": "escola",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "marmorem",
+      "form": "marbre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "roborem",
+      "form": "roure",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "tonare",
+      "form": "tronar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "crustam",
+      "form": "crosta",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "thesaurum",
+      "form": "tresor",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "lignum",
+      "form": "lleny",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "asĭnum",
+      "form": "ase",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "auricŭlam",
+      "form": "orella",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "aurum",
+      "form": "or",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "bŏnam",
+      "form": "bona",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cæcare",
+      "form": "cegar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cæcum",
+      "form": "cec",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "calĕntem",
+      "form": "calent",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cannam",
+      "form": "canya",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "capere",
+      "form": "cabre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "capillum",
+      "form": "cabell",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "causam",
+      "form": "cosa",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "chŏrdam",
+      "form": "corda",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "clamare",
+      "form": "clamar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "compărāre",
+      "form": "comprar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "consilium",
+      "form": "consell",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "credere",
+      "form": "creure",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cunicŭlum",
+      "form": "conill",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cupam",
+      "form": "cuba",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "datum",
+      "form": "dau",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "draconem",
+      "form": "dragó",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fĕbrem",
+      "form": "febre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fŏntem",
+      "form": "font",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "grŏssum",
+      "form": "gros",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "hĕrbam",
+      "form": "herba",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "hŏrtum",
+      "form": "hort",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "insŭlam",
+      "form": "illa",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "latrare",
+      "form": "lladrar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "latronem",
+      "form": "lladre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "laudare",
+      "form": "lloar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "legere",
+      "form": "llegir",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ligare",
+      "form": "lligar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "littĕram",
+      "form": "lletra",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "luctam",
+      "form": "lluita",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "luxum",
+      "form": "luxe",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "maurum",
+      "form": "moro",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "meliorem",
+      "form": "millor",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "milium",
+      "form": "mill",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "octo",
+      "form": "huit",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ouicŭlam",
+      "form": "ovella",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pannum",
+      "form": "pany",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "rŏtam",
+      "form": "roda",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "nominare",
+      "form": "nomenar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "salutem",
+      "form": "salut",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "saporem",
+      "form": "sabor",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "semper",
+      "form": "sempre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "senatum",
+      "form": "senat",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sŏmnum",
+      "form": "son",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sponsam",
+      "form": "esposa",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "squamam",
+      "form": "escama",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "stylum",
+      "form": "estil",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "guttam",
+      "form": "gota",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pilum",
+      "form": "pèl",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "putare",
+      "form": "podar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "siccum",
+      "form": "sec",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "spissum",
+      "form": "espés",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "surdum",
+      "form": "sord",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "iuncum",
+      "form": "jonc",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "formicam",
+      "form": "formiga",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "molam",
+      "form": "mola",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "parabolam",
+      "form": "paraula",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "dictum",
+      "form": "dit",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "mensuram",
+      "form": "mesura",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "falcem",
+      "form": "falç",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pensare",
+      "form": "pesar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "leguminem",
+      "form": "llegum",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "articulum",
+      "form": "artell",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "caput",
+      "form": "cap",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cŏrium",
+      "form": "cuir",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cŏrnu",
+      "form": "corn",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cŏrpus",
+      "form": "cos",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "dŏmĭnam",
+      "form": "dona",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fŏrtia",
+      "form": "força",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "forum",
+      "form": "fur",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fumum",
+      "form": "fum",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fundum",
+      "form": "fons",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "furcam",
+      "form": "forca",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "grunnire",
+      "form": "grunyir",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "martium",
+      "form": "març",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "mataxam",
+      "form": "madeixa",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "mŏllem",
+      "form": "moll",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "mulierem",
+      "form": "muller",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "nigram",
+      "form": "negra",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "nomĭnem",
+      "form": "nom",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pinnam",
+      "form": "penya",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "planctum",
+      "form": "plany",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pluuiam",
+      "form": "pluja",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": "DCVB remite a la base vulgar plŏia: hay que contrastar el étimo concreto antes de aprobar."
+    },
+    {
+      "latin": "podium",
+      "form": "puig",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pŏpŭlum",
+      "form": "poble",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pretium",
+      "form": "preu",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pugnum",
+      "form": "puny",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pullum",
+      "form": "poll",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "regŭlam",
+      "form": "regla",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sagitta",
+      "form": "sageta",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "seniorem",
+      "form": "senyor",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sensum",
+      "form": "seny",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "serpĕntem",
+      "form": "serp",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sigĭllum",
+      "form": "segell",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "signa",
+      "form": "senya",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "specŭlum",
+      "form": "espill",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sponsum",
+      "form": "espòs",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "stabĭlem",
+      "form": "estable",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "stagnum",
+      "form": "estany",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "tædam",
+      "form": "tea",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "texere",
+      "form": "teixir",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uitium",
+      "form": "vici",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "picare",
+      "form": "pegar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "siluam",
+      "form": "selva",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "truncum",
+      "form": "tronc",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "tussem",
+      "form": "tos",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "undam",
+      "form": "ona",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uiridem",
+      "form": "verd",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "septem",
+      "form": "set",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "temptare",
+      "form": "temptar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fel",
+      "form": "fel",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fibram",
+      "form": "fibra",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uallem",
+      "form": "vall",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "hederam",
+      "form": "heura",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "nostrum",
+      "form": "nostre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "membrum",
+      "form": "membre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "nouem",
+      "form": "nou",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pedem",
+      "form": "peu",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pellem",
+      "form": "pell",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "temperare",
+      "form": "temperar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "acutiare",
+      "form": "agutzar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "alium",
+      "form": "all",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "damnum",
+      "form": "dany",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "strictum",
+      "form": "estret",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "peccatum",
+      "form": "pecat",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "iuuentutem",
+      "form": "joventut",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ocŭlos",
+      "form": "ulls",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pericŭlum",
+      "form": "perill",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "fossam",
+      "form": "fossa",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "iacere",
+      "form": "jaure",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "catenatum",
+      "form": "cadenat",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "integrare",
+      "form": "integrar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uiduam",
+      "form": "viuda",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ausare",
+      "form": "gosar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pausare",
+      "form": "posar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ballænam",
+      "form": "balena",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cæpullam",
+      "form": "ceba",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "monstrare",
+      "form": "mostrar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "passum",
+      "form": "pas",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "seminare",
+      "form": "sembrar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "magistram",
+      "form": "mestra",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "magistrum",
+      "form": "mestre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "mutabĭlem",
+      "form": "mutable",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "paucum",
+      "form": "poc",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "pŏrcum",
+      "form": "porc",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sŏlĭdum",
+      "form": "sou",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "totum",
+      "form": "tot",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "urticam",
+      "form": "ortiga",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uĕntrem",
+      "form": "ventre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uirtutem",
+      "form": "virtut",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uitem",
+      "form": "vit",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uoluntatem",
+      "form": "voluntat",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "angustum",
+      "form": "angost",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "bibere",
+      "form": "beure",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "committere",
+      "form": "cometre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "continere",
+      "form": "contindre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "corrumpere",
+      "form": "corrompre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "cuminum",
+      "form": "comí",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "currere",
+      "form": "córrer",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "curtare",
+      "form": "curtar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "curtum",
+      "form": "curt",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "gubernare",
+      "form": "governar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "imperatorem",
+      "form": "emperador",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "inimicum",
+      "form": "enemic",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "intrare",
+      "form": "entrar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "linguam",
+      "form": "llengua",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "minorem",
+      "form": "menor",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "minutum",
+      "form": "menut",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "muscam",
+      "form": "mosca",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "mustum",
+      "form": "most",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "nauigare",
+      "form": "navegar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "nigrum",
+      "form": "negre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ordinare",
+      "form": "ordenar",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "timorem",
+      "form": "temor",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "turrem",
+      "form": "torre",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "uentum",
+      "form": "vent",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "bene",
+      "form": "bé",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "bonum",
+      "form": "bo",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "ferum",
+      "form": "fer",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "portum",
+      "form": "port",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "serram",
+      "form": "serra",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "sortem",
+      "form": "sort",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "spinam",
+      "form": "espina",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "spumam",
+      "form": "espuma",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    },
+    {
+      "latin": "securum",
+      "form": "segur",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": null
+    }
+  ]
+}
