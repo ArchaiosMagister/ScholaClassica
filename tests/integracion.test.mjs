@@ -22,8 +22,15 @@ function compareApp(source,target,exceptions=[],extras=[]){
     assert.equal(hash(join(source,file)),hash(join(target,file)),'Copia alterada: '+file);
   }
 }
-test('Appendix completo, en castellano y valenciano, conserva los bytes originales',()=>{
-  compareApp(join(root,'.sources/appendix'),join(out,'apps/gramatica'),['assets/style.css','assets/language-colors.css','assets/theme.js']);
+test('Appendix castellano y valenciano mantiene originales salvo adaptaciones visuales de dist',()=>{
+  const appendixSource=join(root,'.sources/appendix'),appendixTarget=join(out,'apps/gramatica');
+  const pages=crawl(appendixSource).filter(path=>path.endsWith('.html'));
+  compareApp(appendixSource,appendixTarget,['assets/style.css','assets/language-colors.css','assets/theme.js',...pages]);
+  for(const page of pages){
+    const original=readFileSync(join(appendixSource,page),'utf8');
+    const expected=original.replace(/(assets\/(?:theme\.js|style\.css|language-colors\.css)\?v=[a-zA-Z0-9-]+)(?=["'])/g,'$1-oled1');
+    assert.equal(readFileSync(join(appendixTarget,page),'utf8'),expected,'HTML de Appendix: '+page);
+  }
   for(const file of ['index.html','curso.html','val/index.html','val/curso.html','assets/curriculum.json','val/curriculum.json'])
     assert.ok(existsSync(join(out,'apps/gramatica',file)),file);
 });
