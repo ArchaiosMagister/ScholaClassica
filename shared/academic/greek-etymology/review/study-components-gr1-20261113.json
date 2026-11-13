@@ -4535,6 +4535,262 @@
         "greek": "ὁδός",
         "gloss": "camino, salida"
       }
+    ],
+    "afelio": [
+      {
+        "greek": "ἀπό",
+        "gloss": "lejos de"
+      },
+      {
+        "greek": "ἥλιος",
+        "gloss": "sol"
+      }
+    ],
+    "antropocentrismo": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "κέντρον",
+        "gloss": "centro"
+      }
+    ],
+    "autómata": [
+      {
+        "greek": "αὐτόματος",
+        "gloss": "que actúa por sí mismo (de la familia de αὐτός)"
+      }
+    ],
+    "automático": [
+      {
+        "greek": "αὐτόματος",
+        "gloss": "que actúa por sí mismo (de la familia de αὐτός)"
+      }
+    ],
+    "autopsia": [
+      {
+        "greek": "αὐτός",
+        "gloss": "uno mismo"
+      },
+      {
+        "greek": "ὄψις",
+        "gloss": "vista, examen"
+      }
+    ],
+    "cardíaco": [
+      {
+        "greek": "καρδία",
+        "gloss": "corazón"
+      }
+    ],
+    "catarata": [
+      {
+        "greek": "κατά",
+        "gloss": "hacia abajo"
+      },
+      {
+        "greek": "ῥάσσω",
+        "gloss": "precipitarse, caer con fuerza"
+      }
+    ],
+    "críptico": [
+      {
+        "greek": "κρύπτω",
+        "gloss": "ocultar, esconder"
+      }
+    ],
+    "cromatismo": [
+      {
+        "greek": "χρῶμα",
+        "gloss": "color"
+      }
+    ],
+    "crónica": [
+      {
+        "greek": "χρόνος",
+        "gloss": "tiempo"
+      }
+    ],
+    "crónico": [
+      {
+        "greek": "χρόνος",
+        "gloss": "tiempo"
+      }
+    ],
+    "demótico": [
+      {
+        "greek": "δῆμος",
+        "gloss": "pueblo"
+      }
+    ],
+    "estratega": [
+      {
+        "greek": "στρατός",
+        "gloss": "ejército"
+      },
+      {
+        "greek": "ἄγω",
+        "gloss": "dirigir, conducir"
+      }
+    ],
+    "fonema": [
+      {
+        "greek": "φώνημα",
+        "gloss": "sonido articulado (de la familia de φωνή)"
+      }
+    ],
+    "gástrico": [
+      {
+        "greek": "γαστήρ",
+        "gloss": "estómago"
+      }
+    ],
+    "gastronomía": [
+      {
+        "greek": "γαστήρ",
+        "gloss": "estómago"
+      },
+      {
+        "greek": "νόμος",
+        "gloss": "norma, organización"
+      }
+    ],
+    "geodesia": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "δαίω",
+        "gloss": "dividir"
+      }
+    ],
+    "gineceo": [
+      {
+        "greek": "γυνή",
+        "gloss": "mujer"
+      }
+    ],
+    "gráfico": [
+      {
+        "greek": "γράφω",
+        "gloss": "escribir, dibujar"
+      }
+    ],
+    "hematíe": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      }
+    ],
+    "hematoma": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      }
+    ],
+    "hípica": [
+      {
+        "greek": "ἵππος",
+        "gloss": "caballo"
+      }
+    ],
+    "lógico": [
+      {
+        "greek": "λόγος",
+        "gloss": "razonamiento, palabra"
+      }
+    ],
+    "microchip": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "chip",
+        "gloss": "chip (inglés)"
+      }
+    ],
+    "misantropía": [
+      {
+        "greek": "μισέω",
+        "gloss": "odiar"
+      },
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      }
+    ],
+    "misoginia": [
+      {
+        "greek": "μισέω",
+        "gloss": "odiar"
+      },
+      {
+        "greek": "γυνή",
+        "gloss": "mujer"
+      }
+    ],
+    "misoneísmo": [
+      {
+        "greek": "μισέω",
+        "gloss": "odiar"
+      },
+      {
+        "greek": "νέος",
+        "gloss": "nuevo"
+      }
+    ],
+    "neumonía": [
+      {
+        "greek": "πνεύμων",
+        "gloss": "pulmón"
+      }
+    ],
+    "perihelio": [
+      {
+        "greek": "περί",
+        "gloss": "alrededor"
+      },
+      {
+        "greek": "ἥλιος",
+        "gloss": "sol"
+      }
+    ],
+    "policía": [
+      {
+        "greek": "πόλις",
+        "gloss": "ciudad, comunidad (relación histórica indirecta)"
+      }
+    ],
+    "psique": [
+      {
+        "greek": "ψυχή",
+        "gloss": "alma, mente"
+      }
+    ],
+    "psíquico": [
+      {
+        "greek": "ψυχή",
+        "gloss": "alma, mente"
+      }
+    ],
+    "sofisma": [
+      {
+        "greek": "σοφός",
+        "gloss": "sabio, hábil (familia léxica)"
+      }
+    ],
+    "teogonía": [
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      },
+      {
+        "greek": "γονή",
+        "gloss": "origen, generación"
+      }
     ]
   }
 }
