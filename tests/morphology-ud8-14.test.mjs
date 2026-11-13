@@ -75,7 +75,7 @@ test('Griego I UD8: interrogativos, indefinidos y 16 paradigmas de tercera decli
   const indefinite=find('griego-ud8-tis-indefinido');
   const neuter=indefinite.forms.filter(f=>f.analysis==='nominativo neutro plural').map(f=>f.form);
   assert.ok(neuter.includes('ἄττα'));
-  assert.ok(neuter.includes('τινά'));
+  assert.ok(neuter.includes('τινά'));
   const questions=makeWrittenQuestions({...bank,records:[indefinite]},
     {language:'griego',unit:8,limit:30,rng});
   const indefiniteCase=questions.find(q=>q.prompt.includes('nominativo neutro plural'));
@@ -106,7 +106,7 @@ test('Griego I UD11–13: futuros, imperfectos, aoristos, perfectos, pluscuamper
   assert.ok(find('griego-ud11-futuro-lyo').forms.some(f=>f.form==='λύσουσι'));
   assert.equal(find('griego-ud12-sigmatico-medio').forms.find(f=>
     f.person==='2.ª singular').form,'ἐλύσω');
-  assert.equal(find('griego-ud13-perfecto-lyo').forms[0].form,'λέλυκα');
+  assert.equal(find('griego-ud13-perfecto-lyo').forms[0].form,'λέλυκα');
   assert.ok(!availableRecords(bank,{language:'griego',unit:10}).some(r=>r.unit>=11));
 });
 test('Griego I UD14: contractos y temas en silbante, con erratas cotejadas en cuarentena editorial',()=>{
@@ -149,11 +149,13 @@ test('La compilación impide aceptar silenciosamente una tabla cambiada',()=>{
   const altered=structuredClone(curriculum);
   altered.griego.units.find(x=>x.number===14).topics.find(x=>x.title==='Verbos contractos').html=
     altered.griego.units.find(x=>x.number===14).topics.find(x=>x.title==='Verbos contractos').html
-      .replace('Griego I · tabla 128','Griego I · tabla sin verificar');
+      .replace('<caption>Griego I · tabla 128</caption>',
+        '<caption>Griego I · tabla sin verificar</caption>');
   assert.throws(()=>compileMorphologyUd8to14(altered),/tabla 128/);
   const alteredLatin=structuredClone(curriculum);
   alteredLatin.latin.units.find(x=>x.number===8).topics.find(x=>x.title==='Identidad y énfasis').html=
     alteredLatin.latin.units.find(x=>x.number===8).topics.find(x=>x.title==='Identidad y énfasis').html
-      .replace('<caption>ipse, ipsa, ipsum</caption>','<caption>ipse sin evidencia</caption>');
+      .replace('<caption><i lang="la">ipse</i>',
+        '<caption><i lang="la">ipse SIN EVIDENCIA</i>');
   assert.throws(()=>compileMorphologyUd8to14(alteredLatin),/ipse, ipsa, ipsum/);
 });
