@@ -115,7 +115,7 @@ function renderWords(){
 }
 async function refreshCatalog(){
   // La consulta se hace con sesión AAL2; ninguna aportación docente es
-  // almacenada en el navegador, ni siquiera en localStorage.
+  // guardada permanentemente en el navegador.
   if(!originalWords.length){
     const response=await fetch('./vocabula-catalog.json',{cache:'no-store'});
     if(!response.ok)throw Error('No pudo cargarse el banco original');
