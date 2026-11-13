@@ -43,8 +43,8 @@ test('El preinventario fonético corresponde uno a uno a las 221 fichas document
 });
 test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(audit.summary.total,221);
- assert.equal(audit.summary.conAnalisisEditorialPrevio,72);
- assert.equal(audit.summary.pendientesDeAnalisisIndividual,149);
+ assert.equal(audit.summary.conAnalisisEditorialPrevio,98);
+ assert.equal(audit.summary.pendientesDeAnalisisIndividual,123);
  assert.equal(audit.summary.decisionesDocentesAplicadas,3);
  assert.equal(audit.summary.leyesFoneticamenteCertificadas,0);
  assert.equal(audit.summary.habilitadas,0);
@@ -76,8 +76,11 @@ test('Los 110 procesos parciales conservan intervalos válidos y referencia hist
 });
 
 test('Cuarenta y cuatro análisis editoriales añadidos conservan su identidad y no certifican leyes',()=>{
- const entries=['scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum','calĕntem','hŏrtum','fumum','portum','uentum','pannum','grŏssum','mŏllem','molam','hĕrbam','bŏnam','fossam','serram','sortem','curtum','mustum','muscam','fĕbrem','spinam','spumam','peccatum','passum','pŏrcum','pellem','uallem','uitem','uoluntatem','securum','ferum','septem','fibram','temperare','ordinare'];
- assert.equal(audit.summary.nuevosAnalisisEditorials,44);
+ const entries=matrix.records.filter(x=>x.valenciano.estadoNormas==='analisi_editorial_revisada'&&
+ !['cælum','fĕrrum','ocŭlum','noctem','matrem','fabam','caballum'].includes(x.latin) &&
+ !audit.records.find(y=>y.latin===x.latin)?.criterioDocente &&
+ audit.records.find(y=>y.latin===x.latin)?.estadoAuditoria==='analisi_editorial_individual_sense_verificacio_normativa').map(x=>x.latin);
+ assert.equal(audit.summary.nuevosAnalisisEditorials,70);
  for(const latin of entries){
   const x=audit.records.find(x=>x.latin===latin);
   const w=matrix.records.find(x=>x.latin===latin);
@@ -88,4 +91,26 @@ test('Cuarenta y cuatro análisis editoriales añadidos conservan su identidad y
   assert.equal(x.aprobacionDocente,false);
   assert.equal(x.aptoParaPractica,false);
  }
+});
+
+test('Cierre individual: 123 reservas no se interpretan como 123 leyes verificadas',()=>{
+ const closure=read('auditoria-cierre-123.json');
+ assert.equal(closure.schema,'schola-evolutio-va-closure-review/v1');
+ assert.equal(closure.records.length,123);
+ assert.equal(closure.summary.revisadosEditorialmente,98);
+ assert.equal(closure.summary.decisionesDocentesPendientes,6);
+ const seen=new Set();
+ for(const record of closure.records){
+  assert.ok(!seen.has(record.id));
+  seen.add(record.id);
+  const row=matrix.records.find(x=>x.id===record.id);
+  assert.ok(row);
+  assert.equal(row.latin,record.latin);
+  assert.equal(row.valenciano.estadoNormas,'pendent');
+  assert.equal(row.valenciano.aptoParaPractica,false);
+  assert.equal(record.filologiaIntegralVerificada,false);
+  assert.equal(record.habilitada,false);
+  assert.ok(record.sintesisIndividual.length>20);
+ }
+ assert.equal(matrix.summary.aptasParaPractica,0);
 });
