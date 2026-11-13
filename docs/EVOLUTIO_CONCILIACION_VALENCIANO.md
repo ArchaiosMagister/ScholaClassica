@@ -6,8 +6,8 @@ Se ha preparado la **matriz de los 522 étimos** del banco de Evolutio integrado
 
 | Estado del resultado valenciano | Entradas | Acredita |
 |---|---:|---|
-| `documentat` | **67** | 26 iniciales más **41 etimologías** contrastadas directamente en el DCVB (sin validación fonética ni DNV) |
-| `proposta` | **174** | Hipótesis todavía pendientes de cotejo individual; **no** cuentan como verificadas |
+| `documentat` | **126** | 26 iniciales más **100 etimologías** contrastadas directamente en el DCVB (sin validación fonética ni DNV) |
+| `proposta` | **115** | Hipótesis todavía pendientes de cotejo individual; **no** cuentan como verificadas |
 | `pendent` | **281** | Sin resultado propuesto por ahora |
 | Análisis valencianos con clasificación editorial registrada | **26** | 25 con criterios aceptados o propuestas previas y **1 clasificación provisional** (`noctem`) |
 | Discrepancias fonéticas sin decisión docente | **0** | Las cuatro cuestiones anteriores tienen una decisión de criterio registrada |
@@ -41,19 +41,19 @@ Los recuentos se recalculan a partir de `matriz-522.json`; no deben darse por ve
 
 ## Auditoría léxica de las 215 candidaturas iniciales — contraste parcial verificable (13/11/2026)
 
-Se han contrastado **directamente 41 artículos del DCVB** para confirmar una correspondencia específica entre lema, acepción y étimo histórico. Las otras **174 candidaturas** siguen siendo propuestas: se han preservado y clasificado por ID, pero **no se afirma su verificación individual ni su validez fonética**. El archivo `auditoria-215.json` registra las 215, con fuente solo para las realmente contrastadas y notas de prioridad para revisar las que exigen matices.
+Se han contrastado **directamente 100 artículos del DCVB** para confirmar una correspondencia específica entre lema, acepción y étimo histórico. Las otras **115 candidaturas** siguen siendo propuestas: se han preservado y clasificado por ID, pero **no se afirma su verificación individual ni su validez fonética**. El archivo `auditoria-215.json` registra las 215, con fuente solo para las realmente contrastadas y notas de prioridad para revisar las que exigen matices.
 
 Entre las relaciones comprobadas están `cadere → caure`, `crucem → creu`, `spatium → espai`, `radium → raig`, `cunicŭlum → conill`, `auricŭlam → orella`, `capillum → cabell`, `hŏrtum → hort`, `sŏlĭdum → sou`, `magistrum → mestre`, `pĕdem → peu` y `spĕcŭlum → espill`.
 
 Matices históricos documentados: `ocŭlum → ull` remite al latino vulgar *ŏclu* contraído, mientras que `sigĭllum → segell` se conserva como correspondencia léxica **con advertencia de reintroducción culta**; no equivale a aprobar una cadena patrimonial. `forum → fur` solo para la acepción jurídica; `roborem → roure` solo para el árbol, pues el verbo homógrafo tiene otro étimo. `pausare → posar` requiere conservar la acepción 'colocar', distinta del homógrafo procedente del francés. Las variantes `huit/vuit`, la base vulgar de `pluja`, `pœnam → pena` y otros posibles cultismos permanecen pendientes de una decisión basada en fuentes.
 
-**Estado de comprobación:** todas las 215 están inventariadas y clasificadas, pero no todas verificadas. Confirmadas por fuente DCVB: 41; pendientes: 174; normas verificadas de este lote: 0; ejercicios activados: 0. Para avanzar deben contrastarse directamente los 174 restantes, revisar las etapas intermedias y cotejar las formas con el DNV de la AVL.
+**Estado de comprobación:** todas las 215 están inventariadas y clasificadas, pero no todas verificadas. Confirmadas por fuente DCVB: 100; pendientes: 115; normas verificadas de este lote: 0; ejercicios activados: 0. Para avanzar deben contrastarse directamente los 115 restantes, revisar las etapas intermedias y cotejar las formas con el DNV de la AVL.
 
 ## Ficheros
 
 - `shared/academic/evolutio-valenciano/normas.json`: **17 normas valencianas exactamente como las facilitó el docente**, más `FIX_M` no seleccionable. Las categorías castellanas `ASPIR`, `MIN_MBR` y `CUL` no se transfieren automáticamente.
-- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 67 correspondencias con fuente (26 iniciales y 41 nuevas) y 174 propuestas pendientes; ninguna ficha nueva incorpora leyes sin verificación.
-- `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo por ID de propuesta original con **41** cotejos etimológicos individuales y **174** pendientes; enlaces a las 41 fuentes consultadas y observaciones de riesgo para las restantes.
+- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 67 correspondencias con fuente (26 iniciales y 100 nuevas) y 174 propuestas pendientes; ninguna ficha nueva incorpora leyes sin verificación.
+- `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo por ID de propuesta original con **100** cotejos etimológicos individuales y **115** pendientes; enlaces a las 100 fuentes consultadas y observaciones de riesgo para las restantes.
 - `shared/academic/evolutio-valenciano/matriz-522.json`: todas las fichas por **ID original**, forma latina, respuestas castellanas, procedencia y resultado valenciano documentado/propuesto/pendiente. Cada fila conserva campos separados para normas, explicación, dificultad, aprobación docente y disponibilidad en práctica; permanecen vacíos/bloqueados hasta revisarse.
 - `scripts/reconcile-evolutio-valenciano.mjs`: generador determinista que comprueba el SHA del origen y rechaza duplicados, candidaturas ajenas al banco y documentación falsa.
 - `tests/evolutio-valenciano-conciliacion.test.mjs`: asegura cobertura, reglas, integridad, reproducibilidad y ausencia del registro en la web publicada.
@@ -93,6 +93,6 @@ Para poder alternar de lengua **a mitad de una misma sesión**, el futuro motor 
 
 ## Próxima tanda de auditoría
 
-Tras registrar los 26 primeros análisis y contrastar **41 de las 215 propuestas** originales, comprobar la segmentación de estas 41 entradas; después contrastar las **174 pendientes** por lotes, dando prioridad a los étimos patrimoniales transparentes y a las normas menos representadas. Mantener las **281 restantes** sin resultado hasta reunir evidencia, en lugar de crear equivalencias por semejanza.
+Tras registrar los 26 primeros análisis y contrastar **100 de las 215 propuestas** originales, comprobar la segmentación de estas 100 entradas; después contrastar las **115 pendientes** por lotes, dando prioridad a los étimos patrimoniales transparentes y a las normas menos representadas. Mantener las **281 restantes** sin resultado hasta reunir evidencia, en lugar de crear equivalencias por semejanza.
 
 **Alcance de esta entrega:** registro, fuentes, propuestas, clasificación de evidencia y controles. Sin cambio de interfaz, sin datos de respuesta valencianos públicos y sin alteración de repositorios originales.
