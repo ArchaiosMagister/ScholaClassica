@@ -50,7 +50,7 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   const g3=availableRecords(compiled,{language:'griego',unit:3});
   const g4=availableRecords(compiled,{language:'griego',unit:4});
   const g5=availableRecords(compiled,{language:'griego',unit:5});
-  assert.deepEqual([g1.length,g2.length,g3.length,g4.length,g5.length],[2,4,10,10,14]);
+  assert.deepEqual([g1.length,g2.length,g3.length,g4.length,g5.length],[2,4,10,14,18]);
   assert.ok(!g1.some(r=>r.kind==='artículo'));
   assert.ok(g3.some(r=>r.kind==='artículo'));
   assert.equal(g3.filter(r=>r.paradigm.startsWith('1.ª declinación griega')).length,5);
