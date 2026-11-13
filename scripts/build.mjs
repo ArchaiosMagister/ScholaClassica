@@ -2,6 +2,7 @@ import {cp,rm,mkdir,readFile,writeFile,stat} from 'node:fs/promises';
 import {resolve,join,sep} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {buildEtymologicon} from './build-etymologicon.mjs';
+import {buildPortalPwa} from './build-portal-pwa.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -45,6 +46,10 @@ if(!/const VERSION='[^']+';/.test(sw)||!sw.includes('keys.filter(key=>key!==VERS
   throw Error('Cambió el service worker original de Evolutio; revisar adaptación antes de publicar');
 sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1';")
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
+const fetchOld="if(req.method!=='GET'||new URL(req.url).origin!==self.location.origin)return;";
+const fetchNew="if(req.method!=='GET')return; const url=new URL(req.url); const scope=new URL(self.registration.scope); if(url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname))return;";
+if(!sw.includes(fetchOld))throw Error('Evolutio cambió su SW; revisar antes de adaptar');
+sw=sw.replace(fetchOld,fetchNew);
 await writeFile(swPath,sw);
 await buildEtymologicon({root,out});
 
@@ -67,6 +72,7 @@ vocabulaHTML=vocabulaHTML.replace(sourceTab,'<a class="study-tab" href="../grama
   .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>');
 await writeFile(vocabulaIndex,vocabulaHTML);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
+await buildPortalPwa(out,root);
 console.log('ScholaClassica: Vocabula integrado como léxico ('+vocabulaHead.slice(0,12)+'); morfología reservada');
 
 await writeFile(join(out,'.nojekyll'),'');

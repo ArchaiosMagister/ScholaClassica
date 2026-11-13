@@ -58,3 +58,22 @@ button:focus-visible,a:focus-visible{outline:3px solid #e6a84d;outline-offset:3p
   .path-links a:hover,.path-links a:focus-visible{background:#31526e}
   .path-resume{border-color:#43586d}
 }
+
+/* Instalación y actualización del portal: componentes independientes de las apps. */
+.site-head nav{align-items:center;flex-wrap:wrap}
+.portal-update{font:inherit;font-weight:650;color:#e7f1fa;border:1px solid #6787a1;background:transparent;border-radius:9px;padding:8px 12px;cursor:pointer}
+.portal-update:hover{background:#2a4661}
+.portal-update:disabled{opacity:.65;cursor:wait}
+.portal-pwa-status{font-size:.87rem;color:#4f697f;margin:13px 0}
+.install-help{border:1px solid #c9d9e5;border-radius:10px;max-width:745px;background:#eff5fa;padding:10px 16px;margin-top:14px;font-size:.95rem}
+.install-help summary{cursor:pointer;font-weight:700;color:#1e4667}
+.install-help p{color:#435f75;margin:10px 0}
+@media(max-width:720px){.site-head nav{gap:11px}.portal-update{padding:7px 10px}.install-help{padding:11px}}
+@media(prefers-color-scheme:dark){
+ .portal-update{background:#21394e;color:#e6f3ff;border-color:#68879e}
+ .portal-update:hover{background:#31516d}
+ .portal-pwa-status{color:#bdd0e0}
+ .install-help{background:#1d3043;border-color:#536e86}
+ .install-help summary{color:#e6f1fb}
+ .install-help p{color:#c4d5e2}
+}

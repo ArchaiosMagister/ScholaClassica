@@ -51,6 +51,29 @@ try{
   assert.equal(await page.locator('.path-links a').count(),0);
   assert.equal(errors.length,0,'Itinerario por curso: '+errors.join(' | '));
 
+  // El SW del portal solo guarda su núcleo y funciona sin red.
+  await page.goto(base+'/',{waitUntil:'networkidle'});
+  await page.waitForFunction(async()=>{
+    const reg=await navigator.serviceWorker.getRegistration();
+    return reg?.active&&reg.scope.endsWith('/')?true:false;
+  },null,{timeout:16000});
+  await page.reload({waitUntil:'networkidle'});
+  assert.equal(await page.locator('#portal-update').count(),1);
+  const rootCache=await page.evaluate(async()=>await caches.keys());
+  assert.ok(rootCache.some(x=>x.startsWith('schola-portal-')),'No se generó la caché offline del portal');
+  await page.context().setOffline(true);
+  const rootOffline=await page.goto(base+'/',{waitUntil:'load'});
+  assert.equal(rootOffline.status(),200,'La portada debe funcionar sin conexión');
+  assert.equal(await page.locator('#study-course').count(),1);
+  const shellAvailable=await page.evaluate(async()=>{
+    const resources=['./app.js','./style.css','./manifest.webmanifest','./icons/apple-touch-icon.png'];
+    const responses=await Promise.all(resources.map(p=>fetch(p)));
+    return responses.every(r=>r.ok);
+  });
+  assert.equal(shellAvailable,true,'Falta un recurso del portal sin conexión');
+  await page.context().setOffline(false);
+
+
   for(const route of ['/','/apps/gramatica/index.html','/apps/gramatica/val/index.html','/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1','/apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1','/apps/gramatica/val/curso.html?lengua=griego&curso=1&unidad=1','/apps/etymologicon/index.html']){
     const r=await page.goto(base+route,{waitUntil:'networkidle'});
     assert.equal(r.status(),200,route);
@@ -434,10 +457,22 @@ try{
   assert.ok(names.some(x=>x.startsWith('schola-etymologicon-')),
     'Evolutio no debe eliminar la caché de Etymologicon');
   assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio muestra error inicial');
+  assert.equal(await page.locator('#refresh-app').count(),1,'El nuevo botón Actualizar debe existir');
+  assert.equal(await page.evaluate(async()=>(await fetch('./data/pilot.json').then(r=>r.json())).words.length),522,
+    'Evolutio debe mostrar las 522 fichas de la versión nueva');
   await page.context().setOffline(true);
   await page.reload({waitUntil:'load'});
   await page.waitForFunction(()=>!document.querySelector('#app .loading'),null,{timeout:10000});
   assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio falla sin conexión');
+  const newOfflineResources=await page.evaluate(async()=>{
+    const paths=['./src/difficulty.mjs','./src/latin.mjs','./src/update.mjs','./data/difficulty.json'];
+    const results=await Promise.all(paths.map(p=>fetch(p).then(r=>r.ok).catch(()=>false)));
+    return results.every(Boolean);
+  });
+  assert.equal(newOfflineResources,true,'Faltan los nuevos recursos de Evolutio sin conexión');
+  const postEvolutioCaches=await page.evaluate(async()=>await caches.keys());
+  assert.ok(postEvolutioCaches.some(k=>k.startsWith('schola-portal-')),
+    'Evolutio borró la caché de la portada');
   await page.context().setOffline(false);
   assert.equal(errors.length,0,'Error JavaScript de Evolutio: '+errors.join(' | '));
   await page.goto(base+'/');

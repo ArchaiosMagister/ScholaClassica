@@ -84,3 +84,10 @@ El procedimiento de aprovisionamiento sin publicación y los paneles de Cloudfla
 La portada incorpora un selector contextual de **Latín de 4.º de ESO, Latín I, Latín II, Griego I y Griego II**. Muestra solo enlaces a herramientas integradas y comprobadas: gramática por curso, vocabulario cuando existe, Evolutio para Latín I y Etymologicon para Griego I. No ofrece Etymologicon para Griego II, morfología pendiente ni el generador de exámenes. No se altera ningún archivo de las tres aplicaciones originales; únicamente se actualiza el portal.
 
 El navegador guarda localmente solo el código del curso y el identificador de la última herramienta abierta desde el selector, para ofrecer «Continuar». No almacena vocabulario estudiado, respuestas ni datos del alumnado y funciona sin iniciar sesión. Las pruebas comprueban las rutas y el funcionamiento en Chromium antes de cualquier publicación.
+
+
+## PWA unificada y actualización de Evolutio
+
+La portada de ScholaClassica tiene su propio manifiesto, iconos compatibles con iPhone/Android y un botón de actualización. **Solo guarda en caché los recursos propios del portal**, sin copiar ni invalidar las cachés de sus herramientas. Evolutio y Etymologicon conservan sus respectivos service workers y sus controles de actualización; el alumno puede seguir entrando en cada módulo de forma independiente. La web no está publicada. Véase `docs/PORTAL_PWA.md`.
+
+Evolutio se ha vuelto a integrar desde el commit auditado `901dacb125ee7894ea9d11faf7b0d0afa7e713b5`: 522 fichas, filtros de dificultad, tres intentos, revisión por norma, botón de actualización y latinización escolar de la consonante `u`. Las 240 incorporaciones desde GeneradorExamenes no se presentan como certificación filológica individual. Ningún repositorio original ha sido modificado.

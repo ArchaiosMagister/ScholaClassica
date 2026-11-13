@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "note": "SHA de auditoría, no seguimiento implícito de main",
   "sources": {
     "appendix": {
@@ -17,7 +17,7 @@
     },
     "evolutio": {
       "repository": "ArchaiosMagister/EvolucionFonetica",
-      "sha": "0897aae01b6d4c905aafa1c1a6bac5af0810c812",
+      "sha": "901dacb125ee7894ea9d11faf7b0d0afa7e713b5",
       "integrated": true,
       "target": "apps/evolucion-fonetica"
     },
