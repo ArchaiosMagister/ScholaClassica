@@ -66,3 +66,8 @@ El modo OLED utiliza `#000000` para el fondo principal y superficies casi negras
 ## Práctica activa offline de morfología
 
 El módulo `/apps/morfologia/` dispone de un service worker específico con los ficheros `written.mjs`, `review.mjs` y `greek-keyboard.mjs`, aparte de la interfaz, el motor, el CSS y el banco de 60 paradigmas. El teclado griego táctil y las tablas de declinación funcionan sin red cuando ya se instaló su caché. La selección de repaso usa exclusivamente el estado del navegador: no precisa Supabase, Cloudflare ni sincronización con Palabra del día. Al actualizarse el módulo, solo se eliminan las versiones anteriores de `schola-morphology-`; **no se borran progresos locales ni otras cachés**.
+
+
+## Sintagmas offline y nuevas unidades
+
+La caché morfológica también incluye `sintagmas.mjs` y los 84 paradigmas compilados. Ambas modalidades de sintagmas y los contenidos UD6–UD7 funcionan offline después de cargar la versión actualizada; no escriben recursos en las cachés de Evolutio, Etymologicon, Vocabula o el portal. La versión se calcula a partir de los bytes efectivos del módulo y el progreso local permanece independiente del SW.
