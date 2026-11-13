@@ -11,8 +11,8 @@
     "pendientesDeAnalisisIndividual": 195,
     "leyesFoneticamenteCertificadas": 0,
     "habilitadas": 0,
-    "procesosParcialesContrastados": 63,
-    "fichasConProcesosParciales": 58,
+    "procesosParcialesContrastados": 87,
+    "fichasConProcesosParciales": 78,
     "analisisIntegralesVerificados": 0
   },
   "records": [
@@ -150,7 +150,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "MONOP",
+          "span": [
+            1,
+            2
+          ],
+          "originalSegment": "æ",
+          "explanation": "Monoptongación latina æ > e.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=cel"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-52",
@@ -665,7 +681,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            3,
+            4
+          ],
+          "originalSegment": "ĭ",
+          "explanation": "Síncopa postónica del étimo de home.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=home"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-161",
@@ -1035,7 +1067,38 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "VOC",
+          "span": [
+            2,
+            4
+          ],
+          "originalSegment": "ct",
+          "explanation": "Vocalización de -ct- hacia una fase histórica -it-; tratamiento de nit provisional según criterio docente.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=nit"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        },
+        {
+          "rule": "SIMPL",
+          "span": [
+            2,
+            4
+          ],
+          "originalSegment": "ct",
+          "explanation": "Simplificación posterior en la evolución hacia nit, compatible con la fase histórica nuit.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=nit"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-220",
@@ -1072,7 +1135,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            2,
+            3
+          ],
+          "originalSegment": "ŭ",
+          "explanation": "Síncopa postónica: ocŭlu > ŏclu antes de la palatalización.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=ull"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-245",
@@ -1109,7 +1188,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "MONOP",
+          "span": [
+            1,
+            2
+          ],
+          "originalSegment": "œ",
+          "explanation": "Monoptongación latina œ > e.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=pena"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-248",
@@ -2176,7 +2271,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            5,
+            6
+          ],
+          "originalSegment": "ŭ",
+          "explanation": "Síncopa postónica que crea el grupo -cl-.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=orella"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-30",
@@ -2297,7 +2408,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "MONOP",
+          "span": [
+            1,
+            2
+          ],
+          "originalSegment": "æ",
+          "explanation": "Monoptongación latina æ > e.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=cegar"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-37",
@@ -2340,7 +2467,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "MONOP",
+          "span": [
+            1,
+            2
+          ],
+          "originalSegment": "æ",
+          "explanation": "Monoptongación latina æ > e.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=cec"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-44",
@@ -2832,7 +2975,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            5,
+            6
+          ],
+          "originalSegment": "ŭ",
+          "explanation": "Síncopa postónica: cunicŭlu > cuniclu.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=conill"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-81",
@@ -3540,7 +3699,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            4,
+            5
+          ],
+          "originalSegment": "ĕ",
+          "explanation": "Síncopa postónica de ĕ: littĕra > letra.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=lletra"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-183",
@@ -3583,7 +3758,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "VOC",
+          "span": [
+            2,
+            4
+          ],
+          "originalSegment": "ct",
+          "explanation": "Evolución del grupo -ct- hacia -it- con vocalización de la velar.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=lluita"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-185",
@@ -3666,7 +3857,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SIMPL",
+          "span": [
+            2,
+            4
+          ],
+          "originalSegment": "tr",
+          "explanation": "Pérdida de t en -tr-; simplificación aceptada por criterio docente.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=mare"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-199",
@@ -4191,7 +4398,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SIMPL",
+          "span": [
+            2,
+            4
+          ],
+          "originalSegment": "mn",
+          "explanation": "Simplificación de grupo -mn- en son.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=son"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-304",
@@ -5118,7 +5341,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            5,
+            6
+          ],
+          "originalSegment": "u",
+          "explanation": "Síncopa postónica que crea el grupo -cl-.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=artell"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-50",
@@ -5258,7 +5497,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            3,
+            4
+          ],
+          "originalSegment": "ĭ",
+          "explanation": "Síncopa postónica del étimo de dona.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=dona"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-131",
@@ -5677,7 +5932,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            3,
+            4
+          ],
+          "originalSegment": "ĭ",
+          "explanation": "Síncopa postónica del étimo de nom.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=nom"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-221",
@@ -5871,6 +6142,21 @@
           },
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
+        },
+        {
+          "rule": "SINC",
+          "span": [
+            3,
+            4
+          ],
+          "originalSegment": "ŭ",
+          "explanation": "Síncopa postónica del étimo de poble.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=poble"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
         }
       ]
     },
@@ -5952,7 +6238,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "PALAT",
+          "span": [
+            2,
+            4
+          ],
+          "originalSegment": "gn",
+          "explanation": "Palatalización de -gn- en -ny- en puny.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=puny"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-253",
@@ -6219,6 +6521,21 @@
           },
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
+        },
+        {
+          "rule": "SINC",
+          "span": [
+            4,
+            5
+          ],
+          "originalSegment": "ŭ",
+          "explanation": "Síncopa postónica del étimo de espill.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=espill"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
         }
       ]
     },
@@ -6340,6 +6657,21 @@
           ],
           "originalSegment": "s",
           "explanation": "e- protética ante s + consonante, con s inicial conservada.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=estable"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        },
+        {
+          "rule": "SINC",
+          "span": [
+            4,
+            5
+          ],
+          "originalSegment": "ĭ",
+          "explanation": "Síncopa postónica del étimo de estable.",
           "evidence": {
             "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
             "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=estable"
@@ -7195,7 +7527,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "PALAT",
+          "span": [
+            4,
+            6
+          ],
+          "originalSegment": "ll",
+          "explanation": "Palatalización de ll latina geminada sin cambio gráfico.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=cavall"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-802",
@@ -7281,7 +7629,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "PALAT",
+          "span": [
+            2,
+            4
+          ],
+          "originalSegment": "mn",
+          "explanation": "Evolución de -mn- en -ny- en dany.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=dany"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-920",
@@ -7392,7 +7756,23 @@
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [
+        {
+          "rule": "SINC",
+          "span": [
+            5,
+            6
+          ],
+          "originalSegment": "ŭ",
+          "explanation": "Síncopa postónica que crea el grupo -cl-.",
+          "evidence": {
+            "historicalOverview": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+            "lexicalDCVB": "https://dcvb.iec.cat/results.asp?word=perill"
+          },
+          "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
+          "completePhoneticAnalysis": false
+        }
+      ]
     },
     {
       "id": "xl-520",
