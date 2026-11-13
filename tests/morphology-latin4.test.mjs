@@ -103,7 +103,7 @@ test('Las seis conjugaciones de presente y los imperfectos documentados se pract
   }
 });
 test('Desde UD3 hay sintagmas de 4.º solo si ambas flexiones están completas',()=>{
-  assert.throws(()=>phrasePairs(bank,{language:'latin4',unit:2}),/aún no corresponde/);
+  assert.throws(()=>phrasePairs(bank,{language:'latin4',unit:2}),/solo está disponible desde UD3/);
   const pairs=phrasePairs(bank,{language:'latin4',unit:3});
   assert.ok(pairs.length>=3);
   assert.ok(pairs.every(x=>x.adjective.id==='latin4-appendix-bonus'));
