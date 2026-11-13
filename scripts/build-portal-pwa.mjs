@@ -19,7 +19,7 @@ export async function buildPortalPwa(out,root){
   assert.equal(template.split(marker).length,2,'El marcador de versión debe ser único');
   const hasher=createHash('sha256');hasher.update(template);
   for(const path of CORE){
-    hasher.update(path+'\\0');hasher.update(await readFile(join(out,path)));
+    hasher.update(path+'\0');hasher.update(await readFile(join(out,path)));
   }
   const version=hasher.digest('hex').slice(0,20);
   await writeFile(join(out,'sw.js'),template.replace(marker,version));
