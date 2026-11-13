@@ -47,14 +47,7 @@ function renderWord(word){
   const componentsTitle=element('p',word.components.length>1?'Componentes etimológicos':'Étimo relacionado','lexical-small-label');
   const explanation=element('p',word.connection,'lexical-connection');
   const meta=element('div',null,'lexical-word-meta');
-  const status=word.lexicographicStatus==='dle_consultado_individualmente';
   const check=word.lexicographicCheck;
-  const sourceLabel=status?'DLE contrastado individualmente':
-    check?.status==='fuente_especializada_contrastada'?'Tecnicismo contrastado en fuente especializada':
-    check?.status==='dle_no_incluye_entrada_independiente'?'Sin entrada independiente en el DLE':
-    'Glosa didáctica: pendiente de contraste individual con el DLE';
-  meta.append(element('span',sourceLabel,
-    'lexical-source'+(status?' lexical-source--verified':'')));
   const link=element('a','Consultar en el DLE (RAE-ASALE)');
   link.href=word.dleUrl;
   link.target='_blank';link.rel='noopener noreferrer';
@@ -71,24 +64,8 @@ function renderWord(word){
     sourceLink.className='lexical-evidence-link';
     card.append(sourceLink);
   }
-  if(word.pdfAttestations?.length){
-    const citations=word.pdfAttestations.map(ref=>{
-      const title=ref.sourceId==='galvez2009'?'Gálvez':
-        ref.sourceId==='breve'?'Breve diccionario':'PAU';
-      return title+' (p. '+ref.page+')';
-    }).join(' · ');
-    card.append(element('p','Mención en los PDF docentes: '+citations+
-      '. La mención no equivale a una verificación del DLE.','lexical-evidence'));
-  }else{
-    card.append(element('p','No localizado por coincidencia literal en los tres PDF. '+
-      'Se indica arriba su cotejo externo cuando procede.','lexical-evidence'));
-  }
   if(word.editorialNote)
     card.append(element('p',word.editorialNote,'lexical-alert'));
-  if(check?.note)
-    card.append(element('p','Resultado del contraste: '+check.note,'lexical-evidence'));
-  if(word.note&&word.note.length<250)
-    card.append(element('p',word.note,'lexical-note'));
   return card;
 }
 function minimumUnit(entry){
@@ -132,9 +109,7 @@ function render(){
     if(item.words.length){
       for(const word of item.words)list.append(renderWord(word));
     }else{
-      list.append(element('p',item.etymon.eligible
-        ?'No hay derivados en el filtro actual.'
-        :'Étimo reservado para consulta: sin respuestas calificables.','lexicon-empty'));
+      list.append(element('p','No hay derivados disponibles para esta selección.','lexicon-empty'));
     }
     shownWords+=item.words.length;
     group.append(list);
@@ -148,8 +123,7 @@ function render(){
   }
   ui.container.replaceChildren(fragment);
   ui.empty.hidden=matches.length>0;
-  ui.count.textContent=matches.length+' étimos · '+shownWords+
-    ' apariciones de derivados ('+data.audit.covered+' palabras españolas diferentes en el catálogo)';
+  ui.count.textContent=matches.length+' étimos · '+shownWords+' derivados mostrados';
   ui.expand.disabled=matches.length===0;
   ui.collapse.disabled=matches.length===0;
 }
