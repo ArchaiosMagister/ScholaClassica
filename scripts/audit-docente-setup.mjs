@@ -26,6 +26,15 @@ const html=read('docente/index.html'),js=read('docente/app.mjs');
 assert.ok(html.includes('Content-Security-Policy'));
 assert.match(html,/connect-src/);
 assert.ok(html.includes(config.url));
+if(inboxEnabled){
+  assert.ok(html.includes('https://rzjemisvaaqpnvvgfntl.supabase.co'));
+  assert.ok(html.includes('id="notice-source"'));
+  assert.ok(html.includes('id="sources-state"'));
+  assert.ok(js.includes('schola-palabra-inbox'));
+  assert.ok(js.includes("client.functions.invoke('schola-inbox'"));
+  assert.ok(js.includes("state('unavailable','Acceso docente no autorizado"));
+}
+
 assert.ok(!html.includes('unsafe-inline'));
 assert.ok(html.includes('id="ready"'));
 assert.match(js,/config\.setupOnly===true/);
