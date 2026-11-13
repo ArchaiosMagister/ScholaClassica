@@ -150,6 +150,7 @@ try{
   assert.equal(await good.locator('.notice').count(),1);
   await good.locator('#notice-source').selectOption('all');
   await good.locator('#notice-refresh').click();
+  await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
   assert.equal(await good.locator('.notice').count(),2);
   assert.equal(await good.locator('#totp-secret').inputValue(),'','El secreto se limpia tras el registro');
   await good.locator('#logout').click();
