@@ -130,6 +130,14 @@ try{
   assert.equal(await good.locator('.notice').count(),2);
   assert.ok((await good.locator('.notice').first().locator('p').textContent()).includes('<img'));
   assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
+  await good.locator('#notice-source').selectOption('palabra');
+  assert.equal(await good.locator('.notice').count(),1);
+  assert.ok((await good.locator('.notice h3').textContent()).includes('etimología'));
+  await good.locator('#notice-source').selectOption('vocabula');
+  assert.equal(await good.locator('.notice').count(),1);
+  await good.locator('#notice-source').selectOption('all');
+  await good.locator('#notice-refresh').click();
+  assert.equal(await good.locator('.notice').count(),2);
   assert.equal(await good.locator('#totp-secret').inputValue(),'','El secreto se limpia tras el registro');
   await good.locator('#logout').click();
   await good.locator('#login').waitFor({state:'visible'});
