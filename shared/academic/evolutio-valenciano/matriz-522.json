@@ -16,7 +16,7 @@
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 39,
+    "analisisEditoriales": 57,
     "casosConDiscrepancia": 0,
     "derivacionesDirectasDescartadas": 4
   },
@@ -2382,9 +2382,21 @@
       "valenciano": {
         "resultado": "bona",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "bŏnam → bona: només caiguda fixa de -m; la ŏ tònica no diftonga.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2397,7 +2409,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Femenino bona de BO, BONA, derivado del latín bŏnu; no usar el lema homógrafo de nombre propio femenino."
+        "notas": "Femenino bona de BO, BONA, derivado del latín bŏnu; no usar el lema homógrafo de nombre propio femenino.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2506,9 +2519,32 @@
       "valenciano": {
         "resultado": "calent",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de -e final després de la caiguda fixa de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "calĕntem → calent: apòcope de -e i pèrdua fixa de -m; ĕ tònica sense diftongació.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2521,7 +2557,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3242,9 +3279,21 @@
       "valenciano": {
         "resultado": "febre",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "fĕbrem → febre: només pèrdua fixa de -m final; no diftongació de ĕ tònica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3257,7 +3306,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3648,9 +3698,43 @@
       "valenciano": {
         "resultado": "gros",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Simplificació de la geminada -ss- en -s-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de la vocal final -u."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "grŏssum → gros: simplificació de -ss-, apòcope de -u i pèrdua fixa de -m; no diftongació de ŏ.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3663,7 +3747,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3681,9 +3766,21 @@
       "valenciano": {
         "resultado": "herba",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "hĕrbam → herba: només caiguda fixa de -m final; no hi ha aspiració castellana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3696,7 +3793,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3714,9 +3812,32 @@
       "valenciano": {
         "resultado": "hort",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "hŏrtum → hort: apòcope de -u i pèrdua fixa de -m, sense diftongació de ŏ tònica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3729,7 +3850,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4395,9 +4517,43 @@
       "valenciano": {
         "resultado": "pany",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de la geminada -nn- > -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la vocal final -u."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "pannum → pany: palatalització de -nn-, apòcope de -u i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4410,7 +4566,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Pany procede de pannu con desplazamiento semántico; seleccionar acepción y no otros homógrafos."
+        "notas": "Pany procede de pannu con desplazamiento semántico; seleccionar acepción y no otros homógrafos.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5162,9 +5319,21 @@
       "valenciano": {
         "resultado": "mola",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "molam → mola: només caiguda fixa de -m final; cap llei seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -5177,7 +5346,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Mola 'piedra de moler' de mŏla; otros sentidos remiten a otra base latina."
+        "notas": "Mola 'piedra de moler' de mŏla; otros sentidos remiten a otra base latina.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6122,9 +6292,32 @@
       "valenciano": {
         "resultado": "fum",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Apòcope de -u final."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "fumum → fum: apòcope de -u després de la caiguda fixa de -m, sense canvi exigible de la u tònica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -6137,7 +6330,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6370,9 +6564,43 @@
       "valenciano": {
         "resultado": "moll",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Evolució fonètica de -ll- geminada a lateral palatal, sense canvi ortogràfic."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la vocal final -e."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "mŏllem → moll: palatalització de la geminada -ll- (mateixa grafia), apòcope de -e i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -6385,7 +6613,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "MOLL 6 adjetivo 'blando' procede de mŏlle; no confundir con homógrafos de médula, pez, muelle portuario o italiano molo."
+        "notas": "MOLL 6 adjetivo 'blando' procede de mŏlle; no confundir con homógrafos de médula, pez, muelle portuario o italiano molo.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8853,9 +9082,21 @@
       "valenciano": {
         "resultado": "fossa",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "fossam → fossa: pèrdua fixa de -m; la grafia ss es manté, i no es postula una simplificació fonètica sense prova individual.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -8868,7 +9109,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10808,9 +11050,32 @@
       "valenciano": {
         "resultado": "curt",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "curtum → curt: apòcope de -u i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -10823,7 +11088,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11147,9 +11413,32 @@
       "valenciano": {
         "resultado": "mosca",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "muscam → mosca: obertura de ŭ tònica i pèrdua fixa de -m; no s'hi exigix simplificació de -sc-.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -11162,7 +11451,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11180,9 +11470,43 @@
       "valenciano": {
         "resultado": "most",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "mustum → most: obertura de ŭ tònica, apòcope de -u final i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -11195,7 +11519,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11503,9 +11828,32 @@
       "valenciano": {
         "resultado": "vent",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "uentum → vent: apòcope de -u i pèrdua fixa de -m; la u inicial consonàntica s'escriu v en valencià.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -11518,7 +11866,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11685,9 +12034,32 @@
       "valenciano": {
         "resultado": "port",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "portum → port: apòcope de -u i pèrdua fixa de -m; no diftongació castellana de ŏ.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -11700,7 +12072,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "PORT 1 'puerto' del latín portus, no PORT 2 postverbal de portar."
+        "notas": "PORT 1 'puerto' del latín portus, no PORT 2 postverbal de portar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11718,9 +12091,21 @@
       "valenciano": {
         "resultado": "serra",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "serram → serra: només pèrdua fixa de -m; no s'imputa una simplificació de -rr- sense contrast fonètic.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -11733,7 +12118,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "SERRA 1 herramienta sierra del latín serra, no el homógrafo CER(R)A."
+        "notas": "SERRA 1 herramienta sierra del latín serra, no el homógrafo CER(R)A.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11751,9 +12137,32 @@
       "valenciano": {
         "resultado": "sort",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -e final."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "sortem → sort: apòcope de -e i caiguda fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -11766,7 +12175,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "SORT 1 'suerte' del latín sorte, no el topónimo Sort de origen incierto."
+        "notas": "SORT 1 'suerte' del latín sorte, no el topónimo Sort de origen incierto.",
+        "dnvIndividualChecked": false
       }
     },
     {
