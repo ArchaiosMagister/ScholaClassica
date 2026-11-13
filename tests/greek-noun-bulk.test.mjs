@@ -81,7 +81,7 @@ test('la selección de unidad y los sintagmas mantienen coherencia',()=>{
   const at7=availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'});
   assert.ok(at4.length>4&&at5.length>=at4.length&&at7.length>at5.length);
   assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,
-    at7.filter(r=>r.gender).length*3);
+    at7.filter(r=>r.gender&&r.evidence.numberScope!=='plural').length*3);
   assert.ok(!at7.some(r=>r.paradigm.includes('πατρίς')||r.paradigm.includes('σῶμα')));
   const at8=availableRecords(bank,{language:'griego',unit:8,kind:'sustantivo'});
   assert.ok(at8.length>at7.length,'Los nombres de tercera consonántica entran en UD8');
