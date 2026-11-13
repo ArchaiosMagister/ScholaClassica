@@ -37,7 +37,7 @@ function category(item){
   if(item.language==='griego'){
     // Enunciados -ος,-ον inequívocamente adjetivales: no se
     // reclasifican como sustantivos aunque puedan sustantivarse en contexto.
-    if(/ος$/u.test(n)&&/^[–−-]\s*ον(?:\s|$)/u.test(t))
+    if(/οσ$/u.test(n)&&/^[–−-]\s*ον(?:\s|$)/u.test(t))
       return {group:'adjetivo-para-fase-posterior',confidence:'enunciado-de-dos-terminaciones'};
     if(reason.includes('No hay diez'))
       return {group:'fuente-incompleta-o-ausente',confidence:'no-inferir'};
