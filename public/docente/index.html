@@ -136,6 +136,8 @@
       </section>
       <section id="admin-reports" aria-label="Revisión de incidencias" hidden>
         <div class="admin-controls">
+          <label for="admin-report-area">Tipo de incidencia</label>
+          <select id="admin-report-area"><option value="all">Todas</option><option value="vocabula">Vocabulario</option><option value="grammar">Gramática heredada</option></select>
           <label for="admin-report-filter">Estado</label>
           <select id="admin-report-filter"><option value="pending">Pendientes</option><option value="reviewing">En revisión</option><option value="resolved">Resueltas</option><option value="dismissed">Descartadas</option><option value="">Todas</option></select>
           <button id="admin-refresh-reports" type="button">Actualizar incidencias</button>
@@ -144,6 +146,31 @@
         <div id="admin-report-list" class="notices"></div>
         <div class="admin-pagination"><button type="button" id="admin-reports-prev">Anterior</button><span id="admin-reports-page"></span><button type="button" id="admin-reports-next">Siguiente</button></div>
       </section>
+    </section>
+    <section id="grammar-audit" class="teacher-summary" aria-labelledby="grammar-audit-title">
+      <h3 id="grammar-audit-title">Consulta docente del banco de gramática de Vocabula</h3>
+      <p>Conserva la consulta del banco antiguo de ejercicios, sus soluciones y la cobertura morfológica. Son materiales académicos heredados; no sustituyen los ejercicios actuales de ScholaClassica.</p>
+      <button id="grammar-audit-load" type="button">Consultar banco y cobertura</button>
+      <button id="grammar-audit-reports" type="button">Revisar avisos de gramática</button>
+      <p id="grammar-audit-state" role="status">Consulta disponible tras iniciar sesión</p>
+      <div id="grammar-coverage-list" class="notices"></div>
+      <form id="grammar-audit-form" class="admin-controls">
+        <label for="grammar-audit-subject">Asignatura</label>
+        <select id="grammar-audit-subject">
+          <option value="lat1">Latín I</option><option value="gr1">Griego I</option><option value="lat4">Latín · 4.º ESO</option>
+        </select>
+        <label for="grammar-audit-unit">Unidad</label>
+        <select id="grammar-audit-unit"><option value="">Todas las unidades</option></select>
+        <label for="grammar-audit-search">Buscar enunciado, solución o contenido</label>
+        <input id="grammar-audit-search" autocomplete="off" placeholder="Por ejemplo: nominativo, λύω, perfecto">
+        <button type="submit">Buscar ejercicios</button>
+      </form>
+      <p id="grammar-audit-count" role="status"></p>
+      <div id="grammar-audit-results" class="notices"></div>
+      <div class="admin-pagination">
+        <button id="grammar-audit-prev" type="button" disabled>Anterior</button>
+        <button id="grammar-audit-next" type="button" disabled>Siguiente</button>
+      </div>
     </section>
   </section>
   <div class="logout"><button id="logout" type="button" hidden>Cerrar sesión</button></div>
