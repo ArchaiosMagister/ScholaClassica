@@ -30,7 +30,7 @@ try{
  const result=await page.goto(app+'index.html?subject=gr1',{waitUntil:'networkidle'});
  assert.equal(result.status(),200);
  assert.equal(await page.locator('#subject').inputValue(),'griego');
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5','UD6','UD7','UD8','UD9','UD10']);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5','UD6','UD7','UD8','UD9','UD10','UD11','UD12','UD13','UD14']);
  // La concordancia griega solo aparece al superar la UD4.
  assert.equal(await page.locator('#activity option[value="agreement"]').evaluate(o=>o.disabled),true);
  await page.locator('#unit').selectOption('5');
@@ -77,7 +77,7 @@ try{
  assert.equal(offline.status(),200);
  await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
  assert.equal(await page.locator('#subject').inputValue(),'latin');
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5','UD6','UD7','UD8','UD9','UD10','UD11','UD12','UD13','UD14']);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5','UD6','UD7','UD8','UD9','UD10']);
  assert.equal(await page.locator('#activity option[value="agreement"]').evaluate(o=>o.disabled),true);
  await page.locator('#unit').selectOption('5');
  await page.locator('#kind').selectOption('adjetivo');
