@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {compileTeacherAudit} from './compile-etymologicon-gr1.mjs';
 import {expandGreekI} from './expand-etymologicon-gr1.mjs';
+import {createStudyCatalog} from './compile-etymologicon-study.mjs';
 import {createDecompositionCatalog} from './compile-etymologicon-decomposition.mjs';
 
 /**
@@ -53,18 +54,21 @@ export async function buildEtymologicon({root,out}){
     join(destination,'corrector/write-two.mjs'));
   // La auditoría docente fijada permanece intacta. La ampliación solo afecta
   // al catálogo de práctica; las 16 descomposiciones mantienen su base cerrada.
-  const baseCatalog=createLearnerCatalog(compileTeacherAudit());
+  const academicSource=compileTeacherAudit();
+  const baseCatalog=createLearnerCatalog(academicSource);
   const catalog=expandGreekI(baseCatalog);
   await mkdir(join(destination,'data'),{recursive:true});
   await writeFile(join(destination,'data/gr1.json'),JSON.stringify(catalog)+'\n','utf8');
+  const studyCatalog=createStudyCatalog(academicSource,catalog);
+  await writeFile(join(destination,'data/gr1-study.json'),JSON.stringify(studyCatalog)+'\n','utf8');
   const decomposition=createDecompositionCatalog(baseCatalog);
   await writeFile(join(destination,'data/gr1-decomposition.json'),
     JSON.stringify(decomposition)+'\n','utf8');
   // Generación de SW con versión de caché derivada de TODO el contenido.
   // No hay SW compartido de ScholaClassica: el alcance es solo este módulo.
   const core=[
-    'index.html','style.css','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs',
-    'data/gr1.json','data/gr1-decomposition.json','manifest.webmanifest','icons/icon.svg',
+    'index.html','estudio.html','style.css','estudio.css','estudio.mjs','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs',
+    'data/gr1.json','data/gr1-study.json','data/gr1-decomposition.json','manifest.webmanifest','icons/icon.svg',
     'icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png',
     'icons/apple-touch-icon.png'
   ];
