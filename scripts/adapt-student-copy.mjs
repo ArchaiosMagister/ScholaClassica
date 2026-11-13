@@ -96,9 +96,35 @@ export async function adaptVocabulaStudentCopy(destination){
     const from=source.indexOf(' function showLogin(){');
     assert.ok(from>0&&source.includes(" $('open-report').onclick=()=>openReport();"),
       'Cambió la separación alumno/profesor de Vocabula: revisar antes de publicar');
-    const keep=source.slice(0,from);
+    let keep=source.slice(0,from);
     assert.ok(keep.includes('function openReport(')&&keep.includes('async function sync()'),
       'El aviso y la sincronización deben conservarse');
+    const oldStart=keep.indexOf(' async function api(action,data={},priv=false){');
+    const oldEnd=keep.indexOf(' function applyWords(){',oldStart);
+    assert.ok(oldStart>0&&oldEnd>oldStart,
+      'No se encuentra la API original para separar al alumnado');
+    const studentApi=` async function api(action,data={}){
+   if(!['public_words','report'].includes(action))throw Error('Operación no permitida');
+   const controller=new AbortController();
+   const timeout=setTimeout(()=>controller.abort(),20000);
+   try{
+     const response=await fetch(window.VOCAB_SERVICE,{
+       method:'POST',headers:{'Content-Type':'application/json'},
+       body:JSON.stringify({action,...data}),signal:controller.signal
+     });
+     const result=await response.json();
+     if(!response.ok)throw Error(result.error||'No se ha podido completar la solicitud.');
+     return result;
+   }finally{clearTimeout(timeout)}
+ }
+`;
+    keep=keep.slice(0,oldStart)+studentApi+keep.slice(oldEnd);
+    keep=keep.replace(
+      "let custom=[],teacherWords=[],reports=[],offset=0,more=false,reportContext=null,editing=null,token='';",
+      "let custom=[],reportContext=null;"
+    );
+    keep=keep.replace(/ const sessionKey='classics-teacher-session';try\{token=sessionStorage\.getItem\(sessionKey\)\|\|''\}catch\{\}\n/,'');
+    keep=keep.replace(/ function remember\(value\)\{[^\n]+\}\n/,'');
     const tail=` document.addEventListener('click',ev=>{
    const button=ev.target.closest('button');
    if(!button)return;
