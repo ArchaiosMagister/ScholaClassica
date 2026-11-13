@@ -23,6 +23,25 @@ El control de `Origin` es una medida de reducción de superficie, **no** prueba 
 
 GitHub Pages no procesa el archivo `_headers` de Cloudflare. El build público añade una CSP mediante `meta`, con restricciones parciales: no puede imponer `frame-ancestors` ni cabeceras `Cache-Control`. No subir archivos con datos reservados.
 
+## Verificación de la cuenta — 13 de noviembre de 2026
+
+Comprobado directamente en Supabase Auth del proyecto `Vocabulario_clasico`:
+existe **una cuenta docente confirmada y con correo verificado**.
+Se ha identificado su UUID por consulta administrativa, **sin copiarla
+al código fuente ni al artefacto público**. Todavía no tiene factores
+TOTP verificados. No se ha creado ni modificado ninguna contraseña.
+
+La configuración de los servicios sigue bloqueada por defecto:
+hasta que la persona titular establezca el secreto `SCHOLA_TEACHER_USER_ID`
+en Supabase, se complete la prueba real de TOTP y se autorice el
+despliegue, el acceso a la bandeja y a las escrituras permanece cerrado.
+
+La auditoría de Supabase confirma que las tablas de Vocabula están
+protegidas por RLS, sin políticas públicas (comportamiento previsto
+para este servicio basado en funciones privilegiadas). Señala que
+**Leaked Password Protection está desactivado**; conviene habilitarlo
+desde Authentication si el plan ofrece esa opción.
+
 ## Configuración todavía pendiente de intervención personal
 
 1. En el proyecto Supabase **Vocabulario_clasico** (`wpwlguufpkfnzlbyproe`) revisar el registro público y desactivarlo si ninguna otra aplicación lo necesita. No cambiar el sistema propio de acceso de Vocabula.
