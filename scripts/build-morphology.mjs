@@ -6,6 +6,14 @@ import assert from 'node:assert/strict';
 import {compileAdditionalMorphology} from './morphology-expansion.mjs';
 import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
+import {compileGreekNounExpansion} from './greek-noun-bulk.mjs';
+import {compileLatinNounExpansion,readLatinNounSource} from './latin-noun-bulk.mjs';
+import {readNounSecondaryEvidence,crosscheckNounInventory} from './noun-secondary-evidence.mjs';
+import {triageNounCandidates} from './nominal-pending-triage.mjs';
+import {readFullUnimorphNouns} from './unimorph-full-source.mjs';
+import {compileGreekIrregularNouns} from './irregular-greek-nouns.mjs';
+import {applyNominalTeacherDecisions} from './nominal-teacher-decisions.mjs';
+import {execFileSync} from 'node:child_process';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -295,7 +303,7 @@ export function compileMorphology(curriculum,sha,{latinNounsHtml,latinIndicative
   assert.equal(new Set(records.map(r=>r.id)).size,records.length,'IDs duplicados');
   for(const r of records)assert.ok(r.forms.length>=6,r.id);
   return {schema:'schola-morphology-source/v1',appendixSha:sha,
-    coverage:{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]},records};
+    coverage:{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10]},records};
 }
 export async function buildMorphology({out,lock}){
   const path=join(source,'assets/curriculum.json');
@@ -305,17 +313,224 @@ export async function buildMorphology({out,lock}){
      latinAdjectivesHtml:await readFile(join(source,'adjetivos.html'),'utf8')});
   const vocabulaSource=resolve(process.env.VOCABULA_SOURCE||join(root,'.sources/vocabula'));
   const sourceData=await readGreekNounSource(vocabulaSource);
+  const fullSource=await readFullUnimorphNouns({
+    vocabulaData:sourceData.vocabulaData,lock,root
+  });
+  console.log('Fuente nominal completa fijada: '+JSON.stringify(fullSource.audit));
   const greekNouns=compileGreekNounBatch({
     curriculum:JSON.parse(await readFile(path,'utf8')),
     ...sourceData,vocabulaSha:lock.sources.vocabula.sha
   });
+  const bulk=compileGreekNounExpansion({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    ...sourceData,vocabulaSha:lock.sources.vocabula.sha,existingRecords:greekNouns
+  });
+  const latinSource=await readLatinNounSource(vocabulaSource);
+  const latin=compileLatinNounExpansion({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    ...latinSource,vocabulaData:sourceData.vocabulaData,
+    vocabulaSha:lock.sources.vocabula.sha,existingRecords:data.records
+  });
+  // Segunda pasada: lemas del banco docente ausentes en el subconjunto
+  // Vocabula, contrastados con los repositorios OFICIALES completos de
+  // UniMorph. No se suman filas de lemas ya conciliados, evitando mezclar
+  // homónimos o formas dialectales de un mismo lema.
+  const extraGreek=compileGreekNounExpansion({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    vocabulaData:sourceData.vocabulaData,
+    unimorphParts:[fullSource.greekRows,...Array.from({length:7},()=>[])],
+    vocabulaSha:lock.sources.vocabula.sha,
+    existingRecords:[...greekNouns,...bulk.records,...bulk.staged]
+  });
+  const extraLatin=compileLatinNounExpansion({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    vocabulaData:sourceData.vocabulaData,
+    latinParts:[fullSource.latinRows,...Array.from({length:31},()=>[])],
+    vocabulaSha:lock.sources.vocabula.sha,
+    existingRecords:[...data.records,...latin.records]
+  });
+  // Atribución individual: las nuevas formas proceden del repositorio
+  // UniMorph completo, NO del subconjunto de Vocabula. El enunciado y la
+  // unidad sí se obtienen del vocabulario docente (SHA fijado).
+  const sourced=(records,language,sha)=>records.map(record=>({
+    ...record,evidence:{...record.evidence,
+      source:'UniMorph '+(language==='griego'?'grc':'lat')+
+        ' completo + enunciado Vocabula + cotejo curricular Appendix',
+      file:'unimorph/'+(language==='griego'?'grc/grc':'lat/lat'),
+      unimorphDatasetSha:sha,unimorphSource:'repositorio oficial completo',
+      license:'CC BY-SA 3.0',
+      review:'conciliación interfuentes; pendiente de revisión docente individual',
+      notes:record.evidence.notes+
+        ' Fuente morfológica íntegra fijada en su propio SHA; no generada por analogía.'
+    }
+  }));
+  const irregularGreek=compileGreekIrregularNouns({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    vocabulaData:sourceData.vocabulaData,
+    vocabulaSha:lock.sources.vocabula.sha,
+    existingRecords:[...greekNouns,...bulk.records,...extraGreek.records]
+  });
+  const extraGreekRecords=sourced(extraGreek.records,'griego',lock.sources.unimorphGrc.sha);
+  const extraLatinRecords=sourced(extraLatin.records,'latin',lock.sources.unimorphLat.sha);
+  // Aplicar ÚNICAMENTE las seis decisiones explícitas del docente,
+  // sin modificar los importadores ni los repositorios de vocabulario.
+  const teacherManifest=JSON.parse(await readFile(
+    join(root,'config/nominal-teacher-decisions.json'),'utf8'));
+  const teacher=applyNominalTeacherDecisions({
+    records:[...data.records,...greekNouns,...bulk.records,...latin.records,
+      ...extraGreekRecords,...extraLatinRecords,...irregularGreek],
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    vocabulaData:sourceData.vocabulaData,
+    vocabulaSha:lock.sources.vocabula.sha,
+    manifest:teacherManifest
+  });
+  const reservedAdjectives=JSON.parse(await readFile(
+    join(root,'data/morfologia/adjetivos-reservados.json'),'utf8'));
+  assert.equal(reservedAdjectives.schema,'schola-morphology-pending-adjectives/v1');
+  assert.deepEqual(reservedAdjectives.records,teacher.stagedAdjectives,
+    'La reserva persistente de liber adjetivo no coincide con la decisión docente');
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
-    records:[...data.records,...greekNouns]};
-  assert.equal(finalBank.records.length,92);
-  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,92);
+    records:teacher.records};
+  assert.equal(finalBank.records.length,92+bulk.records.length+latin.records.length+
+    extraGreek.records.length+extraLatin.records.length+irregularGreek.length+
+    teacher.added.length);
+  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,finalBank.records.length);
+  assert.ok(bulk.records.length>=10,'Expansión griega inusualmente pequeña: revisar fuentes');
+  assert.ok(latin.records.length>=10,'Expansión latina inusualmente pequeña: revisar fuentes');
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
-  console.log('Morfología: '+finalBank.records.length+
-    ' paradigmas; ocho sustantivos griegos conciliados con Vocabula/UniMorph');
+  const fullSupplement={
+    schema:'schola-nominal-full-supplement/v1',
+    sources:{griego:lock.sources.unimorphGrc.sha,latin:lock.sources.unimorphLat.sha},
+    imported:{greek:extraGreek.records.length,latin:extraLatin.records.length},
+    raw:{greek:extraGreek.audit,latin:extraLatin.audit},
+    greek:extraGreek.records.map(r=>({id:r.id,lemma:r.paradigm,
+      unit:r.unit,forms:r.forms.length})),
+    latin:extraLatin.records.map(r=>({id:r.id,lemma:r.paradigm,
+      unit:r.unit,forms:r.forms.length}))};
+  // Catálogo completo de candidaturas, también las pendientes; se archiva
+  // fuera de dist para no publicar como válidas formas todavía sin contraste.
+  const auditDir=join(root,'build/morfologia');
+  await mkdir(auditDir,{recursive:true});
+  await writeFile(join(auditDir,'decisiones-docentes-nominales-aplicadas.json'),
+    JSON.stringify({schema:'schola-nominal-teacher-application/v1',
+      sourceSha:lock.sources.vocabula.sha,
+      manifest:teacherManifest,audit:teacher.audit,
+      added:teacher.added.map(r=>({id:r.id,paradigm:r.paradigm,unit:r.unit,
+        references:r.evidence.references,numberScope:r.evidence.numberScope})),
+      changed:teacher.changed.map(({before,after})=>({id:after.id,
+        before:{gender:before.gender||null,agreementGenders:before.agreementGenders||null},
+        after:{gender:after.gender||null,agreementGenders:after.agreementGenders},
+        reference:after.evidence.references.at(-1)})),
+      stagedAdjectives:teacher.stagedAdjectives},null,2)+'\n');
+  await writeFile(join(auditDir,'irregulares-griegos-cotejados.json'),
+    JSON.stringify({schema:'schola-grc-irregular-source/v1',
+      sourceSha:lock.sources.vocabula.sha,
+      count:irregularGreek.length,
+      records:irregularGreek.map(r=>({id:r.id,entry:r.paradigm,
+        references:r.evidence.references,forms:r.forms.length}))},null,2)+'\n');
+  await writeFile(join(auditDir,'lote-unimorph-completo.json'),
+    JSON.stringify(fullSupplement,null,2)+'\n');
+  await writeFile(join(auditDir,'auditoria-unimorph-original.json'),
+    JSON.stringify({schema:'schola-unimorph-full-audit/v1',
+      ...fullSource.audit},null,2)+'\n');
+  await writeFile(join(auditDir,'auditoria-sustantivos-griegos.json'),
+    JSON.stringify({schema:'schola-nouns-bulk-audit/v2',...bulk.audit,
+      imported:bulk.records.map(r=>({id:r.id,unit:r.unit,
+        entry:r.paradigm,evidence:r.evidence.vocabulaEntry})),review:bulk.review},null,2)+'\n');
+  await writeFile(join(auditDir,'auditoria-sustantivos-latinos.json'),
+    JSON.stringify({schema:'schola-nouns-latin-audit/v1',...latin.audit,
+      imported:latin.records.map(r=>({id:r.id,unit:r.unit,
+        entry:r.paradigm,evidence:r.evidence.vocabulaEntry})),review:latin.review},null,2)+'\n');
+  // Reconciliar las incidencias del subconjunto con las excepciones
+  // recuperadas en un cotejo externo posterior, sin contar dos veces
+  // un mismo candidato como "pendiente".
+  const nominalKey=value=>String(value||'').toLocaleLowerCase('el')
+    .normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ').trim();
+  const recovered=new Map(irregularGreek.map(r=>
+    [nominalKey(r.paradigm.split(',')[0]),r]));
+  const recoveredByIndividual=[...bulk.catalog,...latin.catalog].map(entry=>{
+    const record=entry.language==='griego'?recovered.get(nominalKey(entry.lemma)):null;
+    return record&&entry.status==='pendiente'?
+      {...entry,status:'incorporado-por-cotejo-individual',
+        recordId:record.id,reason:null,
+        evidenceReferences:record.evidence.references}:entry;
+  });
+  assert.equal(recoveredByIndividual.filter(x=>
+    x.status==='incorporado-por-cotejo-individual').length,
+    irregularGreek.length,'El cotejo individual ha de resolver exactamente sus fichas');
+  const approvedByLemma=new Map(teacher.added.map(record=>
+    [record.language+':'+nominalKey(record.paradigm.split(',')[0]),record]));
+  const modifiedByLemma=new Map(teacher.changed.map(({after})=>
+    [after.language+':'+nominalKey(after.paradigm.split(',')[0]),after]));
+  const reconciledCatalog=recoveredByIndividual.map(entry=>{
+    const name=entry.language+':'+nominalKey(entry.lemma);
+    const added=approvedByLemma.get(name);
+    // Los lemmas que también están en Latín de 4.º permanecen aislados.
+    if(added&&(entry.language==='griego'||entry.course==='lat1')){
+      assert.equal(entry.status,'pendiente','Una decisión duplicaría un lema ya aceptado');
+      return {...entry,status:'incorporado-por-decision-docente',
+        recordId:added.id,reason:null,teacherDecision:added.evidence.teacherDecision,
+        evidenceReferences:added.evidence.references};
+    }
+    const modified=modifiedByLemma.get(name);
+    return modified?{...entry,teacherDecision:modified.evidence.teacherDecision,
+      agreementGenders:modified.agreementGenders,
+      genderForPractice:modified.gender||null}:entry;
+  });
+  assert.equal(reconciledCatalog.filter(x=>x.status==='incorporado-por-decision-docente').length,
+    teacher.added.length,'Las decisiones explícitas han de resolver cuatro entradas pendientes');
+  await writeFile(join(auditDir,'catalogo-nominal-total.json'),
+    JSON.stringify({schema:'schola-noun-inventory/v1',sourceSha:lock.sources.vocabula.sha,
+      counts:{greek:bulk.audit,latin:latin.audit},
+      resolvedByIndividualLexicography:irregularGreek.length,
+      resolvedByTeacherDecision:teacher.added.length,
+      revisedAgreementByTeacher:teacher.changed.length,
+      stillPending:reconciledCatalog.filter(x=>x.status==='pendiente').length,
+      catalog:reconciledCatalog},null,2)+'\n');
+  // Los paradigmas con fuente completa pero sin programación docente
+  // permanecen fuera de la PWA y fuera del motor de calificación.
+  await writeFile(join(auditDir,'paradigmas-preparados-sin-unidad.json'),
+    JSON.stringify({schema:'schola-noun-staging/v1',
+      sourceSha:lock.sources.vocabula.sha,license:'CC BY-SA 3.0',
+      attribution:'UniMorph + datos docentes de Vocabula',
+      notForGrading:true,
+      counts:{greek:bulk.staged.length,latin4:latin.staged.length},
+      greek:bulk.staged,latin4:latin.staged},null,2)+'\n');
+  const triage=triageNounCandidates(reconciledCatalog,teacherManifest);
+  await writeFile(join(auditDir,'candidaturas-triaje-filologico.json'),
+    JSON.stringify(triage,null,2)+'\n');
+  console.log('Triaje filológico: '+triage.total+' candidaturas; '+
+    JSON.stringify(triage.counts));
+  const examsSource=resolve(process.env.EXAMENES_SOURCE||join(root,'.sources/examenes'));
+  const examinedSha=execFileSync('git',['-C',examsSource,'rev-parse','HEAD'],
+    {encoding:'utf8'}).trim();
+  assert.equal(examinedSha,lock.sources.examenes.sha,
+    'El contraste de GeneradorExamenes exige la revisión fijada, nunca main');
+  assert.equal(lock.sources.examenes.integrated,false,
+    'GeneradorExamenes se consulta únicamente; no se despliega ni importa');
+  const secondary=crosscheckNounInventory({
+    greekCatalog:reconciledCatalog.filter(x=>x.language==='griego'),
+    latinCatalog:reconciledCatalog.filter(x=>x.language==='latin'),
+    ...await readNounSecondaryEvidence(examsSource),
+    sourceSha:examinedSha
+  });
+  await writeFile(join(auditDir,'contraste-nominal-secundario.json'),
+    JSON.stringify(secondary,null,2)+'\n');
+  console.log('UniMorph completo: nuevos sustantivos griegos '+extraGreek.records.length+
+    ' y latinos '+extraLatin.records.length+' (sin repetir corpus original)');
+  console.log('Irregulares griegos cotejados: '+irregularGreek.length);
+  console.log('Decisiones nominales aplicadas: '+teacher.added.length+
+    ' lemas incorporados, '+teacher.changed.length+
+    ' concordancias docentes y '+teacher.stagedAdjectives.length+' adjetivo en reserva');
+  console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
+    (8+bulk.records.length+extraGreek.records.length+irregularGreek.length+
+      teacher.added.filter(r=>r.language==='griego').length)+
+    ' sustantivos griegos y '+(latin.records.length+extraLatin.records.length+
+      teacher.added.filter(r=>r.language==='latin').length)+
+    ' latinos añadidos; pendientes griego '+reconciledCatalog.filter(x=>
+      x.language==='griego'&&x.status==='pendiente').length+
+    ', latín '+latin.review.length+'; preparados sin unidad: griego '+
+    bulk.staged.length+', Latín 4.º '+latin.staged.length);
 }

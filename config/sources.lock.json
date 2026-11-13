@@ -25,6 +25,18 @@
       "repository": "ArchaiosMagister/GeneradorExamenes",
       "sha": "31bd9c8bf1bf8d1be434a15fcb32239564f5f1d9",
       "integrated": false
+    },
+    "unimorphGrc": {
+      "repository": "unimorph/grc",
+      "sha": "7f4a58df733726c75c1355dd3a038e950d5e308f",
+      "integrated": false,
+      "role": "consulta nominal exclusiva en compilación, no despliegue"
+    },
+    "unimorphLat": {
+      "repository": "unimorph/lat",
+      "sha": "050924c9f013e6aba4d7c87be243a1d79b6c5b10",
+      "integrated": false,
+      "role": "consulta nominal exclusiva en compilación, no despliegue"
     }
   }
 }

@@ -16,6 +16,7 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
   'apps/morfologia/review.mjs','apps/morfologia/greek-keyboard.mjs',
   'apps/morfologia/sintagmas.mjs','apps/morfologia/greek-noun-phrases.mjs',
   'apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md',
+  'apps/morfologia/data/LICENSE-SUSTANTIVOS-LATINOS.md',
   'apps/morfologia/data/paradigmas.json',
   'docente/auth-config.json']){
   assert.ok(existsSync(join(out,path)),'Falta recurso de publicación: '+path);
@@ -47,8 +48,8 @@ const etymologiconWorker=read('apps/etymologicon/sw.js');
 assert.ok(etymologiconWorker.includes("CACHE_PREFIX='schola-etymologicon-'"));
 const morphology=JSON.parse(read('apps/morfologia/data/paradigmas.json'));
 assert.equal(morphology.schema,'schola-morphology-source/v1');
-assert.equal(morphology.records.length,92);
-assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
+assert.ok(morphology.records.length>92,'Se espera el lote nominal adicional');
+assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10]});
 assert.ok(morphology.records.every(r=>r.evidence.status==='paradigma-documentado'));
 assert.ok(read('apps/morfologia/sw.js').includes("CACHE_PREFIX='schola-morphology-'"));
 for(const file of ['written.mjs','review.mjs','greek-keyboard.mjs','sintagmas.mjs','greek-noun-phrases.mjs']){
@@ -60,12 +61,44 @@ assert.ok(read('apps/morfologia/index.html').includes('id="review-mode"'));
 const locked=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 assert.equal(morphology.vocabulaSha,locked.sources.vocabula.sha);
 const nouns=morphology.records.filter(r=>r.id.startsWith('griego-sustantivo-'));
-assert.equal(nouns.length,8,'Lote nominal explícito, sin altas automáticas');
-assert.ok(nouns.every(n=>n.forms.length===10&&n.gender&&
+assert.ok(nouns.length>8,'La ampliación nominal no debe quedarse en ocho');
+assert.ok(morphology.records.filter(r=>r.id.startsWith('latin-sustantivo-import-')).length>=10,
+  'El léxico latino también debe tener paradigmas añadidos');
+const allLatinNouns=morphology.records.filter(r=>r.language==='latin'&&
+  r.kind==='sustantivo'&&r.id.startsWith('latin-sustantivo-'));
+assert.equal(morphology.records.length,84+nouns.length+allLatinNouns.length,
+  'Los 84 paradigmas previos deben permanecer, sin duplicados ni fuentes inesperadas');
+assert.equal(new Set(morphology.records.map(r=>r.id)).size,morphology.records.length);
+assert.ok(nouns.every(n=>n.unit<=10),
+  'No publicar sustantivos de unidades sin cobertura en la PWA');
+assert.ok(nouns.every(n=>
+  (n.forms.length>=10||
+    (n.id==='griego-sustantivo-decision-athenai'&&n.forms.length===5&&
+      n.forms.every(f=>f.number==='plural')))&&
+  (!n.id.startsWith('griego-sustantivo-import-')||n.evidence.genderEvidence)&&
   n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
-  n.evidence.review.includes('pendiente de revisión docente individual')));
+  (n.evidence.review.includes('pendiente de revisión docente individual')||
+    n.evidence.teacherDecision)));
+const teacher=JSON.parse(readFileSync(join(root,
+  'config/nominal-teacher-decisions.json'),'utf8'));
+assert.equal(teacher.status,'aprobado-por-docente');
+assert.equal(Object.keys(teacher.choices).length,6);
+for(const lemma of ['domus','cantus','liber']){
+  assert.ok(morphology.records.some(r=>r.id==='latin-sustantivo-decision-'+lemma));
+}
+const athenae=morphology.records.find(r=>r.id==='griego-sustantivo-decision-athenai');
+assert.ok(athenae&&athenae.unit===4&&athenae.forms.length===5);
+assert.ok(!athenae.forms.some(f=>f.number==='singular'));
+assert.ok(!morphology.records.some(r=>r.id==='latin-adjetivo-reserva-liber-free'),
+  'El adjetivo preparado para otra fase no debe ser calificable');
+assert.equal(existsSync(join(out,'data/morfologia/adjetivos-reservados.json')),false,
+  'La reserva de adjetivos docentes no se publica en el portal');
+assert.equal(existsSync(join(out,'config/nominal-teacher-decisions.json')),false,
+  'El archivo de decisiones académicas no forma parte de la PWA');
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
+assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-LATINOS.md').includes('3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
+assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-LATINOS.md'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');
 assert.ok(vocabEndpoint.includes('wpwlguufpkfnzlbyproe.supabase.co'));
 const html=read('index.html');

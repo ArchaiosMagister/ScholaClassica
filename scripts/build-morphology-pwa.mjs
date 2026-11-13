@@ -4,7 +4,8 @@ import {join} from 'node:path';
 import assert from 'node:assert/strict';
 const CORE=['index.html','style.css','app.mjs','engine.mjs','written.mjs',
   'review.mjs','greek-keyboard.mjs','sintagmas.mjs','greek-noun-phrases.mjs',
-  'data/paradigmas.json','data/LICENSE-SUSTANTIVOS-GRIEGOS.md'];
+  'data/paradigmas.json','data/LICENSE-SUSTANTIVOS-GRIEGOS.md',
+  'data/LICENSE-SUSTANTIVOS-LATINOS.md'];
 export async function buildMorphologyPwa(out,root){
   const moduleDir=join(out,'apps/morfologia');
   const template=await readFile(join(root,'scripts/morphology-sw.template.js'),'utf8');

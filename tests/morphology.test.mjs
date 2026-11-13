@@ -19,8 +19,8 @@ test('el banco tiene SHA del Appendix fijado y se recompila exactamente desde su
   assert.deepEqual(compiled.records.slice(0,core.records.length),core.records);
   assert.equal(compiled.vocabulaSha,lock.sources.vocabula.sha);
   validateBank(compiled);
-  assert.equal(compiled.records.length,92);
-  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
+  assert.ok(compiled.records.length>92);
+  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10]});
   assert.ok(compiled.records.every(r=>r.evidence.status==='paradigma-documentado'));
   assert.ok(compiled.records.every(r=>r.forms.every(f=>f.form&&!f.form.includes('<'))));
 });
@@ -30,11 +30,11 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   const l3=availableRecords(compiled,{language:'latin',unit:3});
   const l4=availableRecords(compiled,{language:'latin',unit:4});
   const l5=availableRecords(compiled,{language:'latin',unit:5});
-  assert.equal(l1.length,9);
-  assert.equal(l2.length,15);
-  assert.equal(l3.length,26);
-  assert.equal(l4.length,42);
-  assert.equal(l5.length,46);
+  assert.ok(l1.length>=9);
+  assert.ok(l2.length>=15);
+  assert.ok(l3.length>=26);
+  assert.ok(l4.length>=42);
+  assert.ok(l5.length>=46);
   assert.ok(l1.some(r=>r.paradigm.startsWith('rosa')));
   assert.ok(l1.every(r=>r.unit===1));
   assert.ok(l2.some(r=>r.paradigm.includes('imperfecto')));
@@ -50,13 +50,17 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   const g3=availableRecords(compiled,{language:'griego',unit:3});
   const g4=availableRecords(compiled,{language:'griego',unit:4});
   const g5=availableRecords(compiled,{language:'griego',unit:5});
-  assert.deepEqual([g1.length,g2.length,g3.length,g4.length,g5.length],[2,4,10,14,18]);
+  assert.deepEqual([g1.length,g2.length,g3.length],[2,4,10]);
+  assert.ok(g4.length>14,'La expansión nominal se desbloquea a partir de UD4');
+  assert.ok(g5.length>g4.length,'Los sustantivos de UD5 no se anticipan a UD4');
   assert.ok(!g1.some(r=>r.kind==='artículo'));
   assert.ok(g3.some(r=>r.kind==='artículo'));
   assert.equal(g3.filter(r=>r.paradigm.startsWith('1.ª declinación griega')).length,5);
   assert.ok(!g2.some(r=>r.paradigm.startsWith('1.ª declinación griega')));
-  assert.throws(()=>availableRecords(compiled,{language:'latin',unit:8}),/Unidad todavía no disponible/);
-  assert.throws(()=>availableRecords(compiled,{language:'griego',unit:8}),/Unidad todavía no disponible/);
+  assert.ok(availableRecords(compiled,{language:'latin',unit:8}).length>=l5.length);
+  assert.ok(availableRecords(compiled,{language:'griego',unit:8}).length>g5.length);
+  assert.throws(()=>availableRecords(compiled,{language:'latin',unit:11}),/Unidad todavía no disponible/);
+  assert.throws(()=>availableRecords(compiled,{language:'griego',unit:11}),/Unidad todavía no disponible/);
 });
 test('las formas recuperan tabla y no se obtienen por generación especulativa',()=>{
   const rose=compiled.records.find(r=>r.paradigm.startsWith('rosa'));

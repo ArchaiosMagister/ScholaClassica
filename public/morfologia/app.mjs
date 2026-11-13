@@ -72,7 +72,8 @@ function updateKinds(){
   kinds.forEach(kind=>option(input.kind,kind,grammaticalName(kind)));
   input.kind.value=phrase?'sintagma':agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
   $('coverage').textContent=COURSE_LABELS[language]+': se incluyen únicamente los paradigmas de UD1 a UD'+unit+
-    ' presentes en las tablas curriculares ('+records.length+' paradigmas). '+
+    ' con procedencia documentada ('+records.length+' paradigmas). '+
+    'Los nombres importados de UniMorph siguen pendientes de revisión filológica individual. '+
     'Las unidades posteriores a '+bank.coverage[language].at(-1)+' siguen en revisión.'+
     (language==='griego'&&unit===4?' UD4 no añade nuevos paradigmas a este módulo.':'');
 }
@@ -105,9 +106,20 @@ function showSource(q){
     const target=targets[next++];
     if(!target)break;
     target.hidden=false;
-    if(evidence.source.includes('UniMorph')){
+    const reference=Array.isArray(evidence.references)?
+      evidence.references.find(url=>typeof url==='string'&&url.startsWith('https://')):null;
+    if(reference){
+      target.textContent='Fuente filológica cotejada · '+(evidence.caption||'paradigma');
+      target.href=reference;target.rel='noopener noreferrer';
+    }else if(evidence.unimorphDatasetSha){
+      const code=q.language==='griego'?'grc':'lat';
+      target.textContent='UniMorph original · '+code+' · evidencia fijada';
+      target.href='https://github.com/unimorph/'+code+'/tree/'+
+        evidence.unimorphDatasetSha;
+      target.rel='noopener noreferrer';
+    }else if(evidence.source.includes('UniMorph')){
       target.textContent='Paradigma nominal · Vocabula/UniMorph · '+
-        (evidence.vocabulaGroup||'Griego I');
+        (evidence.vocabulaGroup||COURSE_LABELS[q.language]);
       target.href='../vocabulario/index.html';
     }else{
       target.textContent='Consultar Appendix · '+COURSE_LABELS[q.language]+
@@ -145,6 +157,9 @@ function createTable(q){
         field.lang=q.language==='griego'?'grc':'la';
         field.inputMode='text';
         td.append(field);
+      }else if(q.evidence?.numberScope==='plural'&&number==='singular'){
+        td.textContent='—';
+        td.title='Plurale tantum: no hay singular en el paradigma documentado';
       }
       row.append(td);
     }

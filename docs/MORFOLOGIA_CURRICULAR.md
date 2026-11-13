@@ -131,3 +131,250 @@ Se comprueba la igualdad de **caso, género y número** y se permiten las dos ó
 La palabra intermedia oxítona cambia contextual y ortográficamente agudo por grave; no se alteran circunflejos ni acentos de sílabas anteriores. No se confunde la construcción predicativa `ὁ ἵππος ἀγαθός` con una atributiva. Se ofrecen dos nuevas modalidades, respuesta escrita o tabla completa, **desde UD5** para los cuatro nombres de UD4 y con cuatro nombres más al alcanzar UD7. Cada ficha conserva las tres fuentes y las enlaza por separado en la interfaz.
 
 Las ocho entradas constituyen un **primer lote de conciliación interfuentes**, no una validación filológica individual definitiva. Para la fase siguiente se propone revisar con decisiones docentes explícitas los lemas de género variable, los acentos de paradigmas complejos y las variantes de las declinaciones posteriores, manteniéndolos fuera del sorteo hasta su aprobación. El banco anterior de 84 fichas permanece inalterado y el nuevo total es **92**.
+
+## Ampliación por lotes reproducible del léxico nominal griego (propuesta aislada)
+
+El compilador `scripts/greek-noun-bulk.mjs` deja atrás el límite manual de ocho
+nombres. Trabaja sobre **los ocho ficheros de UniMorph y el vocabulario de examen
+de Griego I del mismo SHA de Vocabula**, sin acceso a red ni modificación de
+repositorios originales. Mantiene intactas las primeras ocho fichas.
+
+Solo incorpora nuevas entradas si coinciden el lema, el enunciado y genitivo
+del vocabulario, una unidad documentada hasta UD7, el género único del artículo
+nominativo, las diez casillas NOM/VOC/ACC/GEN/DAT × SG/PL y el modelo de
+primera o segunda declinación en Appendix. La tercera declinación queda
+reservada para UD8; tampoco se importan nombres sin unidad, con artículo
+ambiguo, variantes no discriminadas o casillas incompletas.
+
+El archivo `build/morfologia/auditoria-sustantivos-griegos.json` separa
+**incorporados** y **pendientes de revisión**, con razón individual para los
+descartados. La etiqueta «paradigma-documentado» constata la disponibilidad
+de las diez casillas en la fuente morfológica, **no** una verificación filológica
+individual; `review` lo declara de forma visible. Se conserva CC BY-SA 3.0,
+la traza de la ficha de Vocabula y el SHA de procedencia. El alumnado no ve
+los descartados. El corpus es estático, corregible y utilizable sin conexión.
+
+Este cambio se prepara en una rama de integración sin fusionar ni publicar.
+Eulexis, Perseus/Morpheus y Logeion son futuras fuentes de contraste; **no se
+les atribuye una consulta automatizada que este lote no ha realizado**.
+
+
+## Inventario integral de sustantivos de los vocabularios docentes — 13/11/2026
+
+**Importación cerrada por evidencia, no por una cantidad prefijada.** El
+compilador recorre las fichas `general` y `examen` de los tres cursos de
+Vocabula (`lat1`, `lat4` y `gr1`) en el SHA fijado; no borra
+ninguna ficha original. El inventario conserva para cada candidato todos los
+enunciados, significados, curso, unidades y sus identificadores de origen.
+
+Los sustantivos con paradigma **completo y contrastable** se incorporan a
+`apps/morfologia/data/paradigmas.json`, con estatus individual de conciliación
+pendiente de revisión docente. Las cifras exactas proceden de cada
+compilación y del artefacto de auditoría, no de una lista manual fija.
+La disponibilidad de un paradigma en UniMorph no implica que un docente
+haya revisado individualmente cada flexión.
+
+La selección opera sobre:
+- **Latín:** `scripts/latin-noun-bulk.mjs`; 32 fragmentos UniMorph lat,
+  enunciado docente, genitivo singular, y doce casillas de seis casos × dos
+  números. Se conservan variantes atestiguadas; si un mismo lema contiene
+  genitivos de declinaciones divergentes, se aparta para evitar unir
+  homónimos. Los géneros inferidos por patrones se identifican como tales y
+  **no se presentan como contrastes léxicos independientes**.
+- **Griego:** `scripts/greek-noun-bulk.mjs`; ocho fragmentos UniMorph grc,
+  diez casillas de cinco casos × dos números, género explícito por artículo
+  singular y concordancia con la primera/segunda declinación curricular.
+  Se utiliza el nominativo canónico de UniMorph en el paradigma cuando el
+  acento del enunciado docente antiguo no coincide.
+- **Contraste independiente sin calificación:** se consulta el SHA fijo de
+  GeneradorExamenes, que registra propuestas de Wiktionary (CC BY-SA 4.0) y
+  decisiones editoriales docentes. Estos materiales se cotejan y documentan
+  **sin convertir ninguna propuesta no verificada en una respuesta correcta**.
+  Eulexis, Perseus/Morpheus y Logeion son referencias para un cotejo
+  lexicográfico adicional, **no fuentes consultadas individualmente por este
+  compilador**; su presencia en una lista de fuentes no acredita una forma.
+
+Las entradas sin serie completa, con género contextual o irregularidad no
+resuelta, con divergencia de enunciado o cuyo contenido se enseña más tarde
+**no se sortean**. La cobertura activa se ha ampliado hasta **UD10** en Griego I y Latín I;
+en el primer caso, los temas consonánticos de tercera declinación se
+desbloquean en UD8 y, en el segundo, solo se usan modelos de declinación ya
+explicados. Las fichas de Latín de 4.º con doce casillas completas se preparan
+en una **reserva separada y no calificable**, porque sus unidades no se pueden
+trasplantar a Latín I. En ambos idiomas, los lemas sin unidad acreditada se
+conservan con sus paradigmas completos en esa misma reserva, cuando existe
+evidencia suficiente. Se excluyen las palabras de unidades no cubiertas.
+Un sustantivo citado antes de estudiar su tipo flexivo se habilita únicamente
+cuando ese modelo ya se haya explicado.
+
+Los informes íntegros **no se publican en la webapp del alumnado**; se archivan
+como artefacto de CI:
+
+- `build/morfologia/catalogo-nominal-total.json`: inventario de candidatos,
+  identificadores y decisión por palabra.
+- `build/morfologia/auditoria-sustantivos-griegos.json`: incorporados y
+  descartados, con razones.
+- `build/morfologia/auditoria-sustantivos-latinos.json`: ídem para latín,
+  con separación explícita de Latín de 4.º.
+- `build/morfologia/contraste-nominal-secundario.json`: correspondencias
+  bibliográficas y decisiones editoriales (no usadas para calificar).
+
+La CI obtiene únicamente copias **de lectura** de Appendix, Vocabula y
+GeneradorExamenes fijadas por SHA, verifica sus dependencias, el banco, la
+licencia de ambos corpus UniMorph y las PWAs sin conexión. No se modifican
+fuentes originales, la base de datos docente, ni el servicio de autenticación.
+La rama se mantiene sin fusionar/publicar hasta decisión explícita posterior.
+
+**Siguiente ampliación nominal pendiente:** corroborar casillas dudosas con
+fuentes filológicas complementarias (Perseus/Morpheus, Eulexis, Logeion,
+Collatinus para latín, según licencias y disponibilidad) y habilitar por
+unidades sus modelos de tercera declinación griega y el itinerario de
+Latín de 4.º, sin anticipar adjetivos, pronombres o verbos.
+
+
+## Continuación: cierre de las excepciones recuperables con fuente (13/11/2026)
+
+Esta revisión supera el límite anterior de UD7 y registra **tres estados**
+distintos por lema: incorporado a la PWA por unidad acreditada; paradigma
+completo de fuente en reserva no calificable porque falta adscripción
+curricular; y ficha con casillas realmente ausentes o con contradicciones.
+
+La tercera declinación griega se limita a **temas consonánticos** testimoniados
+caso por caso en el corpus y explicados en el Appendix UD8. No se extrapolan
+las formas de los temas vocálicos o silbantes. Los genitivos abreviados y
+escritos completos se comparan con la fuente real; la normalización de sigma
+final no cambia la ortografía de la solución. Para el género, cuando el
+testimonio es ambiguo, **solo una acepción inequívoca consignada en la ficha
+docente** autoriza escoger ese género. Se conserva la clase de evidencia
+(`genderEvidence`). Los nombres de género expresamente variable sin
+decisión docente permanecen en revisión.
+
+La secuencia final `-σι(ν)` de un dativo plural atestiguado en UniMorph se
+desdobla en dos **variantes explícitas**, con ν eufónica y sin ella. Se
+aceptan ambas en corrección escrita y en las dos posiciones atributivas de
+los sintagmas; no se supone dicha alternancia en ninguna otra forma.
+
+En Latín de 4.º se documentan los paradigmas nominales completos de
+UniMorph en un archivo de reserva, con su enunciado Vocabula y un
+`unit:null` que bloquea su uso en el motor del alumnado. En Griego I se
+hace lo mismo con los nombres completos de `Sin unidad acreditada`.
+El archivo `build/morfologia/paradigmas-preparados-sin-unidad.json` queda
+fuera de `dist`; no existe ruta pública para consultar esas formas. Se
+incluye como quinto informe en los artefactos de GitHub Actions.
+
+Los casos restantes se registran con las **casillas exactas que faltan**,
+y no se clasifican a todos como sustantivos de flexión desconocida sin
+comprobar la categoría. Una propuesta proveniente de Eulexis,
+Perseus/Morpheus, Logeion, Wiktionary o Collatinus solo se incorporará como
+respuesta automática cuando haya evidencia concreta de su flexión y se
+cumplan las condiciones de licencia; el cotejo secundario disponible
+hasta ahora no basta por sí solo para aprobar sus propuestas. El motor no
+genera formas faltantes mediante una declinación analógica.
+
+
+## Triaje filológico y fuentes nominales completas (13/11/2026)
+
+El informe `build/morfologia/candidaturas-triaje-filologico.json`
+reclasifica automáticamente las candidaturas del inventario como
+adjetivos, verbos, pronombres/numerales, entradas de cursos posteriores,
+casos sin fuente completa y excepciones o ambigüedades propiamente nominales.
+La reclasificación es una **propuesta de auditoría** y no añade soluciones
+a la calificación. La propuesta académica de seis decisiones docentes
+incluye alternativas y bibliografía con criterio por defecto; ninguna se
+aplica sin respuesta del profesor.
+
+La segunda pasada de auditoría consulta los **repositorios originales
+completos** `unimorph/grc` y `unimorph/lat`, fijados respectivamente
+a `7f4a58df733726c75c1355dd3a038e950d5e308f` y
+`050924c9f013e6aba4d7c87be243a1d79b6c5b10`. Sus licencias se
+identifican como CC BY-SA 3.0; el código fuente de esos repositorios no
+se incorpora al PWA. Solo se analizan las formas nominales de lemas
+presentes en el vocabulario docente, con rasgos de caso y número
+inequívocos. Cualquier forma suplente incorpora el SHA de su corpus
+original a la evidencia de la ficha. El informe
+`build/morfologia/lote-unimorph-completo.json` distingue rigurosamente
+**filas consultadas** de **paradigmas nuevos habilitados**: el corpus más
+grande puede resultar redundante para los lemas docentes ya cotejados,
+por lo que no se cuentan coincidencias como incorporaciones.
+
+Para `ἀνήρ`, `γυνή`, `πατήρ` y `μήτηρ`, cuyas tablas del
+subconjunto automático son incompletas o no existen, el módulo
+`scripts/irregular-greek-nouns.mjs` incorpora **excepciones verificadas
+individualmente** con paradigmas gramaticales y lexicográficos publicados.
+La unidad de entrada es UD8 y las variantes `-σι(ν)` se separan en dos
+respuestas documentadas; no se generan formas por aplicación automática
+a otros lemas. Las referencias y la ficha del vocabulario docente
+quedan en la evidencia individual y en el informe
+`build/morfologia/irregulares-griegos-cotejados.json`.
+
+Las divergencias sin testimonios completos (p. ej. homónimos como
+`liber` o variedades de `domus`), el currículo de Latín de 4.º y
+los lemas aún sin unidad acreditada permanecen aislados de las
+preguntas. El proceso no toca ni publica los repositorios originales y
+la PR de integración se mantiene en borrador.
+
+
+## Seis decisiones docentes aplicadas — 13/11/2026 (PR #35)
+
+Las seis opciones ratificadas por el docente se conservan exactamente
+en `config/nominal-teacher-decisions.json`. Su compilación, independiente
+del banco Vocabula y con comprobación del SHA fijo, está implementada en
+`scripts/nominal-teacher-decisions.mjs`. La auditoría de aplicación se
+genera en `build/morfologia/decisiones-docentes-nominales-aplicadas.json`
+(fuera de `dist` y disponible en el artefacto de CI).
+
+1. **`domus, domūs` (f.)** se habilita desde **Latín I UD7**
+   con formas atestiguadas de cuarta y segunda declinaciones y
+   **locativo independiente** (`domī`; `domuī` raro).
+   Las variantes `domī` (gen. sg. antiguo), `domōrum` (gen. pl.
+   tardío/poético), `domō` (dat./abl. sg.) y `domū` (abl. sg.)
+   conservan notas explícitas de uso; no se presenta el locativo como
+   otro nombre ni se generan terminaciones ajenas. Referencias:
+   [Allen & Greenough, § 93](https://dcc.dickinson.edu/grammar/latin/4th-declension-case-forms)
+   y su [tabla de `domus`](https://dcc.dickinson.edu/sites/default/files/4th_decl_domus.pdf).
+2. **`cantus, cantūs` (m.)** se habilita desde **Latín I UD7**
+   solo como cuarta declinación con las doce casillas NOM/VOC/ACC/GEN/DAT/ABL
+   de sg. y pl. No se mezclan genitivos o vocativos de segunda.
+   Fuentes: [Dickinson](https://dcc.dickinson.edu/grammar/latin/4th-declension-nouns)
+   y [entrada lexicográfica](https://www.latindictionary.io/entry/cantus-cantus).
+3. **`liber, librī` (m.)**, sustantivo «libro», se habilita
+   desde **Latín I UD1** con su propio paradigma de segunda. El
+   adjetivo **`līber, lībera, līberum`**, «libre», constituye una
+   **ficha distinta de la categoría adjetivo**: se conserva de forma
+   persistente en `data/morfologia/adjetivos-reservados.json` como
+   `notForGrading:true`, para la siguiente fase de integración de
+   adjetivos, sin anticipar ejercicios. Fuentes:
+   [Dickinson: sustantivo](https://dcc.dickinson.edu/es/liber1) y
+   [Dickinson: adjetivo](https://dcc.dickinson.edu/latin-core/liber2liberi).
+4. **`ἄνθρωπος, –ου`** conserva el mismo paradigma, pero en
+   **los sintagmas de esta webapp se usa el masculino** por
+   decisión docente. Su evidencia recuerda expresamente que el
+   femenino también existe en otros contextos y que la selección
+   didáctica no invalida su empleo histórico. Fuente:
+   [Rūmniece, *Gender Indication of the Lexeme ἄνθρωπος*](https://www.apgads.lu.lv/fileadmin/user_upload/lu_portal/apgads/PDF/Antiquitas_Viva/Nr._5/06_Rumniece_Antiquitas_Viva_5_.pdf).
+5. **`παῖς, παιδός`** conserva **una sola declinación nominal**
+   y permite **dos familias de sintagmas**, masculina y femenina,
+   con el artículo y el adjetivo concordantes. Los identificadores
+   de los ejercicios incluyen el género para no solapar progreso.
+   Fuente de morfología y uso:
+   [Logeion Morpho](https://logeion.org/morpho/%CF%80%CE%B1%E1%BF%96%CF%82).
+6. **`Ἀθῆναι, –ῶν` (αἱ)** se habilita desde
+   **Griego I UD4** solo con los cinco casos del **plural ático**
+   (Ἀθῆναι, Ἀθῆναι, Ἀθήνας, Ἀθηνῶν, Ἀθήναις).
+   Puede aparecer en análisis, escritura y tablas reducidas
+   a cinco casillas. No se le atribuyen formas de singular o dual,
+   ni variantes dialectales. **Queda excluido del constructor de
+   sintagmas triples**, que exige singular y plural completos.
+   Fuentes: [Logeion Morpho](https://logeion.uchicago.edu/morpho/%E1%BC%88%CE%B8%E1%BF%86%CE%BD%CE%B1%CE%B9)
+   y [paradigma ático](https://en.wiktionary.org/wiki/%E1%BC%88%CE%B8%E1%BF%86%CE%BD%CE%B1%CE%B9).
+
+Las decisiones se aplican **después** de los importadores automáticos.
+Así se preservan los originales y se evita alterar lemas homónimos o
+cursos distintos. El catálogo final reemplaza el estado «pendiente»
+por «incorporado por decisión docente» solamente para los cuatro
+paradigmas nominales añadidos y anota la concordancia docente en
+las dos fichas griegas ya existentes. El triaje conserva todas las
+opciones históricas, la respuesta finalmente elegida y su fecha.
+
+La PR sigue en borrador y el flujo `publicar` de GitHub Actions se
+ejecuta exclusivamente en `main`, nunca en esta rama de trabajo.

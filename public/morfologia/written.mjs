@@ -78,15 +78,19 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
       const available=cases[language].filter(c=>entries.some(f=>f.case===c));
       if(available.length<4)continue;
       const cells=[];
+      // Los pluralia tantum documentados no inventan un singular para
+      // completar una tabla: solo se presentan las casillas existentes.
+      const numbers=record.kind==='sustantivo'&&
+        record.evidence?.numberScope==='plural'?['plural']:['singular','plural'];
       for(const cas of available){
-        for(const number of ['singular','plural']){
+        for(const number of numbers){
           const acceptedForms=unique(entries.filter(f=>f.case===cas&&f.number===number)
             .map(f=>clean(f.form)));
           if(!acceptedForms.length)continue;
           cells.push({id:cas+':'+number,case:cas,number,acceptedForms});
         }
       }
-      if(cells.length!==available.length*2)continue;
+      if(cells.length!==available.length*numbers.length)continue;
       const id=record.id+':table:'+(gender||'none');
       candidates.push({id,activity:'table',language,kind:record.kind,
         paradigm:record.paradigm,evidence:record.evidence,gender,

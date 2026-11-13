@@ -48,6 +48,27 @@ jobs:
           ref: 0e16505b7631298a0448c4160a5d258f82732bfe
           path: .sources/vocabula
           persist-credentials: false
+      - name: Obtener el banco lexicográfico de GeneradorExamenes (solo lectura)
+        uses: actions/checkout@v4
+        with:
+          repository: ArchaiosMagister/GeneradorExamenes
+          ref: 31bd9c8bf1bf8d1be434a15fcb32239564f5f1d9
+          path: .sources/examenes
+          persist-credentials: false
+      - name: Obtener UniMorph griego completo en SHA fijo (consulta de solo lectura)
+        uses: actions/checkout@v4
+        with:
+          repository: unimorph/grc
+          ref: 7f4a58df733726c75c1355dd3a038e950d5e308f
+          path: .sources/unimorph-grc
+          persist-credentials: false
+      - name: Obtener UniMorph latino completo en SHA fijo (consulta de solo lectura)
+        uses: actions/checkout@v4
+        with:
+          repository: unimorph/lat
+          ref: 050924c9f013e6aba4d7c87be243a1d79b6c5b10
+          path: .sources/unimorph-lat
+          persist-credentials: false
       - name: Validar núcleo léxico de Vocabula original (entorno CommonJS aislado)
         run: |
           mkdir -p "$RUNNER_TEMP/vocabula-original"
@@ -91,6 +112,23 @@ jobs:
         run: npm run test:browser:vocabula
       - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
         run: npm run test:browser:docente
+      - name: Archivar catálogo íntegro de nombres, pruebas y pendientes (sin publicar)
+        uses: actions/upload-artifact@v4
+        with:
+          name: morfologia-auditoria-nominal-completa
+          path: |
+            build/morfologia/auditoria-sustantivos-griegos.json
+            build/morfologia/auditoria-sustantivos-latinos.json
+            build/morfologia/catalogo-nominal-total.json
+            build/morfologia/contraste-nominal-secundario.json
+            build/morfologia/paradigmas-preparados-sin-unidad.json
+            build/morfologia/candidaturas-triaje-filologico.json
+            build/morfologia/auditoria-unimorph-original.json
+            build/morfologia/lote-unimorph-completo.json
+            build/morfologia/irregulares-griegos-cotejados.json
+            build/morfologia/decisiones-docentes-nominales-aplicadas.json
+          if-no-files-found: error
+          retention-days: 14
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
         uses: actions/upload-artifact@v4
         with:

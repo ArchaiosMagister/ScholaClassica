@@ -1,0 +1,20 @@
+{
+  "schema": "schola-morphology-pending-adjectives/v1",
+  "origin": "Decisión docente explícita 13/11/2026: liber (libro) y līber (libre) en registros distintos",
+  "records": [
+    {
+      "id": "latin-adjetivo-reserva-liber-free",
+      "language": "latin",
+      "kind": "adjetivo",
+      "unit": 2,
+      "entry": "līber, lībera, līberum",
+      "lemma": "liber",
+      "meaning": "libre",
+      "status": "preparado-para-fase-de-adjetivos",
+      "source": "https://dcc.dickinson.edu/latin-core/liber2liberi",
+      "note": "Se conserva la -e- en lībera/līberum; no confundir con liber, librī (libro).",
+      "notForGrading": true,
+      "teacherDecision": "guardar-ambos"
+    }
+  ]
+}

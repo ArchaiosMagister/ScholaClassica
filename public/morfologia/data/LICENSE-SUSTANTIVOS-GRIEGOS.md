@@ -1,6 +1,6 @@
-# Atribución del lote de sustantivos griegos
+# Atribución del corpus nominal griego integrado
 
-Los **ocho paradigmas nominales griegos conciliados** que se incorporan al
+Los **paradigmas nominales griegos conciliados**, incluidos los ocho ejemplos iniciales, que se incorporan al
 banco de morfología de ScholaClassica proceden del subconjunto
 `data/unimorph-syllabus/grc` del repositorio
 [VocabulaLatinaGraecaque](https://github.com/ArchaiosMagister/VocabulaLatinaGraecaque),
@@ -21,6 +21,6 @@ tema de declinación correspondiente en Appendix grammaticae, fijado a su SHA.
 
 Una conciliación entre fuentes **no equivale a que un docente haya validado
 individualmente todas las formas**. Esa distinción queda registrada en
-`evidence.review`. No se incorporan otras entradas de UniMorph por
+`evidence.review`. No se incorporan nuevas entradas de UniMorph por
 similitud ni se importan de forma automática formas con género ambivalente,
 unidades no acreditadas o casillas incompletas.

@@ -41,21 +41,30 @@ export function greekNounPhrasePairs(bank,{language,unit}){
   const article=shape(records.find(r=>r.id==='griego-articulo'),'artículo');
   const nouns=records.filter(r=>r.kind==='sustantivo'&&
     r.id.startsWith('griego-sustantivo-')&&
+    r.evidence?.numberScope!=='plural'&&
+    (['masculino','femenino','neutro'].includes(r.gender)||
+      r.agreementGenders?.some(g=>['masculino','femenino','neutro'].includes(g)))&&
     r.evidence?.review?.includes('conciliación interfuentes'));
   const adjectives=ADJECTIVE_IDS.map(id=>shape(records.find(r=>r.id===id),'adjetivo'));
   return nouns.flatMap(noun=>{
     shape(noun,'sustantivo');
-    if(!['masculino','femenino','neutro'].includes(noun.gender))
-      throw Error('Sustantivo sin género único: '+noun.paradigm);
-    for(const cas of CASES)for(const number of NUMBERS)
-      if(nounForm(noun,cas,number,noun.gender).length!==1)
-        throw Error('Sustantivo sin casilla única documentada: '+noun.paradigm);
-    return adjectives.map(adjective=>({
-      article,noun,adjective,language:'griego',gender:noun.gender,
-      id:'griego:nominal:'+noun.id+':'+adjective.id,
-      paradigm:'Artículo + sustantivo + adjetivo · '+noun.paradigm+' + '+adjective.paradigm,
-      provenance:[article.evidence,noun.evidence,adjective.evidence]
-    }));
+    const genders=noun.agreementGenders||[noun.gender];
+    if(!genders.length||genders.some(g=>!['masculino','femenino','neutro'].includes(g)))
+      throw Error('Concordancia no acreditada: '+noun.paradigm);
+    return genders.flatMap(gender=>{
+      for(const cas of CASES)for(const number of NUMBERS)
+        if(nounForm(noun,cas,number,gender).length<1)
+          throw Error('Sustantivo sin casilla documentada: '+noun.paradigm);
+      return adjectives.map(adjective=>({
+        article,noun,adjective,language:'griego',gender,
+        id:'griego:nominal:'+noun.id+':'+adjective.id+
+          (genders.length>1?':'+gender:''),
+        paradigm:'Artículo + sustantivo + adjetivo · '+noun.paradigm+
+          ' + '+adjective.paradigm+
+          (genders.length>1?' · '+gender:''),
+        provenance:[article.evidence,noun.evidence,adjective.evidence]
+      }));
+    });
   });
 }
 function cells(pair){
@@ -64,15 +73,16 @@ function cells(pair){
     const article=nounForm(pair.article,cas,number,pair.gender);
     const noun=nounForm(pair.noun,cas,number,pair.gender);
     const adj=nounForm(pair.adjective,cas,number,pair.gender);
-    if(article.length!==1||noun.length!==1||adj.length!==1)
+    if(article.length!==1||noun.length<1||adj.length!==1)
       throw Error('No hay tres casillas completas y concordantes: '+pair.id);
-    const [a]=article,[n]=noun,[j]=adj;
-    // Primera posición atributiva: ὁ ἀγαθὸς ἵππος.
-    const first=a+' '+graveInContext(j)+' '+n;
-    // Segunda posición atributiva: ὁ ἵππος ὁ ἀγαθός.
-    const second=a+' '+graveInContext(n)+' '+a+' '+j;
-    output.push({id:cas+':'+number,case:cas,number,
-      acceptedForms:unique([first,second])});
+    const [a]=article,[j]=adj;
+    // Una variante nominal atestiguada (p. ej. ν eufónica) es válida
+    // en ambas posiciones atributivas; ninguna se usa como distractor.
+    const acceptedForms=unique(noun.flatMap(n=>[
+      a+' '+graveInContext(j)+' '+n,
+      a+' '+graveInContext(n)+' '+a+' '+j
+    ]));
+    output.push({id:cas+':'+number,case:cas,number,acceptedForms});
   }
   return output;
 }
