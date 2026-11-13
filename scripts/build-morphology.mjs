@@ -299,7 +299,7 @@ export function compileMorphology(curriculum,sha,{latinNounsHtml,latinIndicative
   assert.equal(new Set(records.map(r=>r.id)).size,records.length,'IDs duplicados');
   for(const r of records)assert.ok(r.forms.length>=6,r.id);
   return {schema:'schola-morphology-source/v1',appendixSha:sha,
-    coverage:{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]},records};
+    coverage:{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10]},records};
 }
 export async function buildMorphology({out,lock}){
   const path=join(source,'assets/curriculum.json');
