@@ -1747,19 +1747,6 @@
       "notes": null
     },
     {
-      "latin": "serpĕntem",
-      "form": "serp",
-      "lexicalStatus": "documentat",
-      "reference": {
-        "authority": "DCVB",
-        "url": "https://dcvb.iec.cat/results.asp?word=serp",
-        "scope": "lema_i_etimologia",
-        "verification": "consulta_directa_de_articulo",
-        "date": "2026-11-13"
-      },
-      "notes": "El DCVB da SERP de latín serp(e), no directamente serpĕntem: requiere explicación de base contraída/otra flexión y revisión del étimo exacto."
-    },
-    {
       "latin": "stabĭlem",
       "form": "estable",
       "lexicalStatus": "documentat",
@@ -2492,6 +2479,13 @@
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
+    },
+    {
+      "latin": "serpĕntem",
+      "form": "serp",
+      "lexicalStatus": "proposta",
+      "reference": null,
+      "notes": "El DCVB atribuye serp a latín serpe, no al acusativo serpĕntem del banco. No promover hasta justificar la relación histórica y morfológica."
     }
   ]
 }
