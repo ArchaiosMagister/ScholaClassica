@@ -1,0 +1,17 @@
+name: Comprobación aislada del primer factor docente
+on:
+  push:
+    branches: [integracion/docente-smoke-quick-20261113]
+permissions:
+  contents: read
+jobs:
+  comprobar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar rechazo remoto sin contraseñas reales
+        run: node scripts/check-docente-login-remote.mjs
