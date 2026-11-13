@@ -31,6 +31,19 @@ try{
  assert.equal(result.status(),200);
  assert.equal(await page.locator('#subject').inputValue(),'griego');
  assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
+ // La concordancia griega solo aparece al superar la UD4.
+ assert.equal(await page.locator('#activity option[value="agreement"]').isDisabled(),true);
+ await page.locator('#unit').selectOption('5');
+ assert.equal(await page.locator('#activity option[value="agreement"]').isDisabled(),false);
+ await page.locator('#activity').selectOption('agreement');
+ assert.equal(await page.locator('#kind').inputValue(),'adjetivo');
+ await page.locator('#start').click();
+ assert.equal(await page.locator('#answers button').count(),4);
+ assert.match(await page.locator('#question-title').textContent(),/concuerda con/);
+ await page.locator('#answers button').first().click();
+ assert.ok((await page.locator('#feedback').textContent()).includes('Solución:'));
+ await page.locator('#new').click();
+ await page.locator('#activity').selectOption('form');
  await page.locator('#unit').selectOption('3');
  await page.locator('#kind').selectOption('artículo');
  await page.locator('#activity').selectOption('analysis');
@@ -65,6 +78,13 @@ try{
  await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
  assert.equal(await page.locator('#subject').inputValue(),'latin');
  assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
+ assert.equal(await page.locator('#activity option[value="agreement"]').isDisabled(),true);
+ await page.locator('#unit').selectOption('5');
+ await page.locator('#kind').selectOption('adjetivo');
+ await page.locator('#activity').selectOption('analysis');
+ await page.locator('#start').click();
+ assert.equal(await page.locator('#answers button').count(),4);
+ await page.locator('#new').click();
  await page.locator('#unit').selectOption('4');
  await page.locator('#kind').selectOption('sustantivo');
  await page.locator('#activity').selectOption('analysis');
@@ -78,7 +98,7 @@ try{
  assert.deepEqual(found.latin,[1,2,3,4,5]);assert.deepEqual(found.greek,[1,2,3,4,5]);
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
- console.log('OK: pasiva UD3, tercera declinación UD4, griego UD3 y caché offline propia en GitHub Pages');
+ console.log('OK: perfectos UD4, adjetivos UD5, concordancia griega y caché offline propia en GitHub Pages');
 }finally{
  if(browser)await browser.close();
  await new Promise(done=>server.close(done));
