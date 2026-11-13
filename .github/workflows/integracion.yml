@@ -81,6 +81,8 @@ jobs:
         run: npm run test:browser
       - name: Probar despliegue en la subruta real de GitHub Pages
         run: npm run test:browser:pages
+      - name: Probar morfología curricular, corrección y caché offline
+        run: npm run test:browser:morfologia
       - name: Probar Vocabula integrado en Chromium con servicio simulado
         run: npm run test:browser:vocabula
       - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado

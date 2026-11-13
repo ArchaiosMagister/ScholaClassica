@@ -111,3 +111,9 @@ La portada permite **Automático, Claro, Oscuro y OLED**. Se guarda únicamente 
 **Palabra del día** queda enlazada, no integrada físicamente: los accesos a 1.º de Bachillerato y 4.º de ESO abren sus páginas originales en pestaña nueva. El itinerario ofrece las direcciones correspondientes a Latín 4.º ESO, Latín I y Griego I, sin compartir códigos, votos, sesiones o PWA.
 
 Un workflow independiente (`.github/workflows/avisos-fuentes.yml`) compara semanalmente los commits de Appendix, Evolutio y Vocabula integrados con sus ramas `main`. Si existen cambios, crea o actualiza **un único aviso** en las incidencias de ScholaClassica, sin copiar versiones nuevas ni publicar. Cuando los SHAs vuelven a coincidir, cierra el aviso automatizado. GeneradorExamenes y Palabra del día no se sincronizan por este mecanismo.
+
+## Práctica de morfología por cursos y unidades
+
+ScholaClassica incorpora un **módulo independiente** en `/apps/morfologia/`, construido a partir de tablas de la revisión **fijada** de Appendix grammaticae. La primera cobertura comprende **Latín I, UD1–UD2**, y **Griego I, UD1–UD3**; se ofrecen elección de formas y análisis morfológico con múltiples análisis admitidos cuando existe sincretismo. El banco se genera con procedencia curricular comprobable, no mediante generación libre de formas.
+
+Las preguntas son formativas, sin cuentas ni almacenamiento de resultados. La PWA de morfología dispone de su propia caché `schola-morphology-`, que nunca borra las cachés de otras aplicaciones. Véase [Morfología curricular](docs/MORFOLOGIA_CURRICULAR.md). Las voces, tiempos y unidades aún no incluidos **no** se presentan como verificados. No se modifica Vocabula ni GeneradorExamenes.
