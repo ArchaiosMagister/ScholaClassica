@@ -115,7 +115,7 @@ test('Las modificaciones de las tablas fuentes no se importan en silencio',()=>{
   broken.griego.units.find(u=>u.number===5).topics
     .find(t=>t.title==='Adjetivos 2–1–2 y 2–2').html=
     broken.griego.units.find(u=>u.number===5).topics.find(t=>t.title==='Adjetivos 2–1–2 y 2–2')
-      .html.replace('Tipo 1 · tabla 100','Tabla sin evidencia');
+      .html.replace('<caption>Tipo 1 · tabla 100</caption>','<caption>Tabla sin evidencia</caption>');
   assert.throws(()=>compileAdditionalMorphology({curriculum:broken,latinIndicativeHtml,latinAdjectivesHtml}),
     /Tabla curricular no encontrada/);
 });
