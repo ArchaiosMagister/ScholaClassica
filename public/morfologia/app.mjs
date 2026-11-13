@@ -1,6 +1,7 @@
 import {validateBank,makeQuestions,evaluate,COURSE_LABELS,availableRecords} from './engine.mjs';
 import {makeWrittenQuestions,makeTableExercises,correctWritten,evaluateTable} from './written.mjs';
 import {makePhraseQuestions,makePhraseTables} from './sintagmas.mjs';
+import {makeGreekNounPhraseQuestions,makeGreekNounPhraseTables} from './greek-noun-phrases.mjs';
 import {mountGreekKeyboard} from './greek-keyboard.mjs';
 import {readReview,writeReview,emptyReview,applyReview,reviewCounts,reviewKey} from './review.mjs';
 
@@ -45,6 +46,13 @@ function updateActivities(){
     if(item){item.hidden=!canPhrases;item.disabled=!canPhrases}
   }
   if(!canPhrases&&input.activity.value.startsWith('phrase-'))input.activity.value='written';
+  const canNominal=input.subject.value==='griego'&&Number(input.unit.value)>=5;
+  for(const mode of ['noun-phrase-written','noun-phrase-table']){
+    const item=input.activity.querySelector('option[value="'+mode+'"]');
+    if(item){item.hidden=!canNominal;item.disabled=!canNominal}
+  }
+  if(!canNominal&&input.activity.value.startsWith('noun-phrase-'))
+    input.activity.value='written';
   updateKinds();
 }
 function updateKinds(){
@@ -53,7 +61,8 @@ function updateKinds(){
   const records=availableRecords(bank,{language,unit});
   const agreement=input.activity.value==='agreement';
   const table=input.activity.value==='table';
-  const phrase=input.activity.value.startsWith('phrase-');
+  const phrase=input.activity.value.startsWith('phrase-')||
+    input.activity.value.startsWith('noun-phrase-');
   const tableKinds=['sustantivo','adjetivo','desinencia','artículo'];
   const kinds=phrase?['sintagma']:agreement?['adjetivo']:
     [...new Set(records.filter(r=>!table||tableKinds.includes(r.kind)).map(r=>r.kind))];
@@ -84,19 +93,28 @@ function setFeedback(text,type=''){
   feedback.textContent=text;
 }
 function showSource(q){
-  const source=$('source'),e=q.evidence;
-  source.hidden=false;
-  source.textContent='Consultar Appendix · '+COURSE_LABELS[q.language]+
-    ' · UD'+e.unit+' · '+e.topic;
-  source.href='../gramatica/curso.html?lengua='+
-    (q.language==='latin'?'latin':'griego')+'&curso=1&unidad='+e.unit;
-  const second=$('source-secondary'),other=q.sources?.find(item=>
-    item.unit!==e.unit||item.topic!==e.topic);
-  second.hidden=!other;
-  if(other){
-    second.textContent='Consultar también Appendix · UD'+other.unit+' · '+other.topic;
-    second.href='../gramatica/curso.html?lengua='+
-      (q.language==='latin'?'latin':'griego')+'&curso=1&unidad='+other.unit;
+  const targets=[$('source'),$('source-secondary'),$('source-tertiary')];
+  for(const target of targets)target.hidden=true;
+  const sources=[q.evidence,...(q.sources||[])].filter(Boolean);
+  const distinct=new Set();
+  let next=0;
+  for(const evidence of sources){
+    const key=[evidence.source,evidence.file,evidence.unit,evidence.topic].join('|');
+    if(distinct.has(key))continue;
+    distinct.add(key);
+    const target=targets[next++];
+    if(!target)break;
+    target.hidden=false;
+    if(evidence.source.includes('UniMorph')){
+      target.textContent='Paradigma nominal · Vocabula/UniMorph · '+
+        (evidence.vocabulaGroup||'Griego I');
+      target.href='../vocabulario/index.html';
+    }else{
+      target.textContent='Consultar Appendix · '+COURSE_LABELS[q.language]+
+        ' · UD'+evidence.unit+' · '+evidence.topic;
+      target.href='../gramatica/curso.html?lengua='+
+        (q.language==='latin'?'latin':'griego')+'&curso=1&unidad='+evidence.unit;
+    }
   }
 }
 function completeQuestion(q){
@@ -158,6 +176,7 @@ function showQuestion(){
   $('answers').replaceChildren();
   $('feedback').hidden=true;$('next').hidden=true;
   $('source').hidden=true;$('source-secondary').hidden=true;
+  $('source-tertiary').hidden=true;
   if(q.activity==='written'){
     answer.disabled=false;answer.value='';answer.lang=q.language==='griego'?'grc':'la';
     $('check-written').disabled=false;
@@ -249,7 +268,11 @@ function start(){
     kind:input.kind.value,activity:input.activity.value,limit:10,
     reviewMode:input.review.value,reviewState};
   try{
-    questions=input.activity.value==='phrase-written'?makePhraseQuestions(bank,options):
+    questions=input.activity.value==='noun-phrase-written'?
+      makeGreekNounPhraseQuestions(bank,options):
+      input.activity.value==='noun-phrase-table'?
+      makeGreekNounPhraseTables(bank,options):
+      input.activity.value==='phrase-written'?makePhraseQuestions(bank,options):
       input.activity.value==='phrase-table'?makePhraseTables(bank,options):
       input.activity.value==='written'?makeWrittenQuestions(bank,options):
       input.activity.value==='table'?makeTableExercises(bank,options):makeQuestions(bank,options);
