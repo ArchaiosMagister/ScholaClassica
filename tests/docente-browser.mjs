@@ -18,9 +18,9 @@ const server=createServer(async(req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 let browser;
-const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',username:'MagisterArchaios'};
-const install=async(page,allow=true)=>{
-  await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(config)}));
+const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',username:'MagisterArchaios',setupOnly:false};
+const install=async(page,allow=true,setupOnly=false)=>{
+  await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...config,setupOnly})}));
   await page.addInitScript((allow)=>{
     const mock={session:false,aal:'aal1',factor:false,allow};
     window.__teacherMock=mock;
@@ -159,5 +159,24 @@ try{
   await denied.locator('#enroll-form button').click();
   await denied.locator('#unavailable').waitFor({state:'visible'});
   assert.equal(await denied.locator('.notice').count(),0,'Denegación del servidor impide datos');
+  // Alta inicial: aunque se verifique TOTP, nunca consulta avisos ni datos.
+  const initial=await browser.newPage();
+  await install(initial,true,true);
+  await initial.goto(base+'/docente/index.html',{waitUntil:'networkidle'});
+  await initial.locator('#login').waitFor({state:'visible'});
+  await initial.locator('#username').fill('MagisterArchaios');
+  await initial.locator('#password').fill('clave-correcta');
+  await initial.locator('#login-form button').click();
+  await initial.locator('#enroll').waitFor({state:'visible'});
+  await initial.locator('#enroll-start').click();
+  await initial.locator('#enroll-code').fill('123456');
+  await initial.locator('#enroll-form button').click();
+  await initial.locator('#ready').waitFor({state:'visible'});
+  assert.equal(await initial.locator('#teacher').isVisible(),false);
+  assert.equal(await initial.evaluate(()=>window.__teacherMock.inboxCalls||0),0);
+  assert.equal(await initial.evaluate(()=>window.__teacherMock.vocabCalls||0),0);
+  await initial.locator('#logout').click();
+  await initial.locator('#login').waitFor({state:'visible'});
+  assert.equal(await initial.locator('#username').inputValue(),'');
   console.log('Zona docente: bloqueo, segundo factor, autorización y render seguro OK');
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve))}
