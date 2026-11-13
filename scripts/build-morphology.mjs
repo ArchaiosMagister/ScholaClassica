@@ -348,6 +348,15 @@ export async function buildMorphology({out,lock}){
     JSON.stringify({schema:'schola-noun-inventory/v1',sourceSha:lock.sources.vocabula.sha,
       counts:{greek:bulk.audit,latin:latin.audit},
       catalog:[...bulk.catalog,...latin.catalog]},null,2)+'\n');
+  // Los paradigmas con fuente completa pero sin programación docente
+  // permanecen fuera de la PWA y fuera del motor de calificación.
+  await writeFile(join(auditDir,'paradigmas-preparados-sin-unidad.json'),
+    JSON.stringify({schema:'schola-noun-staging/v1',
+      sourceSha:lock.sources.vocabula.sha,license:'CC BY-SA 3.0',
+      attribution:'UniMorph + datos docentes de Vocabula',
+      notForGrading:true,
+      counts:{greek:bulk.staged.length,latin4:latin.staged.length},
+      greek:bulk.staged,latin4:latin.staged},null,2)+'\n');
   const examsSource=resolve(process.env.EXAMENES_SOURCE||join(root,'.sources/examenes'));
   const examinedSha=execFileSync('git',['-C',examsSource,'rev-parse','HEAD'],
     {encoding:'utf8'}).trim();
@@ -365,5 +374,6 @@ export async function buildMorphology({out,lock}){
   console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
     (8+bulk.records.length)+' sustantivos griegos y '+latin.records.length+
     ' latinos añadidos; pendientes griego '+bulk.review.length+
-    ', latín '+latin.review.length);
+    ', latín '+latin.review.length+'; preparados sin unidad: griego '+
+    bulk.staged.length+', Latín 4.º '+latin.staged.length);
 }
