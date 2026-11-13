@@ -10,6 +10,7 @@ import {compileGreekNounExpansion} from './greek-noun-bulk.mjs';
 import {compileLatinNounExpansion,readLatinNounSource} from './latin-noun-bulk.mjs';
 import {readNounSecondaryEvidence,crosscheckNounInventory} from './noun-secondary-evidence.mjs';
 import {triageNounCandidates} from './nominal-pending-triage.mjs';
+import {readFullUnimorphNouns} from './unimorph-full-source.mjs';
 import {execFileSync} from 'node:child_process';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -310,6 +311,10 @@ export async function buildMorphology({out,lock}){
      latinAdjectivesHtml:await readFile(join(source,'adjetivos.html'),'utf8')});
   const vocabulaSource=resolve(process.env.VOCABULA_SOURCE||join(root,'.sources/vocabula'));
   const sourceData=await readGreekNounSource(vocabulaSource);
+  const fullSource=await readFullUnimorphNouns({
+    vocabulaData:sourceData.vocabulaData,lock,root
+  });
+  console.log('Fuente nominal completa fijada: '+JSON.stringify(fullSource.audit));
   const greekNouns=compileGreekNounBatch({
     curriculum:JSON.parse(await readFile(path,'utf8')),
     ...sourceData,vocabulaSha:lock.sources.vocabula.sha
@@ -337,6 +342,9 @@ export async function buildMorphology({out,lock}){
   // fuera de dist para no publicar como válidas formas todavía sin contraste.
   const auditDir=join(root,'build/morfologia');
   await mkdir(auditDir,{recursive:true});
+  await writeFile(join(auditDir,'auditoria-unimorph-original.json'),
+    JSON.stringify({schema:'schola-unimorph-full-audit/v1',
+      ...fullSource.audit},null,2)+'\n');
   await writeFile(join(auditDir,'auditoria-sustantivos-griegos.json'),
     JSON.stringify({schema:'schola-nouns-bulk-audit/v2',...bulk.audit,
       imported:bulk.records.map(r=>({id:r.id,unit:r.unit,
