@@ -20,7 +20,7 @@
 <main id="main" class="container">
   <section class="docente-heading">
     <p class="eyebrow">Espacio privado</p><h1>Zona docente</h1>
-    <p>Acceso con contraseña y verificación en dos pasos. Los avisos se consultarán en sus aplicaciones de origen.</p>
+    <p>Acceso con contraseña y verificación en dos pasos. Bandeja central de avisos de las aplicaciones de ScholaClassica y de Palabra del día, que permanece independiente.</p>
   </section>
   <div id="status" role="status" aria-live="polite">Preparando acceso seguro…</div>
   <section class="access-card" id="unavailable" hidden aria-labelledby="unavailable-title">
@@ -34,11 +34,10 @@
       <input id="username" name="username" autocomplete="username" spellcheck="false" autocapitalize="none" required>
       <label for="password">Contraseña</label>
       <input id="password" name="password" type="password" autocomplete="current-password" required>
-      <div id="turnstile-widget" aria-label="Comprobación de seguridad contra accesos automatizados"></div>
-      <p class="hint">Completa la comprobación de seguridad antes de entrar.</p>
+      <p class="hint">La contraseña se verifica en Supabase. Después se solicitará el código temporal de segundo factor.</p>
       <button type="submit" class="primary">Continuar</button>
     </form>
-    <p class="hint">Las credenciales se comprueban en Supabase Auth. No se permite el registro público.</p>
+    <p class="hint">No se permite el registro público. No compartas tu contraseña ni tus códigos de verificación.</p>
   </section>
   <section class="access-card" id="enroll" hidden aria-labelledby="enroll-title">
     <h2 id="enroll-title">Activar verificación en dos pasos</h2>
