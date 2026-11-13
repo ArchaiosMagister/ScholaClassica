@@ -38,8 +38,9 @@ test('el login mantiene el correo en servidor y no necesita servicios externos',
   const build=readFileSync(join(root,'scripts/build-docente.mjs'),'utf8');
   const toml=readFileSync(join(root,'supabase/config.toml'),'utf8');
   assert.ok(server.includes("env('SCHOLA_AUTH_LOGIN_EMAIL')"));
-  assert.match(server,/SCHOLA_AUTH_LOGIN_READY/);
-  assert.ok(server.indexOf('loginReady=env')<server.indexOf('auth.auth.signInWithPassword'));
+  assert.ok(server.includes("env('SCHOLA_TEACHER_USER_ID')"));
+  assert.doesNotMatch(server,/SCHOLA_AUTH_LOGIN_READY/);
+  assert.match(server,/authorizedInitialSession\(login\.data\?\.user,login\.data\?\.session,userId\)/);
   assert.doesNotMatch(server,/captchaToken|turnstileToken/);
   assert.ok(server.includes("env('SCHOLA_AUTH_LOGIN_EMAIL')"));
   assert.ok(!client.includes('turnstile/v0/api.js'));
