@@ -1,4 +1,4 @@
-name: Validar integración sin publicar
+name: Validar y publicar ScholaClassica en GitHub Pages
 on:
   push:
     branches: [main, 'integracion/**']
@@ -71,12 +71,16 @@ jobs:
         run: npm run audit:docente:cloudflare
       - name: Comprobar copia exacta, enlaces y aislamiento de herramientas docentes
         run: npm test
+      - name: Auditoría de seguridad antes de publicar
+        run: npm run audit:publicacion
       - name: Preparar Chromium para prueba de navegación
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
           npx playwright install --with-deps chromium
       - name: Probar navegación, PWA offline y aislamiento de cachés en Chromium
         run: npm run test:browser
+      - name: Probar despliegue en la subruta real de GitHub Pages
+        run: npm run test:browser:pages
       - name: Probar Vocabula integrado en Chromium con servicio simulado
         run: npm run test:browser:vocabula
       - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
@@ -94,3 +98,28 @@ jobs:
           path: dist/
           if-no-files-found: error
           retention-days: 7
+
+      - name: Preparar artefacto GitHub Pages solo en main
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/
+
+  publicar:
+    name: Publicar ScholaClassica (solo tras validación en main)
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validar
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Comprobar que GitHub Pages está activado
+        uses: actions/configure-pages@v5
+      - name: Publicar únicamente el artefacto validado
+        id: deployment
+        uses: actions/deploy-pages@v4
