@@ -9,6 +9,7 @@ import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliati
 import {compileGreekNounExpansion} from './greek-noun-bulk.mjs';
 import {compileLatinNounExpansion,readLatinNounSource} from './latin-noun-bulk.mjs';
 import {readNounSecondaryEvidence,crosscheckNounInventory} from './noun-secondary-evidence.mjs';
+import {triageNounCandidates} from './nominal-pending-triage.mjs';
 import {execFileSync} from 'node:child_process';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -357,6 +358,11 @@ export async function buildMorphology({out,lock}){
       notForGrading:true,
       counts:{greek:bulk.staged.length,latin4:latin.staged.length},
       greek:bulk.staged,latin4:latin.staged},null,2)+'\n');
+  const triage=triageNounCandidates([...bulk.catalog,...latin.catalog]);
+  await writeFile(join(auditDir,'candidaturas-triaje-filologico.json'),
+    JSON.stringify(triage,null,2)+'\n');
+  console.log('Triaje filológico: '+triage.total+' candidaturas; '+
+    JSON.stringify(triage.counts));
   const examsSource=resolve(process.env.EXAMENES_SOURCE||join(root,'.sources/examenes'));
   const examinedSha=execFileSync('git',['-C',examsSource,'rev-parse','HEAD'],
     {encoding:'utf8'}).trim();
