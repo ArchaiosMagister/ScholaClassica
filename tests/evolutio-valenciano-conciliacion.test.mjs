@@ -53,7 +53,7 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
 test('Estados editoriales honestos: 221 documentados léxicamente, 20 propuestas, 281 sin propuesta',()=>{
  assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:221,propuestas:20,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:132,casosConDiscrepancia:3,contrastesHistoricosPendientes:86,derivacionesDirectasDescartadas:4});
+  analisisEditoriales:132,casosConDiscrepancia:0,contrastesHistoricosPendientes:89,derivacionesDirectasDescartadas:4});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -118,8 +118,8 @@ test('132 análisis editoriales y 89 reservas sin fichas publicables',()=>{
  const good=matrix.records.filter(w=>['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(w.valenciano.estadoNormas));
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
  assert.equal(good.length,132);
- assert.equal(disputed.length,3);
- assert.equal(matrix.records.filter(w=>w.valenciano.estadoNormas==='contrast_historic_pendent').length,86);
+ assert.equal(disputed.length,0);
+ assert.equal(matrix.records.filter(w=>w.valenciano.estadoNormas==='contrast_historic_pendent').length,89);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
   const letters=[...w.latin];
@@ -382,4 +382,31 @@ test('26 nuevas correspondencias editoriales quedan registradas sin aprobación 
   assert.ok(check);
   assert.equal(row.valenciano.normas.filter(x=>x.rule!=='FIX_M').length,check.changes.length);
  }
+});
+
+test('Les tres decisions docents tancades són persistents i no habiliten cap correcció automàtica',()=>{
+ const expected={
+  octo:'reserva_fonetica',
+  dictum:'reserva_fonetica',
+  'sigĭllum':'estudi_historic_no_avaluable'
+ };
+ assert.equal(revision.pending.filter(x=>x.status==='criteri_pendent').length,0);
+ for(const [latin,studyMode] of Object.entries(expected)){
+  const entry=revision.pending.find(x=>x.latin===latin);
+  const v=record(latin).valenciano;
+  assert.equal(entry.status,'contrast_historic_pendent');
+  assert.deepEqual(entry.changes,[]);
+  assert.equal(entry.teacherDecision.studyMode,studyMode);
+  assert.equal(entry.teacherDecision.approval,'accepted');
+  assert.deepEqual(v.criterioDocente,entry.teacherDecision);
+  assert.equal(v.modalidadEstudio,studyMode);
+  assert.equal(v.estadoNormas,'contrast_historic_pendent');
+  assert.equal(v.normas,null);
+  assert.equal(v.aprobadoDocente,false);
+  assert.equal(v.aptoParaPractica,false);
+  assert.notEqual(v.dnvIndividualChecked,true);
+ }
+ const invalid=structuredClone(revision);
+ invalid.pending.find(x=>x.latin==='sigĭllum').teacherDecision.studyMode='practica_avaluable';
+ assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,invalid),/Decisió docent de reserva no autoritzada/);
 });
