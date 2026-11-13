@@ -16,7 +16,7 @@
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 98,
+    "analisisEditoriales": 132,
     "casosConDiscrepancia": 0,
     "derivacionesDirectasDescartadas": 4
   },
@@ -36,9 +36,32 @@
       "valenciano": {
         "resultado": "oca",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                0,
+                2
+              ]
+            ],
+            "note": "Monoftongació del diftong llatí au en o."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "aucam → oca: Monoftongació del diftong llatí au en o. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -51,7 +74,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2234,9 +2258,65 @@
       "valenciano": {
         "resultado": "lleny",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+          },
+          {
+            "id": "va3",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+          },
+          {
+            "id": "va4",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+          },
+          {
+            "id": "va5",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "lignum → lleny: Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2249,7 +2329,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "LLENY 1 'embarcación' es el sentido documentado desde lignum 'madera', con evolución semántica; no asumir uso cotidiano con significado de 'leño'."
+        "notas": "LLENY 1 'embarcación' es el sentido documentado desde lignum 'madera', con evolución semántica; no asumir uso cotidiano con significado de 'leño'.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2522,9 +2603,54 @@
       "valenciano": {
         "resultado": "cegar",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+          },
+          {
+            "id": "va3",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+          },
+          {
+            "id": "va4",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "cæcare → cegar: Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2537,7 +2663,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2555,9 +2682,54 @@
       "valenciano": {
         "resultado": "cec",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Monoftongació de æ, palatalització de c- inicial i apòcope de -u."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Monoftongació de æ, palatalització de c- inicial i apòcope de -u."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Monoftongació de æ, palatalització de c- inicial i apòcope de -u."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "cæcum → cec: Monoftongació de æ, palatalització de c- inicial i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2570,7 +2742,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2850,9 +3023,32 @@
       "valenciano": {
         "resultado": "corda",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "GRIE",
+            "spans": [
+              [
+                0,
+                2
+              ]
+            ],
+            "note": "Adaptació de la grafia grega ch- a c- en llatí/romanç."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "chŏrdam → corda: Adaptació de la grafia grega ch- a c- en llatí/romanç. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2865,7 +3061,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2883,9 +3080,21 @@
       "valenciano": {
         "resultado": "clamar",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "clamare → clamar: Apòcope de -e final de l'infinitiu. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2898,7 +3107,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4830,9 +5040,32 @@
       "valenciano": {
         "resultado": "nomenar",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -e final."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -e final."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "nominare → nomenar: Obertura de ĭ en e i apòcope de -e final. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4845,7 +5078,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Nomenar documentado con nomĭnāre; la forma anomenar es usual en numerosas acepciones modernas."
+        "notas": "Nomenar documentado con nomĭnāre; la forma anomenar es usual en numerosas acepciones modernas.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4920,9 +5154,43 @@
       "valenciano": {
         "resultado": "sabor",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de p intervocàlica > b i apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Sonorització de p intervocàlica > b i apòcope de -e."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "saporem → sabor: Sonorització de p intervocàlica > b i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4935,7 +5203,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4953,9 +5222,21 @@
       "valenciano": {
         "resultado": "sempre",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "METAT",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Metàtesi de la r final de la seqüència -er > -re."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "semper → sempre: Metàtesi de la r final de la seqüència -er > -re. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4968,7 +5249,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5231,9 +5513,43 @@
       "valenciano": {
         "resultado": "gota",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica > o i simplificació de -tt-."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Obertura de ŭ tònica > o i simplificació de -tt-."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "guttam → gota: Obertura de ŭ tònica > o i simplificació de -tt-. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -5246,7 +5562,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5264,9 +5581,43 @@
       "valenciano": {
         "resultado": "pèl",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Evolució de ĭ tònica a e oberta i apòcope de -u."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Evolució de ĭ tònica a e oberta i apòcope de -u."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "pilum → pèl: Evolució de ĭ tònica a e oberta i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -5279,7 +5630,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "PÈL sustantivo 'pelo', no PEL contracción de per + el."
+        "notas": "PÈL sustantivo 'pelo', no PEL contracción de per + el.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5297,9 +5649,43 @@
       "valenciano": {
         "resultado": "podar",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "putare → podar: Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -5312,7 +5698,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5330,9 +5717,54 @@
       "valenciano": {
         "resultado": "sec",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "siccum → sec: Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -5345,7 +5777,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Sec de sĭccu en acepción adjetival, no homógrafo acentuado séc."
+        "notas": "Sec de sĭccu en acepción adjetival, no homógrafo acentuado séc.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6803,9 +7236,32 @@
       "valenciano": {
         "resultado": "grunyir",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Palatalització de -nn- en -ny- i apòcope de -e final."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Palatalització de -nn- en -ny- i apòcope de -e final."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "grunnire → grunyir: Palatalització de -nn- en -ny- i apòcope de -e final. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -6818,7 +7274,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7028,9 +7485,32 @@
       "valenciano": {
         "resultado": "negra",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Evolució de ĭ breu tònica en e."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "nigram → negra: Evolució de ĭ breu tònica en e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -7043,7 +7523,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Forma femenina NEGRA de NEGRE, NEGRA, relacionada con latín nĭgru; gramática del étimo del adjetivo."
+        "notas": "Forma femenina NEGRA de NEGRE, NEGRA, relacionada con latín nĭgru; gramática del étimo del adjetivo.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7174,9 +7655,43 @@
       "valenciano": {
         "resultado": "penya",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Evolució de ĭ en e i palatalització de -nn- en -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Evolució de ĭ en e i palatalització de -nn- en -ny-."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "pinnam → penya: Evolució de ĭ en e i palatalització de -nn- en -ny-. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -7189,7 +7704,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Penya 'peña' del latín pĭnna con significado histórico de almena; evitar confundir acepciones."
+        "notas": "Penya 'peña' del latín pĭnna con significado histórico de almena; evitar confundir acepciones.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7555,9 +8071,32 @@
       "valenciano": {
         "resultado": "regla",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SINC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Síncope de ŭ postònica."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "regŭlam → regla: Síncope de ŭ postònica. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -7570,7 +8109,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7613,9 +8153,32 @@
       "valenciano": {
         "resultado": "sageta",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Obertura de ĭ en e i simplificació de la geminada -tt-."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                4,
+                6
+              ]
+            ],
+            "note": "Obertura de ĭ en e i simplificació de la geminada -tt-."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "sagitta → sageta: Obertura de ĭ en e i simplificació de la geminada -tt-. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -7628,7 +8191,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7814,9 +8378,32 @@
       "valenciano": {
         "resultado": "senya",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ en e i palatalització del grup -gn-."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Obertura de ĭ en e i palatalització del grup -gn-."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "signa → senya: Obertura de ĭ en e i palatalització del grup -gn-. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -7829,7 +8416,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "SENYA 1 'señal', no SENYA 2 'sénia'."
+        "notas": "SENYA 1 'señal', no SENYA 2 'sénia'.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8237,9 +8825,43 @@
       "valenciano": {
         "resultado": "pegar",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "picare → pegar: Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -8252,7 +8874,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "PEGAR en el sentido 'adherir' del latín pĭcare; verificar otros significados antes de usar."
+        "notas": "PEGAR en el sentido 'adherir' del latín pĭcare; verificar otros significados antes de usar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8430,9 +9053,54 @@
       "valenciano": {
         "resultado": "verd",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final."
+          },
+          {
+            "id": "va2",
+            "rule": "SINC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "uiridem → verd: Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -8445,7 +9113,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8627,9 +9296,9 @@
       "valenciano": {
         "resultado": "fel",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "fel → fel: No s'exigix cap de les lleis seleccionables; forma lèxica conservada. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -8642,7 +9311,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "FEL 1 'bilis' del latín fĕl; no FEL adjetivo remisor a feel."
+        "notas": "FEL 1 'bilis' del latín fĕl; no FEL adjetivo remisor a feel.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8963,9 +9633,43 @@
       "valenciano": {
         "resultado": "peu",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "VOC",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Vocalització de d intervocàlica en u i apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Vocalització de d intervocàlica en u i apòcope de -e."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "pedem → peu: Vocalització de d intervocàlica en u i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -8978,7 +9682,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -9315,9 +10020,43 @@
       "valenciano": {
         "resultado": "dany",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització del grup -mn- en -ny- i apòcope de -u."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Palatalització del grup -mn- en -ny- i apòcope de -u."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "damnum → dany: Palatalització del grup -mn- en -ny- i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -9330,7 +10069,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "DANY 1 'daño' del latín damnum; separar homógrafo antiguo de otra acepción."
+        "notas": "DANY 1 'daño' del latín damnum; separar homógrafo antiguo de otra acepción.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11320,9 +12060,43 @@
       "valenciano": {
         "resultado": "ortiga",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Obertura de ŭ en o i sonorització intervocàlica de c > g."
+          },
+          {
+            "id": "va2",
+            "rule": "SONOR",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Obertura de ŭ en o i sonorització intervocàlica de c > g."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "urticam → ortiga: Obertura de ŭ en o i sonorització intervocàlica de c > g. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -11335,7 +12109,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "ORTIGA 1 botánica, del latín urtica; pronunciación valenciana /ortiga/ recogida."
+        "notas": "ORTIGA 1 botánica, del latín urtica; pronunciación valenciana /ortiga/ recogida.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12019,9 +12794,32 @@
       "valenciano": {
         "resultado": "córrer",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica a o i apòcope final de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Obertura de ŭ tònica a o i apòcope final de -e."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "currere → córrer: Obertura de ŭ tònica a o i apòcope final de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12034,7 +12832,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12135,9 +12934,32 @@
       "valenciano": {
         "resultado": "governar",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ en o i apòcope de -e; el debilitament de b intervocàlica > v s'explica sense llei seleccionable."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                8,
+                9
+              ]
+            ],
+            "note": "Obertura de ŭ en o i apòcope de -e; el debilitament de b intervocàlica > v s'explica sense llei seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "gubernare → governar: Obertura de ŭ en o i apòcope de -e; el debilitament de b intervocàlica > v s'explica sense llei seleccionable. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12150,7 +12972,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12251,9 +13074,54 @@
       "valenciano": {
         "resultado": "enemic",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Obertura de dues ĭ àtones en e i apòcope de -u."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Obertura de dues ĭ àtones en e i apòcope de -u."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Obertura de dues ĭ àtones en e i apòcope de -u."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "inimicum → enemic: Obertura de dues ĭ àtones en e i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12266,7 +13134,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12284,9 +13153,32 @@
       "valenciano": {
         "resultado": "entrar",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Obertura de ĭ inicial en e i apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Obertura de ĭ inicial en e i apòcope de -e."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "intrare → entrar: Obertura de ĭ inicial en e i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12299,7 +13191,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12317,9 +13210,43 @@
       "valenciano": {
         "resultado": "llengua",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de l- inicial i obertura de ĭ en e."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Palatalització de l- inicial i obertura de ĭ en e."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "linguam → llengua: Palatalització de l- inicial i obertura de ĭ en e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12332,7 +13259,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12375,9 +13303,43 @@
       "valenciano": {
         "resultado": "menor",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -e."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "minorem → menor: Obertura de ĭ en e i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12390,7 +13352,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12408,9 +13371,43 @@
       "valenciano": {
         "resultado": "menut",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -u."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -u."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "minutum → menut: Obertura de ĭ en e i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12423,7 +13420,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12728,9 +13726,43 @@
       "valenciano": {
         "resultado": "temor",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Obertura de ĭ en e i apòcope de -e."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "timorem → temor: Obertura de ĭ en e i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12743,7 +13775,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -12786,9 +13819,32 @@
       "valenciano": {
         "resultado": "torre",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o; -rr- es conserva en la grafia."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "turrem → torre: Obertura de ŭ tònica en o; -rr- es conserva en la grafia. La -m final, si n'hi ha, és fixa i no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -12801,7 +13857,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
