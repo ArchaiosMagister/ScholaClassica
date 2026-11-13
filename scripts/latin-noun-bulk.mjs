@@ -107,6 +107,10 @@ function fullParadigm(lemma,entry,rows){
   const genitives=[...byTag.get('N;GEN;SG')];
   if(!genitives.some(f=>norm(f).endsWith(entry.ending)))
     throw Error('El genitivo de UniMorph contradice el vocabulario');
+  // Un mismo lema puede ser homónimo de otra declinación. Cantus, -us,
+  // por ejemplo, no permite mezclar casillas de una hipotética forma en -i.
+  if(genitives.some(f=>!norm(f).endsWith(entry.ending)))
+    throw Error('Genitivos divergentes: paradigmas homónimos no mezclables');
   const gen=genitives.find(f=>norm(f).endsWith(entry.ending));
   const forms=[];
   for(const [tag,features] of TAGS){
@@ -176,14 +180,16 @@ export function compileLatinNounExpansion({
       // La unidad es acumulativa y se toma la primera aparición acreditada.
       const units=[...new Set(variations.flatMap(x=>x.units||[])
         .map(x=>Number(x.match(UNIT)?.[1])).filter(Boolean))];
-      const unit=Math.min(...units);
-      if(unit>7)throw Error('Unidad superior a UD7: pendiente de extensión curricular');
+      const firstUnit=Math.min(...units);
+      if(firstUnit>7)throw Error('Unidad superior a UD7: pendiente de extensión curricular');
       const sourceRows=index.get(norm(parsing.lemma))||[];
       if(!sourceRows.length)throw Error('Sin paradigma nominal en UniMorph latino fijado');
       const {forms,genitive}=fullParadigm(parsing.lemma,parsing,sourceRows);
       const decl=declension(parsing.lemma,genitive);
       if(!decl)throw Error('Declinación no clasificada sin ambigüedad');
-      if(decl.unit>unit)throw Error('Declinación aún no explicada en su unidad');
+      // Si el sustantivo aparece en una oración antes de estudiar su
+      // declinación, la práctica completa se habilita después, no se excluye.
+      const unit=Math.max(firstUnit,decl.unit);
       checkCurriculum(curriculum,decl);
       const g=genre(entry,parsing.lemma,decl);
       // La evidencia de género por inferencia queda marcada separadamente;
