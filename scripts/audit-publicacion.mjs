@@ -22,6 +22,20 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
 }
 assert.deepEqual(JSON.parse(read('docente/auth-config.json')),{enabled:false},
   'El portal público no puede contener autenticación docente activada');
+const spanishPilot=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
+const originalPilot=JSON.parse(readFileSync(
+  join(root,'.sources/evolutio/data/pilot.json'),'utf8'));
+assert.equal(spanishPilot.words.length,522);
+assert.deepEqual(spanishPilot,originalPilot,
+  'La copia pública de Evolutio no debe incorporar leyes ni soluciones valencianas no acreditadas');
+for(const privatePath of [
+  'shared/academic/evolutio-valenciano',
+  'apps/evolucion-fonetica/data/matriz-522.json',
+  'apps/evolucion-fonetica/data/valenciano.json'
+]){
+  assert.equal(existsSync(join(out,privatePath)),false,
+    'Las reservas fonéticas valencianas no deben publicarse: '+privatePath);
+}
 for(const prohibited of ['dist-docente','build','apps/examenes','supabase/functions']){
   assert.equal(existsSync(join(out,prohibited)),false,
     'No publicar recursos internos ni el generador: '+prohibited);
