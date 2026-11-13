@@ -53,7 +53,16 @@ export function applyGreekMark(input,mark){
   if(['\u0313','\u0314'].includes(mark))components=components.replace(breathingGroup,'');
   // Nunca duplicar la marca al pulsarla dos veces.
   components=components.replace(mark,'');
-  const next=(components+mark).normalize('NFC');
+  // Los signos griegos de clase canónica equivalente deben ordenarse:
+  // primero espíritu, luego diéresis, después acento, al final iota suscrita.
+  // NFC no reordena automáticamente espíritu y agudo cuando se pulsan al revés.
+  const decomposed=(components+mark).normalize('NFD');
+  const basis=Array.from(decomposed)[0];
+  const order=new Map([['\u0313',0],['\u0314',0],['\u0308',1],
+    ['\u0300',2],['\u0301',2],['\u0342',2],['\u0345',3]]);
+  const signs=Array.from(decomposed.slice(basis.length))
+    .sort((a,b)=>(order.get(a)??4)-(order.get(b)??4));
+  const next=(basis+signs.join('')).normalize('NFC');
   return changeText(input,position-previous.length,position,next);
 }
 export function backspaceGreek(input){
