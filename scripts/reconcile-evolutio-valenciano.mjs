@@ -15,7 +15,7 @@ const itemKey=w=>String(w).normalize('NFC');
 export function applyEvolutioValencianoRevision(records,revision,knownRules){
  if(revision?.schema!=='schola-evolutio-va-analysis/v1')throw Error('Revisión fonética inválida.');
  const byLatin=new Map(records.map(w=>[w.latin,w]));
- const audited=new Set(),states=new Set(['analisi_proposada_revisada','criteri_pendent']);
+ const audited=new Set(),states=new Set(['analisi_proposada_revisada','criteri_pendent','contrast_historic_pendent']);
  for(const entry of [...revision.analyses,...revision.pending]){
   if(audited.has(entry.latin))throw Error('Revisión duplicada: '+entry.latin);
   audited.add(entry.latin);
@@ -26,9 +26,10 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
   if(!states.has(entry.status)||entry.playable!==false||entry.teacherApproved!==false
      ||entry.dnvIndividualChecked!==false)
    throw Error('Revisión no aprobada marcada como practicable: '+entry.latin);
-  if(entry.status==='criteri_pendent'){
-   if(!entry.reason||entry.changes?.length)throw Error('Discrepancia sin fundamento: '+entry.latin);
-   record.valenciano.estadoNormas='discrepancia_documentada';
+  if(entry.status==='criteri_pendent'||entry.status==='contrast_historic_pendent'){
+   if(!entry.reason||entry.changes?.length)throw Error('Reserva històrica sense fonament: '+entry.latin);
+   record.valenciano.estadoNormas=entry.status==='criteri_pendent'
+    ?'discrepancia_documentada':'contrast_historic_pendent';
    record.valenciano.notas=[record.valenciano.notas,entry.reason].filter(Boolean).join(' ');
    continue;
   }
@@ -92,7 +93,8 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
    throw Error('Etimologia documentada sense revisió individual alterada: '+w.latin);
  }
  return {analisisEditoriales:revision.analyses.length,
-  casosConDiscrepancia:revision.pending.length};
+  casosConDiscrepancia:revision.pending.filter(x=>x.status==='criteri_pendent').length,
+  contrastesHistoricosPendientes:revision.pending.filter(x=>x.status==='contrast_historic_pendent').length};
 }
 
 export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revision=null){
