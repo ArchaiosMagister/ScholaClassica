@@ -104,7 +104,7 @@ async function fetchNotices(){
       },
       body:'{}'
     }).then(async response=>{
-      if(!response.ok)throw Error('Fuente no disponible');
+      if(!response.ok){const failure=Error('Fuente no disponible');failure.status=response.status;throw failure;}
       return response.json();
     })
   ]);
@@ -112,6 +112,14 @@ async function fetchNotices(){
   sourceState={vocabula:'unavailable',palabra:'unavailable'};
   const vocab=results[0].status==='fulfilled'?results[0].value:null;
   const vocabData=vocab&&!vocab.error?vocab.data:null;
+  const remoteStatus=results[1].status==='rejected'?results[1].reason?.status:null;
+  const vocabStatus=vocab?.error?.context?.status;
+  if(vocabData?.authorized===false||[401,403].includes(vocabStatus)||
+      [401,403].includes(remoteStatus)){
+    await client.auth.signOut({scope:'local'});
+    state('unavailable','Acceso docente no autorizado por el servidor');
+    return;
+  }
   if(vocabData?.authorized&&vocabData?.source==='vocabula'&&Array.isArray(vocabData.items)){
     sourceState.vocabula='ok';
     loadedNotices.push(...vocabData.items.filter(item=>item?.source==='vocabula').slice(0,100));
