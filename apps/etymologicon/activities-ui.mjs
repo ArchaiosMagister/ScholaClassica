@@ -5,7 +5,7 @@ import {recordCardReview,recordMatchingRound} from './progress.mjs';
  * Presentación independiente de las dos actividades de repaso.
  * No genera relaciones nuevas y no modifica el corrector de escritura.
  */
-export function createStudyController({catalog,etymons,commitProgress}){
+export function createStudyController({catalog,etymons,commitProgress,onRevealMeaning=()=>{}}){
   const bank=createStudyBank(catalog);
   const $=id=>document.getElementById(id);
   const el={
@@ -43,7 +43,8 @@ export function createStudyController({catalog,etymons,commitProgress}){
     if(!currentCard)return;
     el.reveal.hidden=true;
     el.back.hidden=false;
-    el.remembered.focus();
+    onRevealMeaning();
+    // El significado destacado recibe el foco antes de continuar con la autoevaluación.
   });
   function rateCard(remembered){
     if(!currentCard||cardRecorded||el.back.hidden)return;
@@ -109,6 +110,13 @@ export function createStudyController({catalog,etymons,commitProgress}){
       if(button.dataset.id===id){
         button.disabled=true;button.classList.add('matched');
         button.setAttribute('aria-pressed','false');
+        const entry=etymons.find(e=>e.id===id);
+        if(entry?.meaning){
+          const meaning=document.createElement('small');
+          meaning.className='matched-meaning';
+          meaning.textContent='«'+entry.meaning+'»';
+          button.append(meaning);
+        }
       }
     }
     for(const button of spanish){

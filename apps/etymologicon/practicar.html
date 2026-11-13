@@ -121,7 +121,10 @@
             <p id="unit-summary" class="unit-summary"></p>
           </div>
           <h2 id="exercise-title" class="greek-word" lang="grc"></h2>
-          <p id="meaning" class="meaning"></p>
+          <div id="meaning-card" class="meaning-reveal" tabindex="-1" hidden>
+            <p class="meaning-label">Significado del étimo</p>
+            <p id="meaning" class="meaning"></p>
+          </div>
           <p class="instruction" id="exercise-instruction">Escribe dos derivados castellanos diferentes. Cada respuesta vale 1 punto como máximo.</p>
 
 
@@ -165,6 +168,10 @@
             <h3 id="inverse-title">Identifica el étimo griego</h3>
             <p class="study-note">Escribe el étimo del que procede este derivado castellano. Puedes escribir con letras latinas o directamente en griego.</p>
             <p class="inverse-spanish" id="inverse-word" lang="es"></p>
+            <div id="inverse-meaning-card" class="meaning-reveal" tabindex="-1" hidden>
+              <p class="meaning-label">Significado de la palabra castellana</p>
+              <p id="inverse-meaning" class="meaning"></p>
+            </div>
             <form id="inverse-form" novalidate>
               <div class="field">
                 <label for="inverse-answer">Étimo griego o transliteración latina</label>
@@ -177,7 +184,8 @@
               <details class="virtual-keyboard">
                 <summary>Teclado griego virtual</summary>
                 <div id="greek-keyboard" class="greek-keyboard" role="group" aria-label="Teclado griego"></div>
-                <p class="field-help">Los caracteres se insertan en la casilla. También puedes usar el teclado físico o escribir en caracteres latinos.</p>
+                <p class="field-help">Mientras el teclado griego esté abierto, en móviles se ocultará el teclado del dispositivo para dejar visibles la respuesta y las letras.</p>
+                <button type="button" class="secondary-button native-keyboard-button">Usar teclado del móvil</button>
               </details>
               <div class="actions">
                 <button type="submit" id="inverse-submit" class="primary-button">Comprobar étimo</button>
@@ -192,6 +200,10 @@
             <p class="eyebrow">Componentes griegos · piloto contrastado</p>
             <h3 id="decomposition-title">Descompón esta palabra castellana</h3>
             <p class="inverse-spanish" id="decomposition-word" lang="es"></p>
+            <div id="decomposition-meaning-card" class="meaning-reveal" tabindex="-1" hidden>
+              <p class="meaning-label">Significado de la palabra castellana</p>
+              <p id="decomposition-meaning" class="meaning"></p>
+            </div>
             <p class="study-note">Identifica por orden las dos bases griegas. Puedes escribir en griego, sin acentos ni espíritus, o emplear los caracteres latinos. Se distinguen los lemas y los elementos compositivos.</p>
             <form id="decomposition-form" novalidate>
               <div class="answer-grid">
@@ -212,6 +224,7 @@
                 <summary>Teclado griego virtual</summary>
                 <p class="field-help">Selecciona la casilla en la que quieras escribir antes de tocar una letra.</p>
                 <div id="decomposition-keyboard" class="greek-keyboard" role="group" aria-label="Teclado griego para descomposición"></div>
+                <button type="button" class="secondary-button native-keyboard-button">Usar teclado del móvil</button>
               </details>
               <div class="actions">
                 <button class="primary-button" type="submit">Corregir descomposición</button>
@@ -221,7 +234,6 @@
             <div id="decomposition-results" class="decomposition-results" aria-live="polite" hidden>
               <p id="decomposition-score" class="matching-score" tabindex="-1"></p>
               <ol id="decomposition-answers" class="result-items"></ol>
-              <p id="decomposition-meaning" class="study-note"></p>
               <p id="decomposition-route" class="study-note"></p>
               <a id="decomposition-source" target="_blank" rel="noopener noreferrer">Consultar el artículo del DLE (RAE-ASALE)</a>
             </div>

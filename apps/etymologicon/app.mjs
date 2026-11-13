@@ -13,6 +13,7 @@ const ui={
   random:$('random-button'),theme:$('theme-select'),poolSize:$('pool-size'),
   loadState:$('load-state'),error:$('load-error'),retry:$('retry-button'),
   content:$('exercise-content'),lemma:$('exercise-title'),meaning:$('meaning'),
+  meaningCard:$('meaning-card'),
   unitSummary:$('unit-summary'),form:$('answer-form'),first:$('answer-1'),
   second:$('answer-2'),clear:$('clear-button'),results:$('results'),
   instruction:$('exercise-instruction'),head:$('etymon-head'),empty:$('practice-empty'),
@@ -64,7 +65,12 @@ ui.theme.addEventListener('change',()=>{
   try{localStorage.setItem(themeKey,ui.theme.value);}catch{/* Modo privado: continuar sin persistencia */ }
 });
 
+function revealGreekMeaning(){
+  if(currentEtymon()&&ui.meaning.textContent.trim())
+    {ui.meaningCard.hidden=false;ui.meaningCard.focus();}
+}
 function hideResults(){
+  ui.meaningCard.hidden=true;
   graded=false;
   ui.results.hidden=true;
   ui.items.replaceChildren();
@@ -89,7 +95,7 @@ function renderEtymon(){
   ui.empty.hidden=matching||decomposition||Boolean(item);
   ui.head.hidden=matching||inverse||decomposition||!item;
   ui.lemma.hidden=matching||inverse||decomposition||!item;
-  ui.meaning.hidden=matching||inverse||decomposition||kind==='cards'||!item;
+  ui.meaningCard.hidden=true;
   ui.form.hidden=kind!=='writing'||!item;
   ui.instruction.hidden=matching||kind!=='writing'||!item;
   ui.random.textContent=matching?'Otra ronda':kind==='cards'?'Otra tarjeta':
@@ -245,7 +251,9 @@ function displayResult(result){
   ui.items.replaceChildren(...result.answers.map(drawAnswer));
   ui.total.textContent=fmt.format(result.total)+' / '+fmt.format(result.maximum)+' puntos';
   ui.results.hidden=false;
-  ui.total.focus();
+  // Refuerzo semántico tras reconocer al menos una respuesta (incluye 0,5 por falta).
+  if(result.total>0)revealGreekMeaning();
+  if(result.total===0)ui.total.focus();
 }
 ui.form.addEventListener('submit',event=>{
   event.preventDefault();
@@ -291,11 +299,19 @@ async function loadCatalog(){
   ui.etymon.disabled=true;
   ui.random.disabled=true;
   try{
-    const [response,secondary]=await Promise.all([
-      fetch('./data/gr1.json'),fetch('./data/gr1-decomposition.json')
+    const [response,secondary,lexiconResponse]=await Promise.all([
+      fetch('./data/gr1.json'),fetch('./data/gr1-decomposition.json'),
+      fetch('./data/gr1-study.json')
     ]);
-    if(!response.ok||!secondary.ok)throw new Error('No se han cargado ambos bancos académicos');
-    const [data,decompositionData]=await Promise.all([response.json(),secondary.json()]);
+    if(!response.ok||!secondary.ok||!lexiconResponse.ok)
+      throw new Error('No se han cargado los bancos académicos y el glosario');
+    const [data,decompositionData,lexicon]=await Promise.all([
+      response.json(),secondary.json(),lexiconResponse.json()
+    ]);
+    if(lexicon.schema!=='etymologicon-study-catalog/v1'||lexicon.course!=='gr1'||
+       !Array.isArray(lexicon.words)||lexicon.words.length!==487)
+      throw new Error('Glosario de significados no verificado');
+    const meaningByDerivative=new Map(lexicon.words.map(w=>[w.id,w.definition]));
     const corrector=createWriteTwoCorrector(data);
     const accepted=data.etymons.filter(e=>corrector.isEligible(e.id));
     if(accepted.length!==108)throw new Error('Se esperaba el banco auditado de 108 étimos elegibles');
@@ -303,7 +319,8 @@ async function loadCatalog(){
     engine=corrector;
     eligible=accepted;
     studyController=createStudyController({
-      catalog:data,etymons:accepted,commitProgress:update=>{
+      catalog:data,etymons:accepted,onRevealMeaning:revealGreekMeaning,
+      commitProgress:update=>{
         progress=update(progress);
         const saved=storageLocked
           ?{saved:false,warning:'No se han sobrescrito los datos dañados. Exporta una copia de tu sesión antes de restablecerlos.'}
@@ -323,7 +340,8 @@ async function loadCatalog(){
       }
     });
     quizController=createQuizController({
-      catalog:data,etymons:accepted,commitProgress:update=>{
+      catalog:data,etymons:accepted,onRevealMeaning:revealGreekMeaning,
+      lookupDefinition:id=>meaningByDerivative.get(id)||'',commitProgress:update=>{
         progress=update(progress);
         const saved=storageLocked
           ?{saved:false,warning:'No se han sobrescrito los datos dañados. Exporta una copia de tu sesión antes de restablecerlos.'}
