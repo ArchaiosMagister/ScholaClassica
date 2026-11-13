@@ -17,8 +17,8 @@
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
     "analisisEditoriales": 132,
-    "casosConDiscrepancia": 3,
-    "contrastesHistoricosPendientes": 86,
+    "casosConDiscrepancia": 0,
+    "contrastesHistoricosPendientes": 89,
     "derivacionesDirectasDescartadas": 4
   },
   "records": [
@@ -4826,7 +4826,7 @@
         "resultado": "huit",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "discrepancia_documentada",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4840,7 +4840,15 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "HUIT forma dialectal valenciana de VUIT, documentada en el mismo artículo; ŏcto corresponde al numeral. huit com a variant valenciana de vuit — El resultat valencià huit requereix documentar les etapes dialectals i no simplificar una variant com a única cadena."
+        "notas": "HUIT forma dialectal valenciana de VUIT, documentada en el mismo artículo; ŏcto corresponde al numeral. Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual.",
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "studyMode": "reserva_fonetica",
+          "decision": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual."
+        },
+        "modalidadEstudio": "reserva_fonetica"
       }
     },
     {
@@ -6282,7 +6290,7 @@
         "resultado": "dit",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "discrepancia_documentada",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6296,7 +6304,15 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "El DCVB remite a una fase vulgar *dīctu por analogía verbal: no atribuir directamente una cadena regular desde dĭctu sin mediación. dit i base vulgar *dīctu — El DCVB explica analogia vocàlica; la base de les lleis no és sense matisos el clàssic dĭctu."
+        "notas": "El DCVB remite a una fase vulgar *dīctu por analogía verbal: no atribuir directamente una cadena regular desde dĭctu sin mediación. Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova.",
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "studyMode": "reserva_fonetica",
+          "decision": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova."
+        },
+        "modalidadEstudio": "reserva_fonetica"
       }
     },
     {
@@ -8347,7 +8363,7 @@
         "resultado": "segell",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "discrepancia_documentada",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8361,7 +8377,15 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "El DCVB indica que segell es un arcaísmo reintroducido en la lengua culta; documentar étimo, pero no presentar automáticamente como desarrollo patrimonial productivo. segell i la reintroducció culta — L'ús modern i l'evolució medieval requereixen distinguir transmissió històrica i recuperació."
+        "notas": "El DCVB indica que segell es un arcaísmo reintroducido en la lengua culta; documentar étimo, pero no presentar automáticamente como desarrollo patrimonial productivo. Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles.",
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "studyMode": "estudi_historic_no_avaluable",
+          "decision": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles."
+        },
+        "modalidadEstudio": "estudi_historic_no_avaluable"
       }
     },
     {
