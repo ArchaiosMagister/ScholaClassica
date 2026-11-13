@@ -46,3 +46,26 @@ test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(matrix.summary.aptasParaPractica,0);
  assert.equal(matrix.summary.normasVerificadas,0);
 });
+
+test('Los 63 procesos parciales conservan intervalos válidos y referencia histórica',()=>{
+ const documented=new Set(matrix.records.filter(x=>x.valenciano.estadoLexico==='documentat').map(x=>x.id));
+ let total=0,words=0;
+ for(const x of audit.records){
+  assert.ok(documented.has(x.id));
+  const processes=x.procesosContrastados||[];
+  if(processes.length)words++;
+  for(const p of processes){
+   total++;
+   assert.ok(allowed.has(p.rule));
+   const [start,end]=p.span;
+   assert.equal([...x.latin].slice(start,end).join(''),p.originalSegment,x.latin);
+   assert.equal(p.verificationLevel,'regla_historica_general_con_etimo_lexico_documentado');
+   assert.equal(p.completePhoneticAnalysis,false);
+   assert.match(p.evidence.historicalOverview,/enciclopedia\.cat/);
+   assert.match(p.evidence.lexicalDCVB,/dcvb\.iec\.cat/);
+  }
+ }
+ assert.equal(total,63);
+ assert.equal(words,58);
+ assert.equal(audit.summary.analisisIntegralesVerificados,0);
+});
