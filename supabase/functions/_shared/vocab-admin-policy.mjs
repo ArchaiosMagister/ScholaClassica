@@ -30,7 +30,7 @@ export function validateWordInput(body){
       !LAT2_CATEGORIES.has(providedUnits[0])))return null;
   const units=body.subject==='lat2'?providedUnits:
     [...new Set(providedUnits.map(unit=>{
-      const number=/^UD\\s*(\\d{1,2})$/i.exec(unit);
+      const number=/^UD\s*(\d{1,2})$/i.exec(unit);
       return number?'UD '+Number(number[1]):unit;
     }))];
   if(typeof body.in_exam!=='boolean'||typeof body.active!=='boolean')return null;
