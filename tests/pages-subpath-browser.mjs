@@ -60,7 +60,7 @@ try{
    'rgb(0, 0, 0)','El OLED debe estar disponible sin conexión en GitHub Pages');
  await page.context().setOffline(false);
  await page.locator('#study-course').selectOption('gr1');
- assert.equal(await page.locator('.path-links a').count(),4);
+ assert.equal(await page.locator('.path-links a').count(),5);
  await page.locator('.path-links a[data-study-tool="etymologicon"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/index\.html$/);
  await page.waitForFunction(async()=>{

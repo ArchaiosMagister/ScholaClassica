@@ -11,6 +11,8 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
   'icons/icon.svg','icons/icon-192.png','icons/icon-512.png',
   'apps/gramatica/index.html','apps/vocabulario/index.html',
   'apps/evolucion-fonetica/index.html','apps/etymologicon/index.html',
+  'apps/morfologia/index.html','apps/morfologia/sw.js',
+  'apps/morfologia/data/paradigmas.json',
   'docente/auth-config.json']){
   assert.ok(existsSync(join(out,path)),'Falta recurso de publicación: '+path);
 }
@@ -39,6 +41,11 @@ assert.ok(evolutioWorker.includes("CACHE_PREFIX='schola-evolutio-'"));
 assert.ok(evolutioWorker.includes('url.pathname.startsWith(scope.pathname)'));
 const etymologiconWorker=read('apps/etymologicon/sw.js');
 assert.ok(etymologiconWorker.includes("CACHE_PREFIX='schola-etymologicon-'"));
+const morphology=JSON.parse(read('apps/morfologia/data/paradigmas.json'));
+assert.equal(morphology.schema,'schola-morphology-source/v1');
+assert.ok(morphology.records.length>=20);
+assert.ok(morphology.records.every(r=>r.evidence.status==='paradigma-documentado'));
+assert.ok(read('apps/morfologia/sw.js').includes("CACHE_PREFIX='schola-morphology-'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');
 assert.ok(vocabEndpoint.includes('wpwlguufpkfnzlbyproe.supabase.co'));
 const html=read('index.html');

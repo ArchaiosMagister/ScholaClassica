@@ -57,7 +57,7 @@ try{
   assert.equal(await coursePicker.inputValue(),'','No debe haber asignatura por defecto la primera vez');
   assert.equal(await page.locator('.path-links a').count(),0);
   await coursePicker.selectOption('gr1');
-  assert.equal(await page.locator('.path-links a').count(),4);
+  assert.equal(await page.locator('.path-links a').count(),5);
   assert.ok((await page.locator('.path-links').textContent()).includes('Etymologicon · Griego I'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Palabra del día'));
   await coursePicker.selectOption('gr2');
@@ -67,7 +67,7 @@ try{
   assert.equal(await page.locator('.path-links a').count(),2);
   assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
   await coursePicker.selectOption('lat1');
-  assert.equal(await page.locator('.path-links a').count(),4);
+  assert.equal(await page.locator('.path-links a').count(),5);
   await page.locator('.path-links a[data-study-tool="gramatica"]').click();
   await page.waitForURL(/\/apps\/gramatica\/curso\.html\?lengua=latin/);
   await page.goto(base+'/',{waitUntil:'networkidle'});
