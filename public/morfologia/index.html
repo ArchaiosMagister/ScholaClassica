@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#14283f">
+  <meta name="description" content="Práctica de morfología latina y griega a partir de paradigmas documentados de Appendix grammaticae.">
+  <title>Práctica de morfología · ScholaClassica</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar a los ejercicios</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../" class="brand">Σ ScholaClassica</a>
+    <nav aria-label="Enlaces de estudio"><a href="../../#itinerario">Mis cursos</a><a href="../../apps/gramatica/">Consultar gramática</a></nav>
+  </div>
+</header>
+<main id="main" class="container">
+  <div class="intro">
+    <p class="eyebrow">Primer módulo propio · edición curricular inicial</p>
+    <h1>Práctica de morfología</h1>
+    <p>Reconoce formas y sus análisis en tablas documentadas de gramática latina y griega. Sin formas inventadas, sin registro y sin corrección de respuestas externas.</p>
+  </div>
+  <section class="panel" aria-labelledby="selection-title">
+    <h2 id="selection-title">Preparar una tanda</h2>
+    <div class="fields">
+      <label>Asignatura
+        <select id="subject">
+          <option value="latin">Latín I</option>
+          <option value="griego">Griego I</option>
+        </select>
+      </label>
+      <label>Unidad acumulativa
+        <select id="unit"></select>
+      </label>
+      <label>Ejercicio
+        <select id="activity">
+          <option value="form">Elegir la forma correcta</option>
+          <option value="analysis">Analizar una forma</option>
+        </select>
+      </label>
+      <label>Contenido
+        <select id="kind">
+          <option value="todos">Todas las categorías disponibles</option>
+        </select>
+      </label>
+    </div>
+    <p id="coverage" class="helper" aria-live="polite"></p>
+    <button id="start" type="button">Crear tanda de 10 preguntas</button>
+  </section>
+  <section id="session" class="panel" aria-labelledby="question-title" hidden>
+    <div class="session-head">
+      <p id="counter" class="eyebrow">Pregunta 1 de 10</p>
+      <p id="score" class="score">Aciertos: 0</p>
+    </div>
+    <p id="paradigm" class="paradigm" lang="la"></p>
+    <h2 id="question-title" tabindex="-1">Pregunta</h2>
+    <div id="expression" class="expression" hidden></div>
+    <div id="answers" class="answers" role="group" aria-label="Elige una respuesta"></div>
+    <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+    <a id="source" class="source-link" href="../gramatica/" hidden>Consultar la unidad en Appendix grammaticae</a>
+    <button id="next" type="button" hidden>Siguiente pregunta</button>
+    <button id="new" type="button" class="secondary">Nueva tanda</button>
+  </section>
+  <section id="summary" class="panel" aria-live="polite" hidden>
+    <h2>Resultado de la tanda</h2>
+    <p id="final-score"></p>
+    <p>Esta actividad es un repaso formativo. No almacena notas ni envía respuestas a servidores.</p>
+    <button id="repeat" type="button">Practicar de nuevo</button>
+  </section>
+  <section class="notes" aria-labelledby="scope-title">
+    <h2 id="scope-title">Alcance académico</h2>
+    <p><strong>Latín I:</strong> UD1 (primera y segunda declinación, presente activo y <i>sum</i>) y UD2 (imperfecto activo). <strong>Griego I:</strong> UD1 (segunda declinación masculina y <span lang="grc">εἰμί</span>), UD2 (neutros y presente activo) y UD3 (artículo griego).</p>
+    <p>Los casos sincréticos se muestran con todos sus análisis admitidos. Los paradigmas proceden directamente de las tablas del <em>Appendix grammaticae</em> fijado; eso no implica que otras formas no incluidas estén verificadas. El resto de unidades, los adjetivos y las voces todavía no incluidas quedan pendientes de ampliación.</p>
+    <p id="network-status" role="status" aria-live="polite"></p>
+  </section>
+</main>
+<footer class="footer"><div class="container"><span>ScholaClassica · Banco cerrado de tablas académicas</span><a href="../../">Volver a la portada</a></div></footer>
+</body>
+</html>
