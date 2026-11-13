@@ -266,7 +266,11 @@ ui.clear.addEventListener('click',()=>clearAnswers({focus:true}));
 ui.next.addEventListener('click',nextRandom);
 ui.random.addEventListener('click',nextRandom);
 ui.etymon.addEventListener('change',renderEtymon);
-ui.mode.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
+ui.mode.addEventListener('change',()=>{
+  // Al cambiar a general/errores, el selector debe mostrar el alcance real.
+  if(ui.mode.value!=='unit')ui.unit.value='all';
+  updateEtymonChoices({preserve:false});
+});
 ui.activity.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
 ui.unit.addEventListener('change',()=>{
   // Elegir una UD activa su filtro. «Todas» restaura el repaso general.
