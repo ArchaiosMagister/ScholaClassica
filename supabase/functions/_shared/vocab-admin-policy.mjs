@@ -60,8 +60,10 @@ export function validateWordFilter(body){
 export function validateReportFilter(body){
   if(!body||typeof body!=='object'||Array.isArray(body))return null;
   const status=body.status??'pending';
+  const area=body.area??'all';
+  if(!['all','grammar','vocabula'].includes(area))return null;
   const offset=body.offset??0;
   if(status!==''&&!REPORT_STATUSES.has(status))return null;
   if(!Number.isSafeInteger(offset)||offset<0||offset>100000)return null;
-  return {status,offset,pageSize:PAGE_SIZE};
+  return {status,area,offset,pageSize:PAGE_SIZE};
 }

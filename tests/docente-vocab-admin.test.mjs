@@ -40,7 +40,10 @@ test('Los filtros de búsqueda y paginación no permiten consultas arbitrarias',
   assert.equal(validateWordFilter({subject:'other'}),null);
   assert.equal(validateWordFilter({offset:-1}),null);
   assert.equal(validateWordFilter({offset:1.2}),null);
-  assert.deepEqual(validateReportFilter({}),{status:'pending',offset:0,pageSize:50});
+  assert.deepEqual(validateReportFilter({}),{status:'pending',area:'all',offset:0,pageSize:50});
+  assert.deepEqual(validateReportFilter({area:'grammar'}),{status:'pending',area:'grammar',offset:0,pageSize:50});
+  assert.deepEqual(validateReportFilter({area:'vocabula',status:''}),{status:'',area:'vocabula',offset:0,pageSize:50});
+  assert.equal(validateReportFilter({area:'student'}),null);
   assert.equal(validateReportFilter({status:'evil'}),null);
   assert.equal(validateReportFilter({offset:1.5}),null);
 });
@@ -77,6 +80,8 @@ test('La interfaz nunca interpreta HTML del alumnado y reinicia los datos al cer
   assert.match(client,/Preparar palabra nueva/);
   assert.match(client,/admin-words-prev/);
   assert.match(client,/admin-search-form/);
+  assert.match(client,/showGrammarReports/);
+  assert.match(client,/admin-report-area/);
   assert.match(page,/mountVocabulaAdmin/);
   assert.match(page,/resetVocabulaAdmin/);
   assert.match(html,/id="admin-word-form"/);

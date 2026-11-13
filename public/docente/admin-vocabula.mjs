@@ -220,7 +220,8 @@ function renderReports(){
 }
 async function loadReports(){
   const data=await execute({action:'reports.list',
-    status:el('admin-report-filter').value,offset:reportOffset});
+    status:el('admin-report-filter').value,
+    area:el('admin-report-area').value,offset:reportOffset});
   if(!Array.isArray(data.reports))throw Error('Respuesta incompleta de incidencias');
   reports=data.reports;moreReports=data.more===true;
   renderReports();status('admin-status','Incidencias de Vocabula actualizadas');
@@ -240,6 +241,7 @@ function attach(){
   el('admin-word-form').addEventListener('submit',event=>{event.preventDefault();void guarded(saveWord)});
   el('admin-cancel-word').addEventListener('click',()=>{editingId=null;el('admin-word-form').hidden=true});
   el('admin-report-filter').addEventListener('change',()=>{reportOffset=0;void guarded(loadReports)});
+  el('admin-report-area').addEventListener('change',()=>{reportOffset=0;void guarded(loadReports)});
   el('admin-refresh-reports').addEventListener('click',()=>void guarded(loadReports));
   el('admin-reports-prev').addEventListener('click',()=>{reportOffset=Math.max(0,reportOffset-PAGE);void guarded(loadReports)});
   el('admin-reports-next').addEventListener('click',()=>{if(moreReports){reportOffset+=PAGE;void guarded(loadReports)}});
@@ -248,6 +250,14 @@ export async function mountVocabulaAdmin(settings){
   client=settings.client;refreshNotices=settings.refreshNotices;
   attach();
   if(!el('admin-word-list').hasChildNodes()&&catalog.length===0)await guarded(()=>loadWords(true));
+}
+export function showGrammarReports(){
+  showTab('reports');
+  el('admin-report-area').value='grammar';
+  el('admin-report-filter').value='pending';
+  reportOffset=0;
+  void guarded(loadReports);
+  el('vocab-admin').scrollIntoView({block:'start',behavior:'smooth'});
 }
 export function resetVocabulaAdmin(){
   client=null;words=[];reports=[];moreWords=false;moreReports=false;

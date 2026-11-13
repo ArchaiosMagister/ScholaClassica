@@ -1,0 +1,37 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+const root=resolve(import.meta.dirname,'..');
+const code=path=>readFileSync(resolve(root,path),'utf8');
+test('El área docente conserva ejercicios, soluciones y cobertura sin habilitar HTML inyectado',()=>{
+  const source=code('scripts/build-docente-gramatica.mjs');
+  const ui=code('public/docente/gramatica-auditoria.mjs');
+  const app=code('public/docente/app.mjs');
+  const html=code('public/docente/index.html');
+  assert.match(source,/buildExercises\(\)/);
+  assert.match(source,/morphology-coverage\.json/);
+  assert.match(source,/gramatica-banco\.json/);
+  assert.match(source,/gramatica-cobertura\.json/);
+  assert.match(ui,/renderCoverage/);
+  assert.match(ui,/renderExercises/);
+  assert.match(ui,/openGrammarReports/);
+  assert.match(ui,/resetGrammarAudit/);
+  assert.match(ui,/textContent/);
+  assert.doesNotMatch(ui,/innerHTML|localStorage|sessionStorage/);
+  assert.match(app,/mountGrammarAudit/);
+  assert.match(app,/resetGrammarAudit/);
+  assert.match(html,/id="grammar-audit"/);
+  assert.match(html,/id="grammar-audit-reports"/);
+  assert.match(html,/id="grammar-audit-subject"/);
+});
+test('La revisión de gramática se filtra en servidor sin acceso a sesiones heredadas',()=>{
+  const server=code('supabase/functions/schola-vocab-admin/index.ts');
+  const policy=code('supabase/functions/_shared/vocab-admin-policy.mjs');
+  assert.match(server,/like\('entry_id','grammar:%'\)/);
+  assert.match(server,/not\('entry_id','like','grammar:%'\)/);
+  assert.match(server,/getUser\(match\[1\]\)/);
+  assert.match(server,/getAuthenticatorAssuranceLevel\(match\[1\]\)/);
+  assert.match(policy,/\['all','grammar','vocabula'\]/);
+  assert.doesNotMatch(server,/vocab_sessions|vocab_settings|teacher-code/);
+});

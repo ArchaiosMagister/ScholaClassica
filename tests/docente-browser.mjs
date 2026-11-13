@@ -82,11 +82,18 @@ const install=async(page,allow=true,setupOnly=false)=>{
           mock.savedWords=(mock.savedWords||0)+1;
           return success({saved:true,word:options.body});
         }
-        if(options?.body?.action==='reports.list')return success({reports:[{
-          id:'00000000-0000-4000-8000-000000000222',kind:'translation',
-          subject:'lat1',mode:'general',entry_form:'amo',
-          message:'Hay otra acepción',status:'pending',teacher_note:''
-        }],hasMore:false});
+        if(options?.body?.action==='reports.list'){
+          const vocab={id:'00000000-0000-4000-8000-000000000222',kind:'translation',
+            subject:'lat1',mode:'general',entry_id:'lat1:amo',entry_form:'amo',
+            message:'Hay otra acepción',status:'pending',teacher_note:''};
+          const grammar={id:'00000000-0000-4000-8000-000000000444',kind:'other',
+            subject:'gr1',mode:'general',entry_id:'grammar:example',
+            entry_form:'Gramática · imperfecto',message:'Esta forma debe revisarse',
+            status:'pending',teacher_note:''};
+          const area=options.body.area||'all';
+          return success({reports:area==='grammar'?[grammar]:
+            area==='vocabula'?[vocab]:[vocab,grammar],more:false});
+        }
         if(options?.body?.action==='reports.review'){
           mock.savedReports=(mock.savedReports||0)+1;
           return success({saved:true,report:options.body});
@@ -188,11 +195,23 @@ try{
   await good.waitForFunction(()=>window.__teacherMock.savedWords===1);
   await good.locator('#admin-tab-reports').click();
   await good.locator('#admin-report-list .notice').first().waitFor({state:'visible'});
-  await good.locator('#admin-report-list select').selectOption('resolved');
-  await good.locator('#admin-report-list textarea').fill('Corregido');
+  await good.locator('#admin-report-list .notice').first().locator('select').selectOption('resolved');
+  await good.locator('#admin-report-list .notice').first().locator('textarea').fill('Corregido');
   await good.locator('#admin-report-list .notice button').first().click();
   await good.waitForFunction(()=>window.__teacherMock.savedReports===1);
   assert.equal(await good.locator('#admin-report-list img').count(),0);
+  await good.locator('#grammar-audit-load').click();
+  await good.waitForFunction(()=>document.querySelector('#grammar-coverage-list .notice')!==null);
+  assert.ok((await good.locator('#grammar-coverage-list').textContent()).includes('Latín I'));
+  await good.locator('#grammar-audit-subject').selectOption('lat1');
+  await good.locator('#grammar-audit-search').fill('puella');
+  await good.locator('#grammar-audit-form button[type=submit]').click();
+  await good.waitForFunction(()=>document.querySelectorAll('#grammar-audit-results .notice').length>0);
+  assert.ok((await good.locator('#grammar-audit-results').textContent()).includes('Solución:'));
+  await good.locator('#grammar-audit-reports').click();
+  await good.waitForFunction(()=>document.querySelector('#admin-report-area')?.value==='grammar');
+  await good.waitForFunction(()=>document.querySelector('#admin-report-list .notice')?.textContent?.includes('Gramática'));
+  assert.equal(await good.locator('#admin-report-list .notice').count(),1);
   assert.equal(await good.locator('#totp-secret').inputValue(),'','El secreto se limpia tras el registro');
   await good.locator('#logout').click();
   await good.locator('#login').waitFor({state:'visible'});

@@ -93,10 +93,12 @@ Deno.serve(async request=>{
       const filter=validateReportFilter(body);
       if(!filter)return reply(400,{error:'Filtro no válido'},origin);
       let query=db.from('vocab_reports').select(
-        'id,kind,subject,mode,units,entry_form,message,status,teacher_note,created_at'
+        'id,kind,subject,mode,units,entry_id,entry_form,message,status,teacher_note,created_at'
       ).order('created_at',{ascending:false}).order('id',{ascending:false})
         .range(filter.offset,filter.offset+filter.pageSize);
       if(filter.status)query=query.eq('status',filter.status);
+      if(filter.area==='grammar')query=query.like('entry_id','grammar:%');
+      if(filter.area==='vocabula')query=query.not('entry_id','like','grammar:%');
       const found=await query;
       if(found.error)return reply(502,{error:'No se pudieron cargar las incidencias'},origin);
       const rows=found.data||[];
