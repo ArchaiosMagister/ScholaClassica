@@ -1,17 +1,17 @@
-# Práctica de morfología — primera fase académica
+# Práctica de morfología — ampliación curricular contrastada
 
 ## Objetivo
 
 Crear ejercicios propios de ScholaClassica sin heredar el antiguo repaso morfológico de Vocabula ni incorporar formas no verificadas procedentes de diccionarios externos. **No se modifican** Appendix, Vocabula, Evolutio, Palabra del día ni GeneradorExamenes.
 
-El banco inicial se compila a partir del archivo `assets/curriculum.json` del commit fijado de Appendix (`config/sources.lock.json`). No se generan paradigmas por analogía; el compilador extrae literalmente las formas y las desinencias de tablas identificadas por tema y título. Si desaparece una tabla o cambia su estructura, el build debe **fallar**.
+El banco se compila a partir de `assets/curriculum.json` y del capítulo enlazado `sustantivos.html`, ambos del **mismo commit** fijado de Appendix (`config/sources.lock.json`). No se generan paradigmas por analogía; el compilador extrae literalmente las formas y las desinencias de tablas identificadas por tema y título. Si desaparece una tabla o cambia su estructura, el build debe **fallar**.
 
 ## Cobertura comprobable
 
 | Materia | Unidades habilitadas | Tablas importadas | No incluidos |
 | --- | --- | --- | --- |
-| Latín I | UD1–UD2 | `rosa`, `dominus`, `bellum`; presente activo de las cuatro conjugaciones, mixta y `sum`; imperfecto activo | Pasiva de UD3 y siguientes, tercera declinación, adjetivos |
-| Griego I | UD1–UD3 | Terminaciones de segunda declinación masculina y neutra; presente de `εἰμί` y `λύω`; artículo | Flexión completa de sustantivos no atestiguados, primera declinación con sus variantes, formas posteriores |
+| Latín I | UD1–UD4 | `rosa`, `dominus`, `bellum`; presentes e imperfectos activos y `sum`; UD3 pasiva presente e imperfecta en cinco conjugaciones y sus desinencias; UD4 `dux`, `civis`, `flumen`, `mare` | Perfectos, adjetivos, conjugaciones o declinaciones posteriores |
+| Griego I | UD1–UD3 | Terminaciones de segunda declinación masculina y neutra; presente de `εἰμί` y `λύω`; artículo; cinco modelos de desinencias de primera declinación (femenino alfa puro, eta y mixto; masculino alfa y eta) | Flexión completa de sustantivos no atestiguados, adjetivos y unidades posteriores |
 
 Los sustantivos latinos se muestran con formas completas cuando el Appendix ofrece paradigmas completos. Cuando el Appendix solo ofrece **desinencias** griegas, se practican únicamente esas desinencias: no se reconstruyen sustantivos enteros.
 
@@ -41,3 +41,14 @@ El módulo tiene service worker y caché propios (`schola-morphology-`) con alca
 Las pruebas incluyen recompilación desde el currículo fijado, comprobación de unidades, rechazo de niveles aún no disponibles, corrección de casos sincréticos, rutas reales de GitHub Pages, comprobación en Chromium de las dos modalidades y lectura del banco sin conexión.
 
 **Fase siguiente recomendada:** ampliar Latín I a UD3 (pasiva y personales), Latín I a UD4 (tercera declinación y sistema de perfecto) y Griego I a UD3 (primera declinación con variantes y concordancia del artículo). Cada ampliación requerirá datos inequívocos y controles específicos de sincretismo, acentuación y orden del artículo, antes de habilitar sus ejercicios.
+
+
+## Ampliación: criterio de evidencia y variantes
+
+La **UD3 latina** incorpora diez paradigmas completos de presente e imperfecto pasivos para `amo`, `habeo`, `duco`, `audio` y `capio`, más las desinencias pasivas de la tabla, que explicitan `-ris / -re` en segunda singular. No se inventan formas compuestas con `-re` que no figuren completas en la tabla. `sum` no posee formas pasivas en este bloque.
+
+La **UD4 latina** lee literalmente la tabla «Tercera declinación · cuatro paradigmas» del archivo `sustantivos.html` en el mismo checkout de Appendix. El compilador exige la remisión desde la UD4, las seis filas de casos y las cuatro parejas singular/plural. Comprueba explícitamente `ducum`, `civium`, `fluminum`, `marium`, `maria` y el ablativo `mari`. Las alternativas `cives / civis` del acusativo plural se convierten en dos formas **igualmente válidas**, nunca en un único texto con barra. El motor agrupa estas alternativas por análisis y excluye todas las respuestas válidas de los distractores.
+
+La **UD3 griega** se desglosa en cinco modelos independientes de la primera declinación. El compilador exige la tabla «Primera declinación · tabla 98» y comprueba sus quince celdas de desinencias antes de asociar las variantes de singular descritas en la explicación de la unidad. Solo se practican **desinencias**, no paradigmas completos construidos por analogía; el femenino mixto conserva alfa en nominativo y acusativo, pero eta en genitivo y dativo. Los plurales se toman expresamente de la columna común de esa tabla.
+
+Cada registro lleva unidad, capítulo, título de la tabla, SHA del Appendix y una nota editorial cuando corresponde. La ampliación mantiene la selección acumulativa: UD3 pasiva no aparece al elegir UD2, ni los modelos latinos de UD4 al elegir UD3. Las pruebas automáticas comparan el banco con una recompilación directa de las fuentes y comprueban los cuatro paradigmas de tercera declinación, las cinco variantes griegas, la sincretía y el funcionamiento sin conexión en la subruta GitHub Pages.
