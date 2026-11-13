@@ -17,7 +17,8 @@
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
     "analisisEditoriales": 132,
-    "casosConDiscrepancia": 0,
+    "casosConDiscrepancia": 6,
+    "contrastesHistoricosPendientes": 83,
     "derivacionesDirectasDescartadas": 4
   },
   "records": [
@@ -94,7 +95,7 @@
         "resultado": "caure",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -108,7 +109,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "La etapa que conduce a caure supone una evolución consonántica interna; distinguir vocalización de pérdida de consonante."
       }
     },
     {
@@ -333,7 +334,7 @@
         "resultado": "comte",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -347,7 +348,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Síncope postónica y evolución consonántica de la secuencia -mit-; comparar la pronunciación valenciana histórica de comte."
       }
     },
     {
@@ -366,7 +367,7 @@
         "resultado": "creu",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -380,7 +381,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "El DCVB registra la fase medieval crou antes de creu; identificar etapas de vocalización y variación vocálica sin etiquetar directamente el étimo."
       }
     },
     {
@@ -664,7 +665,7 @@
         "resultado": "germà",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -678,7 +679,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -697,7 +698,7 @@
         "resultado": "home",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -711,7 +712,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -730,7 +731,7 @@
         "resultado": "jurar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -744,7 +745,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Jurar: la grafía j representa evolución de consonante inicial; se requiere fuente histórica y posición."
       }
     },
     {
@@ -840,7 +841,7 @@
         "resultado": "major",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -854,7 +855,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -873,7 +874,7 @@
         "resultado": "maig",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -887,7 +888,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Maig: diptongación/palatalización final con base vulgar; requiere etapas."
       }
     },
     {
@@ -1309,7 +1310,7 @@
         "resultado": "raig",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -1323,7 +1324,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Raig: evolución del grupo -di- y del cierre final; verificar fonema y resultados."
       }
     },
     {
@@ -1495,7 +1496,7 @@
         "resultado": "espai",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -1509,7 +1510,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Espai: desaparición de consonantes del grupo -ti- tras prótesis; contrastar etapas."
       }
     },
     {
@@ -1636,7 +1637,7 @@
         "resultado": "veta",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -1650,7 +1651,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Veta: además de cambio vocálico, distinguir -tt- y el timbre de la primera vocal."
       }
     },
     {
@@ -1865,7 +1866,7 @@
         "resultado": "escola",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -1879,7 +1880,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable. Comprobar además grafías grecolatinas o diptongos."
       }
     },
     {
@@ -1898,7 +1899,7 @@
         "resultado": "marbre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -1912,7 +1913,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Marbre: metátesis y síncopa de grupo r/m; debe confirmarse etapa intermedia."
       }
     },
     {
@@ -1931,7 +1932,7 @@
         "resultado": "roure",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -1945,7 +1946,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Roure 'roble' del latín rōbŏre; distinguir del verbo homógrafo roure 'roer' procedente de rōdĕre."
+        "notas": "Roure 'roble' del latín rōbŏre; distinguir del verbo homógrafo roure 'roer' procedente de rōdĕre. Roure: desarrollo consonántico complejo de b intervocálica; no atribuir una ley no autorizada."
       }
     },
     {
@@ -1989,7 +1990,7 @@
         "resultado": "tronar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2003,7 +2004,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "El DCVB señala una r añadida por influencia de tro: tonare → tronar no es un cambio fonético regular directo."
+        "notas": "El DCVB señala una r añadida por influencia de tro: tonare → tronar no es un cambio fonético regular directo. r influïda per tro — La r deriva d'influència lèxica documentada, no d'inserció fonètica regular."
       }
     },
     {
@@ -2077,7 +2078,7 @@
         "resultado": "crosta",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2091,7 +2092,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Variación histórica del timbre de la vocal tónica; comprobar la influencia analógica reseñada en DCVB."
+        "notas": "Variación histórica del timbre de la vocal tónica; comprobar la influencia analógica reseñada en DCVB. Variación histórica del timbre de la vocal tónica; comprobar la influencia analógica reseñada en DCVB."
       }
     },
     {
@@ -2160,7 +2161,7 @@
         "resultado": "tresor",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2174,7 +2175,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Tresor: tratamiento de la aspirada griega th-, inserción de r y vocalismo; comprobar transmisión culta."
       }
     },
     {
@@ -2424,7 +2425,7 @@
         "resultado": "ase",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2438,7 +2439,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -2457,7 +2458,7 @@
         "resultado": "orella",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2471,7 +2472,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -2901,7 +2902,7 @@
         "resultado": "cabre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2915,7 +2916,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. Verificar las alteraciones de la terminación del infinitivo."
       }
     },
     {
@@ -2934,7 +2935,7 @@
         "resultado": "cabell",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2948,7 +2949,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -3193,7 +3194,7 @@
         "resultado": "comprar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -3207,7 +3208,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "El DCVB remite a la variante latina vulgar compĕrāre de comparare; conservar la mediación."
+        "notas": "El DCVB remite a la variante latina vulgar compĕrāre de comparare; conservar la mediación. El DCVB remite a la variante latina vulgar compĕrāre de comparare; conservar la mediación."
       }
     },
     {
@@ -3226,7 +3227,7 @@
         "resultado": "consell",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -3240,7 +3241,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -3285,7 +3286,7 @@
         "resultado": "conill",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -3299,7 +3300,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -3476,7 +3477,7 @@
         "resultado": "dragó",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -3490,7 +3491,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "DRAGÓ I animal mitológico o lagarto, del latín dracōne; separar otras acepciones zoológicas."
+        "notas": "DRAGÓ I animal mitológico o lagarto, del latín dracōne; separar otras acepciones zoológicas. DRAGÓ I animal mitológico o lagarto, del latín dracōne; separar otras acepciones zoológicas."
       }
     },
     {
@@ -4174,7 +4175,7 @@
         "resultado": "illa",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4188,7 +4189,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "La forma patrimonial illa se diferencia de isla, que refleja influencia castellana."
+        "notas": "La forma patrimonial illa se diferencia de isla, que refleja influencia castellana. Illa requiere fases históricas de -nsul- y posible alteración morfológica; distinguir de isla."
       }
     },
     {
@@ -4325,7 +4326,7 @@
         "resultado": "lladre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4339,7 +4340,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -4358,7 +4359,7 @@
         "resultado": "lloar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4372,7 +4373,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa."
+        "notas": "LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa. LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa."
       }
     },
     {
@@ -4391,7 +4392,7 @@
         "resultado": "llegir",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4405,7 +4406,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. Verificar las alteraciones de la terminación del infinitivo."
       }
     },
     {
@@ -4506,7 +4507,7 @@
         "resultado": "lletra",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4520,7 +4521,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -4539,7 +4540,7 @@
         "resultado": "lluita",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4553,7 +4554,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -4572,7 +4573,7 @@
         "resultado": "luxe",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4586,7 +4587,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "DCVB: 'pres del llatí luxus'; préstamo culto, NO evolución patrimonial regular."
+        "notas": "DCVB: 'pres del llatí luxus'; préstamo culto, NO evolución patrimonial regular. luxe és un cultisme — El DCVB identifica préstec del llatí luxus, no resultat fonètic patrimonial."
       }
     },
     {
@@ -4666,7 +4667,7 @@
         "resultado": "moro",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4680,7 +4681,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Acepción de moro 'persona de origen norteafricano', procedente de mauru; separar homógrafos."
+        "notas": "Acepción de moro 'persona de origen norteafricano', procedente de mauru; separar homógrafos. Acepción de moro 'persona de origen norteafricano', procedente de mauru; separar homógrafos."
       }
     },
     {
@@ -4699,7 +4700,7 @@
         "resultado": "millor",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4713,7 +4714,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -4825,7 +4826,7 @@
         "resultado": "huit",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4839,7 +4840,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "HUIT forma dialectal valenciana de VUIT, documentada en el mismo artículo; ŏcto corresponde al numeral."
+        "notas": "HUIT forma dialectal valenciana de VUIT, documentada en el mismo artículo; ŏcto corresponde al numeral. huit com a variant valenciana de vuit — El resultat valencià huit requereix documentar les etapes dialectals i no simplificar una variant com a única cadena."
       }
     },
     {
@@ -4858,7 +4859,7 @@
         "resultado": "ovella",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -4872,7 +4873,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Ovella procede de ovĭcŭla; el DCVB recoge la variante dialectal avoia por otra base vulgar."
+        "notas": "Ovella procede de ovĭcŭla; el DCVB recoge la variante dialectal avoia por otra base vulgar. Ovella procede de ovĭcŭla; el DCVB recoge la variante dialectal avoia por otra base vulgar."
       }
     },
     {
@@ -5326,7 +5327,7 @@
         "resultado": "son",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -5340,7 +5341,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos."
+        "notas": "SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos. SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos."
       }
     },
     {
@@ -5448,7 +5449,7 @@
         "resultado": "escama",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -5462,7 +5463,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "ESCAMA 1 procede de squama por préstamo; no asumir desarrollo popular."
+        "notas": "ESCAMA 1 procede de squama por préstamo; no asumir desarrollo popular. escama i transmissió per préstec — L'evidència lèxica apunta a una transmissió prestada, de manera que no prova una pròtesi patrimonial regular."
       }
     },
     {
@@ -5481,7 +5482,7 @@
         "resultado": "estil",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -5495,7 +5496,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión."
+        "notas": "ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión. ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión."
       }
     },
     {
@@ -5916,7 +5917,7 @@
         "resultado": "jonc",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -5930,7 +5931,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -6132,7 +6133,7 @@
         "resultado": "paraula",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6146,7 +6147,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Cambio semántico documentado 'comparación' a 'palabra'; procede de latín parabola con origen griego."
+        "notas": "Cambio semántico documentado 'comparación' a 'palabra'; procede de latín parabola con origen griego. El cambio a paraula requiere pérdida/vocalización intervocálica y evolución semántica; no inferir solo una ley del resultado."
       }
     },
     {
@@ -6281,7 +6282,7 @@
         "resultado": "dit",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6295,7 +6296,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "El DCVB remite a una fase vulgar *dīctu por analogía verbal: no atribuir directamente una cadena regular desde dĭctu sin mediación."
+        "notas": "El DCVB remite a una fase vulgar *dīctu por analogía verbal: no atribuir directamente una cadena regular desde dĭctu sin mediación. dit i base vulgar *dīctu — El DCVB explica analogia vocàlica; la base de les lleis no és sense matisos el clàssic dĭctu."
       }
     },
     {
@@ -6530,7 +6531,7 @@
         "resultado": "llegum",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6544,7 +6545,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -6563,7 +6564,7 @@
         "resultado": "artell",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6577,7 +6578,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -6671,7 +6672,7 @@
         "resultado": "cap",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6685,7 +6686,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "DCVB deriva cap 'cabeza' de la forma vulgar capum, variante de caput; registrar esta etapa intermedia."
+        "notas": "DCVB deriva cap 'cabeza' de la forma vulgar capum, variante de caput; registrar esta etapa intermedia. El DCVB señala la forma vulgar capum; no atribuir una apócope directa de -ut al étimo clásico."
       }
     },
     {
@@ -6729,7 +6730,7 @@
         "resultado": "cuir",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6743,7 +6744,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "CUIR 1 piel de cŏrĭu, no homógrafo verbal CUIR 2."
+        "notas": "CUIR 1 piel de cŏrĭu, no homógrafo verbal CUIR 2. Cuir presenta metátasis/vocalización histórica del grupo -ri-; exige fases documentadas."
       }
     },
     {
@@ -6808,7 +6809,7 @@
         "resultado": "cos",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6822,7 +6823,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Cos 'cuerpo', frente a cós 'curso/carrera' de otro origen."
+        "notas": "Cos 'cuerpo', frente a cós 'curso/carrera' de otro origen. La derivación cos implica pérdida de grupo interno y requiere fases históricas; separar de homógrafos."
       }
     },
     {
@@ -6891,7 +6892,7 @@
         "resultado": "dona",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6905,7 +6906,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -6999,7 +7000,7 @@
         "resultado": "força",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7013,7 +7014,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "FORÇA derivado de latín vulgar fŏrtia, no confundir con FORCA del latín furca."
+        "notas": "FORÇA derivado de latín vulgar fŏrtia, no confundir con FORCA del latín furca. FORÇA derivado de latín vulgar fŏrtia, no confundir con FORCA del latín furca."
       }
     },
     {
@@ -7032,7 +7033,7 @@
         "resultado": "fur",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7046,7 +7047,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Seleccionar fur 'ley, jurisdicción' (DCVB fur 1), no el homógrafo fur 'ladrón'; el moderno for posee otra distribución de acepciones."
+        "notas": "Seleccionar fur 'ley, jurisdicción' (DCVB fur 1), no el homógrafo fur 'ladrón'; el moderno for posee otra distribución de acepciones. Fur de sentido jurídico; evitar asignación desde forum sin distinguir el latín del uso jurídico medieval."
       }
     },
     {
@@ -7122,7 +7123,7 @@
         "resultado": "fons",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7136,7 +7137,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Fons 1 'fondo' de fundus, distinto de otros homógrafos fons."
+        "notas": "Fons 1 'fondo' de fundus, distinto de otros homógrafos fons. Fons es un caso de modificación consonántica y morfológica que requiere cadena intermedia."
       }
     },
     {
@@ -7319,7 +7320,7 @@
         "resultado": "març",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7333,7 +7334,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "MARÇ 1 'mes de marzo', no el nombre del dios ni el MARC germánico."
+        "notas": "MARÇ 1 'mes de marzo', no el nombre del dios ni el MARC germánico. MARÇ 1 'mes de marzo', no el nombre del dios ni el MARC germánico."
       }
     },
     {
@@ -7352,7 +7353,7 @@
         "resultado": "madeixa",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7366,7 +7367,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -7453,7 +7454,7 @@
         "resultado": "muller",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7467,7 +7468,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Muller requiere resultados distintos del grupo -li- y terminación; no forzar un solo cambio."
       }
     },
     {
@@ -7543,7 +7544,7 @@
         "resultado": "nom",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7557,7 +7558,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -7776,7 +7777,7 @@
         "resultado": "puig",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7790,7 +7791,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Puig deriva de pŏdĭu a través de desplazamiento semántico vulgar 'pedestal' > elevación."
+        "notas": "Puig deriva de pŏdĭu a través de desplazamiento semántico vulgar 'pedestal' > elevación. Puig exige palatalización compleja en -di- y diptongo; no clasificar por similitud grafemática."
       }
     },
     {
@@ -7809,7 +7810,7 @@
         "resultado": "poble",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7823,7 +7824,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -7842,7 +7843,7 @@
         "resultado": "preu",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -7856,7 +7857,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -8261,7 +8262,7 @@
         "resultado": "senyor",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8275,7 +8276,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -8346,7 +8347,7 @@
         "resultado": "segell",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8360,7 +8361,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "El DCVB indica que segell es un arcaísmo reintroducido en la lengua culta; documentar étimo, pero no presentar automáticamente como desarrollo patrimonial productivo."
+        "notas": "El DCVB indica que segell es un arcaísmo reintroducido en la lengua culta; documentar étimo, pero no presentar automáticamente como desarrollo patrimonial productivo. segell i la reintroducció culta — L'ús modern i l'evolució medieval requereixen distinguir transmissió històrica i recuperació."
       }
     },
     {
@@ -8461,7 +8462,7 @@
         "resultado": "espill",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8475,7 +8476,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -8569,7 +8570,7 @@
         "resultado": "estable",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8583,7 +8584,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular."
+        "notas": "DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular. DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular."
       }
     },
     {
@@ -8677,7 +8678,7 @@
         "resultado": "tea",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8691,7 +8692,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "TEA variante valenciana de TEIA; el DCVB documenta las etapas latín taeda > teda/tesa > tea, y reintroducción de yod en teia."
+        "notas": "TEA variante valenciana de TEIA; el DCVB documenta las etapas latín taeda > teda/tesa > tea, y reintroducción de yod en teia. TEA variante valenciana de TEIA; el DCVB documenta las etapas latín taeda > teda/tesa > tea, y reintroducción de yod en teia."
       }
     },
     {
@@ -8760,7 +8761,7 @@
         "resultado": "teixir",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8774,7 +8775,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo."
       }
     },
     {
@@ -8793,7 +8794,7 @@
         "resultado": "vici",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8807,7 +8808,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular."
+        "notas": "DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular. DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular."
       }
     },
     {
@@ -8894,7 +8895,7 @@
         "resultado": "selva",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -8908,7 +8909,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "SELVA bosque del latín silva; no la homógrafa botánica."
+        "notas": "SELVA bosque del latín silva; no la homógrafa botánica. SELVA bosque del latín silva; no la homógrafa botánica."
       }
     },
     {
@@ -9021,7 +9022,7 @@
         "resultado": "ona",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -9035,7 +9036,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -9445,7 +9446,7 @@
         "resultado": "heura",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -9459,7 +9460,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Heura 'hiedra' del latín hĕdera."
+        "notas": "Heura 'hiedra' del latín hĕdera. Heura 'hiedra' del latín hĕdera."
       }
     },
     {
@@ -9478,7 +9479,7 @@
         "resultado": "nostre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -9492,7 +9493,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -9543,7 +9544,7 @@
         "resultado": "membre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -9557,7 +9558,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "MEMBRE préstamo del latín mĕmbrum, no evolución popular."
+        "notas": "MEMBRE préstamo del latín mĕmbrum, no evolución popular. MEMBRE préstamo del latín mĕmbrum, no evolución popular."
       }
     },
     {
@@ -9601,7 +9602,7 @@
         "resultado": "nou",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -9615,7 +9616,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "NOU 3 numeral nueve, no NOU 1 'nuez', ni NOU 4 'nuevo'."
+        "notas": "NOU 3 numeral nueve, no NOU 1 'nuez', ni NOU 4 'nuevo'. Nou: trata consonante intervocálica y vocales finales de modo no unívoco."
       }
     },
     {
@@ -10483,7 +10484,7 @@
         "resultado": "joventut",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -10497,7 +10498,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -10542,7 +10543,7 @@
         "resultado": "perill",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -10556,7 +10557,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -10844,7 +10845,7 @@
         "resultado": "viuda",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -10858,7 +10859,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "VIUDA: DCVB propone resultado popular viuva y cruce con el cultismo vídua; no presentar la salida como evolución fonética puramente regular."
+        "notas": "VIUDA: DCVB propone resultado popular viuva y cruce con el cultismo vídua; no presentar la salida como evolución fonética puramente regular. VIUDA: DCVB propone resultado popular viuva y cruce con el cultismo vídua; no presentar la salida como evolución fonética puramente regular."
       }
     },
     {
@@ -10902,7 +10903,7 @@
         "resultado": "gosar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -10916,7 +10917,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "GOSAR 'atreverse' de latín vulgar ausare, con g- secundaria discutida; no GOSAR 'gozar' préstamo castellano."
+        "notas": "GOSAR 'atreverse' de latín vulgar ausare, con g- secundaria discutida; no GOSAR 'gozar' préstamo castellano. Gosar exige una base o mediación histórica; no atribuir g- inicial a una ley regular sin documentación."
       }
     },
     {
@@ -10992,7 +10993,7 @@
         "resultado": "balena",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -11006,7 +11007,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "La historia de -ll- y æ puede responder a adaptación semiletrada; determinar transmisión antes de clasificar."
       }
     },
     {
@@ -11076,7 +11077,7 @@
         "resultado": "mostrar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -11090,7 +11091,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo."
       }
     },
     {
@@ -11327,7 +11328,7 @@
         "resultado": "sembrar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -11341,7 +11342,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Sembrar implica grupo de consonantes en -mn- y epéntesis de b; probar cadena histórica."
       }
     },
     {
@@ -11510,7 +11511,7 @@
         "resultado": "mestra",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -11524,7 +11525,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "MESTRA profesora de magistra, no solo femenino analógico moderno."
+        "notas": "MESTRA profesora de magistra, no solo femenino analógico moderno. Mestra: secuencia de síncopa y reducción del grupo magistr-, con variantes etimológicas."
       }
     },
     {
@@ -11543,7 +11544,7 @@
         "resultado": "mestre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -11557,7 +11558,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Mestre 'maestro' aparece como derivado de magĭstru; la ficha magistram > mestra debe cotejarse aparte, no verificarla por extensión."
+        "notas": "Mestre 'maestro' aparece como derivado de magĭstru; la ficha magistram > mestra debe cotejarse aparte, no verificarla por extensión. Mestre: mismo grupo complejo con variación de timbre y final."
       }
     },
     {
@@ -11927,7 +11928,7 @@
         "resultado": "sou",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -11941,7 +11942,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "Confirmar acepción histórica de sueldo/moneda, sin confundir con el adjetivo modern sol·lid."
+        "notas": "Confirmar acepción histórica de sueldo/moneda, sin confundir con el adjetivo modern sol·lid. Confirmar acepción histórica de sueldo/moneda, sin confundir con el adjetivo modern sol·lid."
       }
     },
     {
@@ -12544,7 +12545,7 @@
         "resultado": "beure",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -12558,7 +12559,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo."
       }
     },
     {
@@ -12652,7 +12653,7 @@
         "resultado": "cometre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -12666,7 +12667,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo."
       }
     },
     {
@@ -12711,7 +12712,7 @@
         "resultado": "corrompre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -12725,7 +12726,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo."
       }
     },
     {
@@ -13042,7 +13043,7 @@
         "resultado": "emperador",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -13056,7 +13057,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -13565,7 +13566,7 @@
         "resultado": "navegar",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -13579,7 +13580,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "NAVEGAR préstamo del latín navigare; no patrimonial regular."
+        "notas": "NAVEGAR préstamo del latín navigare; no patrimonial regular. Navegar: modificaciones del vocalismo y adaptación verbal, no deducibles de letras."
       }
     },
     {
@@ -13598,7 +13599,7 @@
         "resultado": "negre",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -13612,7 +13613,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable."
       }
     },
     {
@@ -13984,7 +13985,7 @@
         "resultado": "bé",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -13998,7 +13999,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Bé: pérdida nasal y vocal final y distinción de variantes; necesita historia fonética y morfológica."
       }
     },
     {
@@ -14017,7 +14018,7 @@
         "resultado": "bo",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "contrast_historic_pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -14031,7 +14032,7 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": "Bo: pérdida de -n en final, distinta de apócope vocálica; verificar contexto y evolución."
       }
     },
     {
