@@ -34,7 +34,8 @@ test('el endpoint verifica el token en Supabase antes de interpretar claims y no
   assert.match(server,/authorizeVerifiedTeacher\(/);
   assert.match(server,/SCHOLA_TEACHER_USER_ID/);
   assert.match(server,/SCHOLA_ALLOWED_ORIGIN/);
-  assert.ok(!server.includes("origin==='https://archaiosmagister.github.io'"));
+  assert.ok(server.includes("url.origin==='https://archaiosmagister.github.io'"));
+  assert.match(server,/authorizeVerifiedTeacher\(/);
   assert.match(server,/VOCABULA_SERVICE_ROLE_KEY/);
   assert.match(server,/PALABRA_SERVICE_ROLE_KEY/);
   assert.match(server,/\.eq\('status','pending'\)/);
