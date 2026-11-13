@@ -416,10 +416,28 @@ export async function buildMorphology({out,lock}){
     JSON.stringify({schema:'schola-nouns-latin-audit/v1',...latin.audit,
       imported:latin.records.map(r=>({id:r.id,unit:r.unit,
         entry:r.paradigm,evidence:r.evidence.vocabulaEntry})),review:latin.review},null,2)+'\n');
+  // Reconciliar las incidencias del subconjunto con las excepciones
+  // recuperadas en un cotejo externo posterior, sin contar dos veces
+  // un mismo candidato como "pendiente".
+  const nominalKey=value=>String(value||'').toLocaleLowerCase('el')
+    .normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ').trim();
+  const recovered=new Map(irregularGreek.map(r=>
+    [nominalKey(r.paradigm.split(',')[0]),r]));
+  const reconciledCatalog=[...bulk.catalog,...latin.catalog].map(entry=>{
+    const record=entry.language==='griego'?recovered.get(nominalKey(entry.lemma)):null;
+    return record&&entry.status==='pendiente'?
+      {...entry,status:'incorporado-por-cotejo-individual',
+        recordId:record.id,reason:null,
+        evidenceReferences:record.evidence.references}:entry;
+  });
+  assert.equal(reconciledCatalog.filter(x=>x.status==='incorporado-por-cotejo-individual').length,
+    irregularGreek.length,'El cotejo individual ha de resolver exactamente sus fichas');
   await writeFile(join(auditDir,'catalogo-nominal-total.json'),
     JSON.stringify({schema:'schola-noun-inventory/v1',sourceSha:lock.sources.vocabula.sha,
       counts:{greek:bulk.audit,latin:latin.audit},
-      catalog:[...bulk.catalog,...latin.catalog]},null,2)+'\n');
+      resolvedByIndividualLexicography:irregularGreek.length,
+      stillPending:reconciledCatalog.filter(x=>x.status==='pendiente').length,
+      catalog:reconciledCatalog},null,2)+'\n');
   // Los paradigmas con fuente completa pero sin programación docente
   // permanecen fuera de la PWA y fuera del motor de calificación.
   await writeFile(join(auditDir,'paradigmas-preparados-sin-unidad.json'),
@@ -429,7 +447,7 @@ export async function buildMorphology({out,lock}){
       notForGrading:true,
       counts:{greek:bulk.staged.length,latin4:latin.staged.length},
       greek:bulk.staged,latin4:latin.staged},null,2)+'\n');
-  const triage=triageNounCandidates([...bulk.catalog,...latin.catalog]);
+  const triage=triageNounCandidates(reconciledCatalog);
   await writeFile(join(auditDir,'candidaturas-triaje-filologico.json'),
     JSON.stringify(triage,null,2)+'\n');
   console.log('Triaje filológico: '+triage.total+' candidaturas; '+
@@ -442,7 +460,8 @@ export async function buildMorphology({out,lock}){
   assert.equal(lock.sources.examenes.integrated,false,
     'GeneradorExamenes se consulta únicamente; no se despliega ni importa');
   const secondary=crosscheckNounInventory({
-    greekCatalog:bulk.catalog,latinCatalog:latin.catalog,
+    greekCatalog:reconciledCatalog.filter(x=>x.language==='griego'),
+    latinCatalog:reconciledCatalog.filter(x=>x.language==='latin'),
     ...await readNounSecondaryEvidence(examsSource),
     sourceSha:examinedSha
   });
@@ -452,8 +471,10 @@ export async function buildMorphology({out,lock}){
     ' y latinos '+extraLatin.records.length+' (sin repetir corpus original)');
   console.log('Irregulares griegos cotejados: '+irregularGreek.length);
   console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
-    (8+bulk.records.length)+' sustantivos griegos y '+latin.records.length+
-    ' latinos añadidos; pendientes griego '+bulk.review.length+
+    (8+bulk.records.length+extraGreek.records.length+irregularGreek.length)+
+    ' sustantivos griegos y '+(latin.records.length+extraLatin.records.length)+
+    ' latinos añadidos; pendientes griego '+reconciledCatalog.filter(x=>
+      x.language==='griego'&&x.status==='pendiente').length+
     ', latín '+latin.review.length+'; preparados sin unidad: griego '+
     bulk.staged.length+', Latín 4.º '+latin.staged.length);
 }
