@@ -78,8 +78,12 @@ test('las fuentes se rechazan ante género contradictorio, laguna o falta de uni
   const index=missing[position].findIndex(r=>r[0]==='δίκη'&&r[2]==='N;DAT;PL');
   missing[position].splice(index,1);
   assert.throws(()=>rerun({unimorphParts:missing}),/diez casillas/);
-  const wrongLex=vocabulaData.replace('"ἵππος, –ου"', '"ἵππος, –XX"');
-  assert.throws(()=>rerun({vocabulaData:wrongLex}),/Enunciado nominal no esperado/);
+  const vocabItems=JSON.parse(vocabulaData.slice('window.VOCAB='.length).replace(/;\s*$/,''));
+  const target=vocabItems.find(x=>x.subject==='gr1'&&x.mode==='examen'&&x.form==='ἵππος, –ου');
+  assert.ok(target,'Debe modificarse la entrada concreta de examen, no la general');
+  target.form='ἵππος, –XX';
+  const wrongLex='window.VOCAB='+JSON.stringify(vocabItems)+';';
+  assert.throws(()=>rerun({vocabulaData:wrongLex}),/Lema o unidad de examen ambiguos|Enunciado nominal no esperado/);
   assert.throws(()=>rerun({vocabulaSha:'main'}),/SHA Vocabula no fijado/);
 });
 test('sintagmas triples: dos posiciones atributivas correctas, acento grave contextual',()=>{
