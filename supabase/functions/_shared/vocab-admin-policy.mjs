@@ -43,7 +43,7 @@ export function validateWordFilter(body){
   if(subject!==''&&!SUBJECTS.has(subject))return null;
   // Restringir los metacaracteres de filtros PostgREST en búsquedas literales.
   if(typeof search!=='string'||search.length>80||
-    !/^[\\p{L}\\p{M}\\p{N}\\s-]*$/u.test(search))return null;
+    !/^[\p{L}\p{M}\p{N}\s-]*$/u.test(search))return null;
   return {offset,subject,search:search.trim().normalize('NFC'),pageSize:PAGE_SIZE};
 }
 export function validateReportFilter(body){
