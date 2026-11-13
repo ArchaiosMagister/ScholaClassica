@@ -12,6 +12,7 @@ const lock=read('config/sources.lock.json');
 const norms=read(base+'normas.json');
 const curation=read(base+'conciliacion-curada.json');
 const revision=read(base+'revisio-26.json');
+const audit215=read(base+'auditoria-215.json');
 const matrix=read(base+'matriz-522.json');
 const source=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
 const bank=JSON.parse(readFileSync(join(source,'data/pilot.json'),'utf8'));
@@ -49,19 +50,20 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='MIN_MBR'));
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='CUL'));
 });
-test('Estados editoriales honestos: 26 documentados léxicamente, 215 propuestas, 281 sin propuesta',()=>{
- assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:26,propuestas:215,
+test('Estados editoriales honestos: 67 documentados léxicamente, 174 propuestas, 281 sin propuesta',()=>{
+ assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:67,propuestas:174,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
   analisisEditoriales:26,casosConDiscrepancia:0});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
-    assert.ok(['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(r.valenciano.estadoNormas));
+    assert.ok(['analisi_editorial_revisada','analisi_editorial_provisional_docent','pendent'].includes(r.valenciano.estadoNormas));
     if(['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(r.valenciano.estadoNormas)){
       assert.ok(Array.isArray(r.valenciano.normas));
       assert.equal(r.valenciano.dnvIndividualChecked,false);
       assert.ok(r.valenciano.explicacion);
     }else{
+      assert.equal(r.valenciano.estadoNormas,'pendent');
       assert.equal(r.valenciano.normas,null);
       assert.equal(r.valenciano.explicacion,null);
     }
@@ -170,6 +172,42 @@ test('Las decisiones docentes preservan su alcance: clasificación, no autorizac
  assert.equal(record('fabam').valenciano.normas.filter(x=>x.rule!=='FIX_M').length,0);
  assert.ok(record('caballum').valenciano.normas.some(x=>x.rule==='PALAT'));
  assert.ok(record('caballum').valenciano.normas.some(x=>x.rule==='APOC'));
+});
+test('Auditoría de las 215 candidaturas: 41 etimologías contrastadas, 174 pendientes, 0 publicables',()=>{
+ assert.equal(audit215.schema,'schola-evolutio-va-review215/v1');
+ assert.deepEqual(audit215.summary,{total:215,documentadasIndividualmente:41,pendientes:174,autorizadasParaPractica:0});
+ assert.equal(audit215.records.length,215);
+ assert.equal(new Set(audit215.records.map(x=>x.latin)).size,215);
+ const original=new Set([...curation.documented.filter(x=>x.reference?.verification==='consulta_directa_de_articulo'),
+                           ...curation.proposals].map(x=>x.latin));
+ assert.equal(original.size,215);
+ for(const item of audit215.records){
+  assert.ok(original.has(item.latin),item.latin);
+  const corresponding=record(item.latin);
+  assert.equal(corresponding.valenciano.resultado,item.form);
+  assert.equal(corresponding.valenciano.estadoNormas,'pendent');
+  assert.equal(corresponding.valenciano.normas,null);
+  assert.equal(item.eligibleForPractice,false);
+  assert.equal(item.dnvChecked,false);
+  assert.equal(item.phoneticLawsVerified,false);
+  if(item.status==='etimologia_i_lema_DCVB_confirmats'){
+   assert.ok(item.source?.url.startsWith('https://dcvb.iec.cat/results.asp?word='));
+   assert.equal(item.source.verification,'consulta_directa_de_articulo');
+   assert.equal(corresponding.valenciano.estadoLexico,'documentat');
+   assert.deepEqual(corresponding.valenciano.evidencia,[item.source]);
+  }else{
+   assert.equal(item.status,'contrast_individual_pendent');
+   assert.equal(item.source,null);
+   assert.equal(corresponding.valenciano.estadoLexico,'proposta');
+  }
+ }
+ assert.equal(audit215.records.filter(x=>x.status==='etimologia_i_lema_DCVB_confirmats').length,41);
+ assert.equal(audit215.records.filter(x=>x.status==='contrast_individual_pendent').length,174);
+ assert.match(audit215.records.find(x=>x.latin==='ocŭlum').reviewNote,/clásico/);
+ assert.match(audit215.records.find(x=>x.latin==='sigĭllum').reviewNote,/arcaísmo/);
+ assert.match(audit215.records.find(x=>x.latin==='pluuiam').reviewNote,/plŏia/);
+ assert.match(audit215.records.find(x=>x.latin==='octo').reviewNote,/huit/);
+ assert.equal(matrix.records.filter(x=>x.valenciano.aptoParaPractica).length,0);
 });
 test('No se admiten posiciones erróneas ni aprobaciones ficticias de leyes',()=>{
  const bad=structuredClone(revision);
