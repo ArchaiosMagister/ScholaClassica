@@ -23,7 +23,14 @@ test('ampliación no manual: importa un lote verificable, sin duplicar los ocho 
   assert.ok(result.records.length>=10,'El banco debe ganar bastantes más de ocho nombres');
   assert.ok(bank.records.length>92+result.records.length,'También contiene nuevos nombres latinos');
   assert.deepEqual(bank.records.slice(84,92),legacy);
-  assert.deepEqual(bank.records.slice(92,92+result.records.length),result.records);
+  const actual=bank.records.slice(92,92+result.records.length);
+  for(let i=0;i<result.records.length;i++){
+    if(['ἄνθρωπος','παῖς'].some(word=>result.records[i].paradigm.startsWith(word+','))){
+      assert.deepEqual(actual[i].forms,result.records[i].forms,
+        'Las decisiones docentes no deben alterar las casillas de fuente');
+      assert.ok(actual[i].evidence.teacherDecision);
+    }else assert.deepEqual(actual[i],result.records[i]);
+  }
   assert.equal(result.audit.incorporated,result.records.length);
   assert.equal(result.audit.reviewNeeded,result.review.length);
   assert.equal(result.audit.sourceSha,lock.sources.vocabula.sha);
@@ -80,7 +87,8 @@ test('la selección de unidad y los sintagmas mantienen coherencia',()=>{
   assert.ok(at8.length>at7.length,'Los nombres de tercera consonántica entran en UD8');
   assert.ok(!at7.some(r=>r.evidence.topic==='Tercera declinación: consonantes'));
   assert.ok(at8.some(r=>r.evidence.topic==='Tercera declinación: consonantes'));
-  assert.ok(at8.some(r=>r.paradigm.includes('ἄνθρωπος')&&!r.gender));
+  assert.ok(at8.some(r=>r.paradigm.includes('ἄνθρωπος')&&r.gender==='masculino'),
+    'El docente ha autorizado el uso masculino en concordancia');
 });
 
 test('al alterar datos faltantes, no se habilita una ficha inferida',()=>{
