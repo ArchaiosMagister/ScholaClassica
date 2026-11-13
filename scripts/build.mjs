@@ -83,7 +83,9 @@ const sourceTab='<a class="study-tab" href="gramatica.html">Gramática</a>';
 const sourceScript='<script src="teacher.js?v=20261112" defer></script>';
 if(!vocabulaHTML.includes(sourceTab)||!vocabulaHTML.includes(sourceScript))throw Error('Vocabula cambió su navegación o scripts: revisar adaptación');
 vocabulaHTML=vocabulaHTML.replace(sourceTab,'<a class="study-tab" href="../gramatica/index.html">Gramática de consulta</a>')
-  .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>');
+  .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>')
+  .replace('src="theme.js?v=1"','src="theme.js?v=1-oled1"')
+  .replace('href="style.css?v=20261109-tabs1"','href="style.css?v=20261109-tabs1-oled1"');
 await writeFile(vocabulaIndex,vocabulaHTML);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
 
