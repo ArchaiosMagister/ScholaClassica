@@ -53,7 +53,7 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
 test('Estados editoriales honestos: 221 documentados léxicamente, 20 propuestas, 281 sin propuesta',()=>{
  assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:221,propuestas:20,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:72,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
+  analisisEditoriales:98,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -114,10 +114,10 @@ test('Propuestas sin fuente no se promueven a verificadas',()=>{
  extraneous.proposals.push({latin:'ficticium',form:'fictici',lexicalStatus:'proposta',reference:null});
  assert.throws(()=>assembleEvolutioValenciano(bank,extraneous,norms,lock.sources.evolutio.sha),/sin étimo/);
 });
-test('72 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
+test('98 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
  const good=matrix.records.filter(w=>['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(w.valenciano.estadoNormas));
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
- assert.equal(good.length,72);
+ assert.equal(good.length,98);
  assert.equal(disputed.length,0);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
@@ -185,7 +185,7 @@ test('Auditoría de las 215 candidaturas: 195 etimologías contrastadas, 20 pend
   assert.ok(original.has(item.latin),item.latin);
   const corresponding=record(item.latin);
   assert.equal(corresponding.valenciano.resultado,item.form);
-  if(['cælum','ocŭlum','scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum','calĕntem','hŏrtum','fumum','portum','uentum','pannum','grŏssum','mŏllem','molam','hĕrbam','bŏnam','fossam','serram','sortem','curtum','mustum','muscam','fĕbrem','spinam','spumam','peccatum','passum','pŏrcum','pellem','uallem','uitem','uoluntatem','securum','ferum','septem','fibram','temperare','ordinare'].includes(item.latin)){
+  if(revision.analyses.some(e=>e.latin===item.latin))){
     assert.equal(corresponding.valenciano.estadoNormas,'analisi_editorial_revisada');
     assert.ok(Array.isArray(corresponding.valenciano.normas));
     assert.equal(corresponding.valenciano.aptoParaPractica,false);
@@ -292,7 +292,7 @@ test('Tres decisiones docentes nuevas: leyes y segmentos regenerables, sin autor
   assert.equal(row.aptoParaPractica,false);
  }
  assert.match(record('ocŭlum').valenciano.explicacion,/cl-/);
- assert.equal(matrix.summary.analisisEditoriales,72);
+ assert.equal(matrix.summary.analisisEditoriales,98);
 });
 
 test('Once fichas patrimoniales nuevas tienen cambios localizados y permanecen no publicables',()=>{
@@ -360,5 +360,23 @@ test('Quince nuevas correspondencias fonéticas son reproducibles y no aptas par
    assert.equal(w.aprobadoDocente,false);
    assert.equal(w.aptoParaPractica,false);
    assert.equal(w.dnvIndividualChecked,false);
+ }
+});
+
+test('26 nuevas correspondencias editoriales quedan registradas sin aprobación automática',()=>{
+ const expected=['pœnam','mensem','multum','latrare','ligare','milium','sponsam','surdum',
+  'formicam','mensuram','pensare','cŏrnu','furcam','pugnum','pullum','sponsum',
+  'stagnum','truncum','temptare','alium','integrare','paucum','uirtutem','angustum','pausare','uĕntrem'];
+ assert.equal(expected.length,26);
+ for(const latin of expected){
+  const row=record(latin);
+  assert.equal(row.valenciano.estadoNormas,'analisi_editorial_revisada');
+  assert.equal(row.valenciano.aptoParaPractica,false);
+  assert.equal(row.valenciano.aprobadoDocente,false);
+  assert.equal(row.valenciano.dnvIndividualChecked,false);
+  assert.ok(Array.isArray(row.valenciano.normas));
+  const check=revision.analyses.find(x=>x.latin===latin);
+  assert.ok(check);
+  assert.equal(row.valenciano.normas.filter(x=>x.rule!=='FIX_M').length,check.changes.length);
  }
 });
