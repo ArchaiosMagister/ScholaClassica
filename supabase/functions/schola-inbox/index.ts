@@ -6,15 +6,7 @@ import {authorizeVerifiedTeacher} from '../_shared/teacher-authorization.mjs';
 const header={ 'content-type':'application/json; charset=utf-8','cache-control':'no-store','vary':'Origin' };
 // El origen de GitHub Pages es público y compartido: NO otorga permisos.
 // La autorización real exige Supabase Auth, UUID exacta y JWT AAL2.
-function authorizedOrigin(){
-  const configured=env('SCHOLA_ALLOWED_ORIGIN');
-  try{
-    const url=new URL(configured);
-    return url.protocol==='https:'&&url.origin===configured&&url.pathname==='/'&&
-      url.origin==='https://archaiosmagister.github.io'
-      ?configured:null;
-  }catch{return null}
-}
+const authorizedOrigin=()=> 'https://archaiosmagister.github.io';
 const originAllowed=(origin:string|null)=>Boolean(authorizedOrigin())&&origin===authorizedOrigin();
 function reply(status:number,data:unknown,origin:string|null){
   const cors=originAllowed(origin)?{'access-control-allow-origin':origin!}:{};
