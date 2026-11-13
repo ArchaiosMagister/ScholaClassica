@@ -53,7 +53,7 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
 test('Estados editoriales honestos: 221 documentados léxicamente, 20 propuestas, 281 sin propuesta',()=>{
  assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:221,propuestas:20,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:39,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
+  analisisEditoriales:57,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -114,10 +114,10 @@ test('Propuestas sin fuente no se promueven a verificadas',()=>{
  extraneous.proposals.push({latin:'ficticium',form:'fictici',lexicalStatus:'proposta',reference:null});
  assert.throws(()=>assembleEvolutioValenciano(bank,extraneous,norms,lock.sources.evolutio.sha),/sin étimo/);
 });
-test('39 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
+test('57 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
  const good=matrix.records.filter(w=>['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(w.valenciano.estadoNormas));
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
- assert.equal(good.length,39);
+ assert.equal(good.length,57);
  assert.equal(disputed.length,0);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
@@ -185,7 +185,7 @@ test('Auditoría de las 215 candidaturas: 195 etimologías contrastadas, 20 pend
   assert.ok(original.has(item.latin),item.latin);
   const corresponding=record(item.latin);
   assert.equal(corresponding.valenciano.resultado,item.form);
-  if(['cælum','ocŭlum','scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum'].includes(item.latin)){
+  if(['cælum','ocŭlum','scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum','calĕntem','hŏrtum','fumum','portum','uentum','pannum','grŏssum','mŏllem','molam','hĕrbam','bŏnam','fossam','serram','sortem','curtum','mustum','muscam','fĕbrem'].includes(item.latin)){
     assert.equal(corresponding.valenciano.estadoNormas,'analisi_editorial_revisada');
     assert.ok(Array.isArray(corresponding.valenciano.normas));
     assert.equal(corresponding.valenciano.aptoParaPractica,false);
@@ -291,7 +291,7 @@ test('Tres decisiones docentes nuevas: leyes y segmentos regenerables, sin autor
   assert.equal(row.aptoParaPractica,false);
  }
  assert.match(record('ocŭlum').valenciano.explicacion,/cl-/);
- assert.equal(matrix.summary.analisisEditoriales,39);
+ assert.equal(matrix.summary.analisisEditoriales,57);
 });
 
 test('Once fichas patrimoniales nuevas tienen cambios localizados y permanecen no publicables',()=>{
@@ -317,5 +317,26 @@ test('Once fichas patrimoniales nuevas tienen cambios localizados y permanecen n
     assert.ok(a>=0&&a<b&&b<=[...latin].length,latin);
    }
   }
+ }
+});
+
+test('Segunda tanda de 18 análisis conservadores, seis con solo caída fija -m',()=>{
+ const expected={
+ 'calĕntem':['APOC','FIX_M'],'hŏrtum':['APOC','FIX_M'],
+ fumum:['APOC','FIX_M'],portum:['APOC','FIX_M'],uentum:['APOC','FIX_M'],
+ pannum:['PALAT','APOC','FIX_M'],'grŏssum':['SIMPL','APOC','FIX_M'],
+ 'mŏllem':['PALAT','APOC','FIX_M'],molam:['FIX_M'],
+ 'hĕrbam':['FIX_M'],'bŏnam':['FIX_M'],fossam:['FIX_M'],
+ serram:['FIX_M'],sortem:['APOC','FIX_M'],curtum:['APOC','FIX_M'],
+ mustum:['ABER','APOC','FIX_M'],muscam:['ABER','FIX_M'],'fĕbrem':['FIX_M']
+ };
+ assert.equal(Object.keys(expected).length,18);
+ for(const [latin,laws] of Object.entries(expected)){
+  const v=record(latin).valenciano;
+  assert.deepEqual(v.normas.map(x=>x.rule),laws,latin);
+  assert.equal(v.estadoNormas,'analisi_editorial_revisada');
+  assert.equal(v.dnvIndividualChecked,false);
+  assert.equal(v.aprobadoDocente,false);
+  assert.equal(v.aptoParaPractica,false);
  }
 });
