@@ -17,7 +17,8 @@ function reply(status:number,data:unknown,origin:string|null){
   return new Response(JSON.stringify(data),{status,headers});
 }
 Deno.serve(async request=>{
-  const permitted=allowedTeacherOrigin(env('SCHOLA_ALLOWED_ORIGIN'));
+  // El origen es público, no un secreto. Solo se admite el origen exacto.
+  const permitted=allowedTeacherOrigin('https://archaiosmagister.github.io');
   const origin=request.headers.get('origin');
   if(!permitted||origin!==permitted)
     return reply(403,{error:'Acceso no permitido'},null);
