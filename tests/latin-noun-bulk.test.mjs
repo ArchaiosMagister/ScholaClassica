@@ -35,7 +35,7 @@ test('doce casillas con sincretismos y variantes explícitas; evidencia y unidad
   for(const record of result.records){
     assert.equal(record.kind,'sustantivo');
     assert.equal(record.language,'latin');
-    assert.ok(record.unit>=1&&record.unit<=7);
+    assert.ok(record.unit>=1&&record.unit<=10);
     assert.equal(record.evidence.license,'CC BY-SA 3.0');
     assert.equal(record.evidence.vocabulaSha,cfg.sources.vocabula.sha);
     assert.match(record.evidence.review,/pendiente de revisión docente/);
@@ -68,7 +68,7 @@ test('nombres latinos presentes en los vocabularios del docente entran sin dupli
 });
 
 test('no se anticipa morfología a unidades previas; el error detectado se aparta',()=>{
-  assert.ok(result.review.some(r=>/UD7|superior a UD7|no acreditad/i.test(r.reason)));
+  assert.ok(result.review.some(r=>/UD10|posterior a UD10|no acreditad/i.test(r.reason)));
   const ud1=availableRecords(bank,{language:'latin',unit:1,kind:'sustantivo'});
   const ud7=availableRecords(bank,{language:'latin',unit:7,kind:'sustantivo'});
   assert.ok(ud7.length>ud1.length);
