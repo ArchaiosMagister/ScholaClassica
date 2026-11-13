@@ -5,6 +5,21 @@ import {resolve,join} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const file=join(root,'shared/academic/greek-etymology/review/study-glosses-gr1-20261113.json');
 const componentsFile=join(root,'shared/academic/greek-etymology/review/study-components-gr1-20261113.json');
+const pdfFile=join(root,'shared/academic/greek-etymology/review/source-concordance-gr1-20261113.json');
+const checksFile=join(root,'shared/academic/greek-etymology/review/lexicographic-checks-gr1-20261113.json');
+const definitionCorrections={
+  autarquía:'Condición o política de autosuficiencia: bastarse con los recursos propios.'
+};
+const editorialNotes={
+  autarquía:'El DLE distingue autarquía¹ (de αὐταρχία, poder absoluto) y autarquía² (de αὐτάρκεια, autosuficiencia). Esta ficha recoge la segunda; no deben confundirse.',
+  plastilina:'Según el DLE, procede de la marca registrada Plastilina®. La relación didáctica con la familia de πλαστός es indirecta, no la etimología inmediata.',
+  macrobiótico:'El DLE define macrobiótica como un método de alimentación; no se debe atribuir necesariamente al adjetivo el sentido de vivir muchos años.',
+  seudociencia:'No figura como entrada independiente en el DLE 2026. Sí están documentados seudo-/pseudo- y seudocientífico; su ausencia no la hace lingüísticamente imposible.',
+  geniogloso:'Tecnicismo anatómico documentado en fuentes especializadas; sin entrada propia en el DLE 2026.',
+  tanatología:'La palabra española llegó por el francés thanatologie; sus formantes últimos son griegos.',
+  tomografía:'La palabra española procede del inglés tomography; los formantes últimos son griegos.'
+};
+
 export const normalizeSpanish=value=>String(value).normalize('NFD').toLocaleLowerCase('es')
   .replace(/\p{M}/gu,'').replace(/\s+/gu,' ').trim();
 
@@ -137,13 +152,36 @@ export function readStudyComponents(){
   assert.equal(data.course,'gr1');
   return data.words;
 }
-export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),componentGlosses=readStudyComponents()){
+export function readSourceConcordance(){
+  const data=JSON.parse(readFileSync(pdfFile,'utf8'));
+  assert.equal(data.schema,'etymologicon-source-concordance/v1');
+  assert.equal(data.course,'gr1');
+  assert.equal(Object.keys(data.firstPageByTerm).length,487);
+  assert.equal(data.counts.pdfAttested,475);
+  assert.equal(data.counts.notAttested,12);
+  return data;
+}
+export function readLexicographicChecks(){
+  const data=JSON.parse(readFileSync(checksFile,'utf8'));
+  assert.equal(data.schema,'etymologicon-lexicographic-checks/v1');
+  assert.equal(data.course,'gr1');
+  assert.equal(Object.keys(data.records).length,24);
+  return data;
+}
+export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
+  componentGlosses=readStudyComponents(),pdfIndex=readSourceConcordance(),
+  checks=readLexicographicChecks()){
   assert.equal(source?.schema,'etymologicon-audited-catalog/v1');
   assert.equal(learners?.schema,'etymologicon-audited-catalog/v1');
   assert.equal(learners.etymons.length,111);
   assert.equal(learners.derivatives.length,487);
   assert.equal(learners.course,'gr1');
   assert.equal(lexicon.schema,'etymologicon-study-glosses/v1');
+  const allNames=new Set(learners.derivatives.map(w=>w.form));
+  for(const name of Object.keys(pdfIndex.firstPageByTerm))
+    assert.ok(allNames.has(name),'Fuente PDF para término desconocido: '+name);
+  for(const name of Object.keys(checks.records))
+    assert.ok(allNames.has(name),'Cotejo lexicográfico para término desconocido: '+name);
   const original=new Map(source.derivatives.map(d=>[d.id,d]));
   const etyma=new Map(learners.etymons.map(e=>[e.id,e]));
   const greekLookup=new Map();
@@ -164,7 +202,8 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
   }
   const words=learners.derivatives.map(d=>{
     const prior=original.get(d.id);
-    const definition=prior?.definitions?.[0]?.text||lexicon.definitions[d.form];
+    const definition=definitionCorrections[d.form]||
+      prior?.definitions?.[0]?.text||lexicon.definitions[d.form];
     assert.ok(typeof definition==='string'&&definition.length>=8,'Falta glosa propia: '+d.form);
     const ids=[...(relations.get(d.id)||[])];
     assert.ok(ids.length>0,'Derivado sin étimo: '+d.form);
@@ -187,7 +226,17 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
       'Componentes incompletos: '+d.form);
     for(const component of components)if(component.id)
       assert.ok(etyma.has(component.id),'Componente fuera del inventario: '+d.form+' '+component.id);
-    const direct=confirmedDle.has(d.form);
+    const checked=checks.records[d.form]||null;
+    const direct=confirmedDle.has(d.form)||
+      checked?.status==='dle_individual_contrastado';
+    const pages=pdfIndex.firstPageByTerm[d.form];
+    assert.ok(Array.isArray(pages)&&pages.length===3,
+      'No consta la ficha de concordancia documental: '+d.form);
+    const pdfAttestations=pages.flatMap((page,i)=>page===null?[]:[{
+      sourceId:pdfIndex.sources[i].id,
+      title:pdfIndex.sources[i].title,
+      page
+    }]);
     const connection=specialConnections[d.form]||
       (components.length===1
         ?'El étimo '+components[0].greek+' aporta la idea de «'+components[0].gloss+'» a esta familia léxica; la acepción española puede haberse especializado con el tiempo.'
@@ -200,6 +249,10 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
       lexicographicStatus:direct?'dle_consultado_individualmente':'glosa_docente_no_cotejada_individualmente_dle',
       dleUrl:'https://dle.rae.es/'+encodeURIComponent(d.form),
       note:prior?.notes||null,
+      editorialNote:editorialNotes[d.form]||null,
+      lexicographicCheck:checked,
+      pdfAttestations,
+      pdfAttested:pdfAttestations.length>0,
       componentReview:'analisis_explicito_del_banco_docente',
       componentSources:componentSources[d.form]||[],
       formation:components.length>1?'varias_bases':'base_o_familia',
@@ -222,11 +275,20 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
   }));
   assert.equal(etymons.filter(e=>e.eligible).length,108);
   const confirmed=words.filter(w=>w.lexicographicStatus==='dle_consultado_individualmente').length;
+  const pdfAttested=words.filter(w=>w.pdfAttested).length;
+  const individualChecks=words.filter(w=>w.lexicographicCheck?.status==='dle_individual_contrastado').length;
+  const specialistChecks=words.filter(w=>w.lexicographicCheck?.status==='fuente_especializada_contrastada').length;
+  const dleNotListed=words.filter(w=>w.lexicographicCheck?.status==='dle_no_incluye_entrada_independiente').length;
+  assert.equal(pdfAttested,475,'Concordancia documental inesperada');
   return {schema:'etymologicon-study-catalog/v1',course:'gr1',etymons,words,
     audit:{allHaveDidacticDefinition:true,covered:words.length,
       explicitComponentReviews:words.filter(w=>w.componentReview==='analisis_explicito_del_banco_docente').length,
       compounds:words.filter(w=>w.components.length>1).length,
       singleStemOrFamily:words.filter(w=>w.components.length===1).length,
       individualDleChecks:confirmed,remainingDleChecks:words.length-confirmed,
-      editorialScope:'Las 487 fichas tienen definiciones propias. Solo los contrastes DLE individuales expresamente anotados se presentan como comprobados; las demás voces disponen de un enlace de consulta.'}};
+      pdfAttested,pdfNoExactMatch:words.length-pdfAttested,
+      individuallyCheckedDleThisReview:individualChecks,
+      individuallyCheckedSpecialistThisReview:specialistChecks,
+      confirmedNotIndependentDleThisReview:dleNotListed,
+      editorialScope:'Se cotejó la presencia textual en tres PDF docentes, con primera página registrada para cada coincidencia. Una mención documental no acredita por sí sola el significado o la etimología. Los artículos del DLE consultados individualmente y las fuentes especializadas se anotan aparte.'}};
 }

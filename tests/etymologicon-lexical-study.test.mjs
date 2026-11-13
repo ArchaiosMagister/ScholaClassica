@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {compileTeacherAudit} from '../scripts/compile-etymologicon-gr1.mjs';
 import {createLearnerCatalog} from '../scripts/build-etymologicon.mjs';
 import {expandGreekI,readExpansion} from '../scripts/expand-etymologicon-gr1.mjs';
-import {createStudyCatalog,readStudyGlosses,readStudyComponents} from '../scripts/compile-etymologicon-study.mjs';
+import {createStudyCatalog,readStudyGlosses,readStudyComponents,readSourceConcordance,readLexicographicChecks} from '../scripts/compile-etymologicon-study.mjs';
 import {createWriteTwoCorrector} from '../shared/academic/greek-etymology/corrector/write-two.mjs';
 
 const base=compileTeacherAudit();
@@ -110,6 +110,45 @@ test('revisión exhaustiva: 487 fichas, componentes documentados y distinción e
   assert.equal(lookup('efeméride').components.length,2);
   assert.ok(!study.words.some(w=>w.form==='efemérides'),
     'No crear otra ficha para una variante del mismo lexema');
+});
+test('cotejo por los tres PDF preserva trazabilidad real y no equivale al DLE',()=>{
+  const sources=readSourceConcordance();
+  const checks=readLexicographicChecks();
+  assert.equal(Object.keys(sources.firstPageByTerm).length,487);
+  assert.equal(Object.keys(checks.records).length,24);
+  assert.equal(study.audit.pdfAttested,475);
+  assert.equal(study.audit.pdfNoExactMatch,12);
+  assert.equal(study.audit.individuallyCheckedDleThisReview,20);
+  assert.equal(study.audit.individuallyCheckedSpecialistThisReview,2);
+  assert.equal(study.audit.confirmedNotIndependentDleThisReview,2);
+  assert.ok(study.audit.individualDleChecks<487,
+    'Una mención en PDF no certifica un artículo del DLE');
+  assert.equal(study.words.filter(w=>w.pdfAttestations.length>0).length,475);
+  assert.ok(study.words.every(w=>w.pdfAttestations.every(ref=>
+    ref.page>0&&sources.sources.some(x=>x.id===ref.sourceId&&ref.page<=x.pages))));
+  for(const word of ['geniogloso','genioplastia','proctitis','seudociencia']){
+    assert.ok(!lookup(word).pdfAttested,word);
+    assert.ok(lookup(word).lexicographicCheck,word);
+  }
+  assert.equal(lookup('geniogloso').lexicographicCheck.status,
+    'dle_no_incluye_entrada_independiente');
+  assert.equal(lookup('proctitis').lexicographicCheck.status,
+    'fuente_especializada_contrastada');
+});
+test('las diferencias lexicográficas se explican sin alterar el corrector ni las aprobaciones',()=>{
+  assert.match(lookup('autarquía').definition,/autosuficiencia/i);
+  assert.doesNotMatch(lookup('autarquía').definition,/poder independiente/i);
+  assert.match(lookup('autarquía').editorialNote,/autarquía¹/);
+  assert.match(lookup('autarquía').editorialNote,/autarquía²/);
+  assert.match(lookup('plastilina').editorialNote,/marca registrada/i);
+  assert.match(lookup('tanatología').editorialNote,/francés/);
+  assert.match(lookup('tomografía').editorialNote,/inglés/);
+  assert.equal(lookup('atelectasia').lexicographicStatus,'dle_consultado_individualmente');
+  assert.equal(lookup('seudociencia').lexicographicStatus,
+    'glosa_docente_no_cotejada_individualmente_dle');
+  assert.equal(lookup('microbiología').pdfAttested,true);
+  assert.equal(study.words.length,487);
+  assert.equal(extended.derivatives.length,487);
 });
 test('relaciones múltiples solo afectan al glosario; corrector y progreso siguen iguales',()=>{
   const corrector=createWriteTwoCorrector(extended);

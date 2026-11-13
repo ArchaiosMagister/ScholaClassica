@@ -48,7 +48,12 @@ function renderWord(word){
   const explanation=element('p',word.connection,'lexical-connection');
   const meta=element('div',null,'lexical-word-meta');
   const status=word.lexicographicStatus==='dle_consultado_individualmente';
-  meta.append(element('span',status?'DLE contrastado individualmente':'Glosa didáctica documentada',
+  const check=word.lexicographicCheck;
+  const sourceLabel=status?'DLE contrastado individualmente':
+    check?.status==='fuente_especializada_contrastada'?'Tecnicismo contrastado en fuente especializada':
+    check?.status==='dle_no_incluye_entrada_independiente'?'Sin entrada independiente en el DLE':
+    'Glosa didáctica: pendiente de contraste individual con el DLE';
+  meta.append(element('span',sourceLabel,
     'lexical-source'+(status?' lexical-source--verified':'')));
   const link=element('a','Consultar en el DLE (RAE-ASALE)');
   link.href=word.dleUrl;
@@ -58,6 +63,30 @@ function renderWord(word){
   card.append(heading,meaning,componentsTitle);
   appendComponentList(card,word.components);
   card.append(explanation,meta);
+  if(check?.sourceUrl&&check.status!=='dle_individual_contrastado'&&
+     check.status!=='dle_no_incluye_entrada_independiente'){
+    const sourceLink=element('a','Consultar la fuente especializada');
+    sourceLink.href=check.sourceUrl;
+    sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';
+    sourceLink.className='lexical-evidence-link';
+    card.append(sourceLink);
+  }
+  if(word.pdfAttestations?.length){
+    const citations=word.pdfAttestations.map(ref=>{
+      const title=ref.sourceId==='galvez2009'?'Gálvez':
+        ref.sourceId==='breve'?'Breve diccionario':'PAU';
+      return title+' (p. '+ref.page+')';
+    }).join(' · ');
+    card.append(element('p','Mención en los PDF docentes: '+citations+
+      '. La mención no equivale a una verificación del DLE.','lexical-evidence'));
+  }else{
+    card.append(element('p','No localizado por coincidencia literal en los tres PDF. '+
+      'Se indica arriba su cotejo externo cuando procede.','lexical-evidence'));
+  }
+  if(word.editorialNote)
+    card.append(element('p',word.editorialNote,'lexical-alert'));
+  if(check?.note)
+    card.append(element('p','Resultado del contraste: '+check.note,'lexical-evidence'));
   if(word.note&&word.note.length<250)
     card.append(element('p',word.note,'lexical-note'));
   return card;

@@ -1,0 +1,2473 @@
+{
+  "schema": "etymologicon-source-concordance/v1",
+  "course": "gr1",
+  "date": "2026-11-13",
+  "method": "Coincidencia literal del derivado (sin tildes, límites de palabra, guiones entre saltos de línea) en texto extraído de los tres PDF aportados. Los números indican la primera página PDF con coincidencia. La mención NO implica equivalencia semántica ni contraste filológico del artículo ni presencia en el DLE.",
+  "sources": [
+    {
+      "id": "galvez2009",
+      "title": "Etimologías griegas",
+      "author": "José Luis Gálvez Marín",
+      "year": 2009,
+      "pages": 414
+    },
+    {
+      "id": "breve",
+      "title": "Breve diccionario de helenismos de griego clásico",
+      "pages": 6
+    },
+    {
+      "id": "pau2008",
+      "title": "Etimologías griegas PAU Griego II 2008-09",
+      "author": "Pilar Berberana",
+      "pages": 31
+    }
+  ],
+  "counts": {
+    "total": 487,
+    "pdfAttested": 475,
+    "notAttested": 12,
+    "sourceCounts": [
+      445,
+      243,
+      319
+    ]
+  },
+  "firstPageByTerm": {
+    "acéfalo": [
+      5,
+      3,
+      13
+    ],
+    "acrofobia": [
+      6,
+      null,
+      1
+    ],
+    "acromático": [
+      3,
+      null,
+      31
+    ],
+    "acrópolis": [
+      6,
+      1,
+      1
+    ],
+    "aerofobia": [
+      10,
+      null,
+      1
+    ],
+    "afelio": [
+      12,
+      1,
+      null
+    ],
+    "afonía": [
+      3,
+      null,
+      29
+    ],
+    "aforismo": [
+      12,
+      4,
+      null
+    ],
+    "agorafobia": [
+      178,
+      1,
+      28
+    ],
+    "alergia": [
+      16,
+      1,
+      null
+    ],
+    "anacronismo": [
+      21,
+      null,
+      null
+    ],
+    "anáfora": [
+      21,
+      1,
+      null
+    ],
+    "anagrama": [
+      21,
+      null,
+      7
+    ],
+    "analgesia": [
+      17,
+      null,
+      null
+    ],
+    "análisis": [
+      21,
+      1,
+      4
+    ],
+    "análogo": [
+      21,
+      1,
+      null
+    ],
+    "anarquía": [
+      3,
+      1,
+      2
+    ],
+    "anatomía": [
+      21,
+      1,
+      26
+    ],
+    "androcentrismo": [
+      25,
+      null,
+      1
+    ],
+    "androfobia": [
+      25,
+      null,
+      1
+    ],
+    "andrógeno": [
+      25,
+      null,
+      1
+    ],
+    "andrógino": [
+      25,
+      1,
+      1
+    ],
+    "androide": [
+      25,
+      1,
+      1
+    ],
+    "andropausia": [
+      25,
+      null,
+      1
+    ],
+    "anemia": [
+      3,
+      1,
+      null
+    ],
+    "anfibio": [
+      27,
+      1,
+      null
+    ],
+    "anfibología": [
+      27,
+      null,
+      null
+    ],
+    "anfiteatro": [
+      27,
+      1,
+      null
+    ],
+    "ánfora": [
+      27,
+      1,
+      null
+    ],
+    "ángel": [
+      29,
+      1,
+      null
+    ],
+    "ánodo": [
+      21,
+      1,
+      19
+    ],
+    "antagónico": [
+      14,
+      null,
+      null
+    ],
+    "antibiótico": [
+      32,
+      1,
+      4
+    ],
+    "antidemocrático": [
+      null,
+      null,
+      8
+    ],
+    "antídoto": [
+      12,
+      1,
+      null
+    ],
+    "antítesis": [
+      32,
+      1,
+      null
+    ],
+    "antónimo": [
+      32,
+      1,
+      20
+    ],
+    "antropocentrismo": [
+      36,
+      1,
+      1
+    ],
+    "antropófago": [
+      36,
+      1,
+      1
+    ],
+    "antropografía": [
+      36,
+      null,
+      2
+    ],
+    "antropoide": [
+      36,
+      null,
+      2
+    ],
+    "antropología": [
+      36,
+      null,
+      2
+    ],
+    "antropólogo": [
+      36,
+      1,
+      null
+    ],
+    "antropometría": [
+      36,
+      null,
+      2
+    ],
+    "antropomorfismo": [
+      null,
+      null,
+      2
+    ],
+    "antropomorfo": [
+      36,
+      1,
+      17
+    ],
+    "antroponimia": [
+      36,
+      null,
+      2
+    ],
+    "antropónimo": [
+      36,
+      1,
+      null
+    ],
+    "antroposofía": [
+      36,
+      null,
+      2
+    ],
+    "apogeo": [
+      38,
+      2,
+      null
+    ],
+    "apóstrofo": [
+      38,
+      5,
+      null
+    ],
+    "aracnofobia": [
+      41,
+      null,
+      null
+    ],
+    "aristocracia": [
+      44,
+      1,
+      14
+    ],
+    "arquetipo": [
+      42,
+      1,
+      2
+    ],
+    "artritis": [
+      47,
+      null,
+      null
+    ],
+    "astronomía": [
+      17,
+      null,
+      14
+    ],
+    "atelectasia": [
+      null,
+      null,
+      null
+    ],
+    "atelocardia": [
+      50,
+      null,
+      null
+    ],
+    "ateo": [
+      3,
+      null,
+      null
+    ],
+    "autarquía": [
+      42,
+      null,
+      2
+    ],
+    "autobiografía": [
+      52,
+      null,
+      3
+    ],
+    "autocracia": [
+      52,
+      null,
+      3
+    ],
+    "autóctono": [
+      52,
+      1,
+      3
+    ],
+    "autodidacta": [
+      52,
+      1,
+      3
+    ],
+    "autoevaluación": [
+      null,
+      null,
+      3
+    ],
+    "autógrafo": [
+      52,
+      1,
+      3
+    ],
+    "autómata": [
+      26,
+      null,
+      1
+    ],
+    "automático": [
+      52,
+      1,
+      3
+    ],
+    "automóvil": [
+      52,
+      1,
+      3
+    ],
+    "autonomía": [
+      52,
+      null,
+      3
+    ],
+    "autónomo": [
+      52,
+      1,
+      3
+    ],
+    "autopsia": [
+      52,
+      1,
+      3
+    ],
+    "bibliobús": [
+      null,
+      null,
+      3
+    ],
+    "bibliofilia": [
+      59,
+      null,
+      null
+    ],
+    "bibliófilo": [
+      59,
+      5,
+      3
+    ],
+    "bibliografía": [
+      59,
+      1,
+      3
+    ],
+    "bibliología": [
+      59,
+      null,
+      4
+    ],
+    "bibliomanía": [
+      59,
+      null,
+      4
+    ],
+    "biblioteca": [
+      59,
+      1,
+      3
+    ],
+    "bibliotecología": [
+      60,
+      null,
+      4
+    ],
+    "biblioteconomía": [
+      59,
+      null,
+      4
+    ],
+    "biodegradable": [
+      null,
+      null,
+      4
+    ],
+    "bioética": [
+      null,
+      null,
+      4
+    ],
+    "biogeografía": [
+      61,
+      null,
+      4
+    ],
+    "biografía": [
+      61,
+      1,
+      4
+    ],
+    "biología": [
+      61,
+      1,
+      4
+    ],
+    "bioluminiscencia": [
+      null,
+      null,
+      4
+    ],
+    "biomecánica": [
+      61,
+      null,
+      4
+    ],
+    "biomedicina": [
+      null,
+      null,
+      4
+    ],
+    "biopsia": [
+      61,
+      null,
+      4
+    ],
+    "bioquímica": [
+      61,
+      null,
+      4
+    ],
+    "biosfera": [
+      61,
+      null,
+      4
+    ],
+    "biótopo": [
+      61,
+      null,
+      5
+    ],
+    "blefaritis": [
+      63,
+      null,
+      null
+    ],
+    "blefaroplastia": [
+      63,
+      null,
+      null
+    ],
+    "burocracia": [
+      68,
+      null,
+      14
+    ],
+    "cacofonía": [
+      68,
+      3,
+      12
+    ],
+    "cacografía": [
+      68,
+      null,
+      12
+    ],
+    "cacoquimia": [
+      68,
+      null,
+      12
+    ],
+    "cacosmia": [
+      68,
+      null,
+      12
+    ],
+    "calidoscopio": [
+      69,
+      null,
+      12
+    ],
+    "caligrafía": [
+      69,
+      3,
+      7
+    ],
+    "calígrafo": [
+      196,
+      null,
+      12
+    ],
+    "caligrama": [
+      69,
+      null,
+      7
+    ],
+    "cardíaco": [
+      72,
+      null,
+      12
+    ],
+    "cardialgia": [
+      17,
+      null,
+      12
+    ],
+    "cardiograma": [
+      72,
+      null,
+      12
+    ],
+    "cardiología": [
+      72,
+      3,
+      12
+    ],
+    "cardiopatía": [
+      72,
+      null,
+      13
+    ],
+    "cataclismo": [
+      75,
+      3,
+      null
+    ],
+    "catálogo": [
+      18,
+      3,
+      null
+    ],
+    "catarata": [
+      75,
+      3,
+      null
+    ],
+    "catástrofe": [
+      75,
+      3,
+      null
+    ],
+    "cefalalgia": [
+      17,
+      null,
+      13
+    ],
+    "cefalea": [
+      79,
+      3,
+      13
+    ],
+    "cefalópodo": [
+      276,
+      3,
+      13
+    ],
+    "cirugía": [
+      86,
+      5,
+      30
+    ],
+    "cirujano": [
+      77,
+      5,
+      30
+    ],
+    "claustrofobia": [
+      178,
+      null,
+      null
+    ],
+    "cleptomanía": [
+      89,
+      3,
+      null
+    ],
+    "cosmología": [
+      97,
+      null,
+      14
+    ],
+    "cosmopolita": [
+      97,
+      3,
+      14
+    ],
+    "crematística": [
+      98,
+      null,
+      null
+    ],
+    "crematístico": [
+      null,
+      5,
+      null
+    ],
+    "cripta": [
+      99,
+      3,
+      14
+    ],
+    "críptico": [
+      99,
+      null,
+      14
+    ],
+    "criptoanálisis": [
+      21,
+      null,
+      14
+    ],
+    "criptógamo": [
+      null,
+      null,
+      5
+    ],
+    "criptografía": [
+      99,
+      3,
+      7
+    ],
+    "criptograma": [
+      100,
+      null,
+      7
+    ],
+    "cromático": [
+      103,
+      5,
+      31
+    ],
+    "cromatismo": [
+      103,
+      null,
+      null
+    ],
+    "cromosoma": [
+      102,
+      5,
+      26
+    ],
+    "crónica": [
+      48,
+      5,
+      null
+    ],
+    "crónico": [
+      104,
+      5,
+      null
+    ],
+    "cronología": [
+      104,
+      null,
+      30
+    ],
+    "cronómetro": [
+      104,
+      5,
+      31
+    ],
+    "demagogia": [
+      14,
+      null,
+      8
+    ],
+    "demagogo": [
+      108,
+      null,
+      null
+    ],
+    "democracia": [
+      98,
+      null,
+      8
+    ],
+    "demografía": [
+      108,
+      null,
+      8
+    ],
+    "demoscopia": [
+      108,
+      null,
+      8
+    ],
+    "demótico": [
+      108,
+      null,
+      8
+    ],
+    "dendrita": [
+      109,
+      null,
+      null
+    ],
+    "dendrología": [
+      109,
+      null,
+      null
+    ],
+    "dermalgia": [
+      17,
+      null,
+      8
+    ],
+    "dermatitis": [
+      110,
+      null,
+      7
+    ],
+    "dermatología": [
+      110,
+      null,
+      7
+    ],
+    "dermatólogo": [
+      110,
+      null,
+      null
+    ],
+    "dermatosis": [
+      110,
+      null,
+      8
+    ],
+    "déspota": [
+      111,
+      2,
+      null
+    ],
+    "despotismo": [
+      111,
+      2,
+      null
+    ],
+    "diacronía": [
+      104,
+      5,
+      null
+    ],
+    "diáfano": [
+      112,
+      2,
+      null
+    ],
+    "diagnóstico": [
+      62,
+      null,
+      15
+    ],
+    "diagonal": [
+      112,
+      2,
+      null
+    ],
+    "diagrama": [
+      112,
+      2,
+      null
+    ],
+    "diálisis": [
+      112,
+      3,
+      null
+    ],
+    "diálogo": [
+      112,
+      2,
+      null
+    ],
+    "diámetro": [
+      110,
+      2,
+      10
+    ],
+    "diarquía": [
+      42,
+      null,
+      2
+    ],
+    "didáctica": [
+      116,
+      null,
+      null
+    ],
+    "didascalia": [
+      116,
+      null,
+      8
+    ],
+    "diodo": [
+      114,
+      4,
+      19
+    ],
+    "doxología": [
+      124,
+      null,
+      8
+    ],
+    "eclipse": [
+      126,
+      2,
+      null
+    ],
+    "ecología": [
+      127,
+      4,
+      19
+    ],
+    "economía": [
+      98,
+      4,
+      19
+    ],
+    "efeméride": [
+      null,
+      null,
+      null
+    ],
+    "efímero": [
+      129,
+      2,
+      null
+    ],
+    "electrocardiograma": [
+      130,
+      null,
+      7
+    ],
+    "encefalitis": [
+      133,
+      null,
+      13
+    ],
+    "encéfalo": [
+      27,
+      3,
+      13
+    ],
+    "encefalografía": [
+      79,
+      null,
+      13
+    ],
+    "encefalopatía": [
+      79,
+      null,
+      13
+    ],
+    "enciclopedia": [
+      133,
+      4,
+      null
+    ],
+    "energía": [
+      75,
+      null,
+      4
+    ],
+    "entusiasmo": [
+      133,
+      null,
+      null
+    ],
+    "epidermis": [
+      110,
+      2,
+      7
+    ],
+    "epigrafía": [
+      141,
+      2,
+      7
+    ],
+    "ergonomía": [
+      145,
+      null,
+      10
+    ],
+    "ergonómico": [
+      146,
+      null,
+      10
+    ],
+    "ergoterapia": [
+      145,
+      null,
+      10
+    ],
+    "estratagema": [
+      14,
+      5,
+      null
+    ],
+    "estratega": [
+      161,
+      5,
+      null
+    ],
+    "estrategia": [
+      14,
+      5,
+      null
+    ],
+    "estratégico": [
+      161,
+      null,
+      null
+    ],
+    "eufonía": [
+      163,
+      5,
+      null
+    ],
+    "eutanasia": [
+      163,
+      2,
+      11
+    ],
+    "evangelio": [
+      29,
+      1,
+      null
+    ],
+    "éxodo": [
+      126,
+      2,
+      null
+    ],
+    "exorcismo": [
+      166,
+      null,
+      null
+    ],
+    "éxtasis": [
+      126,
+      2,
+      null
+    ],
+    "filantropía": [
+      36,
+      null,
+      null
+    ],
+    "filántropo": [
+      172,
+      5,
+      1
+    ],
+    "filología": [
+      172,
+      5,
+      15
+    ],
+    "filólogo": [
+      172,
+      null,
+      15
+    ],
+    "filosofía": [
+      55,
+      5,
+      18
+    ],
+    "filósofo": [
+      172,
+      5,
+      null
+    ],
+    "fobia": [
+      7,
+      5,
+      28
+    ],
+    "fonema": [
+      117,
+      5,
+      29
+    ],
+    "fonética": [
+      178,
+      5,
+      29
+    ],
+    "fonógrafo": [
+      178,
+      5,
+      null
+    ],
+    "fonología": [
+      178,
+      5,
+      17
+    ],
+    "fotofobia": [
+      178,
+      5,
+      29
+    ],
+    "gastralgia": [
+      17,
+      null,
+      5
+    ],
+    "gástrico": [
+      184,
+      2,
+      5
+    ],
+    "gastritis": [
+      184,
+      2,
+      5
+    ],
+    "gastroenteritis": [
+      139,
+      null,
+      5
+    ],
+    "gastronomía": [
+      184,
+      2,
+      5
+    ],
+    "gastroscopia": [
+      null,
+      null,
+      5
+    ],
+    "geniogloso": [
+      null,
+      null,
+      null
+    ],
+    "genioplastia": [
+      null,
+      null,
+      null
+    ],
+    "geocentrismo": [
+      187,
+      null,
+      6
+    ],
+    "geodesia": [
+      187,
+      2,
+      6
+    ],
+    "geodinámica": [
+      117,
+      null,
+      6
+    ],
+    "geofagia": [
+      168,
+      null,
+      6
+    ],
+    "geofísica": [
+      174,
+      null,
+      null
+    ],
+    "geografía": [
+      62,
+      null,
+      6
+    ],
+    "geoide": [
+      187,
+      null,
+      7
+    ],
+    "geología": [
+      161,
+      2,
+      6
+    ],
+    "geometría": [
+      81,
+      3,
+      6
+    ],
+    "geomorfología": [
+      187,
+      null,
+      6
+    ],
+    "geriatría": [
+      189,
+      null,
+      6
+    ],
+    "gerontología": [
+      189,
+      null,
+      6
+    ],
+    "gineceo": [
+      191,
+      2,
+      7
+    ],
+    "ginecocracia": [
+      98,
+      null,
+      7
+    ],
+    "ginecología": [
+      191,
+      2,
+      null
+    ],
+    "ginecólogo": [
+      null,
+      null,
+      7
+    ],
+    "ginecomastia": [
+      null,
+      null,
+      7
+    ],
+    "glosario": [
+      193,
+      2,
+      7
+    ],
+    "gráfico": [
+      73,
+      2,
+      13
+    ],
+    "grafología": [
+      196,
+      null,
+      null
+    ],
+    "gramática": [
+      196,
+      2,
+      null
+    ],
+    "heliocéntrico": [
+      81,
+      null,
+      null
+    ],
+    "heliocentrismo": [
+      null,
+      null,
+      10
+    ],
+    "heliógrafo": [
+      201,
+      null,
+      10
+    ],
+    "helioscopio": [
+      148,
+      null,
+      10
+    ],
+    "helioterapia": [
+      201,
+      null,
+      10
+    ],
+    "heliotropismo": [
+      201,
+      null,
+      10
+    ],
+    "heliotropo": [
+      201,
+      2,
+      null
+    ],
+    "hematíe": [
+      16,
+      null,
+      null
+    ],
+    "hematocrito": [
+      26,
+      null,
+      1
+    ],
+    "hematología": [
+      203,
+      null,
+      null
+    ],
+    "hematoma": [
+      16,
+      1,
+      1
+    ],
+    "hemeroteca": [
+      129,
+      2,
+      null
+    ],
+    "hemofilia": [
+      16,
+      1,
+      1
+    ],
+    "hemofobia": [
+      178,
+      null,
+      null
+    ],
+    "hemoglobina": [
+      16,
+      1,
+      1
+    ],
+    "hemólisis": [
+      null,
+      null,
+      1
+    ],
+    "hemorragia": [
+      16,
+      1,
+      1
+    ],
+    "hemoterapia": [
+      16,
+      null,
+      null
+    ],
+    "hepático": [
+      87,
+      null,
+      null
+    ],
+    "hepatitis": [
+      206,
+      null,
+      null
+    ],
+    "hepatología": [
+      206,
+      null,
+      null
+    ],
+    "hepatomegalia": [
+      206,
+      null,
+      null
+    ],
+    "hidroeléctrico": [
+      130,
+      null,
+      27
+    ],
+    "hidrofobia": [
+      178,
+      5,
+      27
+    ],
+    "hidrógeno": [
+      66,
+      null,
+      6
+    ],
+    "hidrografía": [
+      196,
+      null,
+      7
+    ],
+    "hidrología": [
+      212,
+      null,
+      null
+    ],
+    "hidrosfera": [
+      150,
+      null,
+      27
+    ],
+    "hidroterapia": [
+      212,
+      null,
+      11
+    ],
+    "hipérbaton": [
+      56,
+      5,
+      null
+    ],
+    "hipérbole": [
+      null,
+      1,
+      3
+    ],
+    "hiperbólico": [
+      56,
+      1,
+      null
+    ],
+    "hipertensión": [
+      217,
+      5,
+      null
+    ],
+    "hipertrofia": [
+      9,
+      5,
+      27
+    ],
+    "hípica": [
+      220,
+      null,
+      11
+    ],
+    "hipocampo": [
+      217,
+      null,
+      11
+    ],
+    "hipocondríaco": [
+      94,
+      5,
+      null
+    ],
+    "hipodérmico": [
+      null,
+      2,
+      8
+    ],
+    "hipódromo": [
+      125,
+      2,
+      8
+    ],
+    "hipogeo": [
+      187,
+      2,
+      null
+    ],
+    "hipogrifo": [
+      217,
+      3,
+      11
+    ],
+    "hipología": [
+      217,
+      null,
+      11
+    ],
+    "hipopótamo": [
+      217,
+      3,
+      8
+    ],
+    "hipoteca": [
+      221,
+      5,
+      null
+    ],
+    "hipotenusa": [
+      221,
+      5,
+      null
+    ],
+    "hipotermia": [
+      221,
+      5,
+      11
+    ],
+    "hipótesis": [
+      182,
+      5,
+      null
+    ],
+    "homeopatía": [
+      226,
+      4,
+      19
+    ],
+    "homeostasis": [
+      156,
+      null,
+      19
+    ],
+    "horizonte": [
+      226,
+      4,
+      null
+    ],
+    "icono": [
+      230,
+      2,
+      9
+    ],
+    "iconografía": [
+      196,
+      2,
+      9
+    ],
+    "isobara": [
+      56,
+      null,
+      null
+    ],
+    "isócrono": [
+      104,
+      null,
+      12
+    ],
+    "isófono": [
+      178,
+      null,
+      12
+    ],
+    "isoglosa": [
+      193,
+      null,
+      7
+    ],
+    "isomorfismo": [
+      236,
+      null,
+      null
+    ],
+    "isósceles": [
+      236,
+      null,
+      12
+    ],
+    "isotermo": [
+      null,
+      null,
+      12
+    ],
+    "isótopo": [
+      61,
+      null,
+      12
+    ],
+    "jerarquía": [
+      42,
+      3,
+      2
+    ],
+    "laringitis": [
+      240,
+      null,
+      null
+    ],
+    "laringología": [
+      240,
+      null,
+      null
+    ],
+    "leucemia": [
+      16,
+      1,
+      null
+    ],
+    "lexicología": [
+      243,
+      null,
+      15
+    ],
+    "lógica": [
+      193,
+      3,
+      null
+    ],
+    "lógico": [
+      225,
+      3,
+      null
+    ],
+    "logopedia": [
+      249,
+      null,
+      null
+    ],
+    "macrobiótico": [
+      null,
+      null,
+      null
+    ],
+    "macrocéfalo": [
+      null,
+      null,
+      15
+    ],
+    "macrocosmos": [
+      97,
+      null,
+      null
+    ],
+    "macroeconomía": [
+      127,
+      null,
+      15
+    ],
+    "macromolécula": [
+      null,
+      null,
+      15
+    ],
+    "macroscópico": [
+      148,
+      3,
+      15
+    ],
+    "megafonía": [
+      178,
+      3,
+      16
+    ],
+    "megáfono": [
+      178,
+      3,
+      16
+    ],
+    "megalítico": [
+      246,
+      3,
+      15
+    ],
+    "megalomanía": [
+      252,
+      null,
+      16
+    ],
+    "megalómano": [
+      252,
+      3,
+      null
+    ],
+    "megalópolis": [
+      255,
+      3,
+      16
+    ],
+    "megavatio": [
+      null,
+      null,
+      16
+    ],
+    "metafísica": [
+      17,
+      3,
+      29
+    ],
+    "metáfora": [
+      171,
+      null,
+      null
+    ],
+    "metamorfosis": [
+      219,
+      3,
+      18
+    ],
+    "metástasis": [
+      156,
+      null,
+      null
+    ],
+    "metátesis": [
+      260,
+      3,
+      null
+    ],
+    "método": [
+      11,
+      3,
+      8
+    ],
+    "metonimia": [
+      260,
+      3,
+      null
+    ],
+    "metrópoli": [
+      412,
+      3,
+      null
+    ],
+    "metropolitano": [
+      263,
+      3,
+      null
+    ],
+    "mialgia": [
+      17,
+      null,
+      null
+    ],
+    "microbio": [
+      61,
+      3,
+      4
+    ],
+    "microbiología": [
+      61,
+      null,
+      16
+    ],
+    "microchip": [
+      264,
+      null,
+      null
+    ],
+    "microclima": [
+      89,
+      null,
+      16
+    ],
+    "microcosmos": [
+      97,
+      null,
+      15
+    ],
+    "microeconomía": [
+      null,
+      null,
+      16
+    ],
+    "micrófono": [
+      178,
+      3,
+      16
+    ],
+    "micrómetro": [
+      263,
+      null,
+      16
+    ],
+    "microondas": [
+      null,
+      null,
+      16
+    ],
+    "microorganismo": [
+      195,
+      null,
+      16
+    ],
+    "microprocesador": [
+      null,
+      null,
+      16
+    ],
+    "microscopio": [
+      148,
+      3,
+      4
+    ],
+    "misantropía": [
+      36,
+      null,
+      null
+    ],
+    "misántropo": [
+      36,
+      1,
+      2
+    ],
+    "misoginia": [
+      191,
+      null,
+      17
+    ],
+    "misógino": [
+      191,
+      2,
+      7
+    ],
+    "misoneísmo": [
+      268,
+      null,
+      17
+    ],
+    "misoneísta": [
+      268,
+      null,
+      17
+    ],
+    "mitomanía": [
+      252,
+      4,
+      17
+    ],
+    "monarquía": [
+      42,
+      1,
+      2
+    ],
+    "monóculo": [
+      271,
+      4,
+      17
+    ],
+    "monogamia": [
+      184,
+      1,
+      5
+    ],
+    "monografía": [
+      196,
+      null,
+      17
+    ],
+    "monólogo": [
+      243,
+      3,
+      17
+    ],
+    "monomanía": [
+      252,
+      4,
+      17
+    ],
+    "monosílabo": [
+      null,
+      4,
+      17
+    ],
+    "monoteísmo": [
+      271,
+      3,
+      11
+    ],
+    "necrópolis": [
+      276,
+      4,
+      23
+    ],
+    "neumático": [
+      281,
+      4,
+      24
+    ],
+    "neumología": [
+      243,
+      null,
+      24
+    ],
+    "neumonía": [
+      38,
+      4,
+      24
+    ],
+    "neumotórax": [
+      281,
+      null,
+      24
+    ],
+    "neuralgia": [
+      17,
+      null,
+      null
+    ],
+    "nostalgia": [
+      17,
+      null,
+      null
+    ],
+    "odómetro": [
+      263,
+      null,
+      19
+    ],
+    "odontalgia": [
+      17,
+      null,
+      19
+    ],
+    "oftálmico": [
+      290,
+      null,
+      null
+    ],
+    "oftalmología": [
+      243,
+      null,
+      15
+    ],
+    "oftalmólogo": [
+      290,
+      4,
+      null
+    ],
+    "oftalmoscopia": [
+      291,
+      null,
+      20
+    ],
+    "oligarquía": [
+      42,
+      null,
+      2
+    ],
+    "ortodoxia": [
+      124,
+      null,
+      8
+    ],
+    "ortografía": [
+      196,
+      null,
+      12
+    ],
+    "osteítis": [
+      300,
+      null,
+      20
+    ],
+    "osteología": [
+      243,
+      null,
+      20
+    ],
+    "osteomielitis": [
+      266,
+      null,
+      20
+    ],
+    "osteopatía": [
+      314,
+      4,
+      20
+    ],
+    "osteoporosis": [
+      null,
+      4,
+      20
+    ],
+    "osteotomía": [
+      300,
+      null,
+      20
+    ],
+    "otalgia": [
+      17,
+      null,
+      null
+    ],
+    "otitis": [
+      301,
+      4,
+      20
+    ],
+    "otología": [
+      243,
+      null,
+      20
+    ],
+    "otorrea": [
+      301,
+      null,
+      20
+    ],
+    "otorrinolaringología": [
+      240,
+      null,
+      null
+    ],
+    "otorrinolaringólogo": [
+      null,
+      4,
+      20
+    ],
+    "otoscopia": [
+      148,
+      null,
+      20
+    ],
+    "panteísmo": [
+      306,
+      3,
+      22
+    ],
+    "paquidermo": [
+      110,
+      2,
+      8
+    ],
+    "parábola": [
+      56,
+      1,
+      null
+    ],
+    "paradigma": [
+      308,
+      4,
+      null
+    ],
+    "paradoja": [
+      308,
+      4,
+      8
+    ],
+    "paráfrasis": [
+      308,
+      null,
+      null
+    ],
+    "paréntesis": [
+      133,
+      4,
+      null
+    ],
+    "parodia": [
+      289,
+      4,
+      null
+    ],
+    "pedagogía": [
+      14,
+      4,
+      21
+    ],
+    "pedagogo": [
+      null,
+      4,
+      null
+    ],
+    "pediatra": [
+      229,
+      3,
+      11
+    ],
+    "pediatría": [
+      303,
+      null,
+      null
+    ],
+    "pentagrama": [
+      196,
+      4,
+      7
+    ],
+    "periferia": [
+      171,
+      4,
+      null
+    ],
+    "perífrasis": [
+      318,
+      4,
+      null
+    ],
+    "perihelio": [
+      201,
+      2,
+      null
+    ],
+    "perímetro": [
+      237,
+      3,
+      null
+    ],
+    "periódico": [
+      null,
+      4,
+      4
+    ],
+    "período": [
+      6,
+      4,
+      1
+    ],
+    "periscopio": [
+      148,
+      4,
+      null
+    ],
+    "pirólisis": [
+      245,
+      null,
+      null
+    ],
+    "piromanía": [
+      252,
+      null,
+      null
+    ],
+    "pirómano": [
+      323,
+      5,
+      25
+    ],
+    "pirotecnia": [
+      323,
+      5,
+      25
+    ],
+    "plástico": [
+      326,
+      4,
+      11
+    ],
+    "plastilina": [
+      null,
+      null,
+      null
+    ],
+    "plutocracia": [
+      98,
+      null,
+      14
+    ],
+    "plutócrata": [
+      null,
+      null,
+      null
+    ],
+    "podología": [
+      244,
+      null,
+      null
+    ],
+    "podómetro": [
+      263,
+      null,
+      19
+    ],
+    "policía": [
+      330,
+      4,
+      23
+    ],
+    "policromía": [
+      102,
+      4,
+      null
+    ],
+    "polícromo": [
+      330,
+      null,
+      null
+    ],
+    "poliedro": [
+      123,
+      4,
+      23
+    ],
+    "polifonía": [
+      178,
+      4,
+      23
+    ],
+    "poligamia": [
+      184,
+      1,
+      5
+    ],
+    "políglota": [
+      193,
+      4,
+      7
+    ],
+    "polígono": [
+      40,
+      4,
+      7
+    ],
+    "polimorfo": [
+      330,
+      4,
+      24
+    ],
+    "politeísmo": [
+      330,
+      3,
+      11
+    ],
+    "política": [
+      39,
+      4,
+      2
+    ],
+    "pragmático": [
+      335,
+      4,
+      null
+    ],
+    "pragmatismo": [
+      335,
+      null,
+      null
+    ],
+    "problema": [
+      40,
+      4,
+      3
+    ],
+    "proctitis": [
+      null,
+      null,
+      null
+    ],
+    "proctología": [
+      244,
+      null,
+      null
+    ],
+    "profeta": [
+      336,
+      4,
+      null
+    ],
+    "programa": [
+      196,
+      null,
+      7
+    ],
+    "prólogo": [
+      183,
+      3,
+      null
+    ],
+    "pronóstico": [
+      194,
+      4,
+      7
+    ],
+    "prosélito": [
+      338,
+      null,
+      null
+    ],
+    "prosodia": [
+      289,
+      null,
+      null
+    ],
+    "prótesis": [
+      336,
+      4,
+      null
+    ],
+    "protocolo": [
+      93,
+      5,
+      24
+    ],
+    "prototipo": [
+      339,
+      5,
+      25
+    ],
+    "psicoanálisis": [
+      21,
+      null,
+      31
+    ],
+    "psicología": [
+      163,
+      null,
+      15
+    ],
+    "psicópata": [
+      314,
+      6,
+      21
+    ],
+    "psicopedagogía": [
+      14,
+      null,
+      31
+    ],
+    "psicosomático": [
+      341,
+      5,
+      26
+    ],
+    "psicoterapia": [
+      341,
+      null,
+      11
+    ],
+    "psique": [
+      341,
+      6,
+      null
+    ],
+    "psiquiatría": [
+      170,
+      null,
+      28
+    ],
+    "psíquico": [
+      341,
+      null,
+      null
+    ],
+    "quirófano": [
+      86,
+      5,
+      30
+    ],
+    "quiromancia": [
+      86,
+      3,
+      16
+    ],
+    "quiromasaje": [
+      null,
+      5,
+      30
+    ],
+    "rétor": [
+      350,
+      null,
+      null
+    ],
+    "retórica": [
+      33,
+      5,
+      24
+    ],
+    "rinitis": [
+      351,
+      null,
+      25
+    ],
+    "rinoceronte": [
+      81,
+      5,
+      25
+    ],
+    "rinoplastia": [
+      326,
+      4,
+      25
+    ],
+    "seudociencia": [
+      null,
+      null,
+      null
+    ],
+    "seudónimo": [
+      357,
+      4,
+      31
+    ],
+    "sincronía": [
+      104,
+      5,
+      null
+    ],
+    "sinfonía": [
+      178,
+      5,
+      29
+    ],
+    "sofisma": [
+      364,
+      5,
+      null
+    ],
+    "sofista": [
+      191,
+      5,
+      null
+    ],
+    "somático": [
+      365,
+      null,
+      null
+    ],
+    "somatización": [
+      null,
+      null,
+      null
+    ],
+    "talasocracia": [
+      98,
+      2,
+      14
+    ],
+    "talasoterapia": [
+      366,
+      2,
+      11
+    ],
+    "tanatofobia": [
+      367,
+      null,
+      null
+    ],
+    "tanatología": [
+      null,
+      null,
+      null
+    ],
+    "tanatorio": [
+      367,
+      2,
+      11
+    ],
+    "taquicardia": [
+      72,
+      5,
+      13
+    ],
+    "taquígrafo": [
+      196,
+      5,
+      null
+    ],
+    "taxidermia": [
+      110,
+      2,
+      8
+    ],
+    "teléfono": [
+      178,
+      5,
+      29
+    ],
+    "telégrafo": [
+      371,
+      2,
+      null
+    ],
+    "telegrama": [
+      196,
+      2,
+      7
+    ],
+    "telescopio": [
+      148,
+      null,
+      null
+    ],
+    "teocentrismo": [
+      373,
+      null,
+      11
+    ],
+    "teocracia": [
+      98,
+      3,
+      11
+    ],
+    "teodicea": [
+      373,
+      null,
+      11
+    ],
+    "teogonía": [
+      186,
+      2,
+      6
+    ],
+    "teología": [
+      39,
+      3,
+      11
+    ],
+    "teosofía": [
+      364,
+      null,
+      11
+    ],
+    "tetrarquía": [
+      42,
+      null,
+      2
+    ],
+    "timocracia": [
+      380,
+      null,
+      14
+    ],
+    "tomografía": [
+      null,
+      null,
+      null
+    ],
+    "xenofobia": [
+      178,
+      4,
+      null
+    ],
+    "xilófono": [
+      178,
+      null,
+      19
+    ],
+    "xilografía": [
+      196,
+      null,
+      19
+    ],
+    "zoología": [
+      140,
+      2,
+      null
+    ],
+    "zoológico": [
+      398,
+      null,
+      null
+    ]
+  }
+}
