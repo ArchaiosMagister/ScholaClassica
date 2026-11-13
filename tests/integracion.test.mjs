@@ -14,9 +14,9 @@ function crawl(dir,prefix=''){
   return readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.name==='.git'||e.name==='.github'?[]:
     e.isDirectory()?crawl(join(dir,e.name),prefix+e.name+'/'):[prefix+e.name]);
 }
-function compareApp(source,target,exceptions=[]){
+function compareApp(source,target,exceptions=[],extras=[]){
   const expected=crawl(source).sort(),actual=crawl(target).sort();
-  assert.deepEqual(actual,expected);
+  assert.deepEqual(actual,[...expected,...extras].sort());
   for(const file of expected){
     if(exceptions.includes(file))continue;
     assert.equal(hash(join(source,file)),hash(join(target,file)),'Copia alterada: '+file);
@@ -27,15 +27,24 @@ test('Appendix completo, en castellano y valenciano, conserva los bytes original
   for(const file of ['index.html','curso.html','val/index.html','val/curso.html','assets/curriculum.json','val/curriculum.json'])
     assert.ok(existsSync(join(out,'apps/gramatica',file)),file);
 });
-test('Evolutio conserva todo el motor y banco, salvo la adaptación aislada del service worker',()=>{
+test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y mantiene SW aislado',()=>{
   const source=join(root,'.sources/evolutio'),target=join(out,'apps/evolucion-fonetica');
-  compareApp(source,target,['sw.js']);
-  assert.notEqual(hash(join(source,'sw.js')),hash(join(target,'sw.js')));
-  for(const file of ['index.html','src/app.mjs','src/engine.mjs','src/rules.mjs','data/pilot.json','manifest.webmanifest'])
-    assert.equal(hash(join(source,file)),hash(join(target,file)),file);
+  const adapted=['sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json'];
+  compareApp(source,target,adapted,['src/result-difficulty.mjs']);
+  for(const file of adapted)assert.notEqual(hash(join(source,file)),hash(join(target,file)),'Adaptación no aplicada: '+file);
+  for(const file of ['index.html','src/engine.mjs','src/rules.mjs','src/latin.mjs','data/pilot.json','manifest.webmanifest'])
+    assert.equal(hash(join(source,file)),hash(join(target,file)),'Original alterado: '+file);
   const sw=readFileSync(join(target,'sw.js'),'utf8');
   assert.match(sw,/const CACHE_PREFIX='schola-evolutio-';/);
   assert.match(sw,/keys\.filter\(key=>key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION\)/);
+  assert.match(sw,/src\/result-difficulty\.mjs/);
+  assert.match(sw,/resultado-v2/);
+  const original=JSON.parse(readFileSync(join(source,'data/difficulty.json'),'utf8'));
+  const reclassified=JSON.parse(readFileSync(join(target,'data/difficulty.json'),'utf8'));
+  assert.equal(original.method,'criterio-didactico-v1');
+  assert.equal(reclassified.method,'criterio-resultado-v2');
+  assert.deepEqual(Object.keys(original.assignments),Object.keys(reclassified.assignments));
+  assert.ok(Object.keys(reclassified.assignments).some(id=>original.assignments[id].level!==reclassified.assignments[id].level));
 });
 test('Etymologicon se construye con su pantalla, corrector y banco ampliado y cerrado, sin publicar material docente interno',()=>{
   const dir=join(out,'apps/etymologicon');
