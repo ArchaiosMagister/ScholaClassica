@@ -58,6 +58,8 @@ jobs:
       - name: Validar Evolutio original
         working-directory: .sources/evolutio
         run: npm test
+      - name: Contrastar matriz valenciana de Evolutio con el origen fijado (sin publicarla)
+        run: npm run evolutio:val:check
       - name: Validar Appendix original
         working-directory: .sources/appendix
         run: node scripts/validate-site.mjs
