@@ -7,15 +7,15 @@
   "summary": {
     "total": 221,
     "preanalisisEstructural": 221,
-    "conAnalisisEditorialPrevio": 57,
-    "pendientesDeAnalisisIndividual": 164,
+    "conAnalisisEditorialPrevio": 72,
+    "pendientesDeAnalisisIndividual": 149,
     "leyesFoneticamenteCertificadas": 0,
     "habilitadas": 0,
     "procesosParcialesContrastados": 110,
     "fichasConProcesosParciales": 95,
     "analisisIntegralesVerificados": 0,
     "decisionesDocentesAplicadas": 3,
-    "nuevosAnalisisEditorials": 29
+    "nuevosAnalisisEditorials": 44
   },
   "records": [
     {
@@ -7916,8 +7916,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Simplificació del grup consonàntic -pt- a -t-."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de -e final."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -7938,7 +7972,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -7959,7 +7993,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "septem → set: simplificació del grup -pt-, apòcope de -e i pèrdua fixa de -m."
     },
     {
       "id": "xl-509",
@@ -8030,8 +8065,20 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -8040,12 +8087,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "fibram → fibra: pèrdua fixa de -m final sense una altra llei seleccionable demostrada."
     },
     {
       "id": "xl-548",
@@ -8061,8 +8109,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització de la geminada lateral -ll-."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de la vocal final -e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -8083,12 +8165,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "uallem → vall: palatalització de la -ll- geminada, apòcope de -e i pèrdua fixa de -m. La u inicial llatina té valor consonàntic."
     },
     {
       "id": "xl-570",
@@ -8293,8 +8376,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització fonètica de -ll- llatina geminada, amb la mateixa grafia."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de -e final."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -8315,12 +8432,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "pellem → pell: palatalització fonètica de -ll-, apòcope de -e i pèrdua fixa de -m."
     },
     {
       "id": "xl-608",
@@ -8336,15 +8454,28 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              8,
+              9
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de la -e final de l'infinitiu."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "temperare → temperar: apòcope de -e final, sense pèrdua de -m (és un infinitiu)."
     },
     {
       "id": "xl-810",
@@ -8575,8 +8706,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Simplificació de la geminada -cc- en -c-."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de la vocal final -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              7,
+              8
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -8591,7 +8756,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -8612,7 +8777,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "peccatum → pecat: simplificació de -cc-, apòcope de -u i pèrdua fixa de -m."
     },
     {
       "id": "xl-164",
@@ -8972,8 +9138,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Reducció fonètica de la s geminada en s simple."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de -u final."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -8988,7 +9188,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -9009,7 +9209,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "passum → pas: simplificació de -ss- en -s-, apòcope de -u i pèrdua fixa de -m."
     },
     {
       "id": "xl-1037",
@@ -9170,8 +9371,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de -u final, sense diftongació de ŏ tònica."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -9186,12 +9410,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "pŏrcum → porc: apòcope de -u i pèrdua fixa de -m; no diftonga la ŏ tònica."
     },
     {
       "id": "ge-EVF-0295",
@@ -9411,8 +9636,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de -e final."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -9427,12 +9675,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "uitem → vit: apòcope de -e i pèrdua fixa de -m; la u consonàntica inicial es representa v."
     },
     {
       "id": "ge-EVF-0343",
@@ -9448,8 +9697,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              8,
+              9
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de la vocal final -e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              9,
+              10
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -9464,12 +9736,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "uoluntatem → voluntat: apòcope de -e i pèrdua fixa de -m; u inicial consonàntica > v gràfica."
     },
     {
       "id": "ge-EVF-0345",
@@ -10149,15 +10422,28 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              7,
+              8
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de la -e final de l'infinitiu."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "ordinare → ordenar: apòcope de -e final; el timbre de la vocal interior s'explica separadament sense assignar una llei no acreditada."
     },
     {
       "id": "ge-EVF-0443",
@@ -10373,8 +10659,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de la vocal final -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10389,12 +10698,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "ferum → fer: apòcope de -u i pèrdua fixa de -m. Diferenciar de ferro < fĕrrum."
     },
     {
       "id": "ge-EVF-0589",
@@ -10592,8 +10902,26 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PROT",
+          "spans": [],
+          "anchor": 0,
+          "note": "Pròtesi de e- davant s inicial seguida de consonant."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10608,7 +10936,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -10629,7 +10957,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "spinam → espina: pròtesi d'e- inicial davant sp-; la -m final desapareix com a norma fixa."
     },
     {
       "id": "ge-EVF-0884",
@@ -10645,8 +10974,26 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PROT",
+          "spans": [],
+          "anchor": 0,
+          "note": "Pròtesi de e- davant sp- inicial."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10661,7 +11008,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -10682,7 +11029,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "spumam → espuma: pròtesi d'e- davant sp-, sense substituir el resultat per escuma; pèrdua fixa de -m."
     },
     {
       "id": "ge-EVF-1022",
@@ -10698,8 +11046,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Sonorització intervocàlica de c > g."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de -u final."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10714,7 +11096,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -10735,7 +11117,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "securum → segur: sonorització de -c- intervocàlica en -g-, apòcope de -u i pèrdua fixa de -m."
     },
     {
       "id": "ge-EVF-0834",
