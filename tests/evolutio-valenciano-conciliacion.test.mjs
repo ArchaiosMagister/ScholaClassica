@@ -52,12 +52,12 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
 test('Estados editoriales honestos: 26 documentados léxicamente, 215 propuestas, 281 sin propuesta',()=>{
  assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:26,propuestas:215,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:22,casosConDiscrepancia:4});
+  analisisEditoriales:26,casosConDiscrepancia:0});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
-    assert.ok(['analisi_editorial_revisada','discrepancia_documentada'].includes(r.valenciano.estadoNormas));
-    if(r.valenciano.estadoNormas==='analisi_editorial_revisada'){
+    assert.ok(['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(r.valenciano.estadoNormas));
+    if(['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(r.valenciano.estadoNormas)){
       assert.ok(Array.isArray(r.valenciano.normas));
       assert.equal(r.valenciano.dnvIndividualChecked,false);
       assert.ok(r.valenciano.explicacion);
@@ -112,12 +112,11 @@ test('Propuestas sin fuente no se promueven a verificadas',()=>{
  extraneous.proposals.push({latin:'ficticium',form:'fictici',lexicalStatus:'proposta',reference:null});
  assert.throws(()=>assembleEvolutioValenciano(bank,extraneous,norms,lock.sources.evolutio.sha),/sin étimo/);
 });
-test('22 análisis revisados y 4 discrepancias: sin trasplante de normas castellanas',()=>{
- const good=matrix.records.filter(w=>w.valenciano.estadoNormas==='analisi_editorial_revisada');
+test('26 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
+ const good=matrix.records.filter(w=>['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(w.valenciano.estadoNormas));
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
- assert.equal(good.length,22);
- assert.equal(disputed.length,4);
- assert.deepEqual(disputed.map(w=>w.latin).sort(),['noctem','matrem','fabam','caballum'].sort());
+ assert.equal(good.length,26);
+ assert.equal(disputed.length,0);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
   const letters=[...w.latin];
@@ -126,13 +125,51 @@ test('22 análisis revisados y 4 discrepancias: sin trasplante de normas castell
    if(change.rule==='FIX_M')assert.equal(change.spans[0][0],letters.length-1);
    for(const [a,b] of change.spans)assert.ok(a>=0&&a<b&&b<=letters.length);
   }
+  assert.equal(w.valenciano.aprobadoDocente,false);
+  assert.equal(w.valenciano.aptoParaPractica,false);
+  assert.notEqual(w.valenciano.dnvIndividualChecked,true);
  }
  assert.deepEqual(record('mel').valenciano.normas,[]);
  assert.ok(record('scalam').valenciano.normas.some(c=>c.rule==='PROT'&&c.anchor===0));
  assert.ok(record('clauem').valenciano.normas.some(c=>c.rule==='VOC'));
  assert.ok(record('lupum').valenciano.normas.some(c=>c.rule==='PALAT'));
  assert.ok(record('focum').valenciano.normas.some(c=>c.rule==='APOC'));
- assert.ok(good.every(w=>w.valenciano.aptoParaPractica===false));
+});
+test('Las decisiones docentes preservan su alcance: clasificación, no autorización de ejercicios',()=>{
+ const resolved={
+  noctem:['VOC','SIMPL','APOC','FIX_M'],
+  matrem:['SIMPL','FIX_M'],
+  fabam:['FIX_M'],
+  caballum:['PALAT','APOC','FIX_M']
+ };
+ for(const [latin,rules] of Object.entries(resolved)){
+  const w=record(latin).valenciano;
+  assert.deepEqual(w.normas.map(c=>c.rule),rules);
+  assert.equal(w.criterioDocente.date,'2026-11-13');
+  assert.equal(w.criterioDocente.scope,'criterio_de_clasificacion');
+  assert.equal(w.aprobadoDocente,false);
+  assert.equal(w.aptoParaPractica,false);
+ }
+ const nit=record('noctem').valenciano;
+ assert.equal(nit.criterioDocente.approval,'provisional');
+ assert.equal(nit.estadoNormas,'analisi_editorial_provisional_docent');
+ assert.equal(nit.normas.find(c=>c.rule==='SIMPL').historicalStage,'nuit');
+ assert.equal(nit.normas.find(c=>c.rule==='SIMPL').provisional,true);
+ assert.deepEqual(nit.normas.find(c=>c.rule==='SIMPL').spans,[]);
+ assert.equal(nit.normas.find(c=>c.rule==='SIMPL').anchor,2);
+ assert.match(nit.explicacion,/nuit/);
+ assert.deepEqual(record('matrem').valenciano.normas.find(c=>c.rule==='SIMPL').spans,[[2,3]]);
+ for(const latin of ['fabam','caballum']){
+  const w=record(latin).valenciano;
+  assert.equal(w.criterioDocente.approval,'accepted');
+  assert.deepEqual(w.fenomensNoSeleccionables.map(x=>x.type),['debilitament_intervocalic']);
+  assert.equal(w.fenomensNoSeleccionables[0].selectable,false);
+  assert.deepEqual(w.fenomensNoSeleccionables[0].spans,[[2,3]]);
+  assert.ok(!w.normas.some(c=>c.rule==='SONOR'));
+ }
+ assert.equal(record('fabam').valenciano.normas.filter(x=>x.rule!=='FIX_M').length,0);
+ assert.ok(record('caballum').valenciano.normas.some(x=>x.rule==='PALAT'));
+ assert.ok(record('caballum').valenciano.normas.some(x=>x.rule==='APOC'));
 });
 test('No se admiten posiciones erróneas ni aprobaciones ficticias de leyes',()=>{
  const bad=structuredClone(revision);
@@ -142,6 +179,21 @@ test('No se admiten posiciones erróneas ni aprobaciones ficticias de leyes',()=
  const invalid=structuredClone(revision);
  invalid.analyses[0].playable=true;
  assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,invalid),/marcada como practicable/);
+});
+test('No se admiten falsos fenómenos, aprobación ficticia ni fases históricas sin respaldo provisional',()=>{
+ const change=structuredClone(revision);
+ const fava=change.analyses.find(x=>x.latin==='fabam');
+ fava.nonSelectablePhenomena[0].at=1;
+ assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,change),/Debilitament intervocàlic/);
+ const approval=structuredClone(revision);
+ approval.analyses.find(x=>x.latin==='matrem').teacherApproved=true;
+ assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,approval),/marcada como practicable/);
+ const stage=structuredClone(revision);
+ stage.analyses.find(x=>x.latin==='noctem').teacherDecision.approval='accepted';
+ assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,stage),/Estadio històric/);
+ const duplicate=structuredClone(revision);
+ duplicate.pending.push({...duplicate.analyses.find(x=>x.latin==='matrem'),status:'criteri_pendent',reason:'fictici',changes:undefined});
+ assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,duplicate),/Revisión duplicada/);
 });
 test('La matriz de trabajo no se publica ni sustituye los recursos originales',()=>{
  const dist=join(root,'dist');
