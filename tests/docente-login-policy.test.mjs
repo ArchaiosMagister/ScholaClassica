@@ -6,13 +6,13 @@ import {
   allowedTeacherOrigin,validTeacherLogin,authorizedInitialSession
 } from '../supabase/functions/_shared/teacher-login-policy.mjs';
 const root=resolve(import.meta.dirname,'..');
-const origin='https://docente.ejemplo.test';
-const login={username:'MagisterArchaios',password:'contraseña-dummy-fuerte',turnstileToken:'token-de-pruebas-valido'};
-test('el origen HTTPS es independiente de las aplicaciones de alumnos',()=>{
+const origin='https://archaiosmagister.github.io';
+const login={username:'MagisterArchaios',password:'contraseña-dummy-fuerte'};
+test('el servicio sólo admite el origen exacto de GitHub Pages',()=>{
   assert.equal(allowedTeacherOrigin(origin),origin);
   for(const value of [
-    'http://docente.ejemplo.test','https://archaiosmagister.github.io',
-    'https://docente.ejemplo.test/ruta','https://docente.ejemplo.test:444',
+    'http://docente.ejemplo.test','https://docente.ejemplo.test',
+    'https://archaiosmagister.github.io/ruta','https://archaiosmagister.github.io:444',
     'https://localhost','http://127.0.0.1:4000',null
   ])assert.equal(allowedTeacherOrigin(value),null,String(value));
 });
@@ -20,8 +20,7 @@ test('rechaza usuarios desconocidos, campos malformados y solicitudes enormes',(
   assert.equal(validTeacherLogin(login),true);
   assert.equal(validTeacherLogin({...login,username:'invitado'}),false);
   assert.equal(validTeacherLogin({...login,password:'12345'}),false);
-  assert.equal(validTeacherLogin({...login,turnstileToken:'x'}),false);
-  assert.equal(validTeacherLogin({...login,turnstileToken:'x'.repeat(2049)}),false);
+  assert.equal(validTeacherLogin({...login,password:'x'.repeat(257)}),false);
   assert.equal(validTeacherLogin(null),false);
 });
 test('una identidad de profesor exige un usuario exacto y tokens de sesión',()=>{
@@ -33,17 +32,17 @@ test('una identidad de profesor exige un usuario exacto y tokens de sesión',()=
   assert.equal(authorizedInitialSession({...user,is_anonymous:true},session,id),false);
   assert.equal(authorizedInitialSession(user,{access_token:'ok'},id),false);
 });
-test('el login preserva el email y delega Turnstile en Supabase Auth',()=>{
+test('el login mantiene el correo en servidor y no necesita servicios externos',()=>{
   const server=readFileSync(join(root,'supabase/functions/schola-login/index.ts'),'utf8');
   const client=readFileSync(join(root,'public/docente/app.mjs'),'utf8');
   const build=readFileSync(join(root,'scripts/build-docente.mjs'),'utf8');
   const toml=readFileSync(join(root,'supabase/config.toml'),'utf8');
   assert.ok(server.includes("env('SCHOLA_AUTH_LOGIN_EMAIL')"));
-  assert.match(server,/SCHOLA_AUTH_CAPTCHA_ENFORCED/);
-  assert.ok(server.indexOf('captchaReady=env')<server.indexOf('auth.auth.signInWithPassword'));
+  assert.match(server,/SCHOLA_AUTH_LOGIN_READY/);
+  assert.ok(server.indexOf('loginReady=env')<server.indexOf('auth.auth.signInWithPassword'));
+  assert.doesNotMatch(server,/captchaToken|turnstileToken/);
   assert.ok(server.includes("env('SCHOLA_AUTH_LOGIN_EMAIL')"));
-  assert.match(server,/options:\{captchaToken:body\.turnstileToken\}/);
-  assert.ok(!server.includes('turnstile/v0/siteverify'));
+  assert.ok(!client.includes('turnstile/v0/api.js'));
   assert.ok(!server.includes('SCHOLA_TURNSTILE_SECRET'));
   assert.match(toml,/\[functions\.schola-login\]\s+verify_jwt = false/);
   assert.match(toml,/\[functions\.schola-inbox\]\s+verify_jwt = true/);
