@@ -90,9 +90,8 @@ const install=async(page,allow=true,setupOnly=false)=>{
       if(name!=='schola-inbox')throw new Error('Unexpected endpoint');
       mock.inboxCalls=(mock.inboxCalls||0)+1;
       if(mock.aal!=='aal2')return {data:{authorized:false},error:null};
-      return mock.allow?success({authorized:true,items:[
-        {source:'vocabula',title:'palabra',course:'lat1',summary:'<img src=x onerror=alert(1)>',created_at:'2026-11-12T12:00:00Z'},
-        {source:'palabra',title:'etimología',course:'1.º Bachillerato',summary:'Definición propuesta',created_at:'2026-11-12T11:00:00Z'}
+      return mock.allow?success({authorized:true,source:'vocabula',items:[
+        {source:'vocabula',title:'palabra',course:'lat1',summary:'<img src=x onerror=alert(1)>',created_at:'2026-11-12T12:00:00Z'}
       ]}):{data:{authorized:false},error:null};
     }};
     window.supabase={createClient:()=>({auth,functions})};
