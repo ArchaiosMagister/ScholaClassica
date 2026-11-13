@@ -9,8 +9,20 @@ Se ha preparado la **matriz de los 522 étimos** del banco de Evolutio integrado
 | `documentat` | **26** | Correspondencia y etimología de la acepción en el DCVB (documentación léxica inicial) |
 | `proposta` | **215** | Hipótesis de equivalencia pendiente de contraste individual; **no** cuenta como verificación |
 | `pendent` | **281** | Sin resultado propuesto por ahora |
-| Normas valencianas verificadas en fichas | **0** | Aún no se han localizado cambios y posiciones en cada étimo |
+| Análisis valencianos con propuesta editorial revisada | **22** | Se han localizado los cambios y posiciones; falta validación normativa individual y autorización docente |
+| Discrepancias fonéticas individuales | **4** | Se reservan para decisión docente con justificación |
+| Normas con validación completa para práctica | **0** | No están certificadas ni aprobadas para sorteo |
 | Fichas valencianas autorizadas para práctica | **0** | No se publica contenido inacabado |
+
+## Primera revisión filológica individual (13/11/2026)
+
+Se han contrastado las etimologías de las **26 correspondencias documentadas**, consultando el artículo y la acepción adecuada del DCVB. Los tramos de norma se han revisado editorialmente **para 22 étimos**, sin copiar el análisis castellano. Quedan **4 discrepancias** documentadas: `noctem → nit`, `matrem → mare`, `fabam → fava` y `caballum → cavall`. En las dos últimas no debe equipararse la lenición de `-b-` a `-v-` con la sonorización de una oclusiva sorda.
+
+El archivo `shared/academic/evolutio-valenciano/revisio-26.json` contiene las 22 segmentaciones revisadas, las explicaciones y los motivos de cada discrepancia. El generador valida que **cada intervalo coincida exactamente con los caracteres Unicode del étimo**, y registra automáticamente la pérdida fija de `-m` cuando procede. `mel → mel` carece de normas seleccionables: es apta conceptualmente para consulta, pero no para una pregunta que exija identificar cambios.
+
+**Límites de esta revisión:** el DNV de la AVL no ha podido consultarse entrada por entrada por la vía automatizada utilizada. Se ha contrastado directamente la etimología en el DCVB, pero no se certifica la comprobación normativa individual del DNV. El estado `analisi_editorial_revisada` **no equivale a `normasVerificadas`**, ni a aceptación docente, ni habilita el ejercicio: los tres indicadores permanecen en cero cuando así corresponde.
+
+La revisión de `clauem → clau` distingue la **clau femenina** procedente de `clāve` de la **clau masculina** procedente de `clavu`. En otras palabras, como `coll`, se conserva la acepción etimológica precisa. Las normas que describen cambios fonéticos sin cambio de letra (p. ej., `-ll-` latina geminada → `ll` palatal) llevan nota explícita.
 
 Los recuentos se recalculan a partir de `matriz-522.json`; no deben darse por verificados todos los resultados solo por estar escritos. La opción `documentat` **no** significa aprobación docente ni comprobación completa de las leyes de evolución.
 

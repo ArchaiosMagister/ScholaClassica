@@ -1,0 +1,446 @@
+{
+  "schema": "schola-evolutio-va-analysis/v1",
+  "date": "2026-11-13",
+  "status": "auditoria_docent_sense_publicacio",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes.",
+  "analyses": [
+    {
+      "latin": "focum",
+      "form": "foc",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Caiguda de -u final després de la pèrdua de -m."
+        }
+      ],
+      "explanation": "La vocal final de l'acusatiu deixa de pronunciar-se; la -m final és fixa."
+    },
+    {
+      "latin": "clauem",
+      "form": "clau",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "VOC",
+          "find": "u",
+          "at": 3,
+          "note": "La u consonàntica llatina es vocalitza com a u del diftong -au."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Pèrdua de -e final."
+        }
+      ],
+      "explanation": "L'etimologia de la clau femenina és clāve, diferent de clavu 'clavo'."
+    },
+    {
+      "latin": "lupum",
+      "form": "llop",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "l",
+          "at": 0,
+          "note": "Palatalització de l- inicial en ll-."
+        },
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica a o."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Pèrdua de -u final."
+        }
+      ],
+      "explanation": "La p final es conserva sorda en valencià; no aplicar sonorització castellana."
+    },
+    {
+      "latin": "filium",
+      "form": "fill",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "li",
+          "at": 2,
+          "note": "Evolució de -li- davant vocal en lateral palatal ll."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Pèrdua de la vocal final -u."
+        }
+      ],
+      "explanation": "La grafia -ll reflectix la lateral palatal; no traslladar 'hijo'."
+    },
+    {
+      "latin": "uitam",
+      "form": "vida",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SONOR",
+          "find": "t",
+          "at": 2,
+          "note": "Sonorització de -t- intervocàlica en -d-."
+        }
+      ],
+      "explanation": "La u inicial té valor consonàntic i es representa gràficament amb v en el resultat."
+    },
+    {
+      "latin": "tĕrram",
+      "form": "terra",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "Cap llei seleccionable: la forma patrimonial conserva l'ĕ tònica sense diftongar; només la pèrdua fixa de -m."
+    },
+    {
+      "latin": "pŏrtam",
+      "form": "porta",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "No hi ha diftongació de ŏ tònica com en castellà; només la pèrdua fixa de -m."
+    },
+    {
+      "latin": "fĕrrum",
+      "form": "ferro",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": -2,
+          "note": "Obertura de la vocal final -u en -o."
+        }
+      ],
+      "explanation": "La vocal tònica ĕ es manté en el resultat valencià."
+    },
+    {
+      "latin": "pontem",
+      "form": "pont",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Pèrdua de -e final."
+        }
+      ],
+      "explanation": "La consonant -t final es conserva en valencià en la representació gràfica."
+    },
+    {
+      "latin": "buccam",
+      "form": "boca",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica en o."
+        },
+        {
+          "rule": "SIMPL",
+          "find": "cc",
+          "at": 2,
+          "note": "Simplificació de -cc- en -c-."
+        }
+      ],
+      "explanation": "La simplificació és fonètica i gràfica; la forma de partida conté -cc-."
+    },
+    {
+      "latin": "chartam",
+      "form": "carta",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "GRIE",
+          "find": "ch",
+          "at": 0,
+          "note": "Adaptació de ch de procedència grega a c."
+        }
+      ],
+      "explanation": "Etimologia llatina charta, amb dígraf d'origen grec."
+    },
+    {
+      "latin": "annum",
+      "form": "any",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "nn",
+          "at": 1,
+          "note": "Palatalització de -nn- en -ny-."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Pèrdua de -u final."
+        }
+      ],
+      "explanation": "El resultat escrit -ny denota palatalització."
+    },
+    {
+      "latin": "farinam",
+      "form": "farina",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "Només pèrdua fixa de -m; no afegir aspiració castellana."
+    },
+    {
+      "latin": "catenam",
+      "form": "cadena",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SONOR",
+          "find": "t",
+          "at": 2,
+          "note": "Sonorització de -t- intervocàlica en -d-."
+        }
+      ],
+      "explanation": "Resultat valencià patrimonial."
+    },
+    {
+      "latin": "gallinam",
+      "form": "gallina",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "ll",
+          "at": 2,
+          "note": "Evolució fonètica de -ll- llatina geminada a lateral palatal representada ll."
+        }
+      ],
+      "explanation": "La mateixa grafia -ll- no implica absència de canvi fonètic; cal explicar-ho."
+    },
+    {
+      "latin": "scalam",
+      "form": "escala",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "spans": [],
+          "note": "Pròtesi d'e- davant s- + consonant."
+        }
+      ],
+      "explanation": "La e- valenciana és protètica; s- llatina no es perd."
+    },
+    {
+      "latin": "cuppam",
+      "form": "copa",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica en o."
+        },
+        {
+          "rule": "SIMPL",
+          "find": "pp",
+          "at": 2,
+          "note": "Simplificació de -pp- en -p-."
+        }
+      ],
+      "explanation": "La -m del cas acusatiu desapareix."
+    },
+    {
+      "latin": "caulem",
+      "form": "col",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "MONOP",
+          "find": "au",
+          "at": 1,
+          "note": "Monoftongació de -au- en -o-."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Pèrdua de -e final."
+        }
+      ],
+      "explanation": "L'etimologia de col 'hortalissa' és caule."
+    },
+    {
+      "latin": "collum",
+      "form": "coll",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "ll",
+          "at": 2,
+          "note": "Evolució fonètica de la geminada -ll- a lateral palatal ll."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Pèrdua de -u final."
+        }
+      ],
+      "explanation": "Només coll 'coll anatòmic'; altres significats homògrafs poden procedir d'altres ètims."
+    },
+    {
+      "latin": "flammam",
+      "form": "flama",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "mm",
+          "at": 3,
+          "note": "Simplificació de -mm- geminada en -m-."
+        }
+      ],
+      "explanation": "No s'ha de palatalitzar fl- inicial com en castellà llama."
+    },
+    {
+      "latin": "ollam",
+      "form": "olla",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "ll",
+          "at": 1,
+          "note": "Palatalització fonètica de la geminada llatina -ll-."
+        }
+      ],
+      "explanation": "La grafia es manté i la consonant passa a ser palatal."
+    },
+    {
+      "latin": "mel",
+      "form": "mel",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "Forma sense transformacions incloses en el repertori: estudiar, però no exigir normes en pràctica."
+    }
+  ],
+  "pending": [
+    {
+      "latin": "noctem",
+      "form": "nit",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Cal fixar una cadena històrica rigorosa per -ct- > -it- i la reducció vocàlica posterior; no equival a aplicar mecànicament la palatalització castellana."
+    },
+    {
+      "latin": "matrem",
+      "form": "mare",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "La reducció de -tr- podria classificar-se com a simplificació; precisar el tractament històric i la segmentació abans d'exigir una norma."
+    },
+    {
+      "latin": "fabam",
+      "form": "fava",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "El canvi intervocàlic -b- > -v- és lenició/fricativització, no SONORITZACIÓ de sordes. El repertori de 17 normes no el recull explícitament."
+    },
+    {
+      "latin": "caballum",
+      "form": "cavall",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "La -b- intervocàlica > -v- no és SONORITZACIÓ; decidir si se n'explica el canvi no seleccionable i quines altres normes es poden exigir."
+    }
+  ]
+}

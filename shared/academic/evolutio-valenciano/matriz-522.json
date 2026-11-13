@@ -15,7 +15,9 @@
     "propuestas": 215,
     "sinPropuesta": 281,
     "normasVerificadas": 0,
-    "aptasParaPractica": 0
+    "aptasParaPractica": 0,
+    "analisisEditoriales": 22,
+    "casosConDiscrepancia": 4
   },
   "records": [
     {
@@ -108,9 +110,32 @@
       "valenciano": {
         "resultado": "cadena",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de -t- intervocàlica en -d-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "Resultat valencià patrimonial.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -121,7 +146,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -139,9 +165,43 @@
       "valenciano": {
         "resultado": "clau",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "VOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "La u consonàntica llatina es vocalitza com a u del diftong -au."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua de -e final."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "L'etimologia de la clau femenina és clāve, diferent de clavu 'clavo'.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -152,7 +212,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "Sentido de llave: clau, femenino; no confundir con clau masculino 'clavo'."
+        "notas": "Sentido de llave: clau, femenino; no confundir con clau masculino 'clavo'.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -220,9 +281,43 @@
       "valenciano": {
         "resultado": "copa",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació de -pp- en -p-."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La -m del cas acusatiu desapareix.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -233,7 +328,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -252,7 +348,7 @@
         "resultado": "fava",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -264,7 +360,7 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": "El canvi intervocàlic -b- > -v- és lenició/fricativització, no SONORITZACIÓ de sordes. El repertori de 17 normes no el recull explícitament."
       }
     },
     {
@@ -282,9 +378,21 @@
       "valenciano": {
         "resultado": "farina",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "Només pèrdua fixa de -m; no afegir aspiració castellana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -295,7 +403,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -338,9 +447,43 @@
       "valenciano": {
         "resultado": "fill",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Evolució de -li- davant vocal en lateral palatal ll."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua de la vocal final -u."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La grafia -ll reflectix la lateral palatal; no traslladar 'hijo'.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -351,7 +494,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -444,9 +588,54 @@
       "valenciano": {
         "resultado": "llop",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de l- inicial en ll-."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica a o."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Pèrdua de -u final."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La p final es conserva sorda en valencià; no aplicar sonorització castellana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -457,7 +646,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -576,7 +766,7 @@
         "resultado": "nit",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -588,7 +778,7 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": "Cal fixar una cadena històrica rigorosa per -ct- > -it- i la reducció vocàlica posterior; no equival a aplicar mecànicament la palatalització castellana."
       }
     },
     {
@@ -656,9 +846,21 @@
       "valenciano": {
         "resultado": "porta",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "No hi ha diftongació de ŏ tònica com en castellà; només la pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -669,7 +871,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -837,9 +1040,21 @@
       "valenciano": {
         "resultado": "terra",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "Cap llei seleccionable: la forma patrimonial conserva l'ĕ tònica sense diftongar; només la pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -850,7 +1065,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -893,9 +1109,43 @@
       "valenciano": {
         "resultado": "boca",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació de -cc- en -c-."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La simplificació és fonètica i gràfica; la forma de partida conté -cc-.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -906,7 +1156,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -999,9 +1250,32 @@
       "valenciano": {
         "resultado": "foc",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Caiguda de -u final després de la pèrdua de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La vocal final de l'acusatiu deixa de pronunciar-se; la -m final és fixa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -1012,7 +1286,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1155,9 +1430,32 @@
       "valenciano": {
         "resultado": "carta",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "GRIE",
+            "spans": [
+              [
+                0,
+                2
+              ]
+            ],
+            "note": "Adaptació de ch de procedència grega a c."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "Etimologia llatina charta, amb dígraf d'origen grec.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -1168,7 +1466,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1286,9 +1585,43 @@
       "valenciano": {
         "resultado": "any",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Palatalització de -nn- en -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Pèrdua de -u final."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "El resultat escrit -ny denota palatalització.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -1299,7 +1632,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1767,9 +2101,43 @@
       "valenciano": {
         "resultado": "coll",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Evolució fonètica de la geminada -ll- a lateral palatal ll."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua de -u final."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "Només coll 'coll anatòmic'; altres significats homògrafs poden procedir d'altres ètims.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -1780,7 +2148,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2148,9 +2517,32 @@
       "valenciano": {
         "resultado": "ferro",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Obertura de la vocal final -u en -o."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La vocal tònica ĕ es manté en el resultat valencià.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2161,7 +2553,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2254,9 +2647,32 @@
       "valenciano": {
         "resultado": "flama",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Simplificació de -mm- geminada en -m-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "No s'ha de palatalitzar fl- inicial com en castellà llama.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2267,7 +2683,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2811,7 +3228,7 @@
         "resultado": "mare",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -2823,7 +3240,7 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": "La reducció de -tr- podria classificar-se com a simplificació; precisar el tractament històric i la segmentació abans d'exigir una norma."
       }
     },
     {
@@ -3591,9 +4008,32 @@
       "valenciano": {
         "resultado": "pont",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua de -e final."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La consonant -t final es conserva en valencià en la representació gràfica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3604,7 +4044,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3672,9 +4113,43 @@
       "valenciano": {
         "resultado": "col",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Monoftongació de -au- en -o-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua de -e final."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "L'etimologia de col 'hortalissa' és caule.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3685,7 +4160,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3753,9 +4229,28 @@
       "valenciano": {
         "resultado": "escala",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant s- + consonant."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La e- valenciana és protètica; s- llatina no es perd.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3766,7 +4261,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4659,9 +5155,32 @@
       "valenciano": {
         "resultado": "olla",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Palatalització fonètica de la geminada llatina -ll-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La grafia es manté i la consonant passa a ser palatal.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4672,7 +5191,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5815,9 +6335,9 @@
       "valenciano": {
         "resultado": "mel",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "Forma sense transformacions incloses en el repertori: estudiar, però no exigir normes en pràctica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -5828,7 +6348,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6022,7 +6543,7 @@
         "resultado": "cavall",
         "estadoLexico": "documentat",
         "normas": null,
-        "estadoNormas": "pendent",
+        "estadoNormas": "discrepancia_documentada",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
@@ -6034,7 +6555,7 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": "La -b- intervocàlica > -v- no és SONORITZACIÓ; decidir si se n'explica el canvi no seleccionable i quines altres normes es poden exigir."
       }
     },
     {
@@ -7927,9 +8448,32 @@
       "valenciano": {
         "resultado": "vida",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de -t- intervocàlica en -d-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La u inicial té valor consonàntic i es representa gràficament amb v en el resultat.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -7940,7 +8484,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -9533,9 +10078,32 @@
       "valenciano": {
         "resultado": "gallina",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Evolució fonètica de -ll- llatina geminada a lateral palatal representada ll."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "La mateixa grafia -ll- no implica absència de canvi fonètic; cal explicar-ho.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -9546,7 +10114,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
