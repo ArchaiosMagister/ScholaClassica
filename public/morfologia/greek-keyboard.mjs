@@ -45,11 +45,12 @@ export function applyGreekMark(input,mark){
   const decomposition=previous.normalize('NFD');
   const base=Array.from(decomposition)[0];
   if(!vowel.test(base))return false;
+  if(/^[ρΡ]$/u.test(base)&&!['\u0313','\u0314'].includes(mark))return false;
   if(mark==='\u0345'&&!/^[αηωΑΗΩ]$/u.test(base))return false;
   if(mark==='\u0342'&&/^[εοΕΟ]$/u.test(base))return false;
   let components=decomposition;
-  if(accentGroup.test(mark))components=components.replace(accentGroup,'');
-  if(breathingGroup.test(mark))components=components.replace(breathingGroup,'');
+  if(['\u0300','\u0301','\u0342'].includes(mark))components=components.replace(accentGroup,'');
+  if(['\u0313','\u0314'].includes(mark))components=components.replace(breathingGroup,'');
   // Nunca duplicar la marca al pulsarla dos veces.
   components=components.replace(mark,'');
   const next=(components+mark).normalize('NFC');
