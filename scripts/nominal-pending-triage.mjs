@@ -97,8 +97,12 @@ const choiceSpec=[
     {value:'aplazar',label:'Exclusión provisional total'}],
   source:'https://en.wiktionary.org/wiki/Ἀθῆναι'}
 ];
-export function triageNounCandidates(catalog){
+export function triageNounCandidates(catalog,manifest=null){
   assert.ok(Array.isArray(catalog)&&catalog.length>=500,'Falta inventario docente');
+  if(manifest){
+    assert.equal(manifest.schema,'schola-nominal-teacher-decisions/v1');
+    assert.equal(manifest.status,'aprobado-por-docente');
+  }
   const grouped={};const items=[];
   for(const item of catalog){
     if(item.status!=='pendiente')continue;
@@ -109,12 +113,22 @@ export function triageNounCandidates(catalog){
       reason:item.reason,group:result.group,confidence:result.confidence,
       sourceIds:item.sources?.map(x=>x.id)||[]});
   }
-  // Las decisiones no sustituyen ninguna fuente y no afectan al banco de nota.
+  // Las decisiones se relacionan con la ficha académica, pero no
+  // sustituyen los testimonios morfológicos incluidos en el compilador.
   const choices=choiceSpec.filter(x=>catalog.some(y=>
     y.lemma.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase()===
     x.lemma.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase()&&
-    y.language===x.language));
+    y.language===x.language)).map(spec=>{
+    if(!manifest)return spec;
+    const key=spec.id.replace(/^(?:latin|griego)-/u,'');
+    const decision=manifest.choices[key];
+    assert.ok(spec.choices.some(item=>item.value===decision),
+      'Decisión no permitida en '+spec.id);
+    return {...spec,decision,applied:true,approvedAt:manifest.date};
+  });
+  if(manifest)assert.equal(choices.length,6,'Falta alguna decisión del profesor');
   return {schema:'schola-nominal-triage/v1',total:items.length,
     counts:grouped,classified:items,teacherChoices:choices,
-    policy:'Reetiquetado solo de auditoría, no calificación ni corrección de fuentes'};
+    policy:manifest?'Decisiones docentes aprobadas; su aplicación se verifica contra el banco y las fuentes; sin publicar':
+      'Reetiquetado solo de auditoría, no calificación ni corrección de fuentes'};
 }
