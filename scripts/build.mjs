@@ -134,7 +134,7 @@ for(const file of vocabulaFiles)await cp(join(vocabulaSource,file),join(vocabula
 // El banco original ya es público en Vocabula. Se genera una copia estructurada
 // de SOLO esos datos para la administración: no contiene contraseñas ni alumnado.
 const bankJs=await readFile(join(vocabulaSource,'data.js'),'utf8');
-const bankMatch=/^window\\.VOCAB\\s*=\\s*([\\s\\S]*?);\\s*$/.exec(bankJs);
+const bankMatch=/^window\.VOCAB\s*=\s*([\s\S]*?);\s*$/.exec(bankJs);
 if(!bankMatch)throw Error('Formato de banco Vocabula desconocido: no publicar');
 const originalWords=JSON.parse(bankMatch[1]);
 if(!Array.isArray(originalWords)||originalWords.length<1000)
