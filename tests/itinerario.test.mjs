@@ -18,7 +18,7 @@ test('el portal presenta selección contextual para los cursos disponibles',()=>
 });
 test('los accesos contextuales apuntan exclusivamente a recursos integrados que existen',()=>{
   const links=[...app.matchAll(/href:'(apps\/[^']+)'/g)].map(([,url])=>url);
-  assert.equal(links.length,12);
+  assert.equal(links.length,13);
   for(const href of links){
     assert.ok(!/GeneradorExamenes|apps\/examenes/i.test(href));
     const parsed=new URL(href,'https://local.test/');
