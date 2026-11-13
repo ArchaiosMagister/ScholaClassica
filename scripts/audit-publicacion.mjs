@@ -16,6 +16,7 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
   'apps/morfologia/review.mjs','apps/morfologia/greek-keyboard.mjs',
   'apps/morfologia/sintagmas.mjs','apps/morfologia/greek-noun-phrases.mjs',
   'apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md',
+  'apps/morfologia/data/LICENSE-SUSTANTIVOS-LATINOS.md',
   'apps/morfologia/data/paradigmas.json',
   'docente/auth-config.json']){
   assert.ok(existsSync(join(out,path)),'Falta recurso de publicación: '+path);
@@ -73,7 +74,9 @@ assert.ok(nouns.every(n=>n.forms.length===10&&n.gender&&
   n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
   n.evidence.review.includes('pendiente de revisión docente individual')));
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
+assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-LATINOS.md').includes('3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
+assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-LATINOS.md'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');
 assert.ok(vocabEndpoint.includes('wpwlguufpkfnzlbyproe.supabase.co'));
 const html=read('index.html');
