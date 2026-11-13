@@ -181,7 +181,7 @@ export function compileLatinNounExpansion({
       const units=[...new Set(variations.flatMap(x=>x.units||[])
         .map(x=>Number(x.match(UNIT)?.[1])).filter(Boolean))];
       const firstUnit=Math.min(...units);
-      if(firstUnit>7)throw Error('Unidad superior a UD7: pendiente de extensión curricular');
+      if(firstUnit>10)throw Error('Unidad posterior a UD10: sin cobertura actual del Appendix');
       const sourceRows=index.get(norm(parsing.lemma))||[];
       if(!sourceRows.length)throw Error('Sin paradigma nominal en UniMorph latino fijado');
       const {forms,genitive}=fullParadigm(parsing.lemma,parsing,sourceRows);
@@ -223,7 +223,7 @@ export function compileLatinNounExpansion({
     candidateEntries:roster.length,nominalEnunciados:byKey.size,
     includedPreviously:accepted.size,incorporated:records.length,
     reviewNeeded:review.length,latin4Staged:review.filter(r=>r.course==='lat4').length,
-    sourceSha:vocabulaSha,excludesAfterUd7:true
+    sourceSha:vocabulaSha,excludesAfterUd10:true
   }};
 }
 export async function readLatinNounSource(source){
