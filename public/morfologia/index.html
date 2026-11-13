@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#14283f">
-  <meta name="description" content="Práctica de morfología latina y griega a partir de paradigmas documentados de Appendix grammaticae.">
+  <meta name="description" content="Ejercicios de morfología latina y griega por unidades.">
   <title>Práctica de morfología · ScholaClassica</title>
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.mjs"></script>
@@ -19,9 +19,9 @@
 </header>
 <main id="main" class="container">
   <div class="intro">
-    <p class="eyebrow">Módulo curricular · práctica activa y repaso</p>
+    <p class="eyebrow">Práctica activa y repaso</p>
     <h1>Práctica de morfología</h1>
-    <p>Practica el reconocimiento, la escritura y las tablas de flexión latina y griega con formas documentadas. La corrección es local y no necesitas iniciar sesión.</p>
+    <p>Practica el reconocimiento, la escritura y las tablas de flexión latina y griega. Puedes corregir tus respuestas y repasar los errores sin iniciar sesión.</p>
   </div>
   <section class="panel" aria-labelledby="selection-title">
     <h2 id="selection-title">Preparar una tanda</h2>
@@ -101,11 +101,6 @@
       <p id="greek-key-notice" class="helper" role="status" aria-live="polite"></p>
     </section>
     <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
-    <div class="evidence-links">
-      <a id="source" class="source-link" href="../gramatica/" hidden>Consultar la unidad en Appendix grammaticae</a>
-      <a id="source-secondary" class="source-link" href="../gramatica/" hidden>Consultar la segunda unidad acreditada</a>
-      <a id="source-tertiary" class="source-link" href="../vocabulario/index.html" hidden>Consultar la procedencia del sustantivo</a>
-    </div>
     <button id="next" type="button" hidden>Siguiente pregunta</button>
     <button id="new" type="button" class="secondary">Nueva tanda</button>
   </section>
@@ -116,15 +111,15 @@
     <button id="repeat" type="button">Practicar de nuevo</button>
   </section>
   <section class="notes" aria-labelledby="scope-title">
-    <h2 id="scope-title">Alcance académico</h2>
+    <h2 id="scope-title">Qué vas a practicar</h2>
     <p><strong>Latín I:</strong> UD1–UD5 (declinaciones, presentes, imperfectos, perfectos y pluscuamperfectos activos, pasiva imperfectiva y adjetivos de tercera declinación), UD6 (demostrativos y relativo) y UD7 (cuarta y quinta declinación, futuro activo y pasivo, y futuro de <i>sum</i>). <strong>Griego I:</strong> UD1–UD5 (declinaciones, artículo y adjetivos), UD6 (presente medio-pasivo de <span lang="grc">λύω</span>) y UD7 (demostrativos, anafórico y personales).</p>
-    <p>La corrección contempla el sincretismo y las variantes válidas. Los adjetivos latinos distinguen género, número y caso, con análisis múltiples cuando una misma forma corresponde a varios géneros. En Griego I, la nueva modalidad pregunta qué forma de un adjetivo concuerda con un artículo documentado; se habilita únicamente desde UD5. Los paradigmas proceden de las tablas del <em>Appendix grammaticae</em> fijado. Las formas pasivas compuestas, los adjetivos no documentados y las unidades posteriores siguen pendientes de revisión.</p>
-    <p>En las respuestas escritas se admiten las variantes documentadas y las grafías latinas <i>æ/ae</i>. En griego se distinguen los errores morfológicos de los ortográficos (acentos, espíritus, sigma final). Los errores ortográficos no se cuentan como aciertos. Los modelos de terminaciones admiten escribir la desinencia con o sin guion inicial.</p>
-    <p><strong>Sintagmas:</strong> en latín se declinan adjetivo y sustantivo completos con género documentado; en griego se trabaja el artículo y un adjetivo sustantivado, sin inventar un sustantivo ausente del banco. Los dos modelos anteriores se habilitan a partir de UD5; los nuevos sintagmas nominales se ofrecen de UD5 a UD7 según la unidad acreditada de cada sustantivo. Los pronombres incorporados de UD6–UD7 admiten reconocimiento y escritura; el vocativo inexistente no se genera. La segunda persona singular del presente medio-pasivo griego admite las dos variantes de Appendix.</p>
-    <p><strong>Nuevo: sintagmas griegos nominales.</strong> El primer lote consta de ocho sustantivos con género singular documentado y diez formas procedentes de UniMorph, conciliadas con Vocabula y los modelos de Appendix. Se admiten la <em>primera posición atributiva</em> (<span lang="grc">ὁ ἀγαθὸς ἵππος</span>) y la <em>segunda posición atributiva</em> (<span lang="grc">ὁ ἵππος ὁ ἀγαθός</span>). La secuencia artículo + sustantivo + adjetivo sin repetición del artículo no se presenta como construcción atributiva. Las ocho fichas mantienen indicada su revisión docente individual pendiente.</p>
+    <p>La corrección tiene en cuenta las formas con varios análisis posibles y las variantes válidas. Los adjetivos latinos se analizan según su género, número y caso. En Griego I puedes practicar la concordancia de artículos y adjetivos desde UD5.</p>
+    <p>En las respuestas escritas se admiten las variantes válidas y las grafías latinas <i>æ/ae</i>. En griego se distinguen los errores morfológicos de los ortográficos (acentos, espíritus, sigma final). Los errores ortográficos no se cuentan como aciertos. Los modelos de terminaciones admiten escribir la desinencia con o sin guion inicial.</p>
+    <p><strong>Sintagmas:</strong> en latín puedes declinar adjetivos y sustantivos completos. En griego puedes practicar el artículo con adjetivos sustantivados y, desde UD5, sintagmas formados por artículo, sustantivo y adjetivo. En UD6–UD7 también se incluyen pronombres y las variantes de la segunda persona singular del presente medio-pasivo.</p>
+    <p><strong>Orden del adjetivo en griego.</strong> Se admiten la <em>primera posición atributiva</em> (<span lang="grc">ὁ ἀγαθὸς ἵππος</span>) y la <em>segunda posición atributiva</em> (<span lang="grc">ὁ ἵππος ὁ ἀγαθός</span>). La secuencia artículo + sustantivo + adjetivo sin repetir el artículo no se considera atributiva.</p>
     <p id="network-status" role="status" aria-live="polite"></p>
   </section>
 </main>
-<footer class="footer"><div class="container"><span>ScholaClassica · Banco cerrado de tablas académicas</span><a href="../../">Volver a la portada</a></div></footer>
+<footer class="footer"><div class="container"><span>ScholaClassica · Ejercicios de latín y griego</span><a href="../../">Volver a la portada</a></div></footer>
 </body>
 </html>
