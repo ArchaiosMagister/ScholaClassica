@@ -445,19 +445,43 @@ export async function buildMorphology({out,lock}){
     .normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ').trim();
   const recovered=new Map(irregularGreek.map(r=>
     [nominalKey(r.paradigm.split(',')[0]),r]));
-  const reconciledCatalog=[...bulk.catalog,...latin.catalog].map(entry=>{
+  const recoveredByIndividual=[...bulk.catalog,...latin.catalog].map(entry=>{
     const record=entry.language==='griego'?recovered.get(nominalKey(entry.lemma)):null;
     return record&&entry.status==='pendiente'?
       {...entry,status:'incorporado-por-cotejo-individual',
         recordId:record.id,reason:null,
         evidenceReferences:record.evidence.references}:entry;
   });
-  assert.equal(reconciledCatalog.filter(x=>x.status==='incorporado-por-cotejo-individual').length,
+  assert.equal(recoveredByIndividual.filter(x=>
+    x.status==='incorporado-por-cotejo-individual').length,
     irregularGreek.length,'El cotejo individual ha de resolver exactamente sus fichas');
+  const approvedByLemma=new Map(teacher.added.map(record=>
+    [record.language+':'+nominalKey(record.paradigm.split(',')[0]),record]));
+  const modifiedByLemma=new Map(teacher.changed.map(({after})=>
+    [after.language+':'+nominalKey(after.paradigm.split(',')[0]),after]));
+  const reconciledCatalog=recoveredByIndividual.map(entry=>{
+    const name=entry.language+':'+nominalKey(entry.lemma);
+    const added=approvedByLemma.get(name);
+    // Los lemmas que también están en Latín de 4.º permanecen aislados.
+    if(added&&(entry.language==='griego'||entry.course==='lat1')){
+      assert.equal(entry.status,'pendiente','Una decisión duplicaría un lema ya aceptado');
+      return {...entry,status:'incorporado-por-decision-docente',
+        recordId:added.id,reason:null,teacherDecision:added.evidence.teacherDecision,
+        evidenceReferences:added.evidence.references};
+    }
+    const modified=modifiedByLemma.get(name);
+    return modified?{...entry,teacherDecision:modified.evidence.teacherDecision,
+      agreementGenders:modified.agreementGenders,
+      genderForPractice:modified.gender||null}:entry;
+  });
+  assert.equal(reconciledCatalog.filter(x=>x.status==='incorporado-por-decision-docente').length,
+    teacher.added.length,'Las decisiones explícitas han de resolver cuatro entradas pendientes');
   await writeFile(join(auditDir,'catalogo-nominal-total.json'),
     JSON.stringify({schema:'schola-noun-inventory/v1',sourceSha:lock.sources.vocabula.sha,
       counts:{greek:bulk.audit,latin:latin.audit},
       resolvedByIndividualLexicography:irregularGreek.length,
+      resolvedByTeacherDecision:teacher.added.length,
+      revisedAgreementByTeacher:teacher.changed.length,
       stillPending:reconciledCatalog.filter(x=>x.status==='pendiente').length,
       catalog:reconciledCatalog},null,2)+'\n');
   // Los paradigmas con fuente completa pero sin programación docente
@@ -469,7 +493,7 @@ export async function buildMorphology({out,lock}){
       notForGrading:true,
       counts:{greek:bulk.staged.length,latin4:latin.staged.length},
       greek:bulk.staged,latin4:latin.staged},null,2)+'\n');
-  const triage=triageNounCandidates(reconciledCatalog);
+  const triage=triageNounCandidates(reconciledCatalog,teacherManifest);
   await writeFile(join(auditDir,'candidaturas-triaje-filologico.json'),
     JSON.stringify(triage,null,2)+'\n');
   console.log('Triaje filológico: '+triage.total+' candidaturas; '+
@@ -492,9 +516,14 @@ export async function buildMorphology({out,lock}){
   console.log('UniMorph completo: nuevos sustantivos griegos '+extraGreek.records.length+
     ' y latinos '+extraLatin.records.length+' (sin repetir corpus original)');
   console.log('Irregulares griegos cotejados: '+irregularGreek.length);
+  console.log('Decisiones nominales aplicadas: '+teacher.added.length+
+    ' lemas incorporados, '+teacher.changed.length+
+    ' concordancias docentes y '+teacher.stagedAdjectives.length+' adjetivo en reserva');
   console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
-    (8+bulk.records.length+extraGreek.records.length+irregularGreek.length)+
-    ' sustantivos griegos y '+(latin.records.length+extraLatin.records.length)+
+    (8+bulk.records.length+extraGreek.records.length+irregularGreek.length+
+      teacher.added.filter(r=>r.language==='griego').length)+
+    ' sustantivos griegos y '+(latin.records.length+extraLatin.records.length+
+      teacher.added.filter(r=>r.language==='latin').length)+
     ' latinos añadidos; pendientes griego '+reconciledCatalog.filter(x=>
       x.language==='griego'&&x.status==='pendiente').length+
     ', latín '+latin.review.length+'; preparados sin unidad: griego '+
