@@ -23,13 +23,13 @@ function compareApp(source,target,exceptions=[],extras=[]){
   }
 }
 test('Appendix completo, en castellano y valenciano, conserva los bytes originales',()=>{
-  compareApp(join(root,'.sources/appendix'),join(out,'apps/gramatica'));
+  compareApp(join(root,'.sources/appendix'),join(out,'apps/gramatica'),['assets/style.css','assets/language-colors.css','assets/theme.js']);
   for(const file of ['index.html','curso.html','val/index.html','val/curso.html','assets/curriculum.json','val/curriculum.json'])
     assert.ok(existsSync(join(out,'apps/gramatica',file)),file);
 });
 test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y mantiene SW aislado',()=>{
   const source=join(root,'.sources/evolutio'),target=join(out,'apps/evolucion-fonetica');
-  const adapted=['sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json'];
+  const adapted=['sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json','style.css'];
   compareApp(source,target,adapted,['src/result-difficulty.mjs']);
   for(const file of adapted)assert.notEqual(hash(join(source,file)),hash(join(target,file)),'Adaptación no aplicada: '+file);
   for(const file of ['index.html','src/engine.mjs','src/rules.mjs','src/latin.mjs','data/pilot.json','manifest.webmanifest'])
@@ -38,7 +38,7 @@ test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y m
   assert.match(sw,/const CACHE_PREFIX='schola-evolutio-';/);
   assert.match(sw,/keys\.filter\(key=>key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION\)/);
   assert.match(sw,/src\/result-difficulty\.mjs/);
-  assert.match(sw,/resultado-v2/);
+  assert.match(sw,/resultado-v3/);
   const original=JSON.parse(readFileSync(join(source,'data/difficulty.json'),'utf8'));
   const reclassified=JSON.parse(readFileSync(join(target,'data/difficulty.json'),'utf8'));
   assert.equal(original.method,'criterio-didactico-v1');
