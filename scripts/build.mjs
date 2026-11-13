@@ -3,6 +3,8 @@ import {resolve,join,sep} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {buildEtymologicon} from './build-etymologicon.mjs';
 import {buildPortalPwa} from './build-portal-pwa.mjs';
+import {buildMorphology} from './build-morphology.mjs';
+import {buildMorphologyPwa} from './build-morphology-pwa.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -72,8 +74,16 @@ vocabulaHTML=vocabulaHTML.replace(sourceTab,'<a class="study-tab" href="../grama
   .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>');
 await writeFile(vocabulaIndex,vocabulaHTML);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
+
+// Nuevo módulo de práctica propio, separado del Vocabula original.
+const morphologySource=join(root,'public/morfologia');
+const morphologyDestination=join(out,'apps/morfologia');
+await cp(morphologySource,morphologyDestination,{recursive:true});
+await rm(join(out,'morfologia'),{recursive:true,force:true});
+await buildMorphology({out,lock});
+await buildMorphologyPwa(out,root);
 await buildPortalPwa(out,root);
-console.log('ScholaClassica: Vocabula integrado como léxico ('+vocabulaHead.slice(0,12)+'); morfología reservada');
+console.log('ScholaClassica: Vocabula conserva su léxico; práctica morfológica independiente compilada desde Appendix');
 
 await writeFile(join(out,'.nojekyll'),'');
 console.log('ScholaClassica: Evolutio integrado con caché aislada ('+phoneticsHead.slice(0,12)+')');
