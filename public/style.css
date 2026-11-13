@@ -21,6 +21,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #e6a84d;outline-offset:3p
 .card.latin{border-top:5px solid #b5743f}.card.greek{border-top:5px solid #3977b9}.card.neutral{border-top:5px solid #7c93a5}
 .card h3{font-size:1.7rem;margin:0 0 7px}.card p:not(.overline){color:#516172;margin:0 0 20px}
 .card.latin .overline{color:#965c2f}.card.greek .overline{color:#326da8}
+.card:is(.latin,.greek) .overline{text-transform:none}
 .linkgroup{display:grid;gap:9px}.linkgroup a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:9px;border:1px solid #d5dfe9;text-decoration:none;font-weight:620;background:#f8fbfd}
 .linkgroup a:hover{background:#e7f0f9;border-color:#94b5d5}.muted{font-size:.92rem;color:#687a88}
 .teacher{background:#e9eff5;border:1px solid #cbd9e6;border-radius:17px;margin-top:40px;padding:28px;display:flex;gap:25px;align-items:center;justify-content:space-between}
