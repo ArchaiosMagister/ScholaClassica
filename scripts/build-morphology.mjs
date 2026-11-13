@@ -5,6 +5,7 @@ import {resolve,join} from 'node:path';
 import assert from 'node:assert/strict';
 import {compileAdditionalMorphology} from './morphology-expansion.mjs';
 import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
+import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -302,8 +303,19 @@ export async function buildMorphology({out,lock}){
     {latinNounsHtml:await readFile(join(source,'sustantivos.html'),'utf8'),
      latinIndicativeHtml:await readFile(join(source,'indicativo.html'),'utf8'),
      latinAdjectivesHtml:await readFile(join(source,'adjetivos.html'),'utf8')});
+  const vocabulaSource=resolve(process.env.VOCABULA_SOURCE||join(root,'.sources/vocabula'));
+  const sourceData=await readGreekNounSource(vocabulaSource);
+  const greekNouns=compileGreekNounBatch({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    ...sourceData,vocabulaSha:lock.sources.vocabula.sha
+  });
+  const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
+    records:[...data.records,...greekNouns]};
+  assert.equal(finalBank.records.length,92);
+  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,92);
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
-  await writeFile(join(dir,'paradigmas.json'),JSON.stringify(data,null,2)+'\n');
-  console.log('Morfología curricular: '+data.records.length+' paradigmas tomados del Appendix fijado');
+  await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
+  console.log('Morfología: '+finalBank.records.length+
+    ' paradigmas; ocho sustantivos griegos conciliados con Vocabula/UniMorph');
 }

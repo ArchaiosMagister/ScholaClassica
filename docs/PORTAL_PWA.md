@@ -71,3 +71,8 @@ El módulo `/apps/morfologia/` dispone de un service worker específico con los 
 ## Sintagmas offline y nuevas unidades
 
 La caché morfológica también incluye `sintagmas.mjs` y los 84 paradigmas compilados. Ambas modalidades de sintagmas y los contenidos UD6–UD7 funcionan offline después de cargar la versión actualizada; no escriben recursos en las cachés de Evolutio, Etymologicon, Vocabula o el portal. La versión se calcula a partir de los bytes efectivos del módulo y el progreso local permanece independiente del SW.
+
+
+## Primer lote de sintagmas griegos con sustantivos acreditados
+
+La caché del módulo morfológico incorpora el compilado de `greek-noun-phrases.mjs` y el aviso `data/LICENSE-SUSTANTIVOS-GRIEGOS.md` además del banco de **92** fichas. Los ejercicios de triple concordancia griega, las dos posiciones atributivas y la corrección politónica se realizan completamente sin red una vez instalada esta versión. La sincronización de datos de alumnos, el acceso docente y las demás PWA permanecen fuera de este ámbito.

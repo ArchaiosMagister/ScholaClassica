@@ -87,3 +87,10 @@ La caché `schola-morphology-` incorpora los tres nuevos módulos versionados y 
 ## Integración morfológica UD6–UD7 con doble procedencia
 
 `scripts/morphology-ud6-ud7.mjs` importa 24 registros adicionales de pronombres, futuro y declinaciones desde el currículo **fijado** del Appendix. `public/morfologia/sintagmas.mjs` combina dos paradigmas completos con concordancia de caso, número y género, admite las variantes literales de sus casillas y expone `sources` con ambas referencias. La aplicación permite escribir o declinar los sintagmas completos; en griego, por falta de sustantivos individuales documentados, limita el ejercicio al artículo y adjetivo sustantivado. El modo sigue siendo local, con caché `schola-morphology-` y sin intervención de originales ni credenciales docentes.
+
+
+## Conciliación nominal griega con licencia segregada y triple evidencia
+
+`scripts/greek-noun-conciliation.mjs` lee el subconjunto UniMorph y el `data.js` de Vocabula, ambos de un único checkout verificado por SHA, y cruza las diez casillas del paradigma, género inferido del artículo explícito, lema y grupo de unidad docente con el capítulo de declinación del Appendix fijado. Solo añade los ocho lemas de una lista explícita. El paquete morfológico resultante conserva `appendixSha`, `vocabulaSha`, fuentes, licencia y revisión pendiente en cada registro.
+
+`public/morfologia/greek-noun-phrases.mjs` ejecuta las dos construcciones atributivas griegas a partir de artículo, sustantivo y adjetivo con igualdad de género, caso y número. El motor anterior de adjetivos sustantivados sigue independiente. El archivo de licencia de los datos derivados acompaña al banco en `/apps/morfologia/data/`; el resto del código no se incluye en ese bloque de atribución. La caché exclusiva `schola-morphology-` almacena módulos, banco y licencia para uso offline.
