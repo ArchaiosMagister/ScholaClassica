@@ -85,5 +85,5 @@ test('Evolutio usa las variables del oscuro en OLED y renueva caché',()=>{
   assert.match(oled,/--bg:#000/);
   for(const token of ['accent','accent2','accentInk','warn','bad','good','chip','panel','panel2'])
     assert.ok(!oled.includes('--'+token+':'),'La paleta de oscuro debe mantenerse: '+token);
-  assert.match(worker,/resultado-v3/);
+  assert.match(worker,/resultado-v4/);
 });
