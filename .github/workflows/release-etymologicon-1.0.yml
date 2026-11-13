@@ -1,0 +1,68 @@
+name: Crear Release estable Etymologicon 1.0.0 (Griego I)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-etymologicon-1.0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: release-etymologicon-v1.0.0
+  cancel-in-progress: false
+
+jobs:
+  publicar-version-estable:
+    name: Etiquetar versión validada y publicar notas
+    if: github.repository == 'ArchaiosMagister/ScholaClassica'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Recuperar las notas de la Release
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Comprobar versión estable y evitar etiquetas incorrectas
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: etymologicon-v1.0.0
+          RELEASE_SHA: 263ddfff35680de9a5ff1b667aade9982ee339ad
+          VALIDATED_RUN: '43445520104'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s docs/releases/ETYMOLOGICON_1.0.0.md
+          actual_commit="$(gh api "repos/${GH_REPO}/commits/${RELEASE_SHA}" --jq '.sha')"
+          test "${actual_commit}" = "${RELEASE_SHA}"
+          published_commit="$(gh api "repos/${GH_REPO}/actions/runs/${VALIDATED_RUN}" --jq '.head_sha')"
+          published_status="$(gh api "repos/${GH_REPO}/actions/runs/${VALIDATED_RUN}" --jq '.conclusion')"
+          if [[ "${published_commit}" != "${RELEASE_SHA}" || "${published_status}" != "success" ]]; then
+            echo "::error::El commit objetivo no coincide con el despliegue validado."
+            exit 1
+          fi
+          if gh api "repos/${GH_REPO}/git/ref/tags/${RELEASE_TAG}" --jq '.object.sha' > /tmp/etym_tag_sha 2>/dev/null; then
+            tag_sha="$(cat /tmp/etym_tag_sha)"
+            if [[ "${tag_sha}" != "${RELEASE_SHA}" ]]; then
+              echo "::error::La etiqueta ya existe y apunta a otro commit."
+              exit 1
+            fi
+          fi
+          if gh release view "${RELEASE_TAG}" --repo "${GH_REPO}" >/dev/null 2>&1; then
+            echo "La Release ya existe con la etiqueta estable esperada."
+            exit 0
+          fi
+          gh release create "${RELEASE_TAG}" \
+            --repo "${GH_REPO}" \
+            --target "${RELEASE_SHA}" \
+            --title "Etymologicon 1.0.0 · Griego I" \
+            --notes-file docs/releases/ETYMOLOGICON_1.0.0.md \
+            --latest=false
+          gh release view "${RELEASE_TAG}" --repo "${GH_REPO}" \
+            --json tagName,isDraft,isPrerelease,url,targetCommitish \
+            --jq '.'
