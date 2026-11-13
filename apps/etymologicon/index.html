@@ -24,8 +24,12 @@
         <span class="brand-mark" aria-hidden="true">Ε</span>
         <span class="brand-type">Etymologicon <small>ScholaClassica</small></span>
       </div>
-      <nav aria-label="Navegación">
-        <a href="../../index.html">Volver a ScholaClassica</a>
+      <nav class="header-nav" aria-label="Navegación principal">
+        <a class="header-link" href="./practicar.html">Practicar</a>
+        <a class="header-link" href="./estudio.html">Estudio del léxico</a>
+        <a class="header-link header-link--external" href="../../index.html">ScholaClassica</a>
+        <button type="button" id="home-check-update" class="header-update">Actualizar</button>
+        <button type="button" id="home-apply-update" class="header-update header-update--ready" hidden>Aplicar versión</button>
       </nav>
     </div>
   </header>
@@ -67,8 +71,6 @@
       </div>
       <div class="home-offline">
         <p id="home-offline-status" role="status" aria-live="polite">Preparando el modo sin conexión…</p>
-        <button type="button" class="secondary-button" id="home-check-update">Buscar actualización</button>
-        <button type="button" class="primary-button" id="home-apply-update" hidden>Aplicar actualización</button>
       </div>
     </section>
     <p class="home-later">Griego II podrá incorporarse más adelante, con su propio banco de étimos.</p>
