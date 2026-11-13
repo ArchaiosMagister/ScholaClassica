@@ -14,11 +14,11 @@
     "procesosParcialesContrastados": 110,
     "fichasConProcesosParciales": 95,
     "analisisIntegralesVerificados": 0,
-    "decisionesDocentesAplicadas": 3,
+    "decisionesDocentesAplicadas": 6,
     "nuevosAnalisisEditorials": 104,
     "cierreIndividualRegistrado": 221,
-    "discrepanciasDocentesReservadas": 3,
-    "contrastesHistoricosPendientes": 86
+    "discrepanciasDocentesReservadas": 0,
+    "contrastesHistoricosPendientes": 89
   },
   "records": [
     {
@@ -4990,7 +4990,7 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "discrepancia_documentada",
+      "estadoPreexistente": "contrast_historic_pendent",
       "leyesPreexistentes": [],
       "indicadoresParaAuditoria": [
         {
@@ -5000,12 +5000,20 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "criteri_docent_pendent_individual",
+      "estadoAuditoria": "contrast_historic_pendent_amb_dictamen_individual",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual."
+      },
+      "modalidadEstudio": "reserva_fonetica"
     },
     {
       "id": "xl-223",
@@ -6560,7 +6568,7 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "discrepancia_documentada",
+      "estadoPreexistente": "contrast_historic_pendent",
       "leyesPreexistentes": [],
       "indicadoresParaAuditoria": [
         {
@@ -6582,12 +6590,20 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "criteri_docent_pendent_individual",
+      "estadoAuditoria": "contrast_historic_pendent_amb_dictamen_individual",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova."
+      },
+      "modalidadEstudio": "reserva_fonetica"
     },
     {
       "id": "xl-874",
@@ -8265,7 +8281,7 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "discrepancia_documentada",
+      "estadoPreexistente": "contrast_historic_pendent",
       "leyesPreexistentes": [],
       "indicadoresParaAuditoria": [
         {
@@ -8287,12 +8303,20 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "criteri_docent_pendent_individual",
+      "estadoAuditoria": "contrast_historic_pendent_amb_dictamen_individual",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "estudi_historic_no_avaluable",
+        "decision": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles."
+      },
+      "modalidadEstudio": "estudi_historic_no_avaluable"
     },
     {
       "id": "xl-290",
@@ -13019,5 +13043,5 @@
       "scope": "correspondencia léxica individual archivada en cada ficha"
     }
   ],
-  "scopeClarification": "221 dictàmens: 132 anàlisis editorials no certificades, 86 reserves històriques o de transmissió i tres decisions docents. Cap fitxa publicable."
+  "scopeClarification": "Cobertura individual completa de 221 correspondències: 132 anàlisis editorials sense certificació integral i 89 reserves històriques, incloses tres decisions docents de no habilitar la pràctica. No resten discrepàncies docents obertes."
 }
