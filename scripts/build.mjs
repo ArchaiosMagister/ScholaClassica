@@ -130,6 +130,22 @@ const vocabulaDestination=join(out,'apps/vocabulario');
 await mkdir(vocabulaDestination,{recursive:true});
 const vocabulaFiles=['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js'];
 for(const file of vocabulaFiles)await cp(join(vocabulaSource,file),join(vocabulaDestination,file));
+
+// El banco original ya es público en Vocabula. Se genera una copia estructurada
+// de SOLO esos datos para la administración: no contiene contraseñas ni alumnado.
+const bankJs=await readFile(join(vocabulaSource,'data.js'),'utf8');
+const bankMatch=/^window\\.VOCAB\\s*=\\s*([\\s\\S]*?);\\s*$/.exec(bankJs);
+if(!bankMatch)throw Error('Formato de banco Vocabula desconocido: no publicar');
+const originalWords=JSON.parse(bankMatch[1]);
+if(!Array.isArray(originalWords)||originalWords.length<1000)
+  throw Error('Banco original de Vocabula incompleto: no publicar');
+const docenteWords=originalWords.map(({id,subject,mode,form,meaning,answers,units})=>
+  ({id,subject,mode,form,meaning,answers,units}));
+await writeFile(join(out,'docente/vocabula-catalog.json'),JSON.stringify({
+  schema:1,source:vocabulaLock.sha,words:docenteWords
+}));
+console.log('Catálogo docente de Vocabula:',docenteWords.length,'entradas originales');
+
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
 await adaptVocabulaOled(vocabulaDestination);
 const vocabulaIndex=join(vocabulaDestination,'index.html');
