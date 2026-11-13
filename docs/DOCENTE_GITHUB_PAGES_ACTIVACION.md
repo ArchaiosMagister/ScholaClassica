@@ -33,8 +33,7 @@ TOTP verificados. No se ha creado ni modificado ninguna contraseña.
 
 La configuración de los servicios sigue bloqueada por defecto:
 hasta que la persona titular establezca el secreto `SCHOLA_TEACHER_USER_ID`
-en Supabase, se complete la prueba real de TOTP y se autorice el
-despliegue, el acceso a la bandeja y a las escrituras permanece cerrado.
+en Supabase, se complete la prueba real de TOTP y se autorice la publicación del frontend, el acceso a la bandeja y a las escrituras permanece cerrado.
 
 La auditoría de Supabase confirma que las tablas de Vocabula están
 protegidas por RLS, sin políticas públicas (comportamiento previsto
@@ -50,7 +49,7 @@ desde Authentication si el plan ofrece esa opción.
 4. Configurar exclusivamente en los secretos de las funciones Supabase:
    - `SCHOLA_AUTH_LOGIN_EMAIL` y `SCHOLA_TEACHER_USER_ID` (UUID real de Auth).
    - `SCHOLA_ALLOWED_ORIGIN=https://archaiosmagister.github.io`.
-   - `SCHOLA_AUTH_LOGIN_READY=confirmed` **solo después de completar la comprobación**.
+   - El inicio de sesión de primer factor se habilita únicamente con los tres secretos configurados. La protección de lectura y escritura exige JWT de la cuenta docente con `aal2` (TOTP).
    - `VOCABULA_SUPABASE_URL`, `VOCABULA_SERVICE_ROLE_KEY`, `PALABRA_SUPABASE_URL`, `PALABRA_SERVICE_ROLE_KEY` cuando la auditoría de mínimo privilegio permita su uso.
 5. Revisar/activar las funciones `schola-login` (`verify_jwt=false`, autentica desde cero) y `schola-inbox` (`verify_jwt=true` y verificación adicional AAL2/UUID). No desplegarlas con secretos sin probar el rechazo a usuarios no autorizados, AAL1 y JWT caducado.
 
