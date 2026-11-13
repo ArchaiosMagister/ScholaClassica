@@ -88,12 +88,19 @@ function checkedForms(lemma,rows,entry){
     (seen.size>1?'docente-acepción-con-fuente-de-género-variable':
       'artículo-docente-contrastado'):
     'artículo-singular-de-UniMorph';
-  const forms=CASES.flatMap(([cas,c])=>NUMBERS.map(([number,n])=>{
+  const forms=CASES.flatMap(([cas,c])=>NUMBERS.flatMap(([number,n])=>{
     const row=byTag.get('N;'+c+';'+n);
-    const form=noQuantity(row?.[1]);
-    if(!form||form.length>80||/[()[\]\/]/u.test(form))
-      throw Error('Casilla vacía, múltiple o ilegible');
-    return {form,analysis:cas+' '+number,case:cas,number};
+    const source=noQuantity(row?.[1]);
+    if(!source||source.length>80)
+      throw Error('Casilla vacía o ilegible');
+    // Solo la grafía tradicional -σι(ν) acredita expresamente dos
+    // realizaciones (nu eufónica): sin ν y con ν. No se generaliza
+    // por analogía a otras formas.
+    const variants=source.endsWith('(ν)')&&cas==='dativo'&&number==='plural'?
+      [source.slice(0,-3),source.slice(0,-3)+'ν']:[source];
+    if(variants.some(form=>!form||/[()[\]\/]/u.test(form)))
+      throw Error('Alternativa no individualizada en fuente UniMorph');
+    return variants.map(form=>({form,analysis:cas+' '+number,case:cas,number}));
   }));
   if(gender==='neutro'){
     for(const number of ['singular','plural']){
@@ -203,7 +210,7 @@ export function compileGreekNounExpansion({
           vocabulaSha,vocabulaEntry:entry.id,
           vocabulaGroup:entry.units[0],license:'CC BY-SA 3.0',
           review:'conciliación interfuentes; pendiente de revisión docente individual',
-          notes:'Diez casillas tomadas de UniMorph, no generadas por analogía. '+
+          notes:'Diez casillas UniMorph (y variantes de ν eufónica explícitas). '+
             'Nominativo canónico del corpus, tras comprobar el lema docente; '+
             'el currículo acredita el modelo, no cada forma.'
         }
