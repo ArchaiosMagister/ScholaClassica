@@ -74,7 +74,7 @@ function checkedForms(lemma,rows){
       if(key(nom.form)!==key(acc.form))throw Error('Neutro sin nominativo=acusativo');
     }
   }
-  return {gender,genitive:noQuantity(genitive[1]),forms};
+  return {gender,nominative:noQuantity(nominative[1]),genitive:noQuantity(genitive[1]),forms};
 }
 function checkLexGen(entry,genitive){
   const tokens=entry.form.split(',');
@@ -154,19 +154,20 @@ export function compileGreekNounExpansion({
       const record={
         id:'griego-sustantivo-import-'+entry.id,language:'griego',
         unit,kind:'sustantivo',gender:checked.gender,
-        paradigm:noQuantity(display)+', '+checked.genitive+' ('+
+        paradigm:checked.nominative+', '+checked.genitive+' ('+
           [...ARTICLES].find(([,g])=>g===checked.gender)[0]+') · '+decl.name,
         forms:checked.forms,
         evidence:{
           source:'UniMorph grc + Vocabula; cotejo curricular con Appendix',
           file:'data/unimorph-syllabus/grc/part-*.json',
           unit:decl.unit,topic:decl.topic,
-          caption:'Paradigma nominal completo: '+noQuantity(display),
+          caption:'Paradigma nominal completo: '+checked.nominative,
           status:'paradigma-documentado',vocabulaSha,vocabulaEntry:entry.id,
           vocabulaGroup:entry.units[0],license:'CC BY-SA 3.0',
           review:'conciliación interfuentes; pendiente de revisión docente individual',
           notes:'Diez casillas tomadas de UniMorph, no generadas por analogía. '+
-            'El currículo acredita el modelo, no cada forma.'
+            'Nominativo canónico del corpus, tras comprobar el lema docente; '+
+            'el currículo acredita el modelo, no cada forma.'
         }
       };
       records.push(record);
