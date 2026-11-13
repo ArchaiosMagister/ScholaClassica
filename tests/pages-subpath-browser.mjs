@@ -63,7 +63,7 @@ try{
  // selector de itinerario, incluso después de volver desde otra aplicación.
  await page.locator('#tab-herramientas').click();
  await page.locator('#panel-herramientas a[href="apps/etymologicon/index.html"]').click();
- await page.waitForURL(/\\/ScholaClassica\\/apps\\/etymologicon\\/index\\.html$/);
+ await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/index\.html$/);
  await page.goto(base+prefix,{waitUntil:'networkidle'});
  assert.equal(await page.locator('#study-course').inputValue(),'gr1');
  assert.match(await page.locator('#study-resume').innerText(),/Etymologicon/);
