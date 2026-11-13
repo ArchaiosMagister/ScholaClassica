@@ -22,4 +22,12 @@
 .notice small{color:#567086}
 .notice a{display:inline-block;margin-top:10px;text-decoration:underline}
 .logout{padding-bottom:50px}
-@media(prefers-color-scheme:dark){.access-card{background:#1b2937;border-color:#41566c}.access-card p,.docente-heading>p:last-child,.notice small{color:#b7c9d8}.access-card input{background:#142434;color:#ecf4ff;border-color:#738ca2}.notice{border-color:#41566c}.access-card button{background:#304960;color:#e5f2ff}.access-card button.primary{background:#316da2;border-color:#548ac0;color:#fff}}
+/* La elección del portal gobierna la zona docente; OLED hereda los colores oscuros. */
+html:is([data-theme="dark"],[data-theme="oled"]) .access-card{background:#1b2937;border-color:#41566c}
+html:is([data-theme="dark"],[data-theme="oled"]) .access-card p,
+html:is([data-theme="dark"],[data-theme="oled"]) .docente-heading>p:last-child,
+html:is([data-theme="dark"],[data-theme="oled"]) .notice small{color:#b7c9d8}
+html:is([data-theme="dark"],[data-theme="oled"]) .access-card input{background:#142434;color:#ecf4ff;border-color:#738ca2}
+html:is([data-theme="dark"],[data-theme="oled"]) .notice{border-color:#41566c}
+html:is([data-theme="dark"],[data-theme="oled"]) .access-card button{background:#304960;color:#e5f2ff}
+html:is([data-theme="dark"],[data-theme="oled"]) .access-card button.primary{background:#316da2;border-color:#548ac0;color:#fff}
