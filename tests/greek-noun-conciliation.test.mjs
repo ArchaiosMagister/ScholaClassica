@@ -132,6 +132,10 @@ test('escritura nominal triple no penaliza el orden atributivo válido y mantien
     assert.equal(correctWritten(q,'ἀπαράδεκτος').status,'morphology');
   }
   const later=makeGreekNounPhraseQuestions(bank,{language:'griego',unit:7,limit:30,rng});
-  assert.ok(later.some(q=>q.paradigm.includes('δῶρον')||
-    q.paradigm.includes('λόγος')||q.paradigm.includes('νίκη')));
+  assert.ok(later.every(q=>q.language==='griego'&&q.sources.length===3));
+  // Con un banco grande, treinta preguntas muestreadas no incluyen
+  // necesariamente uno de los ocho testigos originales.
+  assert.ok(greekNounPhrasePairs(bank,{language:'griego',unit:7})
+    .some(pair=>pair.noun.paradigm.includes('δῶρον')||
+      pair.noun.paradigm.includes('λόγος')||pair.noun.paradigm.includes('νίκη')));
 });
