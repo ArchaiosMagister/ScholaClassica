@@ -106,7 +106,13 @@ function showSource(q){
     const target=targets[next++];
     if(!target)break;
     target.hidden=false;
-    if(evidence.source.includes('UniMorph')){
+    if(evidence.unimorphDatasetSha){
+      const code=q.language==='griego'?'grc':'lat';
+      target.textContent='UniMorph original · '+code+' · evidencia fijada';
+      target.href='https://github.com/unimorph/'+code+'/tree/'+
+        evidence.unimorphDatasetSha;
+      target.rel='noopener noreferrer';
+    }else if(evidence.source.includes('UniMorph')){
       target.textContent='Paradigma nominal · Vocabula/UniMorph · '+
         (evidence.vocabulaGroup||COURSE_LABELS[q.language]);
       target.href='../vocabulario/index.html';
