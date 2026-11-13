@@ -130,6 +130,6 @@ export function triageNounCandidates(catalog,manifest=null){
   if(manifest)assert.equal(choices.length,6,'Falta alguna decisión del profesor');
   return {schema:'schola-nominal-triage/v1',total:items.length,
     counts:grouped,classified:items,teacherChoices:choices,
-    policy:manifest?'Decisiones docentes aprobadas; su aplicación se verifica contra el banco y las fuentes; sin publicar':
+    policy:manifest?'Decisiones docentes aprobadas; su aplicación se verifica contra el banco y las fuentes; triaje sin calificación y sin publicar':
       'Reetiquetado solo de auditoría, no calificación ni corrección de fuentes'};
 }
