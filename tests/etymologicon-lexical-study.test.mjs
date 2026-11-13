@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {compileTeacherAudit} from '../scripts/compile-etymologicon-gr1.mjs';
 import {createLearnerCatalog} from '../scripts/build-etymologicon.mjs';
 import {expandGreekI,readExpansion} from '../scripts/expand-etymologicon-gr1.mjs';
-import {createStudyCatalog,readStudyGlosses} from '../scripts/compile-etymologicon-study.mjs';
+import {createStudyCatalog,readStudyGlosses,readStudyComponents} from '../scripts/compile-etymologicon-study.mjs';
 import {createWriteTwoCorrector} from '../shared/academic/greek-etymology/corrector/write-two.mjs';
 
 const base=compileTeacherAudit();
@@ -63,6 +63,17 @@ test('no confundir una URL del diccionario con una comprobación individual',()=
   }
   assert.equal(lookup('autoevaluación').lexicographicStatus,'dle_consultado_individualmente');
   assert.equal(lookup('microchip').components[1].language,'en');
+});
+test('componentes dobles y triples también están documentados para materias científicas',()=>{
+  const curated=readStudyComponents();
+  assert.equal(Object.keys(curated).length,137);
+  assert.deepEqual(lookup('biología').components.map(c=>c.greek),['βίος','λόγος']);
+  assert.deepEqual(lookup('biblioteca').components.map(c=>c.greek),['βιβλίον','θήκη']);
+  assert.equal(lookup('biblioteca').components[1].external,true);
+  assert.equal(lookup('otorrinolaringología').components.length,4);
+  assert.equal(lookup('calidoscopio').components.length,3);
+  assert.equal(lookup('microbiología').components.length,3);
+  assert.ok(lookup('anarquía').components.some(c=>c.external));
 });
 test('relaciones múltiples solo afectan al glosario; corrector y progreso siguen iguales',()=>{
   const corrector=createWriteTwoCorrector(extended);
