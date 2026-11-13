@@ -34,6 +34,7 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
     .replace('En Griego general, 148 entradas tienen correspondencia con las unidades de examen y 184 quedan sin unidad acreditada. Los grupos de unidades se mantienen unidos; no se asignan unidades por traducción o parecido ortográfico.','En Griego general encontrarás palabras organizadas por unidades y otros grupos para repasar.')
     .replace('<button id="open-teacher" class="primary" type="button">Área de profesor</button>','')
     .replace('<dialog id="teacher-dialog" aria-labelledby="teacher-title"></dialog>','')
+    .replace('teacher.js?v=20261112','teacher.js?v=20261113-solo-alumnos1')
     .replace('app.js?v=20261112','app.js?v=20261113-alumnos1');
   assert.notEqual(from,to);
   assert.equal(to,expected);
