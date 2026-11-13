@@ -141,17 +141,17 @@ try{
     throw Error('La bandeja simulada no tiene las dos fuentes: '+JSON.stringify(diagnosis));
   }
   assert.equal(await good.locator('#notices .notice').count(),2);
-  assert.ok((await good.locator('.notice').first().locator('p').textContent()).includes('<img'));
+  assert.ok((await good.locator('#notices .notice').first().locator('p').textContent()).includes('<img'));
   assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
   await good.locator('#notice-source').selectOption('palabra');
-  assert.equal(await good.locator('.notice').count(),1);
+  assert.equal(await good.locator('#notices .notice').count(),1);
   assert.ok((await good.locator('.notice h3').textContent()).includes('etimología'));
   await good.locator('#notice-source').selectOption('vocabula');
-  assert.equal(await good.locator('.notice').count(),1);
+  assert.equal(await good.locator('#notices .notice').count(),1);
   await good.locator('#notice-source').selectOption('all');
   await good.locator('#notice-refresh').click();
   await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
-  assert.equal(await good.locator('.notice').count(),2);
+  assert.equal(await good.locator('#notices .notice').count(),2);
   // El editor no interpreta HTML de formularios ni avisos y exige sesión AAL2.
   await good.locator('#admin-word-list .notice').first().waitFor({state:'visible'});
   assert.equal(await good.locator('#admin-word-list img').count(),0);
@@ -187,7 +187,7 @@ try{
   await denied.locator('#enroll-code').fill('123456');
   await denied.locator('#enroll-form button').click();
   await denied.locator('#unavailable').waitFor({state:'visible'});
-  assert.equal(await denied.locator('.notice').count(),0,'Denegación del servidor impide datos');
+  assert.equal(await denied.locator('#notices .notice').count(),0,'Denegación del servidor impide datos');
   // Alta inicial: aunque se verifique TOTP, nunca consulta avisos ni datos.
   const initial=await browser.newPage();
   await install(initial,true,true);
