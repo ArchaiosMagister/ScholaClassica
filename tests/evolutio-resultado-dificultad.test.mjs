@@ -84,7 +84,7 @@ test('El módulo local está precargado para uso sin conexión',()=>{
  const sw=readFileSync(join(moduleDir,'sw.js'),'utf8');
  const js=readFileSync(join(moduleDir,'src/app.mjs'),'utf8');
  assert.match(sw,/src\/result-difficulty\.mjs/);
- assert.match(sw,/resultado-v2/);
+ assert.match(sw,/resultado-v3/);
  assert.match(sw,/CACHE_PREFIX='schola-evolutio-'/);
  assert.match(js,/dificultad refleja sobre todo cuánto cuesta deducir el resultado castellano/);
 });
