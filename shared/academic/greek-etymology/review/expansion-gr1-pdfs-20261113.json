@@ -1,0 +1,734 @@
+{
+  "schema": "etymologicon-derived-expansion/v1",
+  "course": "gr1",
+  "purpose": "Ampliacion conservadora de respuestas escritas usando los tres materiales docentes y fuentes especializadas adicionales; nunca incorpora nuevos etimos fuera del programa de Griego I.",
+  "sourceDocuments": [
+    {
+      "id": "largo",
+      "title": "Etimologías griegas",
+      "author": "José Luis Gálvez Marín",
+      "pages": 414,
+      "year": 2009
+    },
+    {
+      "id": "breve",
+      "title": "Breve diccionario de helenismos de griego clásico",
+      "pages": 6
+    },
+    {
+      "id": "gr2",
+      "title": "Etimologías griegas (Subcomisión PAU Griego II, Pilar Berberana)",
+      "pages": 31,
+      "year": 2008
+    },
+    {
+      "id": "amec",
+      "title": "Vocabulario etimológico griego (Asociación Mexicana de Estudios Clásicos)",
+      "url": "https://asociamec.mx/wp-content/uploads/2019/11/vocabulario-etimolc3b3gico-griego_4a_olimpiada.pdf"
+    },
+    {
+      "id": "cun",
+      "title": "Diccionario médico CUN, misantropía",
+      "url": "https://www.cun.es/diccionario-medico/terminos/misantropia"
+    }
+  ],
+  "reviewPolicy": "Ampliación escolar por correspondencias griegas documentadas; no copiar definiciones de los PDF, no presumir verificación DLE individual, no añadir nuevos étimos ni activar Griego II. La evidencia curricular se conserva en este fichero de origen, nunca se modifica el Excel auditado.",
+  "exceptions": [
+    "δῶρον, δίκη y παιδίον siguen excluidos de las preguntas calificables",
+    "No se introducen nombres propios como respuestas evaluables",
+    "Formas de la misma familia pueden admitirse sin atribuirles derivación directa inexistente",
+    "Las entradas del banco de base, sus variantes ortográficas y puntuaciones se conservan"
+  ],
+  "groups": [
+    {
+      "etymonId": "grc:ανθρωποσ",
+      "forms": [
+        "antropocentrismo",
+        "antropólogo",
+        "antropófago",
+        "antropografía",
+        "antropoide",
+        "antropometría",
+        "antropomorfismo",
+        "antroponimia",
+        "antropónimo",
+        "antroposofía",
+        "filántropo",
+        "misántropo",
+        "misantropía"
+      ]
+    },
+    {
+      "etymonId": "grc:μισεω",
+      "forms": [
+        "misoginia",
+        "misantropía",
+        "misoneísmo",
+        "misoneísta"
+      ]
+    },
+    {
+      "etymonId": "grc:γυνη",
+      "forms": [
+        "misoginia",
+        "gineceo",
+        "ginecomastia",
+        "ginecocracia"
+      ]
+    },
+    {
+      "etymonId": "grc:θεοσ",
+      "forms": [
+        "teocentrismo",
+        "monoteísmo",
+        "politeísmo",
+        "panteísmo",
+        "teogonía",
+        "ateo",
+        "teosofía",
+        "teodicea"
+      ]
+    },
+    {
+      "etymonId": "grc:δημοσ",
+      "forms": [
+        "demoscopia",
+        "demótico",
+        "demagogia",
+        "antidemocrático"
+      ]
+    },
+    {
+      "etymonId": "grc:γραφω",
+      "forms": [
+        "anagrama",
+        "caligrama",
+        "diagrama",
+        "telegrama",
+        "pentagrama",
+        "criptograma",
+        "programa",
+        "caligrafía",
+        "epigrafía",
+        "criptografía",
+        "telégrafo",
+        "gráfico",
+        "calígrafo",
+        "geografía",
+        "ortografía"
+      ]
+    },
+    {
+      "etymonId": "grc:βιβλιον",
+      "forms": [
+        "bibliófilo",
+        "bibliomanía",
+        "biblioteconomía",
+        "bibliobús",
+        "bibliotecología",
+        "bibliología"
+      ]
+    },
+    {
+      "etymonId": "grc:βιοσ",
+      "forms": [
+        "bioquímica",
+        "bioética",
+        "biopsia",
+        "biogeografía",
+        "biosfera",
+        "biomedicina",
+        "bioluminiscencia",
+        "biótopo",
+        "biodegradable",
+        "biomecánica"
+      ]
+    },
+    {
+      "etymonId": "grc:αιμα",
+      "forms": [
+        "hemoglobina",
+        "hemofilia",
+        "hematoma",
+        "hemorragia",
+        "hematocrito",
+        "hematíe",
+        "hemólisis",
+        "leucemia",
+        "hemoterapia"
+      ]
+    },
+    {
+      "etymonId": "grc:γη",
+      "forms": [
+        "geometría",
+        "geocentrismo",
+        "geodesia",
+        "geomorfología",
+        "geoide",
+        "geofísica",
+        "geodinámica",
+        "geofagia"
+      ]
+    },
+    {
+      "etymonId": "grc:αυτοσ",
+      "forms": [
+        "autógrafo",
+        "autobiografía",
+        "autónomo",
+        "autocracia",
+        "autodidacta",
+        "autóctono",
+        "autopsia",
+        "automático",
+        "autómata",
+        "autoevaluación"
+      ]
+    },
+    {
+      "etymonId": "grc:κρατοσ",
+      "forms": [
+        "burocracia",
+        "plutocracia",
+        "talasocracia",
+        "autocracia",
+        "timocracia",
+        "teocracia"
+      ]
+    },
+    {
+      "etymonId": "grc:ψυχη",
+      "forms": [
+        "psicosomático",
+        "psicoterapia",
+        "psique",
+        "psicópata",
+        "psicoanálisis",
+        "psíquico"
+      ]
+    },
+    {
+      "etymonId": "grc:πολισ",
+      "forms": [
+        "acrópolis",
+        "cosmopolita",
+        "necrópolis",
+        "metropolitano",
+        "policía"
+      ]
+    },
+    {
+      "etymonId": "grc:φοβοσ",
+      "forms": [
+        "fotofobia",
+        "hidrofobia",
+        "xenofobia",
+        "aerofobia",
+        "agorafobia",
+        "acrofobia",
+        "aracnofobia",
+        "hemofobia"
+      ]
+    },
+    {
+      "etymonId": "grc:υδωρ",
+      "forms": [
+        "hidrografía",
+        "hidrología",
+        "hidroeléctrico",
+        "hidrosfera",
+        "hidrofobia"
+      ]
+    },
+    {
+      "etymonId": "grc:κεφαλη",
+      "forms": [
+        "cefalópodo",
+        "acéfalo",
+        "cefalalgia",
+        "encefalitis",
+        "encefalopatía",
+        "encefalografía"
+      ]
+    },
+    {
+      "etymonId": "grc:δερμα",
+      "forms": [
+        "dermatólogo",
+        "dermatosis",
+        "hipodérmico",
+        "paquidermo",
+        "taxidermia",
+        "dermalgia"
+      ]
+    },
+    {
+      "etymonId": "grc:κρυπτω",
+      "forms": [
+        "criptograma",
+        "críptico",
+        "criptoanálisis",
+        "criptógamo"
+      ]
+    },
+    {
+      "etymonId": "grc:σκοπεω",
+      "forms": [
+        "macroscópico",
+        "periscopio",
+        "otoscopia",
+        "oftalmoscopia",
+        "helioscopio"
+      ]
+    },
+    {
+      "etymonId": "grc:ηλιοσ",
+      "forms": [
+        "heliotropo",
+        "heliotropismo",
+        "heliocéntrico",
+        "heliógrafo",
+        "helioscopio",
+        "perihelio",
+        "afelio"
+      ]
+    },
+    {
+      "etymonId": "grc:αλγοσ",
+      "forms": [
+        "gastralgia",
+        "cefalalgia",
+        "mialgia",
+        "nostalgia",
+        "odontalgia",
+        "otalgia"
+      ]
+    },
+    {
+      "etymonId": "grc:χρονοσ",
+      "forms": [
+        "anacronismo",
+        "crónica",
+        "crónico",
+        "sincronía",
+        "diacronía"
+      ]
+    },
+    {
+      "etymonId": "grc:φωνη",
+      "forms": [
+        "fonema",
+        "fonología",
+        "fonógrafo",
+        "eufonía",
+        "afonía",
+        "polifonía",
+        "sinfonía"
+      ]
+    },
+    {
+      "etymonId": "grc:σοφοσ",
+      "forms": [
+        "filósofo",
+        "sofisma"
+      ]
+    },
+    {
+      "etymonId": "grc:μικροσ",
+      "forms": [
+        "microchip",
+        "microclima",
+        "micrófono",
+        "microondas",
+        "microorganismo",
+        "microbiología",
+        "microeconomía",
+        "microcosmos",
+        "micrómetro",
+        "microprocesador"
+      ]
+    },
+    {
+      "etymonId": "grc:μεγασ",
+      "forms": [
+        "megafonía",
+        "megalítico",
+        "megalópolis",
+        "megalómano",
+        "megavatio"
+      ]
+    },
+    {
+      "etymonId": "grc:μακροσ",
+      "forms": [
+        "macromolécula",
+        "macrocosmos",
+        "macroscópico",
+        "macrocéfalo"
+      ]
+    },
+    {
+      "etymonId": "grc:πολυσ",
+      "forms": [
+        "polifonía",
+        "polimorfo",
+        "polícromo",
+        "poligamia",
+        "poliedro",
+        "policromía"
+      ]
+    },
+    {
+      "etymonId": "grc:μονοσ",
+      "forms": [
+        "monogamia",
+        "monóculo",
+        "monografía",
+        "monoteísmo",
+        "monosílabo"
+      ]
+    },
+    {
+      "etymonId": "grc:κακοσ",
+      "forms": [
+        "cacosmia",
+        "cacoquimia"
+      ]
+    },
+    {
+      "etymonId": "grc:καλοσ",
+      "forms": [
+        "calígrafo",
+        "caligrama"
+      ]
+    },
+    {
+      "etymonId": "grc:χρωμα",
+      "forms": [
+        "policromía",
+        "acromático",
+        "cromatismo"
+      ]
+    },
+    {
+      "etymonId": "grc:ισοσ",
+      "forms": [
+        "isótopo",
+        "isócrono",
+        "isotermo",
+        "isomorfismo",
+        "isoglosa",
+        "isófono"
+      ]
+    },
+    {
+      "etymonId": "grc:θανατοσ",
+      "forms": [
+        "tanatorio",
+        "tanatofobia"
+      ]
+    },
+    {
+      "etymonId": "grc:πυρ",
+      "forms": [
+        "pirotecnia",
+        "pirólisis"
+      ]
+    },
+    {
+      "etymonId": "grc:αρχη",
+      "forms": [
+        "arquetipo",
+        "jerarquía",
+        "oligarquía",
+        "tetrarquía",
+        "autarquía",
+        "diarquía"
+      ]
+    },
+    {
+      "etymonId": "grc:ιπποσ",
+      "forms": [
+        "hípica",
+        "hipología",
+        "hipocampo",
+        "hipogrifo"
+      ]
+    },
+    {
+      "etymonId": "grc:αγω",
+      "forms": [
+        "pedagogo",
+        "demagogo",
+        "psicopedagogía"
+      ]
+    },
+    {
+      "etymonId": "grc:εργον",
+      "forms": [
+        "ergonómico",
+        "ergoterapia",
+        "alergia"
+      ]
+    },
+    {
+      "etymonId": "grc:αμφι",
+      "forms": [
+        "ánfora",
+        "anfibología"
+      ]
+    },
+    {
+      "etymonId": "grc:ανα",
+      "forms": [
+        "análisis",
+        "anatomía",
+        "análogo",
+        "anagrama"
+      ]
+    },
+    {
+      "etymonId": "grc:αντι",
+      "forms": [
+        "antítesis",
+        "antónimo",
+        "antagónico"
+      ]
+    },
+    {
+      "etymonId": "grc:δια",
+      "forms": [
+        "diálogo",
+        "diagnóstico",
+        "diáfano",
+        "diálisis"
+      ]
+    },
+    {
+      "etymonId": "grc:εκ",
+      "forms": [
+        "eclipse",
+        "éxtasis"
+      ]
+    },
+    {
+      "etymonId": "grc:κατα",
+      "forms": [
+        "cataclismo",
+        "catarata"
+      ]
+    },
+    {
+      "etymonId": "grc:μετα",
+      "forms": [
+        "metamorfosis",
+        "metonimia",
+        "metátesis",
+        "metafísica"
+      ]
+    },
+    {
+      "etymonId": "grc:παρα",
+      "forms": [
+        "paradigma",
+        "paréntesis",
+        "parábola",
+        "parodia"
+      ]
+    },
+    {
+      "etymonId": "grc:περι",
+      "forms": [
+        "periferia",
+        "perífrasis",
+        "período",
+        "periódico"
+      ]
+    },
+    {
+      "etymonId": "grc:προ",
+      "forms": [
+        "profeta",
+        "prótesis",
+        "problema"
+      ]
+    },
+    {
+      "etymonId": "grc:υπερ",
+      "forms": [
+        "hiperbólico",
+        "hipertrofia",
+        "hipérbaton"
+      ]
+    },
+    {
+      "etymonId": "grc:υπο",
+      "forms": [
+        "hipodérmico",
+        "hipoteca",
+        "hipocondríaco",
+        "hipogeo",
+        "hipotenusa"
+      ]
+    },
+    {
+      "etymonId": "grc:ηπαρ",
+      "forms": [
+        "hepatología",
+        "hepatomegalia"
+      ]
+    },
+    {
+      "etymonId": "grc:ουσ",
+      "forms": [
+        "otorrinolaringólogo",
+        "otoscopia",
+        "otología",
+        "otorrea"
+      ]
+    },
+    {
+      "etymonId": "grc:οφθαλμοσ",
+      "forms": [
+        "oftalmoscopia",
+        "oftalmólogo"
+      ]
+    },
+    {
+      "etymonId": "grc:πνευμα",
+      "forms": [
+        "neumonía",
+        "neumotórax"
+      ]
+    },
+    {
+      "etymonId": "grc:ανηρ",
+      "forms": [
+        "andrógeno",
+        "androide",
+        "andropausia",
+        "androfobia"
+      ]
+    },
+    {
+      "etymonId": "grc:στρατηγοσ",
+      "forms": [
+        "estratega",
+        "estratagema"
+      ]
+    },
+    {
+      "etymonId": "grc:ημερα",
+      "forms": [
+        "efímero",
+        "efemérides"
+      ]
+    },
+    {
+      "etymonId": "grc:ρισ",
+      "forms": [
+        "rinoceronte",
+        "otorrinolaringólogo"
+      ]
+    },
+    {
+      "etymonId": "grc:χειρ",
+      "forms": [
+        "cirujano",
+        "cirugía",
+        "quiromasaje"
+      ]
+    },
+    {
+      "etymonId": "grc:οδοσ",
+      "forms": [
+        "odómetro",
+        "diodo",
+        "ánodo",
+        "período"
+      ]
+    },
+    {
+      "etymonId": "grc:οστεον",
+      "forms": [
+        "osteopatía",
+        "osteítis",
+        "osteomielitis",
+        "osteotomía"
+      ]
+    },
+    {
+      "etymonId": "grc:λεγω",
+      "forms": [
+        "lógico",
+        "lexicología"
+      ]
+    },
+    {
+      "etymonId": "grc:λογοσ",
+      "forms": [
+        "lógico",
+        "lexicología"
+      ]
+    },
+    {
+      "etymonId": "grc:μανια",
+      "forms": [
+        "monomanía",
+        "mitomanía",
+        "piromanía"
+      ]
+    },
+    {
+      "etymonId": "grc:φιλοσ",
+      "forms": [
+        "filántropo",
+        "filósofo",
+        "bibliófilo"
+      ]
+    },
+    {
+      "etymonId": "grc:φιλια",
+      "forms": [
+        "filántropo",
+        "filólogo",
+        "bibliofilia"
+      ]
+    },
+    {
+      "etymonId": "grc:γαστηρ",
+      "forms": [
+        "gastralgia",
+        "gástrico",
+        "gastronomía",
+        "gastroscopia"
+      ]
+    },
+    {
+      "etymonId": "grc:καρδια",
+      "forms": [
+        "cardíaco",
+        "cardialgia",
+        "cardiopatía",
+        "cardiograma",
+        "electrocardiograma"
+      ]
+    },
+    {
+      "etymonId": "grc:σωμα",
+      "forms": [
+        "psicosomático",
+        "somatización"
+      ]
+    },
+    {
+      "etymonId": "grc:παισ",
+      "forms": [
+        "pediatra",
+        "pedagogo",
+        "pedagogía"
+      ]
+    }
+  ]
+}
