@@ -106,7 +106,12 @@ function showSource(q){
     const target=targets[next++];
     if(!target)break;
     target.hidden=false;
-    if(evidence.unimorphDatasetSha){
+    const reference=Array.isArray(evidence.references)?
+      evidence.references.find(url=>typeof url==='string'&&url.startsWith('https://')):null;
+    if(reference){
+      target.textContent='Fuente filológica cotejada · '+(evidence.caption||'paradigma');
+      target.href=reference;target.rel='noopener noreferrer';
+    }else if(evidence.unimorphDatasetSha){
       const code=q.language==='griego'?'grc':'lat';
       target.textContent='UniMorph original · '+code+' · evidencia fijada';
       target.href='https://github.com/unimorph/'+code+'/tree/'+
@@ -152,6 +157,9 @@ function createTable(q){
         field.lang=q.language==='griego'?'grc':'la';
         field.inputMode='text';
         td.append(field);
+      }else if(q.evidence?.numberScope==='plural'&&number==='singular'){
+        td.textContent='—';
+        td.title='Plurale tantum: no hay singular en el paradigma documentado';
       }
       row.append(td);
     }
