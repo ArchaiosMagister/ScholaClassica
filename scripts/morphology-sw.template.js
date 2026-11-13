@@ -5,7 +5,8 @@ const CORE=[
   './','./index.html','./style.css','./app.mjs','./engine.mjs',
   './written.mjs','./review.mjs','./greek-keyboard.mjs','./sintagmas.mjs',
   './greek-noun-phrases.mjs','./data/paradigmas.json',
-  './data/LICENSE-SUSTANTIVOS-GRIEGOS.md'
+  './data/LICENSE-SUSTANTIVOS-GRIEGOS.md',
+  './data/LICENSE-SUSTANTIVOS-LATINOS.md'
 ];
 const SCOPE=new URL(self.registration.scope);
 const OWN=new Set(CORE.map(path=>new URL(path,SCOPE).pathname));
