@@ -23,10 +23,12 @@
         <span class="brand-mark" aria-hidden="true">Ε</span>
         <span class="brand-type">Etymologicon <small>ScholaClassica</small></span>
       </div>
-      <nav aria-label="Navegación">
-        <a href="./index.html">Portada</a>
-        <a href="./estudio.html">Estudio del léxico</a>
-        <a href="../../index.html">Volver a ScholaClassica</a>
+      <nav class="header-nav" aria-label="Navegación principal">
+        <a class="header-link" href="./index.html">Portada</a>
+        <a class="header-link" href="./estudio.html">Estudio del léxico</a>
+        <a class="header-link header-link--external" href="../../index.html">ScholaClassica</a>
+        <button type="button" id="check-update" class="header-update">Actualizar</button>
+        <button type="button" id="apply-update" class="header-update header-update--ready" hidden>Aplicar versión</button>
       </nav>
     </div>
   </header>
@@ -100,8 +102,6 @@
           <h3 id="offline-title">Instalación y uso sin conexión</h3>
           <p id="offline-status" class="offline-status" role="status" aria-live="polite">Preparando el modo sin conexión…</p>
           <button type="button" id="install-button" class="primary-button full" hidden>Instalar Etymologicon</button>
-          <button type="button" id="check-update" class="secondary-button full">Buscar actualizaciones</button>
-          <button type="button" id="apply-update" class="primary-button full" hidden>Aplicar nueva versión</button>
           <details class="install-help">
             <summary>¿Cómo se instala?</summary>
             <p><strong>iPhone o iPad (Safari):</strong> pulsa Compartir y después «Añadir a pantalla de inicio».</p>
