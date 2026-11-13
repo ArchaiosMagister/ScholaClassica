@@ -66,7 +66,9 @@ test('no confundir una URL del diccionario con una comprobación individual',()=
 });
 test('componentes dobles y triples también están documentados para materias científicas',()=>{
   const curated=readStudyComponents();
-  assert.ok(Object.keys(curated).length>=200);
+  assert.equal(Object.keys(curated).length,487);
+  assert.equal(study.audit.explicitComponentReviews,487);
+  assert.equal(study.audit.compounds+study.audit.singleStemOrFamily,487);
   assert.deepEqual(lookup('biología').components.map(c=>c.greek),['βίος','λόγος']);
   assert.deepEqual(lookup('biblioteca').components.map(c=>c.greek),['βιβλίον','θήκη']);
   assert.equal(lookup('biblioteca').components[1].external,true);
@@ -74,6 +76,40 @@ test('componentes dobles y triples también están documentados para materias ci
   assert.equal(lookup('calidoscopio').components.length,3);
   assert.equal(lookup('microbiología').components.length,3);
   assert.ok(lookup('anarquía').components.some(c=>c.external));
+});
+test('revisión exhaustiva: 487 fichas, componentes documentados y distinción entre simple y compuesto',()=>{
+  const curated=readStudyComponents();
+  assert.equal(Object.keys(curated).length,487);
+  assert.equal(study.words.length,487);
+  for(const w of study.words){
+    assert.ok(curated[w.form],'No aparece en el repertorio explícito: '+w.form);
+    assert.equal(w.componentReview,'analisis_explicito_del_banco_docente');
+    assert.ok(w.components.every(c=>c.greek&&c.gloss));
+    assert.ok(['varias_bases','base_o_familia'].includes(w.formation));
+  }
+  for(const [word,greek] of [
+    ['antropomorfismo',['ἄνθρωπος','μορφή']],
+    ['telegrama',['τῆλε','γράμμα']],
+    ['telégrafo',['τῆλε','γράφω']],
+    ['geodesia',['γῆ','δαίω']],
+    ['catarata',['κατά','ῥάσσω']],
+    ['neumonía',['πνεύμων']],
+    ['cromosoma',['χρῶμα','σῶμα']],
+    ['sinfonía',['σύν','φωνή']]
+  ]){
+    const row=lookup(word);
+    assert.ok(row,'Falta el derivado: '+word);
+    assert.deepEqual(row.components.map(c=>c.greek),greek,word);
+  }
+  assert.ok(lookup('antropomorfismo').components.some(c=>c.greek==='μορφή'&&c.external));
+  assert.ok(lookup('telegrama').components.some(c=>c.greek==='τῆλε'&&c.external));
+  assert.ok(lookup('telegrama').componentSources.length>=2);
+  assert.equal(lookup('microchip').components[1].language,'en');
+  assert.equal(lookup('burocracia').components[0].language,'fr');
+  assert.equal(lookup('autoevaluación').components[1].language,'es');
+  assert.equal(lookup('efeméride').components.length,2);
+  assert.ok(!study.words.some(w=>w.form==='efemérides'),
+    'No crear otra ficha para una variante del mismo lexema');
 });
 test('relaciones múltiples solo afectan al glosario; corrector y progreso siguen iguales',()=>{
   const corrector=createWriteTwoCorrector(extended);
