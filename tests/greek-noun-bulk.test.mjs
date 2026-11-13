@@ -36,7 +36,7 @@ test('las entradas nuevas tienen 10 casillas, unitad curricular, género y proce
   for(const record of result.records){
     assert.ok([4,5,7,8,9,10].includes(record.unit));
     assert.ok(['masculino','femenino','neutro'].includes(record.gender));
-    assert.equal(record.forms.length,10);
+    assert.ok(record.forms.length>=10,'Diez casillas y posibles variantes documentadas');
     assert.deepEqual(new Set(record.forms.map(f=>f.case+':'+f.number)),tags);
     assert.ok(record.forms.every(f=>f.form===f.form.normalize('NFC')));
     assert.ok(record.forms.every(f=>!/[\u0304\u0306]/u.test(f.form.normalize('NFD'))));
@@ -50,6 +50,8 @@ test('las entradas nuevas tienen 10 casillas, unitad curricular, género y proce
   assert.ok(result.records.some(r=>r.paradigm.includes('ἀγορά')));
   assert.ok(result.records.some(r=>r.paradigm.includes('ναύτης')));
   assert.ok(!result.records.some(r=>r.paradigm.includes('ἄνθρωπος')));
+  assert.ok(result.records.some(r=>r.evidence.genderEvidence),
+    'El género conserva trazabilidad de la evidencia lexicográfica');
 });
 
 test('la selección de unidad y los sintagmas mantienen coherencia',()=>{
