@@ -30,6 +30,14 @@ Se actualizó el SHA fijado a `901dacb125ee7894ea9d11faf7b0d0afa7e713b5`, que in
 
 Las 240 fichas importadas desde GeneradorExamenes fueron clasificadas por criterios técnicos; **no se afirma que estén certificadas individualmente**. El código original de ambos repositorios no se modifica. El archivo de dificultades y todos los nuevos módulos están precargados por el SW de Evolutio para funcionar offline.
 
+## Dificultad recalibrada por resultado castellano (13/11/2026)
+
+Solo **ScholaClassica** aplica una adaptación didáctica a Evolutio. El cálculo anterior daba demasiado peso al número y rareza de las leyes; ahora se utiliza un índice de **previsibilidad ortográfica del resultado latino → castellano (85 %) y carga de cambios evaluables (15 %)**. La proximidad se mide mediante una alineación reproducible de las formas con costes reducidos para convenciones habituales (u/v, pérdida fija de -m, diptongaciones simples). No se confunde la cantidad de leyes con la dificultad de reconocer la palabra resultante ni se introducen respuestas inventadas.
+
+Es un **indicador provisional**: no valora por sí solo la frecuencia léxica, la semántica ni la dificultad de una reconstrucción en cada aula. Las modificaciones docentes con `origin: "docente"` prevalecen. Ejemplos de calibración: `bŏnam → buena` fácil; `caballum → caballo` pasa a fácil pese a tener varias anotaciones; `annuculum → añojo` sigue muy difícil. Las 522 formas, cambios, etiquetas filológicas, fuentes y respuestas se conservan byte a byte.
+
+La transformación se aplica durante `npm run build` mediante `scripts/adapt-evolutio-difficulty.mjs` y `scripts/evolutio-result-difficulty.mjs`, **después de copiar el SHA original bloqueado**; únicamente modifica `dist/apps/evolucion-fonetica/src/difficulty.mjs`, `src/app.mjs`, `data/difficulty.json` e incluye un nuevo `src/result-difficulty.mjs`. El service worker aislado recibe una versión nueva y precarga ese módulo. El código original de Evolutio no cambia. CI verifica integridad de banco y motores, distribución, filtros, revisión docente, caché y navegador.
+
 ## Instalación en dispositivos
 
 - **iPhone/iPad:** abrir la portada en Safari, Compartir, «Añadir a pantalla de inicio», «Abrir como app».
