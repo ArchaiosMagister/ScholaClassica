@@ -33,7 +33,7 @@ function appendComponentList(target,parts){
     if(index)line.append(element('span','+','component-plus'));
     const item=element('span',null,'lexical-component'+(part.external?' lexical-component--external':''));
     const greek=element('span',part.greek,'component-greek');
-    greek.lang=part.language==='en'?'en':'grc';
+    greek.lang=part.language||'grc';
     item.append(greek,element('span','«'+part.gloss+'»','component-gloss'));
     if(part.external)item.append(element('small','complementario','component-tag'));
     line.append(item);
