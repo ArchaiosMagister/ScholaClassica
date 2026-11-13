@@ -2,7 +2,7 @@
 const CACHE_PREFIX='schola-portal-';
 const VERSION=CACHE_PREFIX+'__SCHOLA_PORTAL_CACHE_VERSION__';
 const CORE=[
-  './','./index.html','./app.js','./style.css','./manifest.webmanifest',
+  './','./index.html','./app.js','./theme.js','./style.css','./manifest.webmanifest',
   './icons/icon.svg','./icons/icon-192.png','./icons/icon-512.png',
   './icons/icon-maskable-512.png','./icons/apple-touch-icon.png'
 ];
