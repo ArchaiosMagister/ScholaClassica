@@ -597,7 +597,7 @@ try{
   assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'2');
   await page.locator('#activity-type').selectOption('writing');
   await page.context().setOffline(false);
-  await page.getByRole('button',{name:'Buscar actualizaciones'}).click();
+  await page.locator('#check-update').click();
   await page.waitForFunction(()=>!document.querySelector('#check-update').disabled,
     null,{timeout:12000});
   assert.equal(errors.length,0,'PWA Etymologicon sin errores JS: '+errors.join(' | '));
