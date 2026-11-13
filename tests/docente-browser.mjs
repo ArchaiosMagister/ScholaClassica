@@ -102,6 +102,7 @@ try{
   await install(good,true);
   await good.goto(base+'/docente/index.html',{waitUntil:'networkidle'});
   await good.locator('#login').waitFor({state:'visible'});
+  assert.equal(await good.locator('#username').inputValue(),'','El usuario debe escribirse manualmente');
   assert.equal(await good.locator('#teacher').isVisible(),false);
   await good.locator('#username').fill('MagisterArchaios');
   await good.locator('#password').fill('clave-correcta');
@@ -143,6 +144,7 @@ try{
 
   await good.locator('#logout').click();
   await good.locator('#login').waitFor({state:'visible'});
+  assert.equal(await good.locator('#username').inputValue(),'','Cerrar sesión debe limpiar el usuario');
   assert.equal(await good.locator('#teacher').isVisible(),false);
   assert.equal(errorsGood.length,0,errorsGood.join(';'));
   const denied=await browser.newPage();
