@@ -10,7 +10,9 @@ permissions:
 
 concurrency:
   group: scholaclassica-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Evita dejar un despliegue de Pages a medio cancelar si entran nuevos commits.
+  # Solo las validaciones de ramas/PR pueden cancelarse mutuamente.
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   validar:
@@ -124,6 +126,28 @@ jobs:
     steps:
       - name: Comprobar que GitHub Pages está activado
         uses: actions/configure-pages@v5
+      - name: Liberar un despliegue anterior de Pages bloqueado (recuperación puntual)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STALE_SHA: bff16c242c3ff33e8b262c496c05b5b285617efd
+        run: |
+          set -euo pipefail
+          # Este SHA corresponde a un despliegue anterior fallido con HTTP 502,
+          # que GitHub sigue marcando como activo e impide publicar main.
+          endpoint="repos/${GITHUB_REPOSITORY}/pages/deployments/${STALE_SHA}"
+          status="$(gh api "$endpoint" --jq '.status' 2>/dev/null || true)"
+          case "$status" in
+            queued|pending|in_progress|deployment_in_progress|syncing_files|finished_file_sync|updating_pages|purging_cdn)
+              echo "Cancelando únicamente el despliegue obsoleto $STALE_SHA (estado: $status)"
+              gh api -X POST "$endpoint/cancel" >/dev/null
+              ;;
+            succeed|failed|cancelled|canceled|error|"")
+              echo "El despliegue antiguo no requiere cancelación (estado: ${status:-desconocido})."
+              ;;
+            *)
+              echo "Estado de Pages no reconocido ($status): no cancelar sin comprobación."
+              ;;
+          esac
       - name: Publicar únicamente el artefacto validado
         id: deployment
         uses: actions/deploy-pages@v4
