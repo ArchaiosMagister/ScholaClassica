@@ -25,7 +25,7 @@ test('El banco de 522 palabras y sus anotaciones se conservan íntegros',()=>{
  assert.equal(updated.method,RESULT_DIFFICULTY_METHOD);
  assert.equal(updated.status,'clasificacion-provisional');
  assert.deepEqual([1,2,3,4].map(level=>bank.words.filter(w=>updated.assignments[w.id].level===level).length),
-  [160,201,129,32]);
+  [166,207,123,26]);
  assert.ok(bank.words.filter(w=>updated.assignments[w.id].level!==original.assignments[w.id].level).length>=80);
 });
 test('La distancia al resultado representa el 85 % y las leyes solo el 15 %',()=>{
@@ -43,13 +43,14 @@ test('Las formas transparentes no se penalizan por contar leyes',()=>{
  assert.equal(updated.assignments[word('caballum').id].level,1);
  assert.equal(original.assignments[word('caballum').id].level,2);
  assert.equal(resultDifficultyLevel(word('clauem')),1);
+ assert.equal(resultDifficultyLevel(word('pro')),1); // metátesis sencilla y resultado previsible
 });
 test('Se penaliza un resultado difícil de prever aunque tenga pocas reglas',()=>{
  const transparent=word('bŏnam'),opaque=word('aut');
  assert.equal(transparent.changes.filter(c=>c.rule!=='FIX_M').length,1);
  assert.equal(opaque.changes.filter(c=>c.rule!=='FIX_M').length,1);
  assert.ok(resultSpellingDistance(opaque.latin,opaque.answers[0])>resultSpellingDistance(transparent.latin,transparent.answers[0]));
- assert.equal(resultDifficultyLevel(opaque),4);
+ assert.equal(resultDifficultyLevel(opaque),3);
  assert.equal(resultDifficultyLevel(transparent),1);
  assert.equal(resultDifficultyLevel(word('annuculum')),4);
  assert.equal(resultDifficultyLevel(word('miraculum')),4);
@@ -59,6 +60,8 @@ test('No se penalizan la m final ni la equivalencia u/v',()=>{
  assert.ok(resultSpellingDistance('clauem','llave')<0.25);
  assert.ok(resultSpellingDistance('bŏnam','buena')<0.20);
  assert.ok(resultSpellingDistance('caballum','caballo')<0.15);
+ assert.ok(resultSpellingDistance('pro','por')<0.25);
+ assert.ok(resultSpellingDistance('aurum','oro')<0.3);
 });
 test('El módulo integrado valida y filtra los niveles recalibrados sin resultados indebidos',async()=>{
  const engine=await import('../dist/apps/evolucion-fonetica/src/difficulty.mjs');
