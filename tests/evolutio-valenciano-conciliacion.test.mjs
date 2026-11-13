@@ -50,10 +50,10 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='MIN_MBR'));
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='CUL'));
 });
-test('Estados editoriales honestos: 153 documentados léxicamente, 88 propuestas, 281 sin propuesta',()=>{
- assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:153,propuestas:88,
+test('Estados editoriales honestos: 218 documentados léxicamente, 23 propuestas, 281 sin propuesta',()=>{
+ assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:218,propuestas:23,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:26,casosConDiscrepancia:0});
+  analisisEditoriales:26,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -173,9 +173,9 @@ test('Las decisiones docentes preservan su alcance: clasificación, no autorizac
  assert.ok(record('caballum').valenciano.normas.some(x=>x.rule==='PALAT'));
  assert.ok(record('caballum').valenciano.normas.some(x=>x.rule==='APOC'));
 });
-test('Auditoría de las 215 candidaturas: 127 etimologías contrastadas, 88 pendientes, 0 publicables',()=>{
+test('Auditoría de las 215 candidaturas: 192 etimologías contrastadas, 23 pendientes, 0 publicables',()=>{
  assert.equal(audit215.schema,'schola-evolutio-va-review215/v1');
- assert.deepEqual(audit215.summary,{total:215,documentadasIndividualmente:127,pendientes:88,autorizadasParaPractica:0});
+ assert.deepEqual(audit215.summary,{total:215,documentadasIndividualmente:192,pendientes:23,autorizadasParaPractica:0,derivacionesDirectasDescartadas:4});
  assert.equal(audit215.records.length,215);
  assert.equal(new Set(audit215.records.map(x=>x.latin)).size,215);
  const original=new Set([...curation.documented.filter(x=>x.reference?.verification==='consulta_directa_de_articulo'),
@@ -201,8 +201,8 @@ test('Auditoría de las 215 candidaturas: 127 etimologías contrastadas, 88 pend
    assert.equal(corresponding.valenciano.estadoLexico,'proposta');
   }
  }
- assert.equal(audit215.records.filter(x=>x.status==='etimologia_i_lema_DCVB_confirmats').length,127);
- assert.equal(audit215.records.filter(x=>x.status==='contrast_individual_pendent').length,88);
+ assert.equal(audit215.records.filter(x=>x.status==='etimologia_i_lema_DCVB_confirmats').length,192);
+ assert.equal(audit215.records.filter(x=>x.status==='contrast_individual_pendent').length,23);
  assert.match(audit215.records.find(x=>x.latin==='ocŭlum').reviewNote,/clásico/);
  assert.match(audit215.records.find(x=>x.latin==='sigĭllum').reviewNote,/arcaísmo/);
  assert.match(audit215.records.find(x=>x.latin==='pluuiam').reviewNote,/plŏia/);
@@ -213,6 +213,19 @@ test('Auditoría de las 215 candidaturas: 127 etimologías contrastadas, 88 pend
   assert.equal(row.status,'contrast_individual_pendent');
   assert.equal(row.source,null);
   assert.match(row.reviewNote,pattern);
+ }
+ for(const [latin,pattern] of [
+   ['sensum',/germánico/],['catenatum',/derivado romance/],
+   ['cæpullam',/cēpa/],['serpĕntem',/serpe/]
+ ]){
+  const row=audit215.records.find(x=>x.latin===latin);
+  assert.equal(row.reviewOutcome,'descartar_derivacion_directa');
+  assert.equal(row.status,'contrast_individual_pendent');
+  assert.match(row.reviewNote,pattern);
+  const phonetic=record(latin).valenciano;
+  assert.equal(phonetic.criterioAuditoria,'descartar_derivacion_directa');
+  assert.equal(phonetic.normas,null);
+  assert.equal(phonetic.aptoParaPractica,false);
  }
  assert.equal(matrix.records.filter(x=>x.valenciano.aptoParaPractica).length,0);
 });
