@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-13",
-  "note": "Auditoría acumulada de 215 propuestas iniciales: 192 correspondencias con etimología contrastada en DCVB (26 iniciales, 127 anteriores y 65 nuevas); 23 sin acreditación completa. Cuatro de las 23 son derivaciones directas descartadas por la fuente; las demás se reservan para cotejo o cadena histórica. Validación DNV y análisis fonético individual pendientes: 0 nuevas fichas jugables.",
+  "note": "Auditoría de 215 propuestas: 195 correspondencias documentadas etimológicamente en DCVB, 20 reservadas (4 derivaciones directas descartadas). Resultado global: 221 documentadas (26 anteriores + 195), 20 propuestas, 281 sin propuesta. 0 ejercicios valencianos activados; pendiente DNV y leyes.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -2785,6 +2785,45 @@
         "date": "2026-11-13"
       },
       "notes": null
+    },
+    {
+      "latin": "damnum",
+      "form": "dany",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dany",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "DANY 1 'daño' del latín damnum; separar homógrafo antiguo de otra acepción."
+    },
+    {
+      "latin": "spinam",
+      "form": "espina",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espina",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "ESPINA 'espina vegetal, púa' del latín spīna, no otras acepciones secundarias."
+    },
+    {
+      "latin": "spumam",
+      "form": "espuma",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espuma",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "ESPUMA 'espuma' del latín spuma, distinta del sinónimo ESCUMA de origen germánico con analogía latina."
     }
   ],
   "proposals": [
@@ -2882,17 +2921,6 @@
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": "AGUTZAR requiere comprobar la reconstrucción o derivación latina exacta: no deducirla de la forma española.",
-      "reviewOutcome": "sin_confirmacion_suficiente",
-      "dnvIndividualChecked": false,
-      "phoneticLawsChecked": false,
-      "playable": false
-    },
-    {
-      "latin": "damnum",
-      "form": "dany",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": "DANY está documentado en DCVB desde damnum y puede promoverse con la acepción 'daño'.",
       "reviewOutcome": "sin_confirmacion_suficiente",
       "dnvIndividualChecked": false,
       "phoneticLawsChecked": false,
@@ -3003,28 +3031,6 @@
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": "CURTAR necesita demostrar que existe continuidad desde curtare y no solo derivación desde curt.",
-      "reviewOutcome": "sin_confirmacion_suficiente",
-      "dnvIndividualChecked": false,
-      "phoneticLawsChecked": false,
-      "playable": false
-    },
-    {
-      "latin": "spinam",
-      "form": "espina",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": "ESPINA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
-      "reviewOutcome": "sin_confirmacion_suficiente",
-      "dnvIndividualChecked": false,
-      "phoneticLawsChecked": false,
-      "playable": false
-    },
-    {
-      "latin": "spumam",
-      "form": "espuma",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": "ESPUMA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
       "reviewOutcome": "sin_confirmacion_suficiente",
       "dnvIndividualChecked": false,
       "phoneticLawsChecked": false,
