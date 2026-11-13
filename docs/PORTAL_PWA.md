@@ -61,3 +61,8 @@ GitHub Pages debe tener configurada una única vez la opción **Source: GitHub A
 El modo OLED utiliza `#000000` para el fondo principal y superficies casi negras, sin sacrificar el contraste de textos, botones ni formularios. Se almacena únicamente una clave local de preferencia; el dato no se envía a ninguna base de datos ni se utiliza en otros módulos. El script figura entre los recursos versionados y precargados por `schola-portal-`, de manera que los temas siguen disponibles sin red.
 
 **Importante:** elegir un tema en ScholaClassica no fuerza el tema de Appendix, Evolutio, Etymologicon ni Palabra del día, que mantienen sus propios controles y sesiones.
+
+
+## Práctica activa offline de morfología
+
+El módulo `/apps/morfologia/` dispone de un service worker específico con los ficheros `written.mjs`, `review.mjs` y `greek-keyboard.mjs`, aparte de la interfaz, el motor, el CSS y el banco de 60 paradigmas. El teclado griego táctil y las tablas de declinación funcionan sin red cuando ya se instaló su caché. La selección de repaso usa exclusivamente el estado del navegador: no precisa Supabase, Cloudflare ni sincronización con Palabra del día. Al actualizarse el módulo, solo se eliminan las versiones anteriores de `schola-morphology-`; **no se borran progresos locales ni otras cachés**.
