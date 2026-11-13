@@ -26,7 +26,7 @@ test('El preinventario fonético corresponde uno a uno a las 221 fichas document
   assert.equal(x.comprobacionDNVIndividual,false);
   assert.equal(x.aptoParaPractica,false);
   assert.equal(x.aprobacionDocente,false);
-  assert.ok(['preanalisis_estructural_sin_contraste_fonetico_individual','criterio_docente_aprobado_analisis_editorial_sin_verificacion_normativa'].includes(x.estadoAuditoria));
+  assert.ok(['preanalisis_estructural_sin_contraste_fonetico_individual','criterio_docente_aprobado_analisis_editorial_sin_verificacion_normativa','analisi_editorial_individual_sense_verificacio_normativa'].includes(x.estadoAuditoria));
   if(['cælum','fĕrrum','ocŭlum'].includes(x.latin)){
     assert.deepEqual(x.leyesPreexistentes.map(n=>n.rule),w.valenciano.normas.map(n=>n.rule));
     assert.equal(x.criterioDocente.approval,'accepted');
@@ -43,8 +43,8 @@ test('El preinventario fonético corresponde uno a uno a las 221 fichas document
 });
 test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(audit.summary.total,221);
- assert.equal(audit.summary.conAnalisisEditorialPrevio,28);
- assert.equal(audit.summary.pendientesDeAnalisisIndividual,193);
+ assert.equal(audit.summary.conAnalisisEditorialPrevio,39);
+ assert.equal(audit.summary.pendientesDeAnalisisIndividual,182);
  assert.equal(audit.summary.decisionesDocentesAplicadas,3);
  assert.equal(audit.summary.leyesFoneticamenteCertificadas,0);
  assert.equal(audit.summary.habilitadas,0);
@@ -73,4 +73,19 @@ test('Los 110 procesos parciales conservan intervalos válidos y referencia hist
  assert.equal(total,110);
  assert.equal(words,95);
  assert.equal(audit.summary.analisisIntegralesVerificados,0);
+});
+
+test('Onze análisis editoriales añadidos conservan su identidad y no certifican ninguna ley',()=>{
+ const entries=['scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum'];
+ assert.equal(audit.summary.nuevosAnalisisEditorials,11);
+ for(const latin of entries){
+  const x=audit.records.find(x=>x.latin===latin);
+  const w=matrix.records.find(x=>x.latin===latin);
+  assert.ok(x&&w,latin);
+  assert.equal(x.estadoAuditoria,'analisi_editorial_individual_sense_verificacio_normativa');
+  assert.deepEqual(x.leyesPreexistentes.map(x=>x.rule),w.valenciano.normas.map(x=>x.rule));
+  assert.equal(x.normasVerificadas,false);
+  assert.equal(x.aprobacionDocente,false);
+  assert.equal(x.aptoParaPractica,false);
+ }
 });
