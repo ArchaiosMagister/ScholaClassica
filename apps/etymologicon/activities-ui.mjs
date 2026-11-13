@@ -44,7 +44,7 @@ export function createStudyController({catalog,etymons,commitProgress,onRevealMe
     el.reveal.hidden=true;
     el.back.hidden=false;
     onRevealMeaning();
-    el.remembered.focus();
+    // El significado destacado recibe el foco antes de continuar con la autoevaluación.
   });
   function rateCard(remembered){
     if(!currentCard||cardRecorded||el.back.hidden)return;
