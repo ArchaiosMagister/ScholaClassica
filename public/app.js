@@ -80,6 +80,30 @@ function rememberStudyAccess(course,id){
   studyState.last[course]=id;
   storeStudyState();
 }
+// Los enlaces de las tarjetas y los del itinerario comparten el mismo
+// registro de continuidad. Solo se conservan curso e identificador de módulo:
+// nunca respuestas, resultados, sesiones ni datos del alumnado.
+document.addEventListener('click',event=>{
+  const anchor=event.target?.closest?.('#panel-lenguas a[href], #panel-herramientas a[href]');
+  if(!anchor)return;
+  // El proyecto vinculado Palabra del día sigue en un sitio externo y
+  // mantiene su propia identidad y almacenamiento.
+  if(anchor.origin!==window.location.origin)return;
+  const matches=[];
+  for(const [course,modules] of Object.entries(STUDY_CATALOG)){
+    for(const item of modules){
+      if(item.external)continue;
+      if(new URL(item.href,window.location.href).href===anchor.href){
+        matches.push({course,id:item.id});
+      }
+    }
+  }
+  // Nunca inventar un curso para rutas compartidas o no registradas.
+  const choice=matches.length===1?matches[0]:
+    matches.find(match=>match.course===subjectChoice?.value);
+  if(choice)rememberStudyAccess(choice.course,choice.id);
+});
+
 function renderStudyPath(){
   const course=subjectChoice.value;
   studyState.course=course;
