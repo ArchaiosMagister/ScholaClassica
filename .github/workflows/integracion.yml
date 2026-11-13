@@ -105,6 +105,7 @@ jobs:
             build/morfologia/auditoria-sustantivos-latinos.json
             build/morfologia/catalogo-nominal-total.json
             build/morfologia/contraste-nominal-secundario.json
+            build/morfologia/paradigmas-preparados-sin-unidad.json
           if-no-files-found: error
           retention-days: 14
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
