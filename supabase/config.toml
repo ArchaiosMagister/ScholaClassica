@@ -12,3 +12,7 @@ verify_jwt = true
 # La propia función valida la sesión con getUser() y exige el nivel aal2.
 [functions.schola-palabra-inbox]
 verify_jwt = false
+
+# Administración de Vocabula: JWT + UUID docente + aal2 en cada operación.
+[functions.schola-vocab-admin]
+verify_jwt = true

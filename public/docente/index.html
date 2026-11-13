@@ -82,10 +82,59 @@
       <button id="notice-refresh" type="button">Actualizar avisos</button>
     </div>
     <div id="notices" class="notices" aria-live="polite"></div>
-    <p class="hint">Bandeja de solo lectura. Las propuestas y su resolución siguen administrándose en la aplicación de origen. Palabra del día continúa siendo una web independiente.</p>
+    <p class="hint">Palabra del día conserva su administración independiente. Los avisos de Vocabula pueden revisarse desde el apartado de gestión que aparece a continuación.</p>
+    <section id="vocab-admin" class="teacher-summary" aria-labelledby="vocab-admin-title">
+      <h3 id="vocab-admin-title">Administrar Vocabula Latina Græcaque</h3>
+      <p>Gestiona palabras y revisa los avisos de vocabulario. Los cambios se guardan en Vocabula y requieren autorización docente con dos factores.</p>
+      <div class="teacher-tabs" aria-label="Herramientas de Vocabula">
+        <button id="admin-tab-words" class="primary" type="button" aria-pressed="true">Palabras</button>
+        <button id="admin-tab-reports" type="button" aria-pressed="false">Incidencias</button>
+      </div>
+      <p id="admin-status" role="status" aria-live="polite"></p>
+      <section id="admin-words" aria-label="Gestión de palabras">
+        <form id="admin-search-form" class="admin-controls">
+          <label for="admin-subject-filter">Asignatura</label>
+          <select id="admin-subject-filter"><option value="">Todas</option><option value="lat4">Latín de 4.º ESO</option><option value="lat1">Latín I</option><option value="lat2">Latín II</option><option value="gr1">Griego I</option></select>
+          <label for="admin-search">Buscar por palabra o traducción</label>
+          <input id="admin-search" maxlength="80" autocomplete="off" placeholder="Busca en tus palabras">
+          <button type="submit">Buscar</button>
+          <button id="admin-new" type="button" class="primary">Añadir palabra</button>
+        </form>
+        <p id="admin-word-status" role="status"></p>
+        <div id="admin-word-list" class="notices"></div>
+        <div class="admin-pagination"><button type="button" id="admin-words-prev">Anterior</button><span id="admin-words-page"></span><button type="button" id="admin-words-next">Siguiente</button></div>
+        <form id="admin-word-form" class="admin-edit-form" hidden>
+          <h4 id="admin-word-heading">Añadir palabra</h4>
+          <label for="admin-word-subject">Asignatura</label>
+          <select id="admin-word-subject" required><option value="lat4">Latín de 4.º ESO</option><option value="lat1">Latín I</option><option value="lat2">Latín II</option><option value="gr1">Griego I</option></select>
+          <label for="admin-word-form-text">Forma completa o enunciado</label>
+          <input id="admin-word-form-text" maxlength="300" required>
+          <label for="admin-word-meaning">Significado y acepciones</label>
+          <textarea id="admin-word-meaning" maxlength="1000" rows="3" required></textarea>
+          <label for="admin-word-answers">Respuestas aceptadas (una por línea)</label>
+          <textarea id="admin-word-answers" rows="4" required></textarea>
+          <label for="admin-word-units">Unidades (separadas por punto y coma)</label>
+          <input id="admin-word-units" maxlength="1200" required placeholder="UD 1; UD 2">
+          <label class="admin-check"><input id="admin-word-exam" type="checkbox"> También en vocabulario de examen</label>
+          <label class="admin-check"><input id="admin-word-active" type="checkbox" checked> Disponible para el alumnado</label>
+          <p class="hint">Las modificaciones sustituyen las entradas del mismo lema en la asignatura. Al desactivar una aportación, se recupera la entrada original si existía.</p>
+          <div class="admin-actions"><button type="submit" class="primary" id="admin-save-word">Guardar palabra</button><button type="button" id="admin-cancel-word">Cancelar</button></div>
+        </form>
+      </section>
+      <section id="admin-reports" aria-label="Revisión de incidencias" hidden>
+        <div class="admin-controls">
+          <label for="admin-report-filter">Estado</label>
+          <select id="admin-report-filter"><option value="pending">Pendientes</option><option value="reviewing">En revisión</option><option value="resolved">Resueltas</option><option value="dismissed">Descartadas</option><option value="">Todas</option></select>
+          <button id="admin-refresh-reports" type="button">Actualizar incidencias</button>
+        </div>
+        <p id="admin-report-status" role="status"></p>
+        <div id="admin-report-list" class="notices"></div>
+        <div class="admin-pagination"><button type="button" id="admin-reports-prev">Anterior</button><span id="admin-reports-page"></span><button type="button" id="admin-reports-next">Siguiente</button></div>
+      </section>
+    </section>
   </section>
   <div class="logout"><button id="logout" type="button" hidden>Cerrar sesión</button></div>
 </main>
-<footer class="footer"><div class="container"><span>ScholaClassica · Zona docente en pruebas</span><span>Autorización obligatoria en servidor</span></div></footer>
+<footer class="footer"><div class="container"><span>ScholaClassica · Profesorado</span><span>Autorización obligatoria en servidor</span></div></footer>
 </body>
 </html>

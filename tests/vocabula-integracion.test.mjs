@@ -5,9 +5,9 @@ import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'.sources/vocabula'),target=join(root,'dist/apps/vocabulario');
-const names=['choice.js','config.js','data.js','scope.js','teacher.js'];
+const names=['choice.js','config.js','data.js','scope.js'];
 const digest=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
-test('Vocabula importa vocabulario y servicio docente sin alterar sus recursos',()=>{
+test('Vocabula importa vocabulario y avisos de alumnado, sin gestión docente heredada',()=>{
   for(const file of names)assert.equal(digest(join(target,file)),digest(join(source,file)),'Se modificó '+file);
   assert.deepEqual(readdirSync(join(target,'icons')).sort(),readdirSync(join(source,'icons')).sort());
   for(const name of readdirSync(join(source,'icons')))assert.equal(digest(join(target,'icons',name)),digest(join(source,'icons',name)));
@@ -32,9 +32,25 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
     .replace('Practica el vocabulario original de Latín y Griego por unidades, con tarjetas, test y traducción.','Practica el vocabulario de Latín y Griego por unidades, con tarjetas, test y traducción.')
     .replace('El botón Todas incluye también los bloques sin unidad acreditada, si los hay.','El botón Todas incluye también los grupos sin unidad específica.')
     .replace('En Griego general, 148 entradas tienen correspondencia con las unidades de examen y 184 quedan sin unidad acreditada. Los grupos de unidades se mantienen unidos; no se asignan unidades por traducción o parecido ortográfico.','En Griego general encontrarás palabras organizadas por unidades y otros grupos para repasar.')
+    .replace('<button id="open-teacher" class="primary" type="button">Área de profesor</button>','')
+    .replace('<dialog id="teacher-dialog" aria-labelledby="teacher-title"></dialog>','')
+    .replace('teacher.js?v=20261112','teacher.js?v=20261113-solo-alumnos1')
     .replace('app.js?v=20261112','app.js?v=20261113-alumnos1');
   assert.notEqual(from,to);
   assert.equal(to,expected);
+  assert.ok(!to.includes('id="open-teacher"'));
+  assert.ok(!to.includes('id="teacher-dialog"'));
+  const studentJs=readFileSync(join(target,'teacher.js'),'utf8');
+  assert.notEqual(studentJs,readFileSync(join(source,'teacher.js'),'utf8'));
+  assert.ok(studentJs.includes('function openReport('));
+  assert.ok(studentJs.includes("api('report'"));
+  assert.ok(studentJs.includes('async function sync()'));
+  assert.ok(!studentJs.includes('openTeacher'));
+  assert.ok(!studentJs.includes("api('login'"));
+  assert.ok(!studentJs.includes('teacher_words'));
+  assert.ok(!studentJs.includes('sessionStorage'));
+  assert.ok(!studentJs.includes('Authorization'));
+  assert.ok(!studentJs.includes('teacher-dialog'));
   const bridge=readFileSync(join(target,'schola-bridge.js'),'utf8');
   assert.match(bridge,/URLSearchParams/);
   assert.match(bridge,/dispatchEvent/);

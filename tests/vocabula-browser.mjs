@@ -25,8 +25,10 @@ try{
   await page.route('**/functions/v1/vocabulary',async route=>{
     const payload=JSON.parse(route.request().postData()||'{}');
     requests.push(payload.action);
-    assert.equal(payload.action,'public_words','No se debe iniciar sesión real en CI');
-    await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({words:[]})});
+    assert.ok(['public_words','report'].includes(payload.action),
+      'Solo se permiten vocabulario y avisos estudiantiles');
+    await route.fulfill({status:200,contentType:'application/json',
+      body:JSON.stringify(payload.action==='public_words'?{words:[]}:{ok:true})});
   });
   const base='http://127.0.0.1:'+server.address().port;
   let response=await page.goto(base+'/apps/vocabulario/index.html?subject=gr1',{waitUntil:'load'});
@@ -47,9 +49,15 @@ try{
   await page.locator('#activity').selectOption('cards');
   await page.locator('#start').click();
   assert.ok((await page.locator('#practice').textContent()).length>20);
-  await page.getByRole('button',{name:'Área de profesor'}).click();
-  assert.equal(await page.locator('#teacher-login').isVisible(),true);
+  assert.equal(await page.locator('#open-teacher').count(),0,
+    'La administración antigua no debe aparecer en la copia del alumnado');
+  assert.equal(await page.locator('#teacher-dialog').count(),0);
+  await page.getByRole('button',{name:'Avisar de un error'}).click();
+  await page.locator('#report-message').fill('Una acepción alternativa debe revisarse.');
+  await page.locator('#send-report').click();
+  await page.getByText('Aviso enviado. Gracias por ayudar a mejorar el vocabulario.').waitFor();
   assert.ok(requests.includes('public_words'));
+  assert.ok(requests.includes('report'),'El alumnado debe poder seguir enviando avisos');
   assert.deepEqual(errors,[]);
   response=await page.goto(base+'/apps/vocabulario/gramatica.html');
   assert.equal(response.status(),404);
@@ -60,7 +68,7 @@ try{
   assert.equal(await page.locator('#subject').inputValue(),'lat2');
   response=await page.goto(base+'/apps/gramatica/index.html',{waitUntil:'load'});
   assert.equal(response.status(),200);
-  console.log('Vocabula integrado: vocabulario, cursos, filtros, profesor protegido y sin morfología antigua');
+  console.log('Vocabula integrado: vocabulario, cursos, filtros, sin panel docente antiguo, con avisos y sin morfología antigua');
 }finally{
   if(browser)await browser.close();
   await new Promise(done=>server.close(done));

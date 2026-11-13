@@ -1,3 +1,4 @@
+import {mountVocabulaAdmin,resetVocabulaAdmin} from './admin-vocabula.mjs';
 // El HTML es público: solo la Edge Function determina si existe acceso docente.
 // Nunca se almacenan aquí contraseñas, claves privilegiadas ni datos de alumnos.
 const el=id=>document.getElementById(id);
@@ -19,6 +20,7 @@ function state(section,message=''){
     el('password').value='';
     el('notices').replaceChildren();
     loadedNotices=[];sourceState={vocabula:'loading',palabra:'loading'};
+    resetVocabulaAdmin();
   }
 }
 function setBusy(value){
@@ -133,6 +135,7 @@ async function fetchNotices(){
   }
   loadedNotices.sort((a,b)=>(Date.parse(b.created_at)||0)-(Date.parse(a.created_at)||0));
   renderNotices();
+  await mountVocabulaAdmin({client,refreshNotices:fetchNotices});
   el('status').textContent='Sesión docente protegida con TOTP';
 }
 function renderNotices(){

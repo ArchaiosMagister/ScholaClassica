@@ -83,7 +83,74 @@ export async function adaptVocabulaStudentCopy(destination){
     html=one(html,'En Griego general, 148 entradas tienen correspondencia con las unidades de examen y 184 quedan sin unidad acreditada. Los grupos de unidades se mantienen unidos; no se asignan unidades por traducción o parecido ortográfico.',
       'En Griego general encontrarás palabras organizadas por unidades y otros grupos para repasar.',
       'clasificación interna de Vocabula');
+    html=one(html,'<button id="open-teacher" class="primary" type="button">Área de profesor</button>',
+      '','panel docente antiguo de Vocabula');
+    html=one(html,'<dialog id="teacher-dialog" aria-labelledby="teacher-title"></dialog>',
+      '','diálogo docente antiguo de Vocabula');
+    html=one(html,'teacher.js?v=20261112','teacher.js?v=20261113-solo-alumnos1',
+      'invalidación del JS antiguo de acceso docente');
     return one(html,'app.js?v=20261112','app.js?v=20261113-alumnos1',
       'actualización del JS de Vocabula');
+  });
+  // La copia del alumnado conserva la emisión de avisos y la sincronización
+  // con Supabase, pero NO contiene login ni gestión docente heredada.
+  await edit(destination,'teacher.js',source=>{
+    const from=source.indexOf(' function showLogin(){');
+    assert.ok(from>0&&source.includes(" $('open-report').onclick=()=>openReport();"),
+      'Cambió la separación alumno/profesor de Vocabula: revisar antes de publicar');
+    let keep=source.slice(0,from);
+    assert.ok(keep.includes('function openReport(')&&keep.includes('async function sync()'),
+      'El aviso y la sincronización deben conservarse');
+    const oldStart=keep.indexOf(' async function api(action,data={},priv=false){');
+    const oldEnd=keep.indexOf(' function applyWords(){',oldStart);
+    assert.ok(oldStart>0&&oldEnd>oldStart,
+      'No se encuentra la API original para separar al alumnado');
+    const studentApi=` async function api(action,data={}){
+   if(!['public_words','report'].includes(action))throw Error('Operación no permitida');
+   const controller=new AbortController();
+   const timeout=setTimeout(()=>controller.abort(),20000);
+   try{
+     const response=await fetch(window.VOCAB_SERVICE,{
+       method:'POST',headers:{'Content-Type':'application/json'},
+       body:JSON.stringify({action,...data}),signal:controller.signal
+     });
+     const result=await response.json();
+     if(!response.ok)throw Error(result.error||'No se ha podido completar la solicitud.');
+     return result;
+   }finally{clearTimeout(timeout)}
+ }
+`;
+    keep=keep.slice(0,oldStart)+studentApi+keep.slice(oldEnd);
+    keep=keep.replace(
+      "let custom=[],teacherWords=[],reports=[],offset=0,more=false,reportContext=null,editing=null,token='';",
+      "let custom=[],reportContext=null;"
+    );
+    keep=keep.replace(/ const sessionKey='classics-teacher-session';try\{token=sessionStorage\.getItem\(sessionKey\)\|\|''\}catch\{\}\n/,'');
+    keep=keep.replace(/ function remember\(value\)\{[^\n]+\}\n/,'');
+    const tail=` document.addEventListener('click',ev=>{
+   const button=ev.target.closest('button');
+   if(!button)return;
+   if(button.dataset.close){
+     const dialog=document.getElementById(button.dataset.close);
+     if(dialog)dialog.close();
+     return;
+   }
+   if(button.hasAttribute('data-report-current')){
+     openReport(session?.queue[session.i]||null);return;
+   }
+   if(button.dataset.reportId){
+     openReport(VOCAB.find(entry=>entry.id===button.dataset.reportId));
+   }
+ });
+ $('open-report').onclick=()=>openReport();
+ sync();
+ window.addEventListener('online',sync);
+})();
+`;
+    const result=keep+tail;
+    assert.ok(!result.includes('openTeacher')&&!result.includes("api('login'")&&
+      !result.includes('vocab_sessions')&&!result.includes('teacher-dialog'),
+      'La copia estudiantil conserva gestión docente por error');
+    return result;
   });
 }

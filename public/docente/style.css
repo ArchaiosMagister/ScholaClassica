@@ -31,3 +31,35 @@ html:is([data-theme="dark"],[data-theme="oled"]) .access-card input{background:#
 html:is([data-theme="dark"],[data-theme="oled"]) .notice{border-color:#41566c}
 html:is([data-theme="dark"],[data-theme="oled"]) .access-card button{background:#304960;color:#e5f2ff}
 html:is([data-theme="dark"],[data-theme="oled"]) .access-card button.primary{background:#316da2;border-color:#548ac0;color:#fff}
+
+/* Administración docente central: reutiliza paleta oscura/OLED y mejora tactilidad. */
+#admin-word-form[hidden],#admin-words[hidden],#admin-reports[hidden]{display:none}
+#vocab-admin .admin-controls,#vocab-admin .admin-edit-form{display:grid;gap:9px;justify-items:stretch;max-width:760px}
+#vocab-admin .admin-edit-form{margin-top:20px;padding:18px;border:1px solid #8095a8;border-radius:12px}
+#vocab-admin .admin-controls{margin:14px 0}
+#vocab-admin input:not([type="checkbox"]),#vocab-admin select,#vocab-admin textarea{
+  box-sizing:border-box;display:block;width:100%;max-width:100%;min-width:0;
+  border:1px solid #8299ac;border-radius:8px;padding:10px;
+  font:inherit;background:#fff;color:#152838
+}
+#vocab-admin .admin-check{display:flex;align-items:center;gap:10px}
+#vocab-admin .admin-check input{width:auto;max-width:none}
+#vocab-admin .admin-actions,#vocab-admin .admin-pagination,#vocab-admin .teacher-tabs{
+  display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:12px 0
+}
+#vocab-admin .admin-pagination span{font-variant-numeric:tabular-nums}
+#vocab-admin h4{margin:12px 0 4px}
+#vocab-admin .notice textarea{width:100%;box-sizing:border-box;max-width:100%;min-height:65px}
+#vocab-admin .error{color:#b52639}
+#vocab-admin button{max-width:100%;white-space:normal}
+html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin input:not([type="checkbox"]),
+html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin select,
+html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin textarea{
+  color:#edf4ff;background:#142434;border-color:#738ca2
+}
+html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin .admin-edit-form{border-color:#41566c}
+html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin .error{color:#ff9d9d}
+@media(max-width:590px){
+  #vocab-admin .admin-edit-form{padding:10px}
+  #vocab-admin .teacher-tabs button,#vocab-admin .admin-actions button{flex:1}
+}
