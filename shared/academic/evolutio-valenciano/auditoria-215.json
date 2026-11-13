@@ -2,11 +2,11 @@
   "schema": "schola-evolutio-va-review215/v1",
   "date": "2026-11-13",
   "scope": "Las 215 propuestas originales de la primera conciliación, por orden e identidad del étimo.",
-  "method": "100 artículos con lema y etimología cotejados directamente con DCVB, 115 pendientes. La validación DNV y las leyes fonéticas de este lote siguen sin acreditarse; ningún nuevo ejercicio se habilita.",
+  "method": "115 correspondencias con lema, acepción y etimología cotejados individualmente en DCVB; 100 siguen sin relación exacta acreditada. Riesgos documentados de homografía, cultismo y étimos discutidos. 0 prácticas nuevas autorizadas.",
   "summary": {
     "total": 215,
-    "documentadasIndividualmente": 100,
-    "pendientes": 115,
+    "documentadasIndividualmente": 115,
+    "pendientes": 100,
     "autorizadasParaPractica": 0
   },
   "records": [
@@ -134,13 +134,19 @@
       "ordinal": 8,
       "latin": "iurare",
       "form": "jurar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jurar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 9,
@@ -320,13 +326,19 @@
       "ordinal": 19,
       "latin": "spicam",
       "form": "espiga",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espiga",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 20,
@@ -458,13 +470,19 @@
       "ordinal": 27,
       "latin": "lignum",
       "form": "lleny",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lleny",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "LLENY 1 'embarcación' es el sentido documentado desde lignum 'madera', con evolución semántica; no asumir uso cotidiano con significado de 'leño'.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 28,
@@ -536,13 +554,19 @@
       "ordinal": 32,
       "latin": "cæcare",
       "form": "cegar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cegar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 33,
@@ -781,7 +805,7 @@
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
+      "reviewNote": "La etimología de DAU a partir de datum se describe como incierta en DCVB; no considerar verificada.",
       "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
     },
     {
@@ -944,13 +968,19 @@
       "ordinal": 56,
       "latin": "laudare",
       "form": "lloar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 57,
@@ -1010,13 +1040,19 @@
       "ordinal": 60,
       "latin": "luctam",
       "form": "lluita",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 61,
@@ -1238,13 +1274,19 @@
       "ordinal": 74,
       "latin": "sŏmnum",
       "form": "son",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=son",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 75,
@@ -1274,13 +1316,19 @@
       "ordinal": 77,
       "latin": "stylum",
       "form": "estil",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estil",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 78,
@@ -1550,13 +1598,19 @@
       "ordinal": 94,
       "latin": "caput",
       "form": "cap",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cap",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "DCVB deriva cap 'cabeza' de la forma vulgar capum, variante de caput; registrar esta etapa intermedia.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 95,
@@ -1700,13 +1754,19 @@
       "ordinal": 103,
       "latin": "furcam",
       "form": "forca",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 104,
@@ -1742,25 +1802,37 @@
       "ordinal": 106,
       "latin": "mataxam",
       "form": "madeixa",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 107,
       "latin": "mŏllem",
       "form": "moll",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=moll",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "Comprobar 'moll' (blando) frente a 'moll' (muelle portuario).",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "MOLL 6 adjetivo 'blando' procede de mŏlle; no confundir con homógrafos de médula, pez, muelle portuario o italiano molo.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 108,
@@ -1849,7 +1921,7 @@
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "El DCVB presenta *plŏia (latín vulgar), no derivación directa sin intermediario desde plŭvia.",
+      "reviewNote": "PLUJA procede directamente del latín vulgar *plŏia, variante de plŭvia; requiere justificar paso intermedio antes de generar cambios.",
       "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
     },
     {
@@ -1964,13 +2036,19 @@
       "ordinal": 120,
       "latin": "sagitta",
       "form": "sageta",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sageta",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 121,
@@ -1999,7 +2077,7 @@
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
+      "reviewNote": "El DCVB indica que SENY 2 'juicio' procede del germánico sinn, probablemente cruzado con latín sensus: no es étimo latino directo; mantener fuera de ejercicios.",
       "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
     },
     {
@@ -2011,7 +2089,7 @@
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
+      "reviewNote": "El DCVB atribuye serp a latín serpe, no al acusativo serpĕntem del banco. No promover hasta justificar la relación histórica y morfológica.",
       "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
     },
     {
@@ -2078,25 +2156,37 @@
       "ordinal": 128,
       "latin": "stabĭlem",
       "form": "estable",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estable",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 129,
       "latin": "stagnum",
       "form": "estany",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estany",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "ESTANY 1 'lago' procede de stagnu; distinguir ESTANY 2 'estaño' de stannu.",
+      "nextAction": "Verificar DNV, transmisión y normas valencianas por tramos."
     },
     {
       "ordinal": 130,
