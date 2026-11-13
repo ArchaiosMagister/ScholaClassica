@@ -240,7 +240,7 @@ test('Auditoría de las 215 candidaturas: 195 etimologías contrastadas, 20 pend
   const result=audit215.records.find(x=>x.latin===latin);
   assert.equal(result.status,'etimologia_i_lema_DCVB_confirmats');
   assert.ok(result.source.url.startsWith('https://dcvb.iec.cat/'));
-  assert.equal(record(latin).valenciano.estadoNormas,latin==='damnum'?'pendent':'analisi_editorial_revisada');
+  assert.equal(record(latin).valenciano.estadoNormas,'analisi_editorial_revisada');
   assert.equal(record(latin).valenciano.aptoParaPractica,false);
  }
  assert.equal(matrix.records.filter(x=>x.valenciano.aptoParaPractica).length,0);
