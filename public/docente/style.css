@@ -31,3 +31,11 @@ html:is([data-theme="dark"],[data-theme="oled"]) .access-card input{background:#
 html:is([data-theme="dark"],[data-theme="oled"]) .notice{border-color:#41566c}
 html:is([data-theme="dark"],[data-theme="oled"]) .access-card button{background:#304960;color:#e5f2ff}
 html:is([data-theme="dark"],[data-theme="oled"]) .access-card button.primary{background:#316da2;border-color:#548ac0;color:#fff}
+
+#vocab-word-form .check{display:flex;align-items:center;gap:10px;font-weight:500;margin-top:12px}
+#vocab-word-form .check input{width:auto;max-width:none}
+#vocab-word-form[hidden],#vocab-more[hidden],#vocab-report-more[hidden]{display:none}
+.teacher-summary>p{line-height:1.5}
+.teacher-summary>button{margin:8px 0}
+.teacher-summary .notice button{margin-top:10px}
+.teacher-summary .notice textarea{width:100%;min-height:70px}

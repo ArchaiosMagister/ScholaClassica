@@ -21,25 +21,24 @@
 <main id="main" class="container">
   <section class="docente-heading">
     <p class="eyebrow">Espacio privado</p><h1>Zona docente</h1>
-    <p>Acceso con contraseña y verificación en dos pasos. Los avisos se consultarán en sus aplicaciones de origen.</p>
+    <p>Acceso con contraseña y verificación en dos pasos. Bandeja central de avisos de las aplicaciones de ScholaClassica y de Palabra del día, que permanece independiente.</p>
   </section>
   <div id="status" role="status" aria-live="polite">Preparando acceso seguro…</div>
   <section class="access-card" id="unavailable" hidden aria-labelledby="unavailable-title">
     <h2 id="unavailable-title">Acceso pendiente de configuración</h2>
-    <p>La infraestructura de acceso está preparada, pero todavía no se ha activado una cuenta docente en el servidor.</p>
+    <p>El acceso docente todavía no está disponible o no se ha podido verificar su configuración.</p>
   </section>
   <section class="access-card" id="login" hidden aria-labelledby="login-title">
     <h2 id="login-title">Identificación del profesor</h2>
-    <form id="login-form" autocomplete="on">
+    <form id="login-form" autocomplete="off">
       <label for="username">Usuario</label>
-      <input id="username" name="username" autocomplete="username" spellcheck="false" autocapitalize="none" required>
+      <input id="username" name="username" autocomplete="off" spellcheck="false" autocapitalize="none" placeholder="Introduce tu usuario" required>
       <label for="password">Contraseña</label>
       <input id="password" name="password" type="password" autocomplete="current-password" required>
-      <div id="turnstile-widget" aria-label="Comprobación de seguridad contra accesos automatizados"></div>
-      <p class="hint">Completa la comprobación de seguridad antes de entrar.</p>
+      <p class="hint">La contraseña se verifica en Supabase. Después se solicitará el código temporal de segundo factor.</p>
       <button type="submit" class="primary">Continuar</button>
     </form>
-    <p class="hint">Las credenciales se comprueban en Supabase Auth. No se permite el registro público.</p>
+    <p class="hint">No se permite el registro público. No compartas tu contraseña ni tus códigos de verificación.</p>
   </section>
   <section class="access-card" id="enroll" hidden aria-labelledby="enroll-title">
     <h2 id="enroll-title">Activar verificación en dos pasos</h2>
@@ -66,12 +65,48 @@
       <button type="submit" class="primary">Verificar acceso</button>
     </form>
   </section>
+  <section class="access-card" id="ready" hidden aria-labelledby="ready-title">
+    <h2 id="ready-title">Verificación en dos pasos activada</h2>
+    <p>Tu identidad docente ya tiene una sesión de dos factores. El acceso a los avisos y la edición de contenidos permanecerá bloqueado mientras completamos las comprobaciones de las fuentes.</p>
+    <p class="hint">Puedes cerrar sesión. En el siguiente acceso introducirás de nuevo tu usuario, contraseña y el código de Contraseñas de Apple.</p>
+  </section>
   <section class="access-card" id="teacher" hidden aria-labelledby="teacher-title">
     <h2 id="teacher-title">Panel docente</h2>
     <p id="session-state">Sesión verificada con dos factores y autorización de servidor.</p>
-    <div class="teacher-summary"><h3>Avisos pendientes</h3><p id="notices-state">Conectando bandeja de avisos…</p></div>
+    <div class="teacher-summary"><h3>Avisos pendientes</h3><p id="notices-state">Conectando bandeja de avisos…</p><label for="notice-source">Filtrar por aplicación</label><select id="notice-source"><option value="all">Todas las aplicaciones</option><option value="vocabula">Vocabula Latina Græcaque</option><option value="palabra">Palabra del día (externa)</option></select></div>
     <div id="notices" class="notices" aria-live="polite"></div>
-    <p class="hint">Consulta de solo lectura. Para resolver cada aviso se abrirá la web original; ScholaClassica no lo aprobará ni modificará.</p>
+    <section class="teacher-summary" aria-labelledby="vocab-admin-title">
+      <h3 id="vocab-admin-title">Gestión de Vocabula Latina Græcaque</h3>
+      <p>Edición de palabras y revisión de incidencias con autorización adicional en Supabase. Los cambios se aplicarán a Vocabula y se reflejarán en ScholaClassica tras sincronizar.</p>
+      <div class="actions"><button id="vocab-load" type="button">Consultar palabras</button><button id="vocab-new" type="button">Añadir palabra</button></div>
+      <p id="vocab-admin-status" role="status" aria-live="polite"></p>
+      <div id="vocab-word-list" class="notices"></div><button id="vocab-more" type="button" hidden>Cargar más palabras</button>
+      <form id="vocab-word-form" hidden>
+        <h4 id="vocab-form-heading">Nueva palabra</h4>
+        <label for="vocab-subject">Asignatura</label>
+        <select id="vocab-subject" required><option value="lat1">Latín I</option><option value="lat2">Latín II</option><option value="lat4">Latín de 4.º ESO</option><option value="gr1">Griego I</option></select>
+        <label for="vocab-form-text">Enunciado de la palabra</label><input id="vocab-form-text" required maxlength="300">
+        <label for="vocab-meaning">Significado</label><textarea id="vocab-meaning" required maxlength="1000"></textarea>
+        <label for="vocab-answers">Respuestas admitidas (una por línea)</label><textarea id="vocab-answers" required></textarea>
+        <label for="vocab-units">Unidades (separadas por punto y coma)</label><input id="vocab-units" required>
+        <label class="check"><input id="vocab-in-exam" type="checkbox"> Incluir en vocabulario de examen</label>
+        <label class="check"><input id="vocab-active" type="checkbox" checked> Disponible para los alumnos</label>
+        <div class="actions"><button class="primary" type="submit">Guardar palabra</button><button id="vocab-cancel" type="button">Cancelar</button></div>
+      </form>
+    </section>
+    <section class="teacher-summary" aria-labelledby="vocab-review-title">
+      <h3 id="vocab-review-title">Revisar incidencias de Vocabula</h3>
+      <label for="vocab-report-filter">Estado</label>
+      <select id="vocab-report-filter">
+        <option value="pending">Pendientes</option><option value="reviewing">En revisión</option>
+        <option value="resolved">Resueltas</option><option value="dismissed">Descartadas</option>
+        <option value="">Todas</option>
+      </select>
+      <button id="vocab-report-load" type="button">Consultar incidencias</button>
+      <p id="vocab-report-status" role="status" aria-live="polite"></p>
+      <div id="vocab-report-list" class="notices"></div><button id="vocab-report-more" type="button" hidden>Cargar más incidencias</button>
+    </section>
+    <p class="hint">La bandeja de avisos es de consulta. El editor de Vocabula tiene autorizaciones de escritura independientes.</p>
   </section>
   <div class="logout"><button id="logout" type="button" hidden>Cerrar sesión</button></div>
 </main>
