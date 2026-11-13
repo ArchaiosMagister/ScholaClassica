@@ -76,7 +76,8 @@ export function createDecompositionController({data,etymons,commitProgress}){
     els.route.textContent=item.evidence.editorialNote;
     els.source.href=item.evidence.url;
     els.results.hidden=false;
-    els.score.focus();
+    if(response.total===2)els.meaningCard.focus();
+    else els.score.focus();
     // Los dos componentes tienen nota visual, pero el progreso global
     // registra una descomposición perfecta solo cuando ambos son correctos.
     commitProgress(state=>recordQuizAttempt(state,etymons,'decomposition',
