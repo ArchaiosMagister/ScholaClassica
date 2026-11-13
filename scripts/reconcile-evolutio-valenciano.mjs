@@ -34,13 +34,32 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
   }
   if(!entry.explanation||!Array.isArray(entry.changes))
    throw Error('Análisis incompleto: '+entry.latin);
+  if(entry.teacherDecision){
+   if(entry.teacherDecision.date!=='2026-11-13'
+      ||entry.teacherDecision.scope!=='criterio_de_clasificacion'
+      ||!['accepted','provisional'].includes(entry.teacherDecision.approval)
+      ||!entry.teacherDecision.decision)
+    throw Error('Decisión docente sin evidencia o alcance: '+entry.latin);
+  }
+  const nonSelectablePhenomena=(entry.nonSelectablePhenomena??[]).map(x=>{
+   const i=x.at,letters=[...record.latin];
+   if(x.type!=='debilitament_intervocalic'||x.find!=='b'||x.result!=='v'
+      ||!Number.isInteger(i)||i<=0||i>=letters.length-1
+      ||letters[i]!=='b'||!/[aeiou]/.test(letters[i-1])
+      ||!/[aeiou]/.test(letters[i+1])||!x.note)
+    throw Error('Debilitament intervocàlic sense justificació: '+entry.latin);
+   return {type:x.type,spans:[[i,i+1]],result:x.result,note:x.note,selectable:false};
+  });
   const characters=[...record.latin];
   const changes=entry.changes.map((x,i)=>{
    if(!knownRules.has(x.rule))throw Error('Norma no autorizada: '+entry.latin+'/'+x.rule);
    if(x.anchor!==undefined){
     if((x.find!==undefined&&x.find!=='')||x.anchor<0||x.anchor>characters.length||(x.at!==undefined&&x.anchor!==x.at))
      throw Error('Anclaje imposible: '+entry.latin);
-    return {id:'va'+(i+1),rule:x.rule,spans:[],anchor:x.anchor,note:x.note};
+    if(x.stage&&(!entry.teacherDecision||entry.teacherDecision.approval!=='provisional'||x.stage!=='nuit'))
+     throw Error('Estadio històric no validat per una decisió provisional: '+entry.latin);
+    return {id:'va'+(i+1),rule:x.rule,spans:[],anchor:x.anchor,
+     ...(x.stage?{historicalStage:x.stage,provisional:true}:{}),note:x.note};
    }
    const len=[...x.find].length;
    const start=x.at<0?characters.length+x.at:x.at;
@@ -57,6 +76,13 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
   record.valenciano.normas=changes;
   record.valenciano.estadoNormas='analisi_editorial_revisada';
   record.valenciano.explicacion=entry.explanation;
+  if(entry.teacherDecision){
+   record.valenciano.criterioDocente=entry.teacherDecision;
+   record.valenciano.estadoNormas=entry.teacherDecision.approval==='provisional'
+    ?'analisi_editorial_provisional_docent':'analisi_editorial_revisada';
+  }
+  if(nonSelectablePhenomena.length)
+   record.valenciano.fenomensNoSeleccionables=nonSelectablePhenomena;
   record.valenciano.dnvIndividualChecked=false;
  }
  for(const w of records)if(w.valenciano.estadoLexico==='documentat'&&!audited.has(w.latin))
