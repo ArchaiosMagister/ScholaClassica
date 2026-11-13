@@ -1,8 +1,8 @@
 # ScholaClassica
 
-Plataforma modular de estudio de latín y griego en construcción **sin publicación para el alumnado**.
+Plataforma modular de estudio de latín y griego **publicada para el alumnado** en [GitHub Pages](https://archaiosmagister.github.io/ScholaClassica/). Los módulos se amplían de forma progresiva; la zona docente continúa separada y sin activar en el paquete público.
 
-## Estado (fase 3 · interfaz etimológica en pruebas)
+## Estado de la versión pública y de los módulos
 
 - **Appendix grammaticæ**: copia completa y sin alteraciones desde un commit fijado, en `dist/apps/gramatica/`.
 - **Evolutio**: copia completa en `dist/apps/evolucion-fonetica/`; su banco y motor de corrección se mantienen idénticos. **Solo en la copia integrada** se adapta el service worker para aislar la caché y se recalibran las etiquetas de dificultad, dando prioridad al resultado castellano sobre el número de leyes. El original permanece intacto.
@@ -12,7 +12,9 @@ Plataforma modular de estudio de latín y griego en construcción **sin publicac
 - **Zona docente**: usuario, contraseña y TOTP; función de inicio de sesión con correo exclusivamente en servidor y control Turnstile, además de bandeja de avisos con autorización de segundo factor. **No activada ni desplegada**: falta aprovisionar la identidad central, secretos y un **origen HTTPS aislado** para la zona privada (no compartir el origen de las aplicaciones públicas), además de verificar el extremo a extremo.
 - Los repositorios originales siguen siendo las únicas fuentes editables de sus aplicaciones durante la migración.
 
-## Conciliación académica de Evolutio en valenciano (fase inicial)
+## Conciliación académica de Evolutio en valenciano (fuera de la web pública)
+
+**La aplicación de Evolutio disponible para el alumnado utiliza exclusivamente las soluciones castellanas del banco fijado de 522 étimos.** La auditoría valenciana ampliada (221 correspondencias con dictamen individual) permanece aislada en la rama académica del PR #46 y no se incluye en `dist/`. Su conservación no implica habilitar ejercicios en valenciano.
 
 Se ha iniciado el banco bilingüe sin tocar ni publicar el corrector de Evolutio: **522 étimos identificados**, **26 correspondencias léxicas documentadas con etimología en el DCVB**, **215 propuestas explícitamente no verificadas** y **281 fichas sin propuesta**. **0 fichas valencianas habilitadas**: ninguna se activa hasta verificar las normas valencianas, su posición y la aprobación docente.
 
