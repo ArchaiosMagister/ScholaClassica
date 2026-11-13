@@ -2,7 +2,7 @@
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
   "status": "auditoria_docent_sense_publicacio",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig.",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m.",
   "analyses": [
     {
       "latin": "focum",
@@ -811,6 +811,294 @@
         }
       ],
       "explanation": "senatum → senat: apòcope de -u final i pèrdua fixa de -m."
+    },
+    {
+      "latin": "calĕntem",
+      "form": "calent",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final després de la caiguda fixa de -m."
+        }
+      ],
+      "explanation": "calĕntem → calent: apòcope de -e i pèrdua fixa de -m; ĕ tònica sense diftongació."
+    },
+    {
+      "latin": "hŏrtum",
+      "form": "hort",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "hŏrtum → hort: apòcope de -u i pèrdua fixa de -m, sense diftongació de ŏ tònica."
+    },
+    {
+      "latin": "fumum",
+      "form": "fum",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "fumum → fum: apòcope de -u després de la caiguda fixa de -m, sense canvi exigible de la u tònica."
+    },
+    {
+      "latin": "portum",
+      "form": "port",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "portum → port: apòcope de -u i pèrdua fixa de -m; no diftongació castellana de ŏ."
+    },
+    {
+      "latin": "uentum",
+      "form": "vent",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "uentum → vent: apòcope de -u i pèrdua fixa de -m; la u inicial consonàntica s'escriu v en valencià."
+    },
+    {
+      "latin": "pannum",
+      "form": "pany",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "nn",
+          "at": 2,
+          "note": "Palatalització de la geminada -nn- > -ny-."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de la vocal final -u."
+        }
+      ],
+      "explanation": "pannum → pany: palatalització de -nn-, apòcope de -u i pèrdua fixa de -m."
+    },
+    {
+      "latin": "grŏssum",
+      "form": "gros",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "ss",
+          "at": 3,
+          "note": "Simplificació de la geminada -ss- en -s-."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de la vocal final -u."
+        }
+      ],
+      "explanation": "grŏssum → gros: simplificació de -ss-, apòcope de -u i pèrdua fixa de -m; no diftongació de ŏ."
+    },
+    {
+      "latin": "mŏllem",
+      "form": "moll",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "ll",
+          "at": 2,
+          "note": "Evolució fonètica de -ll- geminada a lateral palatal, sense canvi ortogràfic."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de la vocal final -e."
+        }
+      ],
+      "explanation": "mŏllem → moll: palatalització de la geminada -ll- (mateixa grafia), apòcope de -e i pèrdua fixa de -m."
+    },
+    {
+      "latin": "molam",
+      "form": "mola",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "molam → mola: només caiguda fixa de -m final; cap llei seleccionable."
+    },
+    {
+      "latin": "hĕrbam",
+      "form": "herba",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "hĕrbam → herba: només caiguda fixa de -m final; no hi ha aspiració castellana."
+    },
+    {
+      "latin": "bŏnam",
+      "form": "bona",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "bŏnam → bona: només caiguda fixa de -m; la ŏ tònica no diftonga."
+    },
+    {
+      "latin": "fossam",
+      "form": "fossa",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "fossam → fossa: pèrdua fixa de -m; la grafia ss es manté, i no es postula una simplificació fonètica sense prova individual."
+    },
+    {
+      "latin": "serram",
+      "form": "serra",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "serram → serra: només pèrdua fixa de -m; no s'imputa una simplificació de -rr- sense contrast fonètic."
+    },
+    {
+      "latin": "sortem",
+      "form": "sort",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final."
+        }
+      ],
+      "explanation": "sortem → sort: apòcope de -e i caiguda fixa de -m."
+    },
+    {
+      "latin": "curtum",
+      "form": "curt",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "curtum → curt: apòcope de -u i pèrdua fixa de -m."
+    },
+    {
+      "latin": "mustum",
+      "form": "most",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica en o."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final."
+        }
+      ],
+      "explanation": "mustum → most: obertura de ŭ tònica, apòcope de -u final i pèrdua fixa de -m."
+    },
+    {
+      "latin": "muscam",
+      "form": "mosca",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica en o."
+        }
+      ],
+      "explanation": "muscam → mosca: obertura de ŭ tònica i pèrdua fixa de -m; no s'hi exigix simplificació de -sc-."
+    },
+    {
+      "latin": "fĕbrem",
+      "form": "febre",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "fĕbrem → febre: només pèrdua fixa de -m final; no diftongació de ĕ tònica."
     }
   ],
   "pending": []
