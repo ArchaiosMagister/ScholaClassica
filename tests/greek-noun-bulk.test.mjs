@@ -90,8 +90,8 @@ test('UD8 recupera géneros docentes explícitos y las variantes de ν eufónica
   assert.ok(goat,'αἴξ con acepción femenina declarada debe incorporarse');
   assert.equal(goat.gender,'femenino');
   assert.match(goat.evidence.genderEvidence,/docente/);
-  assert.ok(!result.records.some(r=>r.paradigm.startsWith('ἄνθρωπος,')),
-    'No se asigna arbitrariamente un género a ἄνθρωπος');
+  assert.ok(result.records.some(r=>r.paradigm.startsWith('ἄνθρωπος,')&&!r.gender),
+    'El nombre se declina, pero no se atribuye género arbitrario a ἄνθρωπος');
   const elder=result.records.find(r=>r.paradigm.startsWith('γέρων,'));
   assert.ok(elder,'γέρων con artículo docente y casillas atestiguadas');
   assert.equal(elder.unit,8);
