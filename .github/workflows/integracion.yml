@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ArchaiosMagister/EvolucionFonetica
-          ref: 0897aae01b6d4c905aafa1c1a6bac5af0810c812
+          ref: 901dacb125ee7894ea9d11faf7b0d0afa7e713b5
           path: .sources/evolutio
           persist-credentials: false
       - name: Obtener Vocabula original en commit fijado (solo lectura)
