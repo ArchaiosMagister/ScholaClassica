@@ -7,7 +7,8 @@ const root=resolve(import.meta.dirname,'..');
 const audit=join(root,'build/morfologia');
 const catalog=JSON.parse(readFileSync(join(audit,'catalogo-nominal-total.json'),'utf8'));
 const report=JSON.parse(readFileSync(join(audit,'candidaturas-triaje-filologico.json'),'utf8'));
-const rerun=triageNounCandidates(catalog.catalog);
+const manifest=JSON.parse(readFileSync(join(root,'config/nominal-teacher-decisions.json'),'utf8'));
+const rerun=triageNounCandidates(catalog.catalog,manifest);
 test('el triaje es reproducible, sin modificar los paradigmas ni elevar evidencias',()=>{
   assert.deepEqual(report,rerun);
   assert.equal(report.total,Object.values(report.counts).reduce((a,b)=>a+b,0));
@@ -28,12 +29,14 @@ test('no se convierten verbos y adjetivos en sustantivos pendientes de flexión 
 });
 test('las decisiones docentes tienen opciones explícitas y no se aplican sin respuesta',()=>{
   const ids=new Set();
-  assert.ok(report.teacherChoices.length>=5);
+  assert.equal(report.teacherChoices.length,6);
   for(const c of report.teacherChoices){
     assert.ok(!ids.has(c.id));ids.add(c.id);
     assert.ok(c.choices.length>=3);
     assert.ok(c.choices.some(x=>x.value===c.recommendation));
     assert.ok(/^https:\/\//.test(c.source));
-    assert.ok(!c.decision);
+    const key=c.id.replace(/^(?:latin|griego)-/u,'');
+    assert.equal(c.decision,manifest.choices[key]);
+    assert.equal(c.applied,true);
   }
 });
