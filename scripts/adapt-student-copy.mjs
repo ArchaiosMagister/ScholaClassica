@@ -36,6 +36,8 @@ export async function adaptEvolutioStudentCopy(destination){
     js=js.replace(sourceFunction,'');
     js=one(js,'<p class="study-source">${wordSourceNote(w)}</p>','',
       'procedencia en la ficha de Evolutio');
+    js=one(js,'<p class="review-note">${wordSourceNote(w)} Se respeta la terminología de las normas PAU.</p>',
+      '', 'procedencia en resultado de Evolutio');
     js=one(js,
       "${w.source?.generatorId?'Ficha importada · GeneradorExamenes':'Ficha filológica · Banco revisado'} · ",
       '', 'etiqueta de ficha de Evolutio');
