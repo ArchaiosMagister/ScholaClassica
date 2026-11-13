@@ -6,11 +6,17 @@ const sections=['unavailable','login','enroll','verify','teacher'];
 const SCRIPT_URL='./vendor/supabase.js';
 let config,client,enrollment=null,busy=false;
 let loadedNotices=[];
+let vocabWords=[],vocabReports=[],vocabWordOffset=0,vocabReportOffset=0,editingVocabId=null;
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
 function state(section,message=''){
   for(const id of sections)el(id).hidden=id!==section;
   el('logout').hidden=section==='login'||section==='unavailable';
   el('status').textContent=message;
+  if(section==='login'||section==='unavailable'){
+    loadedNotices=[];vocabWords=[];vocabReports=[];editingVocabId=null;
+    for(const id of ['notices','vocab-word-list','vocab-report-list'])el(id)?.replaceChildren();
+    el('vocab-word-form').hidden=true;
+  }
 }
 function setBusy(value){
   busy=value;
@@ -196,4 +202,128 @@ async function init(){
     state('unavailable','Servicio de autenticación no disponible');
   }
 }
+
+// Gestión docente de Vocabula: todas las peticiones vuelven a autorizarse
+// en la Edge Function. Las palabras y notas nunca se guardan en almacenamiento local.
+async function vocabAdmin(body){
+  const response=await client.functions.invoke('schola-vocab-admin',{method:'POST',body});
+  if(response.error||response.data?.error||!response.data)
+    throw Error('Operación docente no autorizada o servicio no disponible');
+  return response.data;
+}
+const textElement=(tag,value,className='')=>{
+  const node=document.createElement(tag);
+  node.textContent=String(value??'');
+  if(className)node.className=className;
+  return node;
+};
+function openWordEditor(word=null){
+  editingVocabId=word?.id||null;
+  el('vocab-form-heading').textContent=word?'Editar palabra':'Nueva palabra';
+  el('vocab-word-form').reset();
+  el('vocab-subject').value=word?.subject||'lat1';
+  el('vocab-form-text').value=word?.form||'';
+  el('vocab-meaning').value=word?.meaning||'';
+  el('vocab-answers').value=(word?.answers||[]).join('\n');
+  el('vocab-units').value=(word?.units||[]).join('; ');
+  el('vocab-in-exam').checked=word?.in_exam===true;
+  el('vocab-active').checked=word?.active!==false;
+  el('vocab-word-form').hidden=false;
+  el('vocab-form-text').focus();
+}
+function renderVocabWords(){
+  const list=el('vocab-word-list');
+  list.replaceChildren();
+  for(const word of vocabWords){
+    const card=textElement('article','', 'notice');
+    card.append(textElement('h4',word.form),
+      textElement('p',word.meaning),
+      textElement('small',[word.subject,(word.units||[]).join(' · '),
+        word.active?'Disponible':'Retirada'].join(' · ')));
+    const edit=textElement('button','Editar');
+    edit.type='button';edit.addEventListener('click',()=>openWordEditor(word));
+    card.append(edit);list.append(card);
+  }
+  el('vocab-more').hidden=vocabWords.length===0||vocabWords.length%100!==0;
+  el('vocab-admin-status').textContent=vocabWords.length+
+    ' palabras cargadas. Para editar otras entradas, carga más resultados.';
+}
+async function loadVocabWords(append=false){
+  if(!append){vocabWordOffset=0;vocabWords=[]}
+  const result=await vocabAdmin({action:'words.list',offset:vocabWordOffset});
+  const words=Array.isArray(result.words)?result.words:[];
+  vocabWords.push(...words);
+  vocabWordOffset+=words.length;
+  renderVocabWords();
+  el('vocab-more').hidden=!result.hasMore;
+}
+async function saveVocabWord(){
+  const split=raw=>[...new Set(raw.split(/[;\n]/).map(x=>x.trim()).filter(Boolean))];
+  const body={
+    action:'words.save',...(editingVocabId?{id:editingVocabId}:{}),
+    subject:el('vocab-subject').value,form:el('vocab-form-text').value,
+    meaning:el('vocab-meaning').value,answers:split(el('vocab-answers').value),
+    units:split(el('vocab-units').value),in_exam:el('vocab-in-exam').checked,
+    active:el('vocab-active').checked
+  };
+  await vocabAdmin(body);
+  el('vocab-word-form').hidden=true;editingVocabId=null;
+  await loadVocabWords(false);
+  el('vocab-admin-status').textContent='Palabra guardada en Vocabula. La consulta del alumnado se actualizará cuando vuelva a sincronizarse.';
+}
+const REPORT_STATES=[['pending','Pendiente'],['reviewing','En revisión'],
+  ['resolved','Resuelta'],['dismissed','Descartada']];
+function renderVocabReports(){
+  const list=el('vocab-report-list');
+  list.replaceChildren();
+  for(const report of vocabReports){
+    const card=textElement('article','', 'notice');
+    card.append(textElement('h4',report.entry_form||report.kind),
+      textElement('small',[report.subject,report.mode,
+        report.created_at?new Date(report.created_at).toLocaleString('es-ES'):''].join(' · ')),
+      textElement('p',report.message));
+    const stateLabel=textElement('label','Estado');const select=document.createElement('select');
+    for(const [value,label] of REPORT_STATES){
+      const option=document.createElement('option');option.value=value;option.textContent=label;
+      select.append(option);
+    }
+    select.value=report.status;
+    const noteLabel=textElement('label','Nota privada del profesor');
+    const note=document.createElement('textarea');note.value=report.teacher_note||'';
+    note.maxLength=2000;note.rows=3;
+    const save=textElement('button','Guardar revisión');save.type='button';
+    save.addEventListener('click',()=>void safely(async()=>{
+      await vocabAdmin({action:'reports.review',id:report.id,status:select.value,teacher_note:note.value});
+      await loadVocabReports(false);
+      await fetchNotices();
+    }));
+    card.append(stateLabel,select,noteLabel,note,save);
+    list.append(card);
+  }
+  el('vocab-report-status').textContent=vocabReports.length+
+    ' incidencias cargadas (estado seleccionado: '+(el('vocab-report-filter').selectedOptions[0]?.textContent||'')+').';
+}
+async function loadVocabReports(append=false){
+  if(!append){vocabReportOffset=0;vocabReports=[]}
+  const result=await vocabAdmin({action:'reports.list',
+    status:el('vocab-report-filter').value,offset:vocabReportOffset});
+  const reports=Array.isArray(result.reports)?result.reports:[];
+  vocabReports.push(...reports);
+  vocabReportOffset+=reports.length;
+  renderVocabReports();
+  el('vocab-report-more').hidden=!result.hasMore;
+}
+el('vocab-load').addEventListener('click',()=>void safely(()=>loadVocabWords(false)));
+el('vocab-more').addEventListener('click',()=>void safely(()=>loadVocabWords(true)));
+el('vocab-new').addEventListener('click',()=>openWordEditor());
+el('vocab-cancel').addEventListener('click',()=>{editingVocabId=null;el('vocab-word-form').hidden=true});
+el('vocab-word-form').addEventListener('submit',event=>{
+  event.preventDefault();void safely(saveVocabWord);
+});
+el('vocab-report-load').addEventListener('click',()=>void safely(()=>loadVocabReports(false)));
+el('vocab-report-more').addEventListener('click',()=>void safely(()=>loadVocabReports(true)));
+el('vocab-report-filter').addEventListener('change',()=>{
+  vocabReports=[];el('vocab-report-list').replaceChildren();el('vocab-report-more').hidden=true;
+});
+
 void init();
