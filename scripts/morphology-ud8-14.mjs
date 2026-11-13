@@ -311,8 +311,8 @@ function greekAorists(curriculum){
 const CONTRACT_FIXES={
   // Correcciones cotejadas con una segunda tabla de conjugación:
   // https://www.azimonti.com/philology/ancient-greek/morphology/verbs/contract-verbs/
-  '128|2|4':'ἐποιεῖτε',
-  '129|1|3':'ἐτιμῶ'
+  '128|1|4':'ἐποιεῖτε',
+  '129|0|1':'ἐτιμῶ'
 };
 function greekContracts(curriculum){
   const unit=14,topic='Verbos contractos',out=[];
