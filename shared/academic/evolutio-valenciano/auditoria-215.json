@@ -2,11 +2,11 @@
   "schema": "schola-evolutio-va-review215/v1",
   "date": "2026-11-13",
   "scope": "Las 215 propuestas originales de la primera conciliación, por orden e identidad del étimo.",
-  "method": "Se examinaron las 215 candidaturas originales: 192 con lema, acepción y relación etimológica documentados en DCVB; 23 sin relación directa suficientemente acreditada, incluidas 4 derivaciones directas que la evidencia contradice. La comprobación DNV, estatus patrimonial/culto y normas fonéticas quedan diferenciados. No se publican fichas.",
+  "method": "Auditoría de las 215 candidaturas: 195 correspondencias etimológicas individualizadas en DCVB y 20 reservas, cuatro derivaciones directas descartadas. Sin validación DNV, sin leyes fonéticas nuevas aprobadas y sin autorización de publicación.",
   "summary": {
     "total": 215,
-    "documentadasIndividualmente": 192,
-    "pendientes": 23,
+    "documentadasIndividualmente": 195,
+    "pendientes": 20,
     "autorizadasParaPractica": 0,
     "derivacionesDirectasDescartadas": 4
   },
@@ -2724,14 +2724,20 @@
       "ordinal": 153,
       "latin": "damnum",
       "form": "dany",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dany",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "DANY está documentado en DCVB desde damnum y puede promoverse con la acepción 'daño'.",
-      "nextAction": "Investigar cadena histórica, variantes y DNV antes de completar el banco.",
-      "reviewOutcome": "sin_confirmacion_suficiente"
+      "reviewNote": "DANY 1 'daño' del latín damnum; separar homógrafo antiguo de otra acepción.",
+      "nextAction": "Comprobar normativa DNV y evolución fonética valenciana antes de activar práctica.",
+      "reviewOutcome": "correspondencia_documentada_sin_leyes"
     },
     {
       "ordinal": 154,
@@ -3790,27 +3796,39 @@
       "ordinal": 213,
       "latin": "spinam",
       "form": "espina",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espina",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "ESPINA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
-      "nextAction": "Investigar cadena histórica, variantes y DNV antes de completar el banco.",
-      "reviewOutcome": "sin_confirmacion_suficiente"
+      "reviewNote": "ESPINA 'espina vegetal, púa' del latín spīna, no otras acepciones secundarias.",
+      "nextAction": "Comprobar normativa DNV y evolución fonética valenciana antes de activar práctica.",
+      "reviewOutcome": "correspondencia_documentada_sin_leyes"
     },
     {
       "ordinal": 214,
       "latin": "spumam",
       "form": "espuma",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espuma",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "ESPUMA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
-      "nextAction": "Investigar cadena histórica, variantes y DNV antes de completar el banco.",
-      "reviewOutcome": "sin_confirmacion_suficiente"
+      "reviewNote": "ESPUMA 'espuma' del latín spuma, distinta del sinónimo ESCUMA de origen germánico con analogía latina.",
+      "nextAction": "Comprobar normativa DNV y evolución fonética valenciana antes de activar práctica.",
+      "reviewOutcome": "correspondencia_documentada_sin_leyes"
     },
     {
       "ordinal": 215,
