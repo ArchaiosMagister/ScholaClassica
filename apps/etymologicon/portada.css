@@ -1,0 +1,39 @@
+/* Portada de Etymologicon: solo dos grandes accesos, legibles en móvil y PWA. */
+.home-shell{max-width:1050px;padding-top:clamp(35px,6vw,72px)}
+.home-intro{text-align:center;max-width:770px;margin:0 auto clamp(28px,4vw,48px)}
+.home-intro h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:6px 0 16px}
+.home-intro>p:last-child{color:var(--muted);font-size:clamp(1rem,2vw,1.15rem);margin:0;line-height:1.65}
+.home-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.home-choice{display:flex;align-items:flex-start;flex-direction:column;gap:20px;min-height:330px;text-decoration:none;color:var(--ink);
+ border:2px solid var(--line);border-radius:22px;background:var(--panel);padding:clamp(25px,4vw,40px);
+ box-shadow:var(--shadow);transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.home-choice:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 15px 32px rgba(17,36,64,.13)}
+.home-choice:focus-visible{outline:4px solid var(--accent);outline-offset:4px}
+.home-choice-icon{display:grid;place-items:center;width:75px;height:75px;border-radius:19px;
+ background:var(--bg);border:1px solid var(--line);font-size:2.25rem;line-height:1}
+.home-choice--practice .home-choice-icon{color:var(--accent)}
+.home-choice-body{display:flex;flex-direction:column;gap:8px;flex:1}
+.home-choice-overline{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--muted)}
+.home-choice-title{font-size:clamp(1.55rem,3vw,2rem);line-height:1.16;letter-spacing:-.025em;font-weight:800}
+.home-choice-description{color:var(--muted);line-height:1.6;max-width:42ch}
+.home-choice-action{display:flex;align-items:center;justify-content:space-between;gap:16px;
+ margin-top:auto;padding-top:22px;color:var(--accent);font-weight:800}
+.home-choice-action span{font-size:1.5rem;line-height:1}
+.home-footer{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;
+ margin:30px auto 12px;border-top:1px solid var(--line);padding-top:23px}
+.home-theme{display:grid;gap:7px;min-width:210px}
+.home-theme label{font-size:.87rem;font-weight:700}
+.home-offline{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap;flex:1}
+.home-offline p{color:var(--muted);font-size:.84rem;flex:1 1 240px;margin:0;text-align:right}
+.home-offline button{min-height:45px;white-space:normal}
+.home-later{margin-top:16px;color:var(--muted);font-size:.87rem;text-align:center}
+@media(max-width:680px){
+ .home-choices{grid-template-columns:1fr;gap:16px}
+ .home-choice{min-height:255px;flex-direction:row;padding:23px;gap:17px}
+ .home-choice-icon{width:57px;height:57px;font-size:1.7rem;flex-shrink:0}
+ .home-footer{align-items:stretch}
+ .home-theme,.home-offline{width:100%}
+ .home-offline p{text-align:left}
+}
+@media(max-width:390px){.home-choice{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.home-choice{transition:none}.home-choice:hover{transform:none}}
