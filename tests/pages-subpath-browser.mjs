@@ -59,15 +59,16 @@ try{
  assert.equal(await page.locator('.path-links a').count(),3);
  await page.locator('.path-links a[data-study-tool="etymologicon"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/index\.html$/);
- const etymRegistration=await page.waitForFunction(async()=>{
-   const r=await navigator.serviceWorker.getRegistration();
-   return r?.active&&r.scope.includes('/apps/etymologicon/')?r.scope:null;
+ await page.waitForFunction(async()=>{
+   const registrations=await navigator.serviceWorker.getRegistrations();
+   return registrations.some(r=>r.active&&
+     r.scope.endsWith('/ScholaClassica/apps/etymologicon/'));
  },null,{timeout:18000});
- assert.ok((await etymRegistration.jsonValue()).includes('/ScholaClassica/apps/etymologicon/'));
  await page.goto(base+prefix+'apps/evolucion-fonetica/index.html',{waitUntil:'networkidle'});
  await page.waitForFunction(async()=>{
-   const r=await navigator.serviceWorker.getRegistration();
-   return Boolean(r?.active&&r.scope.includes('/apps/evolucion-fonetica/'));
+   const registrations=await navigator.serviceWorker.getRegistrations();
+   return registrations.some(r=>r.active&&
+     r.scope.endsWith('/ScholaClassica/apps/evolucion-fonetica/'));
  },null,{timeout:18000});
  assert.equal(await page.locator('#refresh-app').count(),1);
  const entries=await page.evaluate(async()=>await fetch('./data/pilot.json').then(r=>r.json()));
