@@ -9,6 +9,7 @@ import {buildMorphologyPwa} from './build-morphology-pwa.mjs';
 import {adaptEvolutioDifficulty} from './adapt-evolutio-difficulty.mjs';
 import {adaptAppendixOled,adaptEvolutioOled,adaptVocabulaOled} from './adapt-integrated-oled.mjs';
 import {adaptEvolutioStudentCopy,adaptVocabulaStudentCopy} from './adapt-student-copy.mjs';
+import {buildDocenteGrammarIndex} from './build-docente-gramatica.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -145,6 +146,7 @@ await writeFile(join(out,'docente/vocabula-catalog.json'),JSON.stringify({
   schema:1,source:vocabulaLock.sha,words:docenteWords
 }));
 console.log('Catálogo docente de Vocabula:',docenteWords.length,'entradas originales');
+await buildDocenteGrammarIndex({vocabulaSource,out});
 
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
 await adaptVocabulaOled(vocabulaDestination);
