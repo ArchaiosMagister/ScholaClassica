@@ -41,6 +41,8 @@
           <option value="analysis">Analizar una forma</option>
           <option value="written">Escribir la forma sin opciones</option>
           <option value="table">Completar una declinación</option>
+          <option value="phrase-written" disabled hidden>Escribir sintagma completo</option>
+          <option value="phrase-table" disabled hidden>Declinar sintagma completo</option>
           <option value="agreement" disabled hidden>Concordancia con artículo · Griego I UD5</option>
         </select>
       </label>
@@ -97,7 +99,10 @@
       <p id="greek-key-notice" class="helper" role="status" aria-live="polite"></p>
     </section>
     <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
-    <a id="source" class="source-link" href="../gramatica/" hidden>Consultar la unidad en Appendix grammaticae</a>
+    <div class="evidence-links">
+      <a id="source" class="source-link" href="../gramatica/" hidden>Consultar la unidad en Appendix grammaticae</a>
+      <a id="source-secondary" class="source-link" href="../gramatica/" hidden>Consultar la segunda unidad acreditada</a>
+    </div>
     <button id="next" type="button" hidden>Siguiente pregunta</button>
     <button id="new" type="button" class="secondary">Nueva tanda</button>
   </section>
@@ -109,10 +114,10 @@
   </section>
   <section class="notes" aria-labelledby="scope-title">
     <h2 id="scope-title">Alcance académico</h2>
-    <p><strong>Latín I:</strong> UD1 (primera y segunda declinación, presente activo y <i>sum</i>), UD2 (imperfecto activo), UD3 (presente e imperfecto pasivos), UD4 (tercera declinación; perfecto y pluscuamperfecto activos de las cinco conjugaciones y de <i>sum</i>) y UD5 (adjetivos de tercera declinación: <i>brevis</i>, <i>acer</i>, <i>audax</i>, <i>vetus</i>). <strong>Griego I:</strong> UD1–UD3 (declinaciones, presente y artículo), UD4 (repaso acumulativo) y UD5 (adjetivos 2–1–2, 2–2, <span lang="grc">πολύς</span>, <span lang="grc">μέγας</span> y concordancia con el artículo).</p>
+    <p><strong>Latín I:</strong> UD1–UD5 (declinaciones, presentes, imperfectos, perfectos y pluscuamperfectos activos, pasiva imperfectiva y adjetivos de tercera declinación), UD6 (demostrativos y relativo) y UD7 (cuarta y quinta declinación, futuro activo y pasivo, y futuro de <i>sum</i>). <strong>Griego I:</strong> UD1–UD5 (declinaciones, artículo y adjetivos), UD6 (presente medio-pasivo de <span lang="grc">λύω</span>) y UD7 (demostrativos, anafórico y personales).</p>
     <p>La corrección contempla el sincretismo y las variantes válidas. Los adjetivos latinos distinguen género, número y caso, con análisis múltiples cuando una misma forma corresponde a varios géneros. En Griego I, la nueva modalidad pregunta qué forma de un adjetivo concuerda con un artículo documentado; se habilita únicamente desde UD5. Los paradigmas proceden de las tablas del <em>Appendix grammaticae</em> fijado. Las formas pasivas compuestas, los adjetivos no documentados y las unidades posteriores siguen pendientes de revisión.</p>
     <p>En las respuestas escritas se admiten las variantes documentadas y las grafías latinas <i>æ/ae</i>. En griego se distinguen los errores morfológicos de los ortográficos (acentos, espíritus, sigma final). Los errores ortográficos no se cuentan como aciertos. Los modelos de terminaciones admiten escribir la desinencia con o sin guion inicial.</p>
-    <p>Las tablas de declinación solo utilizan los sustantivos, artículos, adjetivos y desinencias que ya aparecen en el banco. Los sintagmas completos con sustantivos de flexión no documentada siguen pendientes de revisión.</p>
+    <p><strong>Sintagmas:</strong> en latín se declinan adjetivo y sustantivo completos con género documentado; en griego se trabaja el artículo y un adjetivo sustantivado, sin inventar un sustantivo ausente del banco. Los dos modelos se habilitan a partir de UD5 y utilizan solo formas ya documentadas. Los pronombres incorporados de UD6–UD7 admiten reconocimiento y escritura; el vocativo inexistente no se genera. La segunda persona singular del presente medio-pasivo griego admite las dos variantes de Appendix.</p>
     <p id="network-status" role="status" aria-live="polite"></p>
   </section>
 </main>
