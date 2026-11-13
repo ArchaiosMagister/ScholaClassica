@@ -71,10 +71,8 @@ function updateKinds(){
   if(!agreement&&!phrase)option(input.kind,'todos','Todas las categorías disponibles');
   kinds.forEach(kind=>option(input.kind,kind,grammaticalName(kind)));
   input.kind.value=phrase?'sintagma':agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
-  $('coverage').textContent=COURSE_LABELS[language]+': se incluyen únicamente los paradigmas de UD1 a UD'+unit+
-    ' presentes en las tablas curriculares ('+records.length+' paradigmas). '+
-    'Las unidades posteriores a '+bank.coverage[language].at(-1)+' siguen en revisión.'+
-    (language==='griego'&&unit===4?' UD4 no añade nuevos paradigmas a este módulo.':'');
+  $('coverage').textContent=COURSE_LABELS[language]+': puedes practicar los contenidos de UD1 a UD'+unit+'.'+
+    (language==='griego'&&unit===4?' UD4 no incorpora nuevas formas a estos ejercicios.':'');
 }
 function updateReviewStatus(){
   const info=reviewCounts(reviewState);
@@ -92,35 +90,9 @@ function setFeedback(text,type=''){
   feedback.hidden=false;feedback.className='feedback '+type;
   feedback.textContent=text;
 }
-function showSource(q){
-  const targets=[$('source'),$('source-secondary'),$('source-tertiary')];
-  for(const target of targets)target.hidden=true;
-  const sources=[q.evidence,...(q.sources||[])].filter(Boolean);
-  const distinct=new Set();
-  let next=0;
-  for(const evidence of sources){
-    const key=[evidence.source,evidence.file,evidence.unit,evidence.topic].join('|');
-    if(distinct.has(key))continue;
-    distinct.add(key);
-    const target=targets[next++];
-    if(!target)break;
-    target.hidden=false;
-    if(evidence.source.includes('UniMorph')){
-      target.textContent='Paradigma nominal · Vocabula/UniMorph · '+
-        (evidence.vocabulaGroup||'Griego I');
-      target.href='../vocabulario/index.html';
-    }else{
-      target.textContent='Consultar Appendix · '+COURSE_LABELS[q.language]+
-        ' · UD'+evidence.unit+' · '+evidence.topic;
-      target.href='../gramatica/curso.html?lengua='+
-        (q.language==='latin'?'latin':'griego')+'&curso=1&unidad='+evidence.unit;
-    }
-  }
-}
 function completeQuestion(q){
   answered=true;
   $('score').textContent='Aciertos: '+score;
-  showSource(q);
   $('next').hidden=false;
   $('next').textContent=position===questions.length-1?'Ver resultado':'Siguiente pregunta';
   $('greek-keyboard').hidden=true;
@@ -175,8 +147,6 @@ function showQuestion(){
   $('greek-key-notice').textContent='';
   $('answers').replaceChildren();
   $('feedback').hidden=true;$('next').hidden=true;
-  $('source').hidden=true;$('source-secondary').hidden=true;
-  $('source-tertiary').hidden=true;
   if(q.activity==='written'){
     answer.disabled=false;answer.value='';answer.lang=q.language==='griego'?'grc':'la';
     $('check-written').disabled=false;
@@ -327,11 +297,10 @@ async function initialize(){
     updateFilters();
     updateReviewStatus();
     $('start').disabled=false;
-    $('network-status').textContent='Banco curricular cargado. La práctica y el progreso local '+
-      'funcionan sin conexión después de la primera visita.';
+    $('network-status').textContent='Todo preparado. Puedes practicar sin conexión después de la primera visita.';
   }catch{
     $('start').disabled=true;
-    $('coverage').textContent='No se pudo leer el banco curricular. Revisa tu conexión y actualiza la página.';
+    $('coverage').textContent='No se han podido cargar los ejercicios. Revisa tu conexión y actualiza la página.';
   }
 }
 $('start').disabled=true;

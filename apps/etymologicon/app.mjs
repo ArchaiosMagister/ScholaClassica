@@ -292,7 +292,7 @@ ui.unit.addEventListener('change',()=>{
 
 async function loadCatalog(){
   ui.loadState.hidden=false;
-  ui.loadState.textContent='Preparando el banco académico de Griego I…';
+  ui.loadState.textContent='Preparando los ejercicios de Griego I…';
   ui.error.hidden=true;
   ui.content.hidden=true;
   ui.unit.disabled=true;
@@ -474,8 +474,8 @@ const standalone=()=>window.matchMedia('(display-mode: standalone)').matches||
 function reportOfflineState(){
   if(!navigator.onLine){
     offlineStatus.textContent=navigator.serviceWorker?.controller
-      ?'Sin conexión: puedes estudiar con el banco guardado.'
-      :'Sin conexión: el banco debe descargarse primero con internet.';
+      ?'Sin conexión: puedes estudiar con los contenidos descargados.'
+      :'Sin conexión: primero debes abrir los ejercicios con internet.';
     return;
   }
   if(registration?.waiting){

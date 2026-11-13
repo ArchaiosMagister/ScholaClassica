@@ -82,9 +82,8 @@ try{
   assert.match(await page.locator('#question-title').textContent(),/adjetivo sustantivado/);
   await page.locator('#answer-input').fill('forma inventada');
   await page.locator('#check-written').click();
-  assert.ok(await page.locator('#source-secondary').isVisible(),
-    'Deben enlazarse por separado las dos unidades de origen');
-  assert.match(await page.locator('#source-secondary').textContent(),/UD3/);
+  assert.equal(await page.locator('.evidence-links, #source, #source-secondary, #source-tertiary').count(),0,
+    'Los datos internos de procedencia no deben mostrarse al alumnado');
   await page.locator('#new').click();
   await page.locator('#activity').selectOption('phrase-table');
   await page.locator('#start').click();
@@ -125,10 +124,7 @@ try{
   await page.locator('#answer-input').fill(nominal[1]);
   await page.locator('#check-written').click();
   assert.match(await page.locator('#feedback').textContent(),/Correcto/);
-  assert.ok(await page.locator('#source').isVisible());
-  assert.ok(await page.locator('#source-secondary').isVisible());
-  assert.ok(await page.locator('#source-tertiary').isVisible());
-  assert.match(await page.locator('#source-tertiary').textContent(),/Vocabula\/UniMorph/);
+  assert.equal(await page.locator('.evidence-links, #source, #source-secondary, #source-tertiary').count(),0);
   await page.locator('#new').click();
   await page.locator('#activity').selectOption('noun-phrase-table');
   await page.locator('#start').click();
@@ -183,7 +179,7 @@ try{
   });
   await page.locator('#check-table').click();
   assert.match(await page.locator('#feedback').textContent(),/12 casillas/);
-  assert.ok(await page.locator('#source-secondary').isVisible());
+  assert.equal(await page.locator('.evidence-links').count(),0);
   await page.locator('#new').click();
   const offlineGreek=await page.goto(base+'index.html?subject=gr1',{waitUntil:'load'});
   assert.equal(offlineGreek.status(),200);
@@ -202,7 +198,7 @@ try{
   });
   await page.locator('#check-table').click();
   assert.match(await page.locator('#feedback').textContent(),/8 casillas/);
-  assert.ok(await page.locator('#source-tertiary').isVisible());
+  assert.equal(await page.locator('.evidence-links').count(),0);
   await page.context().setOffline(false);
   assert.deepEqual(errors,[]);
   console.log('OK: ocho sustantivos y sintagmas triples griegos offline, sin regresiones latinas');

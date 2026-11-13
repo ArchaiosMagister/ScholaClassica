@@ -33,7 +33,7 @@ export function createQuizController({catalog,etymons,commitProgress,onRevealMea
     els.options.replaceChildren();
     els.mcqFeedback.textContent='';
     if(!currentMcq){
-      els.mcqFeedback.textContent='No hay suficientes opciones autorizadas para esta selección.';
+      els.mcqFeedback.textContent='No hay suficientes opciones para esta selección.';
       return;
     }
     for(const opt of currentMcq.options){
@@ -55,7 +55,7 @@ export function createQuizController({catalog,etymons,commitProgress,onRevealMea
         if(answer.correct)onRevealMeaning();
         els.mcqFeedback.textContent=answer.correct
           ?'Correcto: '+answer.correctForm+'. 1 / 1 punto.'
-          :'No corresponde a este étimo en el banco cerrado. Respuesta admitida: '+
+          :'Esa palabra no corresponde al étimo indicado. Respuesta correcta: '+
             answer.correctForm+'. 0 / 1 punto.';
         commitProgress(state=>recordQuizAttempt(state,etymons,'mcq',currentMcq.etymonId,answer.correct));
       });
@@ -70,7 +70,7 @@ export function createQuizController({catalog,etymons,commitProgress,onRevealMea
     els.preview.textContent='Conversión a griego: '+text+
       (result.status==='recognized'?' · lema reconocido':
        result.status==='ambiguous'?' · transliteración ambigua: escribe el étimo en griego':
-       result.status==='not_catalogued'?' · lectura orientativa, no verificada':'');
+       result.status==='not_catalogued'?' · escritura no identificada':'');
   }
   function renderInverse(item){
     currentInverse=item?bank.inverse(item.id):null;
@@ -121,8 +121,8 @@ export function createQuizController({catalog,etymons,commitProgress,onRevealMea
     }
     const reasons={
       ambiguous:'La transliteración coincide con varios étimos. Escribe el lema en griego para desambiguar.',
-      incorrect:'Has identificado otro étimo del banco cerrado.',
-      not_catalogued:'La grafía no identifica de manera exacta ningún étimo del banco. Esto no demuestra que sea filológicamente errónea.'
+      incorrect:'Has identificado otro étimo.',
+      not_catalogued:'No se ha reconocido ese étimo. Comprueba su grafía o consúltalo con tu profesor.'
     };
     els.inverseFeedback.textContent=response.correct?
       'Correcto: '+response.correctLemma+'. 1 / 1 punto.':

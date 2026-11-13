@@ -126,7 +126,7 @@ try{
   const studyPage=await page.goto(base+'/apps/etymologicon/estudio.html',{waitUntil:'networkidle'});
   assert.equal(studyPage.status(),200);
   await page.locator('#study-loading').waitFor({state:'hidden',timeout:12000});
-  assert.ok((await page.locator('#study-count').textContent()).includes('487 palabras'));
+  assert.ok((await page.locator('#study-count').textContent()).includes('derivados mostrados'));
   assert.equal(await page.locator('.lexicon-group').count(),111);
   assert.equal(await page.locator('.header-nav .header-link').count(),3);
   assert.equal(await page.locator('.header-nav #study-check-update').count(),1);
@@ -145,17 +145,17 @@ try{
   const greekTypeface=await page.locator('.component-greek').first()
     .evaluate(el=>getComputedStyle(el).fontFamily);
   assert.ok(greekTypeface.includes('Times New Roman'),'Fuente politónica coherente: '+greekTypeface);
-  // Contraste de fichas: los PDF se presentan como menciones, nunca como DLE.
+  // Las distinciones lingüísticas se conservan; los metadatos docentes no se exhiben.
   await page.locator('#study-search').fill('autarquía');
   assert.ok((await page.locator('.lexical-alert').first().textContent()).includes('autarquía²'));
   assert.ok((await page.locator('.lexical-definition').first().textContent()).includes('autosuficiencia'));
   await page.locator('#study-search').fill('plastilina');
   assert.ok((await page.locator('.lexical-alert').first().textContent()).includes('marca registrada'));
   await page.locator('#study-search').fill('seudociencia');
-  assert.ok((await page.locator('.lexical-source').first().textContent())
-    .includes('Sin entrada independiente en el DLE'));
+  assert.ok((await page.locator('.lexical-alert').first().textContent())
+    .includes('No figura como entrada independiente en el DLE'));
   await page.locator('#study-search').fill('biología');
-  assert.ok((await page.locator('.lexical-evidence').first().textContent()).includes('PDF docentes'));
+  assert.equal(await page.locator('.lexical-evidence, .lexical-source').count(),0);
   await page.locator('#study-search').fill('filosofía');
   assert.ok((await page.locator('.lexical-components').first().textContent()).includes('σοφία'));
   await page.locator('#study-search').fill('misoginia');

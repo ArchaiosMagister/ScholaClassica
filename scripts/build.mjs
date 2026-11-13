@@ -7,6 +7,7 @@ import {buildMorphology} from './build-morphology.mjs';
 import {buildMorphologyPwa} from './build-morphology-pwa.mjs';
 import {adaptEvolutioDifficulty} from './adapt-evolutio-difficulty.mjs';
 import {adaptAppendixOled,adaptEvolutioOled,adaptVocabulaOled} from './adapt-integrated-oled.mjs';
+import {adaptEvolutioStudentCopy,adaptVocabulaStudentCopy} from './adapt-student-copy.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -48,13 +49,14 @@ await adaptEvolutioOled(phoneticsDestination);
 // Dificultad ajustada SOLO en el artefacto de ScholaClassica. La fuente fija
 // y su banco de palabras no se modifican. Importación y verificación reproducibles.
 const levelReport=await adaptEvolutioDifficulty({root,target:phoneticsDestination});
+await adaptEvolutioStudentCopy(phoneticsDestination);
 console.log('ScholaClassica: dificultad de Evolutio basada en resultado castellano',levelReport);
 // Adaptación local exclusivamente al artefacto integrado: no borrar cachés ajenas del origen.
 const swPath=join(phoneticsDestination,'sw.js');
 let sw=await readFile(swPath,'utf8');
 if(!/const VERSION='[^']+';/.test(sw)||!sw.includes('keys.filter(key=>key!==VERSION)'))
   throw Error('Cambió el service worker original de Evolutio; revisar adaptación antes de publicar');
-sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1-resultado-v3';")
+sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1-resultado-v4';")
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
 const cacheItem="'./src/difficulty.mjs',";
 if(!sw.includes(cacheItem)||sw.includes('./src/result-difficulty.mjs'))throw Error('Evolutio cambió la lista precargada de dificultad: revisar');
@@ -87,6 +89,7 @@ vocabulaHTML=vocabulaHTML.replace(sourceTab,'<a class="study-tab" href="../grama
   .replace('src="theme.js?v=1"','src="theme.js?v=1-oled1"')
   .replace('href="style.css?v=20261109-tabs1"','href="style.css?v=20261109-tabs1-oled1"');
 await writeFile(vocabulaIndex,vocabulaHTML);
+await adaptVocabulaStudentCopy(vocabulaDestination);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
 
 // Nuevo módulo de práctica propio, separado del Vocabula original.

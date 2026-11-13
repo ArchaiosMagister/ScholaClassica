@@ -132,7 +132,7 @@ export function evaluate(question,choice){
   if(!question?.options?.includes(choice))throw Error('Respuesta ajena al ejercicio');
   const valid=question.acceptedForms?.includes(choice)||choice===question.correct;
   const variants=question.acceptedForms?.length>1?
-    ' Alternativas documentadas: '+question.acceptedForms.join(' o ')+'.':'';
+    ' Otras soluciones válidas: '+question.acceptedForms.join(' o ')+'.':'';
   return {correct:valid,expected:variants?question.acceptedForms.join(' / '):question.correct,
     note:question.ambiguous?'Esta forma tiene varios análisis posibles; se muestran juntos.':
       'Forma tomada directamente de un paradigma curricular publicado.'+variants};
