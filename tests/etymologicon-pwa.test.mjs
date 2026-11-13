@@ -9,7 +9,7 @@ const moduleDir=join(root,'dist/apps/etymologicon');
 const fromModule=path=>readFileSync(join(moduleDir,path));
 const read=path=>fromModule(path).toString('utf8');
 const core=[
-  'index.html','estudio.html','style.css','estudio.css','estudio.mjs','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs',
+  'index.html','practicar.html','estudio.html','style.css','portada.css','portada.mjs','estudio.css','estudio.mjs','app.mjs','progress.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs',
   'data/gr1.json','data/gr1-study.json','data/gr1-decomposition.json','manifest.webmanifest','icons/icon.svg',
   'icons/icon-192.png','icons/icon-512.png',
   'icons/icon-maskable-512.png','icons/apple-touch-icon.png'
@@ -49,10 +49,15 @@ test('la PWA Etymologicon declara instalación local y Griego I sin heredar el �
   assert.match(html,/rel="manifest" href="\.\/manifest\.webmanifest"/);
   assert.match(html,/rel="apple-touch-icon" sizes="180x180"/);
   assert.match(html,/apple-mobile-web-app-capable/);
-  assert.match(html,/id="install-button"/);
-  assert.match(html,/id="check-update"/);
-  assert.match(html,/id="apply-update"/);
-  assert.match(html,/Añadir a pantalla de inicio/);
+  assert.match(html,/href="\.\/practicar\.html"/);
+  assert.match(html,/href="\.\/estudio\.html"/);
+  assert.match(html,/id="home-check-update"/);
+  assert.match(html,/id="home-apply-update"/);
+  const practice=read('practicar.html');
+  assert.match(practice,/id="install-button"/);
+  assert.match(practice,/id="check-update"/);
+  assert.match(practice,/id="apply-update"/);
+  assert.match(practice,/Añadir a pantalla de inicio/);
 });
 test('los PNG de iOS, Android y maskable son imágenes reales y legibles',()=>{
   verifyPng('icon-192.png',192);
@@ -82,6 +87,8 @@ test('el service worker tiene un hash derivado del contenido completo, y no se b
   assert.ok(!sw.includes("self.addEventListener('push'"));
   assert.ok(!sw.includes("navigator.storage.clear"));
   assert.ok(!read('index.html').includes('apps/examenes'));
+  assert.ok(!read('practicar.html').includes('apps/examenes'));
+  assert.ok(!read('estudio.html').includes('apps/examenes'));
 });
 test('los archivos precargados coinciden exactamente con los publicados por el módulo',()=>{
   const template=readFileSync(join(root,'scripts/etymologicon-sw.template.js'),'utf8');

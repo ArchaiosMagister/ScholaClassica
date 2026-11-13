@@ -108,6 +108,16 @@ try{
     assert.ok(await page.locator('header').count(),'Falta encabezado en '+route);
     assert.equal(errors.length,0,'Error JavaScript en '+route+': '+errors.join(' | '));
   }
+  // Portada: dos accesos grandes, ambos funcionales e independientes.
+  const etymHome=await page.goto(base+'/apps/etymologicon/',{waitUntil:'networkidle'});
+  assert.equal(etymHome.status(),200);
+  assert.equal(await page.locator('.home-choice').count(),2);
+  assert.equal(await page.locator('.home-choice--practice').getAttribute('href'),'./practicar.html');
+  assert.equal(await page.locator('.home-choice--study').getAttribute('href'),'./estudio.html');
+  await page.locator('#home-theme-select').selectOption('dark');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  assert.equal(errors.length,0,'Errores en portada de Etymologicon');
+
   // Glosario académico de Griego I: 487 fichas, componentes y búsqueda de doble étimo.
   const studyPage=await page.goto(base+'/apps/etymologicon/estudio.html',{waitUntil:'networkidle'});
   assert.equal(studyPage.status(),200);
@@ -132,9 +142,19 @@ try{
   assert.equal(errors.length,0,'Error JavaScript del glosario: '+errors.join(' | '));
 
   // Etymologicon: integración funcional del motor con la pantalla y el banco filtrado.
-  const etymologicon=await page.goto(base+'/apps/etymologicon/index.html',{waitUntil:'networkidle'});
+  const etymologicon=await page.goto(base+'/apps/etymologicon/practicar.html',{waitUntil:'networkidle'});
   assert.equal(etymologicon.status(),200);
   await page.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
+  assert.equal(await page.locator('#etymon-select option').count(),108);
+  assert.equal(await page.locator('#unit-select').isDisabled(),false,'La unidad no debe estar en gris tras cargar');
+  assert.equal(await page.locator('#unit-select').inputValue(),'all');
+  await page.locator('#unit-select').selectOption('UD4');
+  assert.equal(await page.locator('#practice-mode').inputValue(),'unit',
+    'Elegir una UD activa automáticamente el modo de unidad');
+  assert.ok(await page.locator('#etymon-select option').count()<108);
+  await page.locator('#unit-select').selectOption('all');
+  assert.equal(await page.locator('#practice-mode').inputValue(),'general',
+    'Todas las unidades devuelve al repaso general');
   assert.equal(await page.locator('#etymon-select option').count(),108);
   assert.equal(await page.locator('#course-select option[value="gr2"]').isDisabled(),true);
   await page.locator('#etymon-select').selectOption('grc:προσ');
@@ -403,7 +423,10 @@ try{
     'No existe caché offline de Etymologicon');
   await page.context().setOffline(true);
   const offlinePage=await page.goto(base+'/apps/etymologicon/',{waitUntil:'load'});
-  assert.equal(offlinePage.status(),200,'Etymologicon debe abrir sin conexión tras la precarga');
+  assert.equal(offlinePage.status(),200,'La portada debe abrir sin conexión tras la precarga');
+  assert.equal(await page.locator('.home-choice').count(),2);
+  const offlinePractice=await page.goto(base+'/apps/etymologicon/practicar.html',{waitUntil:'load'});
+  assert.equal(offlinePractice.status(),200,'La práctica debe seguir accesible sin conexión');
   await page.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
   const offlineResources=await page.evaluate(async()=>{
     const urls=['./manifest.webmanifest','./icons/icon-192.png',

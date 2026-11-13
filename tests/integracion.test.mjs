@@ -39,7 +39,7 @@ test('Evolutio conserva todo el motor y banco, salvo la adaptación aislada del 
 });
 test('Etymologicon se construye con su pantalla, corrector y banco ampliado y cerrado, sin publicar material docente interno',()=>{
   const dir=join(out,'apps/etymologicon');
-  for(const file of ['index.html','style.css','app.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs','data/gr1.json',
+  for(const file of ['index.html','practicar.html','portada.css','portada.mjs','style.css','app.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs','data/gr1.json',
     'estudio.html','estudio.mjs','estudio.css','data/gr1-study.json',
     'manifest.webmanifest','sw.js','icons/icon.svg','icons/icon-192.png','icons/icon-512.png',
     'icons/icon-maskable-512.png','icons/apple-touch-icon.png'])
@@ -63,9 +63,13 @@ test('Etymologicon se construye con su pantalla, corrector y banco ampliado y ce
   assert.ok(!('source' in learner.etymons[0]));
   assert.ok(!JSON.stringify(learner).includes('originalWorkbook'));
   const html=readFileSync(join(dir,'index.html'),'utf8');
-  assert.ok(html.includes('id="answer-1"'));
-  assert.ok(html.includes('id="answer-2"'));
-  assert.ok(html.includes('id="result-total"'));
+  assert.match(html,/href="\.\/practicar\.html"/);
+  assert.match(html,/href="\.\/estudio\.html"/);
+  const practiceHtml=readFileSync(join(dir,'practicar.html'),'utf8');
+  assert.ok(practiceHtml.includes('id="answer-1"'));
+  assert.ok(practiceHtml.includes('id="answer-2"'));
+  assert.ok(practiceHtml.includes('id="result-total"'));
+  assert.ok(practiceHtml.includes('id="unit-select"'));
 });
 test('el portal ofrece dos tipos de navegación y no expone el generador',()=>{
   const html=readFileSync(join(out,'index.html'),'utf8');

@@ -116,7 +116,8 @@ function renderEtymon(){
 function updateEtymonChoices({preserve=true}={}){
   const selected=preserve?ui.etymon.value:null;
   const mode=ui.mode.value;
-  ui.unit.disabled=mode!=='unit';
+  // La unidad se puede elegir directamente sin tener que activar antes otro modo.
+  ui.unit.disabled=eligible.length===0;
   if(mode==='unit'&&ui.unit.value==='all'){
     const first=ui.unit.querySelector('option[value^="UD"]');
     if(first)ui.unit.value=first.value;
@@ -265,9 +266,21 @@ ui.clear.addEventListener('click',()=>clearAnswers({focus:true}));
 ui.next.addEventListener('click',nextRandom);
 ui.random.addEventListener('click',nextRandom);
 ui.etymon.addEventListener('change',renderEtymon);
-ui.mode.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
+ui.mode.addEventListener('change',()=>{
+  // Al cambiar a general/errores, el selector debe mostrar el alcance real.
+  if(ui.mode.value!=='unit')ui.unit.value='all';
+  updateEtymonChoices({preserve:false});
+});
 ui.activity.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
-ui.unit.addEventListener('change',()=>updateEtymonChoices({preserve:false}));
+ui.unit.addEventListener('change',()=>{
+  // Elegir una UD activa su filtro. «Todas» restaura el repaso general.
+  if(ui.unit.value==='all'){
+    if(ui.mode.value==='unit')ui.mode.value='general';
+  }else{
+    ui.mode.value='unit';
+  }
+  updateEtymonChoices({preserve:false});
+});
 
 async function loadCatalog(){
   ui.loadState.hidden=false;
@@ -330,7 +343,7 @@ async function loadCatalog(){
     ui.unit.value='all';
     ui.mode.value='general';
     ui.activity.value='writing';
-    ui.unit.disabled=true;
+    ui.unit.disabled=false;
     ui.loadState.hidden=true;
     ui.content.hidden=false;
     updateEtymonChoices({preserve:false});

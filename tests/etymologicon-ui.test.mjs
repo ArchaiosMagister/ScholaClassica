@@ -40,8 +40,16 @@ test('el motor de navegador puntúa exactamente como la versión de pruebas Node
   assert.deepEqual(bad.answers.map(a=>a.points),[0,0]);
 });
 
-test('el primer módulo de Etymologicon utiliza imports relativos compatibles con su carpeta',()=>{
+test('la portada ofrece exactamente los dos accesos solicitados',()=>{
   const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+  assert.match(html,/href="\.\/practicar\.html"/);
+  assert.match(html,/href="\.\/estudio\.html"/);
+  assert.match(html,/Practicar/);
+  assert.match(html,/Estudio del léxico/);
+  assert.match(html,/type="module" src="\.\/portada\.mjs"/);
+});
+test('el primer módulo de Etymologicon utiliza imports relativos compatibles con su carpeta',()=>{
+  const html=readFileSync(new URL('../apps/etymologicon/practicar.html',import.meta.url),'utf8');
   const ui=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
   assert.match(html,/type="module" src="\.\/app\.mjs"/);
   assert.match(html,/id="answer-1"/);
@@ -54,7 +62,7 @@ test('el primer módulo de Etymologicon utiliza imports relativos compatibles co
 });
 
 test('el módulo de progreso tiene conexión con la interfaz y se precarga como PWA',()=>{
-  const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+  const html=readFileSync(new URL('../apps/etymologicon/practicar.html',import.meta.url),'utf8');
   const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
   for(const id of ['practice-mode','stats-exercises','stats-average','stats-pending',
     'export-progress','import-file','import-preview','confirm-import','reset-progress','stats-units'])
@@ -70,7 +78,7 @@ test('el módulo de progreso tiene conexión con la interfaz y se precarga como 
 });
 
 test('tarjetas y relación usan el mismo catálogo auditado y conservan estadísticas separadas',()=>{
-  const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+  const html=readFileSync(new URL('../apps/etymologicon/practicar.html',import.meta.url),'utf8');
   const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
   const ui=readFileSync(new URL('../apps/etymologicon/activities-ui.mjs',import.meta.url),'utf8');
   const study=readFileSync(new URL('../apps/etymologicon/study.mjs',import.meta.url),'utf8');
@@ -86,7 +94,7 @@ test('tarjetas y relación usan el mismo catálogo auditado y conservan estadís
 });
 
 test('opciones múltiples y teclado griego conectados al motor del banco cerrado',()=>{
- const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+ const html=readFileSync(new URL('../apps/etymologicon/practicar.html',import.meta.url),'utf8');
  const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
  const controller=readFileSync(new URL('../apps/etymologicon/quiz-ui.mjs',import.meta.url),'utf8');
  for(const id of ['mcq-section','mcq-options','mcq-feedback','inverse-section',
@@ -109,7 +117,7 @@ test('opciones múltiples y teclado griego conectados al motor del banco cerrado
 
 
 test('la interfaz de descomposición reutiliza el teclado y el corrector sin cambiar la escritura',()=>{
- const html=readFileSync(new URL('../apps/etymologicon/index.html',import.meta.url),'utf8');
+ const html=readFileSync(new URL('../apps/etymologicon/practicar.html',import.meta.url),'utf8');
  const app=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
  const controller=readFileSync(new URL('../apps/etymologicon/decomposition-ui.mjs',import.meta.url),'utf8');
  const keyboard=readFileSync(new URL('../apps/etymologicon/greek-keyboard.mjs',import.meta.url),'utf8');

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Etymologicon: práctica de derivados etimológicos griegos de Griego I con corrección automática y explicaciones.">
+  <meta name="description" content="Etymologicon: practica derivados griegos o consulta el léxico castellano de Griego I.">
   <meta name="theme-color" content="#172e49">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -12,11 +12,12 @@
   <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
   <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.mjs"></script>
-  <title>Etymologicon · ScholaClassica</title>
+  <link rel="stylesheet" href="./portada.css">
+  <script type="module" src="./portada.mjs"></script>
+  <title>Etymologicon · Inicio</title>
 </head>
 <body>
-  <a class="skip-link" href="#actividad">Saltar al ejercicio</a>
+  <a class="skip-link" href="#opciones">Ir a las opciones</a>
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-lockup">
@@ -24,315 +25,57 @@
         <span class="brand-type">Etymologicon <small>ScholaClassica</small></span>
       </div>
       <nav aria-label="Navegación">
-        <a href="./estudio.html">Estudio del léxico</a>
         <a href="../../index.html">Volver a ScholaClassica</a>
       </nav>
     </div>
   </header>
-
-  <main class="shell" id="actividad">
-    <section class="intro" aria-labelledby="intro-title">
-      <p class="eyebrow">Ἐτυμολογικόν · Taller de etimología griega</p>
-      <h1 id="intro-title">El origen de las palabras</h1>
-      <p>Escribe <strong>dos derivados castellanos diferentes</strong> del étimo griego. Recibirás la corrección al instante, con las faltas ortográficas señaladas.</p>
-      <p><a class="secondary-button" style="display:inline-block;text-decoration:none" href="./estudio.html">Consultar los 487 derivados con definiciones y étimos</a></p>
-      <p class="preview-note">Módulo en pruebas de integración. Todavía no está publicado para el alumnado.</p>
+  <main class="shell home-shell">
+    <section class="home-intro" aria-labelledby="home-title">
+      <p class="eyebrow">Ἐτυμολογικόν · Griego I</p>
+      <h1 id="home-title">El origen de las palabras</h1>
+      <p>Aprende cómo el griego vive en el castellano. Elige si quieres practicar con ejercicios autocorregibles o consultar el significado y la formación de los derivados.</p>
     </section>
-
-    <div class="workspace">
-      <aside class="panel settings" aria-labelledby="settings-title">
-        <h2 id="settings-title">Prepara tu ejercicio</h2>
-        <div class="field">
-          <label for="course-select">Curso</label>
-          <select id="course-select">
-            <option value="gr1" selected>Griego I</option>
-            <option value="gr2" disabled>Griego II · próximamente</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="activity-type">Actividad</label>
-          <select id="activity-type">
-            <option value="writing" selected>Escribir dos derivados</option>
-            <option value="cards">Tarjetas de memoria</option>
-            <option value="matching">Relacionar étimos y derivados</option>
-            <option value="mcq">Respuesta múltiple</option>
-            <option value="inverse">Identificar étimos griegos</option>
-            <option value="decomposition">Descomponer palabras castellanas</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="practice-mode">Modo de práctica</label>
-          <select id="practice-mode">
-            <option value="general" selected>Repaso general · inteligente</option>
-            <option value="errors">Repasar mis errores</option>
-            <option value="unit">Practicar una unidad</option>
-          </select>
-          <p class="field-help">Los étimos con más dificultades reaparecen con mayor frecuencia.</p>
-        </div>
-        <div class="field">
-          <label for="unit-select">Unidad</label>
-          <select id="unit-select" disabled>
-            <option value="all">Todas las unidades</option>
-          </select>
-          <p class="field-help">Puedes practicar una unidad o realizar un repaso general.</p>
-        </div>
-        <div class="field" id="etymon-field">
-          <label for="etymon-select">Elegir étimo</label>
-          <select id="etymon-select" disabled>
-            <option value="">Cargando el banco académico…</option>
-          </select>
-        </div>
-        <button class="secondary-button full" id="random-button" type="button" disabled>Otro étimo</button>
-        <div class="separator"></div>
-        <div class="field">
-          <label for="theme-select">Tema visual</label>
-          <select id="theme-select">
-            <option value="auto">Automático</option>
-            <option value="light">Claro</option>
-            <option value="dark">Oscuro</option>
-            <option value="oled">OLED · negro puro</option>
-          </select>
-        </div>
-        <p id="pool-size" class="counter" aria-live="polite"></p>
-        <div class="separator"></div>
-        <section aria-labelledby="offline-title" class="offline-tools">
-          <h3 id="offline-title">Instalación y uso sin conexión</h3>
-          <p id="offline-status" class="offline-status" role="status" aria-live="polite">Preparando el modo sin conexión…</p>
-          <button type="button" id="install-button" class="primary-button full" hidden>Instalar Etymologicon</button>
-          <button type="button" id="check-update" class="secondary-button full">Buscar actualizaciones</button>
-          <button type="button" id="apply-update" class="primary-button full" hidden>Aplicar nueva versión</button>
-          <details class="install-help">
-            <summary>¿Cómo se instala?</summary>
-            <p><strong>iPhone o iPad (Safari):</strong> pulsa Compartir y después «Añadir a pantalla de inicio».</p>
-            <p><strong>Android (Chrome):</strong> utiliza «Instalar aplicación» o «Añadir a pantalla de inicio».</p>
-            <p><strong>Ordenador:</strong> utiliza la opción de instalación de tu navegador, cuando esté disponible.</p>
-            <p>La primera instalación y descarga del banco requieren conexión. Después podrás practicar sin ella.</p>
-          </details>
-        </section>
-      </aside>
-
-      <section class="panel exercise" aria-labelledby="exercise-title">
-        <p id="load-state" class="load-state" role="status">Preparando el banco de Griego I…</p>
-        <div id="exercise-content" hidden>
-          <p id="practice-empty" class="empty-practice" role="status" hidden></p>
-          <div class="etymon-head" id="etymon-head">
-            <p class="eyebrow">Étimo seleccionado</p>
-            <p id="unit-summary" class="unit-summary"></p>
-          </div>
-          <h2 id="exercise-title" class="greek-word" lang="grc"></h2>
-          <p id="meaning" class="meaning"></p>
-          <p class="instruction" id="exercise-instruction">Escribe dos derivados castellanos diferentes. Cada respuesta vale 1 punto como máximo.</p>
-
-
-          <section id="flashcard-section" class="study-section" aria-label="Tarjeta de memoria" hidden>
-            <p class="study-note">Intenta recordar el significado y al menos dos derivados antes de revelar la respuesta.</p>
-            <button id="flashcard-reveal" type="button" class="primary-button">Mostrar significado y derivados</button>
-            <div id="flashcard-back" class="flashcard-back" hidden>
-              <p><strong>Significado:</strong> <span id="flashcard-meaning"></span></p>
-              <p><strong>Derivados admitidos:</strong></p>
-              <ul id="flashcard-derivatives" class="derivative-list"></ul>
-              <div id="flashcard-actions" class="actions">
-                <button type="button" id="flashcard-remembered" class="primary-button">Lo recordaba</button>
-                <button type="button" id="flashcard-forgotten" class="secondary-button">Necesito repasarlo</button>
-              </div>
-              <p id="flashcard-feedback" class="study-feedback" role="status" aria-live="polite"></p>
-            </div>
-          </section>
-          <section id="matching-section" class="study-section" aria-labelledby="matching-title" hidden>
-            <h3 id="matching-title">Relaciona cada étimo con un derivado</h3>
-            <p class="study-note">Selecciona primero una palabra griega y después su derivado castellano. Puedes volver a intentarlo si te equivocas.</p>
-            <div id="matching-game" hidden>
-              <div class="matching-columns">
-                <div><h4>Étimos griegos</h4><div id="matching-greek" class="matching-choices"></div></div>
-                <div><h4>Derivados castellanos</h4><div id="matching-spanish" class="matching-choices"></div></div>
-              </div>
-              <p id="matching-feedback" class="study-feedback" role="status" aria-live="polite"></p>
-              <p id="matching-score" class="matching-score" tabindex="-1" hidden></p>
-            </div>
-            <p id="matching-empty" class="empty-practice" hidden>No hay suficientes parejas inequívocas para esta selección. Cambia de unidad o selecciona «Repaso general».</p>
-          </section>
-
-
-          <section id="mcq-section" class="study-section" aria-labelledby="mcq-title" hidden>
-            <h3 id="mcq-title">¿Qué derivado pertenece a este étimo?</h3>
-            <p class="study-note">Elige una de las cuatro palabras castellanas del banco aprobado.</p>
-            <div id="mcq-options" class="quiz-options" role="group" aria-label="Opciones de respuesta múltiple"></div>
-            <p id="mcq-feedback" class="study-feedback" role="status" aria-live="polite"></p>
-          </section>
-
-          <section id="inverse-section" class="study-section" aria-labelledby="inverse-title" hidden>
-            <h3 id="inverse-title">Identifica el étimo griego</h3>
-            <p class="study-note">Escribe el étimo del que procede este derivado castellano. Puedes escribir con letras latinas o directamente en griego.</p>
-            <p class="inverse-spanish" id="inverse-word" lang="es"></p>
-            <form id="inverse-form" novalidate>
-              <div class="field">
-                <label for="inverse-answer">Étimo griego o transliteración latina</label>
-                <input id="inverse-answer" type="text" maxlength="80" spellcheck="false"
-                  autocorrect="off" autocapitalize="off" autocomplete="off"
-                  aria-describedby="inverse-preview inverse-help" placeholder="p. ej., philosophos">
-                <p id="inverse-help" class="field-help">No es necesario escribir acentos ni espíritus. La transliteración debe identificar exactamente el étimo.</p>
-              </div>
-              <p id="inverse-preview" class="transliteration-preview" aria-live="polite">Conversión a griego: —</p>
-              <details class="virtual-keyboard">
-                <summary>Teclado griego virtual</summary>
-                <div id="greek-keyboard" class="greek-keyboard" role="group" aria-label="Teclado griego"></div>
-                <p class="field-help">Los caracteres se insertan en la casilla. También puedes usar el teclado físico o escribir en caracteres latinos.</p>
-              </details>
-              <div class="actions">
-                <button type="submit" id="inverse-submit" class="primary-button">Comprobar étimo</button>
-                <button type="button" id="inverse-clear" class="secondary-button">Borrar respuesta</button>
-              </div>
-            </form>
-            <p id="inverse-feedback" class="study-feedback" role="status" aria-live="polite"></p>
-          </section>
-
-
-          <section id="decomposition-section" class="study-section" aria-labelledby="decomposition-title" hidden>
-            <p class="eyebrow">Componentes griegos · piloto contrastado</p>
-            <h3 id="decomposition-title">Descompón esta palabra castellana</h3>
-            <p class="inverse-spanish" id="decomposition-word" lang="es"></p>
-            <p class="study-note">Identifica por orden las dos bases griegas. Puedes escribir en griego, sin acentos ni espíritus, o emplear los caracteres latinos. Se distinguen los lemas y los elementos compositivos.</p>
-            <form id="decomposition-form" novalidate>
-              <div class="answer-grid">
-                <div class="field">
-                  <label for="decomposition-first">Primer componente griego</label>
-                  <input id="decomposition-first" type="text" maxlength="80" autocapitalize="off"
-                    autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Escribe un étimo">
-                  <p id="decomposition-preview-first" class="decomposition-preview" aria-live="polite"></p>
-                </div>
-                <div class="field">
-                  <label for="decomposition-second">Segundo componente griego</label>
-                  <input id="decomposition-second" type="text" maxlength="80" autocapitalize="off"
-                    autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Escribe el otro étimo">
-                  <p id="decomposition-preview-second" class="decomposition-preview" aria-live="polite"></p>
-                </div>
-              </div>
-              <details class="virtual-keyboard">
-                <summary>Teclado griego virtual</summary>
-                <p class="field-help">Selecciona la casilla en la que quieras escribir antes de tocar una letra.</p>
-                <div id="decomposition-keyboard" class="greek-keyboard" role="group" aria-label="Teclado griego para descomposición"></div>
-              </details>
-              <div class="actions">
-                <button class="primary-button" type="submit">Corregir descomposición</button>
-                <button class="secondary-button" type="button" id="decomposition-clear">Borrar componentes</button>
-              </div>
-            </form>
-            <div id="decomposition-results" class="decomposition-results" aria-live="polite" hidden>
-              <p id="decomposition-score" class="matching-score" tabindex="-1"></p>
-              <ol id="decomposition-answers" class="result-items"></ol>
-              <p id="decomposition-meaning" class="study-note"></p>
-              <p id="decomposition-route" class="study-note"></p>
-              <a id="decomposition-source" target="_blank" rel="noopener noreferrer">Consultar el artículo del DLE (RAE-ASALE)</a>
-            </div>
-            <p id="decomposition-empty" class="empty-practice" role="status" hidden>No hay descomposiciones acreditadas para esta selección. Cambia de unidad o modo de repaso.</p>
-          </section>
-
-          <form id="answer-form" novalidate>
-            <div class="answer-grid">
-              <div class="field">
-                <label for="answer-1">Primer derivado</label>
-                <input id="answer-1" name="first" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe una palabra">
-              </div>
-              <div class="field">
-                <label for="answer-2">Segundo derivado</label>
-                <input id="answer-2" name="second" type="text" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe otra palabra">
-              </div>
-            </div>
-            <div class="actions">
-              <button id="grade-button" type="submit" class="primary-button">Corregir respuestas</button>
-              <button id="clear-button" type="button" class="secondary-button">Borrar respuestas</button>
-            </div>
-          </form>
-          <section id="results" class="results" aria-labelledby="results-title" hidden>
-            <div class="result-header">
-              <div>
-                <p class="eyebrow">Corrección automática</p>
-                <h3 id="results-title">Resultado del ejercicio</h3>
-              </div>
-              <strong id="result-total" class="result-total" tabindex="-1" aria-live="polite"></strong>
-            </div>
-            <ol id="result-items" class="result-items"></ol>
-            <p class="result-note">Una respuesta que no figura en el banco cerrado no se considera necesariamente incorrecta desde el punto de vista filológico.</p>
-            <button type="button" class="primary-button" id="next-button">Practicar otro étimo</button>
-          </section>
-        </div>
-        <div id="load-error" class="load-error" role="alert" hidden>
-          <p>No se ha podido cargar el banco académico. Comprueba la conexión y vuelve a intentarlo.</p>
-          <button type="button" id="retry-button" class="secondary-button">Reintentar</button>
-        </div>
-      </section>
-    </div>
-    <section class="panel progress-panel" id="progress-panel" aria-labelledby="progress-title">
-      <div class="progress-heading">
-        <div>
-          <p class="eyebrow">Progreso privado · Griego I</p>
-          <h2 id="progress-title">Mi aprendizaje</h2>
-        </div>
-        <p class="muted">Solo en este dispositivo. Las palabras escritas no se almacenan; las tarjetas se autoevalúan.</p>
+    <nav class="home-choices" id="opciones" aria-label="Elegir una modalidad">
+      <a class="home-choice home-choice--practice" href="./practicar.html">
+        <span class="home-choice-icon" aria-hidden="true">✍</span>
+        <span class="home-choice-body">
+          <span class="home-choice-overline">Entrenar y comprobar</span>
+          <span class="home-choice-title">Practicar</span>
+          <span class="home-choice-description">Escribe derivados, relaciona palabras, identifica étimos y repasa tus errores con corrección inmediata.</span>
+          <span class="home-choice-action">Entrar a practicar <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+      <a class="home-choice home-choice--study" href="./estudio.html">
+        <span class="home-choice-icon" aria-hidden="true">📖</span>
+        <span class="home-choice-body">
+          <span class="home-choice-overline">Consultar y aprender</span>
+          <span class="home-choice-title">Estudio del léxico</span>
+          <span class="home-choice-description">Busca los derivados por étimo griego, aprende su significado y descubre cómo se forman las palabras.</span>
+          <span class="home-choice-action">Abrir el glosario <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+    </nav>
+    <section class="home-footer" aria-label="Preferencias y estado">
+      <div class="home-theme">
+        <label for="home-theme-select">Tema visual</label>
+        <select id="home-theme-select">
+          <option value="auto">Automático</option>
+          <option value="light">Claro</option>
+          <option value="dark">Oscuro</option>
+          <option value="oled">OLED · negro puro</option>
+        </select>
       </div>
-      <div class="stat-grid" aria-label="Estadísticas del repaso">
-        <div class="stat"><strong id="stats-exercises">0</strong><span>Ejercicios</span></div>
-        <div class="stat"><strong id="stats-average">—</strong><span>Media sobre 2</span></div>
-        <div class="stat"><strong id="stats-exact">0</strong><span>Respuestas correctas</span></div>
-        <div class="stat"><strong id="stats-typos">0</strong><span>Con faltas</span></div>
-        <div class="stat"><strong id="stats-wrong">0</strong><span>Sin puntuar</span></div>
-        <div class="stat"><strong id="stats-pending">0</strong><span>Étimos para repasar</span></div>
-        <div class="stat"><strong id="stats-cards">0</strong><span>Tarjetas estudiadas</span></div>
-        <div class="stat"><strong id="stats-cards-forgotten">0</strong><span>Tarjetas que costó recordar</span></div>
-        <div class="stat"><strong id="stats-pairs">0</strong><span>Parejas practicadas</span></div>
-        <div class="stat"><strong id="stats-pairs-correct">0</strong><span>Parejas al primer intento</span></div>
-        <div class="stat"><strong id="stats-mcq">0</strong><span>Preguntas de opción múltiple</span></div>
-        <div class="stat"><strong id="stats-mcq-correct">0</strong><span>Preguntas acertadas</span></div>
-        <div class="stat"><strong id="stats-inverse">0</strong><span>Étimos identificados: intentos</span></div>
-        <div class="stat"><strong id="stats-inverse-correct">0</strong><span>Étimos identificados: aciertos</span></div>
-        <div class="stat"><strong id="stats-decomposition">0</strong><span>Descomposiciones practicadas</span></div>
-        <div class="stat"><strong id="stats-decomposition-perfect">0</strong><span>Descomposiciones perfectas</span></div>
-      </div>
-      <details class="unit-progress">
-        <summary>Estadísticas por unidad</summary>
-        <p class="field-help">Un étimo puede pertenecer a varias unidades; sus ejercicios aparecen en cada una.</p>
-        <div class="stats-table-wrap">
-          <table>
-            <thead><tr><th>Unidad</th><th>Ejercicios</th><th>Media / 2</th></tr></thead>
-            <tbody id="stats-units"></tbody>
-          </table>
-        </div>
-      </details>
-      <div class="progress-management">
-        <h3>Guardar o recuperar mis estadísticas</h3>
-        <p class="muted">Puedes crear un archivo JSON para trasladar tus estadísticas a otro dispositivo. La importación reemplaza las estadísticas actuales únicamente después de confirmarla.</p>
-        <div class="progress-actions">
-          <button type="button" id="export-progress" class="secondary-button">Exportar progreso</button>
-          <div class="file-field">
-            <label for="import-file">Importar archivo JSON</label>
-            <input id="import-file" type="file" accept=".json,application/json">
-          </div>
-          <button type="button" id="reset-progress" class="secondary-button danger-button">Borrar mis estadísticas</button>
-        </div>
-        <div id="import-preview" class="import-preview" hidden>
-          <p id="import-description"></p>
-          <p class="import-warning">Al confirmar, se sustituirán todas las estadísticas actuales de Griego I. Puedes exportarlas primero.</p>
-          <div class="actions">
-            <button type="button" id="confirm-import" class="primary-button">Confirmar importación</button>
-            <button type="button" id="cancel-import" class="secondary-button">Cancelar</button>
-          </div>
-        </div>
-        <p id="progress-status" class="progress-status" role="status" aria-live="polite">Preparando el almacenamiento local…</p>
+      <div class="home-offline">
+        <p id="home-offline-status" role="status" aria-live="polite">Preparando el modo sin conexión…</p>
+        <button type="button" class="secondary-button" id="home-check-update">Buscar actualización</button>
+        <button type="button" class="primary-button" id="home-apply-update" hidden>Aplicar actualización</button>
       </div>
     </section>
-    <section class="about" aria-labelledby="about-title">
-      <h2 id="about-title">Cómo se puntúa</h2>
-      <div class="rules">
-        <p><strong>1 punto</strong> · Derivado correcto, con su grafía exacta o una variante admitida.</p>
-        <p><strong>0,5 puntos</strong> · Derivado reconocible con una o más faltas ortográficas inequívocas.</p>
-        <p><strong>0 puntos</strong> · Respuesta no admitida, ambigua, excluida o repetida.</p>
-      </div>
-      <p class="muted">Las mayúsculas y los espacios accidentales no se penalizan. Las tarjetas no tienen nota objetiva; las demás actividades registran aciertos por separado. La descomposición solo emplea un piloto filológico cerrado, no todos los derivados castellanos.</p>
-    </section>
+    <p class="home-later">Griego II podrá incorporarse más adelante, con su propio banco de étimos.</p>
   </main>
   <footer class="footer">
     <span>Etymologicon · Griego I</span>
-    <span>ScholaClassica · Banco docente auditado</span>
+    <span>ScholaClassica · Etimología griega</span>
   </footer>
 </body>
 </html>
