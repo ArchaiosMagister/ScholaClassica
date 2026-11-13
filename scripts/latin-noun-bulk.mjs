@@ -149,7 +149,7 @@ export function compileLatinNounExpansion({
     if(!byKey.has(key))byKey.set(key,[]);
     byKey.get(key).push(entry);
   }
-  const records=[],review=[],catalog=[];
+  const records=[],review=[],catalog=[],staged=[];
   const added=new Set();
   for(const [code,entries] of byKey){
     const [course]=code.split(':');
@@ -165,7 +165,29 @@ export function compileLatinNounExpansion({
       review.push({course,lemma:state.lemma,reason,sources:source.map(x=>x.id)});
     };
     if(course==='lat4'){
-      reject('Curso Latín 4.º: vocabulario inventariado; no habilitado en la interfaz de Latín I');
+      try{
+        const parsed=enunciado(entry);
+        const raw=index.get(norm(parsed.lemma))||[];
+        if(!raw.length)throw Error('Sin lema nominal UniMorph; necesita Collatinus u otra fuente');
+        const {forms,genitive}=fullParadigm(parsed.lemma,parsed,raw);
+        const decl=declension(parsed.lemma,genitive);
+        if(!decl)throw Error('Tipo de declinación no acreditado sin ambigüedad');
+        checkCurriculum(curriculum,decl);
+        const g=genre(entry,parsed.lemma,decl);
+        const stageId='latin4-sustantivo-stage-'+entry.id;
+        staged.push({id:stageId,language:'latin',course:'lat4',
+          unit:null,kind:'sustantivo',...(g.gender?{gender:g.gender}:{}),
+          paradigm:plain(parsed.lemma)+', '+genitive+' · '+decl.name,
+          forms,evidence:{
+            source:'UniMorph lat + ficha docente de Latín de 4.º, sin asignación curricular',
+            file:'data/unimorph-syllabus/lat/part-*.json',
+            status:'paradigma-sin-curso',vocabulaSha,vocabulaEntry:entry.id,
+            license:'CC BY-SA 3.0',genderEvidence:g.source,
+            review:'No habilitado para calificación ni para los cursos publicados; requiere programa de Latín de 4.º'
+          }});
+        catalog.push({...state,status:'paradigma-completo-sin-curso',
+          stagedId:stageId,sourceModel:decl.name,formCount:forms.length});
+      }catch(e){reject(String(e?.message||e))}
       continue;
     }
     if(accepted.has(norm(state.lemma))||added.has(norm(state.lemma))){
@@ -219,10 +241,11 @@ export function compileLatinNounExpansion({
   }
   records.sort((a,b)=>a.unit-b.unit||a.id.localeCompare(b.id));
   assert.equal(new Set(records.map(r=>r.id)).size,records.length);
-  return {records,catalog,review,audit:{
+  return {records,staged,catalog,review,audit:{
     candidateEntries:roster.length,nominalEnunciados:byKey.size,
     includedPreviously:accepted.size,incorporated:records.length,
-    reviewNeeded:review.length,latin4Staged:review.filter(r=>r.course==='lat4').length,
+    stagedLatin4:staged.length,reviewNeeded:review.length,
+    latin4Staged:review.filter(r=>r.course==='lat4').length,
     sourceSha:vocabulaSha,excludesAfterUd10:true
   }};
 }
