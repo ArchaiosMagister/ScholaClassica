@@ -25,7 +25,7 @@
   <div id="status" role="status" aria-live="polite">Preparando acceso seguro…</div>
   <section class="access-card" id="unavailable" hidden aria-labelledby="unavailable-title">
     <h2 id="unavailable-title">Acceso pendiente de configuración</h2>
-    <p>La infraestructura de acceso está preparada, pero todavía no se ha activado una cuenta docente en el servidor.</p>
+    <p>El acceso docente todavía no está disponible o no se ha podido verificar su configuración.</p>
   </section>
   <section class="access-card" id="login" hidden aria-labelledby="login-title">
     <h2 id="login-title">Identificación del profesor</h2>
@@ -64,6 +64,11 @@
       <button type="submit" class="primary">Verificar acceso</button>
     </form>
   </section>
+  <section class="access-card" id="ready" hidden aria-labelledby="ready-title">
+    <h2 id="ready-title">Verificación en dos pasos activada</h2>
+    <p>Tu identidad docente ya tiene una sesión de dos factores. El acceso a los avisos y la edición de contenidos permanecerá bloqueado mientras completamos las comprobaciones de las fuentes.</p>
+    <p class="hint">Puedes cerrar sesión. En el siguiente acceso introducirás de nuevo tu usuario, contraseña y el código de Contraseñas de Apple.</p>
+  </section>
   <section class="access-card" id="teacher" hidden aria-labelledby="teacher-title">
     <h2 id="teacher-title">Panel docente</h2>
     <p id="session-state">Sesión verificada con dos factores y autorización de servidor.</p>
@@ -100,7 +105,7 @@
       <p id="vocab-report-status" role="status" aria-live="polite"></p>
       <div id="vocab-report-list" class="notices"></div><button id="vocab-report-more" type="button" hidden>Cargar más incidencias</button>
     </section>
-    <p class="hint">Consulta de solo lectura. Para resolver cada aviso se abrirá la web original; ScholaClassica no lo aprobará ni modificará.</p>
+    <p class="hint">La bandeja de avisos es de consulta. El editor de Vocabula tiene autorizaciones de escritura independientes.</p>
   </section>
   <div class="logout"><button id="logout" type="button" hidden>Cerrar sesión</button></div>
 </main>
