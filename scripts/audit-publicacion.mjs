@@ -49,7 +49,7 @@ assert.ok(etymologiconWorker.includes("CACHE_PREFIX='schola-etymologicon-'"));
 const morphology=JSON.parse(read('apps/morfologia/data/paradigmas.json'));
 assert.equal(morphology.schema,'schola-morphology-source/v1');
 assert.ok(morphology.records.length>92,'Se espera el lote nominal adicional');
-assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
+assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10]});
 assert.ok(morphology.records.every(r=>r.evidence.status==='paradigma-documentado'));
 assert.ok(read('apps/morfologia/sw.js').includes("CACHE_PREFIX='schola-morphology-'"));
 for(const file of ['written.mjs','review.mjs','greek-keyboard.mjs','sintagmas.mjs','greek-noun-phrases.mjs']){
@@ -68,8 +68,8 @@ assert.equal(morphology.records.length,84+nouns.length+
   morphology.records.filter(r=>r.id.startsWith('latin-sustantivo-import-')).length,
   'Los 84 paradigmas previos deben permanecer, sin duplicados ni fuentes inesperadas');
 assert.equal(new Set(morphology.records.map(r=>r.id)).size,morphology.records.length);
-assert.ok(nouns.every(n=>n.unit<=7),
-  'No publicar sustantivos de UD8–UD10 antes de habilitar su currículo');
+assert.ok(nouns.every(n=>n.unit<=10),
+  'No publicar sustantivos de unidades sin cobertura en la PWA');
 assert.ok(nouns.every(n=>n.forms.length===10&&n.gender&&
   n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
   n.evidence.review.includes('pendiente de revisión docente individual')));
