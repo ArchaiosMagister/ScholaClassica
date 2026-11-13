@@ -5,6 +5,7 @@ import {buildEtymologicon} from './build-etymologicon.mjs';
 import {buildPortalPwa} from './build-portal-pwa.mjs';
 import {buildMorphology} from './build-morphology.mjs';
 import {buildMorphologyPwa} from './build-morphology-pwa.mjs';
+import {adaptEvolutioDifficulty} from './adapt-evolutio-difficulty.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -41,13 +42,20 @@ await cp(phonetics,phoneticsDestination,{recursive:true,force:true,filter:path=>
   const relative=path.slice(phonetics.length).split(sep).filter(Boolean);
   return !relative.some(piece=>piece==='.git'||piece==='.github');
 }});
+// Dificultad ajustada SOLO en el artefacto de ScholaClassica. La fuente fija
+// y su banco de palabras no se modifican. Importación y verificación reproducibles.
+const levelReport=await adaptEvolutioDifficulty({root,target:phoneticsDestination});
+console.log('ScholaClassica: dificultad de Evolutio basada en resultado castellano',levelReport);
 // Adaptación local exclusivamente al artefacto integrado: no borrar cachés ajenas del origen.
 const swPath=join(phoneticsDestination,'sw.js');
 let sw=await readFile(swPath,'utf8');
 if(!/const VERSION='[^']+';/.test(sw)||!sw.includes('keys.filter(key=>key!==VERSION)'))
   throw Error('Cambió el service worker original de Evolutio; revisar adaptación antes de publicar');
-sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1';")
+sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1-resultado-v2';")
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
+const cacheItem="'./src/difficulty.mjs',";
+if(!sw.includes(cacheItem)||sw.includes('./src/result-difficulty.mjs'))throw Error('Evolutio cambió la lista precargada de dificultad: revisar');
+sw=sw.replace(cacheItem,cacheItem+"'./src/result-difficulty.mjs',");
 const fetchOld="if(req.method!=='GET'||new URL(req.url).origin!==self.location.origin)return;";
 const fetchNew="if(req.method!=='GET')return; const url=new URL(req.url); const scope=new URL(self.registration.scope); if(url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname))return;";
 if(!sw.includes(fetchOld))throw Error('Evolutio cambió su SW; revisar antes de adaptar');
