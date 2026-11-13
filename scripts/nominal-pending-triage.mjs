@@ -120,7 +120,8 @@ export function triageNounCandidates(catalog,manifest=null){
     x.lemma.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase()&&
     y.language===x.language)).map(spec=>{
     if(!manifest)return spec;
-    const key=spec.id.replace(/^(?:latin|griego)-/u,'');
+    const key=spec.id==='griego-athenai'?'athenae':
+      spec.id.replace(/^(?:latin|griego)-/u,'');
     const decision=manifest.choices[key];
     assert.ok(spec.choices.some(item=>item.value===decision),
       'Decisión no permitida en '+spec.id);
