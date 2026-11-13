@@ -1784,6 +1784,162 @@
         "date": "2026-11-13"
       },
       "notes": "MOLL 6 adjetivo 'blando' procede de mŏlle; no confundir con homógrafos de médula, pez, muelle portuario o italiano molo."
+    },
+    {
+      "latin": "texere",
+      "form": "teixir",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "uitium",
+      "form": "vici",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vici",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular."
+    },
+    {
+      "latin": "picare",
+      "form": "pegar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pegar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "PEGAR en el sentido 'adherir' del latín pĭcare; verificar otros significados antes de usar."
+    },
+    {
+      "latin": "siluam",
+      "form": "selva",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=selva",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "SELVA bosque del latín silva; no la homógrafa botánica."
+    },
+    {
+      "latin": "truncum",
+      "form": "tronc",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronc",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "undam",
+      "form": "ona",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ona",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "uiridem",
+      "form": "verd",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=verd",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "septem",
+      "form": "set",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=set",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "SET 2 numeral siete del latín sĕpte; no SET 1 'sed' del latín sĭte."
+    },
+    {
+      "latin": "temptare",
+      "form": "temptar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=temptar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "El DCVB recoge variantes temptar/tentar, de temptare o tentare; no inventar una segmentación exclusiva."
+    },
+    {
+      "latin": "fel",
+      "form": "fel",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fel",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "FEL 1 'bilis' del latín fĕl; no FEL adjetivo remisor a feel."
+    },
+    {
+      "latin": "uallem",
+      "form": "vall",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vall",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "VALL 2 'valle' del latín valle; no VALL 1 'foso' del latín vallum."
+    },
+    {
+      "latin": "hederam",
+      "form": "heura",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=heura",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Heura 'hiedra' del latín hĕdera."
     }
   ],
   "proposals": [
@@ -1956,41 +2112,6 @@
       "notes": null
     },
     {
-      "latin": "texere",
-      "form": "teixir",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "uitium",
-      "form": "vici",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "picare",
-      "form": "pegar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "siluam",
-      "form": "selva",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "truncum",
-      "form": "tronc",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "tussem",
       "form": "tos",
       "lexicalStatus": "proposta",
@@ -1998,57 +2119,8 @@
       "notes": null
     },
     {
-      "latin": "undam",
-      "form": "ona",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "uiridem",
-      "form": "verd",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "septem",
-      "form": "set",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "temptare",
-      "form": "temptar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "fel",
-      "form": "fel",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "fibram",
       "form": "fibra",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "uallem",
-      "form": "vall",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "hederam",
-      "form": "heura",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
