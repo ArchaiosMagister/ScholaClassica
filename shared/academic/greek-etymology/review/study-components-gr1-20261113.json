@@ -199,8 +199,9 @@
         "gloss": "por sí mismo"
       },
       {
-        "greek": "movibilis",
-        "gloss": "móvil (latín)"
+        "greek": "mobilis",
+        "gloss": "móvil (latín)",
+        "language": "la"
       }
     ],
     "blefaritis": [
