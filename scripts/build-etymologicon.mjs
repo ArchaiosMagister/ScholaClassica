@@ -3,6 +3,7 @@ import {cp,mkdir,writeFile,stat,readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {compileTeacherAudit} from './compile-etymologicon-gr1.mjs';
+import {expandGreekI} from './expand-etymologicon-gr1.mjs';
 import {createDecompositionCatalog} from './compile-etymologicon-decomposition.mjs';
 
 /**
@@ -50,10 +51,13 @@ export async function buildEtymologicon({root,out}){
   await mkdir(join(destination,'corrector'),{recursive:true});
   await cp(join(root,'shared/academic/greek-etymology/corrector/write-two.mjs'),
     join(destination,'corrector/write-two.mjs'));
-  const catalog=createLearnerCatalog(compileTeacherAudit());
+  // La auditoría docente fijada permanece intacta. La ampliación solo afecta
+  // al catálogo de práctica; las 16 descomposiciones mantienen su base cerrada.
+  const baseCatalog=createLearnerCatalog(compileTeacherAudit());
+  const catalog=expandGreekI(baseCatalog);
   await mkdir(join(destination,'data'),{recursive:true});
   await writeFile(join(destination,'data/gr1.json'),JSON.stringify(catalog)+'\n','utf8');
-  const decomposition=createDecompositionCatalog(catalog);
+  const decomposition=createDecompositionCatalog(baseCatalog);
   await writeFile(join(destination,'data/gr1-decomposition.json'),
     JSON.stringify(decomposition)+'\n','utf8');
   // Generación de SW con versión de caché derivada de TODO el contenido.
@@ -76,5 +80,6 @@ export async function buildEtymologicon({root,out}){
   const worker=template.replace('__ETYM_CACHE_VERSION__',version);
   await writeFile(join(destination,'sw.js'),worker,'utf8');
 
-  console.log('ScholaClassica: Etymologicon preparado en dist/apps/etymologicon/ (111 étimos, 201 derivados, sin desplegar)');
+  console.log('ScholaClassica: Etymologicon con '+catalog.etymons.length+' étimos y '+catalog.derivatives.length+
+    ' derivados ('+catalog.extension.newDerivatives+' nuevos); descomposición piloto intacta');
 }
