@@ -52,6 +52,9 @@ test('la zona docente se publica bloqueada por defecto, sin claves privilegiadas
   assert.match(js,/getAuthenticatorAssuranceLevel/);
   assert.match(js,/challengeAndVerify/);
   assert.match(js,/persistSession:false/);
+  assert.ok(js.includes("SCRIPT_URL='./vendor/supabase.js'"));
+  assert.ok(!js.includes('cdn.jsdelivr.net'));
+  assert.ok(!js.includes('config.email'));
   assert.ok(!js.includes('localStorage'));
   assert.match(js,/client\.functions\.invoke\('schola-inbox'/);
   assert.match(js,/client\.functions\.invoke\('schola-login'/);

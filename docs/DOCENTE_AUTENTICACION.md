@@ -11,6 +11,12 @@ Se han inspeccionado en solo lectura los dos proyectos de Supabase:
 
 No se ha alterado ninguna configuración de los proyectos ni creado cuentas. Usar el primero evita un tercer proyecto y mantiene separadas las identidades de alumnos de Palabra del día; **es una elección reversible antes de activarse**.
 
+## Alojamiento elegido y aislamiento por origen
+
+La zona docente se preparará para **Cloudflare Pages mediante Direct Upload manual**, sin conexión automática con GitHub. Los pasos y restricciones están en [`CLOUDFLARE_PAGES_DOCENTE.md`](CLOUDFLARE_PAGES_DOCENTE.md). No se ha creado un proyecto de Cloudflare ni se ha publicado.
+
+El SDK de Supabase se cargará desde un archivo local aprobado y verificado por SHA-256; ya no se permitirá cargarlo desde un CDN externo.
+
 ## Aislamiento por origen — condición indispensable
 
 GitHub Pages utiliza el **mismo origen** `https://archaiosmagister.github.io` para todos los repositorios bajo ese usuario. Un directorio `/ScholaClassica/docente/` **no es un aislamiento de seguridad**. Por ello:
@@ -40,6 +46,8 @@ SCHOLA_DOCENTE_ORIGIN=https://docente.ejemplo.test \
 SCHOLA_AUTH_URL=https://PROJECT_REF.supabase.co \
 SCHOLA_AUTH_PUBLISHABLE_KEY=sb_publishable_PUBLICA \
 SCHOLA_TURNSTILE_SITE_KEY=0x4AAAAAAA_PUBLICA \
+SCHOLA_SUPABASE_SDK_FILE=RUTA_A_SDK_REVISADO \
+SCHOLA_SUPABASE_SDK_SHA256=HUELLA_SHA256_VERIFICADA \
 npm run build:docente
 ```
 
@@ -80,7 +88,7 @@ Antes del primer despliegue será imprescindible:
 - Disponer del correo de acceso y del origen HTTPS independiente, y crear manualmente la cuenta en el panel seguro de Supabase.
 - Revisar seguridad real de Supabase Auth y limitar los registros públicos. Configurar Cloudflare Turnstile **dentro de Supabase Auth** y comprobar que su endpoint directo rechaza contraseñas sin CAPTCHA.
 - Desplegar `dist-docente/` únicamente en un alojamiento HTTPS aislado que respete el archivo `_headers` generado, incluyendo CSP, `frame-ancestors 'none'`, `Referrer-Policy`, `X-Content-Type-Options` y `Cache-Control: no-store`; confirmar las cabeceras con una prueba HTTP real.
-- Sustituir la carga desde CDN del SDK por un recurso con integridad verificada y probar inicio de sesión en iPhone, iPad y Mac.
+- Validar en una instalación real que el SDK local coincide con el SHA-256 auditado y que funciona el login en iPhone, iPad y Mac.
 - Probar recuperación, caducidad y revocación de sesiones, así como la lectura y los enlaces de avisos de ambos orígenes.
 - Revisar los avisos de seguridad que muestran los proyectos originales sin modificar sus políticas de forma imprevista.
 

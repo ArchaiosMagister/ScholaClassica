@@ -21,6 +21,7 @@
     "etymology:decomposition:test": "node --test tests/etymologicon-decomposition.test.mjs",
     "test:browser:docente": "node tests/docente-browser.mjs",
     "build:docente": "node scripts/build-docente.mjs",
-    "test:docente:aislamiento": "node --test tests/docente-aislamiento.test.mjs"
+    "test:docente:aislamiento": "node --test tests/docente-aislamiento.test.mjs",
+    "audit:docente:cloudflare": "node scripts/audit-cloudflare-docente.mjs"
   }
 }

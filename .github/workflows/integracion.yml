@@ -67,6 +67,8 @@ jobs:
         run: npm run build
       - name: Preparar artefacto docente separado y desactivado (sin desplegar)
         run: npm run build:docente
+      - name: Auditar paquete estático de Cloudflare Pages sin publicación
+        run: npm run audit:docente:cloudflare
       - name: Comprobar copia exacta, enlaces y aislamiento de herramientas docentes
         run: npm test
       - name: Preparar Chromium para prueba de navegación
