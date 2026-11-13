@@ -41,9 +41,11 @@ export function crosscheckNounInventory({greekCatalog=[],latinCatalog=[],
     return {lemma:record.lemma,status:record.status,course:'gr1',
       ...(record.recordId?{recordId:record.recordId}:{}),
       wiktionary:candidateEvidence,editorial,
-      verdict:record.status==='incorporado'?
-        'UniMorph/Vocabula/Appendix; revisión filológica individual pendiente':
-        'Pendiente; no seleccionar ni completar por analogía'};
+      verdict:record.status==='incorporado-por-cotejo-individual'?
+        'Paradigma nominal contrastado con tabla externa; revisión docente final pendiente':
+        record.status==='incorporado'?
+          'UniMorph/Vocabula/Appendix; revisión filológica individual pendiente':
+          'Pendiente; no seleccionar ni completar por analogía'};
   });
   const externalOnly=[...candidateMap].filter(([k])=>!teacherLemmas.has(k))
     .map(([,value])=>({lemma:value.word,
