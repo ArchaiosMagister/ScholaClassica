@@ -41,6 +41,7 @@ export function greekNounPhrasePairs(bank,{language,unit}){
   const article=shape(records.find(r=>r.id==='griego-articulo'),'artículo');
   const nouns=records.filter(r=>r.kind==='sustantivo'&&
     r.id.startsWith('griego-sustantivo-')&&
+    ['masculino','femenino','neutro'].includes(r.gender)&&
     r.evidence?.review?.includes('conciliación interfuentes'));
   const adjectives=ADJECTIVE_IDS.map(id=>shape(records.find(r=>r.id===id),'adjetivo'));
   return nouns.flatMap(noun=>{
