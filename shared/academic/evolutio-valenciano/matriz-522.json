@@ -11,8 +11,8 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 67,
-    "propuestas": 174,
+    "lexicoDocumentado": 126,
+    "propuestas": 115,
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
@@ -254,14 +254,22 @@
       },
       "valenciano": {
         "resultado": "comte",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=comte",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -770,14 +778,22 @@
       },
       "valenciano": {
         "resultado": "maig",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=maig",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -820,14 +836,22 @@
       },
       "valenciano": {
         "resultado": "molt",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=molt",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -959,15 +983,23 @@
       },
       "valenciano": {
         "resultado": "pena",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pena",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "La acepción de castigo procede de poena, distinta de los homógrafos pena procedentes de otros étimos."
       }
     },
     {
@@ -1607,15 +1639,23 @@
       },
       "valenciano": {
         "resultado": "tronar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=tronar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "El DCVB señala una r añadida por influencia de tro: tonare → tronar no es un cambio fonético regular directo."
       }
     },
     {
@@ -1687,15 +1727,23 @@
       },
       "valenciano": {
         "resultado": "crosta",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=crosta",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Variación histórica del timbre de la vocal tónica; comprobar la influencia analógica reseñada en DCVB."
       }
     },
     {
@@ -1762,14 +1810,22 @@
       },
       "valenciano": {
         "resultado": "tresor",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=tresor",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -1953,14 +2009,22 @@
       },
       "valenciano": {
         "resultado": "ase",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=ase",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2094,14 +2158,22 @@
       },
       "valenciano": {
         "resultado": "cec",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cec",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2144,14 +2216,22 @@
       },
       "valenciano": {
         "resultado": "calent",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=calent",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2169,14 +2249,22 @@
       },
       "valenciano": {
         "resultado": "canya",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=canya",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2194,14 +2282,22 @@
       },
       "valenciano": {
         "resultado": "cabre",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cabre",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2252,14 +2348,22 @@
       },
       "valenciano": {
         "resultado": "cosa",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cosa",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2277,14 +2381,22 @@
       },
       "valenciano": {
         "resultado": "corda",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=corda",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2302,14 +2414,22 @@
       },
       "valenciano": {
         "resultado": "clamar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=clamar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2393,15 +2513,23 @@
       },
       "valenciano": {
         "resultado": "comprar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=comprar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "El DCVB remite a la variante latina vulgar compĕrāre de comparare; conservar la mediación."
       }
     },
     {
@@ -2418,14 +2546,22 @@
       },
       "valenciano": {
         "resultado": "consell",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=consell",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2501,15 +2637,23 @@
       },
       "valenciano": {
         "resultado": "cuba",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cuba",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "La acepción de barril cubà/cuba procede de cūpa (CUBA 1), no de la entrada homógrafa de procedencia árabe."
       }
     },
     {
@@ -2726,14 +2870,22 @@
       },
       "valenciano": {
         "resultado": "febre",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=febre",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3094,14 +3246,22 @@
       },
       "valenciano": {
         "resultado": "gros",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=gros",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3119,14 +3279,22 @@
       },
       "valenciano": {
         "resultado": "herba",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=herba",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3177,15 +3345,23 @@
       },
       "valenciano": {
         "resultado": "illa",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=illa",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "La forma patrimonial illa se diferencia de isla, que refleja influencia castellana."
       }
     },
     {
@@ -3252,15 +3428,23 @@
       },
       "valenciano": {
         "resultado": "lladrar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lladrar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "LLADRAR 1 'ladrar' deriva de latrare; no confundir con LLADRAR 2 'robar', derivado de lladre."
       }
     },
     {
@@ -3335,14 +3519,22 @@
       },
       "valenciano": {
         "resultado": "llegir",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=llegir",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3418,14 +3610,22 @@
       },
       "valenciano": {
         "resultado": "lletra",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lletra",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3554,15 +3754,23 @@
       },
       "valenciano": {
         "resultado": "moro",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=moro",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Acepción de moro 'persona de origen norteafricano', procedente de mauru; separar homógrafos."
       }
     },
     {
@@ -3604,15 +3812,23 @@
       },
       "valenciano": {
         "resultado": "mill",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=mill",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Mill cereal, del latín mīlĭu; no confundir con homógrafos de numeral."
       }
     },
     {
@@ -3679,15 +3895,23 @@
       },
       "valenciano": {
         "resultado": "ovella",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=ovella",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Ovella procede de ovĭcŭla; el DCVB recoge la variante dialectal avoia por otra base vulgar."
       }
     },
     {
@@ -3729,15 +3953,23 @@
       },
       "valenciano": {
         "resultado": "pany",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pany",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Pany procede de pannu con desplazamiento semántico; seleccionar acepción y no otros homógrafos."
       }
     },
     {
@@ -3787,15 +4019,23 @@
       },
       "valenciano": {
         "resultado": "nomenar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=nomenar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Nomenar documentado con nomĭnāre; la forma anomenar es usual en numerosas acepciones modernas."
       }
     },
     {
@@ -3812,14 +4052,22 @@
       },
       "valenciano": {
         "resultado": "salut",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=salut",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3837,14 +4085,22 @@
       },
       "valenciano": {
         "resultado": "sabor",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sabor",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3862,14 +4118,22 @@
       },
       "valenciano": {
         "resultado": "sempre",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sempre",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -3887,15 +4151,23 @@
       },
       "valenciano": {
         "resultado": "senat",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=senat",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "DCVB dice 'pres del llatí senātus': préstamo culto, no evolución patrimonial; no incorporar automáticamente a práctica fonética patrimonial."
       }
     },
     {
@@ -4037,14 +4309,22 @@
       },
       "valenciano": {
         "resultado": "gota",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=gota",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4087,14 +4367,22 @@
       },
       "valenciano": {
         "resultado": "podar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=podar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4112,15 +4400,23 @@
       },
       "valenciano": {
         "resultado": "sec",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sec",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Sec de sĭccu en acepción adjetival, no homógrafo acentuado séc."
       }
     },
     {
@@ -4187,14 +4483,22 @@
       },
       "valenciano": {
         "resultado": "sord",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sord",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4212,14 +4516,22 @@
       },
       "valenciano": {
         "resultado": "jonc",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=jonc",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4237,14 +4549,22 @@
       },
       "valenciano": {
         "resultado": "formiga",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=formiga",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4287,15 +4607,23 @@
       },
       "valenciano": {
         "resultado": "mola",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=mola",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Mola 'piedra de moler' de mŏla; otros sentidos remiten a otra base latina."
       }
     },
     {
@@ -4516,15 +4844,23 @@
       },
       "valenciano": {
         "resultado": "dit",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=dit",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "El DCVB remite a una fase vulgar *dīctu por analogía verbal: no atribuir directamente una cadena regular desde dĭctu sin mediación."
       }
     },
     {
@@ -4592,14 +4928,22 @@
       },
       "valenciano": {
         "resultado": "mesura",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=mesura",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4642,14 +4986,22 @@
       },
       "valenciano": {
         "resultado": "pesar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pesar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4692,14 +5044,22 @@
       },
       "valenciano": {
         "resultado": "llegum",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=llegum",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4867,15 +5227,23 @@
       },
       "valenciano": {
         "resultado": "cuir",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cuir",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "CUIR 1 piel de cŏrĭu, no homógrafo verbal CUIR 2."
       }
     },
     {
@@ -4892,15 +5260,23 @@
       },
       "valenciano": {
         "resultado": "corn",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=corn",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Corn 'cuerno' desde cŏrnu; distinguir otros significados botánicos."
       }
     },
     {
@@ -4917,15 +5293,23 @@
       },
       "valenciano": {
         "resultado": "cos",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cos",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Cos 'cuerpo', frente a cós 'curso/carrera' de otro origen."
       }
     },
     {
@@ -4992,14 +5376,22 @@
       },
       "valenciano": {
         "resultado": "dona",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=dona",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5150,14 +5542,22 @@
       },
       "valenciano": {
         "resultado": "fum",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=fum",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5175,15 +5575,23 @@
       },
       "valenciano": {
         "resultado": "fons",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=fons",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Fons 1 'fondo' de fundus, distinto de otros homógrafos fons."
       }
     },
     {
@@ -5250,14 +5658,22 @@
       },
       "valenciano": {
         "resultado": "grunyir",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=grunyir",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5375,14 +5791,22 @@
       },
       "valenciano": {
         "resultado": "muller",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=muller",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5425,14 +5849,22 @@
       },
       "valenciano": {
         "resultado": "nom",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=nom",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5613,15 +6045,23 @@
       },
       "valenciano": {
         "resultado": "puig",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=puig",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Puig deriva de pŏdĭu a través de desplazamiento semántico vulgar 'pedestal' > elevación."
       }
     },
     {
@@ -5638,14 +6078,22 @@
       },
       "valenciano": {
         "resultado": "poble",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=poble",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5663,14 +6111,22 @@
       },
       "valenciano": {
         "resultado": "preu",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=preu",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5713,14 +6169,22 @@
       },
       "valenciano": {
         "resultado": "puny",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=puny",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5738,15 +6202,23 @@
       },
       "valenciano": {
         "resultado": "poll",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=poll",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Poll 1 'pollo' procede de pŭllu, no poll 'piojo' ni 'álamo'."
       }
     },
     {
