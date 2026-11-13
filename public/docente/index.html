@@ -74,7 +74,7 @@
       <p>Edición de palabras y revisión de incidencias con autorización adicional en Supabase. Los cambios se aplicarán a Vocabula y se reflejarán en ScholaClassica tras sincronizar.</p>
       <div class="actions"><button id="vocab-load" type="button">Consultar palabras</button><button id="vocab-new" type="button">Añadir palabra</button></div>
       <p id="vocab-admin-status" role="status" aria-live="polite"></p>
-      <div id="vocab-word-list" class="notices"></div>
+      <div id="vocab-word-list" class="notices"></div><button id="vocab-more" type="button" hidden>Cargar más palabras</button>
       <form id="vocab-word-form" hidden>
         <h4 id="vocab-form-heading">Nueva palabra</h4>
         <label for="vocab-subject">Asignatura</label>
@@ -98,7 +98,7 @@
       </select>
       <button id="vocab-report-load" type="button">Consultar incidencias</button>
       <p id="vocab-report-status" role="status" aria-live="polite"></p>
-      <div id="vocab-report-list" class="notices"></div>
+      <div id="vocab-report-list" class="notices"></div><button id="vocab-report-more" type="button" hidden>Cargar más incidencias</button>
     </section>
     <p class="hint">Consulta de solo lectura. Para resolver cada aviso se abrirá la web original; ScholaClassica no lo aprobará ni modificará.</p>
   </section>
