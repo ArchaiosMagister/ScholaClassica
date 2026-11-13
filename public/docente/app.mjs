@@ -4,8 +4,7 @@ const el=id=>document.getElementById(id);
 const sections=['unavailable','login','enroll','verify','teacher'];
 // El bundle local se verifica por SHA-256 en el build docente.
 const SCRIPT_URL='./vendor/supabase.js';
-const CAPTCHA_URL='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-let config,client,enrollment=null,busy=false,captchaId=null;
+let config,client,enrollment=null,busy=false;
 let loadedNotices=[];
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
 function state(section,message=''){
@@ -31,11 +30,10 @@ async function safely(operation){
 function validConfig(value){
   return value?.enabled===true&&/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value.url||'')&&
     typeof value.publishableKey==='string'&&value.publishableKey.length>20&&
-    typeof value.turnstileSiteKey==='string'&&/^0x[A-Za-z0-9_-]{16,64}$/.test(value.turnstileSiteKey)&&
     !('email' in value)&&
     value.username==='MagisterArchaios'&&value.origin===location.origin&&
-    location.hostname!=='archaiosmagister.github.io'&&
-    (location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname));
+    (location.origin==='https://archaiosmagister.github.io'||
+      ['localhost','127.0.0.1'].includes(location.hostname));
 }
 async function loadSDK(){
   if(window.supabase?.createClient)return;
@@ -48,18 +46,6 @@ async function loadSDK(){
     document.head.append(script);
   });
   if(!window.supabase?.createClient)throw Error('Biblioteca no disponible');
-}
-async function loadCaptcha(){
-  if(!window.turnstile?.render){
-    await new Promise((resolve,reject)=>{
-      const script=document.createElement('script');
-      script.src=CAPTCHA_URL;script.async=true;script.defer=true;
-      script.onload=resolve;script.onerror=()=>reject(Error('No se ha cargado el control antirrobots'));
-      document.head.append(script);
-    });
-  }
-  if(!window.turnstile?.render)throw Error('Control antirrobots no disponible');
-  captchaId=window.turnstile.render('#turnstile-widget',{sitekey:config.turnstileSiteKey,theme:'auto',action:'schola-login'});
 }
 async function checkSession(){
   const {data:{session},error}=await client.auth.getSession();
@@ -129,14 +115,10 @@ el('login-form').addEventListener('submit',event=>{
     const password=el('password').value;
     el('password').value='';
     if(username!==config.username||!password){state('login','Credenciales incorrectas');return}
-    const token=window.turnstile?.getResponse?.(captchaId);
-    if(typeof token!=='string'||token.length<10){
-      state('login','Completa primero la comprobación de seguridad');return;
-    }
     try{
       // El correo NO viaja al navegador: el servidor resuelve el usuario.
       const response=await client.functions.invoke('schola-login',{
-        method:'POST',body:{username,password,turnstileToken:token}
+        method:'POST',body:{username,password}
       });
       if(response.error||!response.data?.access_token||!response.data?.refresh_token){
         state('login','Credenciales incorrectas o acceso no disponible');return;
@@ -147,7 +129,8 @@ el('login-form').addEventListener('submit',event=>{
       if(installed.error)throw installed.error;
       await checkSession();
     }finally{
-      window.turnstile?.reset?.(captchaId);
+      // No conservar contraseñas en la interfaz tras el intento.
+      el('password').value='';
     }
   });
 });
@@ -200,7 +183,6 @@ async function init(){
     if(!validConfig(config)){state('unavailable','Configuración docente no activada');return}
     el('username').value=config.username;
     await loadSDK();
-    await loadCaptcha();
     client=window.supabase.createClient(config.url,config.publishableKey,{
       auth:{persistSession:false,autoRefreshToken:true,detectSessionInUrl:false}
     });
