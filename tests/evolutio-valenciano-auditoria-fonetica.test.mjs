@@ -43,8 +43,8 @@ test('El preinventario fonético corresponde uno a uno a las 221 fichas document
 });
 test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(audit.summary.total,221);
- assert.equal(audit.summary.conAnalisisEditorialPrevio,39);
- assert.equal(audit.summary.pendientesDeAnalisisIndividual,182);
+ assert.equal(audit.summary.conAnalisisEditorialPrevio,57);
+ assert.equal(audit.summary.pendientesDeAnalisisIndividual,164);
  assert.equal(audit.summary.decisionesDocentesAplicadas,3);
  assert.equal(audit.summary.leyesFoneticamenteCertificadas,0);
  assert.equal(audit.summary.habilitadas,0);
@@ -75,9 +75,9 @@ test('Los 110 procesos parciales conservan intervalos válidos y referencia hist
  assert.equal(audit.summary.analisisIntegralesVerificados,0);
 });
 
-test('Onze análisis editoriales añadidos conservan su identidad y no certifican ninguna ley',()=>{
- const entries=['scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum'];
- assert.equal(audit.summary.nuevosAnalisisEditorials,11);
+test('Veintinueve análisis editoriales añadidos conservan su identidad y no certifican leyes',()=>{
+ const entries=['scutum','spartum','spicam','aurum','causam','cannam','cupam','rŏtam','fŏntem','salutem','senatum','calĕntem','hŏrtum','fumum','portum','uentum','pannum','grŏssum','mŏllem','molam','hĕrbam','bŏnam','fossam','serram','sortem','curtum','mustum','muscam','fĕbrem'];
+ assert.equal(audit.summary.nuevosAnalisisEditorials,29);
  for(const latin of entries){
   const x=audit.records.find(x=>x.latin===latin);
   const w=matrix.records.find(x=>x.latin===latin);
