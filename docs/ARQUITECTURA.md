@@ -54,3 +54,12 @@ La cuenta docente ha de residir en Supabase Auth, con acceso restringido a una U
 Se ha añadido a la portada de ScholaClassica un itinerario por materia y curso (public/index.html, public/app.js, public/style.css) que reutiliza únicamente rutas verificadas del artefacto. La selección y el último módulo abierto se guardan como identificadores limitados en localStorage bajo la clave scholaclassica-itinerario-v1; no se almacenan respuestas ni identificadores de alumnos. Si el navegador bloquea el almacenamiento, el selector funciona sin persistencia.
 
 **No hay inyección de scripts o encabezados en Appendix, Evolutio o Vocabula**: siguen siendo copias comprobadas byte por byte, con las excepciones técnicas ya documentadas. Tampoco se alteran los service workers, lo que conserva los modos offline existentes. La navegación contextual no supone un cambio curricular ni habilita contenidos de Griego II que todavía no están preparados.
+
+
+## PWA de portada, sin interferencia entre aplicaciones
+
+`npm run build` genera el manifiesto `dist/manifest.webmanifest`, los iconos de ScholaClassica para iOS/Android y un service worker `dist/sw.js` cuya versión procede de la huella de los recursos propios de la portada. El worker **solo intercepta URLs exactas del núcleo del portal** y borra únicamente caches con prefijo `schola-portal-`; no intercepta datos ni navegación de `apps/*`. Las aplicaciones con SW propios utilizan los suyos con alcance más específico.
+
+Evolutio se ha actualizado de la revisión `0897aae01b6d4c905aafa1c1a6bac5af0810c812` a `901dacb125ee7894ea9d11faf7b0d0afa7e713b5` y mantiene todos sus archivos byte por byte salvo el ajuste específico de `sw.js` en `dist/`: prefijo `schola-evolutio-`, borrado únicamente de sus propias versiones y respuesta a `fetch` solo para rutas dentro de su ámbito. El worker del original no cambia. El nuevo banco contiene 522 fichas; hay 240 registros importados clasificados como propuestas técnicas, que no equivalen a una revisión filológica individual.
+
+Véase `docs/PORTAL_PWA.md`.
