@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-13",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.",
+  "note": "Las correspondencias documentat reflejan confirmación de lema y etimología en el DCVB; la verificación DNV, la transmisión patrimonial/culta y el análisis de 17 leyes siguen pendientes. Las propuestas restantes NO están contrastadas individualmente.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -289,40 +289,545 @@
         "scope": "lema_i_etimologia"
       },
       "notes": null
-    }
-  ],
-  "proposals": [
+    },
     {
       "latin": "aucam",
       "form": "oca",
-      "lexicalStatus": "proposta",
-      "reference": null,
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=oca",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "notes": null
     },
     {
       "latin": "cadere",
       "form": "caure",
-      "lexicalStatus": "proposta",
-      "reference": null,
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=caure",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "notes": null
     },
     {
       "latin": "cælum",
       "form": "cel",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "comitem",
-      "form": "comte",
-      "lexicalStatus": "proposta",
-      "reference": null,
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cel",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "notes": null
     },
     {
       "latin": "crucem",
       "form": "creu",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=creu",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "homĭnem",
+      "form": "home",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=home",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "maiorem",
+      "form": "major",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=major",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "ocŭlum",
+      "form": "ull",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ull",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "El DCVB deriva ull del latín vulgar *ŏclu, contracción del latín clásico ŏcŭlus; conservar la fase intermedia y no afirmar derivación fonética directa."
+    },
+    {
+      "latin": "radium",
+      "form": "raig",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=raig",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "scutum",
+      "form": "escut",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=escut",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "spartum",
+      "form": "espart",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espart",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "spatium",
+      "form": "espai",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espai",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "uittam",
+      "form": "veta",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=veta",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "scholam",
+      "form": "escola",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=escola",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "marmorem",
+      "form": "marbre",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marbre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "roborem",
+      "form": "roure",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roure",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Roure 'roble' del latín rōbŏre; distinguir del verbo homógrafo roure 'roer' procedente de rōdĕre."
+    },
+    {
+      "latin": "auricŭlam",
+      "form": "orella",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=orella",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "aurum",
+      "form": "or",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=or",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "capillum",
+      "form": "cabell",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "cunicŭlum",
+      "form": "conill",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=conill",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "fŏntem",
+      "form": "font",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=font",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "hŏrtum",
+      "form": "hort",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=hort",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "latronem",
+      "form": "lladre",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lladre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "ligare",
+      "form": "lligar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lligar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "rŏtam",
+      "form": "roda",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roda",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "parabolam",
+      "form": "paraula",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=paraula",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Cambio semántico documentado 'comparación' a 'palabra'; procede de latín parabola con origen griego."
+    },
+    {
+      "latin": "forum",
+      "form": "fur",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fur",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Seleccionar fur 'ley, jurisdicción' (DCVB fur 1), no el homógrafo fur 'ladrón'; el moderno for posee otra distribución de acepciones."
+    },
+    {
+      "latin": "pinnam",
+      "form": "penya",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=penya",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Penya 'peña' del latín pĭnna con significado histórico de almena; evitar confundir acepciones."
+    },
+    {
+      "latin": "regŭlam",
+      "form": "regla",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=regla",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "seniorem",
+      "form": "senyor",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senyor",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "sigĭllum",
+      "form": "segell",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=segell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "El DCVB indica que segell es un arcaísmo reintroducido en la lengua culta; documentar étimo, pero no presentar automáticamente como desarrollo patrimonial productivo."
+    },
+    {
+      "latin": "specŭlum",
+      "form": "espill",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espill",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "pedem",
+      "form": "peu",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=peu",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "pellem",
+      "form": "pell",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "pausare",
+      "form": "posar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=posar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Confirmar acepción de posar 'colocar'; distinguir el homónimo de origen francés poser relativo a servir de modelo."
+    },
+    {
+      "latin": "seminare",
+      "form": "sembrar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sembrar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "magistrum",
+      "form": "mestre",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Mestre 'maestro' aparece como derivado de magĭstru; la ficha magistram > mestra debe cotejarse aparte, no verificarla por extensión."
+    },
+    {
+      "latin": "pŏrcum",
+      "form": "porc",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=porc",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "sŏlĭdum",
+      "form": "sou",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sou",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": "Confirmar acepción histórica de sueldo/moneda, sin confundir con el adjetivo modern sol·lid."
+    },
+    {
+      "latin": "linguam",
+      "form": "llengua",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llengua",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "mustum",
+      "form": "most",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=most",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    },
+    {
+      "latin": "uentum",
+      "form": "vent",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vent",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "notes": null
+    }
+  ],
+  "proposals": [
+    {
+      "latin": "comitem",
+      "form": "comte",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -335,22 +840,8 @@
       "notes": null
     },
     {
-      "latin": "homĭnem",
-      "form": "home",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "iurare",
       "form": "jurar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "maiorem",
-      "form": "major",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -377,13 +868,6 @@
       "notes": null
     },
     {
-      "latin": "ocŭlum",
-      "form": "ull",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "pœnam",
       "form": "pena",
       "lexicalStatus": "proposta",
@@ -391,64 +875,8 @@
       "notes": null
     },
     {
-      "latin": "radium",
-      "form": "raig",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "scutum",
-      "form": "escut",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "spartum",
-      "form": "espart",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "spatium",
-      "form": "espai",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "spicam",
       "form": "espiga",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "uittam",
-      "form": "veta",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "scholam",
-      "form": "escola",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "marmorem",
-      "form": "marbre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "roborem",
-      "form": "roure",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -484,20 +912,6 @@
     {
       "latin": "asĭnum",
       "form": "ase",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "auricŭlam",
-      "form": "orella",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "aurum",
-      "form": "or",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -545,13 +959,6 @@
       "notes": null
     },
     {
-      "latin": "capillum",
-      "form": "cabell",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "causam",
       "form": "cosa",
       "lexicalStatus": "proposta",
@@ -594,13 +1001,6 @@
       "notes": null
     },
     {
-      "latin": "cunicŭlum",
-      "form": "conill",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "cupam",
       "form": "cuba",
       "lexicalStatus": "proposta",
@@ -629,13 +1029,6 @@
       "notes": null
     },
     {
-      "latin": "fŏntem",
-      "form": "font",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "grŏssum",
       "form": "gros",
       "lexicalStatus": "proposta",
@@ -645,13 +1038,6 @@
     {
       "latin": "hĕrbam",
       "form": "herba",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "hŏrtum",
-      "form": "hort",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -671,13 +1057,6 @@
       "notes": null
     },
     {
-      "latin": "latronem",
-      "form": "lladre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "laudare",
       "form": "lloar",
       "lexicalStatus": "proposta",
@@ -687,13 +1066,6 @@
     {
       "latin": "legere",
       "form": "llegir",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "ligare",
-      "form": "lligar",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -757,13 +1129,6 @@
     {
       "latin": "pannum",
       "form": "pany",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "rŏtam",
-      "form": "roda",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -895,13 +1260,6 @@
       "notes": null
     },
     {
-      "latin": "parabolam",
-      "form": "paraula",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "dictum",
       "form": "dit",
       "lexicalStatus": "proposta",
@@ -986,13 +1344,6 @@
       "notes": null
     },
     {
-      "latin": "forum",
-      "form": "fur",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "fumum",
       "form": "fum",
       "lexicalStatus": "proposta",
@@ -1063,13 +1414,6 @@
       "notes": null
     },
     {
-      "latin": "pinnam",
-      "form": "penya",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "planctum",
       "form": "plany",
       "lexicalStatus": "proposta",
@@ -1119,22 +1463,8 @@
       "notes": null
     },
     {
-      "latin": "regŭlam",
-      "form": "regla",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "sagitta",
       "form": "sageta",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "seniorem",
-      "form": "senyor",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1154,22 +1484,8 @@
       "notes": null
     },
     {
-      "latin": "sigĭllum",
-      "form": "segell",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "signa",
       "form": "senya",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "specŭlum",
-      "form": "espill",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1322,20 +1638,6 @@
       "notes": null
     },
     {
-      "latin": "pedem",
-      "form": "peu",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pellem",
-      "form": "pell",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "temperare",
       "form": "temperar",
       "lexicalStatus": "proposta",
@@ -1441,13 +1743,6 @@
       "notes": null
     },
     {
-      "latin": "pausare",
-      "form": "posar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "ballænam",
       "form": "balena",
       "lexicalStatus": "proposta",
@@ -1476,22 +1771,8 @@
       "notes": null
     },
     {
-      "latin": "seminare",
-      "form": "sembrar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "magistram",
       "form": "mestra",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "magistrum",
-      "form": "mestre",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1506,20 +1787,6 @@
     {
       "latin": "paucum",
       "form": "poc",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pŏrcum",
-      "form": "porc",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "sŏlĭdum",
-      "form": "sou",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1658,13 +1925,6 @@
       "notes": null
     },
     {
-      "latin": "linguam",
-      "form": "llengua",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "minorem",
       "form": "menor",
       "lexicalStatus": "proposta",
@@ -1681,13 +1941,6 @@
     {
       "latin": "muscam",
       "form": "mosca",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mustum",
-      "form": "most",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1723,13 +1976,6 @@
     {
       "latin": "turrem",
       "form": "torre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "uentum",
-      "form": "vent",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
