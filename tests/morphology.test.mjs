@@ -9,13 +9,15 @@ const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8')
 const source=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
 const compiled=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
 const latinNounsHtml=readFileSync(join(root,'.sources/appendix/sustantivos.html'),'utf8');
+const latinIndicativeHtml=readFileSync(join(root,'.sources/appendix/indicativo.html'),'utf8');
+const latinAdjectivesHtml=readFileSync(join(root,'.sources/appendix/adjetivos.html'),'utf8');
 const sampleRng=()=>.37;
 test('el banco tiene SHA del Appendix fijado y se recompila exactamente desde sus tablas',()=>{
   assert.equal(compiled.appendixSha,lock.sources.appendix.sha);
-  assert.deepEqual(compileMorphology(source,lock.sources.appendix.sha,{latinNounsHtml}),compiled);
+  assert.deepEqual(compileMorphology(source,lock.sources.appendix.sha,{latinNounsHtml,latinIndicativeHtml,latinAdjectivesHtml}),compiled);
   validateBank(compiled);
-  assert.equal(compiled.records.length,40);
-  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4],griego:[1,2,3]});
+  assert.equal(compiled.records.length,60);
+  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4,5],griego:[1,2,3,4,5]});
   assert.ok(compiled.records.every(r=>r.evidence.status==='paradigma-documentado'));
   assert.ok(compiled.records.every(r=>r.forms.every(f=>f.form&&!f.form.includes('<'))));
 });
@@ -24,10 +26,12 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   const l2=availableRecords(compiled,{language:'latin',unit:2});
   const l3=availableRecords(compiled,{language:'latin',unit:3});
   const l4=availableRecords(compiled,{language:'latin',unit:4});
+  const l5=availableRecords(compiled,{language:'latin',unit:5});
   assert.equal(l1.length,9);
   assert.equal(l2.length,15);
   assert.equal(l3.length,26);
-  assert.equal(l4.length,30);
+  assert.equal(l4.length,42);
+  assert.equal(l5.length,46);
   assert.ok(l1.some(r=>r.paradigm.startsWith('rosa')));
   assert.ok(l1.every(r=>r.unit===1));
   assert.ok(l2.some(r=>r.paradigm.includes('imperfecto')));
@@ -41,13 +45,15 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   const g1=availableRecords(compiled,{language:'griego',unit:1});
   const g2=availableRecords(compiled,{language:'griego',unit:2});
   const g3=availableRecords(compiled,{language:'griego',unit:3});
-  assert.deepEqual([g1.length,g2.length,g3.length],[2,4,10]);
+  const g4=availableRecords(compiled,{language:'griego',unit:4});
+  const g5=availableRecords(compiled,{language:'griego',unit:5});
+  assert.deepEqual([g1.length,g2.length,g3.length,g4.length,g5.length],[2,4,10,10,14]);
   assert.ok(!g1.some(r=>r.kind==='artículo'));
   assert.ok(g3.some(r=>r.kind==='artículo'));
   assert.equal(g3.filter(r=>r.paradigm.startsWith('1.ª declinación griega')).length,5);
   assert.ok(!g2.some(r=>r.paradigm.startsWith('1.ª declinación griega')));
-  assert.throws(()=>availableRecords(compiled,{language:'latin',unit:5}),/Unidad todavía no disponible/);
-  assert.throws(()=>availableRecords(compiled,{language:'griego',unit:14}),/Unidad todavía no disponible/);
+  assert.throws(()=>availableRecords(compiled,{language:'latin',unit:6}),/Unidad todavía no disponible/);
+  assert.throws(()=>availableRecords(compiled,{language:'griego',unit:6}),/Unidad todavía no disponible/);
 });
 test('las formas recuperan tabla y no se obtienen por generación especulativa',()=>{
   const rose=compiled.records.find(r=>r.paradigm.startsWith('rosa'));

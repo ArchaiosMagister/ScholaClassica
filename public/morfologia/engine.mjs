@@ -9,7 +9,7 @@ export function validateBank(bank){
   for(const record of bank.records){
     if(!['latin','griego'].includes(record.language)||
        !Number.isInteger(record.unit)||!bank.coverage?.[record.language]?.includes(record.unit)||
-       !['sustantivo','verbo','desinencia','artículo'].includes(record.kind)||
+       !['sustantivo','verbo','desinencia','artículo','adjetivo'].includes(record.kind)||
        !Array.isArray(record.forms)||record.forms.length<6||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');
     if(ids.has(record.id))throw Error('Ficha repetida');ids.add(record.id);
@@ -44,13 +44,46 @@ export function availableRecords(bank,{language,unit,kind='todos'}){
   return bank.records.filter(record=>record.language===language&&record.unit<=unit&&
     (kind==='todos'||record.kind===kind));
 }
+// Concordancia griega: artículo y adjetivo coinciden en caso, género y número.
+// Ambas piezas proceden de las tablas del mismo Appendix; no se inventan lemas.
+function agreementCandidates(bank,records,rng){
+  const articles=bank.records.find(r=>r.id==='griego-articulo');
+  if(!articles)throw Error('Falta el artículo documentado del Appendix');
+  const candidates=[];
+  for(const record of records.filter(r=>r.kind==='adjetivo'&&r.language==='griego')){
+    const allForms=unique(record.forms.map(x=>fold(x.form)));
+    for(const art of articles.forms){
+      const acceptedForms=unique(record.forms.filter(f=>
+        f.case===art.case&&f.gender===art.gender&&f.number===art.number)
+        .map(f=>fold(f.form)));
+      if(!acceptedForms.length)continue;
+      const distractors=allForms.filter(form=>!acceptedForms.includes(form));
+      if(distractors.length<3)continue;
+      const correct=shuffle(acceptedForms,rng)[0];
+      const options=shuffle([...shuffle(distractors,rng).slice(0,3),correct],rng);
+      candidates.push({
+        id:record.id+':agreement:'+art.case+':'+art.gender+':'+art.number,
+        activity:'agreement',language:'griego',paradigm:record.paradigm,
+        prompt:'¿Qué forma del adjetivo concuerda con «'+fold(art.form)+
+          '» ('+fold(art.analysis)+')?',
+        article:fold(art.form),articleAnalysis:fold(art.analysis),
+        acceptedForms,correct,options,evidence:record.evidence
+      });
+    }
+  }
+  return candidates;
+}
 export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
   limit=10,rng=Math.random}={}){
-  if(!['form','analysis'].includes(activity)||!Number.isInteger(limit)||limit<1||limit>30)
+  if(!['form','analysis','agreement'].includes(activity)||!Number.isInteger(limit)||limit<1||limit>30)
     throw Error('Modalidad o cantidad inválida');
   const records=availableRecords(bank,{language,unit,kind});
+  if(activity==='agreement'&&(language!=='griego'||unit<5))
+    throw Error('La concordancia griega solo está disponible desde UD5');
   const candidates=[];
-  for(const record of records){
+  if(activity==='agreement')
+    candidates.push(...agreementCandidates(bank,records,rng));
+  for(const record of activity==='agreement'?[]:records){
     const grouped=groupedForms(record);
     if(activity==='form'){
       // Una misma casilla del Appendix puede documentar varias formas válidas

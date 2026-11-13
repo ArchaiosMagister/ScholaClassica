@@ -70,3 +70,8 @@ Véase `docs/PORTAL_PWA.md`.
 - La portada admite tres paletas resueltas (claro, oscuro y OLED) y un ajuste Automático. El único estado local adicional es la preferencia visual de la portada; no se guarda información académica ni de estudiantes.
 - Palabra del día se incorpora **como enlace externo de navegación**, con las dos rutas oficiales diferenciadas. Se conserva la autenticación y votación actuales; no se copian bases de datos ni se instalan workers fuera de su origen.
 - El workflow `avisos-fuentes.yml` coteja semanalmente los SHAs bloqueados de los **tres** repositorios académicos integrados. Puede abrir o actualizar una incidencia en ScholaClassica cuando hay diferencias, pero **nunca** actualiza automáticamente `config/sources.lock.json` ni toca originales. Los cambios requieren revisión docente y pruebas antes de importarse.
+
+
+## Ampliación autónoma de la práctica morfológica, sin alterar fuentes
+
+`scripts/morphology-expansion.mjs` transcribe 12 paradigmas verbales latinos de perfecto/pluscuamperfecto UD4, 4 adjetivos latinos de tercera declinación UD5 y 4 paradigmas griegos de adjetivos UD5, todos con referencias a tablas exactas de Appendix. La colección completa pasa de 40 a **60** registros y permite seleccionar Latín I y Griego I hasta UD5. El motor de concordancia griega combina **dos fichas verificadas**: la del artículo (UD3) y la del adjetivo (UD5), únicamente con igualdad de caso/género/número, sin generar lemas o formas nuevos. La actividad se habilita solo desde Griego I UD5. Se mantienen el aislamiento de los service workers, el modo offline y el cierre de la zona docente.

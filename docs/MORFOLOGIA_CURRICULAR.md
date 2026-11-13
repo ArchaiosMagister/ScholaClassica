@@ -1,4 +1,4 @@
-# Práctica de morfología — ampliación curricular contrastada
+# Práctica de morfología — ampliaciones curriculares contrastadas
 
 ## Objetivo
 
@@ -10,8 +10,8 @@ El banco se compila a partir de `assets/curriculum.json` y del capítulo enlazad
 
 | Materia | Unidades habilitadas | Tablas importadas | No incluidos |
 | --- | --- | --- | --- |
-| Latín I | UD1–UD4 | `rosa`, `dominus`, `bellum`; presentes e imperfectos activos y `sum`; UD3 pasiva presente e imperfecta en cinco conjugaciones y sus desinencias; UD4 `dux`, `civis`, `flumen`, `mare` | Perfectos, adjetivos, conjugaciones o declinaciones posteriores |
-| Griego I | UD1–UD3 | Terminaciones de segunda declinación masculina y neutra; presente de `εἰμί` y `λύω`; artículo; cinco modelos de desinencias de primera declinación (femenino alfa puro, eta y mixto; masculino alfa y eta) | Flexión completa de sustantivos no atestiguados, adjetivos y unidades posteriores |
+| Latín I | UD1–UD5 | `rosa`, `dominus`, `bellum`; presentes e imperfectos activos y `sum`; UD3 pasiva presente e imperfecta en cinco conjugaciones y sus desinencias; UD4 `dux`, `civis`, `flumen`, `mare` | Perfectos, adjetivos, conjugaciones o declinaciones posteriores |
+| Griego I | UD1–UD5 | Terminaciones de segunda declinación masculina y neutra; presente de `εἰμί` y `λύω`; artículo; cinco modelos de desinencias de primera declinación (femenino alfa puro, eta y mixto; masculino alfa y eta) | Flexión completa de sustantivos no atestiguados, adjetivos y unidades posteriores |
 
 Los sustantivos latinos se muestran con formas completas cuando el Appendix ofrece paradigmas completos. Cuando el Appendix solo ofrece **desinencias** griegas, se practican únicamente esas desinencias: no se reconstruyen sustantivos enteros.
 
@@ -52,3 +52,21 @@ La **UD4 latina** lee literalmente la tabla «Tercera declinación · cuatro par
 La **UD3 griega** se desglosa en cinco modelos independientes de la primera declinación. El compilador exige la tabla «Primera declinación · tabla 98» y comprueba sus quince celdas de desinencias antes de asociar las variantes de singular descritas en la explicación de la unidad. Solo se practican **desinencias**, no paradigmas completos construidos por analogía; el femenino mixto conserva alfa en nominativo y acusativo, pero eta en genitivo y dativo. Los plurales se toman expresamente de la columna común de esa tabla.
 
 Cada registro lleva unidad, capítulo, título de la tabla, SHA del Appendix y una nota editorial cuando corresponde. La ampliación mantiene la selección acumulativa: UD3 pasiva no aparece al elegir UD2, ni los modelos latinos de UD4 al elegir UD3. Las pruebas automáticas comparan el banco con una recompilación directa de las fuentes y comprueban los cuatro paradigmas de tercera declinación, las cinco variantes griegas, la sincretía y el funcionamiento sin conexión en la subruta GitHub Pages.
+
+
+## Fase tercera: tiempos perfectivos activos, adjetivos y concordancia
+
+**Fuente fija:** exactamente el mismo checkout de Appendix identificado en `config/sources.lock.json`; se leen `indicativo.html`, `adjetivos.html` y los temas UD4 y UD5 de `assets/curriculum.json`. La compilación falla si la unidad deja de remitir al capítulo correspondiente, desaparece una tabla, cambia su número de filas o se rompe su estructura. Cada nuevo registro documenta curso, unidad, paradigma, título de tabla y archivo de origen.
+
+| Bloque | Unidad | Paradigmas y evidencia | Limitaciones |
+| --- | --- | --- | --- |
+| Perfecto activo latino | Latín I UD4 | `amo`, `habeo`, `duco`, `audio`, `capio` y `sum`; tablas de perfecto y pluscuamperfecto del indicativo | Los supinos se usan únicamente como parte del enunciado; sin perfectos pasivos |
+| Adjetivos latinos de tercera | Latín I UD5 | `brevis`, `acer`, `audax`, `vetus` de `adjetivos.html` | No se inventan declinaciones para otros lemas |
+| Adjetivos griegos | Griego I UD5 | Tablas del tipo 2–1–2, 2–2 y los irregulares `πολύς` y `μέγας` | No se importan modelos ajenos a la UD5 |
+| Concordancia griega | Griego I UD5 | Artículo de UD3 + adjetivos de UD5, cotejo de caso, género y número | Sin sintagmas con sustantivos sin paradigma completo atestiguado |
+
+La tabla de `βάρβαρος` usa el mismo paradigma para masculino y femenino, que se conserva como dos posibles análisis de la forma. En `πολύς` y `μέγας` hay celdas fusionadas que abarcan nominativo, vocativo y acusativo neutros: la lectura del HTML expande **solo esa celda ya documentada**, sin interpolar formas inexistentes. Se mantienen los acentos escritos en el Appendix, y se eliminan exclusivamente los guiones tipográficos que separan raíz y desinencia en la propia tabla.
+
+La concordancia solicita la forma del adjetivo que concuerda con un artículo griego expresamente documentado, mostrando el análisis de caso, género y número de ese artículo. El motor verifica todas las formas que concuerdan con dichas características y excluye del sorteo de distractores **todas** las soluciones válidas, incluso cuando el paradigma presenta sincretismo. La actividad solo aparece para Griego I desde UD5; la selección de UD4 mantiene el banco acumulado de UD1–UD3, sin fingir nuevas lecciones de morfología.
+
+El bloque completo conserva independencia offline mediante el mismo service worker `schola-morphology-`. Las pruebas comprueban 60 registros, procedencias, casos y géneros, acentos y paradigmas irregulares, concordancia, cuarentena de unidades no habilitadas, regresiones de fuentes y funcionamiento bajo la subruta real de GitHub Pages.
