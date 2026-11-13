@@ -48,3 +48,8 @@
   .lexicon-word-list{padding:8px}.lexical-word{padding:14px 12px}
   .lexicon-practice-link{margin-left:0}
 }
+
+/* Evidencias lexicográficas: información secundaria y advertencias editoriales. */
+.lexical-evidence{font-size:.79rem;line-height:1.45;color:var(--muted);margin:10px 0 0}
+.lexical-evidence-link{display:inline-block;font-size:.82rem;font-weight:700;color:var(--accent);margin-top:8px}
+.lexical-alert{border-left:3px solid var(--warning);background:var(--panel);color:var(--ink);padding:9px 12px;margin:12px 0 0;border-radius:0 7px 7px 0;font-size:.85rem;line-height:1.5}
