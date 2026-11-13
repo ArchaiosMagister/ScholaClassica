@@ -122,6 +122,7 @@ jobs:
             build/morfologia/paradigmas-preparados-sin-unidad.json
             build/morfologia/candidaturas-triaje-filologico.json
             build/morfologia/auditoria-unimorph-original.json
+            build/morfologia/lote-unimorph-completo.json
           if-no-files-found: error
           retention-days: 14
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
