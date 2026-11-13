@@ -91,6 +91,10 @@ assert.ok(athenae&&athenae.unit===4&&athenae.forms.length===5);
 assert.ok(!athenae.forms.some(f=>f.number==='singular'));
 assert.ok(!morphology.records.some(r=>r.id==='latin-adjetivo-reserva-liber-free'),
   'El adjetivo preparado para otra fase no debe ser calificable');
+assert.equal(existsSync(join(out,'data/morfologia/adjetivos-reservados.json')),false,
+  'La reserva de adjetivos docentes no se publica en el portal');
+assert.equal(existsSync(join(out,'config/nominal-teacher-decisions.json')),false,
+  'El archivo de decisiones académicas no forma parte de la PWA');
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-LATINOS.md').includes('3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
