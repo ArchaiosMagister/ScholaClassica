@@ -384,6 +384,11 @@ export async function buildMorphology({out,lock}){
     vocabulaSha:lock.sources.vocabula.sha,
     manifest:teacherManifest
   });
+  const reservedAdjectives=JSON.parse(await readFile(
+    join(root,'data/morfologia/adjetivos-reservados.json'),'utf8'));
+  assert.equal(reservedAdjectives.schema,'schola-morphology-pending-adjectives/v1');
+  assert.deepEqual(reservedAdjectives.records,teacher.stagedAdjectives,
+    'La reserva persistente de liber adjetivo no coincide con la decisión docente');
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     records:teacher.records};
   assert.equal(finalBank.records.length,92+bulk.records.length+latin.records.length+
