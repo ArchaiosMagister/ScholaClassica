@@ -1,4 +1,5 @@
-import {mountVocabulaAdmin,resetVocabulaAdmin} from './admin-vocabula.mjs';
+import {mountVocabulaAdmin,resetVocabulaAdmin,showGrammarReports} from './admin-vocabula.mjs';
+import {mountGrammarAudit,resetGrammarAudit} from './gramatica-auditoria.mjs';
 // El HTML es público: solo la Edge Function determina si existe acceso docente.
 // Nunca se almacenan aquí contraseñas, claves privilegiadas ni datos de alumnos.
 const el=id=>document.getElementById(id);
@@ -21,6 +22,7 @@ function state(section,message=''){
     el('notices').replaceChildren();
     loadedNotices=[];sourceState={vocabula:'loading',palabra:'loading'};
     resetVocabulaAdmin();
+    resetGrammarAudit();
   }
 }
 function setBusy(value){
@@ -136,6 +138,7 @@ async function fetchNotices(){
   loadedNotices.sort((a,b)=>(Date.parse(b.created_at)||0)-(Date.parse(a.created_at)||0));
   renderNotices();
   await mountVocabulaAdmin({client,refreshNotices:fetchNotices});
+  mountGrammarAudit({showGrammarReports});
   el('status').textContent='Sesión docente protegida con TOTP';
 }
 function renderNotices(){
