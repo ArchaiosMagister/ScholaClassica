@@ -18,14 +18,13 @@ const server=createServer(async(req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 let browser;
-const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',turnstileSiteKey:'0x4AAAAAAA0000000000000000',username:'MagisterArchaios'};
+const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',username:'MagisterArchaios'};
 const install=async(page,allow=true)=>{
   await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(config)}));
   await page.addInitScript((allow)=>{
     const mock={session:false,aal:'aal1',factor:false,allow};
     window.__teacherMock=mock;
     const success=data=>({data,error:null});
-    window.turnstile={render:()=>1,getResponse:()=> 'valid-turnstile-token',reset:()=>{}};
     const auth={
       setSession:async({access_token,refresh_token})=>{
         if(access_token!=='mock-access'||refresh_token!=='mock-refresh')
@@ -50,17 +49,17 @@ const install=async(page,allow=true)=>{
       if(name==='schola-login'){
         mock.loginCalls=(mock.loginCalls||0)+1;
         if(options?.body?.username!=='MagisterArchaios'||
-          options.body?.password!=='clave-correcta'||
-          options.body?.turnstileToken!=='valid-turnstile-token')
+          options.body?.password!=='clave-correcta')
           return {data:null,error:new Error('invalid')};
         return success({access_token:'mock-access',refresh_token:'mock-refresh'});
       }
       if(name!=='schola-inbox')throw new Error('Unexpected endpoint');
       mock.inboxCalls=(mock.inboxCalls||0)+1;
       if(mock.aal!=='aal2')return {data:{authorized:false},error:null};
-      return mock.allow?success({authorized:true,items:[{source:'vocabula',
-        title:'palabra',course:'lat1',summary:'<img src=x onerror=alert(1)>',
-        created_at:'2026-11-12T12:00:00Z'}]}):{data:{authorized:false},error:null};
+      return mock.allow?success({authorized:true,items:[
+        {source:'vocabula',title:'palabra',course:'lat1',summary:'<img src=x onerror=alert(1)>',created_at:'2026-11-12T12:00:00Z'},
+        {source:'palabra',title:'etimología',course:'1.º Bachillerato',summary:'Definición propuesta',created_at:'2026-11-12T11:00:00Z'}
+      ]}):{data:{authorized:false},error:null};
     }};
     window.supabase={createClient:()=>({auth,functions})};
   },allow);
@@ -94,6 +93,11 @@ try{
   await good.locator('#enroll-form button').click();
   await good.locator('#teacher').waitFor({state:'visible'});
   assert.equal(await good.evaluate(()=>window.__teacherMock.inboxCalls),1);
+  assert.equal(await good.locator('.notice').count(),2);
+  await good.locator('#notice-source').selectOption('palabra');
+  assert.equal(await good.locator('.notice').count(),1);
+  assert.ok((await good.locator('.notice h3').textContent()).includes('etimología'));
+  await good.locator('#notice-source').selectOption('vocabula');
   assert.equal(await good.locator('.notice').count(),1);
   assert.ok((await good.locator('.notice p').textContent()).includes('<img'));
   assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
