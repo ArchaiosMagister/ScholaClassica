@@ -22,8 +22,10 @@ const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publish
 const install=async(page,allow=true,setupOnly=false)=>{
   await page.route('**/functions/v1/schola-palabra-inbox',route=>
     route.fulfill({
-      status:allow?200:403,contentType:'application/json',
-      headers:{'access-control-allow-origin':'*'},
+      status:route.request().method()==='OPTIONS'?204:allow?200:403,contentType:'application/json',
+      headers:{'access-control-allow-origin':'*',
+        'access-control-allow-methods':'POST, OPTIONS',
+        'access-control-allow-headers':'authorization, apikey, content-type'},
       body:JSON.stringify(allow
         ?{authorized:true,source:'palabra',items:[{source:'palabra',title:'etimología',
           course:'1.º Bachillerato',summary:'Definición propuesta',
