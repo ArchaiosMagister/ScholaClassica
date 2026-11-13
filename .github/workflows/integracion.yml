@@ -93,6 +93,22 @@ jobs:
         run: npm run test:browser:vocabula
       - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
         run: npm run test:browser:docente
+      - name: Empaquetar SDK Supabase local y preparar alta docente de dos factores
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund \
+            @supabase/supabase-js@2.119.0 esbuild@0.25.12 playwright@1.56.1
+          node scripts/pack-docente-sdk.mjs
+          echo "SCHOLA_DOCENTE_SDK_SHA256=$(cat build/docente/supabase.sha256)" >> "$GITHUB_ENV"
+      - name: Construir zona de alta TOTP en modo limitado
+        env:
+          SCHOLA_DOCENTE_ENABLE: confirmed
+          SCHOLA_DOCENTE_SUPABASE_URL: https://wpwlguufpkfnzlbyproe.supabase.co
+          SCHOLA_DOCENTE_PUBLISHABLE_KEY: sb_publishable_71JJZAqQGphmEjfnGIk8GQ_kAmltORO
+          SCHOLA_DOCENTE_SDK_FILE: build/docente/supabase.js
+        run: |
+          npm run build
+          node scripts/audit-docente-setup.mjs
+          node tests/docente-setup-browser.mjs
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
         uses: actions/upload-artifact@v4
         with:
