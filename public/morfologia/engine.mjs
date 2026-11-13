@@ -52,17 +52,27 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
   const candidates=[];
   for(const record of records){
     const grouped=groupedForms(record);
-    for(let index=0;index<record.forms.length;index++){
-      const entry=record.forms[index];
-      if(activity==='form'){
-        const correct=fold(entry.form);
-        const distractors=unique(grouped.map(x=>x.form)).filter(x=>x!==correct);
+    if(activity==='form'){
+      // Una misma casilla del Appendix puede documentar varias formas válidas
+      // (civēs / civīs en acusativo plural, por ejemplo). Nunca se ofrece una
+      // variante válida como distractor de la otra.
+      const byAnalysis=new Map();
+      for(const entry of record.forms){
+        const analysis=fold(entry.analysis),form=fold(entry.form);
+        if(!byAnalysis.has(analysis))byAnalysis.set(analysis,new Set());
+        byAnalysis.get(analysis).add(form);
+      }
+      for(const [index,[analysis,forms]] of [...byAnalysis].entries()){
+        const acceptedForms=[...forms];
+        const distractors=unique(grouped.map(x=>x.form))
+          .filter(form=>!forms.has(form));
         if(distractors.length<3)continue;
+        const correct=shuffle(acceptedForms,rng)[0];
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),correct],rng);
         candidates.push({
           id:record.id+':form:'+index,activity,
-          prompt:'Selecciona la forma de '+fold(entry.analysis)+'.',
-          paradigm:record.paradigm,form:correct,correct,options,
+          prompt:'Selecciona la forma de '+analysis+'.',
+          paradigm:record.paradigm,form:correct,correct,acceptedForms,options,
           evidence:record.evidence,language
         });
       }
@@ -95,7 +105,10 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
 }
 export function evaluate(question,choice){
   if(!question?.options?.includes(choice))throw Error('Respuesta ajena al ejercicio');
-  return {correct:choice===question.correct,expected:question.correct,
+  const valid=question.acceptedForms?.includes(choice)||choice===question.correct;
+  const variants=question.acceptedForms?.length>1?
+    ' Alternativas documentadas: '+question.acceptedForms.join(' o ')+'.':'';
+  return {correct:valid,expected:variants?question.acceptedForms.join(' / '):question.correct,
     note:question.ambiguous?'Esta forma tiene varios análisis posibles; se muestran juntos.':
-      'Forma tomada directamente de un paradigma curricular publicado.'};
+      'Forma tomada directamente de un paradigma curricular publicado.'+variants};
 }
