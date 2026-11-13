@@ -6,7 +6,8 @@ import {compileGreekNounBatch} from '../scripts/greek-noun-conciliation.mjs';
 import {compileGreekNounExpansion} from '../scripts/greek-noun-bulk.mjs';
 import {readGreekNounSource} from '../scripts/greek-noun-conciliation.mjs';
 import {availableRecords} from '../public/morfologia/engine.mjs';
-import {greekNounPhrasePairs} from '../public/morfologia/greek-noun-phrases.mjs';
+import {greekNounPhrasePairs,makeGreekNounPhraseTables}
+  from '../public/morfologia/greek-noun-phrases.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
@@ -79,4 +80,33 @@ test('al alterar datos faltantes, no se habilita una ficha inferida',()=>{
   assert.ok(!downgraded.records.some(r=>r.paradigm.includes('βιβλίον')));
   assert.ok(downgraded.review.some(r=>r.lemma.normalize('NFD').startsWith('βιβλ')));
   assert.throws(()=>rerun({vocabulaSha:'main'}),/SHA de Vocabula no fijado/);
+});
+
+
+test('UD8 recupera géneros docentes explícitos y las variantes de ν eufónica',()=>{
+  const goat=result.records.find(r=>r.paradigm.startsWith('αἴξ,'));
+  assert.ok(goat,'αἴξ con acepción femenina declarada debe incorporarse');
+  assert.equal(goat.gender,'femenino');
+  assert.match(goat.evidence.genderEvidence,/docente/);
+  assert.ok(!result.records.some(r=>r.paradigm.startsWith('ἄνθρωπος,')),
+    'No se asigna arbitrariamente un género a ἄνθρωπος');
+  const elder=result.records.find(r=>r.paradigm.startsWith('γέρων,'));
+  assert.ok(elder,'γέρων con artículo docente y casillas atestiguadas');
+  assert.equal(elder.unit,8);
+  const dat=elder.forms.filter(f=>f.case==='dativo'&&f.number==='plural').map(f=>f.form);
+  assert.equal(dat.length,2);
+  assert.ok(dat.every(f=>!f.includes('(')&&!f.includes(')')));
+  assert.equal(dat[0]+'ν',dat[1]);
+  const ids=new Set(['griego-articulo','griego-adj-agathos',
+    'griego-adj-barbaros','griego-adj-megas',elder.id]);
+  const subset={...bank,records:bank.records.filter(r=>ids.has(r.id))};
+  const pairs=greekNounPhrasePairs(subset,{language:'griego',unit:8});
+  assert.equal(pairs.length,3);
+  const tables=makeGreekNounPhraseTables(subset,{
+    language:'griego',unit:8,limit:3,rng:()=>.25});
+  assert.ok(tables.length>=1);
+  const cells=tables.flatMap(t=>t.cells).filter(c=>c.case==='dativo'&&c.number==='plural');
+  assert.ok(cells.length>=1);
+  assert.ok(cells.every(c=>c.acceptedForms.length===4),
+    'ν opcional por dos posiciones atributivas produce cuatro opciones válidas');
 });
