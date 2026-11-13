@@ -21,13 +21,13 @@ const key=text=>noQuantity(text).normalize('NFD')
 function declension(nom,gen,gender){
   const n=key(nom),g=key(gen);
   const ends=s=>n.endsWith(key(s)),endsGen=s=>g.endsWith(key(s));
-  if(ends('ος')&&endsGen('ου')&&gender==='masculino')
+  if(ends('ος')&&endsGen('ου')&&gender!=='neutro')
     return {name:'2.ª declinación',unit:1,topic:'Segunda declinación masculina',marker:'–ος'};
   if(ends('ον')&&endsGen('ου')&&gender==='neutro')
     return {name:'2.ª declinación',unit:2,topic:'Segunda declinación neutra',marker:'–ον'};
-  if(ends('η')&&endsGen('ης')&&gender==='femenino')
+  if(ends('η')&&endsGen('ης')&&gender!=='masculino')
     return {name:'1.ª declinación (η)',unit:3,topic:'Primera declinación',marker:'–ης'};
-  if(ends('α')&&endsGen('ας')&&gender==='femenino')
+  if(ends('α')&&endsGen('ας')&&gender!=='masculino')
     return {name:'1.ª declinación (α)',unit:3,topic:'Primera declinación',marker:'–ας'};
   if((ends('ης')||ends('ας'))&&endsGen('ου')&&gender==='masculino')
     return {name:'1.ª declinación masculina',unit:3,topic:'Primera declinación',marker:'–ου'};
@@ -64,8 +64,7 @@ function checkedForms(lemma,rows,entry){
   if(!nominative||!genitive||key(nominative[1])!==key(lemma))
     throw Error('Nominativo o genitivo no concordante');
   const declared=entry.form.match(/\((ὁ|ἡ|τὸ|τό)\)/u)?.[1];
-  if(/\([^)]*(?:\s+o\s+|\/)\s*(?:ὁ|ἡ|m|f)[^)]*\)/iu.test(entry.form))
-    throw Error('Género de uso variable: necesita decisión docente');
+  const variable=/\([^)]*(?:\s+o\s+|\/)\s*(?:ὁ|ἡ|m|f)[^)]*\)/iu.test(entry.form);
   const explicit=declared?(declared==='τό'?'neutro':ARTICLES.get(declared)):null;
   const seen=new Set();
   for(const [tag,parts] of [
@@ -82,12 +81,12 @@ function checkedForms(lemma,rows,entry){
   // profesor puede delimitar UN género explícito; sin esa decisión se excluye.
   if(explicit&&seen.size&&!seen.has(explicit))
     throw Error('Artículo de fuente y género docente incompatibles');
-  const gender=explicit||([...seen].length===1?[...seen][0]:null);
-  if(!gender)throw Error('Género no acreditado unívocamente por artículos/ficha docente');
-  const genderEvidence=explicit?
-    (seen.size>1?'docente-acepción-con-fuente-de-género-variable':
-      'artículo-docente-contrastado'):
-    'artículo-singular-de-UniMorph';
+  const gender=variable?null:(explicit||([...seen].length===1?[...seen][0]:null));
+  const genderEvidence=variable?'género-variable-enunciado-docente':
+    (explicit?
+      (seen.size>1?'docente-acepción-con-fuente-de-género-variable':
+        'artículo-docente-contrastado'):
+      (gender?'artículo-singular-de-UniMorph':'sin-género-único-acreditado'));
   const forms=CASES.flatMap(([cas,c])=>NUMBERS.flatMap(([number,n])=>{
     const row=byTag.get('N;'+c+';'+n);
     const source=noQuantity(row?.[1]);
@@ -126,8 +125,9 @@ function checkLexGender(entry,gender){
   const declared=entry.form.match(/\((ὁ|ἡ|τὸ|τό)\)/u)?.[1];
   if(declared&&(declared==='τό'?'neutro':ARTICLES.get(declared))!==gender)
     throw Error('Género contradice el enunciado docente');
-  if(/\([^)]*(?:\s+o\s+|\/)[^)]*\)/u.test(entry.form))
-    throw Error('Género de uso variable: necesita decisión docente');
+  // Un género variable impide el uso en concordancia, pero no en
+  // análisis o declinación si las diez casillas están documentadas.
+  // checkedForms asigna gender:null y conserva la ambigüedad.
 }
 function checkCurriculum(curriculum,decl){
   const topic=curriculum?.griego?.units?.find(u=>u.number===decl.unit)?.topics
@@ -197,9 +197,11 @@ export function compileGreekNounExpansion({
       if(enabledUnit>10)throw Error('Modelo todavía no habilitado en la interfaz');
       const record={
         id:'griego-sustantivo-import-'+entry.id,language:'griego',
-        unit:enabledUnit,kind:'sustantivo',gender:checked.gender,
-        paradigm:checked.nominative+', '+checked.genitive+' ('+
-          [...ARTICLES].find(([,g])=>g===checked.gender)[0]+') · '+decl.name,
+        unit:enabledUnit,kind:'sustantivo',
+        ...(checked.gender?{gender:checked.gender}:{}),
+        paradigm:checked.nominative+', '+checked.genitive+
+          (checked.gender?' ('+[...ARTICLES].find(([,g])=>g===checked.gender)[0]+')':' (género variable/no acreditado)')+
+          ' · '+decl.name,
         forms:checked.forms,
         evidence:{
           source:'UniMorph grc + Vocabula; cotejo curricular con Appendix',
