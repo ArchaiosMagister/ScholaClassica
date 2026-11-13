@@ -38,9 +38,13 @@ export function validateWordFilter(body){
   if(!body||typeof body!=='object'||Array.isArray(body))return null;
   const offset=body.offset??0;
   const subject=body.subject??'';
+  const search=body.search??'';
   if(!Number.isSafeInteger(offset)||offset<0||offset>100000)return null;
   if(subject!==''&&!SUBJECTS.has(subject))return null;
-  return {offset,subject,pageSize:PAGE_SIZE};
+  // Restringir los metacaracteres de filtros PostgREST en búsquedas literales.
+  if(typeof search!=='string'||search.length>80||
+    !/^[\\p{L}\\p{M}\\p{N}\\s-]*$/u.test(search))return null;
+  return {offset,subject,search:search.trim().normalize('NFC'),pageSize:PAGE_SIZE};
 }
 export function validateReportFilter(body){
   if(!body||typeof body!=='object'||Array.isArray(body))return null;
