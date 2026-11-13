@@ -1,12 +1,12 @@
 {
   "schema": "schola-evolutio-va-closure-review/v1",
   "date": "2026-11-13",
-  "method": "Cierre de cobertura de los 221 resultados léxicos documentados: 132 análisis editoriales y 89 dictámenes individuales de reserva sin certificación integral; el nombre del fichero conserva el tamaño de la primera tanda. Nunca habilita ejercicios ni implica comprobación DNV. Tres reserves resoltes documentalment: tonare (analogia lèxica), luxum i squamam (manlleus); cap exigeix una decisió de llei patrimonial.",
+  "method": "Cierre de cobertura de los 221 resultados léxicos documentados: 132 análisis editoriales y 89 dictámenes individuales de reserva sin certificación integral; el nombre del fichero conserva el tamaño de la primera tanda. Nunca habilita ejercicios ni implica comprobación DNV. Tres reserves resoltes documentalment: tonare (analogia lèxica), luxum i squamam (manlleus); cap exigeix una decisió de llei patrimonial. Resoltes les últimes tres decisions docents: octo i dictum en reserva, sigĭllum per a estudi històric no avaluable; cap llei certificada addicional.",
   "summary": {
     "revisadosEditorialmente": 132,
     "restantesExaminadosConReserva": 89,
-    "decisionesDocentesPendientes": 3,
-    "necesitanContrastacionFilologica": 86,
+    "decisionesDocentesPendientes": 0,
+    "necesitanContrastacionFilologica": 89,
     "aptosParaPractica": 0
   },
   "records": [
@@ -858,8 +858,8 @@
       "valenciano": "huit",
       "lexicoDocumentado": true,
       "dictamen": "pendent_de_contrast_fonetic_integral",
-      "categoria": "decisio_docent_reservada",
-      "sintesisIndividual": "HUIT forma dialectal valenciana de VUIT, documentada en el mismo artículo; ŏcto corresponde al numeral.",
+      "categoria": "cadena_historica_reservada_per_decisio_docent",
+      "sintesisIndividual": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual.",
       "procesosParcialesPreexistentes": [],
       "reference": {
         "authority": "DCVB",
@@ -868,19 +868,19 @@
         "verification": "consulta_directa_de_articulo",
         "date": "2026-11-13"
       },
-      "requiereCriterioDocente": true,
-      "discrepanciaDocente": {
-        "topic": "huit com a variant valenciana de vuit",
-        "options": [
-          "Exigir VOCALITZACIÓ de -ct- amb etapes documentades",
-          "No exigir lleis fins aclarir la seqüència dialectal huit/vuit"
-        ],
-        "recommended": 1,
-        "reason": "El resultat valencià huit requereix documentar les etapes dialectals i no simplificar una variant com a única cadena."
-      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
       "dnvIndividualChecked": false,
       "filologiaIntegralVerificada": false,
-      "habilitada": false
+      "habilitada": false,
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual."
+      },
+      "modalidadEstudio": "reserva_fonetica"
     },
     {
       "id": "xl-223",
@@ -1046,8 +1046,8 @@
       "valenciano": "dit",
       "lexicoDocumentado": true,
       "dictamen": "pendent_de_contrast_fonetic_integral",
-      "categoria": "decisio_docent_reservada",
-      "sintesisIndividual": "El DCVB remite a una fase vulgar *dīctu por analogía verbal: no atribuir directamente una cadena regular desde dĭctu sin mediación.",
+      "categoria": "cadena_historica_reservada_per_decisio_docent",
+      "sintesisIndividual": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova.",
       "procesosParcialesPreexistentes": [],
       "reference": {
         "authority": "DCVB",
@@ -1056,19 +1056,19 @@
         "verification": "consulta_directa_de_articulo",
         "date": "2026-11-13"
       },
-      "requiereCriterioDocente": true,
-      "discrepanciaDocente": {
-        "topic": "dit i base vulgar *dīctu",
-        "options": [
-          "Exigir VOCALITZACIÓ de -ct- amb la base vulgar explícita",
-          "Reservar fins a fixar totes les etapes fonètiques de *dīctu"
-        ],
-        "recommended": 1,
-        "reason": "El DCVB explica analogia vocàlica; la base de les lleis no és sense matisos el clàssic dĭctu."
-      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
       "dnvIndividualChecked": false,
       "filologiaIntegralVerificada": false,
-      "habilitada": false
+      "habilitada": false,
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova."
+      },
+      "modalidadEstudio": "reserva_fonetica"
     },
     {
       "id": "xl-1033",
@@ -1479,8 +1479,8 @@
       "valenciano": "segell",
       "lexicoDocumentado": true,
       "dictamen": "pendent_de_contrast_fonetic_integral",
-      "categoria": "decisio_docent_reservada",
-      "sintesisIndividual": "El DCVB indica que segell es un arcaísmo reintroducido en la lengua culta; documentar étimo, pero no presentar automáticamente como desarrollo patrimonial productivo.",
+      "categoria": "estudi_historic_no_avaluable",
+      "sintesisIndividual": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles.",
       "procesosParcialesPreexistentes": [],
       "reference": {
         "authority": "DCVB",
@@ -1489,19 +1489,19 @@
         "verification": "consulta_directa_de_articulo",
         "date": "2026-11-13"
       },
-      "requiereCriterioDocente": true,
-      "discrepanciaDocente": {
-        "topic": "segell i la reintroducció culta",
-        "options": [
-          "Reservar la fitxa de pràctica fonètica",
-          "Permetre l'anàlisi de cadena patrimonial amb advertiment de reintroducció"
-        ],
-        "recommended": 0,
-        "reason": "L'ús modern i l'evolució medieval requereixen distinguir transmissió històrica i recuperació."
-      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
       "dnvIndividualChecked": false,
       "filologiaIntegralVerificada": false,
-      "habilitada": false
+      "habilitada": false,
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "estudi_historic_no_avaluable",
+        "decision": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles."
+      },
+      "modalidadEstudio": "estudi_historic_no_avaluable"
     },
     {
       "id": "xl-301",
