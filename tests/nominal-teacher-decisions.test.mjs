@@ -67,7 +67,7 @@ test('domus: las dos declinaciones y locativo están acreditados sin fusionar ca
   assert.ok(!availableRecords(bank,{language:'latin',unit:6})
     .some(x=>x.id===r.id));
   const loc=makeWrittenQuestions({...bank,records:[r]},
-    {language:'latin',unit:7,limit:50,rng:()=>.17})
+    {language:'latin',unit:7,limit:30,rng:()=>.17})
     .find(q=>q.prompt==='Escribe la forma de locativo singular.');
   assert.ok(loc);
   assert.equal(correctWritten(loc,'domi').correct,true);
