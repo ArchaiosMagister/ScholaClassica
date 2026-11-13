@@ -12,9 +12,9 @@ const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigm
 const expanded=compileAdditionalMorphology({curriculum,latinIndicativeHtml,latinAdjectivesHtml});
 test('la nueva colección tiene 20 paradigmas, con evidencia de tabla y sin duplicados',()=>{
   assert.equal(expanded.length,20);
-  assert.equal(bank.records.length,60);
-  assert.deepEqual(bank.records.slice(-20),expanded);
-  assert.deepEqual(bank.coverage,{latin:[1,2,3,4,5],griego:[1,2,3,4,5]});
+  assert.equal(bank.records.length,84);
+  assert.deepEqual(bank.records.slice(40,60),expanded);
+  assert.deepEqual(bank.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
   assert.equal(expanded.filter(r=>r.kind==='verbo').length,12);
   assert.equal(expanded.filter(r=>r.language==='latin'&&r.kind==='adjetivo').length,4);
   assert.equal(expanded.filter(r=>r.language==='griego'&&r.kind==='adjetivo').length,4);
