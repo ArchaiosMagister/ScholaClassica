@@ -26,7 +26,7 @@ test('Los avisos no se guardan sin conexión ni usan HTML de alumnado',()=>{
  assert.match(js,/Promise\.allSettled/);
  assert.match(js,/client\.functions\.invoke\('schola-inbox'/);
  assert.match(js,/schola-palabra-inbox/);
- assert.match(js,/item\.source==='palabra'/);
+ assert.match(js,/source==='palabra'/);
  assert.match(js,/detail\.textContent=/);
  assert.doesNotMatch(js,/innerHTML|localStorage|sessionStorage/);
  assert.match(html,/id="notice-source"/);
