@@ -53,7 +53,7 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
 test('Estados editoriales honestos: 221 documentados léxicamente, 20 propuestas, 281 sin propuesta',()=>{
  assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:221,propuestas:20,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:26,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
+  analisisEditoriales:28,casosConDiscrepancia:0,derivacionesDirectasDescartadas:4});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -114,10 +114,10 @@ test('Propuestas sin fuente no se promueven a verificadas',()=>{
  extraneous.proposals.push({latin:'ficticium',form:'fictici',lexicalStatus:'proposta',reference:null});
  assert.throws(()=>assembleEvolutioValenciano(bank,extraneous,norms,lock.sources.evolutio.sha),/sin étimo/);
 });
-test('26 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
+test('28 análisis editoriales, decisiones de criterio y ninguna ficha publicable',()=>{
  const good=matrix.records.filter(w=>['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(w.valenciano.estadoNormas));
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
- assert.equal(good.length,26);
+ assert.equal(good.length,28);
  assert.equal(disputed.length,0);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
@@ -185,8 +185,14 @@ test('Auditoría de las 215 candidaturas: 195 etimologías contrastadas, 20 pend
   assert.ok(original.has(item.latin),item.latin);
   const corresponding=record(item.latin);
   assert.equal(corresponding.valenciano.resultado,item.form);
-  assert.equal(corresponding.valenciano.estadoNormas,'pendent');
-  assert.equal(corresponding.valenciano.normas,null);
+  if(['cælum','ocŭlum'].includes(item.latin)){
+    assert.equal(corresponding.valenciano.estadoNormas,'analisi_editorial_revisada');
+    assert.ok(Array.isArray(corresponding.valenciano.normas));
+    assert.equal(corresponding.valenciano.aptoParaPractica,false);
+  }else{
+    assert.equal(corresponding.valenciano.estadoNormas,'pendent');
+    assert.equal(corresponding.valenciano.normas,null);
+  }
   assert.equal(item.eligibleForPractice,false);
   assert.equal(item.dnvChecked,false);
   assert.equal(item.phoneticLawsVerified,false);
@@ -266,4 +272,24 @@ test('La matriz de trabajo no se publica ni sustituye los recursos originales',(
  assert.equal(existsSync(join(dist,'apps/evolucion-fonetica/data/valenciano.json')),false);
  const built=JSON.parse(readFileSync(join(dist,'apps/evolucion-fonetica/data/pilot.json'),'utf8'));
  assert.deepEqual(built,bank);
+});
+
+test('Tres decisiones docentes nuevas: leyes y segmentos regenerables, sin autorización de práctica',()=>{
+ const expected={
+  'cælum':[['MONOP',[[1,2]]],['PALAT',[[0,1]]],['APOC',[[3,4]]],['FIX_M',[[4,5]]]],
+  'fĕrrum':[['ABER',[[4,5]]],['FIX_M',[[5,6]]]],
+  'ocŭlum':[['SINC',[[2,3]]],['PALAT',[[1,2]]],['APOC',[[4,5]]],['FIX_M',[[5,6]]]]
+ };
+ for(const [latin,laws] of Object.entries(expected)){
+  const row=record(latin).valenciano;
+  assert.deepEqual(row.normas.map(x=>[x.rule,x.spans]),laws,latin);
+  assert.equal(row.criterioDocente.scope,'criterio_de_clasificacion');
+  assert.equal(row.criterioDocente.approval,'accepted');
+  assert.equal(row.criterioDocente.date,'2026-11-13');
+  assert.equal(row.dnvIndividualChecked,false);
+  assert.equal(row.aprobadoDocente,false);
+  assert.equal(row.aptoParaPractica,false);
+ }
+ assert.match(record('ocŭlum').valenciano.explicacion,/cl-/);
+ assert.equal(matrix.summary.analisisEditoriales,28);
 });
