@@ -50,7 +50,7 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   assert.equal(await page.evaluate(()=>localStorage.getItem('scholaclassica-aspecto-v1')),'system');
   // Palabra del día: enlace externo seguro, sin compartir cuentas ni cachés.
-  const palabra=page.getByRole('link',{name:/4.º de ESO · Abrir sitio externo/});
+  const palabra=page.locator('#panel-herramientas a[href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/"]');
   assert.equal(await palabra.getAttribute('target'),'_blank');
   assert.equal(await palabra.getAttribute('rel'),'noopener noreferrer');
   const coursePicker=page.locator('#study-course');
