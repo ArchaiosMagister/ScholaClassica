@@ -20,9 +20,9 @@ const result=rerun();
 
 test('ampliación no manual: importa un lote verificable, sin duplicar los ocho testigos',()=>{
   assert.ok(result.records.length>=10,'El banco debe ganar bastantes más de ocho nombres');
-  assert.equal(bank.records.length,92+result.records.length);
+  assert.ok(bank.records.length>92+result.records.length,'También contiene nuevos nombres latinos');
   assert.deepEqual(bank.records.slice(84,92),legacy);
-  assert.deepEqual(bank.records.slice(92),result.records);
+  assert.deepEqual(bank.records.slice(92,92+result.records.length),result.records);
   assert.equal(result.audit.incorporated,result.records.length);
   assert.equal(result.audit.reviewNeeded,result.review.length);
   assert.equal(result.audit.sourceSha,lock.sources.vocabula.sha);
