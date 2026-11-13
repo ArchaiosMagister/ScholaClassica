@@ -6,6 +6,7 @@ const sections=['unavailable','login','enroll','verify','teacher'];
 const SCRIPT_URL='./vendor/supabase.js';
 const CAPTCHA_URL='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 let config,client,enrollment=null,busy=false,captchaId=null;
+let loadedNotices=[];
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
 function state(section,message=''){
   for(const id of sections)el(id).hidden=id!==section;
@@ -93,9 +94,17 @@ async function fetchNotices(){
     state('unavailable','Acceso docente no autorizado por el servidor');
     return;
   }
-  const notices=Array.isArray(response.data.items)?response.data.items:[];
+  loadedNotices=Array.isArray(response.data.items)?response.data.items:[];
+  renderNotices();
+  state('teacher','Sesión docente verificada con TOTP y autorizada por el servidor');
+}
+function renderNotices(){
+  const selected=el('notice-source').value;
+  const notices=loadedNotices.filter(item=>selected==='all'||item.source===selected);
+  el('notices').replaceChildren();
   el('notices-state').textContent=notices.length?
-    notices.length+' avisos pendientes':'No hay avisos pendientes en las fuentes conectadas';
+    notices.length+' avisos pendientes'+(selected==='all'?'':' de la aplicación seleccionada'):
+    'No hay avisos pendientes de la aplicación seleccionada';
   for(const item of notices){
     if(!['vocabula','palabra'].includes(item.source))continue;
     const article=document.createElement('article');article.className='notice';
@@ -111,8 +120,8 @@ async function fetchNotices(){
     link.target='_blank';link.rel='noopener noreferrer';link.textContent='Abrir aplicación original';
     article.append(heading,origin,detail,link);el('notices').append(article);
   }
-  state('teacher','Sesión docente verificada con TOTP y autorizada por el servidor');
 }
+el('notice-source').addEventListener('change',renderNotices);
 el('login-form').addEventListener('submit',event=>{
   event.preventDefault();
   void safely(async()=>{
