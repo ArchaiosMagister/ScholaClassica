@@ -270,3 +270,45 @@ respuesta automática cuando haya evidencia concreta de su flexión y se
 cumplan las condiciones de licencia; el cotejo secundario disponible
 hasta ahora no basta por sí solo para aprobar sus propuestas. El motor no
 genera formas faltantes mediante una declinación analógica.
+
+
+## Triaje filológico y fuentes nominales completas (13/11/2026)
+
+El informe `build/morfologia/candidaturas-triaje-filologico.json`
+reclasifica automáticamente las candidaturas del inventario como
+adjetivos, verbos, pronombres/numerales, entradas de cursos posteriores,
+casos sin fuente completa y excepciones o ambigüedades propiamente nominales.
+La reclasificación es una **propuesta de auditoría** y no añade soluciones
+a la calificación. La propuesta académica de seis decisiones docentes
+incluye alternativas y bibliografía con criterio por defecto; ninguna se
+aplica sin respuesta del profesor.
+
+La segunda pasada de auditoría consulta los **repositorios originales
+completos** `unimorph/grc` y `unimorph/lat`, fijados respectivamente
+a `7f4a58df733726c75c1355dd3a038e950d5e308f` y
+`050924c9f013e6aba4d7c87be243a1d79b6c5b10`. Sus licencias se
+identifican como CC BY-SA 3.0; el código fuente de esos repositorios no
+se incorpora al PWA. Solo se analizan las formas nominales de lemas
+presentes en el vocabulario docente, con rasgos de caso y número
+inequívocos. Cualquier forma suplente incorpora el SHA de su corpus
+original a la evidencia de la ficha. El informe
+`build/morfologia/lote-unimorph-completo.json` distingue rigurosamente
+**filas consultadas** de **paradigmas nuevos habilitados**: el corpus más
+grande puede resultar redundante para los lemas docentes ya cotejados,
+por lo que no se cuentan coincidencias como incorporaciones.
+
+Para `ἀνήρ`, `γυνή`, `πατήρ` y `μήτηρ`, cuyas tablas del
+subconjunto automático son incompletas o no existen, el módulo
+`scripts/irregular-greek-nouns.mjs` incorpora **excepciones verificadas
+individualmente** con paradigmas gramaticales y lexicográficos publicados.
+La unidad de entrada es UD8 y las variantes `-σι(ν)` se separan en dos
+respuestas documentadas; no se generan formas por aplicación automática
+a otros lemas. Las referencias y la ficha del vocabulario docente
+quedan en la evidencia individual y en el informe
+`build/morfologia/irregulares-griegos-cotejados.json`.
+
+Las divergencias sin testimonios completos (p. ej. homónimos como
+`liber` o variedades de `domus`), el currículo de Latín de 4.º y
+los lemas aún sin unidad acreditada permanecen aislados de las
+preguntas. El proceso no toca ni publica los repositorios originales y
+la PR de integración se mantiene en borrador.
