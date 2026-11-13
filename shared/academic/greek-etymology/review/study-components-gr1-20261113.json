@@ -2093,6 +2093,1772 @@
         "greek": "θέσις",
         "gloss": "posición"
       }
+    ],
+    "acéfalo": [
+      {
+        "greek": "ἀ-",
+        "gloss": "ausencia, privación"
+      },
+      {
+        "greek": "κεφαλή",
+        "gloss": "cabeza"
+      }
+    ],
+    "acromático": [
+      {
+        "greek": "ἀ-",
+        "gloss": "sin, carente de"
+      },
+      {
+        "greek": "χρῶμα",
+        "gloss": "color"
+      }
+    ],
+    "acrópolis": [
+      {
+        "greek": "ἄκρος",
+        "gloss": "alto, extremo"
+      },
+      {
+        "greek": "πόλις",
+        "gloss": "ciudad"
+      }
+    ],
+    "afonía": [
+      {
+        "greek": "ἀ-",
+        "gloss": "sin, privación"
+      },
+      {
+        "greek": "φωνή",
+        "gloss": "voz, sonido"
+      }
+    ],
+    "alergia": [
+      {
+        "greek": "ἄλλος",
+        "gloss": "otro, distinto"
+      },
+      {
+        "greek": "ἔργον",
+        "gloss": "actividad, reacción"
+      }
+    ],
+    "anacronismo": [
+      {
+        "greek": "ἀνά",
+        "gloss": "desajuste, inversión"
+      },
+      {
+        "greek": "χρόνος",
+        "gloss": "tiempo"
+      }
+    ],
+    "anagrama": [
+      {
+        "greek": "ἀνά",
+        "gloss": "reordenación"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "letra"
+      }
+    ],
+    "análisis": [
+      {
+        "greek": "ἀνά",
+        "gloss": "separación"
+      },
+      {
+        "greek": "λύσις",
+        "gloss": "disolución, descomposición"
+      }
+    ],
+    "análogo": [
+      {
+        "greek": "ἀνά",
+        "gloss": "proporción"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "razón, proporción"
+      }
+    ],
+    "andrógeno": [
+      {
+        "greek": "ἀνήρ",
+        "gloss": "varón"
+      },
+      {
+        "greek": "γενής",
+        "gloss": "producido, nacido"
+      }
+    ],
+    "androide": [
+      {
+        "greek": "ἀνήρ",
+        "gloss": "varón"
+      },
+      {
+        "greek": "εἶδος",
+        "gloss": "aspecto, forma"
+      }
+    ],
+    "anfibología": [
+      {
+        "greek": "ἀμφί",
+        "gloss": "ambos lados"
+      },
+      {
+        "greek": "βάλλω",
+        "gloss": "arrojar, poner"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "palabra, expresión"
+      }
+    ],
+    "ánfora": [
+      {
+        "greek": "ἀμφί",
+        "gloss": "por ambos lados"
+      },
+      {
+        "greek": "φέρω",
+        "gloss": "llevar"
+      }
+    ],
+    "ánodo": [
+      {
+        "greek": "ἀνά",
+        "gloss": "hacia arriba"
+      },
+      {
+        "greek": "ὁδός",
+        "gloss": "camino"
+      }
+    ],
+    "antagónico": [
+      {
+        "greek": "ἀντί",
+        "gloss": "contra, frente a"
+      },
+      {
+        "greek": "ἀγών",
+        "gloss": "lucha, disputa"
+      }
+    ],
+    "antidemocrático": [
+      {
+        "greek": "ἀντί",
+        "gloss": "en contra de"
+      },
+      {
+        "greek": "δῆμος",
+        "gloss": "pueblo"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder"
+      }
+    ],
+    "antítesis": [
+      {
+        "greek": "ἀντί",
+        "gloss": "enfrente, contra"
+      },
+      {
+        "greek": "θέσις",
+        "gloss": "posición, proposición"
+      }
+    ],
+    "antónimo": [
+      {
+        "greek": "ἀντί",
+        "gloss": "opuesto a"
+      },
+      {
+        "greek": "ὄνομα",
+        "gloss": "nombre"
+      }
+    ],
+    "antropoide": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "εἶδος",
+        "gloss": "apariencia, forma"
+      }
+    ],
+    "antropomorfismo": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "μορφή",
+        "gloss": "forma, apariencia"
+      }
+    ],
+    "arquetipo": [
+      {
+        "greek": "ἀρχή",
+        "gloss": "principio, origen"
+      },
+      {
+        "greek": "τύπος",
+        "gloss": "modelo, impronta"
+      }
+    ],
+    "ateo": [
+      {
+        "greek": "ἀ-",
+        "gloss": "privación, ausencia"
+      },
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      }
+    ],
+    "autarquía": [
+      {
+        "greek": "αὐτός",
+        "gloss": "uno mismo"
+      },
+      {
+        "greek": "ἀρκέω",
+        "gloss": "bastarse, ser suficiente"
+      }
+    ],
+    "autobiografía": [
+      {
+        "greek": "αὐτός",
+        "gloss": "uno mismo"
+      },
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir"
+      }
+    ],
+    "autodidacta": [
+      {
+        "greek": "αὐτός",
+        "gloss": "por sí mismo"
+      },
+      {
+        "greek": "διδάσκω",
+        "gloss": "enseñar"
+      }
+    ],
+    "autoevaluación": [
+      {
+        "greek": "αὐτός",
+        "gloss": "uno mismo"
+      },
+      {
+        "greek": "evaluación",
+        "gloss": "valoración (formación castellana)"
+      }
+    ],
+    "autógrafo": [
+      {
+        "greek": "αὐτός",
+        "gloss": "uno mismo"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir"
+      }
+    ],
+    "bibliobús": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "bus",
+        "gloss": "autobús (voz no griega)"
+      }
+    ],
+    "bibliofilia": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "φιλία",
+        "gloss": "afición, amor"
+      }
+    ],
+    "bibliófilo": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "φίλος",
+        "gloss": "amigo, amante"
+      }
+    ],
+    "bibliología": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio, tratado"
+      }
+    ],
+    "bibliomanía": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "μανία",
+        "gloss": "obsesión, afición desmedida"
+      }
+    ],
+    "bibliotecología": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "θήκη",
+        "gloss": "depósito, receptáculo"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "biblioteconomía": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "θήκη",
+        "gloss": "depósito"
+      },
+      {
+        "greek": "νόμος",
+        "gloss": "administración, regla"
+      }
+    ],
+    "biodegradable": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "degradable",
+        "gloss": "que puede degradarse (voz castellana)"
+      }
+    ],
+    "bioética": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "ἦθος",
+        "gloss": "conducta, carácter"
+      }
+    ],
+    "biogeografía": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "describir"
+      }
+    ],
+    "bioluminiscencia": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "luminiscencia",
+        "gloss": "emisión de luz (base latina)"
+      }
+    ],
+    "biomecánica": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "μηχανή",
+        "gloss": "máquina, mecanismo"
+      }
+    ],
+    "biomedicina": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "medicina",
+        "gloss": "disciplina médica (latín)"
+      }
+    ],
+    "biopsia": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "ὄψις",
+        "gloss": "vista, observación"
+      }
+    ],
+    "bioquímica": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "química",
+        "gloss": "disciplina química (base no griega inequívoca)"
+      }
+    ],
+    "biosfera": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "σφαῖρα",
+        "gloss": "esfera, ámbito"
+      }
+    ],
+    "biótopo": [
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      },
+      {
+        "greek": "τόπος",
+        "gloss": "lugar"
+      }
+    ],
+    "burocracia": [
+      {
+        "greek": "bureau",
+        "gloss": "oficina (francés)"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder, gobierno"
+      }
+    ],
+    "cacoquimia": [
+      {
+        "greek": "κακός",
+        "gloss": "malo"
+      },
+      {
+        "greek": "χυμός",
+        "gloss": "jugo, humor corporal"
+      }
+    ],
+    "cacosmia": [
+      {
+        "greek": "κακός",
+        "gloss": "malo"
+      },
+      {
+        "greek": "ὀσμή",
+        "gloss": "olor"
+      }
+    ],
+    "caligrafía": [
+      {
+        "greek": "καλός",
+        "gloss": "hermoso"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir"
+      }
+    ],
+    "calígrafo": [
+      {
+        "greek": "καλός",
+        "gloss": "hermoso"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir"
+      }
+    ],
+    "caligrama": [
+      {
+        "greek": "καλός",
+        "gloss": "hermoso"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "letra, escrito"
+      }
+    ],
+    "cardialgia": [
+      {
+        "greek": "καρδία",
+        "gloss": "corazón, cardias"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "cataclismo": [
+      {
+        "greek": "κατά",
+        "gloss": "hacia abajo"
+      },
+      {
+        "greek": "κλύζω",
+        "gloss": "inundar, arrastrar"
+      }
+    ],
+    "cirugía": [
+      {
+        "greek": "χείρ",
+        "gloss": "mano"
+      },
+      {
+        "greek": "ἔργον",
+        "gloss": "trabajo, acción"
+      }
+    ],
+    "cirujano": [
+      {
+        "greek": "χείρ",
+        "gloss": "mano"
+      },
+      {
+        "greek": "ἔργον",
+        "gloss": "trabajo, acción"
+      }
+    ],
+    "cosmopolita": [
+      {
+        "greek": "κόσμος",
+        "gloss": "mundo, universo"
+      },
+      {
+        "greek": "πόλις",
+        "gloss": "ciudad"
+      }
+    ],
+    "criptoanálisis": [
+      {
+        "greek": "κρυπτός",
+        "gloss": "oculto"
+      },
+      {
+        "greek": "ἀνά",
+        "gloss": "separación"
+      },
+      {
+        "greek": "λύσις",
+        "gloss": "análisis, descomposición"
+      }
+    ],
+    "criptógamo": [
+      {
+        "greek": "κρυπτός",
+        "gloss": "oculto"
+      },
+      {
+        "greek": "γάμος",
+        "gloss": "matrimonio, unión reproductora"
+      }
+    ],
+    "criptograma": [
+      {
+        "greek": "κρυπτός",
+        "gloss": "oculto"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "letra, escrito"
+      }
+    ],
+    "demoscopia": [
+      {
+        "greek": "δῆμος",
+        "gloss": "pueblo"
+      },
+      {
+        "greek": "σκοπέω",
+        "gloss": "observar"
+      }
+    ],
+    "dermalgia": [
+      {
+        "greek": "δέρμα",
+        "gloss": "piel"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "dermatosis": [
+      {
+        "greek": "δέρμα",
+        "gloss": "piel"
+      },
+      {
+        "greek": "−ωσις",
+        "gloss": "proceso, alteración"
+      }
+    ],
+    "diacronía": [
+      {
+        "greek": "διά",
+        "gloss": "a través de"
+      },
+      {
+        "greek": "χρόνος",
+        "gloss": "tiempo"
+      }
+    ],
+    "diáfano": [
+      {
+        "greek": "διά",
+        "gloss": "a través de"
+      },
+      {
+        "greek": "φαίνω",
+        "gloss": "mostrar, hacer aparecer"
+      }
+    ],
+    "diagnóstico": [
+      {
+        "greek": "διά",
+        "gloss": "discernimiento"
+      },
+      {
+        "greek": "γνῶσις",
+        "gloss": "conocimiento"
+      }
+    ],
+    "diagrama": [
+      {
+        "greek": "διά",
+        "gloss": "a través, por medio de"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "esquema, escritura"
+      }
+    ],
+    "diálisis": [
+      {
+        "greek": "διά",
+        "gloss": "separación"
+      },
+      {
+        "greek": "λύσις",
+        "gloss": "disolución"
+      }
+    ],
+    "diálogo": [
+      {
+        "greek": "διά",
+        "gloss": "intercambio, entre"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "palabra, discurso"
+      }
+    ],
+    "diarquía": [
+      {
+        "greek": "δι-",
+        "gloss": "dos"
+      },
+      {
+        "greek": "ἀρχή",
+        "gloss": "gobierno, mando"
+      }
+    ],
+    "diodo": [
+      {
+        "greek": "δι-",
+        "gloss": "dos"
+      },
+      {
+        "greek": "ὁδός",
+        "gloss": "camino, vía"
+      }
+    ],
+    "eclipse": [
+      {
+        "greek": "ἐκ",
+        "gloss": "fuera de"
+      },
+      {
+        "greek": "λείπω",
+        "gloss": "dejar, faltar"
+      }
+    ],
+    "efemérides": [
+      {
+        "greek": "ἐπί",
+        "gloss": "sobre, durante"
+      },
+      {
+        "greek": "ἡμέρα",
+        "gloss": "día"
+      }
+    ],
+    "efímero": [
+      {
+        "greek": "ἐπί",
+        "gloss": "durante"
+      },
+      {
+        "greek": "ἡμέρα",
+        "gloss": "día"
+      }
+    ],
+    "encefalografía": [
+      {
+        "greek": "ἐν",
+        "gloss": "dentro de"
+      },
+      {
+        "greek": "κεφαλή",
+        "gloss": "cabeza"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "registrar, escribir"
+      }
+    ],
+    "encefalopatía": [
+      {
+        "greek": "ἐν",
+        "gloss": "dentro de"
+      },
+      {
+        "greek": "κεφαλή",
+        "gloss": "cabeza"
+      },
+      {
+        "greek": "πάθος",
+        "gloss": "enfermedad, afección"
+      }
+    ],
+    "epigrafía": [
+      {
+        "greek": "ἐπί",
+        "gloss": "sobre"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir"
+      }
+    ],
+    "ergonómico": [
+      {
+        "greek": "ἔργον",
+        "gloss": "trabajo"
+      },
+      {
+        "greek": "νόμος",
+        "gloss": "norma, organización"
+      }
+    ],
+    "ergoterapia": [
+      {
+        "greek": "ἔργον",
+        "gloss": "trabajo"
+      },
+      {
+        "greek": "θεραπεία",
+        "gloss": "tratamiento"
+      }
+    ],
+    "eufonía": [
+      {
+        "greek": "εὖ",
+        "gloss": "bien, agradablemente"
+      },
+      {
+        "greek": "φωνή",
+        "gloss": "sonido, voz"
+      }
+    ],
+    "éxtasis": [
+      {
+        "greek": "ἐκ",
+        "gloss": "fuera de"
+      },
+      {
+        "greek": "στάσις",
+        "gloss": "estado, posición"
+      }
+    ],
+    "filántropo": [
+      {
+        "greek": "φίλος",
+        "gloss": "amigo, amante"
+      },
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      }
+    ],
+    "fonógrafo": [
+      {
+        "greek": "φωνή",
+        "gloss": "voz, sonido"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "registrar, escribir"
+      }
+    ],
+    "fonología": [
+      {
+        "greek": "φωνή",
+        "gloss": "voz, sonido"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio, tratado"
+      }
+    ],
+    "gastroscopia": [
+      {
+        "greek": "γαστήρ",
+        "gloss": "estómago"
+      },
+      {
+        "greek": "σκοπέω",
+        "gloss": "observar"
+      }
+    ],
+    "geocentrismo": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "κέντρον",
+        "gloss": "centro"
+      }
+    ],
+    "geodinámica": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "δύναμις",
+        "gloss": "fuerza, capacidad"
+      }
+    ],
+    "geofagia": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "φαγεῖν",
+        "gloss": "comer"
+      }
+    ],
+    "geofísica": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "φύσις",
+        "gloss": "naturaleza"
+      }
+    ],
+    "geoide": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "εἶδος",
+        "gloss": "forma, aspecto"
+      }
+    ],
+    "geomorfología": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "μορφή",
+        "gloss": "forma"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "heliocéntrico": [
+      {
+        "greek": "ἥλιος",
+        "gloss": "sol"
+      },
+      {
+        "greek": "κέντρον",
+        "gloss": "centro"
+      }
+    ],
+    "heliógrafo": [
+      {
+        "greek": "ἥλιος",
+        "gloss": "sol"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir, registrar"
+      }
+    ],
+    "helioscopio": [
+      {
+        "greek": "ἥλιος",
+        "gloss": "sol"
+      },
+      {
+        "greek": "σκοπέω",
+        "gloss": "observar"
+      }
+    ],
+    "heliotropismo": [
+      {
+        "greek": "ἥλιος",
+        "gloss": "sol"
+      },
+      {
+        "greek": "τροπή",
+        "gloss": "giro, orientación"
+      }
+    ],
+    "heliotropo": [
+      {
+        "greek": "ἥλιος",
+        "gloss": "sol"
+      },
+      {
+        "greek": "τρέπω",
+        "gloss": "girar, orientar"
+      }
+    ],
+    "hematocrito": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      },
+      {
+        "greek": "κρίνω",
+        "gloss": "separar, distinguir"
+      }
+    ],
+    "hemofilia": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      },
+      {
+        "greek": "φιλία",
+        "gloss": "afición, inclinación"
+      }
+    ],
+    "hemoglobina": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      },
+      {
+        "greek": "globina",
+        "gloss": "proteína (base de origen latino)"
+      }
+    ],
+    "hemólisis": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      },
+      {
+        "greek": "λύσις",
+        "gloss": "disolución, destrucción"
+      }
+    ],
+    "hemorragia": [
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      },
+      {
+        "greek": "ῥήγνυμι",
+        "gloss": "romper, hacer brotar"
+      }
+    ],
+    "hepatología": [
+      {
+        "greek": "ἧπαρ",
+        "gloss": "hígado"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "hipocampo": [
+      {
+        "greek": "ἵππος",
+        "gloss": "caballo"
+      },
+      {
+        "greek": "κάμπος",
+        "gloss": "monstruo marino"
+      }
+    ],
+    "hipogrifo": [
+      {
+        "greek": "ἵππος",
+        "gloss": "caballo"
+      },
+      {
+        "greek": "γρύψ",
+        "gloss": "grifo, criatura fabulosa"
+      }
+    ],
+    "hipología": [
+      {
+        "greek": "ἵππος",
+        "gloss": "caballo"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "hipoteca": [
+      {
+        "greek": "ὑπό",
+        "gloss": "debajo"
+      },
+      {
+        "greek": "τίθημι",
+        "gloss": "poner, colocar"
+      }
+    ],
+    "isócrono": [
+      {
+        "greek": "ἴσος",
+        "gloss": "igual"
+      },
+      {
+        "greek": "χρόνος",
+        "gloss": "tiempo"
+      }
+    ],
+    "isoglosa": [
+      {
+        "greek": "ἴσος",
+        "gloss": "igual"
+      },
+      {
+        "greek": "γλῶσσα",
+        "gloss": "lengua"
+      }
+    ],
+    "isotermo": [
+      {
+        "greek": "ἴσος",
+        "gloss": "igual"
+      },
+      {
+        "greek": "θερμός",
+        "gloss": "caliente"
+      }
+    ],
+    "jerarquía": [
+      {
+        "greek": "ἱερός",
+        "gloss": "sagrado"
+      },
+      {
+        "greek": "ἀρχή",
+        "gloss": "mando, gobierno"
+      }
+    ],
+    "leucemia": [
+      {
+        "greek": "λευκός",
+        "gloss": "blanco"
+      },
+      {
+        "greek": "αἷμα",
+        "gloss": "sangre"
+      }
+    ],
+    "lexicología": [
+      {
+        "greek": "λέξις",
+        "gloss": "palabra, expresión"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "macromolécula": [
+      {
+        "greek": "μακρός",
+        "gloss": "grande, largo"
+      },
+      {
+        "greek": "molecula",
+        "gloss": "molécula (latín)"
+      }
+    ],
+    "megalítico": [
+      {
+        "greek": "μέγας",
+        "gloss": "grande"
+      },
+      {
+        "greek": "λίθος",
+        "gloss": "piedra"
+      }
+    ],
+    "megalómano": [
+      {
+        "greek": "μέγας",
+        "gloss": "grande"
+      },
+      {
+        "greek": "μανία",
+        "gloss": "obsesión"
+      }
+    ],
+    "megavatio": [
+      {
+        "greek": "μέγας",
+        "gloss": "grande"
+      },
+      {
+        "greek": "vatio",
+        "gloss": "unidad de potencia (antropónimo moderno)"
+      }
+    ],
+    "metropolitano": [
+      {
+        "greek": "μήτηρ",
+        "gloss": "madre, principal"
+      },
+      {
+        "greek": "πόλις",
+        "gloss": "ciudad"
+      }
+    ],
+    "microclima": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "κλίμα",
+        "gloss": "clima, inclinación"
+      }
+    ],
+    "micrófono": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "φωνή",
+        "gloss": "voz, sonido"
+      }
+    ],
+    "micrómetro": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "μέτρον",
+        "gloss": "medida"
+      }
+    ],
+    "microondas": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "onda",
+        "gloss": "onda (latín)"
+      }
+    ],
+    "microorganismo": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "ὄργανον",
+        "gloss": "instrumento, órgano"
+      }
+    ],
+    "microprocesador": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "procesador",
+        "gloss": "componente que procesa (base latina)"
+      }
+    ],
+    "misántropo": [
+      {
+        "greek": "μισέω",
+        "gloss": "odiar"
+      },
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      }
+    ],
+    "misoneísta": [
+      {
+        "greek": "μισέω",
+        "gloss": "odiar"
+      },
+      {
+        "greek": "νέος",
+        "gloss": "nuevo"
+      }
+    ],
+    "mitomanía": [
+      {
+        "greek": "μῦθος",
+        "gloss": "relato, mito"
+      },
+      {
+        "greek": "μανία",
+        "gloss": "obsesión"
+      }
+    ],
+    "monóculo": [
+      {
+        "greek": "μόνος",
+        "gloss": "uno solo"
+      },
+      {
+        "greek": "oculus",
+        "gloss": "ojo (latín)"
+      }
+    ],
+    "monomanía": [
+      {
+        "greek": "μόνος",
+        "gloss": "único"
+      },
+      {
+        "greek": "μανία",
+        "gloss": "obsesión"
+      }
+    ],
+    "monosílabo": [
+      {
+        "greek": "μόνος",
+        "gloss": "uno solo"
+      },
+      {
+        "greek": "συλλαβή",
+        "gloss": "sílaba"
+      }
+    ],
+    "necrópolis": [
+      {
+        "greek": "νεκρός",
+        "gloss": "muerto, cadáver"
+      },
+      {
+        "greek": "πόλις",
+        "gloss": "ciudad"
+      }
+    ],
+    "neumotórax": [
+      {
+        "greek": "πνεῦμα",
+        "gloss": "aire, respiración"
+      },
+      {
+        "greek": "θώραξ",
+        "gloss": "tórax"
+      }
+    ],
+    "nostalgia": [
+      {
+        "greek": "νόστος",
+        "gloss": "regreso"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "odómetro": [
+      {
+        "greek": "ὁδός",
+        "gloss": "camino"
+      },
+      {
+        "greek": "μέτρον",
+        "gloss": "medida"
+      }
+    ],
+    "oftalmólogo": [
+      {
+        "greek": "ὀφθαλμός",
+        "gloss": "ojo"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio, especialista"
+      }
+    ],
+    "oftalmoscopia": [
+      {
+        "greek": "ὀφθαλμός",
+        "gloss": "ojo"
+      },
+      {
+        "greek": "σκοπέω",
+        "gloss": "observar"
+      }
+    ],
+    "osteítis": [
+      {
+        "greek": "ὀστέον",
+        "gloss": "hueso"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "osteomielitis": [
+      {
+        "greek": "ὀστέον",
+        "gloss": "hueso"
+      },
+      {
+        "greek": "μυελός",
+        "gloss": "médula"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "osteotomía": [
+      {
+        "greek": "ὀστέον",
+        "gloss": "hueso"
+      },
+      {
+        "greek": "τομή",
+        "gloss": "corte"
+      }
+    ],
+    "otología": [
+      {
+        "greek": "οὖς",
+        "gloss": "oído"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "otorrea": [
+      {
+        "greek": "οὖς",
+        "gloss": "oído"
+      },
+      {
+        "greek": "ῥέω",
+        "gloss": "fluir"
+      }
+    ],
+    "otorrinolaringólogo": [
+      {
+        "greek": "οὖς",
+        "gloss": "oído"
+      },
+      {
+        "greek": "ῥίς",
+        "gloss": "nariz"
+      },
+      {
+        "greek": "λάρυγξ",
+        "gloss": "laringe"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio, especialista"
+      }
+    ],
+    "otoscopia": [
+      {
+        "greek": "οὖς",
+        "gloss": "oído"
+      },
+      {
+        "greek": "σκοπέω",
+        "gloss": "observar"
+      }
+    ],
+    "paquidermo": [
+      {
+        "greek": "παχύς",
+        "gloss": "grueso"
+      },
+      {
+        "greek": "δέρμα",
+        "gloss": "piel"
+      }
+    ],
+    "parábola": [
+      {
+        "greek": "παρά",
+        "gloss": "al lado de, comparación"
+      },
+      {
+        "greek": "βάλλω",
+        "gloss": "arrojar, poner"
+      }
+    ],
+    "paradigma": [
+      {
+        "greek": "παρά",
+        "gloss": "al lado, modelo"
+      },
+      {
+        "greek": "δείκνυμι",
+        "gloss": "mostrar"
+      }
+    ],
+    "paréntesis": [
+      {
+        "greek": "παρά",
+        "gloss": "al lado"
+      },
+      {
+        "greek": "ἐν",
+        "gloss": "dentro"
+      },
+      {
+        "greek": "θέσις",
+        "gloss": "colocación"
+      }
+    ],
+    "parodia": [
+      {
+        "greek": "παρά",
+        "gloss": "al lado de, imitación"
+      },
+      {
+        "greek": "ᾠδή",
+        "gloss": "canto"
+      }
+    ],
+    "pedagogía": [
+      {
+        "greek": "παῖς",
+        "gloss": "niño"
+      },
+      {
+        "greek": "ἄγω",
+        "gloss": "conducir, guiar"
+      }
+    ],
+    "pedagogo": [
+      {
+        "greek": "παῖς",
+        "gloss": "niño"
+      },
+      {
+        "greek": "ἄγω",
+        "gloss": "conducir, guiar"
+      }
+    ],
+    "pediatra": [
+      {
+        "greek": "παῖς",
+        "gloss": "niño"
+      },
+      {
+        "greek": "ἰατρός",
+        "gloss": "médico"
+      }
+    ],
+    "pentagrama": [
+      {
+        "greek": "πέντε",
+        "gloss": "cinco"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "línea, trazo"
+      }
+    ],
+    "periferia": [
+      {
+        "greek": "περί",
+        "gloss": "alrededor"
+      },
+      {
+        "greek": "φέρω",
+        "gloss": "llevar"
+      }
+    ],
+    "perífrasis": [
+      {
+        "greek": "περί",
+        "gloss": "alrededor"
+      },
+      {
+        "greek": "φράσις",
+        "gloss": "expresión"
+      }
+    ],
+    "periódico": [
+      {
+        "greek": "περί",
+        "gloss": "alrededor"
+      },
+      {
+        "greek": "ὁδός",
+        "gloss": "camino, recorrido"
+      }
+    ],
+    "período": [
+      {
+        "greek": "περί",
+        "gloss": "alrededor"
+      },
+      {
+        "greek": "ὁδός",
+        "gloss": "camino, recorrido"
+      }
+    ],
+    "periscopio": [
+      {
+        "greek": "περί",
+        "gloss": "alrededor"
+      },
+      {
+        "greek": "σκοπέω",
+        "gloss": "observar"
+      }
+    ],
+    "piromanía": [
+      {
+        "greek": "πῦρ",
+        "gloss": "fuego"
+      },
+      {
+        "greek": "μανία",
+        "gloss": "obsesión"
+      }
+    ],
+    "policromía": [
+      {
+        "greek": "πολύς",
+        "gloss": "muchos"
+      },
+      {
+        "greek": "χρῶμα",
+        "gloss": "color"
+      }
+    ],
+    "problema": [
+      {
+        "greek": "πρό",
+        "gloss": "delante"
+      },
+      {
+        "greek": "βάλλω",
+        "gloss": "arrojar, colocar"
+      }
+    ],
+    "profeta": [
+      {
+        "greek": "πρό",
+        "gloss": "por adelantado"
+      },
+      {
+        "greek": "φημί",
+        "gloss": "decir, hablar"
+      }
+    ],
+    "programa": [
+      {
+        "greek": "πρό",
+        "gloss": "antes"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "escrito, letra"
+      }
+    ],
+    "prótesis": [
+      {
+        "greek": "πρό",
+        "gloss": "delante"
+      },
+      {
+        "greek": "θέσις",
+        "gloss": "colocación"
+      }
+    ],
+    "psicoanálisis": [
+      {
+        "greek": "ψυχή",
+        "gloss": "mente, alma"
+      },
+      {
+        "greek": "ἀνά",
+        "gloss": "separación"
+      },
+      {
+        "greek": "λύσις",
+        "gloss": "análisis"
+      }
+    ],
+    "psicópata": [
+      {
+        "greek": "ψυχή",
+        "gloss": "mente, alma"
+      },
+      {
+        "greek": "πάθος",
+        "gloss": "afección, padecimiento"
+      }
+    ],
+    "quiromasaje": [
+      {
+        "greek": "χείρ",
+        "gloss": "mano"
+      },
+      {
+        "greek": "masaje",
+        "gloss": "técnica de masaje (base no griega)"
+      }
+    ],
+    "rinoceronte": [
+      {
+        "greek": "ῥίς",
+        "gloss": "nariz"
+      },
+      {
+        "greek": "κέρας",
+        "gloss": "cuerno"
+      }
+    ],
+    "sincronía": [
+      {
+        "greek": "σύν",
+        "gloss": "juntos, al mismo tiempo"
+      },
+      {
+        "greek": "χρόνος",
+        "gloss": "tiempo"
+      }
+    ],
+    "sinfonía": [
+      {
+        "greek": "σύν",
+        "gloss": "juntos"
+      },
+      {
+        "greek": "φωνή",
+        "gloss": "voz, sonido"
+      }
+    ],
+    "tanatorio": [
+      {
+        "greek": "θάνατος",
+        "gloss": "muerte"
+      }
+    ],
+    "taxidermia": [
+      {
+        "greek": "τάξις",
+        "gloss": "orden, disposición"
+      },
+      {
+        "greek": "δέρμα",
+        "gloss": "piel"
+      }
+    ],
+    "telégrafo": [
+      {
+        "greek": "τῆλε",
+        "gloss": "lejos, a distancia"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir"
+      }
+    ],
+    "telegrama": [
+      {
+        "greek": "τῆλε",
+        "gloss": "lejos, a distancia"
+      },
+      {
+        "greek": "γράμμα",
+        "gloss": "letra, mensaje escrito"
+      }
+    ],
+    "xenofobia": [
+      {
+        "greek": "ξένος",
+        "gloss": "extranjero, extraño"
+      },
+      {
+        "greek": "φόβος",
+        "gloss": "miedo, aversión"
+      }
     ]
   }
 }
