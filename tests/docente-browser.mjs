@@ -53,6 +53,29 @@ const install=async(page,allow=true)=>{
           return {data:null,error:new Error('invalid')};
         return success({access_token:'mock-access',refresh_token:'mock-refresh'});
       }
+      if(name==='schola-vocab-admin'){
+        mock.vocabCalls=(mock.vocabCalls||0)+1;
+        if(mock.aal!=='aal2'||!mock.allow)return {data:null,error:new Error('forbidden')};
+        if(options?.body?.action==='words.list')return success({words:[{
+          id:'00000000-0000-4000-8000-000000000111',subject:'lat1',
+          form:'<img src=x onerror=alert(1)>',meaning:'palabra',
+          answers:['palabra'],units:['UD1'],in_exam:false,active:true
+        }],hasMore:false});
+        if(options?.body?.action==='words.save'){
+          mock.savedWords=(mock.savedWords||0)+1;
+          return success({saved:true,word:options.body});
+        }
+        if(options?.body?.action==='reports.list')return success({reports:[{
+          id:'00000000-0000-4000-8000-000000000222',kind:'translation',
+          subject:'lat1',mode:'general',entry_form:'amo',
+          message:'Hay otra acepción',status:'pending',teacher_note:''
+        }],hasMore:false});
+        if(options?.body?.action==='reports.review'){
+          mock.savedReports=(mock.savedReports||0)+1;
+          return success({saved:true,report:options.body});
+        }
+        throw new Error('Unexpected admin action');
+      }
       if(name!=='schola-inbox')throw new Error('Unexpected endpoint');
       mock.inboxCalls=(mock.inboxCalls||0)+1;
       if(mock.aal!=='aal2')return {data:{authorized:false},error:null};
@@ -102,6 +125,22 @@ try{
   assert.ok((await good.locator('.notice p').textContent()).includes('<img'));
   assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
   assert.equal(await good.locator('#totp-secret').inputValue(),'','El secreto se limpia tras el registro');
+  await good.locator('#vocab-load').click();
+  await good.locator('#vocab-word-list .notice').waitFor({state:'visible'});
+  assert.equal(await good.locator('#vocab-word-list img').count(),0,'Las palabras no inyectan HTML');
+  await good.locator('#vocab-new').click();
+  await good.locator('#vocab-form-text').fill('bellum, -i');
+  await good.locator('#vocab-meaning').fill('guerra');
+  await good.locator('#vocab-answers').fill('guerra');
+  await good.locator('#vocab-units').fill('UD1');
+  await good.locator('#vocab-word-form button[type=submit]').click();
+  assert.equal(await good.evaluate(()=>window.__teacherMock.savedWords),1);
+  await good.locator('#vocab-report-load').click();
+  await good.locator('#vocab-report-list .notice').waitFor({state:'visible'});
+  await good.locator('#vocab-report-list select').selectOption('resolved');
+  await good.locator('#vocab-report-list button').click();
+  assert.equal(await good.evaluate(()=>window.__teacherMock.savedReports),1);
+
   await good.locator('#logout').click();
   await good.locator('#login').waitFor({state:'visible'});
   assert.equal(await good.locator('#teacher').isVisible(),false);
