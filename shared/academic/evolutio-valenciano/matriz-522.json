@@ -11,8 +11,8 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 218,
-    "propuestas": 23,
+    "lexicoDocumentado": 221,
+    "propuestas": 20,
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
@@ -7937,16 +7937,23 @@
       },
       "valenciano": {
         "resultado": "dany",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": "DANY está documentado en DCVB desde damnum y puede promoverse con la acepción 'daño'.",
-        "criterioAuditoria": "sin_confirmacion_suficiente"
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=dany",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "DANY 1 'daño' del latín damnum; separar homógrafo antiguo de otra acepción."
       }
     },
     {
@@ -11545,16 +11552,23 @@
       },
       "valenciano": {
         "resultado": "espina",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": "ESPINA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
-        "criterioAuditoria": "sin_confirmacion_suficiente"
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=espina",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "ESPINA 'espina vegetal, púa' del latín spīna, no otras acepciones secundarias."
       }
     },
     {
@@ -11571,16 +11585,23 @@
       },
       "valenciano": {
         "resultado": "espuma",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": "ESPUMA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
-        "criterioAuditoria": "sin_confirmacion_suficiente"
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=espuma",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "ESPUMA 'espuma' del latín spuma, distinta del sinónimo ESCUMA de origen germánico con analogía latina."
       }
     },
     {
