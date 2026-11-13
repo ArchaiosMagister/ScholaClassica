@@ -44,7 +44,7 @@ const swPath=join(phoneticsDestination,'sw.js');
 let sw=await readFile(swPath,'utf8');
 if(!/const VERSION='[^']+';/.test(sw)||!sw.includes('keys.filter(key=>key!==VERSION)'))
   throw Error('Cambió el service worker original de Evolutio; revisar adaptación antes de publicar');
-sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\\nconst VERSION=CACHE_PREFIX+'$1';")
+sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1';")
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
 const fetchOld="if(req.method!=='GET'||new URL(req.url).origin!==self.location.origin)return;";
 const fetchNew="if(req.method!=='GET')return; const url=new URL(req.url); const scope=new URL(self.registration.scope); if(url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname))return;";
