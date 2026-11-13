@@ -5,7 +5,7 @@ Plataforma modular de estudio de latín y griego en construcción **sin publicac
 ## Estado (fase 3 · interfaz etimológica en pruebas)
 
 - **Appendix grammaticæ**: copia completa y sin alteraciones desde un commit fijado, en `dist/apps/gramatica/`.
-- **Evolutio**: copia completa en `dist/apps/evolucion-fonetica/`, con una adaptación **solo en la copia** del service worker para aislar la caché; el banco y el motor siguen idénticos.
+- **Evolutio**: copia completa en `dist/apps/evolucion-fonetica/`; su banco y motor de corrección se mantienen idénticos. **Solo en la copia integrada** se adapta el service worker para aislar la caché y se recalibran las etiquetas de dificultad, dando prioridad al resultado castellano sobre el número de leyes. El original permanece intacto.
 - **Etymologicon**: primera modalidad nativa de dos derivados castellanos, corrección determinista (1 / 0,5 / 0) e interfaz con filtros de Griego I. Preparada como **PWA independiente** para instalar y practicar sin conexión tras descargar los recursos, en `dist/apps/etymologicon/`. Su servicio offline no afecta a otras aplicaciones.
 - **Vocabula Latina Græcaque**: léxico integrado desde un commit fijado. Se mantienen los ejercicios, el progreso local y el servicio Supabase; la morfología antigua no se incorpora, en espera de un módulo académico revisado.
 - **GeneradorExamenes**: todavía no incluido en el resultado.
@@ -90,7 +90,7 @@ El navegador guarda localmente solo el código del curso y el identificador de l
 
 La portada de ScholaClassica tiene su propio manifiesto, iconos compatibles con iPhone/Android y un botón de actualización. **Solo guarda en caché los recursos propios del portal**, sin copiar ni invalidar las cachés de sus herramientas. Evolutio y Etymologicon conservan sus respectivos service workers y sus controles de actualización; el alumno puede seguir entrando en cada módulo de forma independiente. La portada ya se encuentra publicada en GitHub Pages. Véase `docs/PORTAL_PWA.md`.
 
-Evolutio se ha vuelto a integrar desde el commit auditado `901dacb125ee7894ea9d11faf7b0d0afa7e713b5`: 522 fichas, filtros de dificultad, tres intentos, revisión por norma, botón de actualización y latinización escolar de la consonante `u`. Las 240 incorporaciones desde GeneradorExamenes no se presentan como certificación filológica individual. Ningún repositorio original ha sido modificado.
+Evolutio se ha vuelto a integrar desde el commit auditado `901dacb125ee7894ea9d11faf7b0d0afa7e713b5`: 522 fichas, filtros de dificultad, tres intentos, revisión por norma, botón de actualización y grafía escolar de `u` consonántica. ScholaClassica recalcula **solo sus niveles de dificultad** con un criterio orientativo de **85 % previsibilidad del resultado castellano y 15 % carga de leyes**, preservando los registros marcados como `docente`. Los filtros existentes siguen funcionando y el módulo adicional está precargado para uso offline. Las 240 incorporaciones desde GeneradorExamenes no se presentan como certificación filológica individual. Ningún repositorio original ha sido modificado.
 
 
 ## Publicación de prueba de la PWA pública
