@@ -55,7 +55,7 @@ function sourceRows(unimorphParts){
   }
   return index;
 }
-function checkedForms(lemma,rows){
+function checkedForms(lemma,rows,entry){
   if(rows.length!==10||new Set(rows.map(r=>r[2])).size!==10)
     throw Error('No hay diez casos y números sin duplicados');
   const byTag=new Map(rows.map(r=>[r[2],r]));
@@ -63,12 +63,31 @@ function checkedForms(lemma,rows){
   const genitive=byTag.get('N;GEN;SG');
   if(!nominative||!genitive||key(nominative[1])!==key(lemma))
     throw Error('Nominativo o genitivo no concordante');
-  const evidence=String(nominative[3]||'');
-  const possible=[...ARTICLES].filter(([article])=>evidence.startsWith(article+' '));
-  // No desambiguamos ὁ, ἡ ni el género contextual automáticamente.
-  if(possible.length!==1||evidence.includes(','))
-    throw Error('Género no acreditado unívocamente por el artículo');
-  const gender=possible[0][1];
+  const declared=entry.form.match(/\((ὁ|ἡ|τὸ|τό)\)/u)?.[1];
+  if(/\([^)]*(?:\s+o\s+|\/)\s*(?:ὁ|ἡ|m|f)[^)]*\)/iu.test(entry.form))
+    throw Error('Género de uso variable: necesita decisión docente');
+  const explicit=declared?(declared==='τό'?'neutro':ARTICLES.get(declared)):null;
+  const seen=new Set();
+  for(const [tag,parts] of [
+    ['N;NOM;SG',[[/ὁ(?=[,\s])/u,'masculino'],[/ἡ(?=[,\s])/u,'femenino'],
+      [/τ[ὸό](?=[,\s])/u,'neutro']]],
+    ['N;ACC;SG',[[/τὸν(?=[,\s])/u,'masculino'],[/τὴν(?=[,\s])/u,'femenino'],
+      [/τὸ(?=[,\s])/u,'neutro']]]]){
+    const evidence=String(byTag.get(tag)?.[3]||'').split(/\s+/).slice(0,5).join(' ');
+    // No inferir por letras del propio sustantivo: solo artículos aislados
+    // presentes en un testimonio explícito del corpus.
+    for(const [article,gender] of parts)if(article.test(evidence))seen.add(gender);
+  }
+  // Cuando UniMorph ofrece dos géneros para un nombre común, la ficha del
+  // profesor puede delimitar UN género explícito; sin esa decisión se excluye.
+  if(explicit&&seen.size&&!seen.has(explicit))
+    throw Error('Artículo de fuente y género docente incompatibles');
+  const gender=explicit||([...seen].length===1?[...seen][0]:null);
+  if(!gender)throw Error('Género no acreditado unívocamente por artículos/ficha docente');
+  const genderEvidence=explicit?
+    (seen.size>1?'docente-acepción-con-fuente-de-género-variable':
+      'artículo-docente-contrastado'):
+    'artículo-singular-de-UniMorph';
   const forms=CASES.flatMap(([cas,c])=>NUMBERS.map(([number,n])=>{
     const row=byTag.get('N;'+c+';'+n);
     const form=noQuantity(row?.[1]);
@@ -83,7 +102,7 @@ function checkedForms(lemma,rows){
       if(key(nom.form)!==key(acc.form))throw Error('Neutro sin nominativo=acusativo');
     }
   }
-  return {gender,nominative:noQuantity(nominative[1]),genitive:noQuantity(genitive[1]),forms};
+  return {gender,genderEvidence,nominative:noQuantity(nominative[1]),genitive:noQuantity(genitive[1]),forms};
 }
 function checkLexGen(entry,genitive){
   const tokens=entry.form.split(',');
@@ -159,7 +178,7 @@ export function compileGreekNounExpansion({
       continue;
     }
     try{
-      const checked=checkedForms(display,grouped.get(lemma)||[]);
+      const checked=checkedForms(display,grouped.get(lemma)||[],entry);
       checkLexGen(entry,checked.genitive);
       checkLexGender(entry,checked.gender);
       const decl=declension(display,checked.genitive,checked.gender);
@@ -180,7 +199,8 @@ export function compileGreekNounExpansion({
           file:'data/unimorph-syllabus/grc/part-*.json',
           unit:decl.unit,topic:decl.topic,
           caption:'Paradigma nominal completo: '+checked.nominative,
-          status:'paradigma-documentado',vocabulaSha,vocabulaEntry:entry.id,
+          status:'paradigma-documentado',genderEvidence:checked.genderEvidence,
+          vocabulaSha,vocabulaEntry:entry.id,
           vocabulaGroup:entry.units[0],license:'CC BY-SA 3.0',
           review:'conciliación interfuentes; pendiente de revisión docente individual',
           notes:'Diez casillas tomadas de UniMorph, no generadas por analogía. '+
