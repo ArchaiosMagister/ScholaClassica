@@ -34,7 +34,8 @@ function declension(nom,gen,gender){
   // Appendix UD8 incluye los temas consonánticos de la 3.ª, entre ellos
   // oclusivas, nasales, nasales + t y líquidas. Se excluyen los temas
   // vocálicos/sibilantes, que requieren reglas y unidades posteriores.
-  const stem=g.endsWith('ος')?g.slice(0,-2):'';
+  const genEnding=key('ος');
+  const stem=g.endsWith(genEnding)?g.slice(0,-genEnding.length):'';
   if(stem&&/[βγδθκλμνπρτφχ]$/u.test(stem))
     return {name:'3.ª declinación, tema consonántico',unit:8,
       topic:'Tercera declinación: consonantes',marker:'Tercera declinación · tabla 109'};
