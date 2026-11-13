@@ -6,8 +6,8 @@ Se ha preparado la **matriz de los 522 étimos** del banco de Evolutio integrado
 
 | Estado del resultado valenciano | Entradas | Acredita |
 |---|---:|---|
-| `documentat` | **153** | 26 iniciales más **127 etimologías** contrastadas directamente en el DCVB (sin validación fonética ni DNV) |
-| `proposta` | **88** | Hipótesis todavía pendientes de cotejo individual; **no** cuentan como verificadas |
+| `documentat` | **218** | 26 iniciales más **192 correspondencias** con relación etimológica cotejada en el DCVB; análisis fonético y DNV pendientes |
+| `proposta` | **23** | Propuestas reservadas: 4 derivaciones directas descartadas, 19 con evidencia insuficiente o mediación histórica pendiente |
 | `pendent` | **281** | Sin resultado propuesto por ahora |
 | Análisis valencianos con clasificación editorial registrada | **26** | 25 con criterios aceptados o propuestas previas y **1 clasificación provisional** (`noctem`) |
 | Discrepancias fonéticas sin decisión docente | **0** | Las cuatro cuestiones anteriores tienen una decisión de criterio registrada |
@@ -39,17 +39,24 @@ La revisión de `clauem → clau` distingue la **clau femenina** procedente de `
 
 Los recuentos se recalculan a partir de `matriz-522.json`; no deben darse por verificados todos los resultados solo por estar escritos. La opción `documentat` **no** significa aprobación docente ni comprobación completa de las leyes de evolución.
 
-## Auditoría léxica de las 215 candidaturas iniciales — contraste parcial verificable (13/11/2026)
+## Auditoría de las 215 candidaturas iniciales — contraste filológico individual (13/11/2026)
 
-Se han contrastado **directamente 127 artículos del DCVB** para confirmar una correspondencia específica entre lema, acepción y étimo histórico. Las otras **100 candidaturas** siguen siendo propuestas: se han preservado y clasificado por ID, pero **no se afirma su verificación individual ni su validez fonética**. El archivo `auditoria-215.json` registra las 215, con fuente solo para las realmente contrastadas y notas de prioridad para revisar las que exigen matices.
+Se ha recorrido el inventario completo de las **215 propuestas originales**. **192 correspondencias** disponen de documentación etimológica y de acepción en artículos del DCVB, con referencia individual conservada. **23 se mantienen en reserva** porque la consulta no ofrece evidencia suficiente de la filiación directa, se necesita una variante histórica intermedia o el étimo propuesto es incorrecto. Ninguna se ha declarado apta para práctica fonética: las comprobaciones de DNV, las 17 leyes y la aprobación docente son tareas posteriores e independientes. El archivo `auditoria-215.json` conserva los 215 IDs, el tipo de resultado, la referencia cuando existe y la justificación editorial de la reserva.
 
-Entre las relaciones comprobadas están `cadere → caure`, `crucem → creu`, `spatium → espai`, `radium → raig`, `cunicŭlum → conill`, `auricŭlam → orella`, `capillum → cabell`, `hŏrtum → hort`, `sŏlĭdum → sou`, `magistrum → mestre`, `pĕdem → peu` y `spĕcŭlum → espill`.
+**Resoluciones claras:** `germanum → germà`, `mensem → mes`, `mĕliorem → millor`, `octo → huit` (forma valenciana que el DCVB recoge como variante de `vuit`), `pilum → pèl`, `fŏrtia → força`, `martium → març`, `sagitta → sageta`, `signa → senya`, `alium → all`, `damnum → dany`, `peccatum → pecat`, `bibere → beure` y `currere → córrer`. En `luxum → luxe`, `fibram → fibra`, `membrum → membre`, `temperare → temperar`, `uirtutem → virtut`, `uoluntatem → voluntat` y `nauigare → navegar`, el DCVB indica explícitamente préstamo o latinismo: el resultado léxico está documentado, pero su transmisión **no puede simplificarse como evolución patrimonial regular**.
 
-Matices históricos documentados: `ocŭlum → ull` remite al latino vulgar *ŏclu* contraído, mientras que `sigĭllum → segell` se conserva como correspondencia léxica **con advertencia de reintroducción culta**; no equivale a aprobar una cadena patrimonial. `forum → fur` solo para la acepción jurídica; `roborem → roure` solo para el árbol, pues el verbo homógrafo tiene otro étimo. `pausare → posar` requiere conservar la acepción 'colocar', distinta del homógrafo procedente del francés. Las variantes `huit/vuit`, la base vulgar de `pluja`, `pœnam → pena` y otros posibles cultismos permanecen pendientes de una decisión basada en fuentes.
+**Etapas históricas y homónimos:** `uiduam → viuda` presenta una forma popular `viuva` y contaminación con la culta `vídua`; `ausare → gosar` presenta una consonante inicial añadida de explicación discutida; `tædam → tea` se documenta como variante de `teia` a través de las fases `teda/tesa`. `uitem → vit` está documentado solo para la acepción histórica de 'sarmiento', no `vit` masculino 'miembro viril', que procede de otro étimo. `bonum → bo`, `ferum → fer` y `portum → port` obligan a seleccionar la acepción precisa para evitar homónimos.
 
-**Advertencias detectadas en el segundo bloque:** `sensum → seny` NO debe aceptarse como etimología latina directa: el DCVB atribuye `seny` 'juicio' al germánico `sinn`, probablemente cruzado con `sensus`. Tampoco se confirma automáticamente `datum → dau`, cuya etimología el DCVB considera discutida, ni `serpĕntem → serp`: el DCVB remite a `serpe` como base. `pluuiam → pluja` exige la fase vulgar `*plŏia`. Estas cuatro candidaturas permanecen **pendientes y sin fuente de confirmación etimológica directa** en la matriz. `caput → cap` se ha documentado con paso por `*capum`, `stabĭlem → estable` como latinismo y `stagnum → estany` solo en el sentido de lago, frente al homógrafo de metal.
+**Cuatro derivaciones directas descartadas**, que no deben entrar en ningún sorteo con los étimos actuales:
 
-**Estado de comprobación:** todas las 215 están inventariadas y clasificadas, pero no todas verificadas. Confirmadas por fuente DCVB: 100; pendientes: 115; normas verificadas de este lote: 0; ejercicios activados: 0. Para avanzar deben contrastarse directamente los 115 restantes, revisar las etapas intermedias y cotejar las formas con el DNV de la AVL.
+1. `sensum → seny`: el DCVB lo relaciona fundamentalmente con el germánico `sinn`, con posible cruce con `sensus`.
+2. `catenatum → cadenat`: el DCVB registra **derivación de `cadena`**, no filiación directa desde `catenatum`.
+3. `cæpullam → ceba`: `ceba` procede del latín `cēpa`, no del diminutivo ofrecido.
+4. `serpĕntem → serp`: el DCVB remite a la base `serpe`, no al acusativo `serpĕntem`.
+
+**Otros casos reservados:** `datum → dau` tiene etimología discutida; `pluuiam → pluja` requiere una base vulgar `*plŏia`; `totum → tot` exige la forma vulgar intensiva `tottu`; `ocŭlos → ulls` exige distinguir la evolución de `ull` (`*ŏclu`) de su plural; `iacere → jaure` ha de comprobarse por remisión a `jeure`. Se preservan también sin acreditación exhaustiva los restantes casos anotados en el fichero de auditoría, en lugar de inferir la relación por semejanza léxica.
+
+**Estado final del lote:** 192 con correspondencia etimológica documentada, 23 reservadas (de ellas 4 derivaciones directas descartadas), cero fichas fonéticas nuevas verificadas y cero ejercicios habilitados.
 
 ## Ficheros
 
@@ -93,8 +100,8 @@ La revisión por ficha debe establecer: (1) resultado y acepción valencianos co
 
 Para poder alternar de lengua **a mitad de una misma sesión**, el futuro motor exigirá pares completos verificables en las dos lenguas; guardará por lengua las respuestas, intentos y correcciones. Una coincidencia de grafía (p. ej. `uitam → vida` en las dos lenguas) **no implica** coincidencia automática de análisis ni aprobación.
 
-## Próxima tanda de auditoría
+## Siguiente etapa
 
-Tras registrar los 26 primeros análisis y contrastar **127 de las 215 propuestas** originales, comprobar la segmentación de estas 100 entradas; después contrastar las **88 pendientes** por lotes, dando prioridad a los étimos patrimoniales transparentes y a las normas menos representadas. Mantener las **281 restantes** sin resultado hasta reunir evidencia, en lugar de crear equivalencias por semejanza.
+Realizar la auditoría **fonética por palabra** de las correspondencias documentadas, empezando por los resultados patrimoniales más claros, con tramos en el étimo, explicación en valenciano y registro separado de cambios no seleccionables. Para las 23 candidaturas reservadas, solo corregir el étimo o aprobar una cadena histórica cuando la fuente lo permita; las cuatro derivaciones directas descartadas nunca se habilitarán bajo su forma actual. Contrastar las grafías y variantes de uso valenciano en el DNV de la AVL antes del uso docente. Las **281 fichas sin propuesta** permanecen intactas.
 
-**Alcance de esta entrega:** registro, fuentes, propuestas, clasificación de evidencia y controles. Sin cambio de interfaz, sin datos de respuesta valencianos públicos y sin alteración de repositorios originales.
+**Alcance de esta entrega:** curación etimológica, evidencias, incidencias y controles. Sin cambiar el motor, sin cambiar la web pública y sin modificar los repositorios independientes.
