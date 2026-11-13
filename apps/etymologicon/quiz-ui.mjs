@@ -115,7 +115,10 @@ export function createQuizController({catalog,etymons,commitProgress,onRevealMea
     }
     // No se admite una transliteración ambigua ni una semejanza aproximada.
     completed=true;
-    if(response.correct&&els.meaning.textContent.trim())els.meaningCard.hidden=false;
+    if(response.correct&&els.meaning.textContent.trim()){
+      els.meaningCard.hidden=false;
+      els.meaningCard.focus();
+    }
     const reasons={
       ambiguous:'La transliteración coincide con varios étimos. Escribe el lema en griego para desambiguar.',
       incorrect:'Has identificado otro étimo del banco cerrado.',
