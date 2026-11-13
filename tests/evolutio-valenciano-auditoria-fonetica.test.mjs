@@ -26,7 +26,11 @@ test('El preinventario fonético corresponde uno a uno a las 221 fichas document
   assert.equal(x.comprobacionDNVIndividual,false);
   assert.equal(x.aptoParaPractica,false);
   assert.equal(x.aprobacionDocente,false);
-  assert.equal(x.estadoAuditoria,'preanalisis_estructural_sin_contraste_fonetico_individual');
+  assert.ok(['preanalisis_estructural_sin_contraste_fonetico_individual','criterio_docente_aprobado_analisis_editorial_sin_verificacion_normativa'].includes(x.estadoAuditoria));
+  if(['cælum','fĕrrum','ocŭlum'].includes(x.latin)){
+    assert.deepEqual(x.leyesPreexistentes.map(n=>n.rule),w.valenciano.normas.map(n=>n.rule));
+    assert.equal(x.criterioDocente.approval,'accepted');
+  }
   assert.ok(Array.isArray(x.indicadoresParaAuditoria));
   for(const n of x.indicadoresParaAuditoria)assert.equal(n.verified,false);
   for(const n of x.leyesPreexistentes){
@@ -39,8 +43,9 @@ test('El preinventario fonético corresponde uno a uno a las 221 fichas document
 });
 test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(audit.summary.total,221);
- assert.equal(audit.summary.conAnalisisEditorialPrevio,26);
- assert.equal(audit.summary.pendientesDeAnalisisIndividual,195);
+ assert.equal(audit.summary.conAnalisisEditorialPrevio,28);
+ assert.equal(audit.summary.pendientesDeAnalisisIndividual,193);
+ assert.equal(audit.summary.decisionesDocentesAplicadas,3);
  assert.equal(audit.summary.leyesFoneticamenteCertificadas,0);
  assert.equal(audit.summary.habilitadas,0);
  assert.equal(matrix.summary.aptasParaPractica,0);
