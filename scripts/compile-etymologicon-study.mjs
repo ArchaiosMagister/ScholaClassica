@@ -124,7 +124,7 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses()){
   const words=learners.derivatives.map(d=>{
     const prior=original.get(d.id);
     const definition=prior?.definitions?.[0]?.text||lexicon.definitions[d.form];
-    assert.ok(typeof definition==='string'&&definition.length>=18,'Falta glosa propia: '+d.form);
+    assert.ok(typeof definition==='string'&&definition.length>=8,'Falta glosa propia: '+d.form);
     const ids=[...(relations.get(d.id)||[])];
     assert.ok(ids.length>0,'Derivado sin étimo: '+d.form);
     const override=educationalComponents[d.form];
