@@ -32,7 +32,7 @@ function declension(nom,gen,gender){
   if(ends('α')&&endsGen('ης')&&gender!=='masculino')
     return {name:'1.ª declinación (α mixto, genitivo –ης)',
       unit:3,topic:'Primera declinación',marker:'–ης'};
-  if((ends('ης')||ends('ας'))&&endsGen('ου')&&gender==='masculino')
+  if((ends('ης')||ends('ας'))&&endsGen('ου')&&gender!=='femenino')
     return {name:'1.ª declinación masculina',unit:3,topic:'Primera declinación',marker:'–ου'};
   // Appendix UD8 incluye los temas consonánticos de la 3.ª, entre ellos
   // oclusivas, nasales, nasales + t y líquidas. Se excluyen los temas
