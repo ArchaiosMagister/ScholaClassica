@@ -2,11 +2,11 @@
   "schema": "schola-evolutio-va-review215/v1",
   "date": "2026-11-13",
   "scope": "Las 215 propuestas originales de la primera conciliación, por orden e identidad del étimo.",
-  "method": "115 correspondencias con lema, acepción y etimología cotejados individualmente en DCVB; 100 siguen sin relación exacta acreditada. Riesgos documentados de homografía, cultismo y étimos discutidos. 0 prácticas nuevas autorizadas.",
+  "method": "127 relaciones de lema y etimología contrastadas directamente con DCVB, 88 candidaturas sin confirmación etimológica individual. No se ha cotejado íntegramente el DNV ni se han aprobado nuevos análisis de leyes; 0 fichas jugables.",
   "summary": {
     "total": 215,
-    "documentadasIndividualmente": 115,
-    "pendientes": 100,
+    "documentadasIndividualmente": 127,
+    "pendientes": 88,
     "autorizadasParaPractica": 0
   },
   "records": [
@@ -2204,61 +2204,91 @@
       "ordinal": 131,
       "latin": "texere",
       "form": "teixir",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 132,
       "latin": "uitium",
       "form": "vici",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vici",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 133,
       "latin": "picare",
       "form": "pegar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pegar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "PEGAR en el sentido 'adherir' del latín pĭcare; verificar otros significados antes de usar.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 134,
       "latin": "siluam",
       "form": "selva",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=selva",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "SELVA bosque del latín silva; no la homógrafa botánica.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 135,
       "latin": "truncum",
       "form": "tronc",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronc",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 136,
@@ -2276,61 +2306,91 @@
       "ordinal": 137,
       "latin": "undam",
       "form": "ona",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ona",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 138,
       "latin": "uiridem",
       "form": "verd",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=verd",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 139,
       "latin": "septem",
       "form": "set",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=set",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "SET 2 numeral siete del latín sĕpte; no SET 1 'sed' del latín sĭte.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 140,
       "latin": "temptare",
       "form": "temptar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=temptar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "El DCVB recoge variantes temptar/tentar, de temptare o tentare; no inventar una segmentación exclusiva.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 141,
       "latin": "fel",
       "form": "fel",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fel",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "FEL 1 'bilis' del latín fĕl; no FEL adjetivo remisor a feel.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 142,
@@ -2348,25 +2408,37 @@
       "ordinal": 143,
       "latin": "uallem",
       "form": "vall",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vall",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "VALL 2 'valle' del latín valle; no VALL 1 'foso' del latín vallum.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 144,
       "latin": "hederam",
       "form": "heura",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=heura",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Heura 'hiedra' del latín hĕdera.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 145,
