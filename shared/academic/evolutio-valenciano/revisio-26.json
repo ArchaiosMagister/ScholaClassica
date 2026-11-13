@@ -2,7 +2,7 @@
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
   "status": "auditoria_docent_sense_publicacio",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica.",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica. Revisió addicional de 26 correspondències patrimonials amb canvis explícits; no és una certificació fonètica integral individual.",
   "analyses": [
     {
       "latin": "focum",
@@ -1383,6 +1383,564 @@
         }
       ],
       "explanation": "ordinare → ordenar: apòcope de -e final; el timbre de la vocal interior s'explica separadament sense assignar una llei no acreditada."
+    },
+    {
+      "latin": "pœnam",
+      "form": "pena",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "MONOP",
+          "find": "œ",
+          "at": 1,
+          "note": "Monoftongació de œ llatí a e."
+        }
+      ],
+      "explanation": "pœnam → pena: Monoftongació de œ llatí a e. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "mensem",
+      "form": "mes",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "ns",
+          "at": 2,
+          "note": "Reducció del grup -ns- a -s- i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Reducció del grup -ns- a -s- i apòcope de -e."
+        }
+      ],
+      "explanation": "mensem → mes: Reducció del grup -ns- a -s- i apòcope de -e. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "multum",
+      "form": "molt",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica en o i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Obertura de ŭ tònica en o i apòcope de -u."
+        }
+      ],
+      "explanation": "multum → molt: Obertura de ŭ tònica en o i apòcope de -u. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "latrare",
+      "form": "lladrar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "l",
+          "at": 0,
+          "note": "Palatalització de l- inicial, sonorització de t intervocàlica i pèrdua de -e de l'infinitiu."
+        },
+        {
+          "rule": "SONOR",
+          "find": "t",
+          "at": 2,
+          "note": "Palatalització de l- inicial, sonorització de t intervocàlica i pèrdua de -e de l'infinitiu."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Palatalització de l- inicial, sonorització de t intervocàlica i pèrdua de -e de l'infinitiu."
+        }
+      ],
+      "explanation": "latrare → lladrar: Palatalització de l- inicial, sonorització de t intervocàlica i pèrdua de -e de l'infinitiu. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "ligare",
+      "form": "lligar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "l",
+          "at": 0,
+          "note": "Palatalització de l- i apòcope de -e final de l'infinitiu."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Palatalització de l- i apòcope de -e final de l'infinitiu."
+        }
+      ],
+      "explanation": "ligare → lligar: Palatalització de l- i apòcope de -e final de l'infinitiu. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "milium",
+      "form": "mill",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "li",
+          "at": 2,
+          "note": "Palatalització del grup -li- i apòcope de -u final."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Palatalització del grup -li- i apòcope de -u final."
+        }
+      ],
+      "explanation": "milium → mill: Palatalització del grup -li- i apòcope de -u final. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "sponsam",
+      "form": "esposa",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "note": "Pròtesi d'e- davant s líquida."
+        },
+        {
+          "rule": "SIMPL",
+          "find": "ns",
+          "at": 3,
+          "note": "Pròtesi e- davant sp- i reducció de -ns- a -s-."
+        }
+      ],
+      "explanation": "sponsam → esposa: Pròtesi e- davant sp- i reducció de -ns- a -s-. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "surdum",
+      "form": "sord",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica > o i apòcope de -u final."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Obertura de ŭ tònica > o i apòcope de -u final."
+        }
+      ],
+      "explanation": "surdum → sord: Obertura de ŭ tònica > o i apòcope de -u final. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "formicam",
+      "form": "formiga",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SONOR",
+          "find": "c",
+          "at": 5,
+          "note": "Sonorització de c intervocàlica > g."
+        }
+      ],
+      "explanation": "formicam → formiga: Sonorització de c intervocàlica > g. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "mensuram",
+      "form": "mesura",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "ns",
+          "at": 2,
+          "note": "Reducció del grup -ns- a -s-."
+        }
+      ],
+      "explanation": "mensuram → mesura: Reducció del grup -ns- a -s-. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "pensare",
+      "form": "pesar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SIMPL",
+          "find": "ns",
+          "at": 2,
+          "note": "Reducció del grup -ns- i apòcope final de -e."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Reducció del grup -ns- i apòcope final de -e."
+        }
+      ],
+      "explanation": "pensare → pesar: Reducció del grup -ns- i apòcope final de -e. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "cŏrnu",
+      "form": "corn",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -1,
+          "note": "Apòcope de la vocal final -u."
+        }
+      ],
+      "explanation": "cŏrnu → corn: Apòcope de la vocal final -u. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "furcam",
+      "form": "forca",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica > o."
+        }
+      ],
+      "explanation": "furcam → forca: Obertura de ŭ tònica > o. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "pugnum",
+      "form": "puny",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "gn",
+          "at": 2,
+          "note": "Palatalització del grup -gn- en -ny- i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Palatalització del grup -gn- en -ny- i apòcope de -u."
+        }
+      ],
+      "explanation": "pugnum → puny: Palatalització del grup -gn- en -ny- i apòcope de -u. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "pullum",
+      "form": "poll",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 1,
+          "note": "Obertura de ŭ tònica, palatalització de -ll- i apòcope final."
+        },
+        {
+          "rule": "PALAT",
+          "find": "ll",
+          "at": 2,
+          "note": "Obertura de ŭ tònica, palatalització de -ll- i apòcope final."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Obertura de ŭ tònica, palatalització de -ll- i apòcope final."
+        }
+      ],
+      "explanation": "pullum → poll: Obertura de ŭ tònica, palatalització de -ll- i apòcope final. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "sponsum",
+      "form": "espòs",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "note": "Pròtesi d'e- davant s líquida."
+        },
+        {
+          "rule": "SIMPL",
+          "find": "ns",
+          "at": 3,
+          "note": "Pròtesi e-, reducció de -ns- i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Pròtesi e-, reducció de -ns- i apòcope de -u."
+        }
+      ],
+      "explanation": "sponsum → espòs: Pròtesi e-, reducció de -ns- i apòcope de -u. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "stagnum",
+      "form": "estany",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "note": "Pròtesi d'e- davant s líquida."
+        },
+        {
+          "rule": "PALAT",
+          "find": "gn",
+          "at": 3,
+          "note": "Pròtesi d'e-, palatalització de -gn- i apòcope final."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Pròtesi d'e-, palatalització de -gn- i apòcope final."
+        }
+      ],
+      "explanation": "stagnum → estany: Pròtesi d'e-, palatalització de -gn- i apòcope final. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "truncum",
+      "form": "tronc",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 2,
+          "note": "Obertura de ŭ tònica > o i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Obertura de ŭ tònica > o i apòcope de -u."
+        }
+      ],
+      "explanation": "truncum → tronc: Obertura de ŭ tònica > o i apòcope de -u. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "temptare",
+      "form": "temptar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Apòcope de -e final de l'infinitiu."
+        }
+      ],
+      "explanation": "temptare → temptar: Apòcope de -e final de l'infinitiu. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "alium",
+      "form": "all",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "li",
+          "at": 1,
+          "note": "Palatalització del grup -li- i apòcope final."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Palatalització del grup -li- i apòcope final."
+        }
+      ],
+      "explanation": "alium → all: Palatalització del grup -li- i apòcope final. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "integrare",
+      "form": "integrar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Apòcope de -e final de l'infinitiu; no s'atribuïx una alteració de l'arrel."
+        }
+      ],
+      "explanation": "integrare → integrar: Apòcope de -e final de l'infinitiu; no s'atribuïx una alteració de l'arrel. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "paucum",
+      "form": "poc",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "MONOP",
+          "find": "au",
+          "at": 1,
+          "note": "Monoftongació de au llatí > o i apòcope de -u final."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Monoftongació de au llatí > o i apòcope de -u final."
+        }
+      ],
+      "explanation": "paucum → poc: Monoftongació de au llatí > o i apòcope de -u final. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "uirtutem",
+      "form": "virtut",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final; u inicial llatina consonàntica és v gràfica."
+        }
+      ],
+      "explanation": "uirtutem → virtut: Apòcope de -e final; u inicial llatina consonàntica és v gràfica. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "angustum",
+      "form": "angost",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "ABER",
+          "find": "u",
+          "at": 3,
+          "note": "Obertura de ŭ tònica > o i apòcope de -u final."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Obertura de ŭ tònica > o i apòcope de -u final."
+        }
+      ],
+      "explanation": "angustum → angost: Obertura de ŭ tònica > o i apòcope de -u final. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "pausare",
+      "form": "posar",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "MONOP",
+          "find": "au",
+          "at": 1,
+          "note": "Monoftongació de au llatí > o i apòcope de -e de l'infinitiu."
+        },
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -1,
+          "note": "Monoftongació de au llatí > o i apòcope de -e de l'infinitiu."
+        }
+      ],
+      "explanation": "pausare → posar: Monoftongació de au llatí > o i apòcope de -e de l'infinitiu. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
+    },
+    {
+      "latin": "uĕntrem",
+      "form": "ventre",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [],
+      "explanation": "uĕntrem → ventre: Sense lleis seleccionables noves; la u inicial consonàntica passa a v gràfica i la -m final es perd com a llei fixa. La -m final, si n'hi ha, és una pèrdua fixa no seleccionable."
     }
   ],
   "pending": []
