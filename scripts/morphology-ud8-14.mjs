@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 const LAT_CASES=['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'];
 const GR_CASES=['nominativo','vocativo','acusativo','genitivo','dativo'];
 const PR_CASES=['nominativo','acusativo','genitivo','dativo'];
+const LAT_PR_CASES=['nominativo','acusativo','genitivo','dativo','ablativo'];
 const GENDERS=['masculino','femenino','neutro'];
 const PERSONS=['1.ª singular','2.ª singular','3.ª singular','1.ª plural','2.ª plural','3.ª plural'];
 const clean=value=>String(value||'').replace(/<[^>]*>/g,'')
@@ -100,7 +101,7 @@ function latinPronoun(curriculum,caption,id,paradigm){
     assert.equal(row.length,7);
     assert.equal(row[0],['Nom.','Ac.','Gen.','Dat.','Abl.'][i]);
     for(let col=1;col<=6;col++){
-      const cas=PR_CASES[i],gender=GENDERS[(col-1)%3],number=col<=3?'singular':'plural';
+      const cas=LAT_PR_CASES[i],gender=GENDERS[(col-1)%3],number=col<=3?'singular':'plural';
       assert.ok(row[col]&&!row[col].includes('/'));
       forms.push({form:row[col],case:cas,gender,number,analysis:cas+' '+gender+' '+number});
     }
