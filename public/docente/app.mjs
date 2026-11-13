@@ -1,7 +1,7 @@
 // El HTML es público: solo la Edge Function determina si existe acceso docente.
 // Nunca se almacenan aquí contraseñas, claves privilegiadas ni datos de alumnos.
 const el=id=>document.getElementById(id);
-const sections=['unavailable','login','enroll','verify','teacher'];
+const sections=['unavailable','login','enroll','verify','ready','teacher'];
 // El bundle local se verifica por SHA-256 en el build docente.
 const SCRIPT_URL='./vendor/supabase.js';
 let config,client,enrollment=null,busy=false;
@@ -39,7 +39,8 @@ function validConfig(value){
   return value?.enabled===true&&/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value.url||'')&&
     typeof value.publishableKey==='string'&&value.publishableKey.length>20&&
     !('email' in value)&&
-    value.username==='MagisterArchaios'&&value.origin===location.origin&&
+    value.username==='MagisterArchaios'&&typeof value.setupOnly==='boolean'&&
+    value.origin===location.origin&&
     (location.origin==='https://archaiosmagister.github.io'||
       ['localhost','127.0.0.1'].includes(location.hostname));
 }
@@ -65,6 +66,11 @@ async function checkSession(){
   const assurance=await client.auth.mfa.getAuthenticatorAssuranceLevel();
   if(assurance.error)throw assurance.error;
   if(assurance.data.currentLevel==='aal2'){
+    // En la fase de primera vinculación nunca solicitar ni mostrar datos docentes.
+    if(config.setupOnly===true){
+      state('ready','Identidad verificada con segundo factor. El panel permanece en preparación.');
+      return;
+    }
     // La comprobación del servidor es imprescindible, incluso con 2FA.
     await fetchNotices();
     return;
