@@ -112,6 +112,10 @@ try{
   const etymHome=await page.goto(base+'/apps/etymologicon/',{waitUntil:'networkidle'});
   assert.equal(etymHome.status(),200);
   assert.equal(await page.locator('.home-choice').count(),2);
+  assert.equal(await page.locator('.header-nav .header-link').count(),3,
+    'La portada debe usar botones para la navegación');
+  assert.equal(await page.locator('.header-nav #home-check-update').count(),1);
+  assert.ok(await page.locator('.header-nav #home-check-update').isVisible());
   assert.equal(await page.locator('.home-choice--practice').getAttribute('href'),'./practicar.html');
   assert.equal(await page.locator('.home-choice--study').getAttribute('href'),'./estudio.html');
   await page.locator('#home-theme-select').selectOption('dark');
@@ -124,11 +128,23 @@ try{
   await page.locator('#study-loading').waitFor({state:'hidden',timeout:12000});
   assert.ok((await page.locator('#study-count').textContent()).includes('487 palabras'));
   assert.equal(await page.locator('.lexicon-group').count(),111);
+  assert.equal(await page.locator('.header-nav .header-link').count(),3);
+  assert.equal(await page.locator('.header-nav #study-check-update').count(),1);
   await page.locator('#study-search').fill('filología');
   await page.locator('.lexicon-group').first().locator('summary').click();
   assert.ok(await page.locator('.lexical-word').count()>0);
   assert.ok((await page.locator('.lexical-components').first().textContent()).includes('φίλος'));
   assert.ok((await page.locator('.lexical-components').first().textContent()).includes('λόγος'));
+  await page.locator('#study-search').fill('antropomorfismo');
+  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('μορφή'),
+    'Debe mostrarse también μορφή, no solo ἄνθρωπος');
+  await page.locator('#study-search').fill('telegrama');
+  const telegramParts=await page.locator('.lexical-components').first().textContent();
+  assert.ok(telegramParts.includes('τῆλε')&&telegramParts.includes('γράμμα'),
+    'Telegrama debe presentar τῆλε y γράμμα');
+  const greekTypeface=await page.locator('.component-greek').first()
+    .evaluate(el=>getComputedStyle(el).fontFamily);
+  assert.ok(greekTypeface.includes('Times New Roman'),'Fuente politónica coherente: '+greekTypeface);
   await page.locator('#study-search').fill('filosofía');
   assert.ok((await page.locator('.lexical-components').first().textContent()).includes('σοφία'));
   await page.locator('#study-search').fill('misoginia');
@@ -159,6 +175,11 @@ try{
   assert.equal(await page.locator('#course-select option[value="gr2"]').isDisabled(),true);
   await page.locator('#etymon-select').selectOption('grc:προσ');
   assert.ok((await page.locator('#exercise-title').textContent()).includes('πρός'));
+  assert.equal(await page.locator('.header-nav .header-link').count(),3);
+  assert.ok(await page.locator('.header-nav #check-update').isVisible());
+  const wordFont=await page.locator('#exercise-title')
+    .evaluate(el=>getComputedStyle(el).fontFamily);
+  assert.ok(wordFont.includes('Times New Roman'),'Fuente sin fallback Georgia: '+wordFont);
   assert.equal(await page.locator('#meaning-card').isHidden(),true,
     'No revelar el significado del étimo antes del intento');
   await page.getByLabel('Primer derivado').fill('proselito');
