@@ -124,6 +124,7 @@ jobs:
             build/morfologia/auditoria-unimorph-original.json
             build/morfologia/lote-unimorph-completo.json
             build/morfologia/irregulares-griegos-cotejados.json
+            build/morfologia/decisiones-docentes-nominales-aplicadas.json
           if-no-files-found: error
           retention-days: 14
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
