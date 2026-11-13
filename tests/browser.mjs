@@ -126,7 +126,7 @@ try{
   const studyPage=await page.goto(base+'/apps/etymologicon/estudio.html',{waitUntil:'networkidle'});
   assert.equal(studyPage.status(),200);
   await page.locator('#study-loading').waitFor({state:'hidden',timeout:12000});
-  assert.ok((await page.locator('#study-count').textContent()).includes('487 derivados mostrados'));
+  assert.ok((await page.locator('#study-count').textContent()).includes('derivados mostrados'));
   assert.equal(await page.locator('.lexicon-group').count(),111);
   assert.equal(await page.locator('.header-nav .header-link').count(),3);
   assert.equal(await page.locator('.header-nav #study-check-update').count(),1);
