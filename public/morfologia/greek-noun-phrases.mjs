@@ -48,8 +48,8 @@ export function greekNounPhrasePairs(bank,{language,unit}){
     if(!['masculino','femenino','neutro'].includes(noun.gender))
       throw Error('Sustantivo sin género único: '+noun.paradigm);
     for(const cas of CASES)for(const number of NUMBERS)
-      if(nounForm(noun,cas,number,noun.gender).length!==1)
-        throw Error('Sustantivo sin casilla única documentada: '+noun.paradigm);
+      if(nounForm(noun,cas,number,noun.gender).length<1)
+        throw Error('Sustantivo sin casilla documentada: '+noun.paradigm);
     return adjectives.map(adjective=>({
       article,noun,adjective,language:'griego',gender:noun.gender,
       id:'griego:nominal:'+noun.id+':'+adjective.id,
@@ -64,15 +64,16 @@ function cells(pair){
     const article=nounForm(pair.article,cas,number,pair.gender);
     const noun=nounForm(pair.noun,cas,number,pair.gender);
     const adj=nounForm(pair.adjective,cas,number,pair.gender);
-    if(article.length!==1||noun.length!==1||adj.length!==1)
+    if(article.length!==1||noun.length<1||adj.length!==1)
       throw Error('No hay tres casillas completas y concordantes: '+pair.id);
-    const [a]=article,[n]=noun,[j]=adj;
-    // Primera posición atributiva: ὁ ἀγαθὸς ἵππος.
-    const first=a+' '+graveInContext(j)+' '+n;
-    // Segunda posición atributiva: ὁ ἵππος ὁ ἀγαθός.
-    const second=a+' '+graveInContext(n)+' '+a+' '+j;
-    output.push({id:cas+':'+number,case:cas,number,
-      acceptedForms:unique([first,second])});
+    const [a]=article,[j]=adj;
+    // Una variante nominal atestiguada (p. ej. ν eufónica) es válida
+    // en ambas posiciones atributivas; ninguna se usa como distractor.
+    const acceptedForms=unique(noun.flatMap(n=>[
+      a+' '+graveInContext(j)+' '+n,
+      a+' '+graveInContext(n)+' '+a+' '+j
+    ]));
+    output.push({id:cas+':'+number,case:cas,number,acceptedForms});
   }
   return output;
 }
