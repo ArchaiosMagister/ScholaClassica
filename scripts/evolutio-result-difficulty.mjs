@@ -43,6 +43,16 @@ export function resultSpellingDistance(latin,castellano){
      table[i+1][j+2]=Math.min(table[i+1][j+2],cost+0.65);
     }
    }
+   // Monoptongación au > o y metátesis de dos letras contiguas:
+   // «aurum → oro» y «pro → por» son resultados más transparentes de lo
+   // que indica una distancia ortográfica carácter a carácter.
+   if(i+1<source.length&&j<target.length&&source[i]==='a'&&source[i+1]==='u'&&target[j]==='o'){
+    table[i+2][j+1]=Math.min(table[i+2][j+1],cost+0.65);
+   }
+   if(i+1<source.length&&j+1<target.length
+      &&source[i]===target[j+1]&&source[i+1]===target[j]){
+    table[i+2][j+2]=Math.min(table[i+2][j+2],cost+0.65);
+   }
   }
  }
  return table[source.length][target.length]/Math.max(source.length,target.length,3);
