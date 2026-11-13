@@ -91,8 +91,6 @@ jobs:
         run: npm run test:browser:morfologia:activa
       - name: Probar Vocabula integrado en Chromium con servicio simulado
         run: npm run test:browser:vocabula
-      - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
-        run: npm run test:browser:docente
       - name: Verificar que Supabase rechaza identidades ajenas antes de habilitar el primer factor
         run: node scripts/check-docente-login-remote.mjs
       - name: Empaquetar SDK Supabase local y preparar alta docente de dos factores
@@ -112,6 +110,8 @@ jobs:
           npm run build
           node scripts/audit-docente-setup.mjs
           node tests/docente-setup-browser.mjs
+      - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
+        run: npm run test:browser:docente
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
         uses: actions/upload-artifact@v4
         with:
