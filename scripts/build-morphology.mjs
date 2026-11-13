@@ -80,13 +80,14 @@ function articleFrom(curriculum){
   const topic='El artículo',caption='El artículo · tabla 99';
   const rows=tableFor(topicOf(curriculum,'griego',3,topic),caption);
   const cases=['nominativo','acusativo','genitivo','dativo'];
+  const abbreviations=['Nom.','Ac.','Gen.','Dat.'];
   // La tabla del artículo es polisincrética: no impone un análisis único.
   const genders=['masculino','femenino','neutro'];
   const forms=[];
   assert.equal(rows.length,4);
   rows.forEach((row,i)=>{
     assert.equal(row.length,7);
-    assert.equal(row[0].slice(0,3).toLowerCase(),cases[i].slice(0,3));
+    assert.equal(row[0],abbreviations[i]);
     for(let col=1;col<7;col++){
       const gender=genders[(col-1)%3],number=col<=3?'singular':'plural';
       forms.push({form:row[col],analysis:cases[i]+' '+gender+' '+number,
