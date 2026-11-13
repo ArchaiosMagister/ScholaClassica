@@ -1,8 +1,8 @@
 {
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
-  "status": "auditoria_cobertura_tancada_amb_reserves",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica. Revisió addicional de 26 correspondències patrimonials amb canvis explícits; no és una certificació fonètica integral individual. Tanda de 34 anàlisis editorials fonètics addicionals, pendents de corroboració normativa individual; cap autorització de pràctica. Cierre de cobertura: 132 análisis editoriales, 83 reservas de prueba histórica y 6 discrepancias de criterio docente. Las 221 fichas quedan clasificadas, no certificadas. Contrast directe DCVB resolt: tonare (r analògica), luxum i squamam (manlleus). No s'atribueixen lleis patrimonials ni s'escullen normes artificials.",
+  "status": "auditoria_cobertura_tancada_amb_reserves_docents_resoltes",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica. Revisió addicional de 26 correspondències patrimonials amb canvis explícits; no és una certificació fonètica integral individual. Tanda de 34 anàlisis editorials fonètics addicionals, pendents de corroboració normativa individual; cap autorització de pràctica. Cierre de cobertura: 132 análisis editoriales, 83 reservas de prueba histórica y 6 discrepancias de criterio docente. Las 221 fichas quedan clasificadas, no certificadas. Contrast directe DCVB resolt: tonare (r analògica), luxum i squamam (manlleus). No s'atribueixen lleis patrimonials ni s'escullen normes artificials. Decisions de l'usuari: octo i dictum continuen en reserva; sigĭllum només estudi històric amb advertiment de reintroducció culta. Sense lleis acreditades ni ús jugable.",
   "analyses": [
     {
       "latin": "focum",
@@ -3074,12 +3074,19 @@
     {
       "latin": "octo",
       "form": "huit",
-      "status": "criteri_pendent",
+      "status": "contrast_historic_pendent",
       "dnvIndividualChecked": false,
       "teacherApproved": false,
       "playable": false,
-      "reason": "huit com a variant valenciana de vuit — El resultat valencià huit requereix documentar les etapes dialectals i no simplificar una variant com a única cadena.",
-      "changes": []
+      "reason": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual.",
+      "changes": [],
+      "teacherDecision": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual."
+      }
     },
     {
       "latin": "ouicŭlam",
@@ -3144,12 +3151,19 @@
     {
       "latin": "dictum",
       "form": "dit",
-      "status": "criteri_pendent",
+      "status": "contrast_historic_pendent",
       "dnvIndividualChecked": false,
       "teacherApproved": false,
       "playable": false,
-      "reason": "dit i base vulgar *dīctu — El DCVB explica analogia vocàlica; la base de les lleis no és sense matisos el clàssic dĭctu.",
-      "changes": []
+      "reason": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova.",
+      "changes": [],
+      "teacherDecision": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova."
+      }
     },
     {
       "latin": "leguminem",
@@ -3324,12 +3338,19 @@
     {
       "latin": "sigĭllum",
       "form": "segell",
-      "status": "criteri_pendent",
+      "status": "contrast_historic_pendent",
       "dnvIndividualChecked": false,
       "teacherApproved": false,
       "playable": false,
-      "reason": "segell i la reintroducció culta — L'ús modern i l'evolució medieval requereixen distinguir transmissió històrica i recuperació.",
-      "changes": []
+      "reason": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles.",
+      "changes": [],
+      "teacherDecision": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "estudi_historic_no_avaluable",
+        "decision": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles."
+      }
     },
     {
       "latin": "specŭlum",
