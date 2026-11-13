@@ -27,6 +27,8 @@
     "audit:publicacion": "node scripts/audit-publicacion.mjs",
     "test:browser:pages": "node tests/pages-subpath-browser.mjs",
     "test:browser:morfologia": "node tests/morphology-browser.mjs",
-    "test:browser:morfologia:activa": "node tests/morphology-active-browser.mjs"
+    "test:browser:morfologia:activa": "node tests/morphology-active-browser.mjs",
+    "evolutio:val:build": "node scripts/reconcile-evolutio-valenciano.mjs --write",
+    "evolutio:val:check": "node scripts/reconcile-evolutio-valenciano.mjs --check"
   }
 }
