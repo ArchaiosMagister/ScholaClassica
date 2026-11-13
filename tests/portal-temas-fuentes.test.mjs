@@ -16,7 +16,7 @@ test('la portada incluye 4 aspectos con persistencia segura y recursos offline',
  assert.match(js,/localStorage\.setItem/);
  assert.match(js,/prefers-color-scheme: dark/);
  assert.match(js,/meta\[name="theme-color"\]/);
- assert.match(css,/html\[data-theme="dark"\]/);
+ assert.match(css,/html:is\(\[data-theme="dark"\],\[data-theme="oled"\]\)/);
  assert.match(css,/html\[data-theme="oled"\]/);
  assert.match(css,/html\[data-theme="oled"\]\{background:#000/);
  assert.doesNotMatch(css,/@media\(prefers-color-scheme:dark\)/);
