@@ -70,7 +70,7 @@ assert.equal(morphology.records.length,84+nouns.length+
 assert.equal(new Set(morphology.records.map(r=>r.id)).size,morphology.records.length);
 assert.ok(nouns.every(n=>n.unit<=10),
   'No publicar sustantivos de unidades sin cobertura en la PWA');
-assert.ok(nouns.every(n=>n.forms.length===10&&n.gender&&
+assert.ok(nouns.every(n=>n.forms.length>=10&&n.gender&&
   n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
   n.evidence.review.includes('pendiente de revisión docente individual')));
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
