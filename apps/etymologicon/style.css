@@ -44,8 +44,45 @@ button:disabled,select:disabled{cursor:not-allowed;opacity:.6}
 .brand-mark{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#e6f2ff;color:#214c80;font:700 2rem Georgia,serif}
 .brand-type{display:block;font-size:1.24rem;font-weight:750;letter-spacing:-.02em}
 .brand-type small{display:block;font-size:.75rem;font-weight:500;letter-spacing:.06em;color:#cedbeb}
-.site-header nav a{color:#f3f7ff;text-decoration:none;border-bottom:1px solid #86a8ce;padding:6px 0}
-.site-header nav a:hover{text-decoration:underline}
+/* Navegación táctil consistente en portada, práctica y estudio. */
+.site-header .header-nav{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.site-header .header-nav .header-link,.site-header .header-nav .header-update{
+  appearance:none;display:inline-flex;align-items:center;justify-content:center;min-height:42px;
+  padding:9px 13px;border:1px solid #759ac2;border-radius:10px;
+  color:#f4f8ff;background:#ffffff13;text-decoration:none;
+  font:650 .85rem/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;
+  white-space:nowrap;cursor:pointer;box-sizing:border-box
+}
+.site-header .header-nav .header-link:hover,.site-header .header-nav .header-update:hover{
+  background:#ffffff29;border-color:#c9e6ff;text-decoration:none
+}
+.site-header .header-nav .header-link:focus-visible,.site-header .header-nav .header-update:focus-visible{
+  outline:3px solid #e0f0ff;outline-offset:3px
+}
+.site-header .header-nav .header-link--external{background:#ffffff08}
+.site-header .header-nav .header-update{background:#e4f2ff;color:#183c66;border-color:#d2e8ff;font-weight:800}
+.site-header .header-nav .header-update:hover{background:#fff;color:#173454}
+.site-header .header-nav .header-update--ready{background:#b1e8cf;color:#10382c;border-color:#b1e8cf}
+.site-header .header-nav .header-update:disabled{opacity:.7;cursor:wait}
+.site-header .header-nav [hidden]{display:none}
+@media(max-width:650px){
+  .site-header .header-inner{align-items:flex-start;gap:14px}
+  .site-header .header-nav{width:100%;justify-content:flex-start}
+  .site-header .header-nav .header-link,.site-header .header-nav .header-update{
+    flex:1 1 auto;min-width:calc(50% - 8px);font-size:.83rem
+  }
+}
+.study-update-status{color:var(--muted);margin:0 0 14px}
+/* Unificar griego politónico en una fuente con letras del bloque Greek Extended:
+   Georgia puede intercalar un segundo rostro para vocales con espíritus. */
+:root{--greek-typeface:"Times New Roman","Noto Serif","Palatino Linotype",serif}
+.greek-word,[lang="grc"],.lexicon-greek,.component-greek,.brand-mark,.greek-key{
+  font-family:var(--greek-typeface);
+  font-variant-ligatures:normal;
+  font-feature-settings:normal;
+  font-kerning:normal
+}
+
 .shell{max-width:1150px;margin:auto;padding:32px 24px 70px}
 .intro{margin:8px 0 30px;max-width:880px}
 .eyebrow{text-transform:uppercase;letter-spacing:.105em;font-size:.73rem;font-weight:750;color:var(--muted);margin:0 0 6px}
@@ -69,7 +106,7 @@ button{min-height:46px;border-radius:10px;padding:11px 17px;font-weight:700;bord
 .full{width:100%}
 .etymon-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .unit-summary{margin:0;color:var(--muted);font-size:.84rem}
-.greek-word{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,7vw,4.7rem);font-weight:500;letter-spacing:-.018em;line-height:1.3;margin:10px 0}
+.greek-word{font-family:var(--greek-typeface);font-size:clamp(2.4rem,7vw,4.7rem);font-weight:500;letter-spacing:-.018em;line-height:1.3;margin:10px 0}
 .meaning-reveal{background:var(--bg);border:1px solid var(--line);
  border-left:4px solid var(--accent);border-radius:11px;
  padding:14px 17px;margin:8px 0 20px;overflow-wrap:anywhere}
@@ -176,7 +213,7 @@ button{min-height:46px;border-radius:10px;padding:11px 17px;font-weight:700;bord
 .match-option{width:100%;min-height:56px;text-align:left;padding:13px;
  border-radius:12px;border:1.5px solid var(--field-border);background:var(--field);
  color:var(--ink);font-weight:640;overflow-wrap:anywhere}
-.match-option[lang="grc"]{font:600 1.3rem Georgia,"Times New Roman",serif}
+.match-option[lang="grc"]{font:600 1.3rem var(--greek-typeface)}
 .match-option[aria-pressed="true"]{outline:3px solid var(--accent);
  outline-offset:0;background:var(--bg)}
 .match-option.matched{border-color:var(--success);background:var(--success-bg);
@@ -200,7 +237,7 @@ button{min-height:46px;border-radius:10px;padding:11px 17px;font-weight:700;bord
 .inverse-spanish{font-weight:780;font-size:clamp(1.75rem,4vw,2.7rem);
  letter-spacing:-.03em;margin:10px 0 24px;overflow-wrap:anywhere}
 .transliteration-preview{padding:12px 14px;border:1px solid var(--line);
- border-radius:10px;background:var(--bg);font:1.2rem Georgia,serif;
+ border-radius:10px;background:var(--bg);font:1.2rem var(--greek-typeface);
  min-height:50px;overflow-wrap:anywhere}
 .virtual-keyboard{border:1px solid var(--line);border-radius:12px;
  padding:12px;margin:14px 0 20px}
@@ -210,7 +247,7 @@ button{min-height:46px;border-radius:10px;padding:11px 17px;font-weight:700;bord
 .native-keyboard-button{display:none}
 .matched-meaning{display:block;font:500 .78rem/1.45 system-ui,sans-serif;
  color:var(--muted);margin-top:3px;white-space:normal}
-.greek-key{min-width:0;padding:7px 0;font:600 1.15rem Georgia,serif;
+.greek-key{min-width:0;padding:7px 0;font:600 1.15rem var(--greek-typeface);
  border:1px solid var(--field-border);background:var(--field);color:var(--ink);
  border-radius:7px}
 @media(max-width:550px){.quiz-options{grid-template-columns:1fr}
