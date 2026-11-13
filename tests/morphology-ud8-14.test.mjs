@@ -71,7 +71,7 @@ test('Griego I UD8: interrogativos, indefinidos y 16 paradigmas de tercera decli
   assert.ok(nouns.every(r=>r.forms.every(f=>f.case&&f.number)));
   assert.equal(find('griego-ud8-noun-114-0-0').gender,'neutro');
   assert.equal(find('griego-ud8-noun-114-0-0').forms.find(f=>
-    f.analysis==='nominativo plural').form,'τραύματα');
+    f.analysis==='nominativo plural').form,'τραύματα');
   const indefinite=find('griego-ud8-tis-indefinido');
   const neuter=indefinite.forms.filter(f=>f.analysis==='nominativo neutro plural').map(f=>f.form);
   assert.ok(neuter.includes('ἄττα'));
@@ -90,10 +90,10 @@ test('Griego I UD9–10: relativo y participios con caso, género, número y ace
   const active=find('griego-ud10-on'),middle=find('griego-ud10-menos');
   assert.equal(active.forms.length,24);assert.equal(middle.forms.length,24);
   assert.equal(active.forms.find(f=>f.analysis==='nominativo masculino singular').form,'ὤν');
-  assert.equal(middle.forms.find(f=>f.analysis==='nominativo masculino singular').form,'–μένος');
+  assert.equal(middle.forms.find(f=>f.analysis==='nominativo masculino singular').form,'–μένος');
   assert.equal(middle.kind,'desinencia');
   assert.equal(correctWritten({activity:'written',kind:'desinencia',language:'griego',
-    acceptedForms:['–μένος']},'μένος').correct,true);
+    acceptedForms:['–μένος']},'μένος').correct,true);
   assert.ok(!availableRecords(bank,{language:'griego',unit:9}).some(r=>r.id===active.id));
 });
 test('Griego I UD11–13: futuros, imperfectos, aoristos, perfectos, pluscuamperfecto',()=>{
@@ -105,7 +105,7 @@ test('Griego I UD11–13: futuros, imperfectos, aoristos, perfectos, pluscuamper
   assert.equal(find('griego-ud11-futuro-lyo').forms[0].form,'λύσω');
   assert.ok(find('griego-ud11-futuro-lyo').forms.some(f=>f.form==='λύσουσι'));
   assert.equal(find('griego-ud12-sigmatico-medio').forms.find(f=>
-    f.person==='2.ª singular').form,'ἐλύσω');
+    f.person==='2.ª singular').form,'ἐλύσω');
   assert.equal(find('griego-ud13-perfecto-lyo').forms[0].form,'λέλυκα');
   assert.ok(!availableRecords(bank,{language:'griego',unit:10}).some(r=>r.unit>=11));
 });
@@ -123,7 +123,7 @@ test('Griego I UD14: contractos y temas en silbante, con erratas cotejadas en cu
   assert.equal(added.filter(r=>r.id.startsWith('griego-ud14-sibilant-')).length,3);
   assert.equal(find('griego-ud14-sibilant-131').gender,'neutro');
   assert.equal(find('griego-ud14-sibilant-133').forms.find(f=>
-    f.analysis==='nominativo plural').form,'κρέα');
+    f.analysis==='nominativo plural').form,'κρέα');
   assert.ok(find('griego-ud14-sibilant-133').forms.every(f=>!f.form.includes('[')));
 });
 test('Desde cualquier UD nueva hay preguntas de reconocimiento, análisis y escritura',()=>{
@@ -154,6 +154,6 @@ test('La compilación impide aceptar silenciosamente una tabla cambiada',()=>{
   const alteredLatin=structuredClone(curriculum);
   alteredLatin.latin.units.find(x=>x.number===8).topics.find(x=>x.title==='Identidad y énfasis').html=
     alteredLatin.latin.units.find(x=>x.number===8).topics.find(x=>x.title==='Identidad y énfasis').html
-      .replace('ipse, ipsa, ipsum','ipse sin evidencia');
+      .replace('<caption>ipse, ipsa, ipsum</caption>','<caption>ipse sin evidencia</caption>');
   assert.throws(()=>compileMorphologyUd8to14(alteredLatin),/ipse, ipsa, ipsum/);
 });
