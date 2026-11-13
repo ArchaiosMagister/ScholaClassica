@@ -88,8 +88,11 @@ function checkLexGen(entry,genitive){
   const tokens=entry.form.split(',');
   if(tokens.length!==2)throw Error('Enunciado no nominal o con formas adicionales');
   const second=tokens[1].replace(/\([^)]*\)/gu,'').trim();
-  const match=second.match(/^[–−-]\s*([\p{Script=Greek}\p{M}]+)$/u);
-  if(!match||!key(genitive).endsWith(key(match[1])))
+  const suffix=second.match(/^[–−-]\s*([\p{Script=Greek}\p{M}]+)$/u);
+  const full=second.match(/^([\p{Script=Greek}\p{M}]+)$/u);
+  if(!suffix&&!full)throw Error('Genitivo docente no interpretable');
+  if((suffix&&!key(genitive).endsWith(key(suffix[1])))||
+    (full&&key(genitive)!==key(full[1])))
     throw Error('Genitivo del enunciado distinto al paradigma');
 }
 function checkLexGender(entry,gender){
