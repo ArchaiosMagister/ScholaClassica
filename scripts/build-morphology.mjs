@@ -8,6 +8,8 @@ import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 import {compileGreekNounExpansion} from './greek-noun-bulk.mjs';
 import {compileLatinNounExpansion,readLatinNounSource} from './latin-noun-bulk.mjs';
+import {readNounSecondaryEvidence,crosscheckNounInventory} from './noun-secondary-evidence.mjs';
+import {execFileSync} from 'node:child_process';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -346,6 +348,20 @@ export async function buildMorphology({out,lock}){
     JSON.stringify({schema:'schola-noun-inventory/v1',sourceSha:lock.sources.vocabula.sha,
       counts:{greek:bulk.audit,latin:latin.audit},
       catalog:[...bulk.catalog,...latin.catalog]},null,2)+'\n');
+  const examsSource=resolve(process.env.EXAMENES_SOURCE||join(root,'.sources/examenes'));
+  const examinedSha=execFileSync('git',['-C',examsSource,'rev-parse','HEAD'],
+    {encoding:'utf8'}).trim();
+  assert.equal(examinedSha,lock.sources.examenes.sha,
+    'El contraste de GeneradorExamenes exige la revisión fijada, nunca main');
+  assert.equal(lock.sources.examenes.integrated,false,
+    'GeneradorExamenes se consulta únicamente; no se despliega ni importa');
+  const secondary=crosscheckNounInventory({
+    greekCatalog:bulk.catalog,latinCatalog:latin.catalog,
+    ...await readNounSecondaryEvidence(examsSource),
+    sourceSha:examinedSha
+  });
+  await writeFile(join(auditDir,'contraste-nominal-secundario.json'),
+    JSON.stringify(secondary,null,2)+'\n');
   console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
     (8+bulk.records.length)+' sustantivos griegos y '+latin.records.length+
     ' latinos añadidos; pendientes griego '+bulk.review.length+
