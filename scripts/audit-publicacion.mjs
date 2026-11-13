@@ -14,7 +14,8 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
   'apps/morfologia/index.html','apps/morfologia/sw.js',
   'apps/morfologia/engine.mjs','apps/morfologia/written.mjs',
   'apps/morfologia/review.mjs','apps/morfologia/greek-keyboard.mjs',
-  'apps/morfologia/sintagmas.mjs',
+  'apps/morfologia/sintagmas.mjs','apps/morfologia/greek-noun-phrases.mjs',
+  'apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md',
   'apps/morfologia/data/paradigmas.json',
   'docente/auth-config.json']){
   assert.ok(existsSync(join(out,path)),'Falta recurso de publicación: '+path);
@@ -46,16 +47,25 @@ const etymologiconWorker=read('apps/etymologicon/sw.js');
 assert.ok(etymologiconWorker.includes("CACHE_PREFIX='schola-etymologicon-'"));
 const morphology=JSON.parse(read('apps/morfologia/data/paradigmas.json'));
 assert.equal(morphology.schema,'schola-morphology-source/v1');
-assert.equal(morphology.records.length,84);
+assert.equal(morphology.records.length,92);
 assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
 assert.ok(morphology.records.every(r=>r.evidence.status==='paradigma-documentado'));
 assert.ok(read('apps/morfologia/sw.js').includes("CACHE_PREFIX='schola-morphology-'"));
-for(const file of ['written.mjs','review.mjs','greek-keyboard.mjs','sintagmas.mjs']){
+for(const file of ['written.mjs','review.mjs','greek-keyboard.mjs','sintagmas.mjs','greek-noun-phrases.mjs']){
   assert.ok(read('apps/morfologia/sw.js').includes("'./"+file+"'"),
     'El modo offline debe precargar '+file);
 }
 assert.ok(read('apps/morfologia/index.html').includes('id="greek-keyboard"'));
 assert.ok(read('apps/morfologia/index.html').includes('id="review-mode"'));
+const locked=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
+assert.equal(morphology.vocabulaSha,locked.sources.vocabula.sha);
+const nouns=morphology.records.filter(r=>r.id.startsWith('griego-sustantivo-'));
+assert.equal(nouns.length,8,'Lote nominal explícito, sin altas automáticas');
+assert.ok(nouns.every(n=>n.forms.length===10&&n.gender&&
+  n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
+  n.evidence.review.includes('pendiente de revisión docente individual')));
+assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
+assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');
 assert.ok(vocabEndpoint.includes('wpwlguufpkfnzlbyproe.supabase.co'));
 const html=read('index.html');
