@@ -94,7 +94,7 @@ try{
    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
    return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego};
  });
- assert.equal(found.paradigms,84);
+ assert.equal(found.paradigms,92);
  assert.deepEqual(found.latin,[1,2,3,4,5,6,7]);assert.deepEqual(found.greek,[1,2,3,4,5,6,7]);
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
