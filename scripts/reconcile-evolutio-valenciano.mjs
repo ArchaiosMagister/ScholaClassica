@@ -38,7 +38,7 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
   const changes=entry.changes.map((x,i)=>{
    if(!knownRules.has(x.rule))throw Error('Norma no autorizada: '+entry.latin+'/'+x.rule);
    if(x.anchor!==undefined){
-    if(x.find!==undefined||x.at<0||x.at>characters.length||x.anchor!==x.at)
+    if((x.find!==undefined&&x.find!=='')||x.at<0||x.at>characters.length||x.anchor!==x.at)
      throw Error('Anclaje imposible: '+entry.latin);
     return {id:'va'+(i+1),rule:x.rule,spans:[],anchor:x.anchor,note:x.note};
    }
