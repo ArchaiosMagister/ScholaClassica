@@ -44,6 +44,21 @@ assert.ok(js.includes("SCRIPT_URL='./vendor/supabase.js'"));
 const bad=/service_role|sb_secret_|SCHOLA_AUTH_LOGIN_EMAIL|SCHOLA_TEACHER_USER_ID/i;
 for(const [path,body] of [['docente/index.html',html],['docente/app.mjs',js],['docente/auth-config.json',JSON.stringify(config)]])
   assert.ok(!bad.test(body),'Contenido sensible en '+path);
+// Los bancos originales de gramática y su informe, ya públicos en Vocabula,
+// se conservan completos como consulta docente independiente.
+const grammarBank=JSON.parse(read('docente/gramatica-banco.json'));
+const grammarCoverage=JSON.parse(read('docente/gramatica-cobertura.json'));
+assert.equal(grammarBank.schema,1);
+assert.ok(grammarBank.exercises.length>=100);
+assert.ok(grammarBank.exercises.every(q=>q.id&&q.prompt&&q.answer&&q.unit!=='UD 0'));
+assert.deepEqual(Object.keys(grammarBank.syllabi).sort(),['gr1','lat1','lat4']);
+assert.equal(grammarCoverage.schema,1);
+for(const subject of ['gr1','lat1','lat4'])assert.ok(grammarCoverage.subjects[subject]?.lemmas>0);
+const grammarAdmin=read('docente/gramatica-auditoria.mjs');
+assert.doesNotMatch(grammarAdmin,/innerHTML|sessionStorage|localStorage/);
+assert.match(html,/id="grammar-audit"/);
+assert.match(html,/id="admin-report-area"/);
+assert.match(js,/mountGrammarAudit/);
 const sw=read('sw.js');
 assert.ok(sw.includes("CACHE_PREFIX='schola-portal-'"));
 assert.ok(sw.includes('OWN_PATHS.has(url.pathname)'));
