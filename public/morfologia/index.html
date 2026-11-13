@@ -19,9 +19,9 @@
 </header>
 <main id="main" class="container">
   <div class="intro">
-    <p class="eyebrow">Primer módulo propio · edición curricular inicial</p>
+    <p class="eyebrow">Módulo curricular · práctica activa y repaso</p>
     <h1>Práctica de morfología</h1>
-    <p>Reconoce formas y sus análisis en tablas documentadas de gramática latina y griega. Sin formas inventadas, sin registro y sin corrección de respuestas externas.</p>
+    <p>Practica el reconocimiento, la escritura y las tablas de flexión latina y griega con formas documentadas. La corrección es local y no necesitas iniciar sesión.</p>
   </div>
   <section class="panel" aria-labelledby="selection-title">
     <h2 id="selection-title">Preparar una tanda</h2>
@@ -39,6 +39,8 @@
         <select id="activity">
           <option value="form">Elegir la forma correcta</option>
           <option value="analysis">Analizar una forma</option>
+          <option value="written">Escribir la forma sin opciones</option>
+          <option value="table">Completar una declinación</option>
           <option value="agreement" disabled hidden>Concordancia con artículo · Griego I UD5</option>
         </select>
       </label>
@@ -47,9 +49,22 @@
           <option value="todos">Todas las categorías disponibles</option>
         </select>
       </label>
+      <label>Modalidad de repaso
+        <select id="review-mode">
+          <option value="all">Práctica libre</option>
+          <option value="smart">Repetición inteligente</option>
+          <option value="errors">Volver a los errores</option>
+          <option value="due">Repasos pendientes</option>
+          <option value="new">Formas todavía no practicadas</option>
+        </select>
+      </label>
     </div>
     <p id="coverage" class="helper" aria-live="polite"></p>
-    <button id="start" type="button">Crear tanda de 10 preguntas</button>
+    <button id="start" type="button">Crear tanda de hasta 10 ejercicios</button>
+    <div class="progress-tools">
+      <p id="review-status" class="helper" aria-live="polite">Progreso local: todavía sin ejercicios.</p>
+      <button type="button" class="secondary" id="clear-progress">Borrar mi progreso</button>
+    </div>
   </section>
   <section id="session" class="panel" aria-labelledby="question-title" hidden>
     <div class="session-head">
@@ -60,6 +75,27 @@
     <h2 id="question-title" tabindex="-1">Pregunta</h2>
     <div id="expression" class="expression" hidden></div>
     <div id="answers" class="answers" role="group" aria-label="Elige una respuesta"></div>
+    <div id="written-response" class="productive" hidden>
+      <label for="answer-input">Tu respuesta</label>
+      <input id="answer-input" type="text" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text">
+      <button type="button" id="check-written">Comprobar respuesta</button>
+    </div>
+    <div id="table-response" class="productive" hidden>
+      <p class="helper">Escribe todas las casillas de la tabla y después comprueba la declinación.</p>
+      <div class="table-scroll">
+        <table class="practice-table" aria-label="Tabla de declinación que debes completar">
+          <thead><tr><th scope="col">Caso</th><th scope="col">Singular</th><th scope="col">Plural</th></tr></thead>
+          <tbody id="table-cells"></tbody>
+        </table>
+      </div>
+      <button type="button" id="check-table">Corregir tabla</button>
+    </div>
+    <section id="greek-keyboard" class="greek-keyboard" aria-label="Teclado griego integrado" hidden>
+      <h3>Teclado griego</h3>
+      <p class="helper">Pulsa una letra para escribirla; añade el acento o espíritu después de la vocal. También puedes utilizar tu teclado habitual.</p>
+      <div id="greek-key-buttons" class="greek-key-buttons"></div>
+      <p id="greek-key-notice" class="helper" role="status" aria-live="polite"></p>
+    </section>
     <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
     <a id="source" class="source-link" href="../gramatica/" hidden>Consultar la unidad en Appendix grammaticae</a>
     <button id="next" type="button" hidden>Siguiente pregunta</button>
@@ -68,13 +104,15 @@
   <section id="summary" class="panel" aria-live="polite" hidden>
     <h2>Resultado de la tanda</h2>
     <p id="final-score"></p>
-    <p>Esta actividad es un repaso formativo. No almacena notas ni envía respuestas a servidores.</p>
+    <p>La repetición inteligente guarda solo los resultados de tus ejercicios en este navegador. No se envían respuestas ni notas a ningún servidor.</p>
     <button id="repeat" type="button">Practicar de nuevo</button>
   </section>
   <section class="notes" aria-labelledby="scope-title">
     <h2 id="scope-title">Alcance académico</h2>
     <p><strong>Latín I:</strong> UD1 (primera y segunda declinación, presente activo y <i>sum</i>), UD2 (imperfecto activo), UD3 (presente e imperfecto pasivos), UD4 (tercera declinación; perfecto y pluscuamperfecto activos de las cinco conjugaciones y de <i>sum</i>) y UD5 (adjetivos de tercera declinación: <i>brevis</i>, <i>acer</i>, <i>audax</i>, <i>vetus</i>). <strong>Griego I:</strong> UD1–UD3 (declinaciones, presente y artículo), UD4 (repaso acumulativo) y UD5 (adjetivos 2–1–2, 2–2, <span lang="grc">πολύς</span>, <span lang="grc">μέγας</span> y concordancia con el artículo).</p>
     <p>La corrección contempla el sincretismo y las variantes válidas. Los adjetivos latinos distinguen género, número y caso, con análisis múltiples cuando una misma forma corresponde a varios géneros. En Griego I, la nueva modalidad pregunta qué forma de un adjetivo concuerda con un artículo documentado; se habilita únicamente desde UD5. Los paradigmas proceden de las tablas del <em>Appendix grammaticae</em> fijado. Las formas pasivas compuestas, los adjetivos no documentados y las unidades posteriores siguen pendientes de revisión.</p>
+    <p>En las respuestas escritas se admiten las variantes documentadas y las grafías latinas <i>æ/ae</i>. En griego se distinguen los errores morfológicos de los ortográficos (acentos, espíritus, sigma final). Los errores ortográficos no se cuentan como aciertos. Los modelos de terminaciones admiten escribir la desinencia con o sin guion inicial.</p>
+    <p>Las tablas de declinación solo utilizan los sustantivos, artículos, adjetivos y desinencias que ya aparecen en el banco. Los sintagmas completos con sustantivos de flexión no documentada siguen pendientes de revisión.</p>
     <p id="network-status" role="status" aria-live="polite"></p>
   </section>
 </main>
