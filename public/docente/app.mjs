@@ -1,16 +1,24 @@
 // El HTML es público: solo la Edge Function determina si existe acceso docente.
 // Nunca se almacenan aquí contraseñas, claves privilegiadas ni datos de alumnos.
 const el=id=>document.getElementById(id);
-const sections=['unavailable','login','enroll','verify','teacher'];
+const sections=['unavailable','login','enroll','verify','ready','teacher'];
 // El bundle local se verifica por SHA-256 en el build docente.
 const SCRIPT_URL='./vendor/supabase.js';
-const CAPTCHA_URL='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-let config,client,enrollment=null,busy=false,captchaId=null;
+let config,client,enrollment=null,busy=false;
+let loadedNotices=[];
+let vocabWords=[],vocabReports=[],vocabWordOffset=0,vocabReportOffset=0,editingVocabId=null;
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
 function state(section,message=''){
   for(const id of sections)el(id).hidden=id!==section;
   el('logout').hidden=section==='login'||section==='unavailable';
   el('status').textContent=message;
+  if(section==='login'||section==='unavailable'){
+    loadedNotices=[];vocabWords=[];vocabReports=[];editingVocabId=null;
+    for(const id of ['notices','vocab-word-list','vocab-report-list'])el(id)?.replaceChildren();
+    el('vocab-word-form').hidden=true;
+    el('username').value='';
+    el('password').value='';
+  }
 }
 function setBusy(value){
   busy=value;
@@ -30,11 +38,11 @@ async function safely(operation){
 function validConfig(value){
   return value?.enabled===true&&/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(value.url||'')&&
     typeof value.publishableKey==='string'&&value.publishableKey.length>20&&
-    typeof value.turnstileSiteKey==='string'&&/^0x[A-Za-z0-9_-]{16,64}$/.test(value.turnstileSiteKey)&&
     !('email' in value)&&
-    value.username==='MagisterArchaios'&&value.origin===location.origin&&
-    location.hostname!=='archaiosmagister.github.io'&&
-    (location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname));
+    value.username==='MagisterArchaios'&&typeof value.setupOnly==='boolean'&&
+    value.origin===location.origin&&
+    (location.origin==='https://archaiosmagister.github.io'||
+      ['localhost','127.0.0.1'].includes(location.hostname));
 }
 async function loadSDK(){
   if(window.supabase?.createClient)return;
@@ -48,18 +56,6 @@ async function loadSDK(){
   });
   if(!window.supabase?.createClient)throw Error('Biblioteca no disponible');
 }
-async function loadCaptcha(){
-  if(!window.turnstile?.render){
-    await new Promise((resolve,reject)=>{
-      const script=document.createElement('script');
-      script.src=CAPTCHA_URL;script.async=true;script.defer=true;
-      script.onload=resolve;script.onerror=()=>reject(Error('No se ha cargado el control antirrobots'));
-      document.head.append(script);
-    });
-  }
-  if(!window.turnstile?.render)throw Error('Control antirrobots no disponible');
-  captchaId=window.turnstile.render('#turnstile-widget',{sitekey:config.turnstileSiteKey,theme:'auto',action:'schola-login'});
-}
 async function checkSession(){
   const {data:{session},error}=await client.auth.getSession();
   if(error)throw error;
@@ -70,6 +66,11 @@ async function checkSession(){
   const assurance=await client.auth.mfa.getAuthenticatorAssuranceLevel();
   if(assurance.error)throw assurance.error;
   if(assurance.data.currentLevel==='aal2'){
+    // En la fase de primera vinculación nunca solicitar ni mostrar datos docentes.
+    if(config.setupOnly===true){
+      state('ready','Identidad verificada con segundo factor. El panel permanece en preparación.');
+      return;
+    }
     // La comprobación del servidor es imprescindible, incluso con 2FA.
     await fetchNotices();
     return;
@@ -93,9 +94,17 @@ async function fetchNotices(){
     state('unavailable','Acceso docente no autorizado por el servidor');
     return;
   }
-  const notices=Array.isArray(response.data.items)?response.data.items:[];
+  loadedNotices=Array.isArray(response.data.items)?response.data.items:[];
+  renderNotices();
+  state('teacher','Sesión docente verificada con TOTP y autorizada por el servidor');
+}
+function renderNotices(){
+  const selected=el('notice-source').value;
+  const notices=loadedNotices.filter(item=>selected==='all'||item.source===selected);
+  el('notices').replaceChildren();
   el('notices-state').textContent=notices.length?
-    notices.length+' avisos pendientes':'No hay avisos pendientes en las fuentes conectadas';
+    notices.length+' avisos pendientes'+(selected==='all'?'':' de la aplicación seleccionada'):
+    'No hay avisos pendientes de la aplicación seleccionada';
   for(const item of notices){
     if(!['vocabula','palabra'].includes(item.source))continue;
     const article=document.createElement('article');article.className='notice';
@@ -111,8 +120,8 @@ async function fetchNotices(){
     link.target='_blank';link.rel='noopener noreferrer';link.textContent='Abrir aplicación original';
     article.append(heading,origin,detail,link);el('notices').append(article);
   }
-  state('teacher','Sesión docente verificada con TOTP y autorizada por el servidor');
 }
+el('notice-source').addEventListener('change',renderNotices);
 el('login-form').addEventListener('submit',event=>{
   event.preventDefault();
   void safely(async()=>{
@@ -120,14 +129,10 @@ el('login-form').addEventListener('submit',event=>{
     const password=el('password').value;
     el('password').value='';
     if(username!==config.username||!password){state('login','Credenciales incorrectas');return}
-    const token=window.turnstile?.getResponse?.(captchaId);
-    if(typeof token!=='string'||token.length<10){
-      state('login','Completa primero la comprobación de seguridad');return;
-    }
     try{
       // El correo NO viaja al navegador: el servidor resuelve el usuario.
       const response=await client.functions.invoke('schola-login',{
-        method:'POST',body:{username,password,turnstileToken:token}
+        method:'POST',body:{username,password}
       });
       if(response.error||!response.data?.access_token||!response.data?.refresh_token){
         state('login','Credenciales incorrectas o acceso no disponible');return;
@@ -138,7 +143,8 @@ el('login-form').addEventListener('submit',event=>{
       if(installed.error)throw installed.error;
       await checkSession();
     }finally{
-      window.turnstile?.reset?.(captchaId);
+      // No conservar contraseñas en la interfaz tras el intento.
+      el('password').value='';
     }
   });
 });
@@ -189,9 +195,7 @@ async function init(){
     const response=await fetch('./auth-config.json',{cache:'no-store'});
     config=await response.json();
     if(!validConfig(config)){state('unavailable','Configuración docente no activada');return}
-    el('username').value=config.username;
     await loadSDK();
-    await loadCaptcha();
     client=window.supabase.createClient(config.url,config.publishableKey,{
       auth:{persistSession:false,autoRefreshToken:true,detectSessionInUrl:false}
     });
@@ -205,4 +209,128 @@ async function init(){
     state('unavailable','Servicio de autenticación no disponible');
   }
 }
+
+// Gestión docente de Vocabula: todas las peticiones vuelven a autorizarse
+// en la Edge Function. Las palabras y notas nunca se guardan en almacenamiento local.
+async function vocabAdmin(body){
+  const response=await client.functions.invoke('schola-vocab-admin',{method:'POST',body});
+  if(response.error||response.data?.error||!response.data)
+    throw Error('Operación docente no autorizada o servicio no disponible');
+  return response.data;
+}
+const textElement=(tag,value,className='')=>{
+  const node=document.createElement(tag);
+  node.textContent=String(value??'');
+  if(className)node.className=className;
+  return node;
+};
+function openWordEditor(word=null){
+  editingVocabId=word?.id||null;
+  el('vocab-form-heading').textContent=word?'Editar palabra':'Nueva palabra';
+  el('vocab-word-form').reset();
+  el('vocab-subject').value=word?.subject||'lat1';
+  el('vocab-form-text').value=word?.form||'';
+  el('vocab-meaning').value=word?.meaning||'';
+  el('vocab-answers').value=(word?.answers||[]).join('\n');
+  el('vocab-units').value=(word?.units||[]).join('; ');
+  el('vocab-in-exam').checked=word?.in_exam===true;
+  el('vocab-active').checked=word?.active!==false;
+  el('vocab-word-form').hidden=false;
+  el('vocab-form-text').focus();
+}
+function renderVocabWords(){
+  const list=el('vocab-word-list');
+  list.replaceChildren();
+  for(const word of vocabWords){
+    const card=textElement('article','', 'notice');
+    card.append(textElement('h4',word.form),
+      textElement('p',word.meaning),
+      textElement('small',[word.subject,(word.units||[]).join(' · '),
+        word.active?'Disponible':'Retirada'].join(' · ')));
+    const edit=textElement('button','Editar');
+    edit.type='button';edit.addEventListener('click',()=>openWordEditor(word));
+    card.append(edit);list.append(card);
+  }
+  el('vocab-more').hidden=vocabWords.length===0||vocabWords.length%100!==0;
+  el('vocab-admin-status').textContent=vocabWords.length+
+    ' palabras cargadas. Para editar otras entradas, carga más resultados.';
+}
+async function loadVocabWords(append=false){
+  if(!append){vocabWordOffset=0;vocabWords=[]}
+  const result=await vocabAdmin({action:'words.list',offset:vocabWordOffset});
+  const words=Array.isArray(result.words)?result.words:[];
+  vocabWords.push(...words);
+  vocabWordOffset+=words.length;
+  renderVocabWords();
+  el('vocab-more').hidden=!result.hasMore;
+}
+async function saveVocabWord(){
+  const split=raw=>[...new Set(raw.split(/[;\n]/).map(x=>x.trim()).filter(Boolean))];
+  const body={
+    action:'words.save',...(editingVocabId?{id:editingVocabId}:{}),
+    subject:el('vocab-subject').value,form:el('vocab-form-text').value,
+    meaning:el('vocab-meaning').value,answers:split(el('vocab-answers').value),
+    units:split(el('vocab-units').value),in_exam:el('vocab-in-exam').checked,
+    active:el('vocab-active').checked
+  };
+  await vocabAdmin(body);
+  el('vocab-word-form').hidden=true;editingVocabId=null;
+  await loadVocabWords(false);
+  el('vocab-admin-status').textContent='Palabra guardada en Vocabula. La consulta del alumnado se actualizará cuando vuelva a sincronizarse.';
+}
+const REPORT_STATES=[['pending','Pendiente'],['reviewing','En revisión'],
+  ['resolved','Resuelta'],['dismissed','Descartada']];
+function renderVocabReports(){
+  const list=el('vocab-report-list');
+  list.replaceChildren();
+  for(const report of vocabReports){
+    const card=textElement('article','', 'notice');
+    card.append(textElement('h4',report.entry_form||report.kind),
+      textElement('small',[report.subject,report.mode,
+        report.created_at?new Date(report.created_at).toLocaleString('es-ES'):''].join(' · ')),
+      textElement('p',report.message));
+    const stateLabel=textElement('label','Estado');const select=document.createElement('select');
+    for(const [value,label] of REPORT_STATES){
+      const option=document.createElement('option');option.value=value;option.textContent=label;
+      select.append(option);
+    }
+    select.value=report.status;
+    const noteLabel=textElement('label','Nota privada del profesor');
+    const note=document.createElement('textarea');note.value=report.teacher_note||'';
+    note.maxLength=2000;note.rows=3;
+    const save=textElement('button','Guardar revisión');save.type='button';
+    save.addEventListener('click',()=>void safely(async()=>{
+      await vocabAdmin({action:'reports.review',id:report.id,status:select.value,teacher_note:note.value});
+      await loadVocabReports(false);
+      await fetchNotices();
+    }));
+    card.append(stateLabel,select,noteLabel,note,save);
+    list.append(card);
+  }
+  el('vocab-report-status').textContent=vocabReports.length+
+    ' incidencias cargadas (estado seleccionado: '+(el('vocab-report-filter').selectedOptions[0]?.textContent||'')+').';
+}
+async function loadVocabReports(append=false){
+  if(!append){vocabReportOffset=0;vocabReports=[]}
+  const result=await vocabAdmin({action:'reports.list',
+    status:el('vocab-report-filter').value,offset:vocabReportOffset});
+  const reports=Array.isArray(result.reports)?result.reports:[];
+  vocabReports.push(...reports);
+  vocabReportOffset+=reports.length;
+  renderVocabReports();
+  el('vocab-report-more').hidden=!result.hasMore;
+}
+el('vocab-load').addEventListener('click',()=>void safely(()=>loadVocabWords(false)));
+el('vocab-more').addEventListener('click',()=>void safely(()=>loadVocabWords(true)));
+el('vocab-new').addEventListener('click',()=>openWordEditor());
+el('vocab-cancel').addEventListener('click',()=>{editingVocabId=null;el('vocab-word-form').hidden=true});
+el('vocab-word-form').addEventListener('submit',event=>{
+  event.preventDefault();void safely(saveVocabWord);
+});
+el('vocab-report-load').addEventListener('click',()=>void safely(()=>loadVocabReports(false)));
+el('vocab-report-more').addEventListener('click',()=>void safely(()=>loadVocabReports(true)));
+el('vocab-report-filter').addEventListener('change',()=>{
+  vocabReports=[];el('vocab-report-list').replaceChildren();el('vocab-report-more').hidden=true;
+});
+
 void init();
