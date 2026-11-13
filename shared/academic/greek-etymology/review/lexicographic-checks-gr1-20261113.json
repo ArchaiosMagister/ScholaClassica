@@ -1,0 +1,155 @@
+{
+  "schema": "etymologicon-lexicographic-checks/v1",
+  "course": "gr1",
+  "checkedAt": "2026-11-13",
+  "sourceEdition": "RAE-ASALE DLE 24.ª edición (2026) salvo donde se especifica versión anterior",
+  "purpose": "Estado revisado por artículo real. No equivale a validar automáticamente las fichas restantes ni el significado etimológico de todos los componentes.",
+  "records": {
+    "atelectasia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/atelectasia",
+      "note": "Confirma término médico y ἀτελής + ἔκτασις."
+    },
+    "efeméride": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/efem%C3%A9ride",
+      "note": "Forma variante efemérides; procede de ἐφημερίς vía latín, con acepción de acontecimiento conmemorado."
+    },
+    "macrobiótico": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/macrobi%C3%B3tico",
+      "note": "Artículo incluye alimentación macrobiótica y la base griega βιωτικός; evitar identificarlo exclusivamente con longevidad."
+    },
+    "plastilina": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/plastilina",
+      "note": "El artículo señala procedencia de marca registrada Plastilina®, no derivación directa del griego."
+    },
+    "plutócrata": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/plut%C3%B3crata",
+      "note": "Designa un miembro de una plutocracia; DLE identifica πλοῦτος + -crata."
+    },
+    "somatización": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle23",
+      "sourceUrl": "https://dle.rae.es/somatizaci%C3%B3n",
+      "note": "El artículo remite a somatizar; en la versión consultable 23.ª/2024 figura como acción y efecto de somatizar."
+    },
+    "tanatología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/tanatolog%C3%ADa",
+      "note": "Procede del francés thanatologie; sentido médico del estudio de la muerte."
+    },
+    "tomografía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/tomograf%C3%ADa",
+      "note": "Procede del inglés tomography y éste de griego τόμος + -graphy; técnica de imágenes por secciones."
+    },
+    "autarquía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/autarqu%C3%ADa",
+      "note": "Distingue autarquía¹ < αὐταρχία, dominio de sí, y autarquía² < αὐτάρκεια, autosuficiencia; la ficha corresponde al segundo lema."
+    },
+    "antropomorfismo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/antropomorfismo",
+      "note": "La acepción describe atribuir rasgos humanos a seres no humanos; antropomorfo + -ismo."
+    },
+    "microbiología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/microbiolog%C3%ADa",
+      "note": "El artículo tiene definición de estudio de microbios y composición microbio + -logía."
+    },
+    "autocracia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/autocracia",
+      "note": "Vía francés autocratie, del griego αὐτοκράτεια; poder concentrado en una persona."
+    },
+    "filólogo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/fil%C3%B3logo",
+      "note": "Vía latín philologus del griego φιλόλογος; especialista en filología."
+    },
+    "bioética": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/bio%C3%A9tica",
+      "note": "Articulada como femenino de bioético: estudio de problemas éticos en ciencias de la vida."
+    },
+    "cardiopatía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cardiopat%C3%ADa",
+      "note": "Enfermedad del corazón, de cardio- + -patía."
+    },
+    "antropometría": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/antropometr%C3%ADa",
+      "note": "Estudio de medidas y proporciones humanas, de antropo- + -metría."
+    },
+    "microchip": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/microchip",
+      "note": "Chip miniaturizado; formación mixta con préstamo chip del inglés."
+    },
+    "helioterapia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/helioterapia",
+      "note": "Método de exposición solar con finalidad terapéutica, de helio- + -terapia."
+    },
+    "hipódromo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/hip%C3%B3dromo",
+      "note": "Vía latín hippodromus, del griego ἱππόδρομος; lugar de carreras de caballos."
+    },
+    "filántropo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/fil%C3%A1ntropo",
+      "note": "Del griego φιλάνθρωπος; quien favorece a sus semejantes."
+    },
+    "geniogloso": {
+      "status": "dle_no_incluye_entrada_independiente",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/geniogloso",
+      "secondarySource": "https://www.kenhub.com/es/library/anatomia-es/anatomia-de-la-lengua",
+      "note": "No se ha localizado artículo independiente en la edición 24.ª. Su uso anatómico está documentado en manuales de anatomía; músculo que protruye la lengua."
+    },
+    "seudociencia": {
+      "status": "dle_no_incluye_entrada_independiente",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/seudociencia",
+      "secondarySource": "https://dle.rae.es/seudo-",
+      "note": "La 24.ª edición no ofrece artículo independiente para el sustantivo, ni para pseudociencia. Sí registra seudo-/pseudo- y seudocientífico. No equivale a que la formación sea incorrecta."
+    },
+    "genioplastia": {
+      "status": "fuente_especializada_contrastada",
+      "sourceUrl": "https://www.cun.es/diccionario-medico/terminos/genioplastia",
+      "edition": null,
+      "note": "Diccionario Médico de la Clínica Universidad de Navarra: intervención para remodelar el mentón, a partir de γένειον y -plastia."
+    },
+    "proctitis": {
+      "status": "fuente_especializada_contrastada",
+      "sourceUrl": "https://dicciomed.usal.es/palabra/proctitis",
+      "edition": null,
+      "note": "Dicciomed, Universidad de Salamanca: inflamación del ano y recto; πρωκτός + -ῖτις."
+    }
+  }
+}
