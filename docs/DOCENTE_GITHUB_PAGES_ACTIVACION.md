@@ -46,6 +46,21 @@ GitHub Pages no procesa el archivo `_headers` de Cloudflare. El build público a
 
 Esta activación **no se ha configurado** en GitHub Actions ni se ha desplegado. Antes de introducir estas variables en un workflow productivo será necesario adaptar las pruebas de la versión bloqueada y separar la validación de la etapa de publicación. Las claves de servicio y el email del profesor no aparecen en `dist/`.
 
+## Editor y revisiones de Vocabula
+
+La página docente incluye una primera interfaz para listar, añadir, editar y desactivar
+palabras del vocabulario, y consultar/actualizar el estado de incidencias.
+La función `schola-vocab-admin` exige un JWT válido, `getUser(token)`, UUID docente
+exacta y `aal2` en **cada** petición, tanto de lectura como de escritura.
+Solo admite las acciones `words.list`, `words.save`, `reports.list` y
+`reports.review`; no implementa borrados ni permite cambiar datos de alumnos.
+Su clave privilegiada para Vocabula reside exclusivamente en secretos de servidor.
+`supabase/config.toml` declara `verify_jwt=true` para esta función.
+
+**No desplegada ni activada**. Se necesitan pruebas reales de edición, control de duplicados,
+edición de palabras inactivas, paginación, índices y revocación de sesión. La interfaz
+docente original de Vocabula conserva todas sus funciones hasta superar esa validación.
+
 ## Retirada de paneles duplicados
 
 No eliminar aún interfaces docentes de Vocabula ni de ninguna aplicación integrada. Primero completar extremo a extremo con datos de prueba, confirmar avisos, filtros y enlaces, comprobar móviles, y disponer de reversión. Después retirar únicamente accesos duplicados, sin eliminar la capacidad original de enviar avisos ni su base de datos. **Palabra del día conserva íntegramente su panel docente.**
