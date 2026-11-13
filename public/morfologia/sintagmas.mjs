@@ -86,9 +86,11 @@ function greekPairs(records){
   });
 }
 function candidates(bank,language,unit){
+  if(language==='latin4'&&unit<3)
+    throw Error('La práctica de sintagmas de 4.º solo está disponible desde UD3');
   if(!['latin','latin4','griego'].includes(language)||
-    unit<(language==='latin4'?3:5))
-    throw Error('La práctica de sintagmas aún no corresponde a esta unidad');
+    (language!=='latin4'&&unit<5))
+    throw Error('La práctica de sintagmas solo está disponible desde UD5');
   const records=availableRecords(bank,{language,unit});
   return language==='griego'?greekPairs(records):nounPairs(records,language);
 }
