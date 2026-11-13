@@ -61,7 +61,10 @@ const locked=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8
 assert.equal(morphology.vocabulaSha,locked.sources.vocabula.sha);
 const nouns=morphology.records.filter(r=>r.id.startsWith('griego-sustantivo-'));
 assert.ok(nouns.length>8,'La ampliación nominal no debe quedarse en ocho');
-assert.equal(morphology.records.length,84+nouns.length,
+assert.ok(morphology.records.filter(r=>r.id.startsWith('latin-sustantivo-import-')).length>=10,
+  'El léxico latino también debe tener paradigmas añadidos');
+assert.equal(morphology.records.length,84+nouns.length+
+  morphology.records.filter(r=>r.id.startsWith('latin-sustantivo-import-')).length,
   'Los 84 paradigmas previos deben permanecer, sin duplicados ni fuentes inesperadas');
 assert.equal(new Set(morphology.records.map(r=>r.id)).size,morphology.records.length);
 assert.ok(nouns.every(n=>n.unit<=7),
