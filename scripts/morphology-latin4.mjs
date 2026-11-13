@@ -83,7 +83,7 @@ const BRIDGE=[
   [1,1,'sustantivo',r=>r.paradigm.startsWith('rosa,'),1],
   [2,1,'sustantivo',r=>/^(dominus|bellum),/.test(r.paradigm),2],
   [2,1,'verbo',r=>/ · presente(?: activo)?$/.test(r.paradigm),6],
-  [4,2,'verbo',r=>/ · imperfecto activo$/.test(r.paradigm),6],
+  [4,2,'verbo',r=>/ · imperfecto(?: activo)?$/.test(r.paradigm),6],
   [5,4,'sustantivo',r=>true,4],
   [6,3,'verbo',r=>/ · (?:presente|imperfecto) pasivo$/.test(r.paradigm),10],
   [6,3,'desinencia',r=>r.id==='latin-desinencias-pasivas',1],
