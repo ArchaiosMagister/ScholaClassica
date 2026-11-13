@@ -16,7 +16,7 @@
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 26,
+    "analisisEditoriales": 28,
     "casosConDiscrepancia": 0,
     "derivacionesDirectasDescartadas": 4
   },
@@ -102,9 +102,54 @@
       "valenciano": {
         "resultado": "cel",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Monoftongació del diftong llatí æ > e."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Tractament palatal de c- davant el resultat anterior e del diftong æ; classificació didàctica docent."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Pèrdua de la -u final després de -m."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "cælum → cel: monoftongació de æ, palatalització de la consonant inicial davant la vocal anterior resultant, apòcope de -u i pèrdua fixa de -m. Les dos primeres normes s'exigixen per decisió docent.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -117,7 +162,14 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false,
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "decision": "Exigir MONOFTONGACIÓ de æ y PALATALITZACIÓ de c inicial; mantener APÒCOPE y pérdida fija -m diferenciadas."
+        }
       }
     },
     {
@@ -976,9 +1028,54 @@
       "valenciano": {
         "resultado": "ull",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SINC",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Síncope de la vocal postònica: ocŭlum > oclu (després de la pèrdua fixa de -m)."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Palatalització del grup -cl- format després de la síncope: se situa en la c original perquè c+l no són contigües abans de la síncope."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la vocal final -u."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "ocŭlum → ull: síncope de ŭ i formació de *ŏclu, palatalització del grup -cl- resultant, apòcope de -u i pèrdua fixa de -m. Es mantenen separades les etapes històriques i els trams de l'ètim llatí.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -991,7 +1088,14 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "El DCVB deriva ull del latín vulgar *ŏclu, contracción del latín clásico ŏcŭlus; conservar la fase intermedia y no afirmar derivación fonética directa."
+        "notas": "El DCVB deriva ull del latín vulgar *ŏclu, contracción del latín clásico ŏcŭlus; conservar la fase intermedia y no afirmar derivación fonética directa.",
+        "dnvIndividualChecked": false,
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "decision": "Exigir SÍNCOPE de ŭ postònica i PALATALITZACIÓ del grup -cl- format després de la síncope; no atribuir -cl- com a tram contigu del mot llatí original."
+        }
       }
     },
     {
@@ -2981,7 +3085,7 @@
                 5
               ]
             ],
-            "note": "Obertura de la vocal final -u en -o."
+            "note": "OBERTURA de la vocal final llatina -u en -o, com a classificació docent expressament aprovada."
           },
           {
             "id": "va2",
@@ -2996,7 +3100,7 @@
           }
         ],
         "estadoNormas": "analisi_editorial_revisada",
-        "explicacion": "La vocal tònica ĕ es manté en el resultat valencià.",
+        "explicacion": "fĕrrum → ferro: la ĕ tònica es manté sense diftongació; exigir OBERTURA del resultat final -u > -o segons criteri docent, i tractar la -m final com a pèrdua fixa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3008,7 +3112,13 @@
           }
         ],
         "notas": null,
-        "dnvIndividualChecked": false
+        "dnvIndividualChecked": false,
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "decision": "Exigir OBERTURA per al resultat -u > -o de fĕrrum → ferro, com a classificació didàctica de la llei 11."
+        }
       }
     },
     {
