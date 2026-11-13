@@ -3859,6 +3859,682 @@
         "greek": "φόβος",
         "gloss": "miedo, aversión"
       }
+    ],
+    "analgesia": [
+      {
+        "greek": "ἀν-",
+        "gloss": "sin, privación"
+      },
+      {
+        "greek": "ἄλγος",
+        "gloss": "dolor"
+      }
+    ],
+    "antropología": [
+      {
+        "greek": "ἄνθρωπος",
+        "gloss": "ser humano"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio, razonamiento"
+      }
+    ],
+    "autonomía": [
+      {
+        "greek": "αὐτός",
+        "gloss": "por sí mismo"
+      },
+      {
+        "greek": "νόμος",
+        "gloss": "ley, norma"
+      }
+    ],
+    "bibliografía": [
+      {
+        "greek": "βιβλίον",
+        "gloss": "libro"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "escribir, registrar"
+      }
+    ],
+    "cefalea": [
+      {
+        "greek": "κεφαλή",
+        "gloss": "cabeza"
+      }
+    ],
+    "crematístico": [
+      {
+        "greek": "χρῆμα",
+        "gloss": "dinero, bienes"
+      }
+    ],
+    "cripta": [
+      {
+        "greek": "κρύπτω",
+        "gloss": "esconder, ocultar"
+      }
+    ],
+    "cromosoma": [
+      {
+        "greek": "χρῶμα",
+        "gloss": "color"
+      },
+      {
+        "greek": "σῶμα",
+        "gloss": "cuerpo"
+      }
+    ],
+    "cromático": [
+      {
+        "greek": "χρῶμα",
+        "gloss": "color"
+      }
+    ],
+    "dendrita": [
+      {
+        "greek": "δένδρον",
+        "gloss": "árbol"
+      }
+    ],
+    "despotismo": [
+      {
+        "greek": "δεσπότης",
+        "gloss": "amo, señor"
+      }
+    ],
+    "didascalia": [
+      {
+        "greek": "διδάσκω",
+        "gloss": "enseñar"
+      }
+    ],
+    "didáctica": [
+      {
+        "greek": "διδάσκω",
+        "gloss": "enseñar"
+      }
+    ],
+    "déspota": [
+      {
+        "greek": "δεσπότης",
+        "gloss": "amo, señor"
+      }
+    ],
+    "ecología": [
+      {
+        "greek": "οἶκος",
+        "gloss": "casa, entorno"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "economía": [
+      {
+        "greek": "οἶκος",
+        "gloss": "casa, patrimonio"
+      },
+      {
+        "greek": "νόμος",
+        "gloss": "regla, administración"
+      }
+    ],
+    "efeméride": [
+      {
+        "greek": "ἐπί",
+        "gloss": "sobre, durante"
+      },
+      {
+        "greek": "ἡμέρα",
+        "gloss": "día"
+      }
+    ],
+    "enciclopedia": [
+      {
+        "greek": "ἐν",
+        "gloss": "dentro de"
+      },
+      {
+        "greek": "κύκλος",
+        "gloss": "círculo, totalidad"
+      },
+      {
+        "greek": "παιδεία",
+        "gloss": "educación"
+      }
+    ],
+    "energía": [
+      {
+        "greek": "ἐν",
+        "gloss": "en, dentro"
+      },
+      {
+        "greek": "ἔργον",
+        "gloss": "trabajo, actividad"
+      }
+    ],
+    "entusiasmo": [
+      {
+        "greek": "ἐν",
+        "gloss": "dentro"
+      },
+      {
+        "greek": "θεός",
+        "gloss": "dios"
+      }
+    ],
+    "estrategia": [
+      {
+        "greek": "στρατός",
+        "gloss": "ejército"
+      },
+      {
+        "greek": "ἄγω",
+        "gloss": "conducir, dirigir"
+      }
+    ],
+    "estratégico": [
+      {
+        "greek": "στρατός",
+        "gloss": "ejército"
+      },
+      {
+        "greek": "ἄγω",
+        "gloss": "conducir, dirigir"
+      }
+    ],
+    "exorcismo": [
+      {
+        "greek": "ἐξ",
+        "gloss": "fuera de"
+      },
+      {
+        "greek": "ὅρκος",
+        "gloss": "juramento"
+      }
+    ],
+    "filología": [
+      {
+        "greek": "φίλος",
+        "gloss": "amigo, amante"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "palabra, estudio"
+      }
+    ],
+    "filosofía": [
+      {
+        "greek": "φίλος",
+        "gloss": "amigo, amante"
+      },
+      {
+        "greek": "σοφία",
+        "gloss": "sabiduría"
+      }
+    ],
+    "fobia": [
+      {
+        "greek": "φόβος",
+        "gloss": "miedo, aversión"
+      }
+    ],
+    "gastritis": [
+      {
+        "greek": "γαστήρ",
+        "gloss": "estómago"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "geografía": [
+      {
+        "greek": "γῆ",
+        "gloss": "tierra"
+      },
+      {
+        "greek": "γράφω",
+        "gloss": "describir, escribir"
+      }
+    ],
+    "geriatría": [
+      {
+        "greek": "γέρων",
+        "gloss": "anciano"
+      },
+      {
+        "greek": "ἰατρός",
+        "gloss": "médico"
+      }
+    ],
+    "glosario": [
+      {
+        "greek": "γλῶσσα",
+        "gloss": "lengua, palabra"
+      }
+    ],
+    "hepatitis": [
+      {
+        "greek": "ἧπαρ",
+        "gloss": "hígado"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "hepático": [
+      {
+        "greek": "ἧπαρ",
+        "gloss": "hígado"
+      }
+    ],
+    "hidrógeno": [
+      {
+        "greek": "ὕδωρ",
+        "gloss": "agua"
+      },
+      {
+        "greek": "γενής",
+        "gloss": "que produce, engendra"
+      }
+    ],
+    "hipertensión": [
+      {
+        "greek": "ὑπέρ",
+        "gloss": "exceso, por encima"
+      },
+      {
+        "greek": "tensión",
+        "gloss": "tensión (latín)"
+      }
+    ],
+    "hipérbole": [
+      {
+        "greek": "ὑπέρ",
+        "gloss": "exceso, más allá"
+      },
+      {
+        "greek": "βάλλω",
+        "gloss": "arrojar, lanzar"
+      }
+    ],
+    "hipódromo": [
+      {
+        "greek": "ἵππος",
+        "gloss": "caballo"
+      },
+      {
+        "greek": "δρόμος",
+        "gloss": "carrera, pista"
+      }
+    ],
+    "hipótesis": [
+      {
+        "greek": "ὑπό",
+        "gloss": "debajo"
+      },
+      {
+        "greek": "θέσις",
+        "gloss": "colocación, proposición"
+      }
+    ],
+    "horizonte": [
+      {
+        "greek": "ὁρίζω",
+        "gloss": "limitar, delimitar"
+      }
+    ],
+    "icono": [
+      {
+        "greek": "εἰκών",
+        "gloss": "imagen"
+      }
+    ],
+    "laringitis": [
+      {
+        "greek": "λάρυγξ",
+        "gloss": "laringe"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "lógica": [
+      {
+        "greek": "λόγος",
+        "gloss": "razón, discurso"
+      }
+    ],
+    "megalomanía": [
+      {
+        "greek": "μέγας",
+        "gloss": "grande"
+      },
+      {
+        "greek": "μανία",
+        "gloss": "obsesión, exaltación"
+      }
+    ],
+    "megáfono": [
+      {
+        "greek": "μέγας",
+        "gloss": "grande"
+      },
+      {
+        "greek": "φωνή",
+        "gloss": "voz, sonido"
+      }
+    ],
+    "metáfora": [
+      {
+        "greek": "μετά",
+        "gloss": "traslado, cambio"
+      },
+      {
+        "greek": "φέρω",
+        "gloss": "llevar"
+      }
+    ],
+    "metástasis": [
+      {
+        "greek": "μετά",
+        "gloss": "cambio, desplazamiento"
+      },
+      {
+        "greek": "στάσις",
+        "gloss": "posición, estado"
+      }
+    ],
+    "microbio": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "βίος",
+        "gloss": "vida"
+      }
+    ],
+    "microscopio": [
+      {
+        "greek": "μικρός",
+        "gloss": "pequeño"
+      },
+      {
+        "greek": "σκοπέω",
+        "gloss": "observar"
+      }
+    ],
+    "misógino": [
+      {
+        "greek": "μισέω",
+        "gloss": "odiar"
+      },
+      {
+        "greek": "γυνή",
+        "gloss": "mujer"
+      }
+    ],
+    "monarquía": [
+      {
+        "greek": "μόνος",
+        "gloss": "uno solo"
+      },
+      {
+        "greek": "ἀρχή",
+        "gloss": "gobierno, mando"
+      }
+    ],
+    "método": [
+      {
+        "greek": "μετά",
+        "gloss": "según, a través"
+      },
+      {
+        "greek": "ὁδός",
+        "gloss": "camino"
+      }
+    ],
+    "neumático": [
+      {
+        "greek": "πνεῦμα",
+        "gloss": "aire, aliento"
+      }
+    ],
+    "oftálmico": [
+      {
+        "greek": "ὀφθαλμός",
+        "gloss": "ojo"
+      }
+    ],
+    "osteología": [
+      {
+        "greek": "ὀστέον",
+        "gloss": "hueso"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "otitis": [
+      {
+        "greek": "οὖς",
+        "gloss": "oído"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "pediatría": [
+      {
+        "greek": "παῖς",
+        "gloss": "niño"
+      },
+      {
+        "greek": "ἰατρός",
+        "gloss": "médico"
+      }
+    ],
+    "pirómano": [
+      {
+        "greek": "πῦρ",
+        "gloss": "fuego"
+      },
+      {
+        "greek": "μανία",
+        "gloss": "impulso obsesivo"
+      }
+    ],
+    "plastilina": [
+      {
+        "greek": "πλαστός",
+        "gloss": "moldeado, modelado"
+      }
+    ],
+    "plutócrata": [
+      {
+        "greek": "πλοῦτος",
+        "gloss": "riqueza"
+      },
+      {
+        "greek": "κράτος",
+        "gloss": "poder"
+      }
+    ],
+    "plástico": [
+      {
+        "greek": "πλαστός",
+        "gloss": "moldeado, modelado"
+      }
+    ],
+    "políglota": [
+      {
+        "greek": "πολύς",
+        "gloss": "muchos"
+      },
+      {
+        "greek": "γλῶσσα",
+        "gloss": "lengua"
+      }
+    ],
+    "política": [
+      {
+        "greek": "πόλις",
+        "gloss": "ciudad, comunidad"
+      }
+    ],
+    "pragmatismo": [
+      {
+        "greek": "πρᾶγμα",
+        "gloss": "hecho, acción"
+      }
+    ],
+    "pragmático": [
+      {
+        "greek": "πρᾶγμα",
+        "gloss": "hecho, acción"
+      }
+    ],
+    "proctitis": [
+      {
+        "greek": "πρωκτός",
+        "gloss": "ano, recto"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "prosodia": [
+      {
+        "greek": "πρός",
+        "gloss": "respecto a, hacia"
+      },
+      {
+        "greek": "ᾠδή",
+        "gloss": "canto, entonación"
+      }
+    ],
+    "prosélito": [
+      {
+        "greek": "πρός",
+        "gloss": "hacia, añadido a"
+      },
+      {
+        "greek": "ἔρχομαι",
+        "gloss": "llegar, venir"
+      }
+    ],
+    "protocolo": [
+      {
+        "greek": "πρῶτος",
+        "gloss": "primero"
+      },
+      {
+        "greek": "κόλλα",
+        "gloss": "cola, hoja pegada"
+      }
+    ],
+    "prototipo": [
+      {
+        "greek": "πρῶτος",
+        "gloss": "primero"
+      },
+      {
+        "greek": "τύπος",
+        "gloss": "modelo, impronta"
+      }
+    ],
+    "retórica": [
+      {
+        "greek": "ῥήτωρ",
+        "gloss": "orador"
+      }
+    ],
+    "rinitis": [
+      {
+        "greek": "ῥίς",
+        "gloss": "nariz"
+      },
+      {
+        "greek": "−ῖτις",
+        "gloss": "inflamación"
+      }
+    ],
+    "rétor": [
+      {
+        "greek": "ῥήτωρ",
+        "gloss": "orador"
+      }
+    ],
+    "seudociencia": [
+      {
+        "greek": "ψευδής",
+        "gloss": "falso"
+      },
+      {
+        "greek": "ciencia",
+        "gloss": "saber, disciplina (latín)"
+      }
+    ],
+    "sofista": [
+      {
+        "greek": "σοφός",
+        "gloss": "sabio, hábil"
+      }
+    ],
+    "somático": [
+      {
+        "greek": "σῶμα",
+        "gloss": "cuerpo"
+      }
+    ],
+    "taquicardia": [
+      {
+        "greek": "ταχύς",
+        "gloss": "rápido"
+      },
+      {
+        "greek": "καρδία",
+        "gloss": "corazón"
+      }
+    ],
+    "zoológico": [
+      {
+        "greek": "ζῷον",
+        "gloss": "animal"
+      },
+      {
+        "greek": "λόγος",
+        "gloss": "estudio"
+      }
+    ],
+    "ángel": [
+      {
+        "greek": "ἄγγελος",
+        "gloss": "mensajero"
+      }
+    ],
+    "éxodo": [
+      {
+        "greek": "ἐξ",
+        "gloss": "fuera de"
+      },
+      {
+        "greek": "ὁδός",
+        "gloss": "camino, salida"
+      }
     ]
   }
 }
