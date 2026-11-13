@@ -312,3 +312,69 @@ Las divergencias sin testimonios completos (p. ej. homónimos como
 los lemas aún sin unidad acreditada permanecen aislados de las
 preguntas. El proceso no toca ni publica los repositorios originales y
 la PR de integración se mantiene en borrador.
+
+
+## Seis decisiones docentes aplicadas — 13/11/2026 (PR #35)
+
+Las seis opciones ratificadas por el docente se conservan exactamente
+en `config/nominal-teacher-decisions.json`. Su compilación, independiente
+del banco Vocabula y con comprobación del SHA fijo, está implementada en
+`scripts/nominal-teacher-decisions.mjs`. La auditoría de aplicación se
+genera en `build/morfologia/decisiones-docentes-nominales-aplicadas.json`
+(fuera de `dist` y disponible en el artefacto de CI).
+
+1. **`domus, domūs` (f.)** se habilita desde **Latín I UD7**
+   con formas atestiguadas de cuarta y segunda declinaciones y
+   **locativo independiente** (`domī`; `domuī` raro).
+   Las variantes `domī` (gen. sg. antiguo), `domōrum` (gen. pl.
+   tardío/poético), `domō` (dat./abl. sg.) y `domū` (abl. sg.)
+   conservan notas explícitas de uso; no se presenta el locativo como
+   otro nombre ni se generan terminaciones ajenas. Referencias:
+   [Allen & Greenough, § 93](https://dcc.dickinson.edu/grammar/latin/4th-declension-case-forms)
+   y su [tabla de `domus`](https://dcc.dickinson.edu/sites/default/files/4th_decl_domus.pdf).
+2. **`cantus, cantūs` (m.)** se habilita desde **Latín I UD7**
+   solo como cuarta declinación con las doce casillas NOM/VOC/ACC/GEN/DAT/ABL
+   de sg. y pl. No se mezclan genitivos o vocativos de segunda.
+   Fuentes: [Dickinson](https://dcc.dickinson.edu/grammar/latin/4th-declension-nouns)
+   y [entrada lexicográfica](https://www.latindictionary.io/entry/cantus-cantus).
+3. **`liber, librī` (m.)**, sustantivo «libro», se habilita
+   desde **Latín I UD1** con su propio paradigma de segunda. El
+   adjetivo **`līber, lībera, līberum`**, «libre», constituye una
+   **ficha distinta de la categoría adjetivo**: se conserva de forma
+   persistente en `data/morfologia/adjetivos-reservados.json` como
+   `notForGrading:true`, para la siguiente fase de integración de
+   adjetivos, sin anticipar ejercicios. Fuentes:
+   [Dickinson: sustantivo](https://dcc.dickinson.edu/es/liber1) y
+   [Dickinson: adjetivo](https://dcc.dickinson.edu/latin-core/liber2liberi).
+4. **`ἄνθρωπος, –ου`** conserva el mismo paradigma, pero en
+   **los sintagmas de esta webapp se usa el masculino** por
+   decisión docente. Su evidencia recuerda expresamente que el
+   femenino también existe en otros contextos y que la selección
+   didáctica no invalida su empleo histórico. Fuente:
+   [Rūmniece, *Gender Indication of the Lexeme ἄνθρωπος*](https://www.apgads.lu.lv/fileadmin/user_upload/lu_portal/apgads/PDF/Antiquitas_Viva/Nr._5/06_Rumniece_Antiquitas_Viva_5_.pdf).
+5. **`παῖς, παιδός`** conserva **una sola declinación nominal**
+   y permite **dos familias de sintagmas**, masculina y femenina,
+   con el artículo y el adjetivo concordantes. Los identificadores
+   de los ejercicios incluyen el género para no solapar progreso.
+   Fuente de morfología y uso:
+   [Logeion Morpho](https://logeion.org/morpho/%CF%80%CE%B1%E1%BF%96%CF%82).
+6. **`Ἀθῆναι, –ῶν` (αἱ)** se habilita desde
+   **Griego I UD4** solo con los cinco casos del **plural ático**
+   (Ἀθῆναι, Ἀθῆναι, Ἀθήνας, Ἀθηνῶν, Ἀθήναις).
+   Puede aparecer en análisis, escritura y tablas reducidas
+   a cinco casillas. No se le atribuyen formas de singular o dual,
+   ni variantes dialectales. **Queda excluido del constructor de
+   sintagmas triples**, que exige singular y plural completos.
+   Fuentes: [Logeion Morpho](https://logeion.uchicago.edu/morpho/%E1%BC%88%CE%B8%E1%BF%86%CE%BD%CE%B1%CE%B9)
+   y [paradigma ático](https://en.wiktionary.org/wiki/%E1%BC%88%CE%B8%E1%BF%86%CE%BD%CE%B1%CE%B9).
+
+Las decisiones se aplican **después** de los importadores automáticos.
+Así se preservan los originales y se evita alterar lemas homónimos o
+cursos distintos. El catálogo final reemplaza el estado «pendiente»
+por «incorporado por decisión docente» solamente para los cuatro
+paradigmas nominales añadidos y anota la concordancia docente en
+las dos fichas griegas ya existentes. El triaje conserva todas las
+opciones históricas, la respuesta finalmente elegida y su fecha.
+
+La PR sigue en borrador y el flujo `publicar` de GitHub Actions se
+ejecuta exclusivamente en `main`, nunca en esta rama de trabajo.
