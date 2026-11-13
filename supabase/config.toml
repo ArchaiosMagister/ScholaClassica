@@ -1,8 +1,12 @@
 # Configuración propuesta. No se ha desplegado ninguna función.
-# Login: el servidor comprueba origen, Turnstile y contraseña; no hay JWT previo.
+# Login: el servidor comprueba origen, contraseña y UUID; no hay JWT previo.
 [functions.schola-login]
 verify_jwt = false
 
 # La bandeja sí requiere un JWT de usuario; además comprueba su AAL2 y UUID.
 [functions.schola-inbox]
+verify_jwt = true
+
+# Escrituras y revisiones de Vocabula solo para la cuenta docente con MFA.
+[functions.schola-vocab-admin]
 verify_jwt = true

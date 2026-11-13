@@ -1,4 +1,5 @@
-import {cp,rm,mkdir,readFile,writeFile,stat} from 'node:fs/promises';
+import {cp,rm,mkdir,readFile,writeFile,stat,realpath} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {resolve,join,sep} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {buildEtymologicon} from './build-etymologicon.mjs';
@@ -20,11 +21,58 @@ await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 await cp(join(root,'public'),out,{recursive:true,force:true});
 
-// Nunca habilitar la identidad docente dentro del mismo origen que el alumnado.
-// La zona privada se construye por separado con scripts/build-docente.mjs.
+// GitHub Pages es un origen público compartido. Jamás incrustar secretos en
+// archivos estáticos: solo la clave publicable y el hostname público son admitidos.
+// Sin activación explícita, la identidad queda BLOQUEADA en cada compilación.
 if(Object.keys(process.env).some(name=>name.startsWith('SCHOLA_AUTH_')||name==='SCHOLA_DOCENTE_ORIGIN'))
-  throw Error('El portal público no admite credenciales de identidad docente; utiliza npm run build:docente');
-await writeFile(join(out,'docente/auth-config.json'),JSON.stringify({enabled:false})+'\n');
+  throw Error('No se admiten secretos de identidad ni configuraciones del antiguo alojamiento');
+const docenteVars=['SCHOLA_DOCENTE_SUPABASE_URL','SCHOLA_DOCENTE_PUBLISHABLE_KEY',
+  'SCHOLA_DOCENTE_SDK_FILE','SCHOLA_DOCENTE_SDK_SHA256'];
+const docenteEnabled=process.env.SCHOLA_DOCENTE_ENABLE==='confirmed';
+if(!docenteEnabled&&docenteVars.some(name=>process.env[name]?.trim()))
+  throw Error('Hay variables docentes, pero SCHOLA_DOCENTE_ENABLE no se ha confirmado');
+if(process.env.SCHOLA_DOCENTE_ENABLE&&!docenteEnabled)
+  throw Error('Valor de activación docente no reconocido');
+let docenteConfig={enabled:false},docenteConnect='';
+if(docenteEnabled){
+  const url=process.env.SCHOLA_DOCENTE_SUPABASE_URL?.trim();
+  const publishableKey=process.env.SCHOLA_DOCENTE_PUBLISHABLE_KEY?.trim();
+  const sdkFile=process.env.SCHOLA_DOCENTE_SDK_FILE?.trim();
+  const sdkHash=process.env.SCHOLA_DOCENTE_SDK_SHA256?.trim()?.toLowerCase();
+  if(url!=='https://wpwlguufpkfnzlbyproe.supabase.co')
+    throw Error('El proyecto docente de identidad no es el aprobado');
+  if(!/^sb_publishable_[A-Za-z0-9_-]{12,}$/.test(publishableKey||''))
+    throw Error('La web docente solo admite claves publicables de Supabase');
+  if(!sdkFile||!/^[a-f0-9]{64}$/.test(sdkHash||''))
+    throw Error('Falta el SDK local y su SHA-256 comprobado');
+  const sdkSource=await realpath(resolve(root,sdkFile));
+  if(!sdkSource.startsWith(root+sep)||sdkSource.startsWith(out+sep))
+    throw Error('El SDK docente debe estar dentro del repositorio, fuera de dist');
+  const sdkStat=await stat(sdkSource);
+  if(!sdkStat.isFile()||sdkStat.size<10000||sdkStat.size>5000000)
+    throw Error('Tamaño del SDK docente incorrecto');
+  const sdk=await readFile(sdkSource);
+  if(createHash('sha256').update(sdk).digest('hex')!==sdkHash)
+    throw Error('No coincide el SHA-256 del SDK docente');
+  await mkdir(join(out,'docente/vendor'),{recursive:true});
+  await writeFile(join(out,'docente/vendor/supabase.js'),sdk);
+  docenteConfig={enabled:true,origin:'https://archaiosmagister.github.io',
+    url,publishableKey,username:'MagisterArchaios'};
+  docenteConnect=url;
+}
+await writeFile(join(out,'docente/auth-config.json'),JSON.stringify(docenteConfig)+'\n');
+// GitHub Pages no aplica _headers de Cloudflare. Una CSP en meta reduce el
+// impacto de inyecciones en ESTA página; jamás sustituye la autorización AAL2.
+const docenteCsp=[
+  "default-src 'none'","base-uri 'none'","object-src 'none'",
+  "form-action 'self'","script-src 'self'","style-src 'self'",
+  "img-src 'self' data:","connect-src 'self' "+docenteConnect
+].join('; ');
+const docenteHtmlPath=join(out,'docente/index.html');
+const docenteHtml=await readFile(docenteHtmlPath,'utf8');
+if(!docenteHtml.includes('<head>'))throw Error('Falta la cabecera de la web docente');
+await writeFile(docenteHtmlPath,docenteHtml.replace('<head>',
+  '<head>\n  <meta http-equiv="Content-Security-Policy" content="'+docenteCsp+'">'));
 
 const destination=join(out,'apps/gramatica');
 await mkdir(join(out,'apps'),{recursive:true});
