@@ -130,7 +130,17 @@ try{
   await good.locator('#enroll-form button').click();
   await good.locator('#teacher').waitFor({state:'visible'});
   assert.equal(await good.evaluate(()=>window.__teacherMock.inboxCalls),1);
-  assert.equal(await good.locator('.notice').count(),2);
+  try{
+    await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
+  }catch{
+    const diagnosis=await good.evaluate(()=>({
+      notices:document.querySelectorAll('#notices .notice').length,
+      state:document.getElementById('notices-state')?.textContent,
+      sources:document.getElementById('sources-state')?.textContent
+    }));
+    throw Error('La bandeja simulada no tiene las dos fuentes: '+JSON.stringify(diagnosis));
+  }
+  assert.equal(await good.locator('#notices .notice').count(),2);
   assert.ok((await good.locator('.notice').first().locator('p').textContent()).includes('<img'));
   assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
   await good.locator('#notice-source').selectOption('palabra');
