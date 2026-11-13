@@ -74,3 +74,6 @@ El portal general se genera en `dist/`, con el acceso docente expresamente desac
 ## Alojamiento docente: Cloudflare Pages (sin activar)
 
 Se ha elegido Cloudflare Pages para un **origen separado** del portal público. Su publicación será por **Direct Upload manual**, sin integración automática con GitHub. El artefacto `dist-docente/` incluye cabeceras `_headers` verificables, `robots.txt` y `404.html`, y **permanece desactivado por defecto**. Una versión activada necesita el SDK Supabase local con huella SHA-256 revisada; no se carga desde CDN. CI ejecuta `npm run audit:docente:cloudflare` y no sube el sitio a Cloudflare. Procedimiento y bloqueos: [`docs/CLOUDFLARE_PAGES_DOCENTE.md`](docs/CLOUDFLARE_PAGES_DOCENTE.md).
+
+
+El procedimiento de aprovisionamiento sin publicación y los paneles de Cloudflare/Supabase están documentados en [`docs/ACTIVACION_GUIADA_DOCENTE.md`](docs/ACTIVACION_GUIADA_DOCENTE.md). El preflight estático de una construcción docente activa puede ejecutarse con `npm run check:docente:readiness`; por diseño falla si el acceso permanece desactivado o faltan dependencias verificadas. **No existe aún un proyecto Pages ni una cuenta docente real activada.**
