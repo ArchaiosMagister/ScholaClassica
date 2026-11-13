@@ -111,6 +111,19 @@ jobs:
           npm run build
           node scripts/audit-docente-setup.mjs
           node tests/docente-setup-browser.mjs
+      # El ensayo de alta TOTP anterior recompila dist con configuración docente
+      # limitada. Esa copia es solo de prueba: nunca enviarla a GitHub Pages.
+      - name: Restaurar paquete público castellano con acceso docente desactivado
+        env:
+          SCHOLA_DOCENTE_ENABLE: ''
+          SCHOLA_DOCENTE_SUPABASE_URL: ''
+          SCHOLA_DOCENTE_PUBLISHABLE_KEY: ''
+          SCHOLA_DOCENTE_SDK_FILE: ''
+          SCHOLA_DOCENTE_SDK_SHA256: ''
+        run: |
+          npm run build
+          npm run audit:publicacion
+
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
         uses: actions/upload-artifact@v4
         with:
