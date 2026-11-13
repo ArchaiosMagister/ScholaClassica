@@ -113,3 +113,92 @@ if(subjectChoice&&pathResults&&resumeArea&&resumeLink){
   subjectChoice.addEventListener('change',renderStudyPath);
   renderStudyPath();
 }
+
+  
+// Service worker SOLO de la portada. Al interceptar únicamente las URLs del
+// núcleo, los recursos y SW de Evolutio y Etymologicon siguen independientes.
+const portalUpdateButton=document.getElementById('portal-update');
+const portalPwaStatus=document.getElementById('portal-pwa-status');
+let portalRegistration=null;
+const setPortalStatus=value=>{if(portalPwaStatus)portalPwaStatus.textContent=value};
+function portalConnectivity(){
+  if(!navigator.onLine)setPortalStatus('Sin conexión: la portada permanece disponible; los módulos conservan su caché propia.');
+  else if(portalRegistration)setPortalStatus('Portada disponible sin conexión tras esta primera carga.');
+  else setPortalStatus('Conexión disponible. La instalación requiere HTTPS o localhost.');
+}
+window.addEventListener('online',portalConnectivity);
+window.addEventListener('offline',portalConnectivity);
+function waitForPortalWorker(worker,timeout=15000){
+  if(worker.state==='installed'||worker.state==='activated')return Promise.resolve();
+  if(worker.state==='redundant')return Promise.reject(Error('La actualización no se ha instalado.'));
+  return new Promise((resolve,reject)=>{
+    let timer;
+    const finish=error=>{
+      clearTimeout(timer);worker.removeEventListener('statechange',onChange);
+      if(error)reject(error);else resolve();
+    };
+    const onChange=()=>{
+      if(worker.state==='installed'||worker.state==='activated')finish();
+      else if(worker.state==='redundant')finish(Error('La actualización ha fallado.'));
+    };
+    worker.addEventListener('statechange',onChange);
+    timer=setTimeout(()=>finish(Error('La actualización no ha terminado.')),timeout);
+    onChange();
+  });
+}
+async function checkPortalUpdate(){
+  if(!portalRegistration)throw Error('La portada no está instalada todavía.');
+  if(!navigator.onLine)throw Error('Necesitas conexión para comprobar actualizaciones.');
+  await portalRegistration.update();
+  if(portalRegistration.installing)await waitForPortalWorker(portalRegistration.installing);
+  const waiting=portalRegistration.waiting;
+  if(!waiting){setPortalStatus('La portada ya tiene la última versión disponible.');return}
+  setPortalStatus('Hay una actualización preparada para la portada.');
+  if(!window.confirm('Hay una nueva versión de la portada. ¿Activarla y recargar ahora?'))return;
+  await new Promise((resolve,reject)=>{
+    let completed=false;
+    const timer=setTimeout(()=>finish(Error('No se ha activado la nueva versión.')),15000);
+    const finish=error=>{
+      if(completed)return;completed=true;clearTimeout(timer);
+      navigator.serviceWorker.removeEventListener('controllerchange',onController);
+      if(error)reject(error);else resolve();
+    };
+    const onController=()=>finish();
+    navigator.serviceWorker.addEventListener('controllerchange',onController);
+    waiting.postMessage({type:'SCHOLA_ACTIVATE_PORTAL_UPDATE'});
+  });
+  window.location.reload();
+}
+if(portalUpdateButton){
+  portalUpdateButton.addEventListener('click',async()=>{
+    portalUpdateButton.disabled=true;
+    setPortalStatus('Buscando una actualización de la portada…');
+    try{await checkPortalUpdate()}
+    catch(error){setPortalStatus(error?.message||'No se pudo comprobar la actualización.')}
+    finally{portalUpdateButton.disabled=false}
+  });
+}
+async function registerPortalPwa(){
+  if(!('serviceWorker' in navigator)||!window.isSecureContext){
+    if(portalUpdateButton)portalUpdateButton.hidden=true;
+    setPortalStatus('Para instalar la portada se necesita HTTPS o un navegador compatible.');
+    return;
+  }
+  try{
+    portalRegistration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
+    if(portalRegistration.waiting)setPortalStatus('Hay una actualización de la portada lista para instalar.');
+    else portalConnectivity();
+    portalRegistration.addEventListener('updatefound',()=>{
+      const worker=portalRegistration.installing;
+      worker?.addEventListener('statechange',()=>{
+        if(worker.state==='installed'&&navigator.serviceWorker.controller){
+          setPortalStatus('Hay una actualización de la portada. Pulsa «Actualizar» para instalarla.');
+        }
+      });
+    });
+  }catch{
+    if(portalUpdateButton)portalUpdateButton.hidden=true;
+    setPortalStatus('No ha sido posible preparar el acceso sin conexión de la portada.');
+  }
+}
+void registerPortalPwa();

@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="ScholaClassica: gramática, vocabulario y ejercicios de latín y griego organizados por lengua y por herramienta.">
   <meta name="theme-color" content="#14283f">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
   <title>ScholaClassica · Latín y Griego</title>
@@ -14,7 +19,7 @@
 <header class="site-head">
   <div class="head-inner">
     <a class="brand" href="./" aria-label="ScholaClassica, inicio"><span class="brand-symbol" aria-hidden="true">Σ</span> Schola<span>Classica</span></a>
-    <nav aria-label="Navegación principal"><a href="#modulos">Herramientas</a><a href="#profesorado">Profesorado</a></nav>
+    <nav aria-label="Navegación principal"><a href="#itinerario">Mi itinerario</a><a href="#modulos">Herramientas</a><a href="#profesorado">Profesorado</a><button type="button" id="portal-update" class="portal-update">Actualizar</button></nav>
   </div>
 </header>
 <main id="contenido" class="container">
@@ -23,6 +28,13 @@
     <h1>ScholaClassica</h1>
     <p>Gramática, vocabulario latino y griego, evolución fonética y ejercicios de etimología. Las herramientas se incorporan progresivamente sin alterar sus aplicaciones originales.</p>
     <p class="status"><span aria-hidden="true">●</span> Primera integración en pruebas. No es todavía la web destinada al alumnado.</p>
+    <div class="portal-pwa-status" id="portal-pwa-status" role="status" aria-live="polite">Preparando el acceso sin conexión.</div>
+    <details class="install-help">
+      <summary>Instalar ScholaClassica en el móvil o la tableta</summary>
+      <p><strong>iPhone y iPad:</strong> en Safari, abre Compartir y elige «Añadir a pantalla de inicio». Activa «Abrir como app» cuando aparezca.</p>
+      <p><strong>Android:</strong> en Chrome, usa el menú y «Instalar aplicación» o «Añadir a pantalla de inicio», según la versión.</p>
+      <p>La portada funciona sin conexión tras la primera carga. Cada herramienta mantiene su propio sistema de almacenamiento; algunas funciones, como los avisos o el servicio de vocabulario, pueden necesitar internet.</p>
+    </details>
   </section>
   <section id="itinerario" class="study-path" aria-labelledby="path-title">
     <div class="section-heading">
