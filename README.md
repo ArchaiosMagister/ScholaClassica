@@ -77,3 +77,10 @@ Se ha elegido Cloudflare Pages para un **origen separado** del portal público. 
 
 
 El procedimiento de aprovisionamiento sin publicación y los paneles de Cloudflare/Supabase están documentados en [`docs/ACTIVACION_GUIADA_DOCENTE.md`](docs/ACTIVACION_GUIADA_DOCENTE.md). El preflight estático de una construcción docente activa puede ejecutarse con `npm run check:docente:readiness`; por diseño falla si el acceso permanece desactivado o faltan dependencias verificadas. **No existe aún un proyecto Pages ni una cuenta docente real activada.**
+
+
+## Itinerario por asignatura y curso
+
+La portada incorpora un selector contextual de **Latín de 4.º de ESO, Latín I, Latín II, Griego I y Griego II**. Muestra solo enlaces a herramientas integradas y comprobadas: gramática por curso, vocabulario cuando existe, Evolutio para Latín I y Etymologicon para Griego I. No ofrece Etymologicon para Griego II, morfología pendiente ni el generador de exámenes. No se altera ningún archivo de las tres aplicaciones originales; únicamente se actualiza el portal.
+
+El navegador guarda localmente solo el código del curso y el identificador de la última herramienta abierta desde el selector, para ofrecer «Continuar». No almacena vocabulario estudiado, respuestas ni datos del alumnado y funciona sin iniciar sesión. Las pruebas comprueban las rutas y el funcionamiento en Chromium antes de cualquier publicación.
