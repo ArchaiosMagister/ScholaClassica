@@ -112,33 +112,46 @@ export function compileGreekNounExpansion({
   const grouped=sourceRows(unimorphParts);
   const accepted=new Set(existingRecords.filter(x=>x.kind==='sustantivo'&&
     x.language==='griego').map(x=>key(x.paradigm.split(',')[0])));
-  const candidates=lex.filter(x=>x.subject==='gr1'&&x.mode==='examen'&&
-    x.units?.length===1&&GROUPS.has(x.units[0]));
+  // Se examina TODO el vocabulario nominal, no únicamente las fichas de examen.
+  const candidates=lex.filter(x=>x.subject==='gr1'&&
+    ['general','examen'].includes(x.mode)&&x.form?.split(',').length===2);
   const byLemma=new Map();
   for(const entry of candidates){
     const k=key(entry.form.split(',')[0].trim());
     if(!byLemma.has(k))byLemma.set(k,[]);
     byLemma.get(k).push(entry);
   }
-  const records=[],review=[];
+  const records=[],review=[],catalog=[];
   for(const [lemma,entries] of byLemma){
-    const display=entries[0].form.split(',')[0].trim();
-    if(accepted.has(lemma))continue;
-    const reject=reason=>review.push({lemma:display,unit:entries[0].units[0],
-      entries:entries.map(x=>x.id),reason});
+    const ordered=[...entries].sort((a,b)=>
+      Number(b.mode==='examen')-Number(a.mode==='examen'));
+    const matching=ordered.filter(e=>e.units?.some(u=>GROUPS.has(u)));
+    const entry=matching[0]||ordered[0];
+    const display=entry.form.split(',')[0].trim();
+    const state={lemma:noQuantity(display),language:'griego',
+      sources:entries.map(e=>({id:e.id,mode:e.mode,form:e.form,
+        units:e.units,meaning:e.meaning})),sourceSha:vocabulaSha};
+    const reject=reason=>{
+      review.push({lemma:display,unit:entry.units?.[0]||null,
+        entries:entries.map(x=>x.id),reason});
+      catalog.push({...state,status:'pendiente',reason});
+    };
+    if(accepted.has(lemma)){
+      catalog.push({...state,status:'incluido-anteriormente',
+        reason:'Paradigma conservado de la fase anterior'});
+      continue;
+    }
     try{
-      if(entries.length!==1)throw Error('Enunciados duplicados: revisión necesaria');
-      const entry=entries[0],rows=grouped.get(lemma)||[];
-      const checked=checkedForms(display,rows);
+      if(!matching.length)throw Error('Sin unidad curricular acreditada hasta UD7');
+      const checked=checkedForms(display,grouped.get(lemma)||[]);
       checkLexGen(entry,checked.genitive);
       checkLexGender(entry,checked.gender);
       const decl=declension(display,checked.genitive,checked.gender);
-      if(!decl)throw Error('Tipo no habilitado o flexión irregular: requiere cotejo');
+      if(!decl)throw Error('Tipo irregular o tercera declinación: revisión posterior');
       checkCurriculum(curriculum,decl);
-      const unit=GROUPS.get(entry.units[0]);
-      // No anticipar el tipo flexivo antes de su unidad en Appendix.
+      const unit=Math.min(...entry.units.filter(u=>GROUPS.has(u)).map(u=>GROUPS.get(u)));
       if(decl.unit>unit)throw Error('Modelo no explicado en la unidad indicada');
-      records.push({
+      const record={
         id:'griego-sustantivo-import-'+entry.id,language:'griego',
         unit,kind:'sustantivo',gender:checked.gender,
         paradigm:noQuantity(display)+', '+checked.genitive+' ('+
@@ -153,14 +166,17 @@ export function compileGreekNounExpansion({
           vocabulaGroup:entry.units[0],license:'CC BY-SA 3.0',
           review:'conciliación interfuentes; pendiente de revisión docente individual',
           notes:'Diez casillas tomadas de UniMorph, no generadas por analogía. '+
-            'El currículo acredita el modelo, no cada forma. Género de artículo '+checked.gender+'.'
+            'El currículo acredita el modelo, no cada forma.'
         }
-      });
+      };
+      records.push(record);
+      catalog.push({...state,status:'incorporado',recordId:record.id,
+        unit,gender:record.gender,formCount:record.forms.length});
     }catch(e){reject(String(e?.message||e));}
   }
   records.sort((a,b)=>a.unit-b.unit||a.id.localeCompare(b.id));
   assert.equal(new Set(records.map(r=>r.id)).size,records.length,'IDs repetidos');
-  return {records,review,audit:{candidates:candidates.length,
+  return {records,review,catalog,audit:{candidates:candidates.length,
     uniqueLemmas:byLemma.size,alreadyIncluded:accepted.size,
     incorporated:records.length,reviewNeeded:review.length,
     sourceSha:vocabulaSha,excludedBeyondUd7:true}};
