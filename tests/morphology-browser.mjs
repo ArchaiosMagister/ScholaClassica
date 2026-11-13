@@ -30,7 +30,7 @@ try{
  const result=await page.goto(app+'index.html?subject=gr1',{waitUntil:'networkidle'});
  assert.equal(result.status(),200);
  assert.equal(await page.locator('#subject').inputValue(),'griego');
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3']);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
  await page.locator('#unit').selectOption('3');
  await page.locator('#kind').selectOption('artículo');
  await page.locator('#activity').selectOption('analysis');
@@ -64,7 +64,7 @@ try{
  assert.equal(offline.status(),200);
  await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
  assert.equal(await page.locator('#subject').inputValue(),'latin');
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4']);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
  await page.locator('#unit').selectOption('4');
  await page.locator('#kind').selectOption('sustantivo');
  await page.locator('#activity').selectOption('analysis');
@@ -74,8 +74,8 @@ try{
    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
    return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego};
  });
- assert.equal(found.paradigms,40);
- assert.deepEqual(found.latin,[1,2,3,4]);assert.deepEqual(found.greek,[1,2,3]);
+ assert.equal(found.paradigms,60);
+ assert.deepEqual(found.latin,[1,2,3,4,5]);assert.deepEqual(found.greek,[1,2,3,4,5]);
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
  console.log('OK: pasiva UD3, tercera declinación UD4, griego UD3 y caché offline propia en GitHub Pages');
