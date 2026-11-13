@@ -4,6 +4,7 @@ import {resolve,join} from 'node:path';
 
 const root=resolve(import.meta.dirname,'..');
 const file=join(root,'shared/academic/greek-etymology/review/study-glosses-gr1-20261113.json');
+const componentsFile=join(root,'shared/academic/greek-etymology/review/study-components-gr1-20261113.json');
 export const normalizeSpanish=value=>String(value).normalize('NFD').toLocaleLowerCase('es')
   .replace(/\p{M}/gu,'').replace(/\s+/gu,' ').trim();
 
@@ -106,7 +107,15 @@ export function readStudyGlosses(){
   assert.equal(data.course,'gr1');
   return data;
 }
-export function createStudyCatalog(source,learners,lexicon=readStudyGlosses()){
+const normalGreek=value=>String(value).normalize('NFD').toLocaleLowerCase('el')
+  .replace(/\p{M}/gu,'').replace(/ς/g,'σ').replace(/[^α-ω]/gu,'');
+export function readStudyComponents(){
+  const data=JSON.parse(readFileSync(componentsFile,'utf8'));
+  assert.equal(data.schema,'etymologicon-study-components/v1');
+  assert.equal(data.course,'gr1');
+  return data.words;
+}
+export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),componentGlosses=readStudyComponents()){
   assert.equal(source?.schema,'etymologicon-audited-catalog/v1');
   assert.equal(learners?.schema,'etymologicon-audited-catalog/v1');
   assert.equal(learners.etymons.length,111);
@@ -115,6 +124,16 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses()){
   assert.equal(lexicon.schema,'etymologicon-study-glosses/v1');
   const original=new Map(source.derivatives.map(d=>[d.id,d]));
   const etyma=new Map(learners.etymons.map(e=>[e.id,e]));
+  const greekLookup=new Map();
+  for(const e of learners.etymons){
+    e.lemma.split('|').forEach((part,i)=>{
+      const root=normalGreek(greekMain(part));
+      if(!root)return;
+      const old=greekLookup.get(root);
+      // Un lema independiente prevalece sobre una variante incluida en otro lema.
+      if(!old||(!i&&old.variant))greekLookup.set(root,{id:e.id,variant:!!i});
+    });
+  }
   const relations=new Map();
   for(const rel of learners.relations){
     if(rel.editorialStatus!=='teacher_audit_approved')continue;
@@ -127,7 +146,14 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses()){
     assert.ok(typeof definition==='string'&&definition.length>=8,'Falta glosa propia: '+d.form);
     const ids=[...(relations.get(d.id)||[])];
     assert.ok(ids.length>0,'Derivado sin étimo: '+d.form);
-    const override=educationalComponents[d.form];
+    const additional=componentGlosses[d.form];
+    const override=educationalComponents[d.form]||
+      (additional?.map(c=>{
+        const greek=normalGreek(c.greek);
+        const linked=greekLookup.get(greek);
+        const language=/^[A-Za-z]+$/.test(c.greek)?'la':undefined;
+        return {...c,id:linked?.id,external:!linked,language};
+      }));
     const components=(override||ids.map(id=>{
       const etymon=etyma.get(id);
       assert.ok(etymon,'Étimo no encontrado: '+id);
@@ -153,7 +179,10 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses()){
       explicitMultiple:components.length>1
     };
   });
-  assert.equal(new Set(words.map(w=>w.id)).size,words.length);
+  const approvedWords=new Set(words.map(w=>w.form));
+  for(const term of Object.keys(componentGlosses))
+    assert.ok(approvedWords.has(term),'Componente de palabra fuera del catálogo: '+term);
+    assert.equal(new Set(words.map(w=>w.id)).size,words.length);
   const allId=new Set(words.map(x=>x.id));
   for(const e of learners.etymons)for(const id of e.teacherApprovedDerivatives)
     assert.ok(allId.has(id),'Étimo con respuesta sin ficha: '+e.id+' / '+id);
