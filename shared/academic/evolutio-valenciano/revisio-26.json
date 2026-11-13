@@ -2,7 +2,7 @@
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
   "status": "auditoria_docent_sense_publicacio",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis).",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica.",
   "analyses": [
     {
       "latin": "focum",
@@ -145,10 +145,16 @@
           "rule": "ABER",
           "find": "u",
           "at": -2,
-          "note": "Obertura de la vocal final -u en -o."
+          "note": "OBERTURA de la vocal final llatina -u en -o, com a classificació docent expressament aprovada."
         }
       ],
-      "explanation": "La vocal tònica ĕ es manté en el resultat valencià."
+      "explanation": "fĕrrum → ferro: la ĕ tònica es manté sense diftongació; exigir OBERTURA del resultat final -u > -o segons criteri docent, i tractar la -m final com a pèrdua fixa.",
+      "teacherDecision": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "decision": "Exigir OBERTURA per al resultat -u > -o de fĕrrum → ferro, com a classificació didàctica de la llei 11."
+      }
     },
     {
       "latin": "pontem",
@@ -524,6 +530,76 @@
         }
       ],
       "explanation": "caballum → cavall: debilitament de -b- intervocàlica a -v- (no seleccionable), evolució de -ll- geminada a lateral palatal i apòcope de -u final. La -m de l'acusatiu es considera pèrdua fixa, no una norma exigible."
+    },
+    {
+      "latin": "cælum",
+      "form": "cel",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "teacherDecision": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "decision": "Exigir MONOFTONGACIÓ de æ y PALATALITZACIÓ de c inicial; mantener APÒCOPE y pérdida fija -m diferenciadas."
+      },
+      "changes": [
+        {
+          "rule": "MONOP",
+          "find": "æ",
+          "at": 1,
+          "note": "Monoftongació del diftong llatí æ > e."
+        },
+        {
+          "rule": "PALAT",
+          "find": "c",
+          "at": 0,
+          "note": "Tractament palatal de c- davant el resultat anterior e del diftong æ; classificació didàctica docent."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": 3,
+          "note": "Pèrdua de la -u final després de -m."
+        }
+      ],
+      "explanation": "cælum → cel: monoftongació de æ, palatalització de la consonant inicial davant la vocal anterior resultant, apòcope de -u i pèrdua fixa de -m. Les dos primeres normes s'exigixen per decisió docent."
+    },
+    {
+      "latin": "ocŭlum",
+      "form": "ull",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "teacherDecision": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "decision": "Exigir SÍNCOPE de ŭ postònica i PALATALITZACIÓ del grup -cl- format després de la síncope; no atribuir -cl- com a tram contigu del mot llatí original."
+      },
+      "changes": [
+        {
+          "rule": "SINC",
+          "find": "ŭ",
+          "at": 2,
+          "note": "Síncope de la vocal postònica: ocŭlum > oclu (després de la pèrdua fixa de -m)."
+        },
+        {
+          "rule": "PALAT",
+          "find": "c",
+          "at": 1,
+          "note": "Palatalització del grup -cl- format després de la síncope: se situa en la c original perquè c+l no són contigües abans de la síncope."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": 4,
+          "note": "Apòcope de la vocal final -u."
+        }
+      ],
+      "explanation": "ocŭlum → ull: síncope de ŭ i formació de *ŏclu, palatalització del grup -cl- resultant, apòcope de -u i pèrdua fixa de -m. Es mantenen separades les etapes històriques i els trams de l'ètim llatí."
     }
   ],
   "pending": []
