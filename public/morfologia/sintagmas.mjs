@@ -13,6 +13,20 @@ const LATIN_NOUNS=[
   ['cornū,','neutro','cornū'],
   ['res,','femenino','res']
 ];
+const LATIN4_NOUNS=[
+  ['puella','femenino','puella'],
+  ['rosa,','femenino','rosa'],
+  ['servus','masculino','servus'],
+  ['dominus,','masculino','dominus'],
+  ['bellum','neutro','bellum'],
+  ['rex,','masculino','rex'],
+  ['corpus,','neutro','corpus'],
+  ['flumen,','neutro','flumen'],
+  ['mare,','neutro','mare'],
+  ['exercitus','masculino','exercitus'],
+  ['cornū,','neutro','cornū'],
+  ['res','femenino','res']
+];
 const CASES_LAT=['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'];
 const CASES_GR=['nominativo','acusativo','genitivo','dativo'];
 const NUMBERS=['singular','plural'];
@@ -27,21 +41,30 @@ function forms(r,cas,number,gender){
   return unique(r.forms.filter(f=>f.case===cas&&f.number===number&&
     (!gender||f.gender===gender)).map(f=>f.form));
 }
-function nounPairs(records){
+function completeDeclension(record,gender){
+  return CASES_LAT.every(cas=>NUMBERS.every(number=>
+    forms(record,cas,number,gender).length>0));
+}
+function nounPairs(records,language='latin'){
   const adjectives=records.filter(r=>r.kind==='adjetivo');
   if(!adjectives.length)return [];
   const pairs=[];
-  for(const [prefix,gender,nom] of LATIN_NOUNS){
+  const nouns=language==='latin4'?LATIN4_NOUNS:LATIN_NOUNS;
+  for(const [prefix,gender,nom] of nouns){
     const noun=records.find(r=>r.kind==='sustantivo'&&r.paradigm.startsWith(prefix));
     if(!noun)continue;
-    assertRecord(noun,'latin','sustantivo');
+    assertRecord(noun,language,'sustantivo');
     if(noun.gender&&noun.gender!==gender)throw Error('Género contradictorio: '+nom);
     if(!forms(noun,'nominativo','singular').includes(nom))
       throw Error('Nominativo incompatible con el género contrastado de '+nom);
+    if(!completeDeclension(noun,null))throw Error('Declinación nominal incompleta: '+nom);
     for(const adjective of adjectives){
-      assertRecord(adjective,'latin','adjetivo');
-      pairs.push({language:'latin',noun,adjective,gender,
-        id:'latin:'+noun.id+':'+adjective.id,
+      assertRecord(adjective,language,'adjetivo');
+      // La fuente docente contiene adjetivos con casillas parciales: no
+      // presentarlos como sintagmas declinables hasta disponer de tabla íntegra.
+      if(!completeDeclension(adjective,gender))continue;
+      pairs.push({language,noun,adjective,gender,
+        id:language+':'+noun.id+':'+adjective.id,
         paradigm:adjective.paradigm+' + '+noun.paradigm,
         provenance:[noun.evidence,adjective.evidence],
         note:'Adjetivo y sustantivo latinos: caso, número y género concordantes.'});
@@ -63,19 +86,21 @@ function greekPairs(records){
   });
 }
 function candidates(bank,language,unit){
-  if(!['latin','griego'].includes(language)||unit<5)
-    throw Error('La práctica de sintagmas solo está disponible desde UD5');
+  if(!['latin','latin4','griego'].includes(language)||
+    unit<(language==='latin4'?3:5))
+    throw Error('La práctica de sintagmas aún no corresponde a esta unidad');
   const records=availableRecords(bank,{language,unit});
-  return language==='latin'?nounPairs(records):greekPairs(records);
+  return language==='griego'?greekPairs(records):nounPairs(records,language);
 }
 export function phrasePairs(bank,{language,unit}){
   return candidates(bank,language,unit);
 }
 function makeCell(pair,cas,number,gender){
-  const left=pair.language==='latin'?pair.adjective:pair.article;
-  const right=pair.language==='latin'?pair.noun:pair.adjective;
+  const isLatin=pair.language!=='griego';
+  const left=isLatin?pair.adjective:pair.article;
+  const right=isLatin?pair.noun:pair.adjective;
   const first=forms(left,cas,number,gender);
-  const second=forms(right,cas,number,pair.language==='latin'?null:gender);
+  const second=forms(right,cas,number,isLatin?null:gender);
   if(first.length===0||second.length===0)return null;
   // Todas las alternativas provienen de dos casillas explícitas ya verificadas.
   const acceptedForms=unique(first.flatMap(f=>second.map(s=>f+' '+s)));
@@ -85,8 +110,8 @@ function models(bank,language,unit){
   const pairs=candidates(bank,language,unit);
   const result=[];
   for(const pair of pairs){
-    for(const gender of pair.language==='latin'?[pair.gender]:GENDERS){
-      const cases=pair.language==='latin'?CASES_LAT:CASES_GR;
+    for(const gender of pair.language==='griego'?GENDERS:[pair.gender]){
+      const cases=pair.language==='griego'?CASES_GR:CASES_LAT;
       const cells=[];
       for(const cas of cases)for(const number of NUMBERS){
         const cell=makeCell(pair,cas,number,gender);
