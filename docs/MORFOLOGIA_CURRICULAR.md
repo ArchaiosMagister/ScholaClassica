@@ -131,3 +131,29 @@ Se comprueba la igualdad de **caso, género y número** y se permiten las dos ó
 La palabra intermedia oxítona cambia contextual y ortográficamente agudo por grave; no se alteran circunflejos ni acentos de sílabas anteriores. No se confunde la construcción predicativa `ὁ ἵππος ἀγαθός` con una atributiva. Se ofrecen dos nuevas modalidades, respuesta escrita o tabla completa, **desde UD5** para los cuatro nombres de UD4 y con cuatro nombres más al alcanzar UD7. Cada ficha conserva las tres fuentes y las enlaza por separado en la interfaz.
 
 Las ocho entradas constituyen un **primer lote de conciliación interfuentes**, no una validación filológica individual definitiva. Para la fase siguiente se propone revisar con decisiones docentes explícitas los lemas de género variable, los acentos de paradigmas complejos y las variantes de las declinaciones posteriores, manteniéndolos fuera del sorteo hasta su aprobación. El banco anterior de 84 fichas permanece inalterado y el nuevo total es **92**.
+
+## Ampliación por lotes reproducible del léxico nominal griego (propuesta aislada)
+
+El compilador `scripts/greek-noun-bulk.mjs` deja atrás el límite manual de ocho
+nombres. Trabaja sobre **los ocho ficheros de UniMorph y el vocabulario de examen
+de Griego I del mismo SHA de Vocabula**, sin acceso a red ni modificación de
+repositorios originales. Mantiene intactas las primeras ocho fichas.
+
+Solo incorpora nuevas entradas si coinciden el lema, el enunciado y genitivo
+del vocabulario, una unidad documentada hasta UD7, el género único del artículo
+nominativo, las diez casillas NOM/VOC/ACC/GEN/DAT × SG/PL y el modelo de
+primera o segunda declinación en Appendix. La tercera declinación queda
+reservada para UD8; tampoco se importan nombres sin unidad, con artículo
+ambiguo, variantes no discriminadas o casillas incompletas.
+
+El archivo `build/morfologia/auditoria-sustantivos-griegos.json` separa
+**incorporados** y **pendientes de revisión**, con razón individual para los
+descartados. La etiqueta «paradigma-documentado» constata la disponibilidad
+de las diez casillas en la fuente morfológica, **no** una verificación filológica
+individual; `review` lo declara de forma visible. Se conserva CC BY-SA 3.0,
+la traza de la ficha de Vocabula y el SHA de procedencia. El alumnado no ve
+los descartados. El corpus es estático, corregible y utilizable sin conexión.
+
+Este cambio se prepara en una rama de integración sin fusionar ni publicar.
+Eulexis, Perseus/Morpheus y Logeion son futuras fuentes de contraste; **no se
+les atribuye una consulta automatizada que este lote no ha realizado**.
