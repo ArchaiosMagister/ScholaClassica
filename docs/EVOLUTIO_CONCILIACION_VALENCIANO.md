@@ -61,8 +61,8 @@ Se ha recorrido el inventario completo de las **215 propuestas originales**. **1
 ## Ficheros
 
 - `shared/academic/evolutio-valenciano/normas.json`: **17 normas valencianas exactamente como las facilitó el docente**, más `FIX_M` no seleccionable. Las categorías castellanas `ASPIR`, `MIN_MBR` y `CUL` no se transfieren automáticamente.
-- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 67 correspondencias con fuente (26 iniciales y 100 nuevas) y 174 propuestas pendientes; ninguna ficha nueva incorpora leyes sin verificación.
-- `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo por ID de propuesta original con **88** cotejos etimológicos individuales y **88** pendientes; enlaces a las 100 fuentes consultadas y observaciones de riesgo para las restantes.
+- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 218 correspondencias con referencia etimológica (26 iniciales y 192 del lote auditado) y 23 propuestas reservadas; ninguna ficha nueva incorpora leyes sin verificación.
+- `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo de las 215 propuestas originales: **192** cotejos etimológicos documentados, **23** reservas, cuatro relaciones directas descartadas y referencias individuales solo cuando corresponde.
 - `shared/academic/evolutio-valenciano/matriz-522.json`: todas las fichas por **ID original**, forma latina, respuestas castellanas, procedencia y resultado valenciano documentado/propuesto/pendiente. Cada fila conserva campos separados para normas, explicación, dificultad, aprobación docente y disponibilidad en práctica; permanecen vacíos/bloqueados hasta revisarse.
 - `scripts/reconcile-evolutio-valenciano.mjs`: generador determinista que comprueba el SHA del origen y rechaza duplicados, candidaturas ajenas al banco y documentación falsa.
 - `tests/evolutio-valenciano-conciliacion.test.mjs`: asegura cobertura, reglas, integridad, reproducibilidad y ausencia del registro en la web publicada.
