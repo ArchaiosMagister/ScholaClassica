@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./estudio.css">
   <script type="module" src="./estudio.mjs"></script>
+  <script type="module" src="./study-update.mjs"></script>
   <title>Estudio del léxico · Etymologicon</title>
 </head>
 <body>
@@ -23,10 +24,12 @@
       <span class="brand-mark" aria-hidden="true">Ε</span>
       <span class="brand-type">Etymologicon <small>Estudio del léxico · Griego I</small></span>
     </div>
-    <nav class="study-nav" aria-label="Navegación">
-      <a href="./index.html">Portada</a>
-      <a href="./practicar.html">Practicar</a>
-      <a href="../../index.html">ScholaClassica</a>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a class="header-link" href="./index.html">Portada</a>
+      <a class="header-link" href="./practicar.html">Practicar</a>
+      <a class="header-link header-link--external" href="../../index.html">ScholaClassica</a>
+      <button type="button" id="study-check-update" class="header-update">Actualizar</button>
+      <button type="button" id="study-apply-update" class="header-update header-update--ready" hidden>Aplicar versión</button>
     </nav>
   </div>
 </header>
@@ -37,6 +40,7 @@
     <p>Consulta el significado de cada palabra castellana y descubre cómo se relaciona con sus componentes griegos. Cuando está acreditada la composición, se muestran juntas sus bases, incluso si alguna no pertenece todavía al programa.</p>
     <p class="preview-note">Esta consulta no puntúa ni modifica tu progreso. Las definiciones son redacciones didácticas propias: el enlace al DLE permite profundizar y se distingue de una verificación individual ya realizada.</p>
   </section>
+  <p id="study-update-status" role="status" aria-live="polite" class="study-update-status" hidden></p>
   <section class="panel lexicon-tools" aria-label="Filtros del glosario">
     <div class="lexicon-controls">
       <div class="field">
