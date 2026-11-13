@@ -1,4 +1,5 @@
 // Motor puro, sin generación de flexiones ni redes externas.
+import {selectReviewCandidates} from './review.mjs';
 const fold=s=>String(s).normalize('NFC').trim();
 export const COURSE_LABELS={latin:'Latín I',griego:'Griego I'};
 export function validateBank(bank){
@@ -74,7 +75,7 @@ function agreementCandidates(bank,records,rng){
   return candidates;
 }
 export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
-  limit=10,rng=Math.random}={}){
+  limit=10,rng=Math.random,reviewMode='all',reviewState,now=Date.now()}={}){
   if(!['form','analysis','agreement'].includes(activity)||!Number.isInteger(limit)||limit<1||limit>30)
     throw Error('Modalidad o cantidad inválida');
   const records=availableRecords(bank,{language,unit,kind});
@@ -125,16 +126,7 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
       }
     }
   }
-  const selected=[];
-  const used=new Set();
-  // Mezclar preguntas de paradigmas distintos: no encadenar las 12 formas de rosa.
-  const mixed=shuffle(candidates,rng);
-  for(const q of mixed){
-    if(used.has(q.id))continue;
-    selected.push(q);used.add(q.id);
-    if(selected.length>=limit)break;
-  }
-  return selected;
+  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,limit,rng,now});
 }
 export function evaluate(question,choice){
   if(!question?.options?.includes(choice))throw Error('Respuesta ajena al ejercicio');
