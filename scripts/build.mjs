@@ -30,6 +30,11 @@ if(Object.keys(process.env).some(name=>name.startsWith('SCHOLA_AUTH_')||name==='
 const docenteVars=['SCHOLA_DOCENTE_SUPABASE_URL','SCHOLA_DOCENTE_PUBLISHABLE_KEY',
   'SCHOLA_DOCENTE_SDK_FILE','SCHOLA_DOCENTE_SDK_SHA256'];
 const docenteEnabled=process.env.SCHOLA_DOCENTE_ENABLE==='confirmed';
+const inboxEnabled=process.env.SCHOLA_DOCENTE_INBOX==='confirmed';
+if(process.env.SCHOLA_DOCENTE_INBOX&&!inboxEnabled)
+  throw Error('Modo de bandeja docente no reconocido');
+if(inboxEnabled&&!docenteEnabled)
+  throw Error('La bandeja docente requiere el acceso docente activado');
 if(!docenteEnabled&&docenteVars.some(name=>process.env[name]?.trim()))
   throw Error('Hay variables docentes, pero SCHOLA_DOCENTE_ENABLE no se ha confirmado');
 if(process.env.SCHOLA_DOCENTE_ENABLE&&!docenteEnabled)
@@ -58,8 +63,8 @@ if(docenteEnabled){
   await mkdir(join(out,'docente/vendor'),{recursive:true});
   await writeFile(join(out,'docente/vendor/supabase.js'),sdk);
   docenteConfig={enabled:true,origin:'https://archaiosmagister.github.io',
-    url,publishableKey,username:'MagisterArchaios',setupOnly:true};
-  docenteConnect=url;
+    url,publishableKey,username:'MagisterArchaios',setupOnly:!inboxEnabled};
+  docenteConnect=url+(inboxEnabled?' https://rzjemisvaaqpnvvgfntl.supabase.co':'');
 }
 await writeFile(join(out,'docente/auth-config.json'),JSON.stringify(docenteConfig)+'\n');
 // GitHub Pages no aplica _headers de Cloudflare. Una CSP en meta reduce el

@@ -8,7 +8,8 @@ const out=join(root,'dist');
 const read=path=>readFileSync(join(out,path),'utf8');
 const config=JSON.parse(read('docente/auth-config.json'));
 assert.equal(config.enabled,true);
-assert.equal(config.setupOnly,true,'Solo habilitar alta TOTP, nunca gestión docente antes de validarla');
+const inboxEnabled=process.env.SCHOLA_DOCENTE_INBOX==='confirmed';
+assert.equal(config.setupOnly,!inboxEnabled,'Solo habilitar la bandeja tras confirmar el modo de lectura');
 assert.equal(config.origin,'https://archaiosmagister.github.io');
 assert.equal(config.url,'https://wpwlguufpkfnzlbyproe.supabase.co');
 assert.match(config.publishableKey,/^sb_publishable_[A-Za-z0-9_-]{12,}$/);
@@ -25,6 +26,15 @@ const html=read('docente/index.html'),js=read('docente/app.mjs');
 assert.ok(html.includes('Content-Security-Policy'));
 assert.match(html,/connect-src/);
 assert.ok(html.includes(config.url));
+if(inboxEnabled){
+  assert.ok(html.includes('https://rzjemisvaaqpnvvgfntl.supabase.co'));
+  assert.ok(html.includes('id="notice-source"'));
+  assert.ok(html.includes('id="sources-state"'));
+  assert.ok(js.includes('schola-palabra-inbox'));
+  assert.ok(js.includes("client.functions.invoke('schola-inbox'"));
+  assert.ok(js.includes("state('unavailable','Acceso docente no autorizado"));
+}
+
 assert.ok(!html.includes('unsafe-inline'));
 assert.ok(html.includes('id="ready"'));
 assert.match(js,/config\.setupOnly===true/);

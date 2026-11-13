@@ -20,7 +20,7 @@ const base='http://127.0.0.1:'+server.address().port;
 let browser;
 try{
   const actual=JSON.parse(await readFile(join(root,'docente/auth-config.json'),'utf8'));
-  assert.equal(actual.setupOnly,true);
+  assert.equal(actual.setupOnly,process.env.SCHOLA_DOCENTE_INBOX!=='confirmed');
   browser=await chromium.launch({headless:true});
   const page=await browser.newPage();
   const errors=[];

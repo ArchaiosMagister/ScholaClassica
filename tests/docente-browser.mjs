@@ -20,6 +20,19 @@ const base='http://127.0.0.1:'+server.address().port;
 let browser;
 const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',username:'MagisterArchaios',setupOnly:false};
 const install=async(page,allow=true,setupOnly=false)=>{
+  await page.route('**/functions/v1/schola-palabra-inbox',route=>
+    route.fulfill({
+      status:route.request().method()==='OPTIONS'?204:allow?200:403,contentType:'application/json',
+      headers:{'access-control-allow-origin':'*',
+        'access-control-allow-methods':'POST, OPTIONS',
+        'access-control-allow-headers':'authorization, apikey, content-type'},
+      body:JSON.stringify(allow
+        ?{authorized:true,source:'palabra',items:[{source:'palabra',title:'etimología',
+          course:'1.º Bachillerato',summary:'Definición propuesta',
+          created_at:'2026-11-12T11:00:00Z'}]}
+        :{error:'Acceso no autorizado'})
+    })
+  );
   await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...config,setupOnly})}));
   await page.addInitScript((allow)=>{
     const mock={session:false,aal:'aal1',factor:false,allow};
@@ -79,9 +92,8 @@ const install=async(page,allow=true,setupOnly=false)=>{
       if(name!=='schola-inbox')throw new Error('Unexpected endpoint');
       mock.inboxCalls=(mock.inboxCalls||0)+1;
       if(mock.aal!=='aal2')return {data:{authorized:false},error:null};
-      return mock.allow?success({authorized:true,items:[
-        {source:'vocabula',title:'palabra',course:'lat1',summary:'<img src=x onerror=alert(1)>',created_at:'2026-11-12T12:00:00Z'},
-        {source:'palabra',title:'etimología',course:'1.º Bachillerato',summary:'Definición propuesta',created_at:'2026-11-12T11:00:00Z'}
+      return mock.allow?success({authorized:true,source:'vocabula',items:[
+        {source:'vocabula',title:'palabra',course:'lat1',summary:'<img src=x onerror=alert(1)>',created_at:'2026-11-12T12:00:00Z'}
       ]}):{data:{authorized:false},error:null};
     }};
     window.supabase={createClient:()=>({auth,functions})};
@@ -91,6 +103,7 @@ try{
   browser=await chromium.launch({headless:true});
   const page=await browser.newPage();
   const errors=[];page.on('pageerror',err=>errors.push(err.message));
+  await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({enabled:false})}));
   let res=await page.goto(base+'/docente/index.html',{waitUntil:'networkidle'});
   assert.equal(res.status(),200);
   await page.locator('#unavailable').waitFor({state:'visible'});
@@ -117,9 +130,28 @@ try{
   await good.locator('#enroll-form button').click();
   await good.locator('#teacher').waitFor({state:'visible'});
   assert.equal(await good.evaluate(()=>window.__teacherMock.inboxCalls),1);
-  assert.equal(await good.locator('.notice').count(),2);
+  try{
+    await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
+  }catch{
+    const diagnosis=await good.evaluate(()=>({
+      notices:document.querySelectorAll('#notices .notice').length,
+      state:document.getElementById('notices-state')?.textContent,
+      sources:document.getElementById('sources-state')?.textContent
+    }));
+    throw Error('La bandeja simulada no tiene las dos fuentes: '+JSON.stringify(diagnosis));
+  }
+  assert.equal(await good.locator('#notices .notice').count(),2);
   assert.ok((await good.locator('.notice').first().locator('p').textContent()).includes('<img'));
   assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
+  await good.locator('#notice-source').selectOption('palabra');
+  assert.equal(await good.locator('.notice').count(),1);
+  assert.ok((await good.locator('.notice h3').textContent()).includes('etimología'));
+  await good.locator('#notice-source').selectOption('vocabula');
+  assert.equal(await good.locator('.notice').count(),1);
+  await good.locator('#notice-source').selectOption('all');
+  await good.locator('#notice-refresh').click();
+  await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
+  assert.equal(await good.locator('.notice').count(),2);
   assert.equal(await good.locator('#totp-secret').inputValue(),'','El secreto se limpia tras el registro');
   await good.locator('#logout').click();
   await good.locator('#login').waitFor({state:'visible'});
