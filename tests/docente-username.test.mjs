@@ -9,7 +9,7 @@ test('el acceso docente exige escribir el usuario en vez de mostrarlo precargado
   const input=html.match(/<input id="username"[^>]*>/)?.[0];
   assert.ok(input,'Falta el campo de usuario');
   assert.match(input,/autocomplete="off"/);
-  assert.doesNotMatch(input,/\\bvalue=/);
+  assert.doesNotMatch(input,/\bvalue=/);
   assert.match(html,/<form id="login-form" autocomplete="off">/);
   assert.doesNotMatch(app,/el\('username'\)\.value\s*=\s*config\.username/);
   assert.match(app,/el\('username'\)\.value=''/);
