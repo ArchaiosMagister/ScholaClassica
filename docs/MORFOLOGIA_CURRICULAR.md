@@ -10,8 +10,8 @@ El banco se compila a partir de `assets/curriculum.json` y del capítulo enlazad
 
 | Materia | Unidades habilitadas | Tablas importadas | No incluidos |
 | --- | --- | --- | --- |
-| Latín I | UD1–UD5 | `rosa`, `dominus`, `bellum`; presentes e imperfectos activos y `sum`; UD3 pasiva presente e imperfecta en cinco conjugaciones y sus desinencias; UD4 `dux`, `civis`, `flumen`, `mare` | Perfectos, adjetivos, conjugaciones o declinaciones posteriores |
-| Griego I | UD1–UD5 | Terminaciones de segunda declinación masculina y neutra; presente de `εἰμί` y `λύω`; artículo; cinco modelos de desinencias de primera declinación (femenino alfa puro, eta y mixto; masculino alfa y eta) | Flexión completa de sustantivos no atestiguados, adjetivos y unidades posteriores |
+| Latín I | UD1–UD7 | `rosa`, `dominus`, `bellum`; presentes e imperfectos activos y `sum`; UD3 pasiva presente e imperfecta en cinco conjugaciones y sus desinencias; UD4 `dux`, `civis`, `flumen`, `mare` | Perfectos, adjetivos, conjugaciones o declinaciones posteriores |
+| Griego I | UD1–UD7 | Terminaciones de segunda declinación masculina y neutra; presente de `εἰμί` y `λύω`; artículo; cinco modelos de desinencias de primera declinación (femenino alfa puro, eta y mixto; masculino alfa y eta) | Flexión completa de sustantivos no atestiguados, adjetivos y unidades posteriores |
 
 Los sustantivos latinos se muestran con formas completas cuando el Appendix ofrece paradigmas completos. Cuando el Appendix solo ofrece **desinencias** griegas, se practican únicamente esas desinencias: no se reconstruyen sustantivos enteros.
 
@@ -95,3 +95,18 @@ El progreso es local al navegador y puede perderse si se eliminan sus datos. Se 
 Las pruebas verifican la aceptación de variantes, la distinción ortografía/morfología, la preservación de iota suscrita, la conjugación/declinación de tablas completas, el estado local y su borrado, el teclado griego en Chromium móvil y el uso sin conexión en la ruta `/ScholaClassica/apps/morfologia/`. El service worker continúa restringido al módulo y precarga `written.mjs`, `review.mjs` y `greek-keyboard.mjs`.
 
 La **declinación de sintagmas completos** con sustantivos y adjetivos se deja pendiente de una fase específica de concordancia léxica: no se deben combinar paradigmas sin acreditar previamente el género y las formas concretas de cada sustantivo. Las ampliaciones de UD6–UD7 de Latín I y Griego I seguirán requiriendo un control filológico independiente antes de habilitar sus contenidos.
+
+
+## Extensión académica UD6–UD7 y práctica de sintagmas
+
+El compilador `scripts/morphology-ud6-ud7.mjs` añade **24 fichas completas** transcritas de tablas de los temas originales de `assets/curriculum.json`, sin intervenir en el repositorio Appendix ni consultar un banco externo: cuatro pronombres latinos de UD6 (`hic`, `iste`, `ille`, `qui`), los paradigmas nominales `exercitus`, `cornū` y `res` de UD7, once paradigmas de futuro latino (cinco conjugaciones en activa y pasiva más `sum`), un presente medio-pasivo griego en UD6 (`λύω`) y cinco grupos pronominales griegos de UD7 (demostrativos, anafórico y personales). El total pasa a **84 paradigmas** y las unidades habilitadas son UD1–UD7 de ambas materias.
+
+El compilador impone la presencia de las tablas y sus filas de casos/personas; conserva los acentos griegos y las formas alternativas. Para la segunda singular de `λύω` medio-pasivo solo admite `λύει` y `λύῃ`, exactamente como en la tabla curricular. Los pronombres latinos no adquieren vocativo; los griegos se comprueban con nominativo, acusativo, genitivo y dativo, sin vocativo. La expresión `res, rei` se mantiene como femenina. Las marcas de cantidad vocálica latinas pueden omitirse al contestar, ya que no se exige un teclado con macrones.
+
+El módulo `sintagmas.mjs` añade dos actividades **«Escribir sintagma completo»** y **«Declinar sintagma completo»**, ambas desde UD5:
+- **Latín:** el adjetivo precede al sustantivo. Solamente se admiten ocho sustantivos con paradigma completo y género contrastado (`rosa`, `dominus`, `bellum`, `flumen`, `mare`, `exercitus`, `cornū`, `res`); los tres últimos se desbloquean en UD7. Los adjetivos provienen de los paradigmas completos de tercera declinación de UD5. `dux` y `civis` quedan fuera de las combinaciones automáticas al no fijarse su género inequívocamente en las tablas importadas.
+- **Griego:** se ofrece artículo más adjetivo **sustantivado**, con los casos y los tres géneros realmente documentados para ambos paradigmas. No se presenta como artículo + sustantivo + adjetivo, ya que Appendix todavía no proporciona en este banco las flexiones completas y verificadas de sustantivos griegos individuales. El artículo carece de vocativo.
+
+Cada forma del sintagma nace de **dos fichas documentadas** y tiene referencias de fuente de ambas unidades; jamás se adjuntan desinencias a un lema nuevo. La corrección, el teclado griego, el repaso espaciado y las tablas completas siguen funcionando sin conexión. Las pruebas verifican casos, género, número, exclusiones, variantes aceptadas y aislamiento de cachés en la ruta real de GitHub Pages.
+
+La siguiente fase académica será la incorporación individual de **sustantivos griegos con paradigma completo y género contrastado**, tras la revisión del banco docente, para pasar del adjetivo sustantivado a los sintagmas de artículo + sustantivo + adjetivo. No se habilitarán esos ejercicios por mera combinación de desinencias.

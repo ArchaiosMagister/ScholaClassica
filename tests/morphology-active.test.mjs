@@ -23,7 +23,7 @@ test('producción escrita: no se generan formas fuera de las tablas, conserva pr
       assert.equal(correctWritten(q,' ').status,'empty');
     }
   }
-  assert.throws(()=>makeWrittenQuestions(bank,{language:'latin',unit:6}),/Unidad todavía no disponible/);
+  assert.throws(()=>makeWrittenQuestions(bank,{language:'latin',unit:8}),/Unidad todavía no disponible/);
 });
 test('civis: las variantes cives y civis son correctas por igual',()=>{
   const q=makeWrittenQuestions(subset(find('civis,')),{language:'latin',unit:4,limit:30,rng})

@@ -4,6 +4,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import assert from 'node:assert/strict';
 import {compileAdditionalMorphology} from './morphology-expansion.mjs';
+import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -287,12 +288,13 @@ export function compileMorphology(curriculum,sha,{latinNounsHtml,latinIndicative
   records.push(...latinThirdDeclension(curriculum,latinNounsHtml));
   records.push(...greekFirstDeclension(curriculum));
   records.push(...compileAdditionalMorphology({curriculum,latinIndicativeHtml,latinAdjectivesHtml}));
+  records.push(...compileMorphologyUd67(curriculum));
   // Ningún registro se habilita por inferencia; solo por tabla curricular.
-  assert.equal(records.length,60);
+  assert.equal(records.length,84);
   assert.equal(new Set(records.map(r=>r.id)).size,records.length,'IDs duplicados');
   for(const r of records)assert.ok(r.forms.length>=6,r.id);
   return {schema:'schola-morphology-source/v1',appendixSha:sha,
-    coverage:{latin:[1,2,3,4,5],griego:[1,2,3,4,5]},records};
+    coverage:{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]},records};
 }
 export async function buildMorphology({out,lock}){
   const path=join(source,'assets/curriculum.json');

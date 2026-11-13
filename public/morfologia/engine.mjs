@@ -10,7 +10,7 @@ export function validateBank(bank){
   for(const record of bank.records){
     if(!['latin','griego'].includes(record.language)||
        !Number.isInteger(record.unit)||!bank.coverage?.[record.language]?.includes(record.unit)||
-       !['sustantivo','verbo','desinencia','artículo','adjetivo'].includes(record.kind)||
+       !['sustantivo','verbo','desinencia','artículo','adjetivo','pronombre'].includes(record.kind)||
        !Array.isArray(record.forms)||record.forms.length<6||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');
     if(ids.has(record.id))throw Error('Ficha repetida');ids.add(record.id);

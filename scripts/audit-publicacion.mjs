@@ -14,6 +14,7 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
   'apps/morfologia/index.html','apps/morfologia/sw.js',
   'apps/morfologia/engine.mjs','apps/morfologia/written.mjs',
   'apps/morfologia/review.mjs','apps/morfologia/greek-keyboard.mjs',
+  'apps/morfologia/sintagmas.mjs',
   'apps/morfologia/data/paradigmas.json',
   'docente/auth-config.json']){
   assert.ok(existsSync(join(out,path)),'Falta recurso de publicación: '+path);
@@ -45,11 +46,11 @@ const etymologiconWorker=read('apps/etymologicon/sw.js');
 assert.ok(etymologiconWorker.includes("CACHE_PREFIX='schola-etymologicon-'"));
 const morphology=JSON.parse(read('apps/morfologia/data/paradigmas.json'));
 assert.equal(morphology.schema,'schola-morphology-source/v1');
-assert.equal(morphology.records.length,60);
-assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5],griego:[1,2,3,4,5]});
+assert.equal(morphology.records.length,84);
+assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
 assert.ok(morphology.records.every(r=>r.evidence.status==='paradigma-documentado'));
 assert.ok(read('apps/morfologia/sw.js').includes("CACHE_PREFIX='schola-morphology-'"));
-for(const file of ['written.mjs','review.mjs','greek-keyboard.mjs']){
+for(const file of ['written.mjs','review.mjs','greek-keyboard.mjs','sintagmas.mjs']){
   assert.ok(read('apps/morfologia/sw.js').includes("'./"+file+"'"),
     'El modo offline debe precargar '+file);
 }

@@ -82,3 +82,8 @@ Véase `docs/PORTAL_PWA.md`.
 El módulo independiente de morfología utiliza `written.mjs` para corrección exacta/ortográfica/morfológica y para tablas de declinación generadas solo con casillas ya documentadas. `greek-keyboard.mjs` implementa inserción táctil de Unicode griego y marcas combinantes; `review.mjs` gestiona repetición espaciada local, sin envío de datos. El núcleo `engine.mjs` conserva su contrato de ejercicios existentes y solo añade la selección opcional de repaso.
 
 La caché `schola-morphology-` incorpora los tres nuevos módulos versionados y sigue limitada al ámbito `/apps/morfologia/`, sin invalidar el resto de PWA. Se mantienen la restricción a las unidades académicas existentes y los 60 paradigmas del Appendix fijado. El workflow comprueba también la interfaz móvil y el funcionamiento offline antes de cualquier despliegue.
+
+
+## Integración morfológica UD6–UD7 con doble procedencia
+
+`scripts/morphology-ud6-ud7.mjs` importa 24 registros adicionales de pronombres, futuro y declinaciones desde el currículo **fijado** del Appendix. `public/morfologia/sintagmas.mjs` combina dos paradigmas completos con concordancia de caso, número y género, admite las variantes literales de sus casillas y expone `sources` con ambas referencias. La aplicación permite escribir o declinar los sintagmas completos; en griego, por falta de sustantivos individuales documentados, limita el ejercicio al artículo y adjetivo sustantivado. El modo sigue siendo local, con caché `schola-morphology-` y sin intervención de originales ni credenciales docentes.

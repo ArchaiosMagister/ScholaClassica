@@ -8,7 +8,8 @@ const unique=values=>[...new Set(values)];
 function comparison(text,{language,ending=false}={}){
   let value=clean(text).toLocaleLowerCase(language==='griego'?'el':'la');
   if(ending)value=value.replace(/^[\u2010-\u2015-]+/u,'');
-  if(language==='latin')value=value.replace(/æ/g,'ae').replace(/œ/g,'oe');
+  if(language==='latin')value=value.replace(/æ/g,'ae').replace(/œ/g,'oe')
+    .normalize('NFD').replace(/\u0304/gu,'').normalize('NFC');
   return value;
 }
 function withoutAccents(text,language){

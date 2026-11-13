@@ -1,5 +1,6 @@
 import {validateBank,makeQuestions,evaluate,COURSE_LABELS,availableRecords} from './engine.mjs';
 import {makeWrittenQuestions,makeTableExercises,correctWritten,evaluateTable} from './written.mjs';
+import {makePhraseQuestions,makePhraseTables} from './sintagmas.mjs';
 import {mountGreekKeyboard} from './greek-keyboard.mjs';
 import {readReview,writeReview,emptyReview,applyReview,reviewCounts,reviewKey} from './review.mjs';
 
@@ -11,7 +12,7 @@ const storage=(()=>{try{return window.localStorage}catch{return null}})();
 let reviewState=readReview(storage),bank=null,questions=[],position=0,score=0,answered=false;
 let focusInput=null;
 const grammaticalName=kind=>({sustantivo:'Sustantivos',verbo:'Verbos',
-  desinencia:'Desinencias',artículo:'Artículo',adjetivo:'Adjetivos'})[kind]||kind;
+  desinencia:'Desinencias',artículo:'Artículo',adjetivo:'Adjetivos',pronombre:'Pronombres'})[kind]||kind;
 function theme(){
   let preference='system';
   try{preference=storage?.getItem('scholaclassica-aspecto-v1')||'system'}catch{}
@@ -38,6 +39,12 @@ function updateActivities(){
   const opt=input.activity.querySelector('option[value="agreement"]');
   if(opt){opt.hidden=!canAgree;opt.disabled=!canAgree}
   if(!canAgree&&input.activity.value==='agreement')input.activity.value='form';
+  const canPhrases=Number(input.unit.value)>=5;
+  for(const mode of ['phrase-written','phrase-table']){
+    const item=input.activity.querySelector('option[value="'+mode+'"]');
+    if(item){item.hidden=!canPhrases;item.disabled=!canPhrases}
+  }
+  if(!canPhrases&&input.activity.value.startsWith('phrase-'))input.activity.value='written';
   updateKinds();
 }
 function updateKinds(){
@@ -46,13 +53,15 @@ function updateKinds(){
   const records=availableRecords(bank,{language,unit});
   const agreement=input.activity.value==='agreement';
   const table=input.activity.value==='table';
-  const kinds=agreement?['adjetivo']:
-    [...new Set(records.filter(r=>!table||r.kind!=='verbo').map(r=>r.kind))];
+  const phrase=input.activity.value.startsWith('phrase-');
+  const tableKinds=['sustantivo','adjetivo','desinencia','artículo'];
+  const kinds=phrase?['sintagma']:agreement?['adjetivo']:
+    [...new Set(records.filter(r=>!table||tableKinds.includes(r.kind)).map(r=>r.kind))];
   const selected=input.kind.value;
   input.kind.replaceChildren();
-  if(!agreement)option(input.kind,'todos','Todas las categorías disponibles');
+  if(!agreement&&!phrase)option(input.kind,'todos','Todas las categorías disponibles');
   kinds.forEach(kind=>option(input.kind,kind,grammaticalName(kind)));
-  input.kind.value=agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
+  input.kind.value=phrase?'sintagma':agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
   $('coverage').textContent=COURSE_LABELS[language]+': se incluyen únicamente los paradigmas de UD1 a UD'+unit+
     ' presentes en las tablas curriculares ('+records.length+' paradigmas). '+
     'Las unidades posteriores a '+bank.coverage[language].at(-1)+' siguen en revisión.'+
@@ -81,6 +90,14 @@ function showSource(q){
     ' · UD'+e.unit+' · '+e.topic;
   source.href='../gramatica/curso.html?lengua='+
     (q.language==='latin'?'latin':'griego')+'&curso=1&unidad='+e.unit;
+  const second=$('source-secondary'),other=q.sources?.find(item=>
+    item.unit!==e.unit||item.topic!==e.topic);
+  second.hidden=!other;
+  if(other){
+    second.textContent='Consultar también Appendix · UD'+other.unit+' · '+other.topic;
+    second.href='../gramatica/curso.html?lengua='+
+      (q.language==='latin'?'latin':'griego')+'&curso=1&unidad='+other.unit;
+  }
 }
 function completeQuestion(q){
   answered=true;
@@ -139,7 +156,8 @@ function showQuestion(){
   $('greek-keyboard').hidden=!(q.language==='griego'&&['written','table'].includes(q.activity));
   $('greek-key-notice').textContent='';
   $('answers').replaceChildren();
-  $('feedback').hidden=true;$('next').hidden=true;$('source').hidden=true;
+  $('feedback').hidden=true;$('next').hidden=true;
+  $('source').hidden=true;$('source-secondary').hidden=true;
   if(q.activity==='written'){
     answer.disabled=false;answer.value='';answer.lang=q.language==='griego'?'grc':'la';
     $('check-written').disabled=false;
@@ -231,7 +249,9 @@ function start(){
     kind:input.kind.value,activity:input.activity.value,limit:10,
     reviewMode:input.review.value,reviewState};
   try{
-    questions=input.activity.value==='written'?makeWrittenQuestions(bank,options):
+    questions=input.activity.value==='phrase-written'?makePhraseQuestions(bank,options):
+      input.activity.value==='phrase-table'?makePhraseTables(bank,options):
+      input.activity.value==='written'?makeWrittenQuestions(bank,options):
       input.activity.value==='table'?makeTableExercises(bank,options):makeQuestions(bank,options);
   }catch(error){
     $('coverage').textContent='No se puede preparar esta tanda: '+error.message;

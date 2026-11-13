@@ -30,7 +30,7 @@ try{
  const result=await page.goto(app+'index.html?subject=gr1',{waitUntil:'networkidle'});
  assert.equal(result.status(),200);
  assert.equal(await page.locator('#subject').inputValue(),'griego');
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5','UD6','UD7']);
  // La concordancia griega solo aparece al superar la UD4.
  assert.equal(await page.locator('#activity option[value="agreement"]').evaluate(o=>o.disabled),true);
  await page.locator('#unit').selectOption('5');
@@ -77,7 +77,7 @@ try{
  assert.equal(offline.status(),200);
  await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
  assert.equal(await page.locator('#subject').inputValue(),'latin');
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5','UD6','UD7']);
  assert.equal(await page.locator('#activity option[value="agreement"]').evaluate(o=>o.disabled),true);
  await page.locator('#unit').selectOption('5');
  await page.locator('#kind').selectOption('adjetivo');
@@ -94,8 +94,8 @@ try{
    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
    return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego};
  });
- assert.equal(found.paradigms,60);
- assert.deepEqual(found.latin,[1,2,3,4,5]);assert.deepEqual(found.greek,[1,2,3,4,5]);
+ assert.equal(found.paradigms,84);
+ assert.deepEqual(found.latin,[1,2,3,4,5,6,7]);assert.deepEqual(found.greek,[1,2,3,4,5,6,7]);
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
  console.log('OK: perfectos UD4, adjetivos UD5, concordancia griega y caché offline propia en GitHub Pages');
