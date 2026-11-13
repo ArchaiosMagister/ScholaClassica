@@ -31,7 +31,7 @@ export function correctWritten(question,input){
   const expected=accepted.join(' / ');
   if(!typed)return {status:'empty',correct:false,expected,note:'Escribe una respuesta antes de corregir.'};
   if(variants.includes(typed))
-    return {status:'correct',correct:true,expected,note:'La forma coincide con un paradigma documentado.'};
+    return {status:'correct',correct:true,expected,note:'La forma es correcta.'};
   if(variants.some(form=>withoutAccents(form,question.language)===
       withoutAccents(typed,question.language))){
     return {status:'orthography',correct:false,expected,
@@ -40,7 +40,7 @@ export function correctWritten(question,input){
         'La flexión coincide, pero revisa su ortografía. No se cuenta como acierto.'};
   }
   return {status:'morphology',correct:false,expected,
-    note:'La forma escrita no coincide con las alternativas morfológicas documentadas.'};
+    note:'La forma no coincide con las soluciones admitidas.'};
 }
 export function makeWrittenQuestions(bank,{language,unit,kind='todos',limit=10,rng=Math.random,
   reviewMode='all',reviewState,now=Date.now()}={}){
