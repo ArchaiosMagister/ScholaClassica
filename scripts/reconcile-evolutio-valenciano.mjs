@@ -85,8 +85,12 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
    record.valenciano.fenomensNoSeleccionables=nonSelectablePhenomena;
   record.valenciano.dnvIndividualChecked=false;
  }
- for(const w of records)if(w.valenciano.estadoLexico==='documentat'&&!audited.has(w.latin))
-  throw Error('Etimologia documentada sense revisió individual: '+w.latin);
+ // Las nuevas etimologías contrastadas conservan sus normas pendientes.
+ // Nunca inferir leyes valencianas de la documentación exclusivamente léxica.
+ for(const w of records)if(w.valenciano.estadoLexico==='documentat'&&!audited.has(w.latin)){
+  if(w.valenciano.normas!==null||w.valenciano.estadoNormas!=='pendent')
+   throw Error('Etimologia documentada sense revisió individual alterada: '+w.latin);
+ }
  return {analisisEditoriales:revision.analyses.length,
   casosConDiscrepancia:revision.pending.length};
 }
