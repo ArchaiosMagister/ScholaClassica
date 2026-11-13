@@ -21,8 +21,8 @@ const nouns=rerun();
 const rng=()=>.42;
 const get=id=>nouns.find(x=>x.id==='griego-sustantivo-'+id);
 test('lote cerrado: 8 sustantivos con nominativo, genitivo y género documentados',()=>{
-  assert.equal(bank.records.length,92);
-  assert.deepEqual(bank.records.slice(84),nouns);
+  assert.equal(bank.records.length,144);
+  assert.deepEqual(bank.records.slice(136),nouns);
   assert.equal(bank.vocabulaSha,lock.sources.vocabula.sha);
   assert.deepEqual(nouns.map(r=>r.id),[
     'griego-sustantivo-hippos','griego-sustantivo-bios','griego-sustantivo-dike',

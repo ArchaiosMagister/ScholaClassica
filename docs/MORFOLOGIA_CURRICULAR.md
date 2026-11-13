@@ -131,3 +131,56 @@ Se comprueba la igualdad de **caso, género y número** y se permiten las dos ó
 La palabra intermedia oxítona cambia contextual y ortográficamente agudo por grave; no se alteran circunflejos ni acentos de sílabas anteriores. No se confunde la construcción predicativa `ὁ ἵππος ἀγαθός` con una atributiva. Se ofrecen dos nuevas modalidades, respuesta escrita o tabla completa, **desde UD5** para los cuatro nombres de UD4 y con cuatro nombres más al alcanzar UD7. Cada ficha conserva las tres fuentes y las enlaza por separado en la interfaz.
 
 Las ocho entradas constituyen un **primer lote de conciliación interfuentes**, no una validación filológica individual definitiva. Para la fase siguiente se propone revisar con decisiones docentes explícitas los lemas de género variable, los acentos de paradigmas complejos y las variantes de las declinaciones posteriores, manteniéndolos fuera del sorteo hasta su aprobación. El banco anterior de 84 fichas permanece inalterado y el nuevo total es **92**.
+
+## Cierre de unidades: Latín I UD8–UD10 y Griego I UD8–UD14 (13/11/2026)
+
+La práctica de ScholaClassica alcanza todas las **unidades curriculares publicadas** en
+`assets/curriculum.json` del Appendix fijado en
+`a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c`: Latín I UD1–UD10 y Griego I
+UD1–UD14. Esta fase añade **52 fichas**, hasta un total de **144**,
+de las que ocho continúan siendo los sustantivos griegos conciliados
+anteriormente y conservan expresamente su revisión individual pendiente.
+
+| Materia | Unidad | Formas practicables documentadas |
+| --- | --- | --- |
+| Latín I | UD8 | Infinitivos de presente de las cinco conjugaciones y ejemplos explícitos de perfecto/futuro; `idem` e `ipse`, sin vocativo |
+| Latín I | UD9 | Comparativo `altior, altius`; ocho formas de la primera persona de los tiempos compuestos pasivos que aparecen en la tabla |
+| Latín I | UD10 | Participio presente `amans` (M/F y N; singular/plural) y participio perfecto `amatus` (solo singular) |
+| Griego I | UD8 | Indefinido `τις`, interrogativo `τίς` y dieciséis paradigmas nominales completos de la tercera declinación consonántica |
+| Griego I | UD9 | Relativo `ὅς, ἥ, ὅ` |
+| Griego I | UD10 | Participio presente activo de `εἰμί`; desinencias del participio medio, sin inventar un tema verbal |
+| Griego I | UD11 | Futuro e imperfecto activos de `λύω` |
+| Griego I | UD12 | Aoristo sigmático de `λύω` y aoristo temático de `λαμβάνω`, ambos en activa y media |
+| Griego I | UD13 | Perfectos de `λύω` y `λείπω` y pluscuamperfecto de `λύω` |
+| Griego I | UD14 | Doce conjugaciones de los verbos contractos `τιμάω`, `ποιέω`, `δηλόω` (presente e imperfecto en voces activa/media), tres temas en silbante |
+
+**Alcance deliberadamente limitado:** Las tablas de reglas, los ejemplos
+descriptivos y las listas de formas aisladas no justifican inventar conjugaciones
+o declinaciones completas. El participio perfecto latino de UD10 sigue sin plural
+porque esa tabla solo proporciona singular. Las desinencias de participio medio
+griego no se convierten en palabras completas. Las reconstrucciones históricas
+entre corchetes de las tablas griegas de tercera declinación se excluyen de la
+respuesta: se admiten las formas realmente flexionadas, con `-ν` móvil cuando
+aparece indicado, y las variantes explícitas como `ἄττα`.
+
+Se han corregido, **solo dentro del nuevo módulo integrado**, dos erratas
+localizadas en las celdas del imperfecto de los contractos:
+`ἐποιεϊτε` → `ἐποιεῖτε` (ποιέω, 2.ª plural activa) y
+`ἐτιμῶν` → `ἐτιμῶ` (τιμάω, 2.ª singular media). Ambas lecturas se contrastan
+con [la tabla de verbos contractos de Azimonti](https://www.azimonti.com/philology/ancient-greek/morphology/verbs/contract-verbs/);
+el historial conserva la grafía fuente, la corrección y la referencia, en
+`evidence.correction`. No se modifican las fuentes originales ni se aprueba
+por ello ninguna otra forma incierta.
+
+Las unidades son **acumulativas**: un alumno de UD8 ve UD1–UD8,
+nunca paradigmas de UD9 o posteriores. Los modos de reconocimiento,
+análisis, respuesta escrita, tablas, concordancia, repetición inteligente
+y trabajo offline conservan sus criterios anteriores. Los ejercicios de
+sintagma griego siguen usando únicamente los ocho sustantivos del lote
+concordado: las nuevas tablas de tercera declinación no se unen
+automáticamente a adjetivos o artículos sin acreditar el género individual.
+
+**Latín II y 4.º de ESO** no se añaden engañosamente al selector de este módulo
+sin una conciliación separada de su temario, curso y formas individuales.
+Este bloque cierra las unidades pendientes **de las dos asignaturas ya
+incorporadas al módulo**.

@@ -5,6 +5,7 @@ import {resolve,join} from 'node:path';
 import assert from 'node:assert/strict';
 import {compileAdditionalMorphology} from './morphology-expansion.mjs';
 import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
+import {compileMorphologyUd8to14} from './morphology-ud8-14.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -290,12 +291,13 @@ export function compileMorphology(curriculum,sha,{latinNounsHtml,latinIndicative
   records.push(...greekFirstDeclension(curriculum));
   records.push(...compileAdditionalMorphology({curriculum,latinIndicativeHtml,latinAdjectivesHtml}));
   records.push(...compileMorphologyUd67(curriculum));
+  records.push(...compileMorphologyUd8to14(curriculum));
   // Ningún registro se habilita por inferencia; solo por tabla curricular.
-  assert.equal(records.length,84);
+  assert.equal(records.length,136);
   assert.equal(new Set(records.map(r=>r.id)).size,records.length,'IDs duplicados');
   for(const r of records)assert.ok(r.forms.length>=6,r.id);
   return {schema:'schola-morphology-source/v1',appendixSha:sha,
-    coverage:{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]},records};
+    coverage:{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10,11,12,13,14]},records};
 }
 export async function buildMorphology({out,lock}){
   const path=join(source,'assets/curriculum.json');
@@ -311,11 +313,11 @@ export async function buildMorphology({out,lock}){
   });
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     records:[...data.records,...greekNouns]};
-  assert.equal(finalBank.records.length,92);
-  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,92);
+  assert.equal(finalBank.records.length,144);
+  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,144);
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
   console.log('Morfología: '+finalBank.records.length+
-    ' paradigmas; ocho sustantivos griegos conciliados con Vocabula/UniMorph');
+    ' paradigmas curriculares; ocho sustantivos griegos conciliados con Vocabula/UniMorph');
 }

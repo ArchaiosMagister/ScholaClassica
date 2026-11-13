@@ -19,8 +19,8 @@ test('el banco tiene SHA del Appendix fijado y se recompila exactamente desde su
   assert.deepEqual(compiled.records.slice(0,core.records.length),core.records);
   assert.equal(compiled.vocabulaSha,lock.sources.vocabula.sha);
   validateBank(compiled);
-  assert.equal(compiled.records.length,92);
-  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
+  assert.equal(compiled.records.length,144);
+  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10,11,12,13,14]});
   assert.ok(compiled.records.every(r=>r.evidence.status==='paradigma-documentado'));
   assert.ok(compiled.records.every(r=>r.forms.every(f=>f.form&&!f.form.includes('<'))));
 });
@@ -55,8 +55,10 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   assert.ok(g3.some(r=>r.kind==='artículo'));
   assert.equal(g3.filter(r=>r.paradigm.startsWith('1.ª declinación griega')).length,5);
   assert.ok(!g2.some(r=>r.paradigm.startsWith('1.ª declinación griega')));
-  assert.throws(()=>availableRecords(compiled,{language:'latin',unit:8}),/Unidad todavía no disponible/);
-  assert.throws(()=>availableRecords(compiled,{language:'griego',unit:8}),/Unidad todavía no disponible/);
+  assert.ok(availableRecords(compiled,{language:'latin',unit:8}).some(r=>r.id==='latin-ud8-idem'));
+  assert.ok(availableRecords(compiled,{language:'griego',unit:8}).some(r=>r.id==='griego-ud8-tis-interrogativo'));
+  assert.throws(()=>availableRecords(compiled,{language:'latin',unit:11}),/Unidad todavía no disponible/);
+  assert.throws(()=>availableRecords(compiled,{language:'griego',unit:15}),/Unidad todavía no disponible/);
 });
 test('las formas recuperan tabla y no se obtienen por generación especulativa',()=>{
   const rose=compiled.records.find(r=>r.paradigm.startsWith('rosa'));

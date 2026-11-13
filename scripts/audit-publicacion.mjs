@@ -47,8 +47,8 @@ const etymologiconWorker=read('apps/etymologicon/sw.js');
 assert.ok(etymologiconWorker.includes("CACHE_PREFIX='schola-etymologicon-'"));
 const morphology=JSON.parse(read('apps/morfologia/data/paradigmas.json'));
 assert.equal(morphology.schema,'schola-morphology-source/v1');
-assert.equal(morphology.records.length,92);
-assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7],griego:[1,2,3,4,5,6,7]});
+assert.equal(morphology.records.length,144);
+assert.deepEqual(morphology.coverage,{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10,11,12,13,14]});
 assert.ok(morphology.records.every(r=>r.evidence.status==='paradigma-documentado'));
 assert.ok(read('apps/morfologia/sw.js').includes("CACHE_PREFIX='schola-morphology-'"));
 for(const file of ['written.mjs','review.mjs','greek-keyboard.mjs','sintagmas.mjs','greek-noun-phrases.mjs']){
