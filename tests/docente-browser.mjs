@@ -152,6 +152,24 @@ try{
   await good.locator('#notice-refresh').click();
   await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
   assert.equal(await good.locator('.notice').count(),2);
+  // El editor no interpreta HTML de formularios ni avisos y exige sesión AAL2.
+  await good.locator('#admin-word-list .notice').first().waitFor({state:'visible'});
+  assert.equal(await good.locator('#admin-word-list img').count(),0);
+  await good.locator('#admin-new').click();
+  await good.locator('#admin-word-subject').selectOption('lat1');
+  await good.locator('#admin-word-form-text').fill('bellum, -i');
+  await good.locator('#admin-word-meaning').fill('guerra');
+  await good.locator('#admin-word-answers').fill('guerra');
+  await good.locator('#admin-word-units').fill('UD1');
+  await good.locator('#admin-save-word').click();
+  await good.waitForFunction(()=>window.__teacherMock.savedWords===1);
+  await good.locator('#admin-tab-reports').click();
+  await good.locator('#admin-report-list .notice').first().waitFor({state:'visible'});
+  await good.locator('#admin-report-list select').selectOption('resolved');
+  await good.locator('#admin-report-list textarea').fill('Corregido');
+  await good.locator('#admin-report-list .notice button').first().click();
+  await good.waitForFunction(()=>window.__teacherMock.savedReports===1);
+  assert.equal(await good.locator('#admin-report-list img').count(),0);
   assert.equal(await good.locator('#totp-secret').inputValue(),'','El secreto se limpia tras el registro');
   await good.locator('#logout').click();
   await good.locator('#login').waitFor({state:'visible'});
