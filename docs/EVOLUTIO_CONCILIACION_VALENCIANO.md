@@ -6,8 +6,8 @@ Se ha preparado la **matriz de los 522 étimos** del banco de Evolutio integrado
 
 | Estado del resultado valenciano | Entradas | Acredita |
 |---|---:|---|
-| `documentat` | **218** | 26 iniciales más **192 correspondencias** con relación etimológica cotejada en el DCVB; análisis fonético y DNV pendientes |
-| `proposta` | **23** | Propuestas reservadas: 4 derivaciones directas descartadas, 19 con evidencia insuficiente o mediación histórica pendiente |
+| `documentat` | **221** | 26 iniciales más **195 correspondencias** con relación etimológica cotejada en el DCVB; análisis fonético y DNV pendientes |
+| `proposta` | **20** | Propuestas reservadas: 4 derivaciones directas descartadas, 16 con evidencia insuficiente o mediación histórica pendiente |
 | `pendent` | **281** | Sin resultado propuesto por ahora |
 | Análisis valencianos con clasificación editorial registrada | **26** | 25 con criterios aceptados o propuestas previas y **1 clasificación provisional** (`noctem`) |
 | Discrepancias fonéticas sin decisión docente | **0** | Las cuatro cuestiones anteriores tienen una decisión de criterio registrada |
@@ -41,9 +41,9 @@ Los recuentos se recalculan a partir de `matriz-522.json`; no deben darse por ve
 
 ## Auditoría de las 215 candidaturas iniciales — contraste filológico individual (13/11/2026)
 
-Se ha recorrido el inventario completo de las **215 propuestas originales**. **192 correspondencias** disponen de documentación etimológica y de acepción en artículos del DCVB, con referencia individual conservada. **23 se mantienen en reserva** porque la consulta no ofrece evidencia suficiente de la filiación directa, se necesita una variante histórica intermedia o el étimo propuesto es incorrecto. Ninguna se ha declarado apta para práctica fonética: las comprobaciones de DNV, las 17 leyes y la aprobación docente son tareas posteriores e independientes. El archivo `auditoria-215.json` conserva los 215 IDs, el tipo de resultado, la referencia cuando existe y la justificación editorial de la reserva.
+Se ha recorrido el inventario completo de las **215 propuestas originales**. **195 correspondencias** disponen de documentación etimológica y de acepción en artículos del DCVB, con referencia individual conservada. **20 se mantienen en reserva** porque la consulta no ofrece evidencia suficiente de la filiación directa, se necesita una variante histórica intermedia o el étimo propuesto es incorrecto. Ninguna se ha declarado apta para práctica fonética: las comprobaciones de DNV, las 17 leyes y la aprobación docente son tareas posteriores e independientes. El archivo `auditoria-215.json` conserva los 215 IDs, el tipo de resultado, la referencia cuando existe y la justificación editorial de la reserva.
 
-**Resoluciones claras:** `germanum → germà`, `mensem → mes`, `mĕliorem → millor`, `octo → huit` (forma valenciana que el DCVB recoge como variante de `vuit`), `pilum → pèl`, `fŏrtia → força`, `martium → març`, `sagitta → sageta`, `signa → senya`, `alium → all`, `damnum → dany`, `peccatum → pecat`, `bibere → beure` y `currere → córrer`. En `luxum → luxe`, `fibram → fibra`, `membrum → membre`, `temperare → temperar`, `uirtutem → virtut`, `uoluntatem → voluntat` y `nauigare → navegar`, el DCVB indica explícitamente préstamo o latinismo: el resultado léxico está documentado, pero su transmisión **no puede simplificarse como evolución patrimonial regular**.
+**Resoluciones claras:** En el último contraste se acreditaron además `damnum → dany`, `spinam → espina` y `spumam → espuma`; `espuma` debe distinguirse del germanismo `escuma`. `germanum → germà`, `mensem → mes`, `mĕliorem → millor`, `octo → huit` (forma valenciana que el DCVB recoge como variante de `vuit`), `pilum → pèl`, `fŏrtia → força`, `martium → març`, `sagitta → sageta`, `signa → senya`, `alium → all`, `damnum → dany`, `peccatum → pecat`, `bibere → beure` y `currere → córrer`. En `luxum → luxe`, `fibram → fibra`, `membrum → membre`, `temperare → temperar`, `uirtutem → virtut`, `uoluntatem → voluntat` y `nauigare → navegar`, el DCVB indica explícitamente préstamo o latinismo: el resultado léxico está documentado, pero su transmisión **no puede simplificarse como evolución patrimonial regular**.
 
 **Etapas históricas y homónimos:** `uiduam → viuda` presenta una forma popular `viuva` y contaminación con la culta `vídua`; `ausare → gosar` presenta una consonante inicial añadida de explicación discutida; `tædam → tea` se documenta como variante de `teia` a través de las fases `teda/tesa`. `uitem → vit` está documentado solo para la acepción histórica de 'sarmiento', no `vit` masculino 'miembro viril', que procede de otro étimo. `bonum → bo`, `ferum → fer` y `portum → port` obligan a seleccionar la acepción precisa para evitar homónimos.
 
@@ -56,13 +56,13 @@ Se ha recorrido el inventario completo de las **215 propuestas originales**. **1
 
 **Otros casos reservados:** `datum → dau` tiene etimología discutida; `pluuiam → pluja` requiere una base vulgar `*plŏia`; `totum → tot` exige la forma vulgar intensiva `tottu`; `ocŭlos → ulls` exige distinguir la evolución de `ull` (`*ŏclu`) de su plural; `iacere → jaure` ha de comprobarse por remisión a `jeure`. Se preservan también sin acreditación exhaustiva los restantes casos anotados en el fichero de auditoría, en lugar de inferir la relación por semejanza léxica.
 
-**Estado final del lote:** 192 con correspondencia etimológica documentada, 23 reservadas (de ellas 4 derivaciones directas descartadas), cero fichas fonéticas nuevas verificadas y cero ejercicios habilitados.
+**Estado final del lote:** 195 con correspondencia etimológica documentada, 20 reservadas (de ellas 4 derivaciones directas descartadas), cero fichas fonéticas nuevas verificadas y cero ejercicios habilitados.
 
 ## Ficheros
 
 - `shared/academic/evolutio-valenciano/normas.json`: **17 normas valencianas exactamente como las facilitó el docente**, más `FIX_M` no seleccionable. Las categorías castellanas `ASPIR`, `MIN_MBR` y `CUL` no se transfieren automáticamente.
-- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 218 correspondencias con referencia etimológica (26 iniciales y 192 del lote auditado) y 23 propuestas reservadas; ninguna ficha nueva incorpora leyes sin verificación.
-- `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo de las 215 propuestas originales: **192** cotejos etimológicos documentados, **23** reservas, cuatro relaciones directas descartadas y referencias individuales solo cuando corresponde.
+- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 218 correspondencias con referencia etimológica (26 iniciales y 195 del lote auditado) y 20 propuestas reservadas; ninguna ficha nueva incorpora leyes sin verificación.
+- `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo de las 215 propuestas originales: **195** cotejos etimológicos documentados, **20** reservas, cuatro relaciones directas descartadas y referencias individuales solo cuando corresponde.
 - `shared/academic/evolutio-valenciano/matriz-522.json`: todas las fichas por **ID original**, forma latina, respuestas castellanas, procedencia y resultado valenciano documentado/propuesto/pendiente. Cada fila conserva campos separados para normas, explicación, dificultad, aprobación docente y disponibilidad en práctica; permanecen vacíos/bloqueados hasta revisarse.
 - `scripts/reconcile-evolutio-valenciano.mjs`: generador determinista que comprueba el SHA del origen y rechaza duplicados, candidaturas ajenas al banco y documentación falsa.
 - `tests/evolutio-valenciano-conciliacion.test.mjs`: asegura cobertura, reglas, integridad, reproducibilidad y ausencia del registro en la web publicada.
