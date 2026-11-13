@@ -11,8 +11,8 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 141,
-    "propuestas": 100,
+    "lexicoDocumentado": 153,
+    "propuestas": 88,
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
@@ -6862,14 +6862,22 @@
       },
       "valenciano": {
         "resultado": "teixir",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -6887,15 +6895,23 @@
       },
       "valenciano": {
         "resultado": "vici",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=vici",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular."
       }
     },
     {
@@ -6912,15 +6928,23 @@
       },
       "valenciano": {
         "resultado": "pegar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pegar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "PEGAR en el sentido 'adherir' del latín pĭcare; verificar otros significados antes de usar."
       }
     },
     {
@@ -6937,15 +6961,23 @@
       },
       "valenciano": {
         "resultado": "selva",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=selva",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "SELVA bosque del latín silva; no la homógrafa botánica."
       }
     },
     {
@@ -6962,14 +6994,22 @@
       },
       "valenciano": {
         "resultado": "tronc",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=tronc",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -7012,14 +7052,22 @@
       },
       "valenciano": {
         "resultado": "ona",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=ona",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -7037,14 +7085,22 @@
       },
       "valenciano": {
         "resultado": "verd",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=verd",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -7112,15 +7168,23 @@
       },
       "valenciano": {
         "resultado": "set",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=set",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "SET 2 numeral siete del latín sĕpte; no SET 1 'sed' del latín sĭte."
       }
     },
     {
@@ -7137,15 +7201,23 @@
       },
       "valenciano": {
         "resultado": "temptar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=temptar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "El DCVB recoge variantes temptar/tentar, de temptare o tentare; no inventar una segmentación exclusiva."
       }
     },
     {
@@ -7162,15 +7234,23 @@
       },
       "valenciano": {
         "resultado": "fel",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=fel",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "FEL 1 'bilis' del latín fĕl; no FEL adjetivo remisor a feel."
       }
     },
     {
@@ -7212,15 +7292,23 @@
       },
       "valenciano": {
         "resultado": "vall",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=vall",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "VALL 2 'valle' del latín valle; no VALL 1 'foso' del latín vallum."
       }
     },
     {
@@ -7237,15 +7325,23 @@
       },
       "valenciano": {
         "resultado": "heura",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=heura",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "Heura 'hiedra' del latín hĕdera."
       }
     },
     {
