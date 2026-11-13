@@ -105,14 +105,21 @@ try{
   assert.ok(await page.locator('#greek-keyboard').isVisible());
   assert.match(await page.locator('#question-title').textContent(),/posición atributiva/);
   const nominal=await page.evaluate(async()=>{
-    const {makeGreekNounPhraseQuestions}=await import('./greek-noun-phrases.mjs');
+    const {greekNounPhrasePairs,graveInContext}=await import('./greek-noun-phrases.mjs');
     const data=await fetch('./data/paradigmas.json').then(r=>r.json());
     const title=document.querySelector('#paradigm').textContent;
     const prompt=document.querySelector('#question-title').textContent;
-    const q=makeGreekNounPhraseQuestions(data,{language:'griego',unit:5,limit:30,
-      rng:()=>.45}).find(item=>item.paradigm===title&&item.prompt===prompt);
-    if(!q)return null;
-    return q.acceptedForms;
+    const pair=greekNounPhrasePairs(data,{language:'griego',unit:5})
+      .find(item=>item.paradigm===title);
+    const features=prompt.match(/en (nominativo|acusativo|genitivo|dativo) (masculino|femenino|neutro) (singular|plural)/u);
+    if(!pair||!features)return null;
+    const [,cas,gender,number]=features;
+    const find=record=>record.forms.find(f=>f.case===cas&&f.number===number&&
+      (!f.gender||f.gender===gender))?.form;
+    const art=find(pair.article),noun=find(pair.noun),adj=find(pair.adjective);
+    if(!art||!noun||!adj)return null;
+    return [art+' '+graveInContext(adj)+' '+noun,
+      art+' '+graveInContext(noun)+' '+art+' '+adj];
   });
   assert.equal(nominal?.length,2,'Las dos posiciones deben proceder del banco');
   await page.locator('#answer-input').fill(nominal[1]);
