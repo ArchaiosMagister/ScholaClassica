@@ -62,7 +62,7 @@ Deno.serve(async request=>{
         .select('kind,subject,entry_form,message,status,created_at')
         .in('status',['pending','reviewing']).order('created_at',{ascending:false}).limit(100),
       palabra.from('word_proposals')
-        .select('course_id,term,origin,definition,created_at')
+        .select('course_id,term,origin,definition,story,created_at')
         .eq('status','pending').order('created_at',{ascending:false}).limit(100),
       palabra.from('courses').select('id,name').limit(30)
     ]);
@@ -77,10 +77,10 @@ Deno.serve(async request=>{
         course:r.subject,summary:(r.message||'').slice(0,1200),created_at:r.created_at
       })),
       ...(proposals.data||[]).map((p:{
-        course_id:string,term:string,origin:string,definition:string,created_at:string
+        course_id:string,term:string,origin:string,definition:string,story:string,created_at:string
       })=>({
         source:'palabra',title:p.term,course:courseName.get(p.course_id)||'Curso',
-        summary:[p.origin,p.definition].filter(Boolean).join(' · ').slice(0,1200),created_at:p.created_at
+        summary:[p.origin,p.definition,p.story].filter(Boolean).join(' · ').slice(0,1200),created_at:p.created_at
       }))
     ].sort((a,b)=>Date.parse(b.created_at)-Date.parse(a.created_at));
     return reply(200,{authorized:true,items,limitedTo:100},origin);
