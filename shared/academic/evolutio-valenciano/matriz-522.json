@@ -16,7 +16,7 @@
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 28,
+    "analisisEditoriales": 39,
     "casosConDiscrepancia": 0,
     "derivacionesDirectasDescartadas": 4
   },
@@ -1248,9 +1248,39 @@
       "valenciano": {
         "resultado": "escut",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant s inicial seguida de consonant."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final, després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "scutum → escut: pròtesi d'e- davant sc- i apòcope de -u final; la pèrdua de -m és fixa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -1263,7 +1293,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1281,9 +1312,39 @@
       "valenciano": {
         "resultado": "espart",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant sp- inicial."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -u final després de la pèrdua de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "spartum → espart: pròtesi d'e- davant sp- i apòcope de -u final.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -1296,7 +1357,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1347,9 +1409,39 @@
       "valenciano": {
         "resultado": "espiga",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant sp- inicial."
+          },
+          {
+            "id": "va2",
+            "rule": "SONOR",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Sonorització de -c- intervocàlica en -g-."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "spicam → espiga: pròtesi e- i sonorització de -c- intervocàlica; caiguda fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -1362,7 +1454,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2221,9 +2314,43 @@
       "valenciano": {
         "resultado": "or",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                0,
+                2
+              ]
+            ],
+            "note": "Monoftongació del diftong llatí au > o."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Apòcope de -u final de l'acusatiu."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "aurum → or: monoftongació au > o, apòcope de la -u final i caiguda fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2236,7 +2363,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2411,9 +2539,32 @@
       "valenciano": {
         "resultado": "canya",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de la geminada -nn- > -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "cannam → canya: palatalització de -nn- en ny, més caiguda fixa de -m final.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2426,7 +2577,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2510,9 +2662,32 @@
       "valenciano": {
         "resultado": "cosa",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Monoftongació de -au- llatí > -o-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "causam → cosa: monoftongació de -au-; la -m final es perd com a norma fixa. No s'afirma una sonorització general de -s- en totes les variants valencianes.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2525,7 +2700,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2800,9 +2976,32 @@
       "valenciano": {
         "resultado": "cuba",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de la -p- intervocàlica en -b-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "cupam → cuba: sonorització intervocàlica de -p- > -b- i pèrdua fixa de -m; accepció de bóta, no l'homònim aràbic.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -2815,7 +3014,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "La acepción de barril cubà/cuba procede de cūpa (CUBA 1), no de la entrada homógrafa de procedencia árabe."
+        "notas": "La acepción de barril cubà/cuba procede de cūpa (CUBA 1), no de la entrada homógrafa de procedencia árabe.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3316,9 +3516,32 @@
       "valenciano": {
         "resultado": "font",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -e final després de la pèrdua de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "fŏntem → font: apòcope de -e i pèrdua fixa de -m; no diftongació de ŏ tònica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3331,7 +3554,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4204,9 +4428,32 @@
       "valenciano": {
         "resultado": "roda",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de -t- intervocàlica en -d-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "rŏtam → roda: sonorització de -t- intervocàlica; la ŏ tònica no es diftonga com en castellà.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4219,7 +4466,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4270,9 +4518,32 @@
       "valenciano": {
         "resultado": "salut",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final després de la pèrdua de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "salutem → salut: apòcope de -e i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4285,7 +4556,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": null
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4369,9 +4641,32 @@
       "valenciano": {
         "resultado": "senat",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de la -u final després de la caiguda fixa de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "senatum → senat: apòcope de -u final i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -4384,7 +4679,8 @@
             "date": "2026-11-13"
           }
         ],
-        "notas": "DCVB dice 'pres del llatí senātus': préstamo culto, no evolución patrimonial; no incorporar automáticamente a práctica fonética patrimonial."
+        "notas": "DCVB dice 'pres del llatí senātus': préstamo culto, no evolución patrimonial; no incorporar automáticamente a práctica fonética patrimonial.",
+        "dnvIndividualChecked": false
       }
     },
     {
