@@ -205,7 +205,7 @@ try{
   assert.ok(await page.locator('#source-tertiary').isVisible());
   await page.context().setOffline(false);
   assert.deepEqual(errors,[]);
-  console.log('OK: ocho sustantivos y sintagmas triples griegos offline, sin regresiones latinas');
+  console.log('OK: sustantivos griegos ampliados y sintagmas triples offline, sin regresiones latinas');
 }finally{
   if(browser)await browser.close();
   await new Promise(done=>server.close(done));
