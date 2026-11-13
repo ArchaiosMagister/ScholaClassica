@@ -65,7 +65,7 @@ test('no se publica la morfología anterior ni backend o datos internos',()=>{
 test('La búsqueda docente combina las 2055 fichas originales y las aportaciones',()=>{
   const generated=JSON.parse(readFileSync(join(root,'dist/docente/vocabula-catalog.json'),'utf8'));
   const original=JSON.parse(readFileSync(join(source,'data.js'),'utf8')
-    .replace(/^window\\.VOCAB\\s*=\\s*/,'').replace(/;\\s*$/,''));
+    .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
   assert.equal(generated.schema,1);
   assert.equal(generated.words.length,original.length);
   assert.ok(generated.words.length>=2000);
@@ -85,5 +85,5 @@ test('La búsqueda docente combina las 2055 fichas originales y las aportaciones
   assert.deepEqual(added.rows[0].units,['UD 10']);
   const lat2=matchCatalog(catalog,{subject:'lat2',search:'bellum'});
   assert.ok(lat2.total>=1);
-  assert.ok(lat2.rows.every(row=>row.units.every(unit=>!/^UD\\s*\\d+/i.test(unit))));
+  assert.ok(lat2.rows.every(row=>row.units.every(unit=>!/^UD\s*\d+/i.test(unit))));
 });
