@@ -196,7 +196,7 @@ try{
     const data=await fetch('./data/paradigmas.json').then(r=>r.json());
     return data.records.filter(r=>r.id.startsWith('griego-sustantivo-')).length;
   });
-  assert.equal(present,8);
+  assert.ok(present>8,'El lote ampliado debe estar disponible sin conexión');
   await page.locator('#table-cells input').evaluateAll(fields=>{
     for(const field of fields){field.value='x';field.dispatchEvent(new Event('input',{bubbles:true}))}
   });
