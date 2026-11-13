@@ -110,3 +110,24 @@ El módulo `sintagmas.mjs` añade dos actividades **«Escribir sintagma completo
 Cada forma del sintagma nace de **dos fichas documentadas** y tiene referencias de fuente de ambas unidades; jamás se adjuntan desinencias a un lema nuevo. La corrección, el teclado griego, el repaso espaciado y las tablas completas siguen funcionando sin conexión. Las pruebas verifican casos, género, número, exclusiones, variantes aceptadas y aislamiento de cachés en la ruta real de GitHub Pages.
 
 La siguiente fase académica será la incorporación individual de **sustantivos griegos con paradigma completo y género contrastado**, tras la revisión del banco docente, para pasar del adjetivo sustantivado a los sintagmas de artículo + sustantivo + adjetivo. No se habilitarán esos ejercicios por mera combinación de desinencias.
+
+
+## Lote de sustantivos griegos con paradigma completo y género
+
+Se incorpora un compilador independiente en `scripts/greek-noun-conciliation.mjs` que lee el vocabulario y el corpus de paradigmas de la revisión **fijada por SHA** de Vocabula, sin modificar sus datos. Selecciona exclusivamente ocho candidatos con unidad de examen acreditada y estructura nominal inequívoca: `ἵππος`, `βίος`, `δίκη`, `ἀρετή` (bloque UD1–4, habilitados conservadoramente en UD4) y `λόγος`, `δῶρον`, `νίκη`, `εἰρήνη` (bloque UD6–7, habilitados en UD7).
+
+Por cada lema exige: identidad entre lema del banco y nominativo singular de UniMorph; genitivo singular congruente con la segunda o primera declinación; artículo nominativo singular explícito que acredite un género concreto; **exactamente diez casillas** (nominativo, vocativo, acusativo, genitivo, dativo × singular y plural), sin duplicidades o variantes sin resolver; y una tabla de la declinación correspondiente en el Appendix fijado. Para los neutros se verifica además la igualdad nominativo/acusativo. Si falta uno de esos elementos, la compilación falla en lugar de generar una forma nueva.
+
+Los signos de cantidad vocálica breve y larga de UniMorph se omiten en las formas de ejercicio, preservando todos los **acentos, espíritus e iotas suscritas**. Se permite que el alumno escriba la misma forma con o sin marcas de cantidad. La fuente nominal, el bloque de vocabulario y su SHA se almacenan en `evidence`, con la indicación **«conciliación interfuentes; pendiente de revisión docente individual»**. La evidencia de Appendix acredita el tipo de declinación, no que todas las formas individuales de UniMorph aparezcan en el capítulo. Se conserva la licencia de los datos derivados **CC BY-SA 3.0** con su atribución explícita. No se incorporan `ἄνθρωπος` (género de uso contextual en los ejemplos), `χώρα` (sin unidad acreditada), ni otros lemas por semejanza formal.
+
+### Concordancia nominal griega completa
+
+El módulo `greek-noun-phrases.mjs` utiliza **tres paradigmas distintos y documentados**: el artículo de Appendix UD3, uno de los ocho sustantivos conciliados y uno de los adjetivos cuyo paradigma completo está en Appendix UD5. Se admiten el modelo 2–1–2 `ἀγαθός`, el modelo 2–2 `βάρβαρος` y el irregular `μέγας`. Se excluye provisionalmente `πολύς` de los sintagmas nominales automáticos por las restricciones semánticas de número y cantidad con nombres contables; permanece disponible en todos los ejercicios existentes.
+
+Se comprueba la igualdad de **caso, género y número** y se permiten las dos órdenes atributivas, con sus formas independientes:
+- Primera posición: artículo + adjetivo + sustantivo, como `ὁ ἀγαθὸς ἵππος`.
+- Segunda posición: artículo + sustantivo + artículo + adjetivo, como `ὁ ἵππος ὁ ἀγαθός`.
+
+La palabra intermedia oxítona cambia contextual y ortográficamente agudo por grave; no se alteran circunflejos ni acentos de sílabas anteriores. No se confunde la construcción predicativa `ὁ ἵππος ἀγαθός` con una atributiva. Se ofrecen dos nuevas modalidades, respuesta escrita o tabla completa, **desde UD5** para los cuatro nombres de UD4 y con cuatro nombres más al alcanzar UD7. Cada ficha conserva las tres fuentes y las enlaza por separado en la interfaz.
+
+Las ocho entradas constituyen un **primer lote de conciliación interfuentes**, no una validación filológica individual definitiva. Para la fase siguiente se propone revisar con decisiones docentes explícitas los lemas de género variable, los acentos de paradigmas complejos y las variantes de las declinaciones posteriores, manteniéndolos fuera del sorteo hasta su aprobación. El banco anterior de 84 fichas permanece inalterado y el nuevo total es **92**.
