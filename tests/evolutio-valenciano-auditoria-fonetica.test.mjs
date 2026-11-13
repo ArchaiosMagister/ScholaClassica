@@ -48,7 +48,7 @@ test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(audit.summary.cierreIndividualRegistrado,221);
  assert.equal(audit.summary.contrastesHistoricosPendientes,89);
  assert.equal(audit.summary.discrepanciasDocentesReservadas,0);
- assert.equal(audit.summary.decisionesDocentesAplicadas,3);
+ assert.equal(audit.summary.decisionesDocentesAplicadas,6);
  assert.equal(audit.summary.leyesFoneticamenteCertificadas,0);
  assert.equal(audit.summary.habilitadas,0);
  assert.equal(matrix.summary.aptasParaPractica,0);
