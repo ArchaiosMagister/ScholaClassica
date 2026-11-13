@@ -60,7 +60,9 @@ test('la zona docente se publica bloqueada por defecto, sin claves privilegiadas
   assert.match(js,/client\.functions\.invoke\('schola-login'/);
   assert.ok(!js.includes('config.email'));
   assert.ok(!js.includes('signInWithPassword'));
-  assert.match(html,/id="turnstile-widget"/);
+  assert.ok(!html.includes('turnstile-widget'));
+  assert.ok(!js.includes('challenges.cloudflare.com'));
+  assert.ok(!js.includes('turnstileToken'));
   assert.ok(!js.includes('service_role'));
   assert.ok(!html.includes('GeneradorExamenes'));
   assert.equal(existsSync(join(root,'dist/apps/examenes')),false);
