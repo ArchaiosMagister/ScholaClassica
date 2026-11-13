@@ -195,8 +195,8 @@ try{
   await good.waitForFunction(()=>window.__teacherMock.savedWords===1);
   await good.locator('#admin-tab-reports').click();
   await good.locator('#admin-report-list .notice').first().waitFor({state:'visible'});
-  await good.locator('#admin-report-list select').selectOption('resolved');
-  await good.locator('#admin-report-list textarea').fill('Corregido');
+  await good.locator('#admin-report-list .notice').first().locator('select').selectOption('resolved');
+  await good.locator('#admin-report-list .notice').first().locator('textarea').fill('Corregido');
   await good.locator('#admin-report-list .notice button').first().click();
   await good.waitForFunction(()=>window.__teacherMock.savedReports===1);
   assert.equal(await good.locator('#admin-report-list img').count(),0);
