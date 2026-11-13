@@ -2,7 +2,7 @@
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
   "status": "auditoria_cobertura_tancada_amb_reserves",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica. Revisió addicional de 26 correspondències patrimonials amb canvis explícits; no és una certificació fonètica integral individual. Tanda de 34 anàlisis editorials fonètics addicionals, pendents de corroboració normativa individual; cap autorització de pràctica. Cierre de cobertura: 132 análisis editoriales, 83 reservas de prueba histórica y 6 discrepancias de criterio docente. Las 221 fichas quedan clasificadas, no certificadas.",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica. Revisió addicional de 26 correspondències patrimonials amb canvis explícits; no és una certificació fonètica integral individual. Tanda de 34 anàlisis editorials fonètics addicionals, pendents de corroboració normativa individual; cap autorització de pràctica. Cierre de cobertura: 132 análisis editoriales, 83 reservas de prueba histórica y 6 discrepancias de criterio docente. Las 221 fichas quedan clasificadas, no certificadas. Contrast directe DCVB resolt: tonare (r analògica), luxum i squamam (manlleus). No s'atribueixen lleis patrimonials ni s'escullen normes artificials.",
   "analyses": [
     {
       "latin": "focum",
@@ -2874,11 +2874,11 @@
     {
       "latin": "tonare",
       "form": "tronar",
-      "status": "criteri_pendent",
+      "status": "contrast_historic_pendent",
       "dnvIndividualChecked": false,
       "teacherApproved": false,
       "playable": false,
-      "reason": "r influïda per tro — La r deriva d'influència lèxica documentada, no d'inserció fonètica regular.",
+      "reason": "El DCVB atribueix la r de tronar a influència analògica de tro, no a una epèntesi fonètica regular. Es conserva l'explicació sense llei seleccionable per a -r-.",
       "changes": []
     },
     {
@@ -3044,11 +3044,11 @@
     {
       "latin": "luxum",
       "form": "luxe",
-      "status": "criteri_pendent",
+      "status": "contrast_historic_pendent",
       "dnvIndividualChecked": false,
       "teacherApproved": false,
       "playable": false,
-      "reason": "luxe és un cultisme — El DCVB identifica préstec del llatí luxus, no resultat fonètic patrimonial.",
+      "reason": "El DCVB descriu luxe com a manlleu del llatí luxus. No s'ha de proposar com a evolució fonètica patrimonial, encara que es conserve la correspondència en el lèxic docent.",
       "changes": []
     },
     {
@@ -3104,11 +3104,11 @@
     {
       "latin": "squamam",
       "form": "escama",
-      "status": "criteri_pendent",
+      "status": "contrast_historic_pendent",
       "dnvIndividualChecked": false,
       "teacherApproved": false,
       "playable": false,
-      "reason": "escama i transmissió per préstec — L'evidència lèxica apunta a una transmissió prestada, de manera que no prova una pròtesi patrimonial regular.",
+      "reason": "El DCVB descriu escama com a forma presa del llatí squama. No atribuir PRÒTESI patrimonial regular ni habilitar aquesta derivació sense una justificació didàctica específica.",
       "changes": []
     },
     {
