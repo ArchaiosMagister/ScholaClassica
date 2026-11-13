@@ -25,6 +25,7 @@
     "audit:docente:cloudflare": "node scripts/audit-cloudflare-docente.mjs",
     "check:docente:readiness": "node scripts/check-docente-readiness.mjs",
     "audit:publicacion": "node scripts/audit-publicacion.mjs",
-    "test:browser:pages": "node tests/pages-subpath-browser.mjs"
+    "test:browser:pages": "node tests/pages-subpath-browser.mjs",
+    "test:browser:morfologia": "node tests/morphology-browser.mjs"
   }
 }
