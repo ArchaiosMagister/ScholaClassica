@@ -7,6 +7,7 @@ import {compileAdditionalMorphology} from './morphology-expansion.mjs';
 import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 import {compileGreekNounExpansion} from './greek-noun-bulk.mjs';
+import {compileLatinNounExpansion,readLatinNounSource} from './latin-noun-bulk.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -314,21 +315,39 @@ export async function buildMorphology({out,lock}){
     curriculum:JSON.parse(await readFile(path,'utf8')),
     ...sourceData,vocabulaSha:lock.sources.vocabula.sha,existingRecords:greekNouns
   });
+  const latinSource=await readLatinNounSource(vocabulaSource);
+  const latin=compileLatinNounExpansion({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    ...latinSource,vocabulaData:sourceData.vocabulaData,
+    vocabulaSha:lock.sources.vocabula.sha,existingRecords:data.records
+  });
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
-    records:[...data.records,...greekNouns,...bulk.records]};
-  assert.equal(finalBank.records.length,92+bulk.records.length);
+    records:[...data.records,...greekNouns,...bulk.records,...latin.records]};
+  assert.equal(finalBank.records.length,92+bulk.records.length+latin.records.length);
   assert.equal(new Set(finalBank.records.map(record=>record.id)).size,finalBank.records.length);
-  assert.ok(bulk.records.length>=10,'Expansión nominal inusualmente pequeña: revisar fuentes');
+  assert.ok(bulk.records.length>=10,'Expansión griega inusualmente pequeña: revisar fuentes');
+  assert.ok(latin.records.length>=10,'Expansión latina inusualmente pequeña: revisar fuentes');
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
-  // Informe segregado del banco elegible: no se publican candidatos ambiguos.
-  await mkdir(join(root,'build/morfologia'),{recursive:true});
-  await writeFile(join(root,'build/morfologia/auditoria-sustantivos-griegos.json'),
-    JSON.stringify({schema:'schola-nouns-bulk-audit/v1',...bulk.audit,
+  // Catálogo completo de candidaturas, también las pendientes; se archiva
+  // fuera de dist para no publicar como válidas formas todavía sin contraste.
+  const auditDir=join(root,'build/morfologia');
+  await mkdir(auditDir,{recursive:true});
+  await writeFile(join(auditDir,'auditoria-sustantivos-griegos.json'),
+    JSON.stringify({schema:'schola-nouns-bulk-audit/v2',...bulk.audit,
       imported:bulk.records.map(r=>({id:r.id,unit:r.unit,
         entry:r.paradigm,evidence:r.evidence.vocabulaEntry})),review:bulk.review},null,2)+'\n');
-  console.log('Morfología: '+finalBank.records.length+
-    ' paradigmas; '+(8+bulk.records.length)+' sustantivos griegos conciliados, '+
-    bulk.review.length+' candidatos fuera de sorteo');
+  await writeFile(join(auditDir,'auditoria-sustantivos-latinos.json'),
+    JSON.stringify({schema:'schola-nouns-latin-audit/v1',...latin.audit,
+      imported:latin.records.map(r=>({id:r.id,unit:r.unit,
+        entry:r.paradigm,evidence:r.evidence.vocabulaEntry})),review:latin.review},null,2)+'\n');
+  await writeFile(join(auditDir,'catalogo-nominal-total.json'),
+    JSON.stringify({schema:'schola-noun-inventory/v1',sourceSha:lock.sources.vocabula.sha,
+      counts:{greek:bulk.audit,latin:latin.audit},
+      catalog:[...bulk.catalog,...latin.catalog]},null,2)+'\n');
+  console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
+    (8+bulk.records.length)+' sustantivos griegos y '+latin.records.length+
+    ' latinos añadidos; pendientes griego '+bulk.review.length+
+    ', latín '+latin.review.length);
 }
