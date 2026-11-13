@@ -16,8 +16,8 @@
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 22,
-    "casosConDiscrepancia": 4
+    "analisisEditoriales": 26,
+    "casosConDiscrepancia": 0
   },
   "records": [
     {
@@ -347,9 +347,21 @@
       "valenciano": {
         "resultado": "fava",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "fabam → fava: la -b- intervocàlica dona -v- per debilitament consonàntic, que s'explica sense exigir cap norma seleccionable. La -m final desapareix com a pèrdua fixa. No atribuir SONORITZACIÓ.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -360,7 +372,28 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "El canvi intervocàlic -b- > -v- és lenició/fricativització, no SONORITZACIÓ de sordes. El repertori de 17 normes no el recull explícitament."
+        "notas": null,
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "decision": "Explicar -b- intervocàlica → -v- com a debilitament sense norma seleccionable; exigir només les altres normes acreditades."
+        },
+        "fenomensNoSeleccionables": [
+          {
+            "type": "debilitament_intervocalic",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "result": "v",
+            "note": "La -b- intervocàlica es debilita a -v-; no és SONORITZACIÓ d'una consonant sorda i no entra en les 17 normes seleccionables.",
+            "selectable": false
+          }
+        ],
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -765,9 +798,52 @@
       "valenciano": {
         "resultado": "nit",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "VOC",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Vocalització de -c- del grup -ct-; el procés històric passa per formes amb element vocàlic, com nuit. Interpretació didàctica provisional."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [],
+            "anchor": 2,
+            "historicalStage": "nuit",
+            "provisional": true,
+            "note": "Simplificació del grup vocàlic de la fase intermèdia nuit fins a nit; aquesta norma no representa un segment literal de noctem i s'ha d'explicar com a fase posterior."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua de la vocal final -e en el resultat patrimonial."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_provisional_docent",
+        "explicacion": "De noctem a nit, la vocalització del grup -ct- dona lloc a una etapa històrica representada per nuit; posteriorment, la seqüència vocàlica se simplifica fins a nit. La vocal final de l'acusatiu no es conserva. Aquesta classificació de vocalització i simplificació és provisional, amb referència explícita a la fase intermèdia nuit.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -778,7 +854,14 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "Cal fixar una cadena històrica rigorosa per -ct- > -it- i la reducció vocàlica posterior; no equival a aplicar mecànicament la palatalització castellana."
+        "notas": null,
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "provisional",
+          "decision": "Admitir provisionalmente VOCALITZACIÓ y SIMPLIFICACIÓ, con la fase intermedia nuit. No constituye validación normativa ni aprobación para sorteo."
+        },
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3227,9 +3310,32 @@
       "valenciano": {
         "resultado": "mare",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Simplificació del grup consonàntic -tr- per pèrdua de t: matrem → mare."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "Simplificació de -tr- amb pèrdua de t en matrem → mare. La -m final de l'acusatiu es tracta separadament com a pèrdua fixa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3240,7 +3346,14 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "La reducció de -tr- podria classificar-se com a simplificació; precisar el tractament històric i la segmentació abans d'exigir una norma."
+        "notas": null,
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "decision": "Classificar com SIMPLIFICACIÓ per pèrdua de t en el grup -tr-; la pèrdua fixa de -m continua separada."
+        },
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6542,9 +6655,43 @@
       "valenciano": {
         "resultado": "cavall",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                4,
+                6
+              ]
+            ],
+            "note": "La geminada lateral llatina -ll- evoluciona a lateral palatal valenciana grafiada ll; la coincidència gràfica no implica identitat fonètica."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua de la vocal final -u de l'acusatiu, després de la caiguda fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "caballum → cavall: debilitament de -b- intervocàlica a -v- (no seleccionable), evolució de -ll- geminada a lateral palatal i apòcope de -u final. La -m de l'acusatiu es considera pèrdua fixa, no una norma exigible.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -6555,7 +6702,28 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "La -b- intervocàlica > -v- no és SONORITZACIÓ; decidir si se n'explica el canvi no seleccionable i quines altres normes es poden exigir."
+        "notas": null,
+        "criterioDocente": {
+          "date": "2026-11-13",
+          "scope": "criterio_de_clasificacion",
+          "approval": "accepted",
+          "decision": "Explicar -b- intervocàlica → -v- sense norma seleccionable; exigir únicament PALATALITZACIÓ i APÒCOPE si s'acrediten."
+        },
+        "fenomensNoSeleccionables": [
+          {
+            "type": "debilitament_intervocalic",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "result": "v",
+            "note": "-b- intervocàlica → -v- per debilitament consonàntic; fenomen explicatiu però no norma seleccionable.",
+            "selectable": false
+          }
+        ],
+        "dnvIndividualChecked": false
       }
     },
     {
