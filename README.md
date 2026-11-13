@@ -114,6 +114,11 @@ Un workflow independiente (`.github/workflows/avisos-fuentes.yml`) compara seman
 
 ## Práctica de morfología por cursos y unidades
 
-ScholaClassica incorpora un **módulo independiente** en `/apps/morfologia/`, construido a partir de tablas de la revisión **fijada** de Appendix grammaticae. La primera cobertura comprende **Latín I, UD1–UD2**, y **Griego I, UD1–UD3**; se ofrecen elección de formas y análisis morfológico con múltiples análisis admitidos cuando existe sincretismo. El banco se genera con procedencia curricular comprobable, no mediante generación libre de formas.
+ScholaClassica incorpora un **módulo independiente** en `/apps/morfologia/`, construido a partir de tablas de la revisión **fijada** de Appendix grammaticae. La cobertura comprende **Latín I, UD1–UD4**, y **Griego I, UD1–UD3**; se ofrecen elección de formas y análisis morfológico con múltiples análisis admitidos cuando existe sincretismo. El banco se genera con procedencia curricular comprobable, no mediante generación libre de formas.
 
 Las preguntas son formativas, sin cuentas ni almacenamiento de resultados. La PWA de morfología dispone de su propia caché `schola-morphology-`, que nunca borra las cachés de otras aplicaciones. Véase [Morfología curricular](docs/MORFOLOGIA_CURRICULAR.md). Las voces, tiempos y unidades aún no incluidos **no** se presentan como verificados. No se modifica Vocabula ni GeneradorExamenes.
+
+
+### Ampliación de morfología: UD3–UD4 de Latín I y primera declinación griega
+
+La pasiva latina de UD3 incorpora el presente e imperfecto de las cinco conjugaciones (con la variante `-re` documentada en las desinencias). La tercera declinación de UD4 importa los paradigmas completos `dux`, `civis`, `flumen` y `mare` del capítulo de sustantivos del **mismo Appendix fijado por SHA**, respetando `-um/-ium`, neutros en `-ia` y las dos variantes de `civis` en acusativo plural. Griego I, UD3, incorpora los cinco modelos de **desinencias** de primera declinación (femeninos alfa, eta y mixto; masculinos alfa y eta) sin reconstruir palabras completas ni mezclar variantes. Las fichas tienen evidencia de capítulo, tabla y unidad; el motor no trata formas alternativas válidas como distractores. Nuevas pruebas revisan los datos y el funcionamiento offline.
