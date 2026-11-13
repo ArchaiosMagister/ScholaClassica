@@ -169,10 +169,10 @@ enunciados, significados, curso, unidades y sus identificadores de origen.
 
 Los sustantivos con paradigma **completo y contrastable** se incorporan a
 `apps/morfologia/data/paradigmas.json`, con estatus individual de conciliación
-pendiente de revisión docente: 25 sustantivos griegos (8 ya existentes + 17
-nuevos) y 175 sustantivos latinos nuevos; 284 fichas morfológicas en total
-(contando las 84 fichas preexistentes). Son cifras del cotejo sobre las fuentes
-fijadas; no representan todo el léxico como ya verificado.
+pendiente de revisión docente. Las cifras exactas proceden de cada
+compilación y del artefacto de auditoría, no de una lista manual fija.
+La disponibilidad de un paradigma en UniMorph no implica que un docente
+haya revisado individualmente cada flexión.
 
 La selección opera sobre:
 - **Latín:** `scripts/latin-noun-bulk.mjs`; 32 fragmentos UniMorph lat,
@@ -196,11 +196,16 @@ La selección opera sobre:
 
 Las entradas sin serie completa, con género contextual o irregularidad no
 resuelta, con divergencia de enunciado o cuyo contenido se enseña más tarde
-**no se sortean**. Las palabras de Griego I UD8–UD14, Latín I más allá de
-UD7 y todas las de Latín de 4.º quedan catalogadas sin falsear que ya existe
-un currículo completo de morfología para esas unidades y curso. En el
-caso latino, un nombre adquirido antes de estudiar su declinación se habilita
-solo a partir de la unidad que explica su modelo.
+**no se sortean**. La cobertura activa se ha ampliado hasta **UD10** en Griego I y Latín I;
+en el primer caso, los temas consonánticos de tercera declinación se
+desbloquean en UD8 y, en el segundo, solo se usan modelos de declinación ya
+explicados. Las fichas de Latín de 4.º con doce casillas completas se preparan
+en una **reserva separada y no calificable**, porque sus unidades no se pueden
+trasplantar a Latín I. En ambos idiomas, los lemas sin unidad acreditada se
+conservan con sus paradigmas completos en esa misma reserva, cuando existe
+evidencia suficiente. Se excluyen las palabras de unidades no cubiertas.
+Un sustantivo citado antes de estudiar su tipo flexivo se habilita únicamente
+cuando ese modelo ya se haya explicado.
 
 Los informes íntegros **no se publican en la webapp del alumnado**; se archivan
 como artefacto de CI:
@@ -225,3 +230,43 @@ fuentes filológicas complementarias (Perseus/Morpheus, Eulexis, Logeion,
 Collatinus para latín, según licencias y disponibilidad) y habilitar por
 unidades sus modelos de tercera declinación griega y el itinerario de
 Latín de 4.º, sin anticipar adjetivos, pronombres o verbos.
+
+
+## Continuación: cierre de las excepciones recuperables con fuente (13/11/2026)
+
+Esta revisión supera el límite anterior de UD7 y registra **tres estados**
+distintos por lema: incorporado a la PWA por unidad acreditada; paradigma
+completo de fuente en reserva no calificable porque falta adscripción
+curricular; y ficha con casillas realmente ausentes o con contradicciones.
+
+La tercera declinación griega se limita a **temas consonánticos** testimoniados
+caso por caso en el corpus y explicados en el Appendix UD8. No se extrapolan
+las formas de los temas vocálicos o silbantes. Los genitivos abreviados y
+escritos completos se comparan con la fuente real; la normalización de sigma
+final no cambia la ortografía de la solución. Para el género, cuando el
+testimonio es ambiguo, **solo una acepción inequívoca consignada en la ficha
+docente** autoriza escoger ese género. Se conserva la clase de evidencia
+(`genderEvidence`). Los nombres de género expresamente variable sin
+decisión docente permanecen en revisión.
+
+La secuencia final `-σι(ν)` de un dativo plural atestiguado en UniMorph se
+desdobla en dos **variantes explícitas**, con ν eufónica y sin ella. Se
+aceptan ambas en corrección escrita y en las dos posiciones atributivas de
+los sintagmas; no se supone dicha alternancia en ninguna otra forma.
+
+En Latín de 4.º se documentan los paradigmas nominales completos de
+UniMorph en un archivo de reserva, con su enunciado Vocabula y un
+`unit:null` que bloquea su uso en el motor del alumnado. En Griego I se
+hace lo mismo con los nombres completos de `Sin unidad acreditada`.
+El archivo `build/morfologia/paradigmas-preparados-sin-unidad.json` queda
+fuera de `dist`; no existe ruta pública para consultar esas formas. Se
+incluye como quinto informe en los artefactos de GitHub Actions.
+
+Los casos restantes se registran con las **casillas exactas que faltan**,
+y no se clasifican a todos como sustantivos de flexión desconocida sin
+comprobar la categoría. Una propuesta proveniente de Eulexis,
+Perseus/Morpheus, Logeion, Wiktionary o Collatinus solo se incorporará como
+respuesta automática cuando haya evidencia concreta de su flexión y se
+cumplan las condiciones de licencia; el cotejo secundario disponible
+hasta ahora no basta por sí solo para aprobar sus propuestas. El motor no
+genera formas faltantes mediante una declinación analógica.
