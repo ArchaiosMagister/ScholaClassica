@@ -7,13 +7,14 @@
   "summary": {
     "total": 221,
     "preanalisisEstructural": 221,
-    "conAnalisisEditorialPrevio": 26,
-    "pendientesDeAnalisisIndividual": 195,
+    "conAnalisisEditorialPrevio": 28,
+    "pendientesDeAnalisisIndividual": 193,
     "leyesFoneticamenteCertificadas": 0,
     "habilitadas": 0,
     "procesosParcialesContrastados": 110,
     "fichasConProcesosParciales": 95,
-    "analisisIntegralesVerificados": 0
+    "analisisIntegralesVerificados": 0,
+    "decisionesDocentesAplicadas": 3
   },
   "records": [
     {
@@ -123,8 +124,53 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació del diftong llatí æ > e."
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Tractament palatal de c- davant el resultat anterior e del diftong æ; classificació didàctica docent."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua de la -u final després de -m."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -145,7 +191,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "criterio_docente_aprobado_analisis_editorial_sin_verificacion_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -166,7 +212,13 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "decision": "Exigir MONOFTONGACIÓ de æ y PALATALITZACIÓ de c inicial; mantener APÒCOPE y pérdida fija -m diferenciadas."
+      }
     },
     {
       "id": "xl-52",
@@ -1176,8 +1228,53 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Síncope de la vocal postònica: ocŭlum > oclu (després de la pèrdua fixa de -m)."
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització del grup -cl- format després de la síncope: se situa en la c original perquè c+l no són contigües abans de la síncope."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de la vocal final -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -1192,7 +1289,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "criterio_docente_aprobado_analisis_editorial_sin_verificacion_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -1213,7 +1310,13 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "decision": "Exigir SÍNCOPE de ŭ postònica i PALATALITZACIÓ del grup -cl- format després de la síncope; no atribuir -cl- com a tram contigu del mot llatí original."
+      }
     },
     {
       "id": "xl-245",
@@ -3239,7 +3342,7 @@
             ]
           ],
           "anchor": null,
-          "note": "Obertura de la vocal final -u en -o."
+          "note": "OBERTURA de la vocal final llatina -u en -o, com a classificació docent expressament aprovada."
         },
         {
           "rule": "FIX_M",
@@ -3261,12 +3364,18 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "criterio_docente_aprobado_analisis_editorial_sin_verificacion_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "decision": "Exigir OBERTURA per al resultat -u > -o de fĕrrum → ferro, com a classificació didàctica de la llei 11."
+      }
     },
     {
       "id": "xl-125",
