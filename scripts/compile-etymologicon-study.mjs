@@ -101,7 +101,28 @@ const confirmedDle=new Set([
   'psicosomático','ortografía','dermalgia','misoneísmo','autoevaluación',
   'antroposofía','bibliotecología','cacoquimia','hepatomegalia','tanatofobia','ginecocracia'
 ]);
-const greekMain=form=>String(form).split(/[|,]/)[0].replace(/\s*\(.*/,'').trim();
+const greekMain=form=>String(form).split(/[|,]/)[0].replace(/\s*\(.*/,'').trim().normalize('NFC');
+const externalLanguages={
+  bus:'en',chip:'en',bureau:'fr',oculus:'la',molecula:'la',mobilis:'la',
+  globina:'es',química:'es',medicina:'es',luminiscencia:'es',
+  degradable:'es',evaluación:'es',procesador:'es',tensión:'es',
+  onda:'es',vatio:'es',masaje:'es',ciencia:'es'
+};
+const componentSources={
+  antropomorfismo:[
+    {kind:'pdf_docente',title:'Etimologías griegas · PAU Griego II (2008-09)',page:17},
+    {kind:'lexicografia',url:'https://www.filosofia.org/enc/ros/antrop4.htm'}
+  ],
+  telegrama:[
+    {kind:'pdf_docente',title:'Breve diccionario de helenismos de griego clásico',page:2},
+    {kind:'pdf_docente',title:'Etimologías griegas · Gálvez Marín (2009)',page:371},
+    {kind:'lexicografia',url:'https://lalengua.es/d/echegaray/telegrama'}
+  ],
+  geodesia:[{kind:'lexicografia',url:'https://www.etymonline.com/word/geodesy'}],
+  catarata:[{kind:'lexicografia',url:'https://dicciomed.usal.es/palabra/catarata'}],
+  neumonía:[{kind:'lexicografia',url:'https://dicciomed.usal.es/lexema/pulmon'}],
+  autarquía:[{kind:'estudio_etimologico',url:'https://dialnet.unirioja.es/descarga/articulo/4859068.pdf'}]
+};
 export function readStudyGlosses(){
   const data=JSON.parse(readFileSync(file,'utf8'));
   assert.equal(data.schema,'etymologicon-study-glosses/v1');
@@ -148,19 +169,20 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
     const ids=[...(relations.get(d.id)||[])];
     assert.ok(ids.length>0,'Derivado sin étimo: '+d.form);
     const additional=componentGlosses[d.form];
+    assert.ok(Array.isArray(additional)&&additional.length>0,
+      'Falta revisión explícita de los componentes: '+d.form);
     const override=educationalComponents[d.form]||
-      (additional?.map(c=>{
+      (additional.map(c=>{
         const greek=normalGreek(c.greek);
         const linked=greekLookup.get(greek);
-        const language=/^[A-Za-z]+$/.test(c.greek)?'la':undefined;
+        const language=c.language||externalLanguages[c.greek]||
+          (/^[A-Za-zÀ-ÿ]+$/u.test(c.greek)?'es':undefined);
         return {...c,id:linked?.id,external:!linked||
           etyma.get(linked.id)?.editorialStatus==='reference_only',language};
       }));
-    const components=(override||ids.map(id=>{
-      const etymon=etyma.get(id);
-      assert.ok(etymon,'Étimo no encontrado: '+id);
-      return {id,greek:greekMain(etymon.lemma),gloss:etymon.meaning};
-    })).map(c=>({...c,external:!!c.external}));
+    const components=override.map(c=>({
+      ...c,greek:String(c.greek).normalize('NFC'),external:!!c.external
+    }));
     assert.ok(components.length>=1&&components.every(c=>c.greek&&c.gloss),
       'Componentes incompletos: '+d.form);
     for(const component of components)if(component.id)
@@ -178,10 +200,15 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
       lexicographicStatus:direct?'dle_consultado_individualmente':'glosa_docente_no_cotejada_individualmente_dle',
       dleUrl:'https://dle.rae.es/'+encodeURIComponent(d.form),
       note:prior?.notes||null,
+      componentReview:'analisis_explicito_del_banco_docente',
+      componentSources:componentSources[d.form]||[],
+      formation:components.length>1?'varias_bases':'base_o_familia',
       explicitMultiple:components.length>1
     };
   });
   const approvedWords=new Set(words.map(w=>w.form));
+  assert.equal(Object.keys(componentGlosses).length,487,
+    'La revisión exige una ficha de componentes para cada derivado');
   for(const term of Object.keys(componentGlosses))
     assert.ok(approvedWords.has(term),'Componente de palabra fuera del catálogo: '+term);
     assert.equal(new Set(words.map(w=>w.id)).size,words.length);
@@ -197,6 +224,9 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
   const confirmed=words.filter(w=>w.lexicographicStatus==='dle_consultado_individualmente').length;
   return {schema:'etymologicon-study-catalog/v1',course:'gr1',etymons,words,
     audit:{allHaveDidacticDefinition:true,covered:words.length,
+      explicitComponentReviews:words.filter(w=>w.componentReview==='analisis_explicito_del_banco_docente').length,
+      compounds:words.filter(w=>w.components.length>1).length,
+      singleStemOrFamily:words.filter(w=>w.components.length===1).length,
       individualDleChecks:confirmed,remainingDleChecks:words.length-confirmed,
       editorialScope:'Las 487 fichas tienen definiciones propias. Solo los contrastes DLE individuales expresamente anotados se presentan como comprobados; las demás voces disponen de un enlace de consulta.'}};
 }
