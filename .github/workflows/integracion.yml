@@ -93,6 +93,8 @@ jobs:
         run: npm run test:browser:vocabula
       - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
         run: npm run test:browser:docente
+      - name: Verificar que Supabase rechaza identidades ajenas antes de habilitar el primer factor
+        run: node scripts/check-docente-login-remote.mjs
       - name: Empaquetar SDK Supabase local y preparar alta docente de dos factores
         run: |
           npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund \
