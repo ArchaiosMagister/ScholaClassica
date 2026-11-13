@@ -26,20 +26,48 @@ try{
   // Itinerario por curso: no genera contenidos ni modifica aplicaciones originales.
   const home=await page.goto(base+'/',{waitUntil:'networkidle'});
   assert.equal(home.status(),200);
+  // Aspecto persistente y control independiente del tema del dispositivo.
+  const picker=page.locator('#portal-theme');
+  assert.equal(await picker.inputValue(),'system');
+  await picker.selectOption('dark');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  await picker.selectOption('oled');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
+  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
+    'rgb(0, 0, 0)','OLED debe usar negro puro');
+  await page.reload({waitUntil:'networkidle'});
+  assert.equal(await picker.inputValue(),'oled','El aspecto debe persistir tras recargar');
+  await page.emulateMedia({colorScheme:'dark'});
+  await picker.selectOption('light');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'light',
+    'La opción claro debe prevalecer aunque el sistema esté oscuro');
+  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
+    'rgb(248, 250, 252)');
+  await picker.selectOption('system');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  await page.emulateMedia({colorScheme:'light'});
+  await page.waitForFunction(()=>document.documentElement.dataset.theme==='light',null,{timeout:7000});
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
+  assert.equal(await page.evaluate(()=>localStorage.getItem('scholaclassica-aspecto-v1')),'system');
+  // Palabra del día: enlace externo seguro, sin compartir cuentas ni cachés.
+  const palabra=page.locator('#panel-herramientas a[href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/"]');
+  assert.equal(await palabra.getAttribute('target'),'_blank');
+  assert.equal(await palabra.getAttribute('rel'),'noopener noreferrer');
   const coursePicker=page.locator('#study-course');
   assert.equal(await coursePicker.inputValue(),'','No debe haber asignatura por defecto la primera vez');
   assert.equal(await page.locator('.path-links a').count(),0);
   await coursePicker.selectOption('gr1');
-  assert.equal(await page.locator('.path-links a').count(),3);
+  assert.equal(await page.locator('.path-links a').count(),4);
   assert.ok((await page.locator('.path-links').textContent()).includes('Etymologicon · Griego I'));
+  assert.ok((await page.locator('.path-links').textContent()).includes('Palabra del día'));
   await coursePicker.selectOption('gr2');
   assert.equal(await page.locator('.path-links a').count(),1);
   assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Griego II'));
   await coursePicker.selectOption('lat4');
-  assert.equal(await page.locator('.path-links a').count(),1);
+  assert.equal(await page.locator('.path-links a').count(),2);
   assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
   await coursePicker.selectOption('lat1');
-  assert.equal(await page.locator('.path-links a').count(),3);
+  assert.equal(await page.locator('.path-links a').count(),4);
   await page.locator('.path-links a[data-study-tool="gramatica"]').click();
   await page.waitForURL(/\/apps\/gramatica\/curso\.html\?lengua=latin/);
   await page.goto(base+'/',{waitUntil:'networkidle'});

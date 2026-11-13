@@ -26,12 +26,14 @@ for(const [index,tab] of tabs.entries()){
 // Solo enlaza a rutas existentes; no crea contenidos ni modifica sus configuraciones.
 const STUDY_CATALOG=Object.freeze({
   lat4:[
-    {id:'vocabulario',label:'Vocabulario · Latín de 4.º de ESO',href:'apps/vocabulario/index.html?subject=lat4'}
+    {id:'vocabulario',label:'Vocabulario · Latín de 4.º de ESO',href:'apps/vocabulario/index.html?subject=lat4'},
+    {id:'palabra-dia',label:'Palabra del día · 4.º ESO (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/4eso/',external:true}
   ],
   lat1:[
     {id:'gramatica',label:'Gramática · Latín I',href:'apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1'},
     {id:'vocabulario',label:'Vocabulario · Latín I',href:'apps/vocabulario/index.html?subject=lat1'},
-    {id:'evolutio',label:'Evolución fonética',href:'apps/evolucion-fonetica/index.html'}
+    {id:'evolutio',label:'Evolución fonética',href:'apps/evolucion-fonetica/index.html'},
+    {id:'palabra-dia',label:'Palabra del día · 1.º Bachillerato (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/',external:true}
   ],
   lat2:[
     {id:'gramatica',label:'Gramática · Latín II',href:'apps/gramatica/curso.html?lengua=latin&curso=2'},
@@ -40,7 +42,8 @@ const STUDY_CATALOG=Object.freeze({
   gr1:[
     {id:'gramatica',label:'Gramática · Griego I',href:'apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1'},
     {id:'vocabulario',label:'Vocabulario · Griego I (ático)',href:'apps/vocabulario/index.html?subject=gr1'},
-    {id:'etymologicon',label:'Etymologicon · Griego I',href:'apps/etymologicon/index.html'}
+    {id:'etymologicon',label:'Etymologicon · Griego I',href:'apps/etymologicon/index.html'},
+    {id:'palabra-dia',label:'Palabra del día · 1.º Bachillerato (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/',external:true}
   ],
   gr2:[
     {id:'gramatica',label:'Gramática · Griego II',href:'apps/gramatica/curso.html?lengua=griego&curso=2'}
@@ -96,6 +99,7 @@ function renderStudyPath(){
     link.href=item.href;
     link.textContent=item.label;
     link.dataset.studyTool=item.id;
+    if(item.external){link.target='_blank';link.rel='noopener noreferrer';}
     link.addEventListener('click',()=>rememberStudyAccess(course,item.id));
     list.append(link);
   }
@@ -104,6 +108,8 @@ function renderStudyPath(){
   if(previous){
     resumeLink.href=previous.href;
     resumeLink.textContent='Continuar en '+previous.label;
+    resumeLink.target=previous.external?'_blank':'_self';
+    resumeLink.rel=previous.external?'noopener noreferrer':'';
     resumeLink.onclick=()=>rememberStudyAccess(course,previous.id);
     resumeArea.hidden=false;
   }

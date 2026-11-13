@@ -30,7 +30,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #e6a84d;outline-offset:3p
 .footer{background:#14283f;color:#d0e0ed;padding:24px 0}.footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.84rem}
 [hidden]{display:none!important}
 @media(max-width:720px){.head-inner{padding:14px 20px;min-height:0}.container{padding:0 18px}.site-head nav{gap:14px}.hero{padding:45px 0 30px}.columns{grid-template-columns:1fr}.card{padding:23px}.teacher{display:block}.teacher-status{display:inline-block;margin-top:18px}.footer .container{display:grid;gap:7px}}
-@media(prefers-color-scheme:dark){:root{background:#101a25;color:#e1eaf2}.hero h1{color:#e8f2f9}.hero>p:not(.eyebrow):not(.status){color:#b7c9d8}.card{background:#1b2937;border-color:#405267}.card p:not(.overline),.future,.teacher p:last-child{color:#b7c7d5}.linkgroup a{background:#223548;border-color:#43576a}.linkgroup a:hover{background:#304b66}.tabs{border-color:#43576a}.tabs button{color:#b4c5d3}.tabs button[aria-selected="true"]{color:#e2efff;border-color:#72a7dd}.teacher{background:#223244;border-color:#41586e}.teacher-status{background:#2d4860;color:#d5e5f3}.future h2{color:#d3e5f2}.status{background:#173d36;color:#c9efe1;border-color:#33675d}}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* Itinerario: navegación contextual del portal, sin invadir los estilos de las apps */
@@ -50,14 +50,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #e6a84d;outline-offset:3p
 .path-note{margin:18px 0 0;color:#64788a;font-size:.86rem}
 @media(max-width:850px){.path-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.study-path{padding:20px;margin-bottom:28px}.path-links{grid-template-columns:1fr}.path-links a{min-height:49px}}
-@media(prefers-color-scheme:dark){
-  .study-path{background:#1b2937;border-color:#405267}
-  .study-path .path-intro,.path-note,.path-empty,.path-resume p{color:#b7c9d8}
-  .path-select-row select{background:#152333;color:#eaf3fa;border-color:#637d92}
-  .path-links a{background:#253e56;border-color:#49627a;color:#e1efff}
-  .path-links a:hover,.path-links a:focus-visible{background:#31526e}
-  .path-resume{border-color:#43586d}
-}
+
 
 /* Instalación y actualización del portal: componentes independientes de las apps. */
 .site-head nav{align-items:center;flex-wrap:wrap}
@@ -69,11 +62,75 @@ button:focus-visible,a:focus-visible{outline:3px solid #e6a84d;outline-offset:3p
 .install-help summary{cursor:pointer;font-weight:700;color:#1e4667}
 .install-help p{color:#435f75;margin:10px 0}
 @media(max-width:720px){.site-head nav{gap:11px}.portal-update{padding:7px 10px}.install-help{padding:11px}}
-@media(prefers-color-scheme:dark){
- .portal-update{background:#21394e;color:#e6f3ff;border-color:#68879e}
- .portal-update:hover{background:#31516d}
- .portal-pwa-status{color:#bdd0e0}
- .install-help{background:#1d3043;border-color:#536e86}
- .install-help summary{color:#e6f1fb}
- .install-help p{color:#c4d5e2}
-}
+
+
+/* Paleta explícita: claro / oscuro / OLED. Las aplicaciones hijas conservan sus temas. */
+.theme-choice{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;color:#d8e9f5;font-weight:650;white-space:nowrap}
+.theme-choice select{font:inherit;font-weight:600;min-height:36px;padding:5px 9px;border:1px solid #89a6bd;border-radius:9px;background:#1f3b55;color:#f1f8ff;cursor:pointer}
+.theme-choice select:focus-visible{outline:3px solid #e6a84d;outline-offset:3px}
+.linked-project{border-top-color:#9c83ae!important}
+.linked-project .overline{color:#715388}
+html[data-theme="dark"]{background:#101a25;color:#e1eaf2;color-scheme:dark}
+html[data-theme="dark"] .site-head,html[data-theme="dark"] .footer{background:#0b1c2d}
+html[data-theme="dark"] h1,html[data-theme="dark"] .future h2{color:#e8f2f9}
+html[data-theme="dark"] .hero>p:not(.eyebrow):not(.status){color:#b7c9d8}
+html[data-theme="dark"] .eyebrow,html[data-theme="dark"] .overline{color:#a4bfd6}
+html[data-theme="dark"] .card,html[data-theme="dark"] .study-path{background:#1b2937;border-color:#405267;box-shadow:0 3px 20px #00000025}
+html[data-theme="dark"] .card p:not(.overline),html[data-theme="dark"] .future,
+html[data-theme="dark"] .teacher p:last-child,html[data-theme="dark"] .study-path .path-intro,
+html[data-theme="dark"] .path-note,html[data-theme="dark"] .path-empty,
+html[data-theme="dark"] .path-resume p,html[data-theme="dark"] .phase,
+html[data-theme="dark"] .muted{color:#b7c7d5}
+html[data-theme="dark"] .linkgroup a{background:#223548;border-color:#43576a;color:#eaf3fd}
+html[data-theme="dark"] .linkgroup a:hover{background:#304b66}
+html[data-theme="dark"] .tabs{border-color:#43576a}
+html[data-theme="dark"] .tabs button{color:#b4c5d3}
+html[data-theme="dark"] .tabs button[aria-selected="true"]{color:#e2efff;border-color:#72a7dd}
+html[data-theme="dark"] .teacher{background:#223244;border-color:#41586e}
+html[data-theme="dark"] .teacher-status{background:#2d4860;color:#d5e5f3}
+html[data-theme="dark"] .status{background:#173d36;color:#c9efe1;border-color:#33675d}
+html[data-theme="dark"] .path-select-row select{background:#152333;color:#eaf3fa;border-color:#637d92}
+html[data-theme="dark"] .path-links a{background:#253e56;border-color:#49627a;color:#e1efff}
+html[data-theme="dark"] .path-links a:hover{background:#31526e}
+html[data-theme="dark"] .path-resume{border-color:#43586d}
+html[data-theme="dark"] .portal-update{background:#21394e;color:#e6f3ff;border-color:#68879e}
+html[data-theme="dark"] .portal-update:hover{background:#31516d}
+html[data-theme="dark"] .portal-pwa-status{color:#bdd0e0}
+html[data-theme="dark"] .install-help{background:#1d3043;border-color:#536e86}
+html[data-theme="dark"] .install-help summary{color:#e6f1fb}
+html[data-theme="dark"] .install-help p{color:#c4d5e2}
+html[data-theme="dark"] .linked-project .overline{color:#d5b9e8}
+
+/* OLED verdadero: fondo negro puro, superficies cercanas al negro y alto contraste. */
+html[data-theme="oled"]{background:#000;color:#f3f3f3;color-scheme:dark}
+html[data-theme="oled"] .site-head,html[data-theme="oled"] .footer{background:#000;border-bottom:1px solid #393939}
+html[data-theme="oled"] .brand-symbol{border-color:#a1a1a1;color:#fafafa}
+html[data-theme="oled"] .site-head nav a,html[data-theme="oled"] .footer{color:#f0f0f0}
+html[data-theme="oled"] h1,html[data-theme="oled"] .future h2{color:#fff}
+html[data-theme="oled"] .eyebrow,html[data-theme="oled"] .overline{color:#d0d0d0}
+html[data-theme="oled"] .card.latin .overline{color:#e2ac7a}
+html[data-theme="oled"] .card.greek .overline{color:#8ac8ff}
+html[data-theme="oled"] .hero>p:not(.eyebrow):not(.status),
+html[data-theme="oled"] .card p:not(.overline),
+html[data-theme="oled"] .future,html[data-theme="oled"] .teacher p:last-child,
+html[data-theme="oled"] .study-path .path-intro,html[data-theme="oled"] .path-note,
+html[data-theme="oled"] .path-empty,html[data-theme="oled"] .path-resume p,
+html[data-theme="oled"] .phase,html[data-theme="oled"] .muted{color:#cbcbcb}
+html[data-theme="oled"] .card,html[data-theme="oled"] .study-path{background:#080808;border-color:#3c3c3c;box-shadow:none}
+html[data-theme="oled"] .linkgroup a,html[data-theme="oled"] .path-links a{background:#121212;border-color:#4e4e4e;color:#f2f2f2}
+html[data-theme="oled"] .linkgroup a:hover,html[data-theme="oled"] .path-links a:hover{background:#202020;border-color:#929292}
+html[data-theme="oled"] .tabs{border-color:#494949}
+html[data-theme="oled"] .tabs button{color:#c5c5c5}
+html[data-theme="oled"] .tabs button[aria-selected="true"]{color:#fff;border-color:#fff}
+html[data-theme="oled"] .teacher{background:#0b0b0b;border-color:#454545}
+html[data-theme="oled"] .teacher-status,html[data-theme="oled"] .status{background:#101010;color:#ededed;border-color:#626262}
+html[data-theme="oled"] .path-select-row select{background:#080808;color:#fff;border-color:#858585}
+html[data-theme="oled"] .path-resume{border-color:#4e4e4e}
+html[data-theme="oled"] .portal-update,html[data-theme="oled"] .theme-choice select{background:#101010;color:#fff;border-color:#858585}
+html[data-theme="oled"] .portal-update:hover{background:#242424}
+html[data-theme="oled"] .portal-pwa-status{color:#dedede}
+html[data-theme="oled"] .install-help{background:#090909;border-color:#494949}
+html[data-theme="oled"] .install-help summary{color:#f2f2f2}
+html[data-theme="oled"] .install-help p{color:#d8d8d8}
+html[data-theme="oled"] .linked-project .overline{color:#dedede}
+@media(max-width:720px){.theme-choice{font-size:.8rem}.theme-choice select{min-height:38px}}

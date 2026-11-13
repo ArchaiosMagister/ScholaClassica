@@ -63,3 +63,10 @@ Se ha añadido a la portada de ScholaClassica un itinerario por materia y curso 
 Evolutio se ha actualizado de la revisión `0897aae01b6d4c905aafa1c1a6bac5af0810c812` a `901dacb125ee7894ea9d11faf7b0d0afa7e713b5` y mantiene todos sus archivos byte por byte salvo el ajuste específico de `sw.js` en `dist/`: prefijo `schola-evolutio-`, borrado únicamente de sus propias versiones y respuesta a `fetch` solo para rutas dentro de su ámbito. El worker del original no cambia. El nuevo banco contiene 522 fichas; hay 240 registros importados clasificados como propuestas técnicas, que no equivalen a una revisión filológica individual.
 
 Véase `docs/PORTAL_PWA.md`.
+
+
+## Integraciones adicionales que no alteran las fuentes
+
+- La portada admite tres paletas resueltas (claro, oscuro y OLED) y un ajuste Automático. El único estado local adicional es la preferencia visual de la portada; no se guarda información académica ni de estudiantes.
+- Palabra del día se incorpora **como enlace externo de navegación**, con las dos rutas oficiales diferenciadas. Se conserva la autenticación y votación actuales; no se copian bases de datos ni se instalan workers fuera de su origen.
+- El workflow `avisos-fuentes.yml` coteja semanalmente los SHAs bloqueados de los **tres** repositorios académicos integrados. Puede abrir o actualizar una incidencia en ScholaClassica cuando hay diferencias, pero **nunca** actualiza automáticamente `config/sources.lock.json` ni toca originales. Los cambios requieren revisión docente y pruebas antes de importarse.

@@ -1,0 +1,28 @@
+name: Avisar de cambios en fuentes originales
+on:
+  schedule:
+    - cron: '23 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Revisar ScholaClassica sin credenciales persistentes
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Usar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comparar commits bloqueados con main de las fuentes integradas
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SCHOLA_WATCH_ISSUE: 'true'
+        run: node scripts/check-source-updates.mjs
