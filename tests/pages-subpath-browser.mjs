@@ -59,6 +59,16 @@ try{
  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
    'rgb(0, 0, 0)','El OLED debe estar disponible sin conexión en GitHub Pages');
  await page.context().setOffline(false);
+ // Un enlace de las tarjetas ha de recordar el último módulo igual que el
+ // selector de itinerario, incluso después de volver desde otra aplicación.
+ await page.locator('#tab-herramientas').click();
+ await page.locator('#panel-herramientas a[href="apps/etymologicon/index.html"]').click();
+ await page.waitForURL(/\\/ScholaClassica\\/apps\\/etymologicon\\/index\\.html$/);
+ await page.goto(base+prefix,{waitUntil:'networkidle'});
+ assert.equal(await page.locator('#study-course').inputValue(),'gr1');
+ assert.match(await page.locator('#study-resume').innerText(),/Etymologicon/);
+ assert.equal(await page.locator('#study-resume').getAttribute('href'),
+   'apps/etymologicon/index.html');
  await page.locator('#study-course').selectOption('gr1');
  assert.equal(await page.locator('.path-links a').count(),5);
  await page.locator('.path-links a[data-study-tool="etymologicon"]').click();
