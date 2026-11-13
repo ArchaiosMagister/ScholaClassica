@@ -22,6 +22,35 @@ try{
   browser=await chromium.launch({headless:true});
   const page=await browser.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
+
+  // Itinerario por curso: no genera contenidos ni modifica aplicaciones originales.
+  const home=await page.goto(base+'/',{waitUntil:'networkidle'});
+  assert.equal(home.status(),200);
+  const coursePicker=page.locator('#study-course');
+  assert.equal(await coursePicker.inputValue(),'','No debe haber asignatura por defecto la primera vez');
+  assert.equal(await page.locator('.path-links a').count(),0);
+  await coursePicker.selectOption('gr1');
+  assert.equal(await page.locator('.path-links a').count(),3);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Etymologicon · Griego I'));
+  await coursePicker.selectOption('gr2');
+  assert.equal(await page.locator('.path-links a').count(),1);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Griego II'));
+  await coursePicker.selectOption('lat4');
+  assert.equal(await page.locator('.path-links a').count(),1);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
+  await coursePicker.selectOption('lat1');
+  assert.equal(await page.locator('.path-links a').count(),3);
+  await page.locator('.path-links a[data-study-tool="gramatica"]').click();
+  await page.waitForURL(/\/apps\/gramatica\/curso\.html\?lengua=latin/);
+  await page.goto(base+'/',{waitUntil:'networkidle'});
+  assert.equal(await page.locator('#study-course').inputValue(),'lat1');
+  assert.equal(await page.locator('#study-resume-area').isVisible(),true);
+  assert.ok((await page.locator('#study-resume').getAttribute('href')).includes('curso.html?lengua=latin'));
+  await coursePicker.selectOption('');
+  assert.equal(await page.locator('#study-resume-area').isVisible(),false);
+  assert.equal(await page.locator('.path-links a').count(),0);
+  assert.equal(errors.length,0,'Itinerario por curso: '+errors.join(' | '));
+
   for(const route of ['/','/apps/gramatica/index.html','/apps/gramatica/val/index.html','/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1','/apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1','/apps/gramatica/val/curso.html?lengua=griego&curso=1&unidad=1','/apps/etymologicon/index.html']){
     const r=await page.goto(base+route,{waitUntil:'networkidle'});
     assert.equal(r.status(),200,route);
