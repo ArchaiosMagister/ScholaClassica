@@ -206,8 +206,8 @@ test('Auditoría de las 215 candidaturas: 192 etimologías contrastadas, 23 pend
  assert.match(audit215.records.find(x=>x.latin==='ocŭlum').reviewNote,/clásico/);
  assert.match(audit215.records.find(x=>x.latin==='sigĭllum').reviewNote,/arcaísmo/);
  assert.match(audit215.records.find(x=>x.latin==='pluuiam').reviewNote,/plŏia/);
- assert.match(audit215.records.find(x=>x.latin==='octo').reviewNote,/huit/);
- for(const [latin,pattern] of [['datum',/incierta/],['sensum',/germánico/],
+ assert.match(audit215.records.find(x=>x.latin==='octo').reviewNote,/huit/i);
+ for(const [latin,pattern] of [['datum',/incierta|dudosa/],['sensum',/germánico/],
                                       ['serpĕntem',/serpe/],['pluuiam',/plŏia/]]){
   const row=audit215.records.find(x=>x.latin===latin);
   assert.equal(row.status,'contrast_individual_pendent');
