@@ -118,6 +118,8 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
     throw new Error('Documentación incompleta: '+key);
   }else if(item.lexicalStatus!=='proposta'||item.reference!==null){
    throw new Error('Propuesta sin distinguir de evidencia: '+key);
+  }else if(item.reviewOutcome&&!['sin_confirmacion_suficiente','exige_cadena_historica','descartar_derivacion_directa'].includes(item.reviewOutcome)){
+   throw new Error('Estado de auditoría no reconocido: '+key);
   }
   dict.set(key,item);
  }
@@ -139,7 +141,8 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
     normas:null,estadoNormas:'pendent',explicacion:null,dificultad:null,
     aprobadoDocente:false,aptoParaPractica:false,
     evidencia:proposal?.reference?[proposal.reference]:[],
-    notas:proposal?.notes??null
+    notas:proposal?.notes??null,
+    ...(proposal?.reviewOutcome?{criterioAuditoria:proposal.reviewOutcome}:{})
    }
   };
  });
@@ -158,7 +161,9 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
   normCatalog:'shared/academic/evolutio-valenciano/normas.json',
   summary:{total:records.length,lexicoDocumentado:documented,propuestas:proposed,
    sinPropuesta:pending,normasVerificadas:0,aptasParaPractica:0,
-   ...(revision?editorial:{})},
+   ...(revision?editorial:{}),
+   ...(curation.proposals.some(x=>x.reviewOutcome==='descartar_derivacion_directa')?
+    {derivacionesDirectasDescartadas:curation.proposals.filter(x=>x.reviewOutcome==='descartar_derivacion_directa').length}:{})},
   records
  };
 }
