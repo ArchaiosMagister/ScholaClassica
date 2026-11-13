@@ -7,12 +7,13 @@ import {recordQuizAttempt} from './progress.mjs';
  * Controladores de respuesta múltiple e identificación inversa.
  * La escritura de dos derivados conserva su corrector independiente.
  */
-export function createQuizController({catalog,etymons,commitProgress}){
+export function createQuizController({catalog,etymons,commitProgress,onRevealMeaning=()=>{},lookupDefinition=()=>''}){
   const bank=createQuizBank(catalog);
   const $=id=>document.getElementById(id);
   const els={
     mcq:$('mcq-section'),options:$('mcq-options'),mcqFeedback:$('mcq-feedback'),
     inverse:$('inverse-section'),word:$('inverse-word'),form:$('inverse-form'),
+    meaningCard:$('inverse-meaning-card'),meaning:$('inverse-meaning'),
     answer:$('inverse-answer'),preview:$('inverse-preview'),
     keyboard:$('greek-keyboard'),clear:$('inverse-clear'),
     inverseFeedback:$('inverse-feedback')
@@ -25,7 +26,7 @@ export function createQuizController({catalog,etymons,commitProgress}){
     return x;
   };
   attachGreekKeyboard(els.keyboard,()=>els.answer,
-    ()=>activeMode==='inverse'&&!completed&&Boolean(currentInverse));
+    ()=>activeMode==='inverse'&&!completed&&Boolean(currentInverse),[els.answer]);
   function renderMcq(item){
     currentMcq=item?bank.mcq(item.id):null;
     completed=false;
@@ -51,6 +52,7 @@ export function createQuizController({catalog,etymons,commitProgress}){
             other.classList.add('quiz-correct');
           else if(other===button)other.classList.add('quiz-incorrect');
         }
+        if(answer.correct)onRevealMeaning();
         els.mcqFeedback.textContent=answer.correct
           ?'Correcto: '+answer.correctForm+'. 1 / 1 punto.'
           :'No corresponde a este étimo en el banco cerrado. Respuesta admitida: '+
@@ -78,6 +80,8 @@ export function createQuizController({catalog,etymons,commitProgress}){
     els.form.hidden=!currentInverse;
     els.word.textContent=currentInverse?.derivative||'';
     els.word.hidden=!currentInverse;
+    els.meaning.textContent=currentInverse?lookupDefinition(currentInverse.derivativeId):'';
+    els.meaningCard.hidden=true;
     els.preview.textContent='Conversión a griego: —';
     if(!currentInverse){
       els.inverseFeedback.textContent='Este étimo no tiene un derivado de atribución única disponible para la identificación inversa. Prueba otro.';
@@ -87,6 +91,7 @@ export function createQuizController({catalog,etymons,commitProgress}){
     if(completed){
       completed=false;
       els.inverseFeedback.textContent='';
+      els.meaningCard.hidden=true;
     }
     updatePreview();
   });
@@ -95,6 +100,7 @@ export function createQuizController({catalog,etymons,commitProgress}){
     els.answer.value='';
     completed=false;
     els.inverseFeedback.textContent='';
+    els.meaningCard.hidden=true;
     updatePreview();
     els.answer.focus();
   });
@@ -109,6 +115,7 @@ export function createQuizController({catalog,etymons,commitProgress}){
     }
     // No se admite una transliteración ambigua ni una semejanza aproximada.
     completed=true;
+    if(response.correct&&els.meaning.textContent.trim())els.meaningCard.hidden=false;
     const reasons={
       ambiguous:'La transliteración coincide con varios étimos. Escribe el lema en griego para desambiguar.',
       incorrect:'Has identificado otro étimo del banco cerrado.',
@@ -126,6 +133,7 @@ export function createQuizController({catalog,etymons,commitProgress}){
     els.mcq.hidden=kind!=='mcq'||!item;
     els.inverse.hidden=kind!=='inverse'||!item;
     currentMcq=null;currentInverse=null;completed=false;
+    els.meaningCard.hidden=true;
     if(kind==='mcq'&&item)renderMcq(item);
     if(kind==='inverse'&&item)renderInverse(item);
   }
