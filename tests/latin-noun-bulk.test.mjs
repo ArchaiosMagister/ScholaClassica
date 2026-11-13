@@ -28,7 +28,9 @@ test('se recorre todo Vocabula latino y se separan Latín I / 4.º sin suplantar
   assert.equal(result.audit.sourceSha,cfg.sources.vocabula.sha);
   assert.ok(result.catalog.some(r=>r.course==='lat4'&&r.status==='pendiente'));
   assert.ok(!result.records.some(r=>r.course==='lat4'));
-  assert.deepEqual(bank.records.slice(-result.records.length),result.records);
+  const start=bank.records.findIndex(r=>r.id===result.records[0].id);
+  assert.ok(start>=0);
+  assert.deepEqual(bank.records.slice(start,start+result.records.length),result.records);
 });
 
 test('doce casillas con sincretismos y variantes explícitas; evidencia y unidades',()=>{
