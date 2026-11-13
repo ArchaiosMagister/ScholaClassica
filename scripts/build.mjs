@@ -56,7 +56,7 @@ if(docenteEnabled){
   await mkdir(join(out,'docente/vendor'),{recursive:true});
   await writeFile(join(out,'docente/vendor/supabase.js'),sdk);
   docenteConfig={enabled:true,origin:'https://archaiosmagister.github.io',
-    url,publishableKey,username:'MagisterArchaios'};
+    url,publishableKey,username:'MagisterArchaios',setupOnly:true};
   docenteConnect=url;
 }
 await writeFile(join(out,'docente/auth-config.json'),JSON.stringify(docenteConfig)+'\n');
