@@ -1,0 +1,28 @@
+// Auditoría del artefacto docente de primer acceso: no desbloquea contenido.
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {resolve,join} from 'node:path';
+import {createHash} from 'node:crypto';
+const out=resolve(import.meta.dirname,'../dist');
+const file=p=>readFileSync(join(out,p));
+const config=JSON.parse(file('docente/auth-config.json').toString('utf8'));
+assert.equal(config.enabled,true);
+assert.equal(config.setupOnly,true);
+assert.equal(config.origin,'https://archaiosmagister.github.io');
+assert.equal(config.url,'https://wpwlguufpkfnzlbyproe.supabase.co');
+assert.equal(config.username,'MagisterArchaios');
+assert.match(config.publishableKey,/^sb_publishable_[a-zA-Z0-9_-]{12,}$/);
+assert.equal(Object.hasOwn(config,'email'),false);
+assert.equal(Object.hasOwn(config,'teacherUserId'),false);
+const sdk=file('docente/vendor/supabase.js');
+assert.ok(sdk.length>=10000&&sdk.length<=5000000);
+assert.equal(createHash('sha256').update(sdk).digest('hex'),process.env.SCHOLA_DOCENTE_SDK_SHA256);
+const html=file('docente/index.html').toString('utf8');
+const script=file('docente/app.mjs').toString('utf8');
+assert.match(html,/Content-Security-Policy/);
+assert.match(html,/id="ready"/);
+assert.match(script,/config\.setupOnly===true/);
+assert.match(script,/persistSession:false/);
+assert.doesNotMatch(script,/localStorage|sb_secret_|service_role|turnstile/i);
+assert.equal(existsSync(join(out,'supabase/functions')),false);
+console.log('OK: versión inicial activa solo para configurar TOTP; no publica secretos ni datos');
