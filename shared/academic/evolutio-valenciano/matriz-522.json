@@ -11,8 +11,8 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 126,
-    "propuestas": 115,
+    "lexicoDocumentado": 141,
+    "propuestas": 100,
     "sinPropuesta": 281,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
@@ -643,14 +643,22 @@
       },
       "valenciano": {
         "resultado": "jurar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=jurar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -1217,14 +1225,22 @@
       },
       "valenciano": {
         "resultado": "espiga",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=espiga",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -1909,15 +1925,23 @@
       },
       "valenciano": {
         "resultado": "lleny",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lleny",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "LLENY 1 'embarcación' es el sentido documentado desde lignum 'madera', con evolución semántica; no asumir uso cotidiano con significado de 'leño'."
       }
     },
     {
@@ -2133,14 +2157,22 @@
       },
       "valenciano": {
         "resultado": "cegar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cegar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -2678,7 +2710,7 @@
         "aprobadoDocente": false,
         "aptoParaPractica": false,
         "evidencia": [],
-        "notas": null
+        "notas": "La etimología de DAU a partir de datum se describe como incierta en DCVB; no considerar verificada."
       }
     },
     {
@@ -3494,15 +3526,23 @@
       },
       "valenciano": {
         "resultado": "lloar",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa."
       }
     },
     {
@@ -3643,14 +3683,22 @@
       },
       "valenciano": {
         "resultado": "lluita",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -4184,15 +4232,23 @@
       },
       "valenciano": {
         "resultado": "son",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=son",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos."
       }
     },
     {
@@ -4284,15 +4340,23 @@
       },
       "valenciano": {
         "resultado": "estil",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=estil",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión."
       }
     },
     {
@@ -5177,15 +5241,23 @@
       },
       "valenciano": {
         "resultado": "cap",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cap",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "DCVB deriva cap 'cabeza' de la forma vulgar capum, variante de caput; registrar esta etapa intermedia."
       }
     },
     {
@@ -5608,14 +5680,22 @@
       },
       "valenciano": {
         "resultado": "forca",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=forca",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5741,14 +5821,22 @@
       },
       "valenciano": {
         "resultado": "madeixa",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -5766,15 +5854,23 @@
       },
       "valenciano": {
         "resultado": "moll",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=moll",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "MOLL 6 adjetivo 'blando' procede de mŏlle; no confundir con homógrafos de médula, pez, muelle portuario o italiano molo."
       }
     },
     {
@@ -6028,7 +6124,7 @@
         "aprobadoDocente": false,
         "aptoParaPractica": false,
         "evidencia": [],
-        "notas": "DCVB remite a la base vulgar plŏia: hay que contrastar el étimo concreto antes de aprobar."
+        "notas": "PLUJA procede directamente del latín vulgar *plŏia, variante de plŭvia; requiere justificar paso intermedio antes de generar cambios."
       }
     },
     {
@@ -6318,14 +6414,22 @@
       },
       "valenciano": {
         "resultado": "sageta",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sageta",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
         "notas": null
       }
     },
@@ -6434,7 +6538,7 @@
         "aprobadoDocente": false,
         "aptoParaPractica": false,
         "evidencia": [],
-        "notas": null
+        "notas": "El DCVB indica que SENY 2 'juicio' procede del germánico sinn, probablemente cruzado con latín sensus: no es étimo latino directo; mantener fuera de ejercicios."
       }
     },
     {
@@ -6459,7 +6563,7 @@
         "aprobadoDocente": false,
         "aptoParaPractica": false,
         "evidencia": [],
-        "notas": null
+        "notas": "El DCVB atribuye serp a latín serpe, no al acusativo serpĕntem del banco. No promover hasta justificar la relación histórica y morfológica."
       }
     },
     {
@@ -6617,15 +6721,23 @@
       },
       "valenciano": {
         "resultado": "estable",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=estable",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular."
       }
     },
     {
@@ -6642,15 +6754,23 @@
       },
       "valenciano": {
         "resultado": "estany",
-        "estadoLexico": "proposta",
+        "estadoLexico": "documentat",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=estany",
+            "scope": "lema_i_etimologia",
+            "verification": "consulta_directa_de_articulo",
+            "date": "2026-11-13"
+          }
+        ],
+        "notas": "ESTANY 1 'lago' procede de stagnu; distinguir ESTANY 2 'estaño' de stannu."
       }
     },
     {
