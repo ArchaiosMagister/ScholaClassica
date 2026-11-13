@@ -101,6 +101,7 @@ try{
   browser=await chromium.launch({headless:true});
   const page=await browser.newPage();
   const errors=[];page.on('pageerror',err=>errors.push(err.message));
+  await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({enabled:false})}));
   let res=await page.goto(base+'/docente/index.html',{waitUntil:'networkidle'});
   assert.equal(res.status(),200);
   await page.locator('#unavailable').waitFor({state:'visible'});
