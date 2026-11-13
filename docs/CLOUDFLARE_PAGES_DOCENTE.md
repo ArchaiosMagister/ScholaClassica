@@ -20,6 +20,10 @@ Por seguridad, una compilación habilitada exige seis variables públicas: `SCHO
 
 `npm run audit:docente:cloudflare` comprueba el paquete generado desactivado y sin secretos. Este control también se ejecuta en GitHub Actions; no contiene comandos de despliegue.
 
+La auditoría de un artefacto activable se ejecuta con `npm run check:docente:readiness` después de proporcionar `SCHOLA_SUPABASE_SDK_SHA256`. La comprobación es **local**: no sustituye pruebas reales de la cuenta, CAPTCHA ni TOTP.
+
+Se ha preparado una secuencia concreta de operaciones de los paneles de Cloudflare y Supabase en [ACTIVACION_GUIADA_DOCENTE.md](ACTIVACION_GUIADA_DOCENTE.md).
+
 ## Pasos de activación que quedan pendientes
 
 1. Con autorización específica, crear la cuenta Cloudflare y un proyecto Pages **Direct Upload** con hostname HTTPS real. No conectar GitHub.
