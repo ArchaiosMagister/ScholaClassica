@@ -26,6 +26,10 @@ test('El editor conserva las formas griegas, las unidades y el vocabulario de ex
   assert.equal(validateWordInput({...validWord,form:'x'.repeat(301)}),null);
   assert.equal(validateWordInput({...validWord,in_exam:'true'}),null);
   assert.equal(validateWordInput({...validWord,active:null}),null);
+  assert.deepEqual(validateWordInput({...validWord,subject:'lat1',units:['UD10','UD 10']}).payload.units,['UD 10']);
+  assert.deepEqual(validateWordInput({...validWord,subject:'lat2',units:['Verbos']}).payload.units,['Verbos']);
+  assert.equal(validateWordInput({...validWord,subject:'lat2',units:['UD 10']}),null);
+  assert.equal(validateWordInput({...validWord,subject:'lat2',units:['Sustantivos','Verbos']}),null);
 });
 test('Los filtros de búsqueda y paginación no permiten consultas arbitrarias',()=>{
   assert.deepEqual(validateWordFilter({}),{offset:0,subject:'',search:'',pageSize:50});

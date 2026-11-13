@@ -72,7 +72,11 @@ const install=async(page,allow=true,setupOnly=false)=>{
         if(options?.body?.action==='words.list')return success({words:[{
           id:'00000000-0000-4000-8000-000000000111',subject:'lat1',
           form:'<img src=x onerror=alert(1)>',meaning:'palabra',
-          answers:['palabra'],units:['UD1'],in_exam:false,active:true
+          answers:['palabra'],units:['UD 1'],in_exam:false,active:true
+        },{
+          id:'00000000-0000-4000-8000-000000000333',subject:'lat1',
+          form:'Ephesius, –a, –um',meaning:'de Éfeso, efesio',
+          answers:['efesio'],units:['UD 10'],in_exam:false,active:true
         }],hasMore:false});
         if(options?.body?.action==='words.save'){
           mock.savedWords=(mock.savedWords||0)+1;
@@ -155,6 +159,25 @@ try{
   // El editor no interpreta HTML de formularios ni avisos y exige sesión AAL2.
   await good.locator('#admin-word-list .notice').first().waitFor({state:'visible'});
   assert.equal(await good.locator('#admin-word-list img').count(),0);
+  await good.locator('#admin-subject-filter').selectOption('lat1');
+  await good.locator('#admin-search').fill('magnus');
+  await good.locator('#admin-search-form button[type="submit"]').click();
+  await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('magnus'));
+  assert.equal(await good.locator('#admin-word-list .notice').count(),1);
+  assert.ok((await good.locator('#admin-word-list').textContent()).includes('Banco original'));
+  await good.locator('#admin-search').fill('Ephesius');
+  await good.locator('#admin-search-form button[type="submit"]').click();
+  await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('Ephesius'));
+  assert.equal(await good.locator('#admin-word-list .notice').count(),1);
+  assert.ok((await good.locator('#admin-word-list').textContent()).includes('UD 10'));
+  await good.locator('#admin-new').click();
+  await good.locator('#admin-word-subject').selectOption('lat2');
+  assert.equal(await good.locator('#admin-word-units-wrap').isVisible(),false,
+    'Latín II no muestra un campo de unidades');
+  assert.equal(await good.locator('#admin-word-category-wrap').isVisible(),true);
+  await good.locator('#admin-word-category').selectOption('Adjetivos');
+  await good.locator('#admin-cancel-word').click();
+
   await good.locator('#admin-new').click();
   await good.locator('#admin-word-subject').selectOption('lat1');
   await good.locator('#admin-word-form-text').fill('bellum, -i');

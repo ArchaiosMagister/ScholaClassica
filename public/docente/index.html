@@ -85,7 +85,7 @@
     <p class="hint">Palabra del día conserva su administración independiente. Los avisos de Vocabula pueden revisarse desde el apartado de gestión que aparece a continuación.</p>
     <section id="vocab-admin" class="teacher-summary" aria-labelledby="vocab-admin-title">
       <h3 id="vocab-admin-title">Administrar Vocabula Latina Græcaque</h3>
-      <p>Gestiona palabras y revisa los avisos de vocabulario. Los cambios se guardan en Vocabula y requieren autorización docente con dos factores.</p>
+      <p>Busca tanto en el banco original como en las palabras añadidas por el profesor. Editar una entrada original crea una versión docente de la misma forma; los cambios requieren autorización con dos factores.</p>
       <div class="teacher-tabs" aria-label="Herramientas de Vocabula">
         <button id="admin-tab-words" class="primary" type="button" aria-pressed="true">Palabras</button>
         <button id="admin-tab-reports" type="button" aria-pressed="false">Incidencias</button>
@@ -96,7 +96,7 @@
           <label for="admin-subject-filter">Asignatura</label>
           <select id="admin-subject-filter"><option value="">Todas</option><option value="lat4">Latín de 4.º ESO</option><option value="lat1">Latín I</option><option value="lat2">Latín II</option><option value="gr1">Griego I</option></select>
           <label for="admin-search">Buscar por palabra o traducción</label>
-          <input id="admin-search" maxlength="80" autocomplete="off" placeholder="Busca en tus palabras">
+          <input id="admin-search" maxlength="80" autocomplete="off" placeholder="Buscar en todo el vocabulario">
           <button type="submit">Buscar</button>
           <button id="admin-new" type="button" class="primary">Añadir palabra</button>
         </form>
@@ -113,11 +113,24 @@
           <textarea id="admin-word-meaning" maxlength="1000" rows="3" required></textarea>
           <label for="admin-word-answers">Respuestas aceptadas (una por línea)</label>
           <textarea id="admin-word-answers" rows="4" required></textarea>
-          <label for="admin-word-units">Unidades (separadas por punto y coma)</label>
-          <input id="admin-word-units" maxlength="1200" required placeholder="UD 1; UD 2">
+          <div id="admin-word-units-wrap">
+            <label for="admin-word-units">Unidades (separadas por punto y coma)</label>
+            <input id="admin-word-units" maxlength="1200" required placeholder="UD 10">
+          </div>
+          <div id="admin-word-category-wrap" hidden>
+            <label for="admin-word-category">Categoría gramatical de Latín II</label>
+            <select id="admin-word-category">
+              <option value="">Seleccionar categoría</option>
+              <option value="Sustantivos">Sustantivos</option>
+              <option value="Adjetivos">Adjetivos</option>
+              <option value="Verbos">Verbos</option>
+              <option value="Preposiciones">Preposiciones</option>
+              <option value="Conjunciones y adverbios">Conjunciones y adverbios</option>
+            </select>
+          </div>
           <label class="admin-check"><input id="admin-word-exam" type="checkbox"> También en vocabulario de examen</label>
           <label class="admin-check"><input id="admin-word-active" type="checkbox" checked> Disponible para el alumnado</label>
-          <p class="hint">Las modificaciones sustituyen las entradas del mismo lema en la asignatura. Al desactivar una aportación, se recupera la entrada original si existía.</p>
+          <p class="hint">Las versiones docentes con la misma forma sustituyen las entradas originales. Al desactivar una aportación, se recupera la entrada original si existía. En Latín II, selecciona su categoría gramatical, no una UD.</p>
           <div class="admin-actions"><button type="submit" class="primary" id="admin-save-word">Guardar palabra</button><button type="button" id="admin-cancel-word">Cancelar</button></div>
         </form>
       </section>

@@ -2,6 +2,8 @@
 const SUBJECTS=new Set(['lat1','lat2','lat4','gr1']);
 const REPORT_STATUSES=new Set(['pending','reviewing','resolved','dismissed']);
 const PAGE_SIZE=50;
+const LAT2_CATEGORIES=new Set(['Sustantivos','Adjetivos','Verbos','Preposiciones','Conjunciones y adverbios']);
+export const LAT2_CATEGORY_NAMES=[...LAT2_CATEGORIES];
 const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const trimmed=(v,max,min=0)=>typeof v==='string'&&v.trim().length>=min&&
   v.trim().length<=max?v.trim():null;
@@ -20,8 +22,17 @@ export function validateWordInput(body){
   if(body.id!==undefined&&body.id!==null&&(!UUID.test(body.id)))return null;
   if(!SUBJECTS.has(body.subject))return null;
   const form=trimmed(body.form,300,1),meaning=trimmed(body.meaning,1000,1);
-  const answers=strings(body.answers),units=strings(body.units);
-  if(!form||!meaning||!answers||!units)return null;
+  const answers=strings(body.answers),providedUnits=strings(body.units);
+  if(!form||!meaning||!answers||!providedUnits)return null;
+  // Latín II usa clases gramaticales, nunca UDs. Las demás unidades son
+  // etiquetas de estudio y UD10 debe coincidir con la UD 10 del banco.
+  if(body.subject==='lat2'&&(providedUnits.length!==1||
+      !LAT2_CATEGORIES.has(providedUnits[0])))return null;
+  const units=body.subject==='lat2'?providedUnits:
+    [...new Set(providedUnits.map(unit=>{
+      const number=/^UD\s*(\d{1,2})$/i.exec(unit);
+      return number?'UD '+Number(number[1]):unit;
+    }))];
   if(typeof body.in_exam!=='boolean'||typeof body.active!=='boolean')return null;
   const payload={subject:body.subject,form,form_key:form.normalize('NFC').toLowerCase(),
     meaning,answers,units,in_exam:body.in_exam,active:body.active};
