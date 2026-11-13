@@ -88,7 +88,7 @@ El navegador guarda localmente solo el código del curso y el identificador de l
 
 ## PWA unificada y actualización de Evolutio
 
-La portada de ScholaClassica tiene su propio manifiesto, iconos compatibles con iPhone/Android y un botón de actualización. **Solo guarda en caché los recursos propios del portal**, sin copiar ni invalidar las cachés de sus herramientas. Evolutio y Etymologicon conservan sus respectivos service workers y sus controles de actualización; el alumno puede seguir entrando en cada módulo de forma independiente. La web no está publicada. Véase `docs/PORTAL_PWA.md`.
+La portada de ScholaClassica tiene su propio manifiesto, iconos compatibles con iPhone/Android y un botón de actualización. **Solo guarda en caché los recursos propios del portal**, sin copiar ni invalidar las cachés de sus herramientas. Evolutio y Etymologicon conservan sus respectivos service workers y sus controles de actualización; el alumno puede seguir entrando en cada módulo de forma independiente. La portada ya se encuentra publicada en GitHub Pages. Véase `docs/PORTAL_PWA.md`.
 
 Evolutio se ha vuelto a integrar desde el commit auditado `901dacb125ee7894ea9d11faf7b0d0afa7e713b5`: 522 fichas, filtros de dificultad, tres intentos, revisión por norma, botón de actualización y latinización escolar de la consonante `u`. Las 240 incorporaciones desde GeneradorExamenes no se presentan como certificación filológica individual. Ningún repositorio original ha sido modificado.
 
@@ -102,3 +102,12 @@ El área docente sigue desactivada en el portal público (`docente/auth-config.j
 **Activación inicial de GitHub Pages:** si la configuración de GitHub Pages del repositorio todavía está desactivada, el propietario debe elegir `Settings → Pages → Build and deployment → Source → GitHub Actions`. Este ajuste requiere acceso administrativo y no se realiza por el token del propio workflow. A partir de entonces, el proceso de despliegue utiliza las credenciales temporales de GitHub Actions, sin secretos personales. El estado publicado solo se confirma cuando el trabajo `publicar` aparece como `success` y la URL pública responde correctamente.
 
 URL prevista: `https://archaiosmagister.github.io/ScholaClassica/` (**no presuponer que está operativa antes de verificar el despliegue**).
+
+
+## Apariencia y conexiones de la portada
+
+La portada permite **Automático, Claro, Oscuro y OLED**. Se guarda únicamente la elección visual bajo `scholaclassica-aspecto-v1`, sin modificar el aspecto de las aplicaciones hijas. El modo automático sigue la configuración del dispositivo; OLED utiliza negro puro. La elección y el script `theme.js` funcionan sin conexión.
+
+**Palabra del día** queda enlazada, no integrada físicamente: los accesos a 1.º de Bachillerato y 4.º de ESO abren sus páginas originales en pestaña nueva. El itinerario ofrece las direcciones correspondientes a Latín 4.º ESO, Latín I y Griego I, sin compartir códigos, votos, sesiones o PWA.
+
+Un workflow independiente (`.github/workflows/avisos-fuentes.yml`) compara semanalmente los commits de Appendix, Evolutio y Vocabula integrados con sus ramas `main`. Si existen cambios, crea o actualiza **un único aviso** en las incidencias de ScholaClassica, sin copiar versiones nuevas ni publicar. Cuando los SHAs vuelven a coincidir, cierra el aviso automatizado. GeneradorExamenes y Palabra del día no se sincronizan por este mecanismo.
