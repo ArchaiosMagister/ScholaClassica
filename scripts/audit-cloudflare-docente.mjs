@@ -7,7 +7,7 @@ const output=resolve(root,process.env.SCHOLA_DOCENTE_OUTPUT||'dist-docente');
 assert.ok(output.startsWith(root+sep));
 const config=JSON.parse(readFileSync(join(output,'auth-config.json'),'utf8'));
 assert.deepEqual(config,{enabled:false},'El artefacto de CI siempre está desactivado');
-const files=new Set(['index.html','404.html','robots.txt','portal.css','style.css','app.mjs','auth-config.json','_headers']);
+const files=new Set(['index.html','404.html','robots.txt','portal.css','style.css','theme.js','app.mjs','auth-config.json','_headers']);
 for(const entry of readdirSync(output,{recursive:true,withFileTypes:true})){
   assert.ok(entry.isFile()||entry.isDirectory(),'No admitir enlaces simbólicos');
   if(!entry.isFile())continue;
@@ -25,6 +25,8 @@ for(const fragment of ["Content-Security-Policy:","frame-ancestors 'none'","X-Ro
 assert.ok(!headers.includes('cdn.jsdelivr.net'));
 assert.ok(!headers.includes('unsafe-inline'));
 assert.ok(html.includes('Content-Security-Policy'));
+assert.ok(html.includes('src="./theme.js"'));
+assert.ok(readFileSync(join(output,'theme.js'),'utf8').includes('scholaclassica-aspecto-v1'));
 assert.ok(js.includes("SCRIPT_URL='./vendor/supabase.js'"));
 assert.ok(js.includes('persistSession:false'));
 assert.ok(!js.includes('config.email'));
