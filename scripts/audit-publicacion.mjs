@@ -64,16 +64,33 @@ const nouns=morphology.records.filter(r=>r.id.startsWith('griego-sustantivo-'));
 assert.ok(nouns.length>8,'La ampliación nominal no debe quedarse en ocho');
 assert.ok(morphology.records.filter(r=>r.id.startsWith('latin-sustantivo-import-')).length>=10,
   'El léxico latino también debe tener paradigmas añadidos');
-assert.equal(morphology.records.length,84+nouns.length+
-  morphology.records.filter(r=>r.id.startsWith('latin-sustantivo-import-')).length,
+const allLatinNouns=morphology.records.filter(r=>r.language==='latin'&&
+  r.kind==='sustantivo'&&r.id.startsWith('latin-sustantivo-'));
+assert.equal(morphology.records.length,84+nouns.length+allLatinNouns.length,
   'Los 84 paradigmas previos deben permanecer, sin duplicados ni fuentes inesperadas');
 assert.equal(new Set(morphology.records.map(r=>r.id)).size,morphology.records.length);
 assert.ok(nouns.every(n=>n.unit<=10),
   'No publicar sustantivos de unidades sin cobertura en la PWA');
-assert.ok(nouns.every(n=>n.forms.length>=10&&
+assert.ok(nouns.every(n=>
+  (n.forms.length>=10||
+    (n.id==='griego-sustantivo-decision-athenai'&&n.forms.length===5&&
+      n.forms.every(f=>f.number==='plural')))&&
   (!n.id.startsWith('griego-sustantivo-import-')||n.evidence.genderEvidence)&&
   n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
-  n.evidence.review.includes('pendiente de revisión docente individual')));
+  (n.evidence.review.includes('pendiente de revisión docente individual')||
+    n.evidence.teacherDecision)));
+const teacher=JSON.parse(readFileSync(join(root,
+  'config/nominal-teacher-decisions.json'),'utf8'));
+assert.equal(teacher.status,'aprobado-por-docente');
+assert.equal(Object.keys(teacher.choices).length,6);
+for(const lemma of ['domus','cantus','liber']){
+  assert.ok(morphology.records.some(r=>r.id==='latin-sustantivo-decision-'+lemma));
+}
+const athenae=morphology.records.find(r=>r.id==='griego-sustantivo-decision-athenai');
+assert.ok(athenae&&athenae.unit===4&&athenae.forms.length===5);
+assert.ok(!athenae.forms.some(f=>f.number==='singular'));
+assert.ok(!morphology.records.some(r=>r.id==='latin-adjetivo-reserva-liber-free'),
+  'El adjetivo preparado para otra fase no debe ser calificable');
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-LATINOS.md').includes('3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
