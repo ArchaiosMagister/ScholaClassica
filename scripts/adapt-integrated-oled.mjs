@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {readFile,writeFile} from 'node:fs/promises';
+import {readFile,writeFile,readdir} from 'node:fs/promises';
 import {join} from 'node:path';
 
 // Adaptaciones SOLO en dist: los repositorios fijados siguen inalterados.
@@ -40,6 +40,16 @@ export async function adaptAppendixOled(destination){
       "document.addEventListener('DOMContentLoaded',()=>{const picker=document.getElementById('theme-mode');if(picker&&!picker.querySelector('option[value=\"oled\"]'))picker.add(new Option('OLED','oled'));apply();if(picker)picker.addEventListener('change'",
       'selector de Appendix');
   });
+  // Obligar a recuperar los nuevos CSS/JS sin alterar rutas ni datos de Appendix.
+  const pages=(await readdir(destination,{recursive:true})).filter(path=>path.endsWith('.html'));
+  let changed=0;
+  for(const path of pages){
+    const file=join(destination,path);
+    const before=await readFile(file,'utf8');
+    const after=before.replace(/(assets\\/(?:theme\\.js|style\\.css|language-colors\\.css)\\?v=[a-zA-Z0-9-]+)(?=["'])/g,'$1-oled1');
+    if(after!==before){await writeFile(file,after,'utf8');changed++;}
+  }
+  assert.ok(changed>=4,'Faltan páginas de Appendix con recursos de tema');
 }
 export async function adaptVocabulaOled(destination){
   await patch(destination,'style.css',css=>{
