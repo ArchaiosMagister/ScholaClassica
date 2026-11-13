@@ -98,7 +98,8 @@ const specialConnections={
 };
 const confirmedDle=new Set([
   'antropocentrismo','misoginia','misantropía','filología','filosofía',
-  'psicosomático','ortografía','dermalgia','misoneísmo','autoevaluación'
+  'psicosomático','ortografía','dermalgia','misoneísmo','autoevaluación',
+  'antroposofía','bibliotecología','cacoquimia','hepatomegalia','tanatofobia','ginecocracia'
 ]);
 const greekMain=form=>String(form).split(/[|,]/)[0].replace(/\s*\(.*/,'').trim();
 export function readStudyGlosses(){
@@ -152,7 +153,8 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),co
         const greek=normalGreek(c.greek);
         const linked=greekLookup.get(greek);
         const language=/^[A-Za-z]+$/.test(c.greek)?'la':undefined;
-        return {...c,id:linked?.id,external:!linked,language};
+        return {...c,id:linked?.id,external:!linked||
+          etyma.get(linked.id)?.editorialStatus==='reference_only',language};
       }));
     const components=(override||ids.map(id=>{
       const etymon=etyma.get(id);
