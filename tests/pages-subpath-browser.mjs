@@ -54,9 +54,13 @@ try{
  const offline=await page.goto(base+prefix,{waitUntil:'load'});
  assert.equal(offline.status(),200,'Portada inaccesible sin red en subruta Pages');
  assert.equal(await page.locator('#study-course').count(),1);
+ const modes=page.locator('#portal-theme');
+ await modes.selectOption('oled');
+ assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
+   'rgb(0, 0, 0)','El OLED debe estar disponible sin conexión en GitHub Pages');
  await page.context().setOffline(false);
  await page.locator('#study-course').selectOption('gr1');
- assert.equal(await page.locator('.path-links a').count(),3);
+ assert.equal(await page.locator('.path-links a').count(),4);
  await page.locator('.path-links a[data-study-tool="etymologicon"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/index\.html$/);
  await page.waitForFunction(async()=>{
