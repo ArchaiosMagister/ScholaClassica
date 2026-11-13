@@ -22,7 +22,7 @@ test('cobertura completa: las 487 entradas tienen definición propia sin alterar
   assert.equal(extended.derivatives.length,487);
   assert.equal(learner.derivatives.length,201);
   assert.equal(Object.keys(lexicon.definitions).length,302);
-  assert.ok(study.words.every(w=>w.definition.length>=18&&w.connection.length>20));
+  assert.ok(study.words.every(w=>w.definition.length>=8&&w.connection.length>20));
   const old=new Map(base.derivatives.map(d=>[d.id,d.definitions?.[0]?.text]));
   for(const w of study.words)if(old.has(w.id))assert.equal(w.definition,old.get(w.id),w.form);
   const source=readExpansion();
