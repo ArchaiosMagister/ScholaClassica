@@ -23,6 +23,13 @@ test('la portada incluye 4 aspectos con persistencia segura y recursos offline',
  assert.match(sw,/'\.\/theme\.js'/);
  assert.ok(!sw.includes('__SCHOLA_PORTAL_CACHE_VERSION__'));
 });
+test('rótulos latino y griego en minúsculas, sin mayúsculas CSS que alteren el politónico',()=>{
+ const html=read('index.html'),css=read('style.css');
+ assert.match(html,/<article class="card latin">\\s*<p class="overline">lingua latina<\\/p>/);
+ assert.match(html,/<article class="card greek">\\s*<p class="overline">ἑλληνικὴ γλῶττα<\\/p>/);
+ assert.match(css,/\\.card:is\\(\\.latin,\\.greek\\) \\.overline\\{text-transform:none\\}/);
+ assert.doesNotMatch(html,/<p class="overline">(Lingua Latina|Ἑλληνικὴ γλῶττα)<\\/p>/);
+});
 test('Palabra del día solo se enlaza, con origen y destino independientes',()=>{
  const html=read('index.html'),js=read('app.js');
  assert.match(html,/Palabra del día/);
