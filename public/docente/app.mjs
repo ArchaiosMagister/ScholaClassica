@@ -16,6 +16,8 @@ function state(section,message=''){
     loadedNotices=[];vocabWords=[];vocabReports=[];editingVocabId=null;
     for(const id of ['notices','vocab-word-list','vocab-report-list'])el(id)?.replaceChildren();
     el('vocab-word-form').hidden=true;
+    el('username').value='';
+    el('password').value='';
   }
 }
 function setBusy(value){
@@ -187,7 +189,6 @@ async function init(){
     const response=await fetch('./auth-config.json',{cache:'no-store'});
     config=await response.json();
     if(!validConfig(config)){state('unavailable','Configuración docente no activada');return}
-    el('username').value=config.username;
     await loadSDK();
     client=window.supabase.createClient(config.url,config.publishableKey,{
       auth:{persistSession:false,autoRefreshToken:true,detectSessionInUrl:false}
