@@ -87,6 +87,8 @@ export async function adaptVocabulaStudentCopy(destination){
       '','panel docente antiguo de Vocabula');
     html=one(html,'<dialog id="teacher-dialog" aria-labelledby="teacher-title"></dialog>',
       '','diálogo docente antiguo de Vocabula');
+    html=one(html,'teacher.js?v=20261112','teacher.js?v=20261113-solo-alumnos1',
+      'invalidación del JS antiguo de acceso docente');
     return one(html,'app.js?v=20261112','app.js?v=20261113-alumnos1',
       'actualización del JS de Vocabula');
   });
