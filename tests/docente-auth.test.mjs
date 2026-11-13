@@ -33,8 +33,9 @@ test('el endpoint verifica el token en Supabase antes de interpretar claims y no
   assert.match(server,/identity\.auth\.getUser\(match\[1\]\)/);
   assert.match(server,/authorizeVerifiedTeacher\(/);
   assert.match(server,/SCHOLA_TEACHER_USER_ID/);
-  assert.match(server,/SCHOLA_ALLOWED_ORIGIN/);
-  assert.ok(!server.includes("origin==='https://archaiosmagister.github.io'"));
+  assert.match(server,/authorizedOrigin=\(\)=> 'https:\/\/archaiosmagister\.github\.io'/);
+  assert.ok(server.includes("const authorizedOrigin=()=> 'https://archaiosmagister.github.io'"));
+  assert.match(server,/authorizeVerifiedTeacher\(/);
   assert.match(server,/VOCABULA_SERVICE_ROLE_KEY/);
   assert.match(server,/PALABRA_SERVICE_ROLE_KEY/);
   assert.match(server,/\.eq\('status','pending'\)/);
@@ -60,7 +61,9 @@ test('la zona docente se publica bloqueada por defecto, sin claves privilegiadas
   assert.match(js,/client\.functions\.invoke\('schola-login'/);
   assert.ok(!js.includes('config.email'));
   assert.ok(!js.includes('signInWithPassword'));
-  assert.match(html,/id="turnstile-widget"/);
+  assert.ok(!html.includes('turnstile-widget'));
+  assert.ok(!js.includes('challenges.cloudflare.com'));
+  assert.ok(!js.includes('turnstileToken'));
   assert.ok(!js.includes('service_role'));
   assert.ok(!html.includes('GeneradorExamenes'));
   assert.equal(existsSync(join(root,'dist/apps/examenes')),false);
