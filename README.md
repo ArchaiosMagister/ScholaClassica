@@ -133,3 +133,12 @@ La práctica morfológica incorpora **Latín I, UD4:** los perfectos y pluscuamp
 **Griego I, UD5:** adjetivos 2–1–2 (`ἀγαθός`), 2–2 (`βάρβαρος`) y los irregulares `πολύς` y `μέγας`. El motor restaura las celdas fusionadas `rowspan` de las tablas originales sin inferir formas, y presenta **concordancia de artículo y adjetivo** desde UD5, rechazando como distractores las alternativas que también concuerdan. Griego I UD4 es acumulativa, sin nuevas fichas.
 
 El banco tiene ahora **60 paradigmas**, con versión del Appendix y evidencias por tema/capítulo/tabla. Continúan excluidos los perfectos pasivos, las formas no documentadas y las unidades posteriores.
+
+
+### Práctica activa de morfología (escritura y repaso)
+
+El módulo conserva los **60 paradigmas curriculares**, pero incorpora tres nuevas modalidades: **respuesta escrita sin opciones**, **declinación completa en tabla** y **repaso inteligente**. El corrector admite las variantes ya documentadas (por ejemplo, `cives` y `civis`), acepta `æ/ae` y el guion opcional de las desinencias, y distingue en griego los errores ortográficos (acentos, espíritus, sigma final) de los morfológicos. Los errores ortográficos no se cuentan como aciertos: la solución aparece explicada.
+
+Las respuestas griegas cuentan con teclado táctil de letras, espíritus, acentos, circunflejo e iota suscrita, compatible con el teclado normal del dispositivo. Las tablas únicamente utilizan las fichas que ya existen: sustantivos, adjetivos, artículo y desinencias, sin generar formas nuevas. Los casos sincréticos se aceptan en todas sus variantes documentadas.
+
+El progreso de repaso se guarda **solo en el navegador** mediante `schola-morphology-review-v1`, sin cuenta, analítica, red ni datos identificativos. Existen filtros para ejercicios no practicados, errores anteriores, repeticiones pendientes o selección inteligente con intervalos crecientes de uno, tres, siete y más días. Se puede borrar el historial mediante un botón con confirmación. Los ficheros necesarios están en la caché exclusiva `schola-morphology-` y funcionan sin conexión tras la primera carga. Los repositorios originales, las PWA de otros módulos y la zona docente permanecen intactos.

@@ -26,6 +26,7 @@
     "check:docente:readiness": "node scripts/check-docente-readiness.mjs",
     "audit:publicacion": "node scripts/audit-publicacion.mjs",
     "test:browser:pages": "node tests/pages-subpath-browser.mjs",
-    "test:browser:morfologia": "node tests/morphology-browser.mjs"
+    "test:browser:morfologia": "node tests/morphology-browser.mjs",
+    "test:browser:morfologia:activa": "node tests/morphology-active-browser.mjs"
   }
 }

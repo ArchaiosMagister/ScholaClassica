@@ -2,7 +2,8 @@
 const CACHE_PREFIX='schola-morphology-';
 const CACHE_NAME=CACHE_PREFIX+'__MORPHOLOGY_CACHE_VERSION__';
 const CORE=[
-  './','./index.html','./style.css','./app.mjs','./engine.mjs','./data/paradigmas.json'
+  './','./index.html','./style.css','./app.mjs','./engine.mjs',
+  './written.mjs','./review.mjs','./greek-keyboard.mjs','./data/paradigmas.json'
 ];
 const SCOPE=new URL(self.registration.scope);
 const OWN=new Set(CORE.map(path=>new URL(path,SCOPE).pathname));

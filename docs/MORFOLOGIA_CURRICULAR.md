@@ -70,3 +70,28 @@ La tabla de `βάρβαρος` usa el mismo paradigma para masculino y femenino,
 La concordancia solicita la forma del adjetivo que concuerda con un artículo griego expresamente documentado, mostrando el análisis de caso, género y número de ese artículo. El motor verifica todas las formas que concuerdan con dichas características y excluye del sorteo de distractores **todas** las soluciones válidas, incluso cuando el paradigma presenta sincretismo. La actividad solo aparece para Griego I desde UD5; la selección de UD4 mantiene el banco acumulado de UD1–UD3, sin fingir nuevas lecciones de morfología.
 
 El bloque completo conserva independencia offline mediante el mismo service worker `schola-morphology-`. Las pruebas comprueban 60 registros, procedencias, casos y géneros, acentos y paradigmas irregulares, concordancia, cuarentena de unidades no habilitadas, regresiones de fuentes y funcionamiento bajo la subruta real de GitHub Pages.
+
+
+## Práctica activa, variantes y teclado griego
+
+Se incorporan **respuesta escrita**, **declinación completa** y **repetición inteligente**, sin ampliar el banco cerrado de 60 paradigmas documentados. Cada pregunta escrita se construye a partir de una agrupación de formas de un mismo análisis: las variantes `cives / civis` se admiten ambas como válidas; no hay transformación automática de un lema ni búsqueda externa. En los ejercicios de desinencias se admite introducir la terminación sin guion tipográfico inicial. La escritura latina admite `æ` o `ae` en una misma forma.
+
+El corrector normaliza Unicode a NFC y diferencia tres estados: **correcto**, **error ortográfico** y **error morfológico**. En griego se exige una grafía académica exacta para el acierto; si la forma solo difiere en espíritus, acentos o sigma final, el sistema indica un error de ortografía y muestra la solución, sin contabilizarla como acertada. La iota suscrita se conserva en la comparación, porque omitirla no debe considerarse un simple acento prescindible. No se ignoran diferencias en las vocales ni en los morfemas flexivos.
+
+El teclado táctil permite introducir las 24 letras griegas (y sigma final), espacios, retroceso, espíritu suave y áspero, agudo, grave, circunflejo, diéresis e iota suscrita. Los signos se aplican a la vocal anterior al cursor y se recomponen mediante Unicode; el usuario también puede introducir directamente las formas con su teclado habitual. No se solicita instalar ni cambiar un teclado del sistema.
+
+En **completar una declinación**, cada paradigma documentado proporciona las casillas de caso y número existentes. Para adjetivos y artículo se selecciona un género concreto. No se añade el vocativo al artículo griego ni se infieren formas de sustantivos o sintagmas no documentados. Al corregir se presentan las formas de las casillas incorrectas y se registran sus errores para el repaso; las variantes documentadas son aceptadas en cualquiera de sus grafías. Una tabla se considera completamente acertada si todas sus casillas son correctas.
+
+## Repetición inteligente sin servidor
+
+El estado de práctica se almacena únicamente en `localStorage`, bajo la clave versionada `schola-morphology-review-v1`. Guarda claves técnicas de los ejercicios y contadores de intentos, aciertos y errores, junto con un nivel de consolidación y la próxima fecha de repaso. No contiene respuestas literales, nombres de alumnos, sesiones, datos docentes ni acceso a la base de datos de Vocabula o Palabra del día.
+
+Los modos son: **práctica libre**, **repetición inteligente** (primero los ejercicios vencidos, después nuevos), **volver a los errores**, **repasos pendientes** y **formas todavía no practicadas**. Un fallo deja la ficha disponible para repaso inmediato; los aciertos sucesivos aumentan el intervalo (1, 3, 7, 14, 30 y 90 días). Las entradas se validan y limitan a 2000 claves; cuando no queda material para el filtro seleccionado se indica expresamente, sin inventar nuevos ejercicios.
+
+El progreso es local al navegador y puede perderse si se eliminan sus datos. Se puede borrar dentro del módulo con confirmación explícita. Todas estas funciones son opcionales y no alteran la puntuación ni la selección de los ejercicios de respuesta múltiple preexistentes.
+
+## Comprobaciones y exclusiones
+
+Las pruebas verifican la aceptación de variantes, la distinción ortografía/morfología, la preservación de iota suscrita, la conjugación/declinación de tablas completas, el estado local y su borrado, el teclado griego en Chromium móvil y el uso sin conexión en la ruta `/ScholaClassica/apps/morfologia/`. El service worker continúa restringido al módulo y precarga `written.mjs`, `review.mjs` y `greek-keyboard.mjs`.
+
+La **declinación de sintagmas completos** con sustantivos y adjetivos se deja pendiente de una fase específica de concordancia léxica: no se deben combinar paradigmas sin acreditar previamente el género y las formas concretas de cada sustantivo. Las ampliaciones de UD6–UD7 de Latín I y Griego I seguirán requiriendo un control filológico independiente antes de habilitar sus contenidos.

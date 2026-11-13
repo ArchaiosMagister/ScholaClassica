@@ -75,3 +75,10 @@ Véase `docs/PORTAL_PWA.md`.
 ## Ampliación autónoma de la práctica morfológica, sin alterar fuentes
 
 `scripts/morphology-expansion.mjs` transcribe 12 paradigmas verbales latinos de perfecto/pluscuamperfecto UD4, 4 adjetivos latinos de tercera declinación UD5 y 4 paradigmas griegos de adjetivos UD5, todos con referencias a tablas exactas de Appendix. La colección completa pasa de 40 a **60** registros y permite seleccionar Latín I y Griego I hasta UD5. El motor de concordancia griega combina **dos fichas verificadas**: la del artículo (UD3) y la del adjetivo (UD5), únicamente con igualdad de caso/género/número, sin generar lemas o formas nuevos. La actividad se habilita solo desde Griego I UD5. Se mantienen el aislamiento de los service workers, el modo offline y el cierre de la zona docente.
+
+
+## Práctica productiva de morfología y progreso local
+
+El módulo independiente de morfología utiliza `written.mjs` para corrección exacta/ortográfica/morfológica y para tablas de declinación generadas solo con casillas ya documentadas. `greek-keyboard.mjs` implementa inserción táctil de Unicode griego y marcas combinantes; `review.mjs` gestiona repetición espaciada local, sin envío de datos. El núcleo `engine.mjs` conserva su contrato de ejercicios existentes y solo añade la selección opcional de repaso.
+
+La caché `schola-morphology-` incorpora los tres nuevos módulos versionados y sigue limitada al ámbito `/apps/morfologia/`, sin invalidar el resto de PWA. Se mantienen la restricción a las unidades académicas existentes y los 60 paradigmas del Appendix fijado. El workflow comprueba también la interfaz móvil y el funcionamiento offline antes de cualquier despliegue.
