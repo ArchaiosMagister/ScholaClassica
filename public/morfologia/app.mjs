@@ -40,7 +40,7 @@ function updateActivities(){
   const opt=input.activity.querySelector('option[value="agreement"]');
   if(opt){opt.hidden=!canAgree;opt.disabled=!canAgree}
   if(!canAgree&&input.activity.value==='agreement')input.activity.value='form';
-  const canPhrases=Number(input.unit.value)>=5;
+  const canPhrases=Number(input.unit.value)>=(input.subject.value==='latin4'?3:5);
   for(const mode of ['phrase-written','phrase-table']){
     const item=input.activity.querySelector('option[value="'+mode+'"]');
     if(item){item.hidden=!canPhrases;item.disabled=!canPhrases}
@@ -292,7 +292,8 @@ async function initialize(){
     if(!response.ok)throw Error('No se pudo descargar el banco');
     bank=validateBank(await response.json());
     const url=new URL(location.href),subject=url.searchParams.get('subject');
-    if(subject==='lat1')input.subject.value='latin';
+    if(subject==='lat4')input.subject.value='latin4';
+    else if(subject==='lat1')input.subject.value='latin';
     else if(subject==='gr1')input.subject.value='griego';
     updateFilters();
     updateReviewStatus();
