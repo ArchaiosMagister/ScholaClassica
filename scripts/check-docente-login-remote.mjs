@@ -35,3 +35,19 @@ for(const source of [
     throw Error('La fuente '+source.name+' no rechaza solicitudes sin JWT docente: HTTP '+response.status);
   console.log('OK: '+source.name+' rechaza la consulta sin sesión docente');
 }
+
+// API administrativa: todas las operaciones (incluidas las lecturas) deben
+// rechazar credenciales públicas, sin crear o modificar registros.
+const adminUrl='https://wpwlguufpkfnzlbyproe.supabase.co/functions/v1/schola-vocab-admin';
+for(const action of ['words.list','words.save','reports.list','reports.review']){
+  const response=await fetch(adminUrl,{
+    method:'POST',
+    headers:{'content-type':'application/json',
+      Origin:'https://archaiosmagister.github.io',apikey:key,
+      Authorization:'Bearer '+key},
+    body:JSON.stringify({action}),signal:AbortSignal.timeout(15000)
+  });
+  if(![401,403].includes(response.status))
+    throw Error('La administración permitió '+action+' sin JWT docente: '+response.status);
+  console.log('OK: administración de Vocabula deniega '+action+' sin JWT AAL2');
+}
