@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-13",
-  "note": "Las correspondencias documentat reflejan confirmación de lema y etimología en el DCVB; la verificación DNV, la transmisión patrimonial/culta y el análisis de 17 leyes siguen pendientes. Las propuestas restantes NO están contrastadas individualmente.",
+  "note": "Auditoría acumulada de 215 propuestas iniciales: 192 correspondencias con etimología contrastada en DCVB (26 iniciales, 127 anteriores y 65 nuevas); 23 sin acreditación completa. Cuatro de las 23 son derivaciones directas descartadas por la fuente; las demás se reservan para cotejo o cadena histórica. Validación DNV y análisis fonético individual pendientes: 0 nuevas fichas jugables.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -2793,161 +2793,253 @@
       "form": "creure",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "La ficha CREURE existe, pero todavía falta obtener y cotejar la nota etimológica completa del artículo.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "datum",
       "form": "dau",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": "La etimología de DAU a partir de datum se describe como incierta en DCVB; no considerar verificada."
+      "notes": "DCVB considera dudosa la derivación de DAU a partir de datum; excluir del sorteo hasta resolver.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "spissum",
       "form": "espés",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "ESPÉS es valenciano, pero falta cotejar individualmente el étimo y el detalle fonético.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "falcem",
       "form": "falç",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "FALÇ (hoz) no debe confundirse con FALCÓ ni FALÇÓ, que son lemas distintos; cotejo del artículo pendiente.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "planctum",
       "form": "plany",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "PLANY puede ser sustantivo postverbal de plànyer y no reflejo directo de planctum; revisar morfología histórica.",
+      "reviewOutcome": "exige_cadena_historica",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "pluuiam",
       "form": "pluja",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": "PLUJA procede directamente del latín vulgar *plŏia, variante de plŭvia; requiere justificar paso intermedio antes de generar cambios."
+      "notes": "PLUJA procede según DCVB de la variante vulgar *plŏia y no directamente de la forma latina escolar pluuiam.",
+      "reviewOutcome": "exige_cadena_historica",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "sensum",
       "form": "seny",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": "El DCVB indica que SENY 2 'juicio' procede del germánico sinn, probablemente cruzado con latín sensus: no es étimo latino directo; mantener fuera de ejercicios."
+      "notes": "SENY 'juicio' procede del germánico sinn, con posible cruce con sensus: descartar derivación latina directa.",
+      "reviewOutcome": "descartar_derivacion_directa",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "tussem",
       "form": "tos",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "TOS es palabra valenciana, pero falta confirmar étimo exacto del artículo etimológico.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "acutiare",
       "form": "agutzar",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "AGUTZAR requiere comprobar la reconstrucción o derivación latina exacta: no deducirla de la forma española.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "damnum",
       "form": "dany",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "DANY está documentado en DCVB desde damnum y puede promoverse con la acepción 'daño'.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "strictum",
       "form": "estret",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "ESTRET debe cotejar si procede directamente de strictum o de variante vulgar estrechamente relacionada.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "ocŭlos",
       "form": "ulls",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "ULLS es plural de ULL: comprobar la evolución de oculos y su relación con la forma vulgar *ŏclu de ull; no demostrar por analogía.",
+      "reviewOutcome": "exige_cadena_historica",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "iacere",
       "form": "jaure",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "JAURE remite a JEURE; hay que consultar la etimología bajo esta forma y contrastar el verbo iacere.",
+      "reviewOutcome": "exige_cadena_historica",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "catenatum",
       "form": "cadenat",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "CADENAT es derivado romance de CADENA, según DCVB: no tiene evolución directa desde catenatum.",
+      "reviewOutcome": "descartar_derivacion_directa",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "cæpullam",
       "form": "ceba",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "CEBA procede del latín cēpa, según DCVB; no confirmar etimología directa desde cæpullam.",
+      "reviewOutcome": "descartar_derivacion_directa",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "mutabĭlem",
       "form": "mutable",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "MUTABLE exige comprobar si es préstamo culto de mutabilis; no evolución patrimonial automática.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "totum",
       "form": "tot",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "TOT resulta de la base vulgar intensiva tottu según DCVB, no directamente del étimo clásico totum sin mediación.",
+      "reviewOutcome": "exige_cadena_historica",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "continere",
       "form": "contindre",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "CONTINDRE se documenta como variante valenciana pero falta relacionar inequívocamente el étimo con la forma por medio de CONTENIR.",
+      "reviewOutcome": "exige_cadena_historica",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "cuminum",
       "form": "comí",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "COMÍ debe cotejarse con el etimón latino cuminum y los préstamos grecoárabes posibles.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "curtare",
       "form": "curtar",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "CURTAR necesita demostrar que existe continuidad desde curtare y no solo derivación desde curt.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "spinam",
       "form": "espina",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "ESPINA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "spumam",
       "form": "espuma",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": null
+      "notes": "ESPUMA parece correspondencia clara, pero el servicio de consulta devolvió un error de codificación; reservar confirmación.",
+      "reviewOutcome": "sin_confirmacion_suficiente",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     },
     {
       "latin": "serpĕntem",
       "form": "serp",
       "lexicalStatus": "proposta",
       "reference": null,
-      "notes": "El DCVB atribuye serp a latín serpe, no al acusativo serpĕntem del banco. No promover hasta justificar la relación histórica y morfológica."
+      "notes": "SERP procede del latín serpe según DCVB, no del acusativo serpentem del banco: descartar derivación directa.",
+      "reviewOutcome": "descartar_derivacion_directa",
+      "dnvIndividualChecked": false,
+      "phoneticLawsChecked": false,
+      "playable": false
     }
   ]
 }
