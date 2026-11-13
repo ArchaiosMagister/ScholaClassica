@@ -2,13 +2,14 @@
 import {availableRecords} from './engine.mjs';
 import {selectReviewCandidates} from './review.mjs';
 const cases={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
+  latin4:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
   griego:['nominativo','vocativo','acusativo','genitivo','dativo']};
 const clean=text=>String(text??'').trim().normalize('NFC').replace(/\s+/g,' ');
 const unique=values=>[...new Set(values)];
 function comparison(text,{language,ending=false}={}){
   let value=clean(text).toLocaleLowerCase(language==='griego'?'el':'la');
   if(ending)value=value.replace(/^[\u2010-\u2015-]+/u,'');
-  if(language==='latin')value=value.replace(/æ/g,'ae').replace(/œ/g,'oe')
+  if(language==='latin'||language==='latin4')value=value.replace(/æ/g,'ae').replace(/œ/g,'oe')
     .normalize('NFD').replace(/\u0304/gu,'').normalize('NFC');
   if(language==='griego')value=value.normalize('NFD')
     .replace(/[\u0304\u0306]/gu,'').normalize('NFC');
