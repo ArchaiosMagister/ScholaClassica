@@ -632,7 +632,7 @@ try{
   await page.waitForFunction(()=>!document.querySelector('#app .loading'),null,{timeout:10000});
   assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio falla sin conexión');
   const newOfflineResources=await page.evaluate(async()=>{
-    const paths=['./src/difficulty.mjs','./src/latin.mjs','./src/update.mjs','./data/difficulty.json'];
+    const paths=['./src/difficulty.mjs','./src/result-difficulty.mjs','./src/latin.mjs','./src/update.mjs','./data/difficulty.json'];
     const results=await Promise.all(paths.map(p=>fetch(p).then(r=>r.ok).catch(()=>false)));
     return results.every(Boolean);
   });
