@@ -135,5 +135,5 @@ export function evaluate(question,choice){
     ' Alternativas documentadas: '+question.acceptedForms.join(' o ')+'.':'';
   return {correct:valid,expected:variants?question.acceptedForms.join(' / '):question.correct,
     note:question.ambiguous?'Esta forma tiene varios análisis posibles; se muestran juntos.':
-      'Forma tomada directamente de un paradigma curricular publicado.'+variants};
+      'Forma tomada de un paradigma documentado; su evidencia y revisión constan en la ficha.'+variants};
 }
