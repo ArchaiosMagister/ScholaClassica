@@ -74,10 +74,9 @@ Etymologicon añade preguntas de cuatro opciones y reconocimiento de étimos gri
 Etymologicon incorpora un primer banco cerrado de **16 palabras castellanas con dos componentes griegos contrastados** mediante DLE. Las restantes 185 fichas siguen pendientes de auditoría individual para esta modalidad; no se consideran automáticamente incorrectas. Los ejercicios admiten griego o transliteración latina, muestran la explicación filológica, puntúan hasta 2 y funcionan offline. Ver [`docs/ETIMOLOGICON_DESCOMPOSICION_PILOTO.md`](docs/ETIMOLOGICON_DESCOMPOSICION_PILOTO.md).
 
 
-## Construcción aislada de la zona docente (sin publicación)
+## Preparación del área docente (sin activar)
 
-El portal general se genera en `dist/`, con el acceso docente expresamente desactivado. La zona privada se construye **por separado** con `npm run build:docente`, que genera `dist-docente/` en modo bloqueado por defecto. La activación requiere un hostname HTTPS distinto del de las herramientas del alumnado, una cuenta Supabase Auth y configuración explícita. El proyecto Supabase actual de Vocabula es el candidato provisional para albergar esta cuenta, sin afectar a su sistema de sesiones propio. **No se ha creado ningún usuario ni desplegado el sitio o las funciones; el correo docente no se incorpora al artefacto público.** Véase `docs/DOCENTE_AUTENTICACION.md`.
-
+El portal se genera en `dist/` y la configuración `docente/auth-config.json` conserva `enabled:false` por defecto. La rama de desarrollo prepara una activación explícita, con clave **publicable** de Supabase y SDK local auditado, pero ninguna credencial privilegiada en GitHub Pages. El antiguo comando `npm run build:docente` genera un artefacto **histórico separado** para la opción Cloudflare que ya no se utilizará. El proyecto Supabase `Vocabulario_clasico` será el proveedor de identidad; todavía no existe una cuenta docente real creada.
 
 ## Alojamiento docente: GitHub Pages + Supabase Auth (en desarrollo)
 
