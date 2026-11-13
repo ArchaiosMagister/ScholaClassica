@@ -1,8 +1,8 @@
 {
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
-  "status": "auditoria_docent_sense_publicacio",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica. Revisió addicional de 26 correspondències patrimonials amb canvis explícits; no és una certificació fonètica integral individual. Tanda de 34 anàlisis editorials fonètics addicionals, pendents de corroboració normativa individual; cap autorització de pràctica.",
+  "status": "auditoria_cobertura_tancada_amb_reserves",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig. Nova tanda de divuit formes amb contrast conservador; les formes sense llei seleccionable conserven només la pèrdua fixa de -m. Llot 2026-11-13: quinze anàlisis editorials prudents; el DCVB documenta els resultats, els processos s'han localitzat en l'ètim llatí; sense aprovació per a pràctica. Revisió addicional de 26 correspondències patrimonials amb canvis explícits; no és una certificació fonètica integral individual. Tanda de 34 anàlisis editorials fonètics addicionals, pendents de corroboració normativa individual; cap autorització de pràctica. Cierre de cobertura: 132 análisis editoriales, 83 reservas de prueba histórica y 6 discrepancias de criterio docente. Las 221 fichas quedan clasificadas, no certificadas.",
   "analyses": [
     {
       "latin": "focum",
@@ -2730,5 +2730,896 @@
       "explanation": "lignum → lleny: Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     }
   ],
-  "pending": []
+  "pending": [
+    {
+      "latin": "cadere",
+      "form": "caure",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "La etapa que conduce a caure supone una evolución consonántica interna; distinguir vocalización de pérdida de consonante.",
+      "changes": []
+    },
+    {
+      "latin": "comitem",
+      "form": "comte",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Síncope postónica y evolución consonántica de la secuencia -mit-; comparar la pronunciación valenciana histórica de comte.",
+      "changes": []
+    },
+    {
+      "latin": "crucem",
+      "form": "creu",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "El DCVB registra la fase medieval crou antes de creu; identificar etapas de vocalización y variación vocálica sin etiquetar directamente el étimo.",
+      "changes": []
+    },
+    {
+      "latin": "germanum",
+      "form": "germà",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "homĭnem",
+      "form": "home",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "iurare",
+      "form": "jurar",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Jurar: la grafía j representa evolución de consonante inicial; se requiere fuente histórica y posición.",
+      "changes": []
+    },
+    {
+      "latin": "maiorem",
+      "form": "major",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "maium",
+      "form": "maig",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Maig: diptongación/palatalización final con base vulgar; requiere etapas.",
+      "changes": []
+    },
+    {
+      "latin": "radium",
+      "form": "raig",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Raig: evolución del grupo -di- y del cierre final; verificar fonema y resultados.",
+      "changes": []
+    },
+    {
+      "latin": "spatium",
+      "form": "espai",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Espai: desaparición de consonantes del grupo -ti- tras prótesis; contrastar etapas.",
+      "changes": []
+    },
+    {
+      "latin": "uittam",
+      "form": "veta",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Veta: además de cambio vocálico, distinguir -tt- y el timbre de la primera vocal.",
+      "changes": []
+    },
+    {
+      "latin": "scholam",
+      "form": "escola",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable. Comprobar además grafías grecolatinas o diptongos.",
+      "changes": []
+    },
+    {
+      "latin": "marmorem",
+      "form": "marbre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Marbre: metátesis y síncopa de grupo r/m; debe confirmarse etapa intermedia.",
+      "changes": []
+    },
+    {
+      "latin": "roborem",
+      "form": "roure",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Roure: desarrollo consonántico complejo de b intervocálica; no atribuir una ley no autorizada.",
+      "changes": []
+    },
+    {
+      "latin": "tonare",
+      "form": "tronar",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "r influïda per tro — La r deriva d'influència lèxica documentada, no d'inserció fonètica regular.",
+      "changes": []
+    },
+    {
+      "latin": "crustam",
+      "form": "crosta",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Variación histórica del timbre de la vocal tónica; comprobar la influencia analógica reseñada en DCVB.",
+      "changes": []
+    },
+    {
+      "latin": "thesaurum",
+      "form": "tresor",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Tresor: tratamiento de la aspirada griega th-, inserción de r y vocalismo; comprobar transmisión culta.",
+      "changes": []
+    },
+    {
+      "latin": "asĭnum",
+      "form": "ase",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "auricŭlam",
+      "form": "orella",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "capere",
+      "form": "cabre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. Verificar las alteraciones de la terminación del infinitivo.",
+      "changes": []
+    },
+    {
+      "latin": "capillum",
+      "form": "cabell",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "compărāre",
+      "form": "comprar",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "El DCVB remite a la variante latina vulgar compĕrāre de comparare; conservar la mediación.",
+      "changes": []
+    },
+    {
+      "latin": "consilium",
+      "form": "consell",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "cunicŭlum",
+      "form": "conill",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "draconem",
+      "form": "dragó",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "DRAGÓ I animal mitológico o lagarto, del latín dracōne; separar otras acepciones zoológicas.",
+      "changes": []
+    },
+    {
+      "latin": "insŭlam",
+      "form": "illa",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Illa requiere fases históricas de -nsul- y posible alteración morfológica; distinguir de isla.",
+      "changes": []
+    },
+    {
+      "latin": "latronem",
+      "form": "lladre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "laudare",
+      "form": "lloar",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa.",
+      "changes": []
+    },
+    {
+      "latin": "legere",
+      "form": "llegir",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. Verificar las alteraciones de la terminación del infinitivo.",
+      "changes": []
+    },
+    {
+      "latin": "littĕram",
+      "form": "lletra",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "luctam",
+      "form": "lluita",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "luxum",
+      "form": "luxe",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "luxe és un cultisme — El DCVB identifica préstec del llatí luxus, no resultat fonètic patrimonial.",
+      "changes": []
+    },
+    {
+      "latin": "maurum",
+      "form": "moro",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Acepción de moro 'persona de origen norteafricano', procedente de mauru; separar homógrafos.",
+      "changes": []
+    },
+    {
+      "latin": "meliorem",
+      "form": "millor",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "octo",
+      "form": "huit",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "huit com a variant valenciana de vuit — El resultat valencià huit requereix documentar les etapes dialectals i no simplificar una variant com a única cadena.",
+      "changes": []
+    },
+    {
+      "latin": "ouicŭlam",
+      "form": "ovella",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Ovella procede de ovĭcŭla; el DCVB recoge la variante dialectal avoia por otra base vulgar.",
+      "changes": []
+    },
+    {
+      "latin": "sŏmnum",
+      "form": "son",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos.",
+      "changes": []
+    },
+    {
+      "latin": "squamam",
+      "form": "escama",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "escama i transmissió per préstec — L'evidència lèxica apunta a una transmissió prestada, de manera que no prova una pròtesi patrimonial regular.",
+      "changes": []
+    },
+    {
+      "latin": "stylum",
+      "form": "estil",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión.",
+      "changes": []
+    },
+    {
+      "latin": "iuncum",
+      "form": "jonc",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "parabolam",
+      "form": "paraula",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "El cambio a paraula requiere pérdida/vocalización intervocálica y evolución semántica; no inferir solo una ley del resultado.",
+      "changes": []
+    },
+    {
+      "latin": "dictum",
+      "form": "dit",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "dit i base vulgar *dīctu — El DCVB explica analogia vocàlica; la base de les lleis no és sense matisos el clàssic dĭctu.",
+      "changes": []
+    },
+    {
+      "latin": "leguminem",
+      "form": "llegum",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "articulum",
+      "form": "artell",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "caput",
+      "form": "cap",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "El DCVB señala la forma vulgar capum; no atribuir una apócope directa de -ut al étimo clásico.",
+      "changes": []
+    },
+    {
+      "latin": "cŏrium",
+      "form": "cuir",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Cuir presenta metátasis/vocalización histórica del grupo -ri-; exige fases documentadas.",
+      "changes": []
+    },
+    {
+      "latin": "cŏrpus",
+      "form": "cos",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "La derivación cos implica pérdida de grupo interno y requiere fases históricas; separar de homógrafos.",
+      "changes": []
+    },
+    {
+      "latin": "dŏmĭnam",
+      "form": "dona",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "fŏrtia",
+      "form": "força",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "FORÇA derivado de latín vulgar fŏrtia, no confundir con FORCA del latín furca.",
+      "changes": []
+    },
+    {
+      "latin": "forum",
+      "form": "fur",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Fur de sentido jurídico; evitar asignación desde forum sin distinguir el latín del uso jurídico medieval.",
+      "changes": []
+    },
+    {
+      "latin": "fundum",
+      "form": "fons",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Fons es un caso de modificación consonántica y morfológica que requiere cadena intermedia.",
+      "changes": []
+    },
+    {
+      "latin": "martium",
+      "form": "març",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "MARÇ 1 'mes de marzo', no el nombre del dios ni el MARC germánico.",
+      "changes": []
+    },
+    {
+      "latin": "mataxam",
+      "form": "madeixa",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "mulierem",
+      "form": "muller",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Muller requiere resultados distintos del grupo -li- y terminación; no forzar un solo cambio.",
+      "changes": []
+    },
+    {
+      "latin": "nomĭnem",
+      "form": "nom",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "podium",
+      "form": "puig",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Puig exige palatalización compleja en -di- y diptongo; no clasificar por similitud grafemática.",
+      "changes": []
+    },
+    {
+      "latin": "pŏpŭlum",
+      "form": "poble",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "pretium",
+      "form": "preu",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "seniorem",
+      "form": "senyor",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "sigĭllum",
+      "form": "segell",
+      "status": "criteri_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "segell i la reintroducció culta — L'ús modern i l'evolució medieval requereixen distinguir transmissió històrica i recuperació.",
+      "changes": []
+    },
+    {
+      "latin": "specŭlum",
+      "form": "espill",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "stabĭlem",
+      "form": "estable",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular.",
+      "changes": []
+    },
+    {
+      "latin": "tædam",
+      "form": "tea",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "TEA variante valenciana de TEIA; el DCVB documenta las etapas latín taeda > teda/tesa > tea, y reintroducción de yod en teia.",
+      "changes": []
+    },
+    {
+      "latin": "texere",
+      "form": "teixir",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "changes": []
+    },
+    {
+      "latin": "uitium",
+      "form": "vici",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular.",
+      "changes": []
+    },
+    {
+      "latin": "siluam",
+      "form": "selva",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "SELVA bosque del latín silva; no la homógrafa botánica.",
+      "changes": []
+    },
+    {
+      "latin": "undam",
+      "form": "ona",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "hederam",
+      "form": "heura",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Heura 'hiedra' del latín hĕdera.",
+      "changes": []
+    },
+    {
+      "latin": "nostrum",
+      "form": "nostre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "membrum",
+      "form": "membre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "MEMBRE préstamo del latín mĕmbrum, no evolución popular.",
+      "changes": []
+    },
+    {
+      "latin": "nouem",
+      "form": "nou",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Nou: trata consonante intervocálica y vocales finales de modo no unívoco.",
+      "changes": []
+    },
+    {
+      "latin": "iuuentutem",
+      "form": "joventut",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "pericŭlum",
+      "form": "perill",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "uiduam",
+      "form": "viuda",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "VIUDA: DCVB propone resultado popular viuva y cruce con el cultismo vídua; no presentar la salida como evolución fonética puramente regular.",
+      "changes": []
+    },
+    {
+      "latin": "ausare",
+      "form": "gosar",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Gosar exige una base o mediación histórica; no atribuir g- inicial a una ley regular sin documentación.",
+      "changes": []
+    },
+    {
+      "latin": "ballænam",
+      "form": "balena",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "La historia de -ll- y æ puede responder a adaptación semiletrada; determinar transmisión antes de clasificar.",
+      "changes": []
+    },
+    {
+      "latin": "monstrare",
+      "form": "mostrar",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "changes": []
+    },
+    {
+      "latin": "seminare",
+      "form": "sembrar",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Sembrar implica grupo de consonantes en -mn- y epéntesis de b; probar cadena histórica.",
+      "changes": []
+    },
+    {
+      "latin": "magistram",
+      "form": "mestra",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Mestra: secuencia de síncopa y reducción del grupo magistr-, con variantes etimológicas.",
+      "changes": []
+    },
+    {
+      "latin": "magistrum",
+      "form": "mestre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Mestre: mismo grupo complejo con variación de timbre y final.",
+      "changes": []
+    },
+    {
+      "latin": "sŏlĭdum",
+      "form": "sou",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Confirmar acepción histórica de sueldo/moneda, sin confundir con el adjetivo modern sol·lid.",
+      "changes": []
+    },
+    {
+      "latin": "bibere",
+      "form": "beure",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "changes": []
+    },
+    {
+      "latin": "committere",
+      "form": "cometre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "changes": []
+    },
+    {
+      "latin": "corrumpere",
+      "form": "corrompre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "changes": []
+    },
+    {
+      "latin": "imperatorem",
+      "form": "emperador",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "nauigare",
+      "form": "navegar",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Navegar: modificaciones del vocalismo y adaptación verbal, no deducibles de letras.",
+      "changes": []
+    },
+    {
+      "latin": "nigrum",
+      "form": "negre",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "changes": []
+    },
+    {
+      "latin": "bene",
+      "form": "bé",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Bé: pérdida nasal y vocal final y distinción de variantes; necesita historia fonética y morfológica.",
+      "changes": []
+    },
+    {
+      "latin": "bonum",
+      "form": "bo",
+      "status": "contrast_historic_pendent",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "reason": "Bo: pérdida de -n en final, distinta de apócope vocálica; verificar contexto y evolución.",
+      "changes": []
+    }
+  ]
 }
