@@ -35,7 +35,8 @@ test('las decisiones docentes tienen opciones explícitas y no se aplican sin re
     assert.ok(c.choices.length>=3);
     assert.ok(c.choices.some(x=>x.value===c.recommendation));
     assert.ok(/^https:\/\//.test(c.source));
-    const key=c.id.replace(/^(?:latin|griego)-/u,'');
+    const key=c.id==='griego-athenai'?'athenae':
+      c.id.replace(/^(?:latin|griego)-/u,'');
     assert.equal(c.decision,manifest.choices[key]);
     assert.equal(c.applied,true);
   }
