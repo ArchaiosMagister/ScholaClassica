@@ -78,7 +78,11 @@ function verbFrom(curriculum,{language,unit,topic,caption,paradigms}){
 }
 function articleFrom(curriculum){
   const topic='El artículo',caption='El artículo · tabla 99';
-  const rows=tableFor(topicOf(curriculum,'griego',3,topic),caption);
+  const allRows=tableFor(topicOf(curriculum,'griego',3,topic),caption);
+  // La tabla del artículo tiene dos filas de encabezados dentro de tbody.
+  assert.equal(allRows.length,6,'Cambió la tabla del artículo: revisar estructura');
+  assert.ok(allRows[0][0]==='—'&&allRows[1][0]==='—','Encabezados inesperados del artículo');
+  const rows=allRows.slice(2);
   const cases=['nominativo','acusativo','genitivo','dativo'];
   const abbreviations=['Nom.','Ac.','Gen.','Dat.'];
   // La tabla del artículo es polisincrética: no impone un análisis único.
