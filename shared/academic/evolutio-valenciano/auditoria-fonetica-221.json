@@ -7,15 +7,15 @@
   "summary": {
     "total": 221,
     "preanalisisEstructural": 221,
-    "conAnalisisEditorialPrevio": 98,
-    "pendientesDeAnalisisIndividual": 123,
+    "conAnalisisEditorialPrevio": 132,
+    "pendientesDeAnalisisIndividual": 89,
     "leyesFoneticamenteCertificadas": 0,
     "habilitadas": 0,
     "procesosParcialesContrastados": 110,
     "fichasConProcesosParciales": 95,
     "analisisIntegralesVerificados": 0,
     "decisionesDocentesAplicadas": 3,
-    "nuevosAnalisisEditorials": 70,
+    "nuevosAnalisisEditorials": 104,
     "cierreIndividualRegistrado": 221,
     "discrepanciasDocentesReservadas": 6
   },
@@ -34,8 +34,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació del diftong llatí au en o."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -50,7 +73,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -71,7 +94,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "aucam → oca: Monoftongació del diftong llatí au en o. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-35",
@@ -2521,8 +2545,64 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+        },
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -2549,7 +2629,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -2585,7 +2665,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "lignum → lleny: Palatalització inicial de l-, evolució de ĭ en e, palatalització de -gn- i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-25",
@@ -2823,8 +2904,53 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "MONOP",
@@ -2833,7 +2959,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -2854,7 +2980,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "cæcare → cegar: Monoftongació de æ, palatalització de c- davant e, sonorització de c intervocàlica i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-37",
@@ -2870,8 +2997,53 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació de æ, palatalització de c- inicial i apòcope de -u."
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació de æ, palatalització de c- inicial i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Monoftongació de æ, palatalització de c- inicial i apòcope de -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -2892,7 +3064,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -2913,7 +3085,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "cæcum → cec: Monoftongació de æ, palatalització de c- inicial i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-44",
@@ -3243,8 +3416,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "GRIE",
+          "spans": [
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Adaptació de la grafia grega ch- a c- en llatí/romanç."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -3253,12 +3449,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "chŏrdam → corda: Adaptació de la grafia grega ch- a c- en llatí/romanç. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-60",
@@ -3274,15 +3471,28 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Apòcope de -e final de l'infinitiu."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "clamare → clamar: Apòcope de -e final de l'infinitiu. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-63",
@@ -5022,15 +5232,39 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -e final."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              7,
+              8
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -e final."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "nominare → nomenar: Obertura de ĭ en e i apòcope de -e final. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-271",
@@ -5107,8 +5341,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Sonorització de p intervocàlica > b i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Sonorització de p intervocàlica > b i apòcope de -e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -5123,7 +5391,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -5144,7 +5412,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "saporem → sabor: Sonorització de p intervocàlica > b i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-732",
@@ -5160,15 +5429,28 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "METAT",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Metàtesi de la r final de la seqüència -er > -re."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "semper → sempre: Metàtesi de la r final de la seqüència -er > -re. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-282",
@@ -5499,8 +5781,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica > o i simplificació de -tt-."
+        },
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica > o i simplificació de -tt-."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -5509,7 +5825,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -5545,7 +5861,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "guttam → gota: Obertura de ŭ tònica > o i simplificació de -tt-. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-422",
@@ -5561,8 +5878,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Evolució de ĭ tònica a e oberta i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Evolució de ĭ tònica a e oberta i apòcope de -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -5577,12 +5928,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "pilum → pèl: Evolució de ĭ tònica a e oberta i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-427",
@@ -5598,10 +5950,44 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e."
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -5637,7 +6023,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "putare → podar: Obertura de ŭ tònica > o, sonorització t > d, apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-432",
@@ -5653,8 +6040,53 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u."
+        },
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -5669,7 +6101,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -5690,7 +6122,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "siccum → sec: Obertura de ĭ tònica > e, simplificació de -cc-, apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-443",
@@ -6842,8 +7275,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              3,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització de -nn- en -ny- i apòcope de -e final."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              7,
+              8
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització de -nn- en -ny- i apòcope de -e final."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "PALAT",
@@ -6852,12 +7308,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "grunnire → grunyir: Palatalització de -nn- en -ny- i apòcope de -e final. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-194",
@@ -7062,8 +7519,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Evolució de ĭ breu tònica en e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -7072,12 +7552,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "nigram → negra: Evolució de ĭ breu tònica en e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-216",
@@ -7220,8 +7701,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Evolució de ĭ en e i palatalització de -nn- en -ny-."
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Evolució de ĭ en e i palatalització de -nn- en -ny-."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -7236,7 +7751,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -7257,7 +7772,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "pinnam → penya: Evolució de ĭ en e i palatalització de -nn- en -ny-. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-244",
@@ -7592,8 +8108,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Síncope de ŭ postònica."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -7602,12 +8141,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "regŭlam → regla: Síncope de ŭ postònica. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-270",
@@ -7623,10 +8163,33 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i simplificació de la geminada -tt-."
+        },
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              4,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i simplificació de la geminada -tt-."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -7647,7 +8210,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "sagitta → sageta: Obertura de ĭ en e i simplificació de la geminada -tt-. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-283",
@@ -7743,8 +8307,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i palatalització del grup -gn-."
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i palatalització del grup -gn-."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "PALAT / VOC / SIMPL",
@@ -7753,12 +8340,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "signa → senya: Obertura de ĭ en e i palatalització del grup -gn-. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-301",
@@ -8251,10 +8839,44 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e."
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -8275,7 +8897,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "picare → pegar: Obertura de ĭ en e, sonorització intervocàlica de c > g i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-433",
@@ -8441,8 +9064,53 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final."
+        },
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -8457,12 +9125,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "uiridem → verd: Obertura de ĭ tònica en e, síncope de la vocal postònica i apòcope final. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-508",
@@ -8616,15 +9285,16 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
+      "estadoPreexistente": "analisi_editorial_revisada",
       "leyesPreexistentes": [],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "fel → fel: No s'exigix cap de les lleis seleccionables; forma lèxica conservada. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-517",
@@ -8914,8 +9584,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "VOC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Vocalització de d intervocàlica en u i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Vocalització de d intervocàlica en u i apòcope de -e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -8930,12 +9634,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "pedem → peu: Vocalització de d intervocàlica en u i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-585",
@@ -9257,8 +9962,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització del grup -mn- en -ny- i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització del grup -mn- en -ny- i apòcope de -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -9279,7 +10018,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -9300,7 +10039,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "damnum → dany: Palatalització del grup -mn- en -ny- i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "xl-920",
@@ -10151,8 +10891,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ en o i sonorització intervocàlica de c > g."
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ en o i sonorització intervocàlica de c > g."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10161,12 +10935,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "urticam → ortiga: Obertura de ŭ en o i sonorització intervocàlica de c > g. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0331",
@@ -10621,15 +11396,39 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica a o i apòcope final de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica a o i apòcope final de -e."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "currere → córrer: Obertura de ŭ tònica a o i apòcope final de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0372",
@@ -10706,8 +11505,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ en o i apòcope de -e; el debilitament de b intervocàlica > v s'explica sense llei seleccionable."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              8,
+              9
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ en o i apòcope de -e; el debilitament de b intervocàlica > v s'explica sense llei seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "SIN_NORMA_B_V",
@@ -10716,12 +11538,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "gubernare → governar: Obertura de ŭ en o i apòcope de -e; el debilitament de b intervocàlica > v s'explica sense llei seleccionable. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0385",
@@ -10774,8 +11597,53 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de dues ĭ àtones en e i apòcope de -u."
+        },
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de dues ĭ àtones en e i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de dues ĭ àtones en e i apòcope de -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              7,
+              8
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10790,12 +11658,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "inimicum → enemic: Obertura de dues ĭ àtones en e i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0391",
@@ -10811,15 +11680,39 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ inicial en e i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ inicial en e i apòcope de -e."
+        }
+      ],
       "indicadoresParaAuditoria": [],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "intrare → entrar: Obertura de ĭ inicial en e i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0395",
@@ -10835,8 +11728,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització de l- inicial i obertura de ĭ en e."
+        },
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Palatalització de l- inicial i obertura de ĭ en e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10851,7 +11778,7 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
@@ -10872,7 +11799,8 @@
           "verificationLevel": "regla_historica_general_con_etimo_lexico_documentado",
           "completePhoneticAnalysis": false
         }
-      ]
+      ],
+      "analisisEditorial": "linguam → llengua: Palatalització de l- inicial i obertura de ĭ en e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0403",
@@ -10888,8 +11816,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10904,12 +11866,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "minorem → menor: Obertura de ĭ en e i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0404",
@@ -10925,8 +11888,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -u."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -u."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -10941,12 +11938,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "minutum → menut: Obertura de ĭ en e i apòcope de -u. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0405",
@@ -11213,8 +12211,42 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -e."
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ĭ en e i apòcope de -e."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -11229,12 +12261,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "timorem → temor: Obertura de ĭ en e i apòcope de -e. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0450",
@@ -11250,8 +12283,31 @@
           "date": "2026-11-13"
         }
       ],
-      "estadoPreexistente": "pendent",
-      "leyesPreexistentes": [],
+      "estadoPreexistente": "analisi_editorial_revisada",
+      "leyesPreexistentes": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null,
+          "note": "Obertura de ŭ tònica en o; -rr- es conserva en la grafia."
+        },
+        {
+          "rule": "FIX_M",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null,
+          "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+        }
+      ],
       "indicadoresParaAuditoria": [
         {
           "candidate": "FIX_M",
@@ -11260,12 +12316,13 @@
           "verified": false
         }
       ],
-      "estadoAuditoria": "preanalisis_estructural_sin_contraste_fonetico_individual",
+      "estadoAuditoria": "analisi_editorial_individual_sense_verificacio_normativa",
       "normasVerificadas": false,
       "comprobacionDNVIndividual": false,
       "aprobacionDocente": false,
       "aptoParaPractica": false,
-      "procesosContrastados": []
+      "procesosContrastados": [],
+      "analisisEditorial": "turrem → torre: Obertura de ŭ tònica en o; -rr- es conserva en la grafia. La -m final, si n'hi ha, és fixa i no seleccionable."
     },
     {
       "id": "ge-EVF-0548",
@@ -11961,5 +13018,5 @@
       "scope": "correspondencia léxica individual archivada en cada ficha"
     }
   ],
-  "scopeClarification": "Cobertura individual de 221 étimos: 98 análisis editoriales sin certificación integral y 123 dictámenes de reserva. Ver auditoria-cierre-123.json. Cerrar el inventario no significa autorizar fichas."
+  "scopeClarification": "Cobertura de 221 étimos: 132 análisis editoriales no certificados, 89 dictámenes con reserva. Ver auditoria-cierre-123.json (nombre histórico de fichero)."
 }
