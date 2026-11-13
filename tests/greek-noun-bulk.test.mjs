@@ -36,7 +36,8 @@ test('las entradas nuevas tienen 10 casillas, unitad curricular, género y proce
     .flatMap(c=>['singular','plural'].map(n=>c+':'+n)));
   for(const record of result.records){
     assert.ok([4,5,7,8,9,10].includes(record.unit));
-    assert.ok(['masculino','femenino','neutro'].includes(record.gender));
+    assert.ok(!record.gender||['masculino','femenino','neutro'].includes(record.gender));
+    assert.ok(record.evidence.genderEvidence);
     assert.ok(record.forms.length>=10,'Diez casillas y posibles variantes documentadas');
     assert.deepEqual(new Set(record.forms.map(f=>f.case+':'+f.number)),tags);
     assert.ok(record.forms.every(f=>f.form===f.form.normalize('NFC')));
@@ -50,7 +51,7 @@ test('las entradas nuevas tienen 10 casillas, unitad curricular, género y proce
   assert.ok(result.records.some(r=>r.paradigm.includes('βιβλίον')));
   assert.ok(result.records.some(r=>r.paradigm.includes('ἀγορά')));
   assert.ok(result.records.some(r=>r.paradigm.includes('ναύτης')));
-  assert.ok(!result.records.some(r=>r.paradigm.includes('ἄνθρωπος')));
+  assert.ok(result.records.some(r=>r.paradigm.includes('ἄνθρωπος')&&!r.gender));
   assert.ok(result.records.some(r=>r.evidence.genderEvidence),
     'El género conserva trazabilidad de la evidencia lexicográfica');
 });
@@ -61,13 +62,14 @@ test('la selección de unidad y los sintagmas mantienen coherencia',()=>{
   const at5=availableRecords(bank,{language:'griego',unit:5,kind:'sustantivo'});
   const at7=availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'});
   assert.ok(at4.length>4&&at5.length>=at4.length&&at7.length>at5.length);
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,at7.length*3);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,
+    at7.filter(r=>r.gender).length*3);
   assert.ok(!at7.some(r=>r.paradigm.includes('πατρίς')||r.paradigm.includes('σῶμα')));
   const at8=availableRecords(bank,{language:'griego',unit:8,kind:'sustantivo'});
   assert.ok(at8.length>at7.length,'Los nombres de tercera consonántica entran en UD8');
   assert.ok(!at7.some(r=>r.evidence.topic==='Tercera declinación: consonantes'));
   assert.ok(at8.some(r=>r.evidence.topic==='Tercera declinación: consonantes'));
-  assert.ok(!at8.some(r=>r.paradigm.includes('ἄνθρωπος')));
+  assert.ok(at8.some(r=>r.paradigm.includes('ἄνθρωπος')&&!r.gender));
 });
 
 test('al alterar datos faltantes, no se habilita una ficha inferida',()=>{
