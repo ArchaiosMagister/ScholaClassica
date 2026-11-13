@@ -2,11 +2,11 @@
   "schema": "schola-evolutio-va-review215/v1",
   "date": "2026-11-13",
   "scope": "Las 215 propuestas originales de la primera conciliación, por orden e identidad del étimo.",
-  "method": "41 artículos con lema y etimología contrastados directamente en DCVB; 174 siguen pendientes. No hay validación DNV ni leyes fonéticas revisadas en este lote.",
+  "method": "100 artículos con lema y etimología cotejados directamente con DCVB, 115 pendientes. La validación DNV y las leyes fonéticas de este lote siguen sin acreditarse; ningún nuevo ejercicio se habilita.",
   "summary": {
     "total": 215,
-    "documentadasIndividualmente": 41,
-    "pendientes": 174,
+    "documentadasIndividualmente": 100,
+    "pendientes": 115,
     "autorizadasParaPractica": 0
   },
   "records": [
@@ -68,13 +68,19 @@
       "ordinal": 4,
       "latin": "comitem",
       "form": "comte",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comte",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 5,
@@ -158,13 +164,19 @@
       "ordinal": 10,
       "latin": "maium",
       "form": "maig",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=maig",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "El sustantivo maig puede exigir matices de origen.",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": null,
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 11,
@@ -182,13 +194,19 @@
       "ordinal": 12,
       "latin": "multum",
       "form": "molt",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=molt",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 13,
@@ -212,13 +230,19 @@
       "ordinal": 14,
       "latin": "pœnam",
       "form": "pena",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pena",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "Posible latinismo frente a evolución popular; confirmar transmisión.",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "La acepción de castigo procede de poena, distinta de los homógrafos pena procedentes de otros étimos.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 15,
@@ -380,37 +404,55 @@
       "ordinal": 24,
       "latin": "tonare",
       "form": "tronar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "El DCVB señala una r añadida por influencia de tro: tonare → tronar no es un cambio fonético regular directo.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 25,
       "latin": "crustam",
       "form": "crosta",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=crosta",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Variación histórica del timbre de la vocal tónica; comprobar la influencia analógica reseñada en DCVB.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 26,
       "latin": "thesaurum",
       "form": "tresor",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tresor",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 27,
@@ -428,13 +470,19 @@
       "ordinal": 28,
       "latin": "asĭnum",
       "form": "ase",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ase",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 29,
@@ -500,49 +548,73 @@
       "ordinal": 33,
       "latin": "cæcum",
       "form": "cec",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cec",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 34,
       "latin": "calĕntem",
       "form": "calent",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=calent",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 35,
       "latin": "cannam",
       "form": "canya",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=canya",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 36,
       "latin": "capere",
       "form": "cabre",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "Cabre existe; comprobar etapas históricas desde capere.",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": null,
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 37,
@@ -566,61 +638,91 @@
       "ordinal": 38,
       "latin": "causam",
       "form": "cosa",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cosa",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 39,
       "latin": "chŏrdam",
       "form": "corda",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corda",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 40,
       "latin": "clamare",
       "form": "clamar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=clamar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 41,
       "latin": "compărāre",
       "form": "comprar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comprar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "El DCVB remite a la variante latina vulgar compĕrāre de comparare; conservar la mediación.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 42,
       "latin": "consilium",
       "form": "consell",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=consell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 43,
@@ -656,13 +758,19 @@
       "ordinal": 45,
       "latin": "cupam",
       "form": "cuba",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cuba",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "La acepción de barril cubà/cuba procede de cūpa (CUBA 1), no de la entrada homógrafa de procedencia árabe.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 46,
@@ -692,13 +800,19 @@
       "ordinal": 48,
       "latin": "fĕbrem",
       "form": "febre",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=febre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 49,
@@ -722,25 +836,37 @@
       "ordinal": 50,
       "latin": "grŏssum",
       "form": "gros",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gros",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 51,
       "latin": "hĕrbam",
       "form": "herba",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=herba",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 52,
@@ -764,25 +890,37 @@
       "ordinal": 53,
       "latin": "insŭlam",
       "form": "illa",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=illa",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "La forma patrimonial illa se diferencia de isla, que refleja influencia castellana.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 54,
       "latin": "latrare",
       "form": "lladrar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lladrar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "LLADRAR 1 'ladrar' deriva de latrare; no confundir con LLADRAR 2 'robar', derivado de lladre.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 55,
@@ -818,13 +956,19 @@
       "ordinal": 57,
       "latin": "legere",
       "form": "llegir",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 58,
@@ -848,13 +992,19 @@
       "ordinal": 59,
       "latin": "littĕram",
       "form": "lletra",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lletra",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 60,
@@ -884,13 +1034,19 @@
       "ordinal": 62,
       "latin": "maurum",
       "form": "moro",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=moro",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Acepción de moro 'persona de origen norteafricano', procedente de mauru; separar homógrafos.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 63,
@@ -908,13 +1064,19 @@
       "ordinal": 64,
       "latin": "milium",
       "form": "mill",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mill",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "Comprobar mill en la acepción del cereal, no mille numeral.",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Mill cereal, del latín mīlĭu; no confundir con homógrafos de numeral.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 65,
@@ -932,25 +1094,37 @@
       "ordinal": 66,
       "latin": "ouicŭlam",
       "form": "ovella",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ovella",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Ovella procede de ovĭcŭla; el DCVB recoge la variante dialectal avoia por otra base vulgar.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 67,
       "latin": "pannum",
       "form": "pany",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pany",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "Comprobar la historia de pannum > pany y homonimia de pany.",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Pany procede de pannu con desplazamiento semántico; seleccionar acepción y no otros homógrafos.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 68,
@@ -974,61 +1148,91 @@
       "ordinal": 69,
       "latin": "nominare",
       "form": "nomenar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nomenar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Nomenar documentado con nomĭnāre; la forma anomenar es usual en numerosas acepciones modernas.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 70,
       "latin": "salutem",
       "form": "salut",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=salut",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 71,
       "latin": "saporem",
       "form": "sabor",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sabor",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 72,
       "latin": "semper",
       "form": "sempre",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sempre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 73,
       "latin": "senatum",
       "form": "senat",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senat",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "DCVB dice 'pres del llatí senātus': préstamo culto, no evolución patrimonial; no incorporar automáticamente a práctica fonética patrimonial.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 74,
@@ -1082,13 +1286,19 @@
       "ordinal": 78,
       "latin": "guttam",
       "form": "gota",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gota",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 79,
@@ -1106,25 +1316,37 @@
       "ordinal": 80,
       "latin": "putare",
       "form": "podar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=podar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 81,
       "latin": "siccum",
       "form": "sec",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sec",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Sec de sĭccu en acepción adjetival, no homógrafo acentuado séc.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 82,
@@ -1142,49 +1364,73 @@
       "ordinal": 83,
       "latin": "surdum",
       "form": "sord",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sord",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 84,
       "latin": "iuncum",
       "form": "jonc",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jonc",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 85,
       "latin": "formicam",
       "form": "formiga",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=formiga",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 86,
       "latin": "molam",
       "form": "mola",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mola",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Mola 'piedra de moler' de mŏla; otros sentidos remiten a otra base latina.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 87,
@@ -1208,25 +1454,37 @@
       "ordinal": 88,
       "latin": "dictum",
       "form": "dit",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dit",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "El DCVB remite a una fase vulgar *dīctu por analogía verbal: no atribuir directamente una cadena regular desde dĭctu sin mediación.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 89,
       "latin": "mensuram",
       "form": "mesura",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mesura",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 90,
@@ -1244,25 +1502,37 @@
       "ordinal": 91,
       "latin": "pensare",
       "form": "pesar",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pesar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 92,
       "latin": "leguminem",
       "form": "llegum",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegum",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 93,
@@ -1292,49 +1562,73 @@
       "ordinal": 95,
       "latin": "cŏrium",
       "form": "cuir",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cuir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "CUIR 1 piel de cŏrĭu, no homógrafo verbal CUIR 2.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 96,
       "latin": "cŏrnu",
       "form": "corn",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corn",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Corn 'cuerno' desde cŏrnu; distinguir otros significados botánicos.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 97,
       "latin": "cŏrpus",
       "form": "cos",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cos",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Cos 'cuerpo', frente a cós 'curso/carrera' de otro origen.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 98,
       "latin": "dŏmĭnam",
       "form": "dona",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dona",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 99,
@@ -1370,25 +1664,37 @@
       "ordinal": 101,
       "latin": "fumum",
       "form": "fum",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fum",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 102,
       "latin": "fundum",
       "form": "fons",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fons",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Fons 1 'fondo' de fundus, distinto de otros homógrafos fons.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 103,
@@ -1406,13 +1712,19 @@
       "ordinal": 104,
       "latin": "grunnire",
       "form": "grunyir",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=grunyir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 105,
@@ -1454,13 +1766,19 @@
       "ordinal": 108,
       "latin": "mulierem",
       "form": "muller",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=muller",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 109,
@@ -1478,13 +1796,19 @@
       "ordinal": 110,
       "latin": "nomĭnem",
       "form": "nom",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nom",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 111,
@@ -1532,61 +1856,91 @@
       "ordinal": 114,
       "latin": "podium",
       "form": "puig",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puig",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "El descendiente puig implica evolución histórica compleja; verificar acepción y cadena.",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Puig deriva de pŏdĭu a través de desplazamiento semántico vulgar 'pedestal' > elevación.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 115,
       "latin": "pŏpŭlum",
       "form": "poble",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poble",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 116,
       "latin": "pretium",
       "form": "preu",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=preu",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 117,
       "latin": "pugnum",
       "form": "puny",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puny",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
       "reviewNote": null,
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 118,
       "latin": "pullum",
       "form": "poll",
-      "status": "contrast_individual_pendent",
-      "source": null,
+      "status": "etimologia_i_lema_DCVB_confirmats",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poll",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
       "dnvChecked": false,
       "phoneticLawsVerified": false,
       "eligibleForPractice": false,
-      "reviewNote": "Distinguir poll 'pollo' y poll 'piojo' en etimología.",
-      "nextAction": "Contrastar entrada y etimología exacta con DCVB y DNV."
+      "reviewNote": "Poll 1 'pollo' procede de pŭllu, no poll 'piojo' ni 'álamo'.",
+      "nextAction": "Verificar DNV, transmisión histórica y las normas valencianas por tramos."
     },
     {
       "ordinal": 119,
