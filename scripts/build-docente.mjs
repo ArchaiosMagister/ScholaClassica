@@ -63,6 +63,7 @@ if(!/^https:\/\/[a-z0-9.-]+(?:\/[A-Za-z0-9/_-]*)?\/?$/i.test(portalUrl))throw Er
 await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 await cp(join(root,'public/style.css'),join(output,'portal.css'));
+await cp(join(root,'public/theme.js'),join(output,'theme.js'));
 await cp(join(root,'public/docente/style.css'),join(output,'style.css'));
 await cp(join(root,'public/docente/app.mjs'),join(output,'app.mjs'));
 if(enabled){
@@ -73,6 +74,7 @@ let html=await readFile(join(root,'public/docente/index.html'),'utf8');
 if(!html.includes('href="../style.css"')||!html.includes('href="../index.html"'))
   throw Error('Cambió la estructura del HTML docente');
 html=html.replace('href="../style.css"','href="./portal.css"')
+  .replace('src="../theme.js"','src="./theme.js"')
   .replaceAll('href="../index.html"','href="'+portalUrl+'"');
 const connect=authOrigin||'';
 const csp=[
