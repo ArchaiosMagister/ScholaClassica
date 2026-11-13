@@ -1,5 +1,4 @@
 /* Glosario: hereda todos los temas de Etymologicon; no altera la práctica. */
-.study-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .lexicon-tools{margin-bottom:22px}
 .lexicon-controls{display:grid;grid-template-columns:minmax(230px,2fr) repeat(3,minmax(145px,1fr));gap:12px 18px}
 .lexicon-controls .field{margin:0}
@@ -13,7 +12,7 @@
 .lexicon-group[open]{border-color:var(--field-border)}
 .lexicon-group-summary{display:grid;grid-template-columns:minmax(130px,1fr) minmax(130px,2fr) auto;align-items:center;column-gap:20px;row-gap:3px;cursor:pointer;padding:16px 20px 16px 36px;list-style:revert}
 .lexicon-group-summary:hover{background:var(--bg)}
-.lexicon-greek{font:700 clamp(1.1rem,2vw,1.4rem) Georgia,"Times New Roman",serif;color:var(--ink)}
+ .lexicon-greek{font:700 clamp(1.1rem,2vw,1.4rem) var(--greek-typeface);color:var(--ink)}
 .lexicon-meaning{color:var(--muted);line-height:1.38}
 .lexicon-units{grid-column:1/3;color:var(--muted);font-size:.78rem;font-weight:680}
 .lexicon-group-count{grid-row:1/3;grid-column:3;font-size:.8rem;white-space:nowrap;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:4px 9px}
@@ -25,7 +24,7 @@
 .lexical-components{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:7px 0 12px}
 .lexical-component{display:inline-flex;gap:7px;align-items:center;flex-wrap:wrap;max-width:100%;border:1px solid var(--line);border-radius:8px;padding:6px 9px;background:var(--panel)}
 .lexical-component--external{border-style:dashed}
-.component-greek{font:700 1.12rem Georgia,"Times New Roman",serif;color:var(--ink)}
+.component-greek{font:700 1.12rem var(--greek-typeface);color:var(--ink)}
 .component-gloss{font-size:.87rem;color:var(--muted)}
 .component-plus{font-weight:750;color:var(--muted)}
 .component-tag{color:var(--warning);font-size:.68rem;font-weight:760}
@@ -48,5 +47,4 @@
   .lexicon-units{grid-column:1;grid-row:3}.lexicon-group-count{grid-column:2;grid-row:1/4}
   .lexicon-word-list{padding:8px}.lexical-word{padding:14px 12px}
   .lexicon-practice-link{margin-left:0}
-  .study-nav{gap:10px}
 }
