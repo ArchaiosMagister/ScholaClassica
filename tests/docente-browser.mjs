@@ -20,6 +20,17 @@ const base='http://127.0.0.1:'+server.address().port;
 let browser;
 const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',username:'MagisterArchaios',setupOnly:false};
 const install=async(page,allow=true,setupOnly=false)=>{
+  await page.route('**/functions/v1/schola-palabra-inbox',route=>
+    route.fulfill({
+      status:allow?200:403,contentType:'application/json',
+      headers:{'access-control-allow-origin':'*'},
+      body:JSON.stringify(allow
+        ?{authorized:true,source:'palabra',items:[{source:'palabra',title:'etimología',
+          course:'1.º Bachillerato',summary:'Definición propuesta',
+          created_at:'2026-11-12T11:00:00Z'}]}
+        :{error:'Acceso no autorizado'})
+    })
+  );
   await page.route('**/docente/auth-config.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...config,setupOnly})}));
   await page.addInitScript((allow)=>{
     const mock={session:false,aal:'aal1',factor:false,allow};
