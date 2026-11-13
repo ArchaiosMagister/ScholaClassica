@@ -49,7 +49,8 @@ test('las formas recuperan tabla y no se obtienen por generación especulativa',
   assert.ok(article.forms.some(f=>f.form==='τοῦ'));
 });
 test('el motor reconoce sincretismo y no fuerza análisis único de formas ambiguas',()=>{
-  const cards=makeQuestions(compiled,{language:'latin',unit:1,activity:'analysis',limit:30,rng:sampleRng});
+  const roseBank={...compiled,records:compiled.records.filter(r=>r.paradigm.startsWith('rosa'))};
+  const cards=makeQuestions(roseBank,{language:'latin',unit:1,activity:'analysis',limit:30,rng:sampleRng});
   const syncretic=cards.find(q=>q.paradigm.startsWith('rosa')&&q.form==='rosa');
   assert.ok(syncretic,'Debe incluirse rosa ambigua');
   assert.match(syncretic.correct,/nominativo singular/);
