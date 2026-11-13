@@ -34,7 +34,7 @@ test('las entradas nuevas tienen 10 casillas, unitad curricular, género y proce
   const tags=new Set(['nominativo','vocativo','acusativo','genitivo','dativo']
     .flatMap(c=>['singular','plural'].map(n=>c+':'+n)));
   for(const record of result.records){
-    assert.ok([4,5,7].includes(record.unit));
+    assert.ok([4,5,7,8,9,10].includes(record.unit));
     assert.ok(['masculino','femenino','neutro'].includes(record.gender));
     assert.equal(record.forms.length,10);
     assert.deepEqual(new Set(record.forms.map(f=>f.case+':'+f.number)),tags);
@@ -60,6 +60,11 @@ test('la selección de unidad y los sintagmas mantienen coherencia',()=>{
   assert.ok(at4.length>4&&at5.length>=at4.length&&at7.length>at5.length);
   assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,at7.length*3);
   assert.ok(!at7.some(r=>r.paradigm.includes('πατρίς')||r.paradigm.includes('σῶμα')));
+  const at8=availableRecords(bank,{language:'griego',unit:8,kind:'sustantivo'});
+  assert.ok(at8.length>at7.length,'Los nombres de tercera consonántica entran en UD8');
+  assert.ok(!at7.some(r=>r.evidence.topic==='Tercera declinación: consonantes'));
+  assert.ok(at8.some(r=>r.evidence.topic==='Tercera declinación: consonantes'));
+  assert.ok(!at8.some(r=>r.paradigm.includes('ἄνθρωπος')));
 });
 
 test('al alterar datos faltantes, no se habilita una ficha inferida',()=>{
