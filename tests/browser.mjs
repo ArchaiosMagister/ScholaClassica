@@ -46,6 +46,7 @@ try{
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});
+  await page.waitForFunction(()=>document.documentElement.dataset.theme==='light',null,{timeout:7000});
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   assert.equal(await page.evaluate(()=>localStorage.getItem('scholaclassica-aspecto-v1')),'system');
   // Palabra del día: enlace externo seguro, sin compartir cuentas ni cachés.
