@@ -4,7 +4,7 @@ const input={subject:$('subject'),unit:$('unit'),activity:$('activity'),kind:$('
 const session=$('session'),summary=$('summary');
 let bank=null,questions=[],position=0,score=0,answered=false;
 const grammaticalName=kind=>({sustantivo:'Sustantivos',verbo:'Verbos',
-  desinencia:'Desinencias',artículo:'Artículo'})[kind]||kind;
+  desinencia:'Desinencias',artículo:'Artículo',adjetivo:'Adjetivos'})[kind]||kind;
 function theme(){
   let preference='system';
   try{preference=localStorage.getItem('scholaclassica-aspecto-v1')||'system'}catch{}
@@ -23,21 +23,31 @@ function updateFilters(){
   input.unit.replaceChildren();
   coverage.forEach(unit=>option(input.unit,String(unit),'UD'+unit));
   input.unit.value=coverage.includes(old)?String(old):String(coverage[0]);
+  updateActivities();
+}
+function updateActivities(){
+  if(!bank)return;
+  const canAgree=input.subject.value==='griego'&&Number(input.unit.value)>=5;
+  const option=input.activity.querySelector('option[value="agreement"]');
+  if(option){option.hidden=!canAgree;option.disabled=!canAgree}
+  if(!canAgree&&input.activity.value==='agreement')input.activity.value='form';
   updateKinds();
 }
 function updateKinds(){
   if(!bank)return;
   const language=input.subject.value,unit=Number(input.unit.value);
   const records=availableRecords(bank,{language,unit});
-  const kinds=[...new Set(records.map(record=>record.kind))];
+  const isAgreement=input.activity.value==='agreement';
+  const kinds=isAgreement?['adjetivo']:[...new Set(records.map(record=>record.kind))];
   const selected=input.kind.value;
   input.kind.replaceChildren();
-  option(input.kind,'todos','Todas las categorías disponibles');
+  if(!isAgreement)option(input.kind,'todos','Todas las categorías disponibles');
   kinds.forEach(kind=>option(input.kind,kind,grammaticalName(kind)));
-  input.kind.value=kinds.includes(selected)?selected:'todos';
+  input.kind.value=isAgreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
   $('coverage').textContent=COURSE_LABELS[language]+': se incluyen únicamente los paradigmas de UD1 a UD'+unit+
     ' presentes en las tablas curriculares ('+records.length+' paradigmas). '+
-    'Las unidades posteriores a '+bank.coverage[language].at(-1)+' siguen en revisión.';
+    'Las unidades posteriores a '+bank.coverage[language].at(-1)+' siguen en revisión.'+
+    (language==='griego'&&unit===4?' UD4 no añade nuevos paradigmas a este módulo.':'');
 }
 function showQuestion(){
   const q=questions[position];
@@ -106,7 +116,8 @@ $('new').addEventListener('click',()=>{
 });
 $('next').addEventListener('click',()=>{if(answered){position++;showQuestion()}});
 input.subject.addEventListener('change',updateFilters);
-input.unit.addEventListener('change',updateKinds);
+input.unit.addEventListener('change',updateActivities);
+input.activity.addEventListener('change',updateKinds);
 async function initialize(){
   try{
     const response=await fetch('./data/paradigmas.json');
