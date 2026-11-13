@@ -14,6 +14,7 @@ export function createDecompositionController({data,etymons,commitProgress}){
     keyboard:$('decomposition-keyboard'),clear:$('decomposition-clear'),
     results:$('decomposition-results'),score:$('decomposition-score'),
     answers:$('decomposition-answers'),meaning:$('decomposition-meaning'),
+    meaningCard:$('decomposition-meaning-card'),
     route:$('decomposition-route'),source:$('decomposition-source'),
     empty:$('decomposition-empty')
   };
@@ -23,10 +24,11 @@ export function createDecompositionController({data,etymons,commitProgress}){
     field.addEventListener('input',()=>{
       graded=false;
       els.results.hidden=true;
+      els.meaningCard.hidden=true;
       showPreview(field);
     });
   }
-  attachGreekKeyboard(els.keyboard,()=>focused,()=>active&&Boolean(item));
+  attachGreekKeyboard(els.keyboard,()=>focused,()=>active&&Boolean(item),[els.first,els.second]);
   function showPreview(field){
     const target=field===els.first?els.previewFirst:els.previewSecond;
     const value=bank.read(field.value);
@@ -41,6 +43,7 @@ export function createDecompositionController({data,etymons,commitProgress}){
     els.previewFirst.textContent='Griego: —';
     els.previewSecond.textContent='Griego: —';
     els.results.hidden=true;
+    els.meaningCard.hidden=true;
     els.answers.replaceChildren();
     graded=false;
     if(focus)els.first.focus();
@@ -68,7 +71,8 @@ export function createDecompositionController({data,etymons,commitProgress}){
       els.answers.append(li);
     });
     els.score.textContent='Descomposición: '+response.total+' / 2 puntos.';
-    els.meaning.textContent='Significado de la palabra: '+item.meaning;
+    els.meaning.textContent=item.meaning;
+    els.meaningCard.hidden=response.total!==2;
     els.route.textContent=item.evidence.editorialNote;
     els.source.href=item.evidence.url;
     els.results.hidden=false;
