@@ -329,19 +329,52 @@ export async function buildMorphology({out,lock}){
     ...latinSource,vocabulaData:sourceData.vocabulaData,
     vocabulaSha:lock.sources.vocabula.sha,existingRecords:data.records
   });
+  // Segunda pasada: lemas del banco docente ausentes en el subconjunto
+  // Vocabula, contrastados con los repositorios OFICIALES completos de
+  // UniMorph. No se suman filas de lemas ya conciliados, evitando mezclar
+  // homónimos o formas dialectales de un mismo lema.
+  const extraGreek=compileGreekNounExpansion({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    vocabulaData:sourceData.vocabulaData,
+    unimorphParts:[fullSource.greekRows,...Array.from({length:7},()=>[])],
+    vocabulaSha:lock.sources.vocabula.sha,
+    existingRecords:[...greekNouns,...bulk.records,...bulk.staged]
+  });
+  const extraLatin=compileLatinNounExpansion({
+    curriculum:JSON.parse(await readFile(path,'utf8')),
+    vocabulaData:sourceData.vocabulaData,
+    latinParts:[fullSource.latinRows,...Array.from({length:31},()=>[])],
+    vocabulaSha:lock.sources.vocabula.sha,
+    existingRecords:[...data.records,...latin.records]
+  });
+  // Las fuentes griega y latina completas son suplementarias y nunca
+  // alteran las fichas ya superadas por la primera fuente fija.
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
-    records:[...data.records,...greekNouns,...bulk.records,...latin.records]};
-  assert.equal(finalBank.records.length,92+bulk.records.length+latin.records.length);
+    records:[...data.records,...greekNouns,...bulk.records,...latin.records,
+      ...extraGreek.records,...extraLatin.records]};
+  assert.equal(finalBank.records.length,92+bulk.records.length+latin.records.length+
+    extraGreek.records.length+extraLatin.records.length);
   assert.equal(new Set(finalBank.records.map(record=>record.id)).size,finalBank.records.length);
   assert.ok(bulk.records.length>=10,'Expansión griega inusualmente pequeña: revisar fuentes');
   assert.ok(latin.records.length>=10,'Expansión latina inusualmente pequeña: revisar fuentes');
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
+  const fullSupplement={
+    schema:'schola-nominal-full-supplement/v1',
+    sources:{griego:lock.sources.unimorphGrc.sha,latin:lock.sources.unimorphLat.sha},
+    imported:{greek:extraGreek.records.length,latin:extraLatin.records.length},
+    raw:{greek:extraGreek.audit,latin:extraLatin.audit},
+    greek:extraGreek.records.map(r=>({id:r.id,lemma:r.paradigm,
+      unit:r.unit,forms:r.forms.length})),
+    latin:extraLatin.records.map(r=>({id:r.id,lemma:r.paradigm,
+      unit:r.unit,forms:r.forms.length}))};
   // Catálogo completo de candidaturas, también las pendientes; se archiva
   // fuera de dist para no publicar como válidas formas todavía sin contraste.
   const auditDir=join(root,'build/morfologia');
   await mkdir(auditDir,{recursive:true});
+  await writeFile(join(auditDir,'lote-unimorph-completo.json'),
+    JSON.stringify(fullSupplement,null,2)+'\n');
   await writeFile(join(auditDir,'auditoria-unimorph-original.json'),
     JSON.stringify({schema:'schola-unimorph-full-audit/v1',
       ...fullSource.audit},null,2)+'\n');
@@ -385,6 +418,8 @@ export async function buildMorphology({out,lock}){
   });
   await writeFile(join(auditDir,'contraste-nominal-secundario.json'),
     JSON.stringify(secondary,null,2)+'\n');
+  console.log('UniMorph completo: nuevos sustantivos griegos '+extraGreek.records.length+
+    ' y latinos '+extraLatin.records.length+' (sin repetir corpus original)');
   console.log('Morfología: '+finalBank.records.length+' paradigmas; '+
     (8+bulk.records.length)+' sustantivos griegos y '+latin.records.length+
     ' latinos añadidos; pendientes griego '+bulk.review.length+
