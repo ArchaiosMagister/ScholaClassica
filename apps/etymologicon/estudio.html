@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Glosario etimológico de Griego I: étimos griegos, derivados castellanos, significados y formación léxica.">
+  <meta name="theme-color" content="#172e49">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Etymologicon">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./estudio.css">
+  <script type="module" src="./estudio.mjs"></script>
+  <title>Estudio del léxico · Etymologicon</title>
+</head>
+<body>
+<a class="skip-link" href="#lista-etimos">Saltar al glosario</a>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-lockup">
+      <span class="brand-mark" aria-hidden="true">Ε</span>
+      <span class="brand-type">Etymologicon <small>Estudio del léxico · Griego I</small></span>
+    </div>
+    <nav class="study-nav" aria-label="Navegación">
+      <a href="./index.html">Practicar</a>
+      <a href="../../index.html">ScholaClassica</a>
+    </nav>
+  </div>
+</header>
+<main class="shell">
+  <section class="intro">
+    <p class="eyebrow">Griego I · familias de palabras</p>
+    <h1>Estudia los derivados por étimo</h1>
+    <p>Consulta el significado de cada palabra castellana y descubre cómo se relaciona con sus componentes griegos. Si un derivado tiene varias bases, se muestran juntas, aunque una no pertenezca todavía al programa.</p>
+    <p class="preview-note">Esta consulta no puntúa ni modifica tu progreso. Las definiciones son redacciones didácticas propias: el enlace al DLE permite profundizar y se distingue de una verificación individual ya realizada.</p>
+  </section>
+  <section class="panel lexicon-tools" aria-label="Filtros del glosario">
+    <div class="lexicon-controls">
+      <div class="field">
+        <label for="study-search">Buscar étimo, derivado o significado</label>
+        <input id="study-search" type="search" placeholder="Ej.: filosofía, ἄνθρωπος, sangre…" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="study-unit">Unidades</label>
+        <select id="study-unit"><option value="all">Todas · Griego I</option></select>
+      </div>
+      <div class="field">
+        <label for="study-sort">Orden</label>
+        <select id="study-sort">
+          <option value="curriculum">Por unidad de introducción</option>
+          <option value="alphabetical">Alfabético griego</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="study-theme">Aspecto</label>
+        <select id="study-theme">
+          <option value="auto">Automático</option><option value="light">Claro</option>
+          <option value="dark">Oscuro</option><option value="oled">OLED</option>
+        </select>
+      </div>
+    </div>
+    <div class="lexicon-actions">
+      <button type="button" id="study-expand" class="secondary-button">Desplegar visibles</button>
+      <button type="button" id="study-collapse" class="secondary-button">Contraer todos</button>
+      <a class="lexicon-practice-link" href="./index.html">Ir a practicar</a>
+    </div>
+    <p id="study-count" class="counter" role="status" aria-live="polite">Preparando el glosario…</p>
+  </section>
+  <section class="lexicon-results" id="lista-etimos" aria-label="Étimos griegos y derivados castellanos">
+    <p id="study-loading" role="status">Cargando el banco académico…</p>
+    <p id="study-error" class="load-error" role="alert" hidden>No se ha podido cargar el glosario. Comprueba la conexión y vuelve a intentarlo.</p>
+    <div id="study-entries" class="lexicon-groups"></div>
+    <p id="study-empty" class="empty-practice" hidden>No se han encontrado resultados. Prueba con otra palabra o unidad.</p>
+  </section>
+  <section class="panel lexicon-method" aria-labelledby="method-title">
+    <h2 id="method-title">Cómo interpretar las fichas</h2>
+    <p><strong>Derivado:</strong> voz española con una definición didáctica propia. <strong>Componentes:</strong> lemas griegos que intervienen en su formación, cuando se conocen. El significado actual no tiene por qué equivaler exactamente a la suma de los componentes antiguos.</p>
+    <p>Los elementos señalados como «complementario» sirven para entender la composición, pero no añaden étimos al temario ni se habilitan para los ejercicios autocorregibles. Los nombres propios excluidos de la práctica siguen excluidos.</p>
+    <p>Las definiciones de la auditoría docente y de los materiales aportados se ofrecen para estudiar. Solo se indica «DLE contrastado» cuando se consultó individualmente el artículo; un simple enlace al diccionario no acredita por sí solo esa revisión.</p>
+  </section>
+</main>
+<footer class="footer"><span>Etymologicon · Griego I</span><span>ScholaClassica · Glosario offline</span></footer>
+</body>
+</html>
