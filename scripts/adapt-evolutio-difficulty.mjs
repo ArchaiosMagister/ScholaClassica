@@ -23,7 +23,7 @@ export async function adaptEvolutioDifficulty({root,target}){
  if(start<0||end<=start||original.split(oldImport).length!==2)
   throw new Error('Evolutio cambió la interfaz del motor de dificultad: revisar adaptación');
  let patched=original.slice(0,start)
-  +"export const difficultyScore=resultDifficultyScore;\\nexport const proposedDifficultyLevel=resultDifficultyLevel;\\n"
+  +"export const difficultyScore=resultDifficultyScore;\nexport const proposedDifficultyLevel=resultDifficultyLevel;\n"
   +original.slice(end);
  patched=patched.replace(oldImport,
   "import {resultDifficultyScore,resultDifficultyLevel} from './result-difficulty.mjs';");
@@ -47,11 +47,11 @@ export async function adaptEvolutioDifficulty({root,target}){
   if(previous.origin==='docente'&&(record.level!==previous.level||record.origin!=='docente'))
    throw new Error('Se alteró una decisión docente de dificultad: '+word.id);
  }
- await writeFile(difficultyPath,JSON.stringify(next,null,2)+'\\n');
+ await writeFile(difficultyPath,JSON.stringify(next,null,2)+'\n');
  let app=await readFile(appPath,'utf8');
- const helperOld=`  <p class="helper">${levels.size===0?'No hay niveles seleccionados.': 'Selecciona uno o varios niveles; la ✓ indica cuáles están activos.'}</p>`;
+ const helperOld="  <p class=\"helper\">${levels.size===0?'No hay niveles seleccionados.': 'Selecciona uno o varios niveles; la ✓ indica cuáles están activos.'}</p>";
  const helperNew=helperOld+
-  '\\n  <p class="helper">La dificultad refleja sobre todo cuánto cuesta deducir el resultado castellano; el número de normas influye menos.</p>';
+  '\n  <p class="helper">La dificultad refleja sobre todo cuánto cuesta deducir el resultado castellano; el número de normas influye menos.</p>';
  if(app.split(helperOld).length!==2)
   throw new Error('Evolutio cambió el selector de dificultad: revisar explicación pedagógica');
  app=app.replace(helperOld,helperNew);
