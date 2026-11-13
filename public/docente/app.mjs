@@ -2,8 +2,8 @@
 // Nunca se almacenan aquí contraseñas, claves privilegiadas ni datos de alumnos.
 const el=id=>document.getElementById(id);
 const sections=['unavailable','login','enroll','verify','teacher'];
-const CLIENT_VERSION='2.119.0';
-const SCRIPT_URL='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@'+CLIENT_VERSION;
+// El bundle local se verifica por SHA-256 en el build docente.
+const SCRIPT_URL='./vendor/supabase.js';
 const CAPTCHA_URL='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 let config,client,enrollment=null,busy=false,captchaId=null;
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
