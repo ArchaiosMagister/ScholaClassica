@@ -37,7 +37,7 @@ test('Evolutio conserva todo el motor y banco, salvo la adaptación aislada del 
   assert.match(sw,/const CACHE_PREFIX='schola-evolutio-';/);
   assert.match(sw,/keys\.filter\(key=>key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION\)/);
 });
-test('Etymologicon se construye con su pantalla, corrector y banco reducido, sin publicar material docente interno',()=>{
+test('Etymologicon se construye con su pantalla, corrector y banco ampliado y cerrado, sin publicar material docente interno',()=>{
   const dir=join(out,'apps/etymologicon');
   for(const file of ['index.html','style.css','app.mjs','study.mjs','activities-ui.mjs','quiz.mjs','quiz-ui.mjs','decomposition.mjs','decomposition-ui.mjs','greek-keyboard.mjs','corrector/write-two.mjs','data/gr1.json',
     'manifest.webmanifest','sw.js','icons/icon.svg','icons/icon-192.png','icons/icon-512.png',
@@ -47,8 +47,9 @@ test('Etymologicon se construye con su pantalla, corrector y banco reducido, sin
   assert.equal(learner.schema,'etymologicon-audited-catalog/v1');
   assert.equal(learner.course,'gr1');
   assert.equal(learner.etymons.length,111);
-  assert.equal(learner.derivatives.length,201);
-  assert.equal(learner.relations.length,217);
+  assert.ok(learner.extension&&learner.extension.newDerivatives>=100);
+  assert.equal(learner.derivatives.length,201+learner.extension.newDerivatives);
+  assert.equal(learner.relations.length,217+learner.extension.newRelations);
   assert.equal(learner.etymons.filter(x=>x.editorialStatus==='approved_for_documented_derivatives').length,108);
   assert.ok(!('editorialDecisions' in learner));
   assert.ok(!('definitions' in learner.derivatives[0]));
