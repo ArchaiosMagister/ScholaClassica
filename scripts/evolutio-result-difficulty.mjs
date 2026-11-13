@@ -60,7 +60,8 @@ export function resultDifficultyScore(word){
  return Math.round(resultDifficultyComponents(word).score*10000)/10000;
 }
 export function resultDifficultyLevel(word){
- const score=resultDifficultyScore(word);
+ // Clasificar sin redondear para evitar saltos artificiales en los umbrales.
+ const score=resultDifficultyComponents(word).score;
  return score<=THRESHOLDS[0]?1:score<=THRESHOLDS[1]?2:score<=THRESHOLDS[2]?3:4;
 }
 export const RESULT_DIFFICULTY_METHOD='criterio-resultado-v2';
