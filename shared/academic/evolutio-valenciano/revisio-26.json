@@ -2,7 +2,7 @@
   "schema": "schola-evolutio-va-analysis/v1",
   "date": "2026-11-13",
   "status": "auditoria_docent_sense_publicacio",
-  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica.",
+  "method": "Anàlisi editorial dels canvis basada en etimologies individualitzades del DCVB; comprovació directa del DNV encara no completada, per això no hi ha exercicis aptes. Les decisions docents del 13/11/2026 aproven criteris de classificació (no validació normativa del DNV ni activació d'exercicis). Decisions docents de classificació incorporades per cælum, fĕrrum i ocŭlum; no suposen verificació DNV individual ni habilitació per a la pràctica. Nova tanda: onze anàlisis editorials amb trams de l'ètim comprovables, sense verificació completa del DNV ni aprovació per a sorteig.",
   "analyses": [
     {
       "latin": "focum",
@@ -600,6 +600,217 @@
         }
       ],
       "explanation": "ocŭlum → ull: síncope de ŭ i formació de *ŏclu, palatalització del grup -cl- resultant, apòcope de -u i pèrdua fixa de -m. Es mantenen separades les etapes històriques i els trams de l'ètim llatí."
+    },
+    {
+      "latin": "scutum",
+      "form": "escut",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "spans": [],
+          "note": "Pròtesi d'e- davant s inicial seguida de consonant."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final, després de la pèrdua fixa de -m."
+        }
+      ],
+      "explanation": "scutum → escut: pròtesi d'e- davant sc- i apòcope de -u final; la pèrdua de -m és fixa."
+    },
+    {
+      "latin": "spartum",
+      "form": "espart",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "spans": [],
+          "note": "Pròtesi d'e- davant sp- inicial."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final després de la pèrdua de -m."
+        }
+      ],
+      "explanation": "spartum → espart: pròtesi d'e- davant sp- i apòcope de -u final."
+    },
+    {
+      "latin": "spicam",
+      "form": "espiga",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PROT",
+          "anchor": 0,
+          "spans": [],
+          "note": "Pròtesi d'e- davant sp- inicial."
+        },
+        {
+          "rule": "SONOR",
+          "find": "c",
+          "at": 3,
+          "note": "Sonorització de -c- intervocàlica en -g-."
+        }
+      ],
+      "explanation": "spicam → espiga: pròtesi e- i sonorització de -c- intervocàlica; caiguda fixa de -m."
+    },
+    {
+      "latin": "aurum",
+      "form": "or",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "MONOP",
+          "find": "au",
+          "at": 0,
+          "note": "Monoftongació del diftong llatí au > o."
+        },
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de -u final de l'acusatiu."
+        }
+      ],
+      "explanation": "aurum → or: monoftongació au > o, apòcope de la -u final i caiguda fixa de -m."
+    },
+    {
+      "latin": "causam",
+      "form": "cosa",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "MONOP",
+          "find": "au",
+          "at": 1,
+          "note": "Monoftongació de -au- llatí > -o-."
+        }
+      ],
+      "explanation": "causam → cosa: monoftongació de -au-; la -m final es perd com a norma fixa. No s'afirma una sonorització general de -s- en totes les variants valencianes."
+    },
+    {
+      "latin": "cannam",
+      "form": "canya",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "PALAT",
+          "find": "nn",
+          "at": 2,
+          "note": "Palatalització de la geminada -nn- > -ny-."
+        }
+      ],
+      "explanation": "cannam → canya: palatalització de -nn- en ny, més caiguda fixa de -m final."
+    },
+    {
+      "latin": "cupam",
+      "form": "cuba",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SONOR",
+          "find": "p",
+          "at": 2,
+          "note": "Sonorització de la -p- intervocàlica en -b-."
+        }
+      ],
+      "explanation": "cupam → cuba: sonorització intervocàlica de -p- > -b- i pèrdua fixa de -m; accepció de bóta, no l'homònim aràbic."
+    },
+    {
+      "latin": "rŏtam",
+      "form": "roda",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "SONOR",
+          "find": "t",
+          "at": 2,
+          "note": "Sonorització de -t- intervocàlica en -d-."
+        }
+      ],
+      "explanation": "rŏtam → roda: sonorització de -t- intervocàlica; la ŏ tònica no es diftonga com en castellà."
+    },
+    {
+      "latin": "fŏntem",
+      "form": "font",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final després de la pèrdua de -m."
+        }
+      ],
+      "explanation": "fŏntem → font: apòcope de -e i pèrdua fixa de -m; no diftongació de ŏ tònica."
+    },
+    {
+      "latin": "salutem",
+      "form": "salut",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "e",
+          "at": -2,
+          "note": "Apòcope de -e final després de la pèrdua de -m."
+        }
+      ],
+      "explanation": "salutem → salut: apòcope de -e i pèrdua fixa de -m."
+    },
+    {
+      "latin": "senatum",
+      "form": "senat",
+      "status": "analisi_proposada_revisada",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": [
+        {
+          "rule": "APOC",
+          "find": "u",
+          "at": -2,
+          "note": "Apòcope de la -u final després de la caiguda fixa de -m."
+        }
+      ],
+      "explanation": "senatum → senat: apòcope de -u final i pèrdua fixa de -m."
     }
   ],
   "pending": []
