@@ -32,9 +32,9 @@ try{
  assert.equal(await page.locator('#subject').inputValue(),'griego');
  assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
  // La concordancia griega solo aparece al superar la UD4.
- assert.equal(await page.locator('#activity option[value="agreement"]').isDisabled(),true);
+ assert.equal(await page.locator('#activity option[value="agreement"]').evaluate(o=>o.disabled),true);
  await page.locator('#unit').selectOption('5');
- assert.equal(await page.locator('#activity option[value="agreement"]').isDisabled(),false);
+ assert.equal(await page.locator('#activity option[value="agreement"]').evaluate(o=>o.disabled),false);
  await page.locator('#activity').selectOption('agreement');
  assert.equal(await page.locator('#kind').inputValue(),'adjetivo');
  await page.locator('#start').click();
@@ -78,7 +78,7 @@ try{
  await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
  assert.equal(await page.locator('#subject').inputValue(),'latin');
  assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4','UD5']);
- assert.equal(await page.locator('#activity option[value="agreement"]').isDisabled(),true);
+ assert.equal(await page.locator('#activity option[value="agreement"]').evaluate(o=>o.disabled),true);
  await page.locator('#unit').selectOption('5');
  await page.locator('#kind').selectOption('adjetivo');
  await page.locator('#activity').selectOption('analysis');
