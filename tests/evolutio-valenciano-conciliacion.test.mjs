@@ -53,7 +53,7 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
 test('Estados editoriales honestos: 221 documentados léxicamente, 20 propuestas, 281 sin propuesta',()=>{
  assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:221,propuestas:20,
   sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:132,casosConDiscrepancia:6,contrastesHistoricosPendientes:83,derivacionesDirectasDescartadas:4});
+  analisisEditoriales:132,casosConDiscrepancia:3,contrastesHistoricosPendientes:86,derivacionesDirectasDescartadas:4});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -118,8 +118,8 @@ test('132 análisis editoriales y 89 reservas sin fichas publicables',()=>{
  const good=matrix.records.filter(w=>['analisi_editorial_revisada','analisi_editorial_provisional_docent'].includes(w.valenciano.estadoNormas));
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
  assert.equal(good.length,132);
- assert.equal(disputed.length,6);
- assert.equal(matrix.records.filter(w=>w.valenciano.estadoNormas==='contrast_historic_pendent').length,83);
+ assert.equal(disputed.length,3);
+ assert.equal(matrix.records.filter(w=>w.valenciano.estadoNormas==='contrast_historic_pendent').length,86);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
   const letters=[...w.latin];
