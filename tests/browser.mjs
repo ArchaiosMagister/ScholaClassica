@@ -159,14 +159,21 @@ try{
   assert.equal(await page.locator('#course-select option[value="gr2"]').isDisabled(),true);
   await page.locator('#etymon-select').selectOption('grc:προσ');
   assert.ok((await page.locator('#exercise-title').textContent()).includes('πρός'));
+  assert.equal(await page.locator('#meaning-card').isHidden(),true,
+    'No revelar el significado del étimo antes del intento');
   await page.getByLabel('Primer derivado').fill('proselito');
   await page.getByLabel('Segundo derivado').fill('prosodia');
   await page.getByRole('button',{name:'Corregir respuestas'}).click();
   assert.equal((await page.locator('#result-total').textContent()).trim(),'1,5 / 2 puntos');
+  assert.equal(await page.locator('#meaning-card').isVisible(),true,
+    'Revelar el significado al reconocer el derivado incluso con falta ortográfica');
+  assert.ok((await page.locator('#meaning').textContent()).trim().length>0);
   assert.ok((await page.locator('#result-items').textContent()).includes('prosélito'));
   assert.ok(await page.locator('#result-items mark').count()>=2,'Las erratas deben resaltarse visualmente');
   await page.getByLabel('Primer derivado').fill('prosélito');
   assert.equal(await page.locator('#results').isHidden(),true,'Al editar no debe quedar una nota desactualizada');
+  assert.equal(await page.locator('#meaning-card').isHidden(),true,
+    'Volver a ocultar el significado si se modifica la respuesta');
   await page.getByLabel('Segundo derivado').fill('prosélito');
   await page.getByRole('button',{name:'Corregir respuestas'}).click();
   assert.equal((await page.locator('#result-total').textContent()).trim(),'1 / 2 puntos');
@@ -244,6 +251,8 @@ try{
   assert.equal(await page.locator('#meaning').isHidden(),true);
   await page.getByRole('button',{name:'Mostrar significado y derivados'}).click();
   assert.equal(await page.locator('#flashcard-back').isVisible(),true);
+  assert.equal(await page.locator('#meaning-card').isVisible(),true,
+    'Al revelar la tarjeta aparece el significado destacado bajo el lema');
   assert.ok((await page.locator('#flashcard-derivatives').textContent()).includes('prosélito'));
   await page.getByRole('button',{name:'Necesito repasarlo'}).click();
   assert.equal((await page.locator('#stats-cards').textContent()).trim(),'1');
@@ -277,6 +286,8 @@ try{
     await spanishButton(pair.derivativeId).click();
   }
   assert.ok((await page.locator('#matching-score').textContent()).includes('3 de 4 parejas'));
+  assert.equal(await page.locator('.matched-meaning').count(),4,
+    'Mostrar el significado de cada étimo emparejado correctamente');
   assert.equal((await page.locator('#stats-pairs').textContent()).trim(),'4');
   assert.equal((await page.locator('#stats-pairs-correct').textContent()).trim(),'3');
   await page.getByRole('button',{name:'Otra ronda'}).click();
@@ -299,6 +310,8 @@ try{
   assert.ok(multipleIds.correct&&multipleIds.wrong);
   await page.locator('#mcq-options button[data-derivative-id="'+multipleIds.wrong+'"]').click();
   assert.ok((await page.locator('#mcq-feedback').textContent()).includes('0 / 1 punto'));
+  assert.equal(await page.locator('#meaning-card').isHidden(),true,
+    'La elección incorrecta no desvela el significado hasta corregir');
   assert.equal((await page.locator('#stats-mcq').textContent()).trim(),'1');
   assert.equal((await page.locator('#stats-mcq-correct').textContent()).trim(),'0');
   await page.locator('#mcq-options button[data-derivative-id="'+multipleIds.correct+'"]').evaluate(el=>el.click());
@@ -315,12 +328,15 @@ try{
   await page.locator('#mcq-options button[data-derivative-id="'+currentCorrectId+'"]').click();
   assert.equal((await page.locator('#stats-mcq').textContent()).trim(),'2');
   assert.equal((await page.locator('#stats-mcq-correct').textContent()).trim(),'1');
+  assert.equal(await page.locator('#meaning-card').isVisible(),true,
+    'Se muestra el significado tras la respuesta múltiple acertada');
 
   // Inversa: transliteración sin instalar teclado griego, vista previa,
   // respuesta griega sin tildes/espíritus y teclado virtual.
   await page.locator('#activity-type').selectOption('inverse');
   assert.equal(await page.locator('#inverse-section').isVisible(),true);
   assert.ok(await page.locator('#inverse-word').textContent());
+  assert.equal(await page.locator('#inverse-meaning-card').isHidden(),true);
   await page.locator('#inverse-answer').fill('philos');
   assert.ok((await page.locator('#inverse-preview').textContent()).includes('φίλος'));
   const currentHeadword=await page.evaluate(async()=>{
@@ -332,6 +348,8 @@ try{
   await page.locator('#inverse-answer').fill(currentHeadword);
   await page.getByRole('button',{name:'Comprobar étimo'}).click();
   assert.ok((await page.locator('#inverse-feedback').textContent()).includes('1 / 1 punto'));
+  assert.equal(await page.locator('#inverse-meaning-card').isVisible(),true);
+  assert.ok((await page.locator('#inverse-meaning').textContent()).length>10);
   assert.equal((await page.locator('#stats-inverse').textContent()).trim(),'1');
   assert.equal((await page.locator('#stats-inverse-correct').textContent()).trim(),'1');
   await page.getByRole('button',{name:'Otra palabra'}).click();
@@ -341,6 +359,7 @@ try{
   await page.locator('#inverse-answer').fill('loogs');
   await page.getByRole('button',{name:'Comprobar étimo'}).click();
   assert.ok((await page.locator('#inverse-feedback').textContent()).includes('0 / 1 punto'));
+  assert.equal(await page.locator('#inverse-meaning-card').isHidden(),true);
   assert.equal((await page.locator('#stats-inverse').textContent()).trim(),'2');
   await page.locator('#activity-type').selectOption('writing');
   assert.equal(await page.locator('#answer-form').isVisible(),true);
@@ -361,6 +380,8 @@ try{
   await page.locator('#decomposition-second').fill(firstCompound.parts[1].latinAccepted[0]);
   await page.getByRole('button',{name:'Corregir descomposición'}).click();
   assert.ok((await page.locator('#decomposition-score').textContent()).includes('2 / 2 puntos'));
+  assert.equal(await page.locator('#decomposition-meaning-card').isVisible(),true);
+  assert.ok((await page.locator('#decomposition-meaning').textContent()).trim().length>10);
   assert.equal((await page.locator('#stats-decomposition').textContent()).trim(),'1');
   assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
   assert.ok((await page.locator('#decomposition-route').textContent()).length>20);
@@ -376,6 +397,7 @@ try{
     .normalize('NFD').replace(/\p{M}/gu,''));
   await page.getByRole('button',{name:'Corregir descomposición'}).click();
   assert.ok((await page.locator('#decomposition-score').textContent()).includes('1 / 2 puntos'));
+  assert.equal(await page.locator('#decomposition-meaning-card').isHidden(),true);
   assert.equal((await page.locator('#stats-decomposition').textContent()).trim(),'2');
   assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
   await page.locator('#practice-mode').selectOption('unit');
@@ -399,6 +421,45 @@ try{
   assert.equal(layoutFits,true,'La interfaz debe adaptarse a un móvil de 390 px');
   await page.setViewportSize({width:1280,height:900});
   assert.equal(errors.length,0,'Error JavaScript de Etymologicon: '+errors.join(' | '));
+
+  // Móvil táctil: al abrir el teclado integrado no debe abrirse a la vez
+  // el teclado del dispositivo ni perderse la entrada en los campos.
+  const phone=await browser.newPage({viewport:{width:390,height:844},
+    isMobile:true,hasTouch:true,deviceScaleFactor:2});
+  const phoneErrors=[];
+  phone.on('pageerror',e=>phoneErrors.push(e.message));
+  await phone.goto(base+'/apps/etymologicon/practicar.html',{waitUntil:'networkidle'});
+  await phone.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
+  await phone.locator('#activity-type').selectOption('inverse');
+  await phone.locator('#inverse-answer').focus();
+  await phone.locator('#inverse-section details.virtual-keyboard summary').click();
+  await phone.waitForFunction(()=>document.querySelector('#inverse-answer').readOnly);
+  assert.equal(await phone.locator('#inverse-answer').getAttribute('readonly'),'',
+    'En móvil el teclado virtual impide levantar el nativo');
+  await phone.getByRole('button',{name:'Insertar λ'}).click();
+  assert.ok((await phone.locator('#inverse-answer').inputValue()).includes('λ'));
+  const inverseVisibility=await phone.evaluate(()=>{
+    const input=document.querySelector('#inverse-answer').getBoundingClientRect();
+    const keys=document.querySelector('#greek-keyboard').getBoundingClientRect();
+    const h=window.visualViewport?.height||innerHeight;
+    return {inputTop:input.top,inputBottom:input.bottom,keyTop:keys.top,keyBottom:keys.bottom,height:h};
+  });
+  assert.ok(inverseVisibility.inputTop>=0&&inverseVisibility.keyBottom<=inverseVisibility.height+8,
+    'Campo y teclado griego deben poder verse juntos a 390 × 844: '+JSON.stringify(inverseVisibility));
+  await phone.locator('#inverse-section .native-keyboard-button').click();
+  await phone.waitForFunction(()=>!document.querySelector('#inverse-answer').readOnly);
+  await phone.locator('#inverse-answer').fill('logos');
+  await phone.locator('#activity-type').selectOption('decomposition');
+  await phone.locator('#decomposition-first').focus();
+  await phone.locator('#decomposition-section details.virtual-keyboard summary').click();
+  await phone.waitForFunction(()=>['decomposition-first','decomposition-second']
+    .every(id=>document.getElementById(id).readOnly));
+  await phone.getByRole('button',{name:'Insertar μ'}).last().click();
+  assert.ok((await phone.locator('#decomposition-first').inputValue()).includes('μ'));
+  await phone.locator('#decomposition-section .native-keyboard-button').click();
+  await phone.waitForFunction(()=>!document.getElementById('decomposition-first').readOnly);
+  assert.equal(phoneErrors.length,0,'El teclado móvil no debe producir errores JS');
+  await phone.close();
 
   // Instalación PWA: manifiesto independiente, caché delimitada y recursos
   // disponibles tras desconectar la red (incluidos banco y motor corrector).
