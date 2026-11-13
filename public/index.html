@@ -24,6 +24,32 @@
     <p>Gramática, vocabulario latino y griego, evolución fonética y ejercicios de etimología. Las herramientas se incorporan progresivamente sin alterar sus aplicaciones originales.</p>
     <p class="status"><span aria-hidden="true">●</span> Primera integración en pruebas. No es todavía la web destinada al alumnado.</p>
   </section>
+  <section id="itinerario" class="study-path" aria-labelledby="path-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">Acceso por curso</p><h2 id="path-title">Mi itinerario de estudio</h2></div>
+      <span class="phase">Solo contenidos disponibles y contrastados</span>
+    </div>
+    <p class="path-intro">Elige una asignatura para abrir directamente sus herramientas. Conservaremos únicamente la última herramienta utilizada en este navegador.</p>
+    <div class="path-select-row">
+      <label for="study-course">Asignatura y curso</label>
+      <select id="study-course" autocomplete="off">
+        <option value="">Elige una asignatura</option>
+        <option value="lat4">Latín · 4.º de ESO</option>
+        <option value="lat1">Latín I · 1.º de Bachillerato</option>
+        <option value="lat2">Latín II · 2.º de Bachillerato</option>
+        <option value="gr1">Griego I · 1.º de Bachillerato</option>
+        <option value="gr2">Griego II · 2.º de Bachillerato</option>
+      </select>
+    </div>
+    <div id="study-path-results" aria-live="polite">
+      <p class="path-empty">Selecciona primero una asignatura.</p>
+    </div>
+    <div id="study-resume-area" class="path-resume" hidden>
+      <p>Último acceso de este curso</p>
+      <a id="study-resume" href="./">Retomar la herramienta anterior</a>
+    </div>
+    <p class="path-note">La selección se recuerda solo en este navegador; no guarda respuestas, calificaciones ni datos personales.</p>
+  </section>
   <section id="modulos" aria-labelledby="explorar">
     <div class="section-heading"><div><p class="eyebrow">Estudia como prefieras</p><h2 id="explorar">Explorar los contenidos</h2></div><span class="phase">Integración en pruebas · Gramática, vocabulario, fonética y etimología</span></div>
     <div class="tabs" role="tablist" aria-label="Forma de explorar">

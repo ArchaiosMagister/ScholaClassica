@@ -47,3 +47,10 @@ La salida de CI se conserva como artefacto de pruebas. No hay workflow de GitHub
 La zona docente se compila **independientemente** con `npm run build:docente`, dando `dist-docente/`. En ausencia de credenciales públicas, se genera con `enabled:false`. El portal general `npm run build` **rechaza variables de identidad docente** y fuerza `dist/docente/auth-config.json` a desactivado. Ninguno de los dos artefactos se despliega desde GitHub Actions.
 
 La cuenta docente ha de residir en Supabase Auth, con acceso restringido a una UUID designada y una sesión `aal2` (TOTP). La función de avisos consulta únicamente registros pendientes y no modifica los sistemas originales. Se requiere un origen HTTPS diferente del de las apps públicas. Véase `docs/DOCENTE_AUTENTICACION.md`.
+
+
+## Navegación contextual sin alterar fuentes
+
+Se ha añadido a la portada de ScholaClassica un itinerario por materia y curso (public/index.html, public/app.js, public/style.css) que reutiliza únicamente rutas verificadas del artefacto. La selección y el último módulo abierto se guardan como identificadores limitados en localStorage bajo la clave scholaclassica-itinerario-v1; no se almacenan respuestas ni identificadores de alumnos. Si el navegador bloquea el almacenamiento, el selector funciona sin persistencia.
+
+**No hay inyección de scripts o encabezados en Appendix, Evolutio o Vocabula**: siguen siendo copias comprobadas byte por byte, con las excepciones técnicas ya documentadas. Tampoco se alteran los service workers, lo que conserva los modos offline existentes. La navegación contextual no supone un cambio curricular ni habilita contenidos de Griego II que todavía no están preparados.
