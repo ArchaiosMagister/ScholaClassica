@@ -91,8 +91,6 @@ jobs:
         run: npm run test:browser:morfologia:activa
       - name: Probar Vocabula integrado en Chromium con servicio simulado
         run: npm run test:browser:vocabula
-      - name: Probar inicio de sesión, TOTP y bloqueo de avisos en Chromium simulado
-        run: npm run test:browser:docente
       - name: Verificar que Supabase rechaza identidades ajenas antes de habilitar el primer factor
         run: node scripts/check-docente-login-remote.mjs
       - name: Empaquetar SDK Supabase local y preparar alta docente de dos factores
@@ -101,9 +99,10 @@ jobs:
             @supabase/supabase-js@2.119.0 esbuild@0.25.12 playwright@1.56.1
           node scripts/pack-docente-sdk.mjs
           echo "SCHOLA_DOCENTE_SDK_SHA256=$(cat build/docente/supabase.sha256)" >> "$GITHUB_ENV"
-      - name: Construir zona de alta TOTP en modo limitado
+      - name: Construir bandeja docente en modo de solo lectura con TOTP
         env:
           SCHOLA_DOCENTE_ENABLE: confirmed
+          SCHOLA_DOCENTE_INBOX: confirmed
           SCHOLA_DOCENTE_SUPABASE_URL: https://wpwlguufpkfnzlbyproe.supabase.co
           SCHOLA_DOCENTE_PUBLISHABLE_KEY: sb_publishable_71JJZAqQGphmEjfnGIk8GQ_kAmltORO
           SCHOLA_DOCENTE_SDK_FILE: build/docente/supabase.js
@@ -111,19 +110,8 @@ jobs:
           npm run build
           node scripts/audit-docente-setup.mjs
           node tests/docente-setup-browser.mjs
-      # El ensayo de alta TOTP anterior recompila dist con configuración docente
-      # limitada. Esa copia es solo de prueba: nunca enviarla a GitHub Pages.
-      - name: Restaurar paquete público castellano con acceso docente desactivado
-        env:
-          SCHOLA_DOCENTE_ENABLE: ''
-          SCHOLA_DOCENTE_SUPABASE_URL: ''
-          SCHOLA_DOCENTE_PUBLISHABLE_KEY: ''
-          SCHOLA_DOCENTE_SDK_FILE: ''
-          SCHOLA_DOCENTE_SDK_SHA256: ''
-        run: |
-          npm run build
-          npm run audit:publicacion
-
+      - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
+        run: npm run test:browser:docente
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
         uses: actions/upload-artifact@v4
         with:

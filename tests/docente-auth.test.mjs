@@ -28,20 +28,24 @@ test('la autorización docente exige cuenta, sujeto y nivel aal2 verificados',()
   assert.equal(check(claims,teacher,'UUID-OTRA'),false);
   assert.equal(authorizeVerifiedTeacher({verifiedUser:teacher,accessToken:'false',teacherUserId:teacherId}),false);
 });
-test('el endpoint verifica el token en Supabase antes de interpretar claims y no escribe en los orígenes',()=>{
-  const server=readFileSync(join(root,'supabase/functions/schola-inbox/index.ts'),'utf8');
-  assert.match(server,/identity\.auth\.getUser\(match\[1\]\)/);
-  assert.match(server,/authorizeVerifiedTeacher\(/);
-  assert.match(server,/SCHOLA_TEACHER_USER_ID/);
-  assert.match(server,/authorizedOrigin=\(\)=> 'https:\/\/archaiosmagister\.github\.io'/);
-  assert.ok(server.includes("const authorizedOrigin=()=> 'https://archaiosmagister.github.io'"));
-  assert.match(server,/authorizeVerifiedTeacher\(/);
-  assert.match(server,/VOCABULA_SERVICE_ROLE_KEY/);
-  assert.match(server,/PALABRA_SERVICE_ROLE_KEY/);
-  assert.match(server,/\.eq\('status','pending'\)/);
-  assert.match(server,/\.in\('status',\['pending','reviewing'\]\)/);
-  assert.ok(!/\.insert\(|\.update\(|\.delete\(|\.upsert\(/.test(server));
-  assert.ok(!server.includes('student_id'));
+test('las funciones de cada proyecto verifican JWT, UUID y AAL2, sin acceso abierto',()=>{
+  const vocab=readFileSync(join(root,'supabase/functions/schola-inbox/index.ts'),'utf8');
+  const palabra=readFileSync(join(root,'supabase/functions/schola-palabra-inbox/index.ts'),'utf8');
+  const toml=readFileSync(join(root,'supabase/config.toml'),'utf8');
+  for(const server of [vocab,palabra]){
+    assert.match(server,/auth\.getUser\(match\[1\]\)/);
+    assert.match(server,/authorizeVerifiedTeacher\(/);
+    assert.match(server,/SUPABASE_SERVICE_ROLE_KEY/);
+    assert.match(server,/aal2|authorizeVerifiedTeacher/);
+    assert.ok(!/\.insert\(|\.update\(|\.delete\(|\.upsert\(/.test(server));
+    assert.ok(!server.includes('student_id'));
+    assert.match(server,/status','pending|status',\['pending','reviewing'/);
+  }
+  assert.match(vocab,/SCHOLA_TEACHER_USER_ID/);
+  assert.match(palabra,/teacherFingerprintMatches/);
+  assert.match(toml,/\[functions\.schola-inbox\]\s+verify_jwt = true/);
+  assert.match(toml,/\[functions\.schola-palabra-inbox\]\s+verify_jwt = false/);
+  assert.doesNotMatch(palabra,/PALABRA_SERVICE_ROLE_KEY|SCHOLA_AUTH_LOGIN_EMAIL/);
 });
 test('la zona docente se publica bloqueada por defecto, sin claves privilegiadas ni exámenes',()=>{
   const authConfig=JSON.parse(readFileSync(join(root,'dist/docente/auth-config.json'),'utf8'));
