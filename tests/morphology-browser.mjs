@@ -47,6 +47,12 @@ try{
  assert.ok(await page.locator('#session').isVisible());
  await page.locator('#new').click();
  assert.equal(await page.locator('#session').isVisible(),false);
+ await page.locator('#kind').selectOption('desinencia');
+ await page.locator('#activity').selectOption('analysis');
+ await page.locator('#start').click();
+ assert.equal(await page.locator('#answers button').count(),4);
+ assert.ok(await page.locator('#session').isVisible());
+ await page.locator('#new').click();
  await page.waitForFunction(async()=>{
    const registrations=await navigator.serviceWorker.getRegistrations();
    return registrations.some(r=>r.active&&r.scope.endsWith('/ScholaClassica/apps/morfologia/'));
@@ -58,21 +64,21 @@ try{
  assert.equal(offline.status(),200);
  await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
  assert.equal(await page.locator('#subject').inputValue(),'latin');
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2']);
- await page.locator('#unit').selectOption('2');
- await page.locator('#kind').selectOption('verbo');
- await page.locator('#activity').selectOption('form');
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['UD1','UD2','UD3','UD4']);
+ await page.locator('#unit').selectOption('4');
+ await page.locator('#kind').selectOption('sustantivo');
+ await page.locator('#activity').selectOption('analysis');
  await page.locator('#start').click();
  assert.equal(await page.locator('#answers button').count(),4);
  const found=await page.evaluate(async()=>{
    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
    return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego};
  });
- assert.equal(found.paradigms,20);
- assert.deepEqual(found.latin,[1,2]);assert.deepEqual(found.greek,[1,2,3]);
+ assert.equal(found.paradigms,40);
+ assert.deepEqual(found.latin,[1,2,3,4]);assert.deepEqual(found.greek,[1,2,3]);
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
- console.log('OK: morfología por curso/UD, sincretismo y caché offline propia en GitHub Pages');
+ console.log('OK: pasiva UD3, tercera declinación UD4, griego UD3 y caché offline propia en GitHub Pages');
 }finally{
  if(browser)await browser.close();
  await new Promise(done=>server.close(done));
