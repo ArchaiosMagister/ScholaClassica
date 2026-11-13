@@ -134,7 +134,8 @@ test('griego: artículo + adjetivo sustantivado, sin fingir un sustantivo comple
   assert.ok(q.every(x=>correctWritten(x,x.acceptedForms[0]).correct));
 });
 test('las celdas latinas con vocales largas aceptan entrada usual sin cantidad marcada',()=>{
-  const ex=makeWrittenQuestions(bank,{language:'latin',unit:7,kind:'sustantivo',limit:30,rng});
+  const cornuBank={...bank,records:[get('latin-ud7-cornu')]};
+  const ex=makeWrittenQuestions(cornuBank,{language:'latin',unit:7,kind:'sustantivo',limit:30,rng});
   const chosen=ex.find(x=>x.acceptedForms.includes('cornū'));
   assert.ok(chosen);
   assert.equal(correctWritten(chosen,'cornu').correct,true);
