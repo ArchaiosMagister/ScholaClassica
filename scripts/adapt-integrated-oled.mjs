@@ -46,7 +46,7 @@ export async function adaptAppendixOled(destination){
   for(const path of pages){
     const file=join(destination,path);
     const before=await readFile(file,'utf8');
-    const after=before.replace(/(assets\\/(?:theme\\.js|style\\.css|language-colors\\.css)\\?v=[a-zA-Z0-9-]+)(?=["'])/g,'$1-oled1');
+    const after=before.replace(/(assets\/(?:theme\.js|style\.css|language-colors\.css)\?v=[a-zA-Z0-9-]+)(?=["'])/g,'$1-oled1');
     if(after!==before){await writeFile(file,after,'utf8');changed++;}
   }
   assert.ok(changed>=4,'Faltan páginas de Appendix con recursos de tema');
