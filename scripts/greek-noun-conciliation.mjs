@@ -10,21 +10,21 @@ const NUMBERS=[['singular','SG'],['plural','PL']];
 const CASE_CODES=new Set(CASES.flatMap(([,c])=>NUMBERS.map(([,n])=>'N;'+c+';'+n)));
 const GENDERS={masculino:'ὁ',femenino:'ἡ',neutro:'τὸ'};
 const SELECTED=[
-  {lemma:'ἵππος',genitive:'ἵππου',gender:'masculino',decl:'2.ª declinación',
+  {id:'hippos',lemma:'ἵππος',genitive:'ἵππου',gender:'masculino',decl:'2.ª declinación',
     unit:4,vocab:'UD 1–4',grammarUnit:1},
-  {lemma:'βίος',genitive:'βίου',gender:'masculino',decl:'2.ª declinación',
+  {id:'bios',lemma:'βίος',genitive:'βίου',gender:'masculino',decl:'2.ª declinación',
     unit:4,vocab:'UD 1–4',grammarUnit:1},
-  {lemma:'δίκη',genitive:'δίκης',gender:'femenino',decl:'1.ª declinación (η)',
+  {id:'dike',lemma:'δίκη',genitive:'δίκης',gender:'femenino',decl:'1.ª declinación (η)',
     unit:4,vocab:'UD 1–4',grammarUnit:3},
-  {lemma:'ἀρετή',genitive:'ἀρετῆς',gender:'femenino',decl:'1.ª declinación (η)',
+  {id:'arete',lemma:'ἀρετή',genitive:'ἀρετῆς',gender:'femenino',decl:'1.ª declinación (η)',
     unit:4,vocab:'UD 1–4',grammarUnit:3},
-  {lemma:'λόγος',genitive:'λόγου',gender:'masculino',decl:'2.ª declinación',
+  {id:'logos',lemma:'λόγος',genitive:'λόγου',gender:'masculino',decl:'2.ª declinación',
     unit:7,vocab:'UD 6–7',grammarUnit:1},
-  {lemma:'δῶρον',genitive:'δώρου',gender:'neutro',decl:'2.ª declinación',
+  {id:'doron',lemma:'δῶρον',genitive:'δώρου',gender:'neutro',decl:'2.ª declinación',
     unit:7,vocab:'UD 6–7',grammarUnit:2},
-  {lemma:'νίκη',genitive:'νίκης',gender:'femenino',decl:'1.ª declinación (η)',
+  {id:'nike',lemma:'νίκη',genitive:'νίκης',gender:'femenino',decl:'1.ª declinación (η)',
     unit:7,vocab:'UD 6–7',grammarUnit:3},
-  {lemma:'εἰρήνη',genitive:'εἰρήνης',gender:'femenino',decl:'1.ª declinación (η)',
+  {id:'eirene',lemma:'εἰρήνη',genitive:'εἰρήνης',gender:'femenino',decl:'1.ª declinación (η)',
     unit:7,vocab:'UD 6–7',grammarUnit:3}
 ];
 // La cantidad vocálica no se exige en los ejercicios, pero sí acento y espíritu.
@@ -95,7 +95,7 @@ function readOneNoun(spec,rows,entry,curriculum,vocabulaSha){
     return {form,analysis:cas+' '+number,case:cas,number};
   }));
   return {
-    id:'griego-sustantivo-'+key(spec.lemma),
+    id:'griego-sustantivo-'+spec.id,
     language:'griego',unit:spec.unit,kind:'sustantivo',gender:spec.gender,
     paradigm:noQuantity(spec.lemma)+', '+noQuantity(spec.genitive)+' ('+
       GENDERS[spec.gender]+') · '+spec.decl,
