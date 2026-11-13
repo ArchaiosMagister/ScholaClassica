@@ -73,9 +73,16 @@
   <section class="access-card" id="teacher" hidden aria-labelledby="teacher-title">
     <h2 id="teacher-title">Panel docente</h2>
     <p id="session-state">Sesión verificada con dos factores y autorización de servidor.</p>
-    <div class="teacher-summary"><h3>Avisos pendientes</h3><p id="notices-state">Conectando bandeja de avisos…</p></div>
+    <div class="teacher-summary">
+      <h3>Avisos pendientes</h3>
+      <p id="sources-state" role="status" aria-live="polite">Comprobando las fuentes…</p>
+      <p id="notices-state">Conectando bandeja de avisos…</p>
+      <label for="notice-source">Mostrar avisos de</label>
+      <select id="notice-source"><option value="all">Todas las aplicaciones</option><option value="vocabula">Vocabula Latina Græcaque</option><option value="palabra">Palabra del día</option></select>
+      <button id="notice-refresh" type="button">Actualizar avisos</button>
+    </div>
     <div id="notices" class="notices" aria-live="polite"></div>
-    <p class="hint">Consulta de solo lectura. Para resolver cada aviso se abrirá la web original; ScholaClassica no lo aprobará ni modificará.</p>
+    <p class="hint">Bandeja de solo lectura. Las propuestas y su resolución siguen administrándose en la aplicación de origen. Palabra del día continúa siendo una web independiente.</p>
   </section>
   <div class="logout"><button id="logout" type="button" hidden>Cerrar sesión</button></div>
 </main>
