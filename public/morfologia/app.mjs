@@ -72,7 +72,8 @@ function updateKinds(){
   kinds.forEach(kind=>option(input.kind,kind,grammaticalName(kind)));
   input.kind.value=phrase?'sintagma':agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
   $('coverage').textContent=COURSE_LABELS[language]+': se incluyen únicamente los paradigmas de UD1 a UD'+unit+
-    ' presentes en las tablas curriculares ('+records.length+' paradigmas). '+
+    ' con procedencia documentada ('+records.length+' paradigmas). '+
+    'Los nombres importados de UniMorph siguen pendientes de revisión filológica individual. '+
     'Las unidades posteriores a '+bank.coverage[language].at(-1)+' siguen en revisión.'+
     (language==='griego'&&unit===4?' UD4 no añade nuevos paradigmas a este módulo.':'');
 }
@@ -107,7 +108,7 @@ function showSource(q){
     target.hidden=false;
     if(evidence.source.includes('UniMorph')){
       target.textContent='Paradigma nominal · Vocabula/UniMorph · '+
-        (evidence.vocabulaGroup||'Griego I');
+        (evidence.vocabulaGroup||COURSE_LABELS[q.language]);
       target.href='../vocabulario/index.html';
     }else{
       target.textContent='Consultar Appendix · '+COURSE_LABELS[q.language]+
