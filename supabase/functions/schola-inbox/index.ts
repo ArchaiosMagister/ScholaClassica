@@ -59,10 +59,10 @@ Deno.serve(async request=>{
     // Consultas independientes y limitadas: ninguna escritura, ningún código o identificador de alumno.
     const [reports,proposals,courses]=await Promise.all([
       vocab.from('vocab_reports')
-        .select('id,kind,subject,units,entry_form,message,status,created_at')
+        .select('kind,subject,entry_form,message,status,created_at')
         .in('status',['pending','reviewing']).order('created_at',{ascending:false}).limit(100),
       palabra.from('word_proposals')
-        .select('id,course_id,term,origin,definition,created_at')
+        .select('course_id,term,origin,definition,created_at')
         .eq('status','pending').order('created_at',{ascending:false}).limit(100),
       palabra.from('courses').select('id,name').limit(30)
     ]);
@@ -71,16 +71,16 @@ Deno.serve(async request=>{
     const courseName=new Map((courses.data||[]).map((c:{id:string,name:string})=>[c.id,c.name]));
     const items=[
       ...(reports.data||[]).map((r:{
-        id:string,kind:string,subject:string,entry_form:string,message:string,created_at:string
+        kind:string,subject:string,entry_form:string,message:string,created_at:string
       })=>({
-        id:r.id,source:'vocabula',title:r.entry_form||('Aviso de '+r.kind),
-        course:r.subject,summary:r.message.slice(0,2000),created_at:r.created_at
+        source:'vocabula',title:r.entry_form||('Aviso de '+r.kind),
+        course:r.subject,summary:(r.message||'').slice(0,1200),created_at:r.created_at
       })),
       ...(proposals.data||[]).map((p:{
-        id:string,course_id:string,term:string,origin:string,definition:string,created_at:string
+        course_id:string,term:string,origin:string,definition:string,created_at:string
       })=>({
-        id:p.id,source:'palabra',title:p.term,course:courseName.get(p.course_id)||'Curso',
-        summary:[p.origin,p.definition].filter(Boolean).join(' · ').slice(0,2000),created_at:p.created_at
+        source:'palabra',title:p.term,course:courseName.get(p.course_id)||'Curso',
+        summary:[p.origin,p.definition].filter(Boolean).join(' · ').slice(0,1200),created_at:p.created_at
       }))
     ].sort((a,b)=>Date.parse(b.created_at)-Date.parse(a.created_at));
     return reply(200,{authorized:true,items,limitedTo:100},origin);
