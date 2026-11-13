@@ -91,3 +91,14 @@ El navegador guarda localmente solo el código del curso y el identificador de l
 La portada de ScholaClassica tiene su propio manifiesto, iconos compatibles con iPhone/Android y un botón de actualización. **Solo guarda en caché los recursos propios del portal**, sin copiar ni invalidar las cachés de sus herramientas. Evolutio y Etymologicon conservan sus respectivos service workers y sus controles de actualización; el alumno puede seguir entrando en cada módulo de forma independiente. La web no está publicada. Véase `docs/PORTAL_PWA.md`.
 
 Evolutio se ha vuelto a integrar desde el commit auditado `901dacb125ee7894ea9d11faf7b0d0afa7e713b5`: 522 fichas, filtros de dificultad, tres intentos, revisión por norma, botón de actualización y latinización escolar de la consonante `u`. Las 240 incorporaciones desde GeneradorExamenes no se presentan como certificación filológica individual. Ningún repositorio original ha sido modificado.
+
+
+## Publicación de prueba de la PWA pública
+
+Se ha autorizado la publicación **del portal de alumnado** mediante GitHub Pages. El flujo `.github/workflows/integracion.yml` ejecuta la construcción fijada por SHA, la auditoría de seguridad, las pruebas estáticas y las pruebas de navegador (incluida la subruta `/ScholaClassica/`), y **solo si pasan** publica `dist/` desde `main` mediante GitHub Actions. Las solicitudes de cambio (*pull requests*) no pueden desplegar.
+
+El área docente sigue desactivada en el portal público (`docente/auth-config.json` contiene `enabled:false`). Cloudflare Pages, Supabase Auth y TOTP no se activan mediante este flujo. Tampoco se modifica ninguno de los repositorios originales ni se incluye GeneradorExamenes.
+
+**Activación inicial de GitHub Pages:** si la configuración de GitHub Pages del repositorio todavía está desactivada, el propietario debe elegir `Settings → Pages → Build and deployment → Source → GitHub Actions`. Este ajuste requiere acceso administrativo y no se realiza por el token del propio workflow. A partir de entonces, el proceso de despliegue utiliza las credenciales temporales de GitHub Actions, sin secretos personales. El estado publicado solo se confirma cuando el trabajo `publicar` aparece como `success` y la URL pública responde correctamente.
+
+URL prevista: `https://archaiosmagister.github.io/ScholaClassica/` (**no presuponer que está operativa antes de verificar el despliegue**).

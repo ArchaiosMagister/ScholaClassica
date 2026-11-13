@@ -14,3 +14,8 @@ Existe una **primera implementación no activada** de autenticación central con
 - No se reutilizan los códigos de alumno de Palabra del día. La consulta de propuestas externas no realiza cambios ni guarda información personal del alumnado en ScholaClassica.
 
 Pendientes imprescindibles: aprovisionamiento de cuenta e identidad central, secretos, configuración real de Turnstile y rate limiting, recuperación y revocación, pruebas reales de TOTP con Contraseñas de Apple, auditoría en dispositivos y decisión final sobre un CDN frente a SDK vendorizado.
+
+
+## Límite de la publicación autorizada
+
+La publicación de prueba en GitHub Pages se limita a `dist/`: el portal, sus módulos académicos y la configuración docente explícitamente desactivada. No incluye `dist-docente/`, ningún secreto de Supabase ni el material editorial de Etymologicon en `build/`. La auditoría `npm run audit:publicacion` vuelve a comprobar estos límites antes de publicar, y se exige la ejecución correcta de las pruebas de navegador. La zona docente Cloudflare permanece pendiente de autenticación real, CAPTCHA, TOTP y autorización de acceso.

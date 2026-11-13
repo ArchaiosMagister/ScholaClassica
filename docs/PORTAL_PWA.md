@@ -1,4 +1,4 @@
-# PWA del portal ScholaClassica — construcción sin publicar
+# PWA del portal ScholaClassica — publicación de prueba
 
 ## Arquitectura y política de caché
 
@@ -45,3 +45,10 @@ Las comprobaciones automáticas verifican iconos PNG, manifiesto, huella de vers
 Las pruebas de Chromium no sustituyen una comprobación en iPhone/iPad real. **ScholaClassica permanece sin publicar**: instalarla en un dispositivo real será posible cuando se autorice su despliegue HTTPS. GitHub Actions solo crea un artefacto de pruebas, no ejecuta un despliegue.
 
 Fuente oficial de recomendaciones: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers y https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/
+
+
+## Publicación de prueba mediante GitHub Pages
+
+La publicación del **portal público** ha sido autorizada. El workflow `integracion.yml` ejecuta antes del despliegue las pruebas académicas de todas las fuentes, la auditoría `npm run audit:publicacion`, las pruebas de funcionamiento offline y la nueva prueba `npm run test:browser:pages` con la ruta real `/ScholaClassica/`. Solo después utiliza `upload-pages-artifact` y `deploy-pages`, en la rama `main`. Ninguna PR puede publicar.
+
+GitHub Pages debe tener configurada una única vez la opción **Source: GitHub Actions** en `Settings → Pages`. Si está desactivado, el trabajo de publicación avisará del problema; **no debe interpretarse el éxito de la compilación como una publicación real**. El portal privado de Cloudflare y las credenciales docentes quedan fuera de esta publicación.
