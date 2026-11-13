@@ -46,8 +46,8 @@ test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(audit.summary.conAnalisisEditorialPrevio,132);
  assert.equal(audit.summary.pendientesDeAnalisisIndividual,89);
  assert.equal(audit.summary.cierreIndividualRegistrado,221);
- assert.equal(audit.summary.contrastesHistoricosPendientes,86);
- assert.equal(audit.summary.discrepanciasDocentesReservadas,3);
+ assert.equal(audit.summary.contrastesHistoricosPendientes,89);
+ assert.equal(audit.summary.discrepanciasDocentesReservadas,0);
  assert.equal(audit.summary.decisionesDocentesAplicadas,3);
  assert.equal(audit.summary.leyesFoneticamenteCertificadas,0);
  assert.equal(audit.summary.habilitadas,0);
@@ -102,7 +102,7 @@ test('Cierre individual: 89 reservas no se interpretan como leyes verificadas',(
  assert.equal(closure.schema,'schola-evolutio-va-closure-review/v1');
  assert.equal(closure.records.length,89);
  assert.equal(closure.summary.revisadosEditorialmente,132);
- assert.equal(closure.summary.decisionesDocentesPendientes,3);
+ assert.equal(closure.summary.decisionesDocentesPendientes,0);
  const seen=new Set();
  for(const record of closure.records){
   assert.ok(!seen.has(record.id));
@@ -125,9 +125,33 @@ test('La auditoria classifica exactament els 221 casos sense habilitar cap exerc
    return result;
  },{});
  assert.equal((states.analisi_editorial_revisada||0)+(states.analisi_editorial_provisional_docent||0),132);
- assert.equal(states.contrast_historic_pendent,86);
- assert.equal(states.discrepancia_documentada,3);
+ assert.equal(states.contrast_historic_pendent,89);
+ assert.equal(states.discrepancia_documentada||0,0);
  assert.equal(states.pendent||0,0);
  assert.equal(matrix.summary.normasVerificadas,0);
  assert.equal(matrix.summary.aptasParaPractica,0);
+});
+
+test('Tancament de les tres discrepàncies: només estudi històric per a segell',()=>{
+ const closure=read('auditoria-cierre-123.json');
+ const options={octo:'reserva_fonetica',dictum:'reserva_fonetica','sigĭllum':'estudi_historic_no_avaluable'};
+ for(const [latin,mode] of Object.entries(options)){
+  const x=audit.records.find(x=>x.latin===latin);
+  const c=closure.records.find(x=>x.latin===latin);
+  const w=matrix.records.find(x=>x.latin===latin).valenciano;
+  assert.ok(x&&c);
+  assert.equal(x.estadoPreexistente,'contrast_historic_pendent');
+  assert.equal(x.estadoAuditoria,'contrast_historic_pendent_amb_dictamen_individual');
+  assert.equal(x.modalidadEstudio,mode);
+  assert.deepEqual(x.criterioDocente,w.criterioDocente);
+  assert.equal(c.requiereCriterioDocente,false);
+  assert.equal(c.discrepanciaDocente,null);
+  assert.equal(c.modalidadEstudio,mode);
+  assert.equal(c.habilitada,false);
+  assert.equal(c.filologiaIntegralVerificada,false);
+  assert.equal(w.normas,null);
+  assert.equal(w.aptoParaPractica,false);
+ }
+ assert.equal(audit.summary.decisionesDocentesAplicadas,6);
+ assert.equal(closure.summary.necesitanContrastacionFilologica,89);
 });
