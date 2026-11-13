@@ -1,12 +1,12 @@
 {
   "schema": "schola-evolutio-va-closure-review/v1",
   "date": "2026-11-13",
-  "method": "Cierre de cobertura de los 221 resultados léxicos documentados: 132 análisis editoriales y 89 dictámenes individuales de reserva sin certificación integral; el nombre del fichero conserva el tamaño de la primera tanda. Nunca habilita ejercicios ni implica comprobación DNV.",
+  "method": "Cierre de cobertura de los 221 resultados léxicos documentados: 132 análisis editoriales y 89 dictámenes individuales de reserva sin certificación integral; el nombre del fichero conserva el tamaño de la primera tanda. Nunca habilita ejercicios ni implica comprobación DNV. Tres reserves resoltes documentalment: tonare (analogia lèxica), luxum i squamam (manlleus); cap exigeix una decisió de llei patrimonial.",
   "summary": {
     "revisadosEditorialmente": 132,
     "restantesExaminadosConReserva": 89,
-    "decisionesDocentesPendientes": 6,
-    "necesitanContrastacionFilologica": 83,
+    "decisionesDocentesPendientes": 3,
+    "necesitanContrastacionFilologica": 86,
     "aptosParaPractica": 0
   },
   "records": [
@@ -348,8 +348,8 @@
       "valenciano": "tronar",
       "lexicoDocumentado": true,
       "dictamen": "pendent_de_contrast_fonetic_integral",
-      "categoria": "decisio_docent_reservada",
-      "sintesisIndividual": "El DCVB señala una r añadida por influencia de tro: tonare → tronar no es un cambio fonético regular directo.",
+      "categoria": "transmissio_no_patrimonial_documentada",
+      "sintesisIndividual": "El DCVB atribueix la r de tronar a influència analògica de tro, no a una epèntesi fonètica regular. Es conserva l'explicació sense llei seleccionable per a -r-.",
       "procesosParcialesPreexistentes": [],
       "reference": {
         "authority": "DCVB",
@@ -358,19 +358,13 @@
         "verification": "consulta_directa_de_articulo",
         "date": "2026-11-13"
       },
-      "requiereCriterioDocente": true,
-      "discrepanciaDocente": {
-        "topic": "r influïda per tro",
-        "options": [
-          "EPÈNTESI com a etiqueta didàctica amb nota d'analogia",
-          "Sense llei seleccionable per a -r- analògica"
-        ],
-        "recommended": 1,
-        "reason": "La r deriva d'influència lèxica documentada, no d'inserció fonètica regular."
-      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
       "dnvIndividualChecked": false,
       "filologiaIntegralVerificada": false,
-      "habilitada": false
+      "habilitada": false,
+      "decisionEvidenceDCVB": "https://dcvb.iec.cat/results.asp?word=tronar",
+      "excludedFromPhoneticPractice": true
     },
     {
       "id": "xl-722",
@@ -790,8 +784,8 @@
       "valenciano": "luxe",
       "lexicoDocumentado": true,
       "dictamen": "pendent_de_contrast_fonetic_integral",
-      "categoria": "decisio_docent_reservada",
-      "sintesisIndividual": "DCVB: 'pres del llatí luxus'; préstamo culto, NO evolución patrimonial regular.",
+      "categoria": "transmissio_no_patrimonial_documentada",
+      "sintesisIndividual": "El DCVB descriu luxe com a manlleu del llatí luxus. No s'ha de proposar com a evolució fonètica patrimonial, encara que es conserve la correspondència en el lèxic docent.",
       "procesosParcialesPreexistentes": [],
       "reference": {
         "authority": "DCVB",
@@ -800,19 +794,13 @@
         "verification": "consulta_directa_de_articulo",
         "date": "2026-11-13"
       },
-      "requiereCriterioDocente": true,
-      "discrepanciaDocente": {
-        "topic": "luxe és un cultisme",
-        "options": [
-          "Excloure d'evolució patrimonial i conservar al lèxic",
-          "Admetre fitxa marcada com a cultisme sense lleis fonètiques"
-        ],
-        "recommended": 0,
-        "reason": "El DCVB identifica préstec del llatí luxus, no resultat fonètic patrimonial."
-      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
       "dnvIndividualChecked": false,
       "filologiaIntegralVerificada": false,
-      "habilitada": false
+      "habilitada": false,
+      "decisionEvidenceDCVB": "https://dcvb.iec.cat/results.asp?word=luxe",
+      "excludedFromPhoneticPractice": true
     },
     {
       "id": "xl-199",
@@ -956,8 +944,8 @@
       "valenciano": "escama",
       "lexicoDocumentado": true,
       "dictamen": "pendent_de_contrast_fonetic_integral",
-      "categoria": "decisio_docent_reservada",
-      "sintesisIndividual": "ESCAMA 1 procede de squama por préstamo; no asumir desarrollo popular.",
+      "categoria": "transmissio_no_patrimonial_documentada",
+      "sintesisIndividual": "El DCVB descriu escama com a forma presa del llatí squama. No atribuir PRÒTESI patrimonial regular ni habilitar aquesta derivació sense una justificació didàctica específica.",
       "procesosParcialesPreexistentes": [
         {
           "ley": "PROT",
@@ -972,19 +960,13 @@
         "verification": "consulta_directa_de_articulo",
         "date": "2026-11-13"
       },
-      "requiereCriterioDocente": true,
-      "discrepanciaDocente": {
-        "topic": "escama i transmissió per préstec",
-        "options": [
-          "No aplicar PRÒTESI com a llei patrimonial exigible",
-          "Aplicar PRÒTESI a la forma lexicalitzada amb explicació del préstec"
-        ],
-        "recommended": 0,
-        "reason": "L'evidència lèxica apunta a una transmissió prestada, de manera que no prova una pròtesi patrimonial regular."
-      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
       "dnvIndividualChecked": false,
       "filologiaIntegralVerificada": false,
-      "habilitada": false
+      "habilitada": false,
+      "decisionEvidenceDCVB": "https://dcvb.iec.cat/results.asp?word=escama",
+      "excludedFromPhoneticPractice": true
     },
     {
       "id": "xl-309",
