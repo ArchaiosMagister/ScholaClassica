@@ -56,6 +56,17 @@ test('las entradas nuevas tienen 10 casillas, unitad curricular, género y proce
     'El género conserva trazabilidad de la evidencia lexicográfica');
 });
 
+test('ὁπλίτης y στρατιώτης se recuperan por la flexión atestiguada sin inventar género',()=>{
+  for(const [lemma,unit] of [['ὁπλίτης',10],['στρατιώτης',5]]){
+    const item=result.records.find(r=>r.paradigm.startsWith(lemma+','));
+    assert.ok(item,'Falta paradigma completo '+lemma);
+    assert.equal(item.unit,unit);
+    assert.ok(item.forms.length>=10);
+    assert.equal(new Set(item.forms.map(f=>f.case+':'+f.number)).size,10);
+    assert.ok(!item.gender,'El enunciado no demuestra por sí solo el género léxico');
+    assert.equal(item.evidence.genderEvidence,'sin-género-único-acreditado');
+  }
+});
 test('la selección de unidad y los sintagmas mantienen coherencia',()=>{
   assert.equal(availableRecords(bank,{language:'griego',unit:3,kind:'sustantivo'}).length,0);
   const at4=availableRecords(bank,{language:'griego',unit:4,kind:'sustantivo'});
