@@ -3,6 +3,7 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import assert from 'node:assert/strict';
+import {compileAdditionalMorphology} from './morphology-expansion.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -226,7 +227,7 @@ function greekFirstDeclension(curriculum){
   });
 }
 
-export function compileMorphology(curriculum,sha,{latinNounsHtml}={}){
+export function compileMorphology(curriculum,sha,{latinNounsHtml,latinIndicativeHtml,latinAdjectivesHtml}={}){
   assert.ok(/^[a-f0-9]{40}$/.test(sha),'SHA del Appendix no fijado');
   const records=[];
   records.push(nounFrom(curriculum,{language:'latin',unit:1,
@@ -285,17 +286,20 @@ export function compileMorphology(curriculum,sha,{latinNounsHtml}={}){
   records.push(latinPassiveEndings(curriculum));
   records.push(...latinThirdDeclension(curriculum,latinNounsHtml));
   records.push(...greekFirstDeclension(curriculum));
+  records.push(...compileAdditionalMorphology({curriculum,latinIndicativeHtml,latinAdjectivesHtml}));
   // Ningún registro se habilita por inferencia; solo por tabla curricular.
-  assert.equal(records.length,40);
+  assert.equal(records.length,60);
   assert.equal(new Set(records.map(r=>r.id)).size,records.length,'IDs duplicados');
   for(const r of records)assert.ok(r.forms.length>=6,r.id);
   return {schema:'schola-morphology-source/v1',appendixSha:sha,
-    coverage:{latin:[1,2,3,4],griego:[1,2,3]},records};
+    coverage:{latin:[1,2,3,4,5],griego:[1,2,3,4,5]},records};
 }
 export async function buildMorphology({out,lock}){
   const path=join(source,'assets/curriculum.json');
   const data=compileMorphology(JSON.parse(await readFile(path,'utf8')),lock.sources.appendix.sha,
-    {latinNounsHtml:await readFile(join(source,'sustantivos.html'),'utf8')});
+    {latinNounsHtml:await readFile(join(source,'sustantivos.html'),'utf8'),
+     latinIndicativeHtml:await readFile(join(source,'indicativo.html'),'utf8'),
+     latinAdjectivesHtml:await readFile(join(source,'adjetivos.html'),'utf8')});
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(data,null,2)+'\n');
