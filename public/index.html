@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <script src="./theme.js"></script>
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
   <title>ScholaClassica · Latín y Griego</title>
@@ -19,7 +20,7 @@
 <header class="site-head">
   <div class="head-inner">
     <a class="brand" href="./" aria-label="ScholaClassica, inicio"><span class="brand-symbol" aria-hidden="true">Σ</span> Schola<span>Classica</span></a>
-    <nav aria-label="Navegación principal"><a href="#itinerario">Mi itinerario</a><a href="#modulos">Herramientas</a><a href="#profesorado">Profesorado</a><button type="button" id="portal-update" class="portal-update">Actualizar</button></nav>
+    <nav aria-label="Navegación principal"><a href="#itinerario">Mi itinerario</a><a href="#modulos">Herramientas</a><a href="#profesorado">Profesorado</a><label class="theme-choice" for="portal-theme">Aspecto <select id="portal-theme" aria-label="Aspecto de la portada"><option value="system">Automático</option><option value="light">Claro</option><option value="dark">Oscuro</option><option value="oled">OLED</option></select></label><button type="button" id="portal-update" class="portal-update">Actualizar</button></nav>
   </div>
 </header>
 <main id="contenido" class="container">
@@ -27,7 +28,7 @@
     <p class="eyebrow">Un espacio común para las lenguas clásicas</p>
     <h1>ScholaClassica</h1>
     <p>Gramática, vocabulario latino y griego, evolución fonética y ejercicios de etimología. Las herramientas se incorporan progresivamente sin alterar sus aplicaciones originales.</p>
-    <p class="status"><span aria-hidden="true">●</span> Primera integración en pruebas. No es todavía la web destinada al alumnado.</p>
+    <p class="status"><span aria-hidden="true">●</span> Versión pública de prueba. Las herramientas disponibles ya pueden utilizarse.</p>
     <div class="portal-pwa-status" id="portal-pwa-status" role="status" aria-live="polite">Preparando el acceso sin conexión.</div>
     <details class="install-help">
       <summary>Instalar ScholaClassica en el móvil o la tableta</summary>
@@ -63,7 +64,7 @@
     <p class="path-note">La selección se recuerda solo en este navegador; no guarda respuestas, calificaciones ni datos personales.</p>
   </section>
   <section id="modulos" aria-labelledby="explorar">
-    <div class="section-heading"><div><p class="eyebrow">Estudia como prefieras</p><h2 id="explorar">Explorar los contenidos</h2></div><span class="phase">Integración en pruebas · Gramática, vocabulario, fonética y etimología</span></div>
+    <div class="section-heading"><div><p class="eyebrow">Estudia como prefieras</p><h2 id="explorar">Explorar los contenidos</h2></div><span class="phase">Gramática, vocabulario, fonética, etimología y proyectos vinculados</span></div>
     <div class="tabs" role="tablist" aria-label="Forma de explorar">
       <button type="button" id="tab-lenguas" role="tab" aria-controls="panel-lenguas" aria-selected="true">Por lengua</button>
       <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Por herramienta</button>
@@ -115,6 +116,14 @@
           <p class="overline">Léxico latino y griego</p><h3>Vocabula Latina Græcaque</h3>
           <p>Tarjetas, test, traducciones, repaso de errores y vocabulario por unidades. Se conserva la gestión docente mediante su servicio actual.</p>
           <div class="linkgroup"><a href="apps/vocabulario/index.html?subject=lat1">Practicar vocabulario <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="card neutral linked-project">
+          <p class="overline">Aplicación vinculada · Acceso externo</p><h3>Palabra del día</h3>
+          <p>Participación y votaciones de palabras en 1.º de Bachillerato y 4.º de ESO. Conserva sus propias cuentas, progresos y aplicaciones instaladas; no compartimos sesiones.</p>
+          <div class="linkgroup">
+            <a href="https://archaiosmagister.github.io/Palabra-del-dia/" target="_blank" rel="noopener noreferrer">1.º de Bachillerato · Abrir sitio externo <span aria-hidden="true">↗</span></a>
+            <a href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/" target="_blank" rel="noopener noreferrer">4.º de ESO · Abrir sitio externo <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
         <article class="card neutral upcoming">
           <p class="overline">En revisión académica</p><h3>Práctica de morfología</h3>
