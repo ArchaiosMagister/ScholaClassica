@@ -163,13 +163,13 @@
           }
         ],
         "notas": null,
-        "dnvIndividualChecked": false,
         "criterioDocente": {
           "date": "2026-11-13",
           "scope": "criterio_de_clasificacion",
           "approval": "accepted",
           "decision": "Exigir MONOFTONGACIÓ de æ y PALATALITZACIÓ de c inicial; mantener APÒCOPE y pérdida fija -m diferenciadas."
-        }
+        },
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1089,13 +1089,13 @@
           }
         ],
         "notas": "El DCVB deriva ull del latín vulgar *ŏclu, contracción del latín clásico ŏcŭlus; conservar la fase intermedia y no afirmar derivación fonética directa.",
-        "dnvIndividualChecked": false,
         "criterioDocente": {
           "date": "2026-11-13",
           "scope": "criterio_de_clasificacion",
           "approval": "accepted",
           "decision": "Exigir SÍNCOPE de ŭ postònica i PALATALITZACIÓ del grup -cl- format després de la síncope; no atribuir -cl- com a tram contigu del mot llatí original."
-        }
+        },
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3112,13 +3112,13 @@
           }
         ],
         "notas": null,
-        "dnvIndividualChecked": false,
         "criterioDocente": {
           "date": "2026-11-13",
           "scope": "criterio_de_clasificacion",
           "approval": "accepted",
           "decision": "Exigir OBERTURA per al resultat -u > -o de fĕrrum → ferro, com a classificació didàctica de la llei 11."
-        }
+        },
+        "dnvIndividualChecked": false
       }
     },
     {
