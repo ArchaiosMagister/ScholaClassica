@@ -133,7 +133,7 @@ export function compileGreekNounExpansion({
     if(!byLemma.has(k))byLemma.set(k,[]);
     byLemma.get(k).push(entry);
   }
-  const records=[],review=[],catalog=[];
+  const records=[],review=[],catalog=[],staged=[];
   for(const [lemma,entries] of byLemma){
     const ordered=[...entries].sort((a,b)=>
       Number(b.mode==='examen')-Number(a.mode==='examen'));
@@ -144,9 +144,14 @@ export function compileGreekNounExpansion({
       sources:entries.map(e=>({id:e.id,mode:e.mode,form:e.form,
         units:e.units,meaning:e.meaning})),sourceSha:vocabulaSha};
     const reject=reason=>{
+      const attested=(grouped.get(lemma)||[]).filter(r=>TAGS.has(r[2]));
+      const seen=new Set(attested.map(r=>r[2]));
+      const missing=[...TAGS].filter(t=>!seen.has(t));
       review.push({lemma:display,unit:entry.units?.[0]||null,
-        entries:entries.map(x=>x.id),reason});
-      catalog.push({...state,status:'pendiente',reason});
+        entries:entries.map(x=>x.id),reason,
+        sourceCells:seen.size,missingSlots:missing});
+      catalog.push({...state,status:'pendiente',reason,
+        sourceCells:seen.size,missingSlots:missing});
     };
     if(accepted.has(lemma)){
       catalog.push({...state,status:'incluido-anteriormente',
@@ -154,15 +159,15 @@ export function compileGreekNounExpansion({
       continue;
     }
     try{
-      if(!matching.length)throw Error('Sin unidad curricular acreditada: se conserva el lema para cotejo');
       const checked=checkedForms(display,grouped.get(lemma)||[]);
       checkLexGen(entry,checked.genitive);
       checkLexGender(entry,checked.gender);
       const decl=declension(display,checked.genitive,checked.gender);
       if(!decl)throw Error('Modelo flexivo no acreditado por Appendix UD1–UD10');
       checkCurriculum(curriculum,decl);
-      const unit=Math.min(...entry.units.filter(u=>GROUPS.has(u)).map(u=>GROUPS.get(u)));
-      const enabledUnit=Math.max(decl.unit,unit);
+      const unit=matching.length?
+        Math.min(...entry.units.filter(u=>GROUPS.has(u)).map(u=>GROUPS.get(u))):null;
+      const enabledUnit=unit===null?decl.unit:Math.max(decl.unit,unit);
       if(enabledUnit>10)throw Error('Modelo todavía no habilitado en la interfaz');
       const record={
         id:'griego-sustantivo-import-'+entry.id,language:'griego',
@@ -183,15 +188,26 @@ export function compileGreekNounExpansion({
             'el currículo acredita el modelo, no cada forma.'
         }
       };
-      records.push(record);
-      catalog.push({...state,status:'incorporado',recordId:record.id,
-        unit:enabledUnit,gender:record.gender,formCount:record.forms.length});
+      if(unit===null){
+        const stagedRecord={...record,id:'griego-sustantivo-stage-'+entry.id,
+          unit:null,evidence:{...record.evidence,status:'paradigma-sin-unidad',
+            review:'Paradigma atestiguado, pero sin unidad docente asignada; nunca usar para calificar'}};
+        staged.push(stagedRecord);
+        catalog.push({...state,status:'paradigma-completo-sin-unidad',
+          stagedId:stagedRecord.id,proposedFirstUnit:decl.unit,
+          gender:record.gender,formCount:record.forms.length});
+      }else{
+        records.push(record);
+        catalog.push({...state,status:'incorporado',recordId:record.id,
+          unit:enabledUnit,gender:record.gender,formCount:record.forms.length});
+      }
     }catch(e){reject(String(e?.message||e));}
   }
   records.sort((a,b)=>a.unit-b.unit||a.id.localeCompare(b.id));
   assert.equal(new Set(records.map(r=>r.id)).size,records.length,'IDs repetidos');
-  return {records,review,catalog,audit:{candidates:candidates.length,
+  return {records,staged,review,catalog,audit:{candidates:candidates.length,
     uniqueLemmas:byLemma.size,alreadyIncluded:accepted.size,
-    incorporated:records.length,reviewNeeded:review.length,
+    incorporated:records.length,stagedWithoutUnit:staged.length,
+    reviewNeeded:review.length,
     sourceSha:vocabulaSha,excludedBeyondUd10:true}};
 }
