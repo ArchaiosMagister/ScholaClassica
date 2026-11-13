@@ -29,6 +29,9 @@ function declension(nom,gen,gender){
     return {name:'1.ª declinación (η)',unit:3,topic:'Primera declinación',marker:'–ης'};
   if(ends('α')&&endsGen('ας')&&gender!=='masculino')
     return {name:'1.ª declinación (α)',unit:3,topic:'Primera declinación',marker:'–ας'};
+  if(ends('α')&&endsGen('ης')&&gender!=='masculino')
+    return {name:'1.ª declinación (α mixto, genitivo –ης)',
+      unit:3,topic:'Primera declinación',marker:'–ης'};
   if((ends('ης')||ends('ας'))&&endsGen('ου')&&gender==='masculino')
     return {name:'1.ª declinación masculina',unit:3,topic:'Primera declinación',marker:'–ου'};
   // Appendix UD8 incluye los temas consonánticos de la 3.ª, entre ellos
@@ -118,8 +121,18 @@ function checkLexGen(entry,genitive){
   const full=second.match(/^([\p{Script=Greek}\p{M}]+)$/u);
   if(!suffix&&!full)throw Error('Genitivo docente no interpretable');
   if((suffix&&!key(genitive).endsWith(key(suffix[1])))||
-    (full&&key(genitive)!==key(full[1])))
+    (full&&key(genitive)!==key(full[1]))){
+    // δόξα es α impura: en ático tiene genitivo δόξης, no δόξας.
+    // Corrección específica cotejada con Cambridge Grammar of Classical
+    // Greek y Wiktionary; NO se autoriza ninguna analogía por terminación.
+    if(key(tokens[0])===key('δόξα')&&key(genitive)===key('δόξης'))
+      return {from:entry.form,to:'δόξα, –ης (ἡ)',
+        sources:['https://www.cs.toronto.edu/~simon/Athens/Thucydides3/cgcg.pdf',
+          'https://en.wiktionary.org/wiki/δόξα'],
+        reason:'Genitivo ático de tema en α mixto; corrección de ficha docente'};
     throw Error('Genitivo del enunciado distinto al paradigma');
+  }
+  return null;
 }
 function checkLexGender(entry,gender){
   const declared=entry.form.match(/\((ὁ|ἡ|τὸ|τό)\)/u)?.[1];
@@ -186,7 +199,7 @@ export function compileGreekNounExpansion({
     }
     try{
       const checked=checkedForms(display,grouped.get(lemma)||[],entry);
-      checkLexGen(entry,checked.genitive);
+      const lexicalCorrection=checkLexGen(entry,checked.genitive);
       checkLexGender(entry,checked.gender);
       const decl=declension(display,checked.genitive,checked.gender);
       if(!decl)throw Error('Modelo flexivo no acreditado por Appendix UD1–UD10');
@@ -209,6 +222,7 @@ export function compileGreekNounExpansion({
           unit:decl.unit,topic:decl.topic,
           caption:'Paradigma nominal completo: '+checked.nominative,
           status:'paradigma-documentado',genderEvidence:checked.genderEvidence,
+          ...(lexicalCorrection?{lexicalCorrection}:{}),
           vocabulaSha,vocabulaEntry:entry.id,
           vocabulaGroup:entry.units[0],license:'CC BY-SA 3.0',
           review:'conciliación interfuentes; pendiente de revisión docente individual',
