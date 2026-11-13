@@ -66,7 +66,7 @@ test('no confundir una URL del diccionario con una comprobación individual',()=
 });
 test('componentes dobles y triples también están documentados para materias científicas',()=>{
   const curated=readStudyComponents();
-  assert.equal(Object.keys(curated).length,137);
+  assert.ok(Object.keys(curated).length>=200);
   assert.deepEqual(lookup('biología').components.map(c=>c.greek),['βίος','λόγος']);
   assert.deepEqual(lookup('biblioteca').components.map(c=>c.greek),['βιβλίον','θήκη']);
   assert.equal(lookup('biblioteca').components[1].external,true);
