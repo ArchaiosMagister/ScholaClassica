@@ -16,5 +16,5 @@ const res=await fetch(url,{
 let data;
 try{data=await res.json()}catch{throw Error('La función de acceso no devolvió JSON');}
 if(res.status!==401||data?.error!=='Credenciales no válidas')
-  throw Error('Primer factor no está listo o no rechazó la identidad no autorizada (HTTP '+res.status+')');
+  throw Error('Primer factor no listo: HTTP '+res.status+'; causa pública: '+String(data?.error||'respuesta desconocida').slice(0,100));
 console.log('OK: Supabase rechaza el usuario erróneo antes del inicio de sesión, sin probar contraseñas reales');
