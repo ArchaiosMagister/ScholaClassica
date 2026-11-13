@@ -71,6 +71,31 @@ try{
   await page.locator('#new').click();
   await page.reload({waitUntil:'networkidle'});
   assert.ok((await page.locator('#review-status').textContent()).includes('2 ejercicios practicados'));
+  // El sintagma griego es artículo + adjetivo sustantivado, sin sustantivo inventado.
+  await page.locator('#unit').selectOption('5');
+  await page.locator('#review-mode').selectOption('all');
+  await page.locator('#activity').selectOption('phrase-written');
+  assert.equal(await page.locator('#kind').inputValue(),'sintagma');
+  await page.locator('#start').click();
+  assert.ok(await page.locator('#written-response').isVisible());
+  assert.ok(await page.locator('#greek-keyboard').isVisible());
+  assert.match(await page.locator('#question-title').textContent(),/adjetivo sustantivado/);
+  await page.locator('#answer-input').fill('forma inventada');
+  await page.locator('#check-written').click();
+  assert.ok(await page.locator('#source-secondary').isVisible(),
+    'Deben enlazarse por separado las dos unidades de origen');
+  assert.match(await page.locator('#source-secondary').textContent(),/UD3/);
+  await page.locator('#new').click();
+  await page.locator('#activity').selectOption('phrase-table');
+  await page.locator('#start').click();
+  assert.equal(await page.locator('#table-cells input').count(),8,
+    'No existe vocativo griego del artículo');
+  await page.locator('#table-cells input').evaluateAll(fields=>{
+    for(const field of fields){field.value='x';field.dispatchEvent(new Event('input',{bubbles:true}))}
+  });
+  await page.locator('#check-table').click();
+  assert.match(await page.locator('#feedback').textContent(),/8 casillas/);
+  await page.locator('#new').click();
 
   // Reapertura offline en móvil: corrección, banco, estilos y teclado están precargados.
   await page.waitForFunction(async()=>{
@@ -108,9 +133,21 @@ try{
   await page.locator('#check-table').click();
   assert.ok((await page.locator('#feedback').textContent()).includes('Tabla completa correcta'));
   assert.equal(await page.locator('#table-cells input:disabled').count(),12);
+  await page.locator('#new').click();
+  await page.locator('#unit').selectOption('7');
+  await page.locator('#activity').selectOption('phrase-table');
+  assert.equal(await page.locator('#kind').inputValue(),'sintagma');
+  await page.locator('#start').click();
+  assert.equal(await page.locator('#table-cells input').count(),12);
+  await page.locator('#table-cells input').evaluateAll(fields=>{
+    for(const field of fields){field.value='x';field.dispatchEvent(new Event('input',{bubbles:true}))}
+  });
+  await page.locator('#check-table').click();
+  assert.match(await page.locator('#feedback').textContent(),/12 casillas/);
+  assert.ok(await page.locator('#source-secondary').isVisible());
   await page.context().setOffline(false);
   assert.deepEqual(errors,[]);
-  console.log('OK: escritura, teclado politónico, repaso local y tabla completa offline en móvil');
+  console.log('OK: escritura, teclado, pronombres y sintagmas latinos/griegos en modo offline móvil');
 }finally{
   if(browser)await browser.close();
   await new Promise(done=>server.close(done));
