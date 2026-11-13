@@ -38,13 +38,15 @@ test('Evolutio: 522 fichas, actualización y SW aislado',()=>{
  const data=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
  assert.equal(data.words.length,522);
  assert.ok(data.words.some(w=>w.latin==='uitam'));
- for(const p of ['src/difficulty.mjs','src/latin.mjs','src/update.mjs','data/difficulty.json'])
+ for(const p of ['src/difficulty.mjs','src/result-difficulty.mjs','src/latin.mjs','src/update.mjs','data/difficulty.json'])
    assert.ok(existsSync(join(out,'apps/evolucion-fonetica',p)),p);
  assert.match(read('apps/evolucion-fonetica/index.html'),/id="refresh-app"/);
  const sw=read('apps/evolucion-fonetica/sw.js');
  assert.match(sw,/CACHE_PREFIX='schola-evolutio-'/);
  assert.match(sw,/key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION/);
  assert.match(sw,/src\/difficulty\.mjs/);
+ assert.match(sw,/src\/result-difficulty\.mjs/);
+ assert.match(sw,/resultado-v2/);
  assert.match(sw,/data\/difficulty\.json/);
  assert.match(sw,/url\.pathname\.startsWith\(scope\.pathname\)/);
  assert.ok(!sw.includes('keys.filter(key=>key!==VERSION)'));
