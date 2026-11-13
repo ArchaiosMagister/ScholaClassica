@@ -157,3 +157,71 @@ los descartados. El corpus es estático, corregible y utilizable sin conexión.
 Este cambio se prepara en una rama de integración sin fusionar ni publicar.
 Eulexis, Perseus/Morpheus y Logeion son futuras fuentes de contraste; **no se
 les atribuye una consulta automatizada que este lote no ha realizado**.
+
+
+## Inventario integral de sustantivos de los vocabularios docentes — 13/11/2026
+
+**Importación cerrada por evidencia, no por una cantidad prefijada.** El
+compilador recorre las fichas `general` y `examen` de los tres cursos de
+Vocabula (`lat1`, `lat4` y `gr1`) en el SHA fijado; no borra
+ninguna ficha original. El inventario conserva para cada candidato todos los
+enunciados, significados, curso, unidades y sus identificadores de origen.
+
+Los sustantivos con paradigma **completo y contrastable** se incorporan a
+`apps/morfologia/data/paradigmas.json`, con estatus individual de conciliación
+pendiente de revisión docente: 25 sustantivos griegos (8 ya existentes + 17
+nuevos) y 175 sustantivos latinos nuevos; 284 fichas morfológicas en total
+(contando las 84 fichas preexistentes). Son cifras del cotejo sobre las fuentes
+fijadas; no representan todo el léxico como ya verificado.
+
+La selección opera sobre:
+- **Latín:** `scripts/latin-noun-bulk.mjs`; 32 fragmentos UniMorph lat,
+  enunciado docente, genitivo singular, y doce casillas de seis casos × dos
+  números. Se conservan variantes atestiguadas; si un mismo lema contiene
+  genitivos de declinaciones divergentes, se aparta para evitar unir
+  homónimos. Los géneros inferidos por patrones se identifican como tales y
+  **no se presentan como contrastes léxicos independientes**.
+- **Griego:** `scripts/greek-noun-bulk.mjs`; ocho fragmentos UniMorph grc,
+  diez casillas de cinco casos × dos números, género explícito por artículo
+  singular y concordancia con la primera/segunda declinación curricular.
+  Se utiliza el nominativo canónico de UniMorph en el paradigma cuando el
+  acento del enunciado docente antiguo no coincide.
+- **Contraste independiente sin calificación:** se consulta el SHA fijo de
+  GeneradorExamenes, que registra propuestas de Wiktionary (CC BY-SA 4.0) y
+  decisiones editoriales docentes. Estos materiales se cotejan y documentan
+  **sin convertir ninguna propuesta no verificada en una respuesta correcta**.
+  Eulexis, Perseus/Morpheus y Logeion son referencias para un cotejo
+  lexicográfico adicional, **no fuentes consultadas individualmente por este
+  compilador**; su presencia en una lista de fuentes no acredita una forma.
+
+Las entradas sin serie completa, con género contextual o irregularidad no
+resuelta, con divergencia de enunciado o cuyo contenido se enseña más tarde
+**no se sortean**. Las palabras de Griego I UD8–UD14, Latín I más allá de
+UD7 y todas las de Latín de 4.º quedan catalogadas sin falsear que ya existe
+un currículo completo de morfología para esas unidades y curso. En el
+caso latino, un nombre adquirido antes de estudiar su declinación se habilita
+solo a partir de la unidad que explica su modelo.
+
+Los informes íntegros **no se publican en la webapp del alumnado**; se archivan
+como artefacto de CI:
+
+- `build/morfologia/catalogo-nominal-total.json`: inventario de candidatos,
+  identificadores y decisión por palabra.
+- `build/morfologia/auditoria-sustantivos-griegos.json`: incorporados y
+  descartados, con razones.
+- `build/morfologia/auditoria-sustantivos-latinos.json`: ídem para latín,
+  con separación explícita de Latín de 4.º.
+- `build/morfologia/contraste-nominal-secundario.json`: correspondencias
+  bibliográficas y decisiones editoriales (no usadas para calificar).
+
+La CI obtiene únicamente copias **de lectura** de Appendix, Vocabula y
+GeneradorExamenes fijadas por SHA, verifica sus dependencias, el banco, la
+licencia de ambos corpus UniMorph y las PWAs sin conexión. No se modifican
+fuentes originales, la base de datos docente, ni el servicio de autenticación.
+La rama se mantiene sin fusionar/publicar hasta decisión explícita posterior.
+
+**Siguiente ampliación nominal pendiente:** corroborar casillas dudosas con
+fuentes filológicas complementarias (Perseus/Morpheus, Eulexis, Logeion,
+Collatinus para latín, según licencias y disponibilidad) y habilitar por
+unidades sus modelos de tercera declinación griega y el itinerario de
+Latín de 4.º, sin anticipar adjetivos, pronombres o verbos.
