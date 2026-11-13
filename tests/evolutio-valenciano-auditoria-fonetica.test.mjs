@@ -47,7 +47,7 @@ test('El registro no certifica fonética ni permite publicar ejercicios',()=>{
  assert.equal(matrix.summary.normasVerificadas,0);
 });
 
-test('Los 87 procesos parciales conservan intervalos válidos y referencia histórica',()=>{
+test('Los 110 procesos parciales conservan intervalos válidos y referencia histórica',()=>{
  const documented=new Set(matrix.records.filter(x=>x.valenciano.estadoLexico==='documentat').map(x=>x.id));
  let total=0,words=0;
  for(const x of audit.records){
@@ -65,7 +65,7 @@ test('Los 87 procesos parciales conservan intervalos válidos y referencia hist�
    assert.match(p.evidence.lexicalDCVB,/dcvb\.iec\.cat/);
   }
  }
- assert.equal(total,87);
- assert.equal(words,78);
+ assert.equal(total,110);
+ assert.equal(words,95);
  assert.equal(audit.summary.analisisIntegralesVerificados,0);
 });
