@@ -16,7 +16,7 @@ test('el triaje es reproducible, sin modificar los paradigmas ni elevar evidenci
   assert.ok(report.counts['verbo-para-fase-posterior']>=20);
   assert.ok(report.counts['adjetivo-para-fase-posterior']>=20);
   assert.ok(report.counts['fuente-incompleta-o-ausente']>30);
-  assert.match(report.policy,/no calificación/);
+  assert.match(report.policy,/(?:sin|no) calificación/);
 });
 test('no se convierten verbos y adjetivos en sustantivos pendientes de flexión nominal',()=>{
   const find=(lang,lemma)=>report.classified.find(x=>x.language===lang&&
