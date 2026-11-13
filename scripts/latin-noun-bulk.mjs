@@ -19,6 +19,30 @@ const UNIT=/UD\s*(\d+)/u;
 const COURSES=new Set(['lat1','lat4']);
 const SOURCE_STATUS='conciliación interfuentes; pendiente de revisión docente individual';
 
+const SOURCE_SINGULAR_ONLY=new Set([
+  'corinthus','corsica','gallia','hispania','italia','roma','troia',
+  'cicero','hannibal','achilles','carthago','catilina','homerus','naso',
+  'aeneas','ambiorix','aristides','pompeius','tamesis','capua','cato',
+  'hortensius','orgetorix','roscius','saguntum','sophocles',
+  'tarquinius','capitolium','aurum','chaos'
+]);
+// Solo se habilitan los casos del número conservado en el corpus.
+// Se trata de una decisión de alcance de ejercicio, no de afirmar que
+// el plural sea imposible en otros registros históricos.
+const SOURCE_PLURAL_ONLY=new Map([
+  ['castra',{gender:'neutro',declension:'2.ª declinación',
+    source:'https://dcc.dickinson.edu/grammar/latin/2nd-declension-neuter'}],
+  ['arma',{gender:'neutro',declension:'2.ª declinación',
+    source:'https://en.wiktionary.org/wiki/arma#Latin'}],
+  ['athenae',{gender:'femenino',declension:'1.ª declinación',
+    source:'https://en.wiktionary.org/wiki/Athenae#Latin'}]
+]);
+const GENDER_OVERRIDES=new Map([
+  ['carthago',{gender:'femenino',
+    source:'https://latin-dictionary.net/definition/8336/Carthago-Carthaginis',
+    reason:'Topónimo femenino; el enunciado del banco indica m. por error'}]
+]);
+
 function vocabulary(text){
   const match=String(text).match(/^window\.VOCAB=(\[[\s\S]*\]);?\s*$/);
   assert.ok(match,'El formato original de Vocabula cambió');
@@ -93,29 +117,30 @@ function enunciado(entry){
     throw Error('Posible adjetivo o enunciado no nominal');
   return {lemma,ending};
 }
-function fullParadigm(lemma,entry,rows){
+function fullParadigm(lemma,entry,rows,{numberScope='both'}={}){
+  assert.ok(['both','singular','plural'].includes(numberScope));
   const byTag=new Map();
   for(const row of rows){
     if(!byTag.has(row[2]))byTag.set(row[2],new Set());
     byTag.get(row[2]).add(plain(row[1]));
   }
-  for(const tag of TAGS.keys())if(!byTag.has(tag)||byTag.get(tag).size===0)
-    throw Error('Faltan casillas del singular o plural en UniMorph: '+tag);
-  const nominatives=byTag.get('N;NOM;SG');
-  if(![...nominatives].some(f=>norm(f)===norm(lemma)))
-    throw Error('El nominativo singular no coincide con el lema');
-  const genitives=[...byTag.get('N;GEN;SG')];
-  if(!genitives.some(f=>norm(f).endsWith(entry.ending)))
-    throw Error('El genitivo de UniMorph contradice el vocabulario');
-  // Un mismo lema puede ser homónimo de otra declinación. Cantus, -us,
-  // por ejemplo, no permite mezclar casillas de una hipotética forma en -i.
-  if(genitives.some(f=>!norm(f).endsWith(entry.ending)))
-    throw Error('Genitivos divergentes: paradigmas homónimos no mezclables');
-  const gen=genitives.find(f=>norm(f).endsWith(entry.ending));
+  const required=[...TAGS.keys()].filter(tag=>numberScope==='both'||
+    tag.endsWith(numberScope==='singular'?';SG':';PL'));
+  for(const tag of required)if(!byTag.has(tag)||byTag.get(tag).size===0)
+    throw Error('Faltan casillas atestiguadas en UniMorph: '+tag);
+  const numberTag=numberScope==='plural'?'PL':'SG';
+  const nominatives=byTag.get('N;NOM;'+numberTag);
+  if(![...nominatives].some(form=>norm(form)===norm(lemma)))
+    throw Error('El nominativo del número documentado no coincide con el lema');
+  const genitives=[...byTag.get('N;GEN;'+numberTag)];
+  if(!genitives.some(form=>norm(form).endsWith(entry.ending)))
+    throw Error('El genitivo UniMorph contradice el enunciado docente');
+  if(genitives.some(form=>!norm(form).endsWith(entry.ending)))
+    throw Error('Genitivos divergentes: homónimos no mezclables');
+  const gen=genitives.find(form=>norm(form).endsWith(entry.ending));
   const forms=[];
   for(const [tag,features] of TAGS){
-    // UniMorph da a veces variantes históricas que se conservan etiquetadas
-    // como alternativas documentadas, no se interpolan.
+    if(!required.includes(tag))continue;
     for(const form of [...byTag.get(tag)].sort()){
       if(!form||form.length>60||/[\[\]()\/]/u.test(form))
         throw Error('Forma no individualizada o ilegible');
@@ -123,7 +148,7 @@ function fullParadigm(lemma,entry,rows){
         case:features.cas,number:features.number});
     }
   }
-  return {genitive:gen,forms};
+  return {genitive:gen,forms,numberScope};
 }
 function checkCurriculum(curriculum,decl){
   const topic=curriculum?.latin?.units?.find(u=>u.number===decl.unit)
@@ -206,14 +231,31 @@ export function compileLatinNounExpansion({
       if(firstUnit>10)throw Error('Unidad posterior a UD10: sin cobertura actual del Appendix');
       const sourceRows=index.get(norm(parsing.lemma))||[];
       if(!sourceRows.length)throw Error('Sin paradigma nominal en UniMorph latino fijado');
-      const {forms,genitive}=fullParadigm(parsing.lemma,parsing,sourceRows);
-      const decl=declension(parsing.lemma,genitive);
+      const key=norm(parsing.lemma);
+      const pluralOnly=SOURCE_PLURAL_ONLY.get(key);
+      let numberScope='both',matched;
+      try{matched=fullParadigm(parsing.lemma,parsing,sourceRows);}
+      catch(error){
+        // Solo aceptar numeración reducida para lemas individualmente
+        // incluidos en el listado docente y respaldados por fuente.
+        if(pluralOnly)numberScope='plural';
+        else if(SOURCE_SINGULAR_ONLY.has(key))numberScope='singular';
+        else throw error;
+        matched=fullParadigm(parsing.lemma,parsing,sourceRows,{numberScope});
+      }
+      const {forms,genitive}=matched;
+      const decl=pluralOnly?{
+        unit:1,name:pluralOnly.declension+' (plurale tantum)',
+        topic:'Primera y segunda declinación'}:declension(parsing.lemma,genitive);
       if(!decl)throw Error('Declinación no clasificada sin ambigüedad');
       // Si el sustantivo aparece en una oración antes de estudiar su
       // declinación, la práctica completa se habilita después, no se excluye.
       const unit=Math.max(firstUnit,decl.unit);
       checkCurriculum(curriculum,decl);
-      const g=genre(entry,parsing.lemma,decl);
+      const override=GENDER_OVERRIDES.get(norm(parsing.lemma));
+      const g=pluralOnly?{gender:pluralOnly.gender,source:'lexicografía-plural'}:
+        override?{gender:override.gender,source:'diccionario-contrastado'}:
+        genre(entry,parsing.lemma,decl);
       // La evidencia de género por inferencia queda marcada separadamente;
       // no se supone validación lexicográfica del género.
       const record={
@@ -229,9 +271,14 @@ export function compileLatinNounExpansion({
           status:'paradigma-documentado',vocabulaSha,vocabulaEntry:entry.id,
           vocabulaGroup:entry.units?.join(', ')||'',
           genderEvidence:g.source,license:'CC BY-SA 3.0',
+          numberScope,
+          ...(pluralOnly?{lexicalSource:pluralOnly.source}:{}),
+          ...(override?{editorialCorrection:override}:{}),
           review:SOURCE_STATUS,
-          notes:'Casillas completas tomadas de UniMorph (algunas con variantes). '+
-            'El género inferido por patrón no acredita por sí solo la concordancia léxica.'
+          notes:(numberScope==='both'?'Singular y plural':'Solo '+numberScope+
+            ' acreditado en la fuente, sin inventar las casillas ausentes')+
+            '; casillas tomadas de UniMorph. El género inferido por patrón no acredita '+
+            'por sí solo la concordancia léxica.'
         }
       };
       records.push(record);added.add(norm(parsing.lemma));
