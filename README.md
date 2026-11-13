@@ -14,7 +14,7 @@ Plataforma modular de estudio de latín y griego en construcción **sin publicac
 
 ## Conciliación académica de Evolutio en valenciano (fase inicial)
 
-Se ha iniciado el banco bilingüe sin tocar ni publicar el corrector de Evolutio: **522 étimos identificados**, **26 correspondencias léxicas documentadas con etimología en el DCVB**, **215 propuestas explícitamente no verificadas** y **281 fichas sin propuesta**. **0 fichas valencianas habilitadas**: ninguna se activa hasta verificar las normas valencianas, su posición y la aprobación docente.
+Se ha iniciado el banco bilingüe sin tocar ni publicar el corrector de Evolutio: **522 étimos identificados**, **221 correspondencias léxicas documentadas con etimología en el DCVB** (195 cotejadas en el lote original de 215), **20 propuestas reservadas**, entre ellas cuatro derivaciones directas descartadas y **281 fichas sin propuesta**. **0 fichas valencianas habilitadas**: ninguna se activa hasta verificar las normas valencianas, su posición y la aprobación docente.
 
 El repertorio incluye las **17 normas valencianas** aportadas por el docente y la pérdida fija de **-m**, sin aplicar automáticamente las normas castellanas. La matriz y sus evidencias están en `shared/academic/evolutio-valenciano/`, fuera de `public/` y `dist/`. Su integridad se comprueba contra el SHA fijado de Evolutio mediante `npm run evolutio:val:check` y las pruebas de CI. La modalidad castellana permanece intacta.
 

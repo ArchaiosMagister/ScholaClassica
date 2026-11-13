@@ -15,7 +15,7 @@ const itemKey=w=>String(w).normalize('NFC');
 export function applyEvolutioValencianoRevision(records,revision,knownRules){
  if(revision?.schema!=='schola-evolutio-va-analysis/v1')throw Error('Revisión fonética inválida.');
  const byLatin=new Map(records.map(w=>[w.latin,w]));
- const audited=new Set(),states=new Set(['analisi_proposada_revisada','criteri_pendent']);
+ const audited=new Set(),states=new Set(['analisi_proposada_revisada','criteri_pendent','contrast_historic_pendent']);
  for(const entry of [...revision.analyses,...revision.pending]){
   if(audited.has(entry.latin))throw Error('Revisión duplicada: '+entry.latin);
   audited.add(entry.latin);
@@ -26,10 +26,26 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
   if(!states.has(entry.status)||entry.playable!==false||entry.teacherApproved!==false
      ||entry.dnvIndividualChecked!==false)
    throw Error('Revisión no aprobada marcada como practicable: '+entry.latin);
-  if(entry.status==='criteri_pendent'){
-   if(!entry.reason||entry.changes?.length)throw Error('Discrepancia sin fundamento: '+entry.latin);
-   record.valenciano.estadoNormas='discrepancia_documentada';
+  if(entry.status==='criteri_pendent'||entry.status==='contrast_historic_pendent'){
+   if(!entry.reason||entry.changes?.length)throw Error('Reserva històrica sense fonament: '+entry.latin);
+   record.valenciano.estadoNormas=entry.status==='criteri_pendent'
+    ?'discrepancia_documentada':'contrast_historic_pendent';
    record.valenciano.notas=[record.valenciano.notas,entry.reason].filter(Boolean).join(' ');
+   if(entry.teacherDecision){
+    const d=entry.teacherDecision;
+    const expected={
+     octo:'reserva_fonetica',
+     dictum:'reserva_fonetica',
+     'sigĭllum':'estudi_historic_no_avaluable'
+    };
+    if(entry.status!=='contrast_historic_pendent'||!Object.hasOwn(expected,entry.latin)
+       ||d.date!=='2026-11-13'||d.scope!=='criterio_de_clasificacion'
+       ||d.approval!=='accepted'||d.studyMode!==expected[entry.latin]
+       ||typeof d.decision!=='string'||!d.decision.trim())
+     throw Error('Decisió docent de reserva no autoritzada: '+entry.latin);
+    record.valenciano.criterioDocente=d;
+    record.valenciano.modalidadEstudio=d.studyMode;
+   }
    continue;
   }
   if(!entry.explanation||!Array.isArray(entry.changes))
@@ -85,10 +101,15 @@ export function applyEvolutioValencianoRevision(records,revision,knownRules){
    record.valenciano.fenomensNoSeleccionables=nonSelectablePhenomena;
   record.valenciano.dnvIndividualChecked=false;
  }
- for(const w of records)if(w.valenciano.estadoLexico==='documentat'&&!audited.has(w.latin))
-  throw Error('Etimologia documentada sense revisió individual: '+w.latin);
+ // Las nuevas etimologías contrastadas conservan sus normas pendientes.
+ // Nunca inferir leyes valencianas de la documentación exclusivamente léxica.
+ for(const w of records)if(w.valenciano.estadoLexico==='documentat'&&!audited.has(w.latin)){
+  if(w.valenciano.normas!==null||w.valenciano.estadoNormas!=='pendent')
+   throw Error('Etimologia documentada sense revisió individual alterada: '+w.latin);
+ }
  return {analisisEditoriales:revision.analyses.length,
-  casosConDiscrepancia:revision.pending.length};
+  casosConDiscrepancia:revision.pending.filter(x=>x.status==='criteri_pendent').length,
+  contrastesHistoricosPendientes:revision.pending.filter(x=>x.status==='contrast_historic_pendent').length};
 }
 
 export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revision=null){
@@ -114,6 +135,8 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
     throw new Error('Documentación incompleta: '+key);
   }else if(item.lexicalStatus!=='proposta'||item.reference!==null){
    throw new Error('Propuesta sin distinguir de evidencia: '+key);
+  }else if(item.reviewOutcome&&!['sin_confirmacion_suficiente','exige_cadena_historica','descartar_derivacion_directa'].includes(item.reviewOutcome)){
+   throw new Error('Estado de auditoría no reconocido: '+key);
   }
   dict.set(key,item);
  }
@@ -135,7 +158,8 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
     normas:null,estadoNormas:'pendent',explicacion:null,dificultad:null,
     aprobadoDocente:false,aptoParaPractica:false,
     evidencia:proposal?.reference?[proposal.reference]:[],
-    notas:proposal?.notes??null
+    notas:proposal?.notes??null,
+    ...(proposal?.reviewOutcome?{criterioAuditoria:proposal.reviewOutcome}:{})
    }
   };
  });
@@ -154,7 +178,9 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
   normCatalog:'shared/academic/evolutio-valenciano/normas.json',
   summary:{total:records.length,lexicoDocumentado:documented,propuestas:proposed,
    sinPropuesta:pending,normasVerificadas:0,aptasParaPractica:0,
-   ...(revision?editorial:{})},
+   ...(revision?editorial:{}),
+   ...(curation.proposals.some(x=>x.reviewOutcome==='descartar_derivacion_directa')?
+    {derivacionesDirectasDescartadas:curation.proposals.filter(x=>x.reviewOutcome==='descartar_derivacion_directa').length}:{})},
   records
  };
 }

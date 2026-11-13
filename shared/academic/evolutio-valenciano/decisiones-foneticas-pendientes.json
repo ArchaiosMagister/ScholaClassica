@@ -1,0 +1,74 @@
+{
+  "schema": "schola-evolutio-va-teacher-decisions/v1",
+  "date": "2026-11-13",
+  "status": "resueltas_por_docente",
+  "notice": "Decisiones de clasificación aprobadas por el docente el 13/11/2026; aún no equivalen a validación normativa individual ni autorizan ejercicios.",
+  "cases": [
+    {
+      "id": "cælum_cel",
+      "latin": "cælum",
+      "valenciano": "cel",
+      "question": "¿Se evalúa como PALATALITZACIÓ la evolución inicial c [k] > [s] delante del resultado anterior de æ?",
+      "options": [
+        {
+          "value": "incluir_palat",
+          "description": "MONOFTONGACIÓ de æ y PALATALITZACIÓ de c- con explicación fonética."
+        },
+        {
+          "value": "solo_monop",
+          "description": "Exigir solo MONOFTONGACIÓ y explicar la modificación consonántica sin casilla."
+        }
+      ],
+      "recommendation": "incluir_palat",
+      "reason": "La historia fonológica describe la evolución de la velar ante vocal anterior; hay que decidir la granularidad didáctica.",
+      "status": "resuelta",
+      "teacherChoice": "incluir_palat",
+      "teacherDecisionDate": "2026-11-13",
+      "teacherDecisionScope": "criterio_de_clasificacion"
+    },
+    {
+      "id": "ferrum_ferro",
+      "latin": "fĕrrum",
+      "valenciano": "ferro",
+      "question": "¿Clasificar -u final > -o como OBERTURA en una vocal de apoyo, o explicarlo sin ley seleccionable?",
+      "options": [
+        {
+          "value": "obertura",
+          "description": "Exigir OBERTURA para -u > -o."
+        },
+        {
+          "value": "vocal_suport",
+          "description": "Explicar vocal de apoyo -o sin etiquetar OBERTURA."
+        }
+      ],
+      "recommendation": "vocal_suport",
+      "reason": "No debe confundirse el timbre de una vocal de apoyo con una apertura vocálica tónica regular.",
+      "status": "resuelta",
+      "teacherChoice": "obertura",
+      "teacherDecisionDate": "2026-11-13",
+      "teacherDecisionScope": "criterio_de_clasificacion"
+    },
+    {
+      "id": "oculum_ull",
+      "latin": "ocŭlum",
+      "valenciano": "ull",
+      "question": "¿Qué exige el ejercicio en un cambio históricamente encadenado?",
+      "options": [
+        {
+          "value": "sinc_palat",
+          "description": "Evaluar SÍNCOPE de ŭ y PALATALITZACIÓ del grupo resultante -cl-; explicar el vocalismo."
+        },
+        {
+          "value": "sinc_sola",
+          "description": "Evaluar solo SÍNCOPE y dejar el resto para explicación histórica."
+        }
+      ],
+      "recommendation": "sinc_palat",
+      "reason": "El DCVB registra base vulgar ŏclu; la evolución a ull comprende cambios condicionados por el grupo palatal.",
+      "status": "resuelta",
+      "teacherChoice": "sinc_palat",
+      "teacherDecisionDate": "2026-11-13",
+      "teacherDecisionScope": "criterio_de_clasificacion"
+    }
+  ]
+}

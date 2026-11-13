@@ -6,8 +6,8 @@ Se ha preparado la **matriz de los 522 étimos** del banco de Evolutio integrado
 
 | Estado del resultado valenciano | Entradas | Acredita |
 |---|---:|---|
-| `documentat` | **26** | Correspondencia y etimología de la acepción en el DCVB (documentación léxica inicial) |
-| `proposta` | **215** | Hipótesis de equivalencia pendiente de contraste individual; **no** cuenta como verificación |
+| `documentat` | **221** | 26 iniciales más **195 correspondencias** con relación etimológica cotejada en el DCVB; análisis fonético y DNV pendientes |
+| `proposta` | **20** | Propuestas reservadas: 4 derivaciones directas descartadas, 16 con evidencia insuficiente o mediación histórica pendiente |
 | `pendent` | **281** | Sin resultado propuesto por ahora |
 | Análisis valencianos con clasificación editorial registrada | **26** | 25 con criterios aceptados o propuestas previas y **1 clasificación provisional** (`noctem`) |
 | Discrepancias fonéticas sin decisión docente | **0** | Las cuatro cuestiones anteriores tienen una decisión de criterio registrada |
@@ -18,7 +18,7 @@ Se ha preparado la **matriz de los 522 étimos** del banco de Evolutio integrado
 
 Se han contrastado las etimologías de las **26 correspondencias documentadas**, consultando el artículo y la acepción adecuada del DCVB. Los tramos de norma se han revisado editorialmente para **26 étimos**, sin copiar el análisis castellano. Las cuatro discrepancias previas se han resuelto mediante **decisiones expresas del docente del 13/11/2026**: una clasificación provisional y tres criterios aceptados. La resolución de un criterio **no equivale** a la validación normativa del DNV ni a la aprobación final de una ficha para uso en ejercicios.
 
-El archivo `shared/academic/evolutio-valenciano/revisio-26.json` contiene las 22 segmentaciones revisadas, las explicaciones y los motivos de cada discrepancia. El generador valida que **cada intervalo coincida exactamente con los caracteres Unicode del étimo**, y registra automáticamente la pérdida fija de `-m` cuando procede. `mel → mel` carece de normas seleccionables: es apta conceptualmente para consulta, pero no para una pregunta que exija identificar cambios.
+El archivo `shared/academic/evolutio-valenciano/revisio-26.json` contiene las 26 segmentaciones editoriales, cuatro decisiones docentes registradas, explicaciones y las reservas que proceden. El generador valida que **cada intervalo coincida exactamente con los caracteres Unicode del étimo**, y registra automáticamente la pérdida fija de `-m` cuando procede. `mel → mel` carece de normas seleccionables: es apta conceptualmente para consulta, pero no para una pregunta que exija identificar cambios.
 
 ### Decisiones docentes incorporadas el 13/11/2026
 
@@ -39,10 +39,30 @@ La revisión de `clauem → clau` distingue la **clau femenina** procedente de `
 
 Los recuentos se recalculan a partir de `matriz-522.json`; no deben darse por verificados todos los resultados solo por estar escritos. La opción `documentat` **no** significa aprobación docente ni comprobación completa de las leyes de evolución.
 
+## Auditoría de las 215 candidaturas iniciales — contraste filológico individual (13/11/2026)
+
+Se ha recorrido el inventario completo de las **215 propuestas originales**. **195 correspondencias** disponen de documentación etimológica y de acepción en artículos del DCVB, con referencia individual conservada. **20 se mantienen en reserva** porque la consulta no ofrece evidencia suficiente de la filiación directa, se necesita una variante histórica intermedia o el étimo propuesto es incorrecto. Ninguna se ha declarado apta para práctica fonética: las comprobaciones de DNV, las 17 leyes y la aprobación docente son tareas posteriores e independientes. El archivo `auditoria-215.json` conserva los 215 IDs, el tipo de resultado, la referencia cuando existe y la justificación editorial de la reserva.
+
+**Resoluciones claras:** En el último contraste se acreditaron además `damnum → dany`, `spinam → espina` y `spumam → espuma`; `espuma` debe distinguirse del germanismo `escuma`. `germanum → germà`, `mensem → mes`, `mĕliorem → millor`, `octo → huit` (forma valenciana que el DCVB recoge como variante de `vuit`), `pilum → pèl`, `fŏrtia → força`, `martium → març`, `sagitta → sageta`, `signa → senya`, `alium → all`, `damnum → dany`, `peccatum → pecat`, `bibere → beure` y `currere → córrer`. En `luxum → luxe`, `fibram → fibra`, `membrum → membre`, `temperare → temperar`, `uirtutem → virtut`, `uoluntatem → voluntat` y `nauigare → navegar`, el DCVB indica explícitamente préstamo o latinismo: el resultado léxico está documentado, pero su transmisión **no puede simplificarse como evolución patrimonial regular**.
+
+**Etapas históricas y homónimos:** `uiduam → viuda` presenta una forma popular `viuva` y contaminación con la culta `vídua`; `ausare → gosar` presenta una consonante inicial añadida de explicación discutida; `tædam → tea` se documenta como variante de `teia` a través de las fases `teda/tesa`. `uitem → vit` está documentado solo para la acepción histórica de 'sarmiento', no `vit` masculino 'miembro viril', que procede de otro étimo. `bonum → bo`, `ferum → fer` y `portum → port` obligan a seleccionar la acepción precisa para evitar homónimos.
+
+**Cuatro derivaciones directas descartadas**, que no deben entrar en ningún sorteo con los étimos actuales:
+
+1. `sensum → seny`: el DCVB lo relaciona fundamentalmente con el germánico `sinn`, con posible cruce con `sensus`.
+2. `catenatum → cadenat`: el DCVB registra **derivación de `cadena`**, no filiación directa desde `catenatum`.
+3. `cæpullam → ceba`: `ceba` procede del latín `cēpa`, no del diminutivo ofrecido.
+4. `serpĕntem → serp`: el DCVB remite a la base `serpe`, no al acusativo `serpĕntem`.
+
+**Otros casos reservados:** `datum → dau` tiene etimología discutida; `pluuiam → pluja` requiere una base vulgar `*plŏia`; `totum → tot` exige la forma vulgar intensiva `tottu`; `ocŭlos → ulls` exige distinguir la evolución de `ull` (`*ŏclu`) de su plural; `iacere → jaure` ha de comprobarse por remisión a `jeure`. Se preservan también sin acreditación exhaustiva los restantes casos anotados en el fichero de auditoría, en lugar de inferir la relación por semejanza léxica.
+
+**Estado final del lote:** 195 con correspondencia etimológica documentada, 20 reservadas (de ellas 4 derivaciones directas descartadas), cero fichas fonéticas nuevas verificadas y cero ejercicios habilitados.
+
 ## Ficheros
 
 - `shared/academic/evolutio-valenciano/normas.json`: **17 normas valencianas exactamente como las facilitó el docente**, más `FIX_M` no seleccionable. Las categorías castellanas `ASPIR`, `MIN_MBR` y `CUL` no se transfieren automáticamente.
-- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 26 correspondencias con fuente y 215 propuestas de trabajo diferenciadas, con notas de revisión cuando corresponde.
+- `shared/academic/evolutio-valenciano/conciliacion-curada.json`: 221 correspondencias con referencia etimológica (26 iniciales y 195 del lote auditado) y 20 propuestas reservadas; ninguna ficha nueva incorpora leyes sin verificación.
+- `shared/academic/evolutio-valenciano/auditoria-215.json`: registro exhaustivo de las 215 propuestas originales: **195** cotejos etimológicos documentados, **20** reservas, cuatro relaciones directas descartadas y referencias individuales solo cuando corresponde.
 - `shared/academic/evolutio-valenciano/matriz-522.json`: todas las fichas por **ID original**, forma latina, respuestas castellanas, procedencia y resultado valenciano documentado/propuesto/pendiente. Cada fila conserva campos separados para normas, explicación, dificultad, aprobación docente y disponibilidad en práctica; permanecen vacíos/bloqueados hasta revisarse.
 - `scripts/reconcile-evolutio-valenciano.mjs`: generador determinista que comprueba el SHA del origen y rechaza duplicados, candidaturas ajenas al banco y documentación falsa.
 - `tests/evolutio-valenciano-conciliacion.test.mjs`: asegura cobertura, reglas, integridad, reproducibilidad y ausencia del registro en la web publicada.
@@ -80,8 +100,8 @@ La revisión por ficha debe establecer: (1) resultado y acepción valencianos co
 
 Para poder alternar de lengua **a mitad de una misma sesión**, el futuro motor exigirá pares completos verificables en las dos lenguas; guardará por lengua las respuestas, intentos y correcciones. Una coincidencia de grafía (p. ej. `uitam → vida` en las dos lenguas) **no implica** coincidencia automática de análisis ni aprobación.
 
-## Próxima tanda de auditoría
+## Siguiente etapa
 
-Primero comprobar, con DNV/DCVB y fuentes históricas, la segmentación individual de las **26 correspondencias léxicas documentadas**; después contrastar las **215 propuestas** por lotes, dando prioridad a los étimos patrimoniales transparentes y a las normas menos representadas. Mantener las **281 restantes** sin resultado hasta reunir evidencia, en lugar de crear equivalencias por semejanza.
+Realizar la auditoría **fonética por palabra** de las correspondencias documentadas, empezando por los resultados patrimoniales más claros, con tramos en el étimo, explicación en valenciano y registro separado de cambios no seleccionables. Para las 20 candidaturas reservadas, solo corregir el étimo o aprobar una cadena histórica cuando la fuente lo permita; las cuatro derivaciones directas descartadas nunca se habilitarán bajo su forma actual. Contrastar las grafías y variantes de uso valenciano en el DNV de la AVL antes del uso docente. Las **281 fichas sin propuesta** permanecen intactas.
 
-**Alcance de esta entrega:** registro, fuentes, propuestas, clasificación de evidencia y controles. Sin cambio de interfaz, sin datos de respuesta valencianos públicos y sin alteración de repositorios originales.
+**Alcance de esta entrega:** curación etimológica, evidencias, incidencias y controles. Sin cambiar el motor, sin cambiar la web pública y sin modificar los repositorios independientes.

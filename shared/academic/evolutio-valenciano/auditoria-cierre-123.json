@@ -1,0 +1,2185 @@
+{
+  "schema": "schola-evolutio-va-closure-review/v1",
+  "date": "2026-11-13",
+  "method": "Cierre de cobertura de los 221 resultados léxicos documentados: 132 análisis editoriales y 89 dictámenes individuales de reserva sin certificación integral; el nombre del fichero conserva el tamaño de la primera tanda. Nunca habilita ejercicios ni implica comprobación DNV. Tres reserves resoltes documentalment: tonare (analogia lèxica), luxum i squamam (manlleus); cap exigeix una decisió de llei patrimonial. Resoltes les últimes tres decisions docents: octo i dictum en reserva, sigĭllum per a estudi històric no avaluable; cap llei certificada addicional.",
+  "summary": {
+    "revisadosEditorialmente": 132,
+    "restantesExaminadosConReserva": 89,
+    "decisionesDocentesPendientes": 0,
+    "necesitanContrastacionFilologica": 89,
+    "aptosParaPractica": 0
+  },
+  "records": [
+    {
+      "id": "xl-35",
+      "latin": "cadere",
+      "valenciano": "caure",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "La etapa que conduce a caure supone una evolución consonántica interna; distinguir vocalización de pérdida de consonante.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "VOC",
+          "tramo": "d",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=caure",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-64",
+      "latin": "comitem",
+      "valenciano": "comte",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Síncope postónica y evolución consonántica de la secuencia -mit-; comparar la pronunciación valenciana histórica de comte.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comte",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-75",
+      "latin": "crucem",
+      "valenciano": "creu",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "El DCVB registra la fase medieval crou antes de creu; identificar etapas de vocalización y variación vocálica sin etiquetar directamente el étimo.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=creu",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-143",
+      "latin": "germanum",
+      "valenciano": "germà",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=germa",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-150",
+      "latin": "homĭnem",
+      "valenciano": "home",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ĭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=home",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-161",
+      "latin": "iurare",
+      "valenciano": "jurar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Jurar: la grafía j representa evolución de consonante inicial; se requiere fuente histórica y posición.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jurar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-190",
+      "latin": "maiorem",
+      "valenciano": "major",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=major",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-191",
+      "latin": "maium",
+      "valenciano": "maig",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Maig: diptongación/palatalización final con base vulgar; requiere etapas.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=maig",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-257",
+      "latin": "radium",
+      "valenciano": "raig",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Raig: evolución del grupo -di- y del cierre final; verificar fonema y resultados.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=raig",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-300",
+      "latin": "spatium",
+      "valenciano": "espai",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Espai: desaparición de consonantes del grupo -ti- tras prótesis; contrastar etapas.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PROT",
+          "tramo": "s",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espai",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-342",
+      "latin": "uittam",
+      "valenciano": "veta",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Veta: además de cambio vocálico, distinguir -tt- y el timbre de la primera vocal.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=veta",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-592",
+      "latin": "scholam",
+      "valenciano": "escola",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable. Comprobar además grafías grecolatinas o diptongos.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PROT",
+          "tramo": "s",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=escola",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-605",
+      "latin": "marmorem",
+      "valenciano": "marbre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Marbre: metátesis y síncopa de grupo r/m; debe confirmarse etapa intermedia.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marbre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-606",
+      "latin": "roborem",
+      "valenciano": "roure",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Roure: desarrollo consonántico complejo de b intervocálica; no atribuir una ley no autorizada.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roure",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-616",
+      "latin": "tonare",
+      "valenciano": "tronar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "transmissio_no_patrimonial_documentada",
+      "sintesisIndividual": "El DCVB atribueix la r de tronar a influència analògica de tro, no a una epèntesi fonètica regular. Es conserva l'explicació sense llei seleccionable per a -r-.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false,
+      "decisionEvidenceDCVB": "https://dcvb.iec.cat/results.asp?word=tronar",
+      "excludedFromPhoneticPractice": true
+    },
+    {
+      "id": "xl-722",
+      "latin": "crustam",
+      "valenciano": "crosta",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Variación histórica del timbre de la vocal tónica; comprobar la influencia analógica reseñada en DCVB.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=crosta",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-794",
+      "latin": "thesaurum",
+      "valenciano": "tresor",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Tresor: tratamiento de la aspirada griega th-, inserción de r y vocalismo; comprobar transmisión culta.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tresor",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-25",
+      "latin": "asĭnum",
+      "valenciano": "ase",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ase",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-29",
+      "latin": "auricŭlam",
+      "valenciano": "orella",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ŭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=orella",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-47",
+      "latin": "capere",
+      "valenciano": "cabre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. Verificar las alteraciones de la terminación del infinitivo.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SONOR",
+          "tramo": "p",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-48",
+      "latin": "capillum",
+      "valenciano": "cabell",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SONOR",
+          "tramo": "p",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-65",
+      "latin": "compărāre",
+      "valenciano": "comprar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "El DCVB remite a la variante latina vulgar compĕrāre de comparare; conservar la mediación.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comprar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-69",
+      "latin": "consilium",
+      "valenciano": "consell",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=consell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-80",
+      "latin": "cunicŭlum",
+      "valenciano": "conill",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ŭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=conill",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-99",
+      "latin": "draconem",
+      "valenciano": "dragó",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "DRAGÓ I animal mitológico o lagarto, del latín dracōne; separar otras acepciones zoológicas.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SONOR",
+          "tramo": "c",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=drago",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-156",
+      "latin": "insŭlam",
+      "valenciano": "illa",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Illa requiere fases históricas de -nsul- y posible alteración morfológica; distinguir de isla.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=illa",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-173",
+      "latin": "latronem",
+      "valenciano": "lladre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PALAT",
+          "tramo": "l",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lladre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-175",
+      "latin": "laudare",
+      "valenciano": "lloar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "LLOAR 1 derivado de laudare, no el topónimo Lloar derivado de llosa.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PALAT",
+          "tramo": "l",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-177",
+      "latin": "legere",
+      "valenciano": "llegir",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. Verificar las alteraciones de la terminación del infinitivo.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PALAT",
+          "tramo": "l",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-182",
+      "latin": "littĕram",
+      "valenciano": "lletra",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ĕ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lletra",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-183",
+      "latin": "luctam",
+      "valenciano": "lluita",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "VOC",
+          "tramo": "ct",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-185",
+      "latin": "luxum",
+      "valenciano": "luxe",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "transmissio_no_patrimonial_documentada",
+      "sintesisIndividual": "El DCVB descriu luxe com a manlleu del llatí luxus. No s'ha de proposar com a evolució fonètica patrimonial, encara que es conserve la correspondència en el lèxic docent.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=luxe",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false,
+      "decisionEvidenceDCVB": "https://dcvb.iec.cat/results.asp?word=luxe",
+      "excludedFromPhoneticPractice": true
+    },
+    {
+      "id": "xl-199",
+      "latin": "maurum",
+      "valenciano": "moro",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Acepción de moro 'persona de origen norteafricano', procedente de mauru; separar homógrafos.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "MONOP",
+          "tramo": "au",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=moro",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-201",
+      "latin": "meliorem",
+      "valenciano": "millor",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=millor",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-218",
+      "latin": "octo",
+      "valenciano": "huit",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_reservada_per_decisio_docent",
+      "sintesisIndividual": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vuit",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false,
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre octo → huit en reserva fins a documentar la cadena històrica completa i la relació dialectal huit/vuit. No exigir VOCALITZACIÓ sense prova individual."
+      },
+      "modalidadEstudio": "reserva_fonetica"
+    },
+    {
+      "id": "xl-223",
+      "latin": "ouicŭlam",
+      "valenciano": "ovella",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Ovella procede de ovĭcŭla; el DCVB recoge la variante dialectal avoia por otra base vulgar.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ŭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ovella",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-297",
+      "latin": "sŏmnum",
+      "valenciano": "son",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "SON 1 'sueño' de somnu; no confundir con posesivo son de suum ni topónimos.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SIMPL",
+          "tramo": "mn",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=son",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-306",
+      "latin": "squamam",
+      "valenciano": "escama",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "transmissio_no_patrimonial_documentada",
+      "sintesisIndividual": "El DCVB descriu escama com a forma presa del llatí squama. No atribuir PRÒTESI patrimonial regular ni habilitar aquesta derivació sense una justificació didàctica específica.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PROT",
+          "tramo": "s",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=escama",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false,
+      "decisionEvidenceDCVB": "https://dcvb.iec.cat/results.asp?word=escama",
+      "excludedFromPhoneticPractice": true
+    },
+    {
+      "id": "xl-309",
+      "latin": "stylum",
+      "valenciano": "estil",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "ESTIL etimología stilus, puede ser cultismo o adaptación histórica; antes de practicar verificar transmisión.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PROT",
+          "tramo": "s",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estil",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-539",
+      "latin": "iuncum",
+      "valenciano": "jonc",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jonc",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-728",
+      "latin": "parabolam",
+      "valenciano": "paraula",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "El cambio a paraula requiere pérdida/vocalización intervocálica y evolución semántica; no inferir solo una ley del resultado.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=paraula",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-827",
+      "latin": "dictum",
+      "valenciano": "dit",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_reservada_per_decisio_docent",
+      "sintesisIndividual": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dit",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false,
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "reserva_fonetica",
+        "decision": "Mantindre dictum → dit en reserva fins a verificar la cadena a partir de la base vulgar *dīctu i les etapes històriques. No exigir lleis sense prova."
+      },
+      "modalidadEstudio": "reserva_fonetica"
+    },
+    {
+      "id": "xl-1033",
+      "latin": "leguminem",
+      "valenciano": "llegum",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegum",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-1042",
+      "latin": "articulum",
+      "valenciano": "artell",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "u",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=artell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-50",
+      "latin": "caput",
+      "valenciano": "cap",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "El DCVB señala la forma vulgar capum; no atribuir una apócope directa de -ut al étimo clásico.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cap",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-70",
+      "latin": "cŏrium",
+      "valenciano": "cuir",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Cuir presenta metátasis/vocalización histórica del grupo -ri-; exige fases documentadas.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cuir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-72",
+      "latin": "cŏrpus",
+      "valenciano": "cos",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "La derivación cos implica pérdida de grupo interno y requiere fases históricas; separar de homógrafos.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cos",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-97",
+      "latin": "dŏmĭnam",
+      "valenciano": "dona",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ĭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dona",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-131",
+      "latin": "fŏrtia",
+      "valenciano": "força",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "FORÇA derivado de latín vulgar fŏrtia, no confundir con FORCA del latín furca.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-132",
+      "latin": "forum",
+      "valenciano": "fur",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Fur de sentido jurídico; evitar asignación desde forum sin distinguir el latín del uso jurídico medieval.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fur",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-137",
+      "latin": "fundum",
+      "valenciano": "fons",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Fons es un caso de modificación consonántica y morfológica que requiere cadena intermedia.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fons",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-194",
+      "latin": "martium",
+      "valenciano": "març",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "MARÇ 1 'mes de marzo', no el nombre del dios ni el MARC germánico.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marc",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-196",
+      "latin": "mataxam",
+      "valenciano": "madeixa",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-209",
+      "latin": "mulierem",
+      "valenciano": "muller",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Muller requiere resultados distintos del grupo -li- y terminación; no forzar un solo cambio.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=muller",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-216",
+      "latin": "nomĭnem",
+      "valenciano": "nom",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ĭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nom",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-244",
+      "latin": "podium",
+      "valenciano": "puig",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Puig exige palatalización compleja en -di- y diptongo; no clasificar por similitud grafemática.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puig",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-246",
+      "latin": "pŏpŭlum",
+      "valenciano": "poble",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SONOR",
+          "tramo": "p",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        },
+        {
+          "ley": "SINC",
+          "tramo": "ŭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poble",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-249",
+      "latin": "pretium",
+      "valenciano": "preu",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=preu",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-283",
+      "latin": "seniorem",
+      "valenciano": "senyor",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senyor",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-289",
+      "latin": "sigĭllum",
+      "valenciano": "segell",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "estudi_historic_no_avaluable",
+      "sintesisIndividual": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=segell",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false,
+      "criterioDocente": {
+        "date": "2026-11-13",
+        "scope": "criterio_de_clasificacion",
+        "approval": "accepted",
+        "studyMode": "estudi_historic_no_avaluable",
+        "decision": "Admetre segell només per a estudi històric amb advertiment de reintroducció culta; sense autorització automàtica de pràctica ni normes exigibles."
+      },
+      "modalidadEstudio": "estudi_historic_no_avaluable"
+    },
+    {
+      "id": "xl-301",
+      "latin": "specŭlum",
+      "valenciano": "espill",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PROT",
+          "tramo": "s",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        },
+        {
+          "ley": "SINC",
+          "tramo": "ŭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espill",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-307",
+      "latin": "stabĭlem",
+      "valenciano": "estable",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "DCVB indica que estable adjetivo es 'pres del llatí' stabĭle, préstamo culto, no evolución patrimonial regular.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "PROT",
+          "tramo": "s",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        },
+        {
+          "ley": "SINC",
+          "tramo": "ĭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estable",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-313",
+      "latin": "tædam",
+      "valenciano": "tea",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "TEA variante valenciana de TEIA; el DCVB documenta las etapas latín taeda > teda/tesa > tea, y reintroducción de yod en teia.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "MONOP",
+          "tramo": "æ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teia",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-322",
+      "latin": "texere",
+      "valenciano": "teixir",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-341",
+      "latin": "uitium",
+      "valenciano": "vici",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "DCVB señala 'pres del llatí vĭtĭum': préstamo culto, no evolución patrimonial regular.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vici",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-433",
+      "latin": "siluam",
+      "valenciano": "selva",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "SELVA bosque del latín silva; no la homógrafa botánica.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=selva",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-455",
+      "latin": "undam",
+      "valenciano": "ona",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ona",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-570",
+      "latin": "hederam",
+      "valenciano": "heura",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Heura 'hiedra' del latín hĕdera.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=heura",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-581",
+      "latin": "nostrum",
+      "valenciano": "nostre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nostre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-576",
+      "latin": "membrum",
+      "valenciano": "membre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "MEMBRE préstamo del latín mĕmbrum, no evolución popular.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=membre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-582",
+      "latin": "nouem",
+      "valenciano": "nou",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Nou: trata consonante intervocálica y vocales finales de modo no unívoco.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nou",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-164",
+      "latin": "iuuentutem",
+      "valenciano": "joventut",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=joventut",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-234",
+      "latin": "pericŭlum",
+      "valenciano": "perill",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Hay procesos parciales indicados, pero falta justificar la secuencia fonética completa y los tramos no etiquetados. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "SINC",
+          "tramo": "ŭ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=perill",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-736",
+      "latin": "uiduam",
+      "valenciano": "viuda",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "VIUDA: DCVB propone resultado popular viuva y cruce con el cultismo vídua; no presentar la salida como evolución fonética puramente regular.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=viuda",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-750",
+      "latin": "ausare",
+      "valenciano": "gosar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Gosar exige una base o mediación histórica; no atribuir g- inicial a una ley regular sin documentación.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gosar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-807",
+      "latin": "ballænam",
+      "valenciano": "balena",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "La historia de -ll- y æ puede responder a adaptación semiletrada; determinar transmisión antes de clasificar.",
+      "procesosParcialesPreexistentes": [
+        {
+          "ley": "MONOP",
+          "tramo": "æ",
+          "grado": "regla_historica_general_con_etimo_lexico_documentado"
+        }
+      ],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=balena",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-917",
+      "latin": "monstrare",
+      "valenciano": "mostrar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mostrar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "xl-1037",
+      "latin": "seminare",
+      "valenciano": "sembrar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Sembrar implica grupo de consonantes en -mn- y epéntesis de b; probar cadena histórica.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sembrar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0187",
+      "latin": "magistram",
+      "valenciano": "mestra",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Mestra: secuencia de síncopa y reducción del grupo magistr-, con variantes etimológicas.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestra",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0188",
+      "latin": "magistrum",
+      "valenciano": "mestre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Mestre: mismo grupo complejo con variación de timbre y final.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0295",
+      "latin": "sŏlĭdum",
+      "valenciano": "sou",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Confirmar acepción histórica de sueldo/moneda, sin confundir con el adjetivo modern sol·lid.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sou",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0350",
+      "latin": "bibere",
+      "valenciano": "beure",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=beure",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0362",
+      "latin": "committere",
+      "valenciano": "cometre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cometre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0365",
+      "latin": "corrumpere",
+      "valenciano": "corrompre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. Verificar las alteraciones de la terminación del infinitivo.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corrompre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0385",
+      "latin": "imperatorem",
+      "valenciano": "emperador",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=emperador",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0408",
+      "latin": "nauigare",
+      "valenciano": "navegar",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Navegar: modificaciones del vocalismo y adaptación verbal, no deducibles de letras.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=navegar",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0411",
+      "latin": "nigrum",
+      "valenciano": "negre",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "No se dispone de una segmentación fonética individual acreditada; la evidencia DCVB respalda el resultado léxico pero no todas las leyes. La -m acusativa es pérdida fija, no puntuable.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=negre",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0555",
+      "latin": "bene",
+      "valenciano": "bé",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Bé: pérdida nasal y vocal final y distinción de variantes; necesita historia fonética y morfológica.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=be",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    },
+    {
+      "id": "ge-EVF-0556",
+      "latin": "bonum",
+      "valenciano": "bo",
+      "lexicoDocumentado": true,
+      "dictamen": "pendent_de_contrast_fonetic_integral",
+      "categoria": "cadena_historica_o_transmissio_per_contrastar",
+      "sintesisIndividual": "Bo: pérdida de -n en final, distinta de apócope vocálica; verificar contexto y evolución.",
+      "procesosParcialesPreexistentes": [],
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=bo",
+        "scope": "lema_i_etimologia",
+        "verification": "consulta_directa_de_articulo",
+        "date": "2026-11-13"
+      },
+      "requiereCriterioDocente": false,
+      "discrepanciaDocente": null,
+      "dnvIndividualChecked": false,
+      "filologiaIntegralVerificada": false,
+      "habilitada": false
+    }
+  ]
+}
