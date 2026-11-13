@@ -63,3 +63,16 @@ html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin .error{color:#ff9d
   #vocab-admin .admin-edit-form{padding:10px}
   #vocab-admin .teacher-tabs button,#vocab-admin .admin-actions button{flex:1}
 }
+
+/* Consulta heredada de gramática: accesible y separada de ejercicios alumnos */
+#grammar-audit .admin-controls{display:grid;gap:10px;max-width:620px;margin:14px 0}
+#grammar-audit .admin-controls input,#grammar-audit .admin-controls select{
+  display:block;box-sizing:border-box;width:100%;max-width:100%;padding:10px;
+  border:1px solid #8299ac;border-radius:8px;background:#fff;color:#152838;font:inherit
+}
+#grammar-audit .admin-pagination{display:flex;gap:12px;justify-content:flex-start;margin:12px 0}
+#grammar-audit .notice small{display:block;margin-bottom:6px}
+html:is([data-theme="dark"],[data-theme="oled"]) #grammar-audit .admin-controls input,
+html:is([data-theme="dark"],[data-theme="oled"]) #grammar-audit .admin-controls select{
+  color:#edf4ff;background:#142434;border-color:#738ca2
+}
