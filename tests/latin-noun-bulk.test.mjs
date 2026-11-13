@@ -39,18 +39,38 @@ test('doce casillas con sincretismos y variantes explícitas; evidencia y unidad
     assert.equal(record.evidence.license,'CC BY-SA 3.0');
     assert.equal(record.evidence.vocabulaSha,cfg.sources.vocabula.sha);
     assert.match(record.evidence.review,/pendiente de revisión docente/);
-    assert.ok(record.forms.length>=12,'Debe completar singular y plural');
+    const scope=record.evidence.numberScope||'both';
+    assert.ok(['both','singular','plural'].includes(scope));
+    assert.ok(record.forms.length>=(scope==='both'?12:6),
+      'Debe documentar todos los casos del número habilitado');
     for(const cas of ['nominativo','vocativo','acusativo','genitivo','dativo','ablativo']){
-      for(const number of ['singular','plural']){
+      for(const number of (scope==='both'?['singular','plural']:[scope])){
         assert.ok(record.forms.some(f=>f.case===cas&&f.number===number),
           record.paradigm+' no tiene '+cas+' '+number);
       }
+      if(scope!=='both')
+        assert.ok(!record.forms.some(f=>f.case===cas&&f.number!==scope),
+          'No interpolar casillas del número excluido');
     }
     assert.ok(record.forms.every(f=>f.form===f.form.normalize('NFC')));
     assert.ok(record.forms.every(f=>!/[\u0304\u0306]/u.test(f.form.normalize('NFD'))));
   }
 });
 
+test('los números no atestiguados nunca son inventados y las fuentes quedan marcadas',()=>{
+  const defective=result.records.filter(r=>r.evidence.numberScope!=='both');
+  assert.ok(defective.length>=4,'Debe recuperar nombres propios singulares documentados');
+  for(const r of defective){
+    assert.equal(r.forms.every(f=>f.number===r.evidence.numberScope),true);
+    assert.match(r.evidence.notes,/sin inventar/);
+  }
+  const carthago=result.records.find(r=>r.paradigm.startsWith('Carthago,'));
+  if(carthago){
+    assert.equal(carthago.gender,'femenino');
+    assert.match(carthago.evidence.genderEvidence,/diccionario/);
+    assert.ok(carthago.evidence.editorialCorrection.source.includes('latin-dictionary.net'));
+  }
+});
 test('nombres latinos presentes en los vocabularios del docente entran sin duplicar modelos',()=>{
   for(const lemma of ['agricola','vita','silva','verbum']){
     const r=get(lemma);
