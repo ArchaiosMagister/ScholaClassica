@@ -98,14 +98,16 @@ function compile(id,headword,tense,voice,decl){
 }
 export function compilePauParticiples(exams){
   const requested=new Set(exams.flatMap(q=>q.forms.map(latinFold)));
-  const output=[];
+  const output=[],seen=new Set();
   for(const [id,headword,stem,dep] of [...PPP,...CUADERNO_PPP]){
+    if(seen.has(id))continue;seen.add(id);
     const r=compile(id,headword,'perfecto',
       dep==='dep'?'pasiva (deponente, sentido activo)':'pasiva',
       (gender,number)=>firstDecl(stem,gender,number));
     if(r.forms.some(f=>requested.has(latinFold(f.form))))output.push(r);
   }
   for(const [id,headword,stem,nom] of [...PRESENT,...CUADERNO_PRESENT]){
+    if(seen.has(id))continue;seen.add(id);
     const r=compile(id,headword,'presente','activa',
       (gender,number)=>presentDecl(stem,nom,gender,number));
     if(r.forms.some(f=>requested.has(latinFold(f.form))))output.push(r);
