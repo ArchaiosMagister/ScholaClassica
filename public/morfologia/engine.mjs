@@ -91,15 +91,32 @@ function analysisLabel(record,entry){
   if(!ANALYSIS_CATEGORIES.has(record.kind))throw Error('Categoría no documentada');
   return record.kind+' · '+text;
 }
+// Las reservas docentes afectan solo a la generación de ejercicios: no se
+// alteran ni las formas persistentes ni las claves de repaso local previas.
+const OURANOS_EXCLUDED_CASES=['nominativo','vocativo','acusativo','genitivo','dativo']
+  .map(cas=>cas+':plural');
+function excludedPracticeSlots(record){
+  const policy=record.evidence?.individualVerification?.practiceExclusion;
+  if(!policy)return null;
+  if(record.id!=='griego-sustantivo-ouranos'||record.language!=='griego'||
+    policy.policy!=='exclude-plural-from-new-exercises'||
+    !Array.isArray(policy.slots)||
+    policy.slots.length!==5||
+    !OURANOS_EXCLUDED_CASES.every(slot=>policy.slots.includes(slot)))
+    throw Error('Reserva docente del plural de οὐρανός incoherente');
+  return new Set(policy.slots);
+}
 // Mantener íntegra la fuente, pero impedir que lecturas expresamente
 // reservadas por falta de cotejo pasen al sorteo o a las soluciones.
 export function practiceEligibleEntries(record){
-  if(record.language!=='latin2')return record.forms;
-  return record.forms.filter(f=>f.verification!=='pendiente-de-cotejo-individual'&&
-    !/excluir del sorteo/i.test(f.usage||''));
+  const excluded=excludedPracticeSlots(record);
+  return record.forms.filter(f=>
+    (!excluded||!excluded.has(f.case+':'+f.number))&&
+    (record.language!=='latin2'||f.verification!=='pendiente-de-cotejo-individual'&&
+     !/excluir del sorteo/i.test(f.usage||'')));
 }
 export function practiceOrdinaryEntries(record){
-  if(record.language!=='latin2')return record.forms;
+  if(record.language!=='latin2')return practiceEligibleEntries(record);
   // Una variante poco común puede aceptarse como respuesta alternativa a
   // otra casilla documentada, pero no iniciará una pregunta por sí sola.
   return practiceEligibleEntries(record).filter(f=>
@@ -107,6 +124,12 @@ export function practiceOrdinaryEntries(record){
 }
 function groupedForms(record){
   const groups=new Map();
+  // El análisis usaba la posición de cada grafía dentro de su paradigma
+  // para identificar los progresos. Evitar renumerar las grafías singulares
+  // cuando las plurales de οὐρανός dejan de poder sortearse.
+  const historicIndex=record.id==='griego-sustantivo-ouranos'?
+    new Map([...new Set(record.forms.map(f=>fold(f.form)))]
+      .map((form,index)=>[form,index])):null;
   const regularSurfaces=new Set(practiceOrdinaryEntries(record).map(f=>fold(f.form)));
   for(const entry of practiceEligibleEntries(record)){
     const form=fold(entry.form);
@@ -116,7 +139,8 @@ function groupedForms(record){
     if(!groups.has(form))groups.set(form,new Set());
     groups.get(form).add(analysisLabel(record,entry));
   }
-  return [...groups].map(([form,features])=>({form,analysis:[...features].join(' / ')}));
+  return [...groups].map(([form,features])=>({form,analysis:[...features].join(' / '),
+    ...(historicIndex?{historicIndex:historicIndex.get(form)}:{})}));
 }
 function analysisDistractors(record,grouped,target,index){
   const correctReadings=new Set(target.split(' / '));
@@ -288,7 +312,7 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const options=language==='latin2'?null:
           shuffle([...shuffle(distractors,rng).slice(0,3),g.analysis],rng);
         candidates.push({
-          id:record.id+':analysis:'+index,activity,kind:record.kind,
+          id:record.id+':analysis:'+(g.historicIndex??index),activity,kind:record.kind,
           prompt:'¿Qué análisis admite esta forma?',paradigm:record.paradigm,
           headword:analysisHeadword(record),
           ...(record.enunciation?{enunciation:record.enunciation}:{}),
