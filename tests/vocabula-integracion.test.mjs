@@ -93,7 +93,9 @@ test('Solo dos lemas de 4.º se corrigen en la copia, preservando el origen comp
  for(const entry of changes){
    const original=from.find(x=>x.id===entry.id);
    assert.deepEqual(entry.originals,original.originals);
-   assert.deepEqual(entry.units,['UD 8–9']);
+   assert.deepEqual(entry.units,['UD 8']);
+   assert.deepEqual(original.units,['UD 8–9']);
+   assert.deepEqual(entry.curricularProvenance.originalUnits,['UD 8–9']);
    assert.equal(entry.mode,'examen');
  }
  const teacher=JSON.parse(readFileSync(join(root,'dist/docente/vocabula-catalog.json'),'utf8'));
