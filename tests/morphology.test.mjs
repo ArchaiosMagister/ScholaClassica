@@ -33,7 +33,7 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   // Se suman los modelos pu(e)r/ager (UD1), bonus (UD2), personales e
   // imperativos (UD3) y fórico is (UD5), manteniendo la acumulación.
   assert.deepEqual([l1.length,l2.length,l3.length,l4.length,l5.length],
-    [11,18,31,47,52]);
+    [11,18,31,47,53]);
   assert.ok(!l1.some(r=>r.id==='latin-ud2-adjetivo-bonus'));
   assert.ok(l2.some(r=>r.id==='latin-ud2-adjetivo-bonus'));
   assert.ok(!l2.some(r=>r.id==='latin-ud3-pronombres-personales'));
@@ -53,7 +53,8 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   const g3=availableRecords(compiled,{language:'griego',unit:3});
   const g4=availableRecords(compiled,{language:'griego',unit:4});
   const g5=availableRecords(compiled,{language:'griego',unit:5});
-  assert.deepEqual([g1.length,g2.length,g3.length,g4.length,g5.length],[2,4,10,14,18]);
+  assert.deepEqual([g1.length,g2.length,g3.length,g4.length,g5.length],
+    [3,5,11,21,25]);
   assert.ok(!g1.some(r=>r.kind==='artículo'));
   assert.ok(g3.some(r=>r.kind==='artículo'));
   assert.equal(g3.filter(r=>r.paradigm.startsWith('1.ª declinación griega')).length,5);
