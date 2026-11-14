@@ -197,8 +197,10 @@ const greekRowsMiddle=[
 function greekParticiples(curriculum){
   const unit=10,topic='Participios de presente activo y medio';
   const section=lesson(curriculum,'griego',unit,topic);
+  const sourceText=section.html.normalize('NFC');
   for(const form of ['λύων','λύουσα','λύον','λυόμενος'])
-    assert.ok(section.html.includes(form),'El modelo ya no está explicado: '+form);
+    assert.ok(sourceText.includes(form.normalize('NFC')),
+      'El modelo ya no está explicado: '+form);
   const models=[
     ['activo','λύων, λύουσα, λῦον · participio presente activo',greekRowsActive],
     ['medio-pasivo','λυόμενος, λυομένη, λυόμενον · participio presente medio-pasivo',greekRowsMiddle]
