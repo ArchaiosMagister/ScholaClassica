@@ -16,6 +16,8 @@ import {compilePauNumerals} from './morphology-pau-numerals.mjs';
 import {compilePauParticiples} from './morphology-pau-participles.mjs';
 import {compilePauRegularVerbs} from './morphology-pau-regular-verbs.mjs';
 import {compilePauIrregularVerbs} from './morphology-pau-irregular-verbs.mjs';
+import {parseCuadernoQuestions,auditCuaderno} from './morphology-cuaderno.mjs';
+import {compileCuadernoIrregulars} from './morphology-cuaderno-irregulars.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
@@ -335,6 +337,9 @@ export async function buildMorphology({out,lock}){
   const latin2=compileLatin2(originalRecords);
   const exams=parsePauExamQuestions(await readFile(
     join(root,'shared/academic/latin2/pau-cv-2006-2026.tsv'),'utf8'));
+  const cuaderno=parseCuadernoQuestions(await readFile(
+    join(root,'shared/academic/latin2/cuaderno-2026-27-morfologia.tsv'),'utf8'));
+  const combinedQuestions=[...exams,...cuaderno];
   const curriculum=JSON.parse(await readFile(path,'utf8'));
   const pronouns=compilePauPronouns(curriculum);
   const compounds=compilePauCompoundVerbs(exams);
@@ -344,18 +349,20 @@ export async function buildMorphology({out,lock}){
       +String(i).padStart(2,'0')+'.json'),'utf8').then(JSON.parse)));
   const nominal=compilePauNominalParadigms({
     baseRecords:[...originalRecords,...latin2],unimorphParts:nominalParts,
-    sourceRevision:lock.sources.vocabula.sha,examQuestions:exams
+    sourceRevision:lock.sources.vocabula.sha,examQuestions:combinedQuestions
   });
   const additions=[...pronouns,...compounds,venio,...nominal.records];
-  const schoolNouns=compilePauSchoolNouns(exams,[...originalRecords,...latin2,...additions]);
-  const schoolAdjectives=compilePauSchoolAdjectives(exams,
+  const schoolNouns=compilePauSchoolNouns(combinedQuestions,[...originalRecords,...latin2,...additions]);
+  const schoolAdjectives=compilePauSchoolAdjectives(combinedQuestions,
     [...originalRecords,...latin2,...additions]);
-  const numerals=compilePauNumerals(exams);
-  const participles=compilePauParticiples(exams);
-  const regularVerbs=compilePauRegularVerbs(exams);
-  const irregularVerbs=compilePauIrregularVerbs(exams);
+  const numerals=compilePauNumerals(combinedQuestions);
+  const participles=compilePauParticiples(combinedQuestions);
+  const regularVerbs=compilePauRegularVerbs(combinedQuestions);
+  const irregularVerbs=compilePauIrregularVerbs(combinedQuestions)
+    .filter(r=>r.id!=='latin2-pau-irregular-fero');
+  const workbookIrregulars=compileCuadernoIrregulars();
   const exceptions=compilePauExceptions(exams);
-  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs,...exceptions);
+  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars);
   const fullRecords=[...originalRecords,...latin2,...additions];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
@@ -377,10 +384,14 @@ export async function buildMorphology({out,lock}){
     irregularVerbsAdded:irregularVerbs.length,exceptionsAdded:exceptions.length,
     pronounsAdded:pronouns.length,
     compoundsAdded:compounds.length};
+  const cuadernoAudit=auditCuaderno(finalBank,cuaderno);
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
   await writeFile(join(dir,'pau-latin2-audit.json'),JSON.stringify(audit,null,2)+'\n');
+  await writeFile(join(dir,'cuaderno-latin2-audit.json'),JSON.stringify(cuadernoAudit,null,2)+'\n');
+  console.log('Cuaderno Latín II: '+cuadernoAudit.coveredForms+' de '+cuadernoAudit.distinctForms+
+    ' formas distintas cubiertas. Pendientes: '+cuadernoAudit.missingForms.join(', '));
   console.log('Morfología: '+fullRecords.length+
     ' fichas; '+covered.length+' de 301 formas PAU incorporadas por paradigmas completos');
   console.log('PAU pendientes de paradigma completo: '+missing.join(', '));
