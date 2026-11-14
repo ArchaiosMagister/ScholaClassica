@@ -13,7 +13,9 @@ export function validateBank(bank){
        !['sustantivo','verbo','desinencia','artículo','adjetivo','pronombre',
          'participio','infinitivo'].includes(record.kind)||
        !Array.isArray(record.forms)||record.forms.length<
-         (record.language==='latin2'&&record.kind==='infinitivo'?2:6)||
+         (record.language==='latin2'&&record.kind==='infinitivo'?2:
+          ['griego-ud6-infinitivos-presentes','latin-ud5-reflexivo-sui']
+            .includes(record.id)?4:6)||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');
     if(ids.has(record.id))throw Error('Ficha repetida');ids.add(record.id);
     for(const f of record.forms)
@@ -134,6 +136,12 @@ function analysisDistractors(record,grouped,target,index){
   }
   // Un distractor léxicamente verosímil de otra categoría se intercala solo
   // ocasionalmente. No se alteran jamás las lecturas correctas ni el enunciado.
+  // El reflexivo latino carece de nominativo. Esa imposibilidad explícita
+  // en la gramática puede servir como distractor sin inventar flexiones.
+  if(record.id==='latin-ud5-reflexivo-sui'){
+    const nominative='pronombre · nominativo · singular o plural';
+    if(!other.includes(nominative))other.push(nominative);
+  }
   if(record.language!=='latin2'&&index%4===0&&
     ['sustantivo','adjetivo','pronombre'].includes(record.kind)){
     const substitute={sustantivo:'adjetivo',adjetivo:'sustantivo',pronombre:'adjetivo'}[record.kind];
@@ -238,7 +246,11 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const acceptedForms=[...forms];
         const distractors=unique(grouped.map(x=>x.form))
           .filter(form=>!forms.has(form));
-        if(distractors.length<3)continue;
+        // El reflexivo solo tiene tres grafías distintas (se, sui, sibi).
+        // Permitir una pregunta con tres alternativas genuinas, en lugar
+        // de inventar una forma inexistente para alcanzar cuatro opciones.
+        const minimum=record.id==='latin-ud5-reflexivo-sui'?2:3;
+        if(distractors.length<minimum)continue;
         const core=practiceOrdinaryEntries(record).filter(f=>
           fold(f.analysis)===analysis).map(f=>fold(f.form));
         // No se debe sortear un análisis cuya única evidencia sean
@@ -286,7 +298,8 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
     }
   }
   const selected=selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
-    limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
+    limit,rng,now,balanceByKind:kind==='todos'&&
+      ['latin','griego','latin2'].includes(language)});
   // Evaluar el banco completo, pero generar/ordenar opciones de respuesta
   // solo para las preguntas que efectivamente aparecen en la tanda.
   if(language!=='latin2'||activity!=='analysis')return selected;

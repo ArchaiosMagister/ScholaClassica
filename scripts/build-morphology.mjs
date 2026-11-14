@@ -28,7 +28,9 @@ import {auditLatin2Nominal,assertLatin2NominalAuditPasses} from './audit-morphol
 import {auditLatin2Verbal,assertLatin2VerbalAuditPasses} from './audit-morphology-latin2-verbal.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
-import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
+import {compileGreekNounBatch,compileGreekEarlyNounBatch,compileGreekExigibleNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
+import {compileLatinCurricularFollowup} from './morphology-curricular-followup.mjs';
+import {compileCurricularGapBatch} from './morphology-curricular-gaps.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -378,7 +380,21 @@ export async function buildMorphology({out,lock}){
   additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,
     ...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars,
     ...extraPronouns,...extraComparisons);
-  const fullRecords=[...originalRecords,...latin2,...additions];
+  // Apéndice curricular: AL FINAL para preservar los identificadores e índices
+  // de las 220 fichas originales y de toda la práctica de Latín II.
+  const curricularGaps=compileCurricularGapBatch(curriculum);
+  // Segundo lote también al final: conservar todas las posiciones de PR 72.
+  const latinFollowup=compileLatinCurricularFollowup(curriculum,
+    [...originalRecords,...latin2,...additions,...curricularGaps]);
+  const greekFollowup=compileGreekEarlyNounBatch({
+    curriculum,...sourceData,vocabulaSha:lock.sources.vocabula.sha
+  });
+  const greekExigible=compileGreekExigibleNounBatch({
+    curriculum,...sourceData,vocabulaSha:lock.sources.vocabula.sha
+  });
+  // Lote de conciliación III: solo al final; ninguna ficha antigua cambia de ID.
+  const fullRecords=[...originalRecords,...latin2,...additions,...curricularGaps,
+    ...latinFollowup,...greekFollowup,...greekExigible];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
     records:fullRecords};
@@ -430,5 +446,9 @@ export async function buildMorphology({out,lock}){
     ' formas distintas cubiertas. Pendientes: '+cuadernoAudit.missingForms.join(', '));
   console.log('Morfología: '+fullRecords.length+
     ' fichas; '+covered.length+' de 301 formas PAU incorporadas por paradigmas completos');
+  console.log('Cobertura curricular: '+curricularGaps.length+
+    ' paradigmas del primer bloque, '+(latinFollowup.length+greekFollowup.length)+
+    ' del segundo bloque y '+greekExigible.length+
+    ' del tercer bloque, con fuentes documentadas.');
   console.log('PAU pendientes de paradigma completo: '+missing.join(', '));
 }

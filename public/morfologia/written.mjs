@@ -75,14 +75,18 @@ export function makeWrittenQuestions(bank,{language,unit,kind='todos',limit=10,r
     }
   }
   return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
-    limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
+    limit,rng,now,balanceByKind:kind==='todos'&&
+      ['latin','griego','latin2'].includes(language)});
 }
 export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng=Math.random,
   reviewMode='all',reviewState,now=Date.now()}={}){
   const records=availableRecords(bank,{language,unit,kind});
   const candidates=[];
   for(const record of records){
-    if(!['sustantivo','adjetivo','desinencia','artículo','participio'].includes(record.kind))continue;
+    if(!['sustantivo','adjetivo','desinencia','artículo','participio','pronombre'].includes(record.kind))continue;
+    // Las tablas requieren un paradigma de género definido. Mezclar ego/tu
+    // en una sola casilla de "singular" falsearía la flexión personal.
+    if(record.kind==='pronombre'&&!record.forms.every(f=>f.gender&&f.number))continue;
     const accepted=practiceEligibleEntries(record);
     const ordinary=practiceOrdinaryEntries(record);
     const genders=unique(ordinary.map(f=>f.gender).filter(Boolean));
@@ -110,7 +114,8 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
     }
   }
   return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
-    limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
+    limit,rng,now,balanceByKind:kind==='todos'&&
+      ['latin','griego','latin2'].includes(language)});
 }
 export function evaluateTable(question,answers){
   if(question?.activity!=='table'||!Array.isArray(question.cells)||

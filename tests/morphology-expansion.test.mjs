@@ -58,7 +58,10 @@ test('Latín UD5: brevis, acer, audax, vetus; casos y género con sincretismo',(
   const q=makeQuestions({...bank,records:adjectives},
     {language:'latin',unit:5,activity:'analysis',limit:30,rng:()=>.42});
   assert.ok(q.some(card=>card.ambiguous&&card.correct.includes('femenino')));
-  assert.ok(!availableRecords(bank,{language:'latin',unit:4}).some(r=>r.kind==='adjetivo'));
+  assert.ok(availableRecords(bank,{language:'latin',unit:4})
+    .some(r=>r.id==='latin-ud2-adjetivo-bonus'));
+  assert.ok(!availableRecords(bank,{language:'latin',unit:4})
+    .some(r=>r.id==='latin-adj-brevis'));
 });
 test('Griego UD5: dos modelos regulares y dos irregulares con acentos y fusiones reales',()=>{
   const forms=id=>expanded.find(r=>r.id==='griego-adj-'+id).forms;

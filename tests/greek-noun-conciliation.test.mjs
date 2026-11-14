@@ -61,11 +61,13 @@ test('testigos: formas completas con acentos y variación de cantidad no exigida
     'ἄνθρωπος no entra en el lote sin resolver género contextual');
 });
 test('desbloqueo curricular: cuatro nombres UD4 y otros cuatro únicamente UD7',()=>{
-  assert.equal(availableRecords(bank,{language:'griego',unit:3,kind:'sustantivo'}).length,0);
-  assert.equal(availableRecords(bank,{language:'griego',unit:4,kind:'sustantivo'}).length,4);
-  assert.equal(availableRecords(bank,{language:'griego',unit:5,kind:'sustantivo'}).length,4);
-  assert.equal(availableRecords(bank,{language:'griego',unit:6,kind:'sustantivo'}).length,4);
-  assert.equal(availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'}).length,8);
+  // Una ficha de género común acreditada en UD1 y seis sustantivos con
+  // vocabulario agrupado UD1–4, sin adelantarles arbitrariamente la unidad.
+  assert.equal(availableRecords(bank,{language:'griego',unit:3,kind:'sustantivo'}).length,1);
+  assert.equal(availableRecords(bank,{language:'griego',unit:4,kind:'sustantivo'}).length,11);
+  assert.equal(availableRecords(bank,{language:'griego',unit:5,kind:'sustantivo'}).length,13);
+  assert.equal(availableRecords(bank,{language:'griego',unit:6,kind:'sustantivo'}).length,13);
+  assert.equal(availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'}).length,21);
 });
 test('las fuentes se rechazan ante género contradictorio, laguna o falta de unidad',()=>{
   const wrongForms=structuredClone(unimorphParts);
@@ -93,10 +95,13 @@ test('sintagmas triples: dos posiciones atributivas correctas, acento grave cont
   assert.equal(graveInContext('μεγάλη'),'μεγάλη');
   assert.throws(()=>greekNounPhrasePairs(bank,{language:'latin',unit:5}),/solo se habilitan/);
   assert.throws(()=>greekNounPhrasePairs(bank,{language:'griego',unit:4}),/solo se habilitan/);
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:5}).length,12);
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,24);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:5}).length,36);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,60);
+  assert.ok(!greekNounPhrasePairs(bank,{language:'griego',unit:7})
+    .some(p=>p.noun.id==='griego-sustantivo-anthropos'),
+    'El género común no se puede tratar como una concordancia unívoca');
   const tables=makeGreekNounPhraseTables(bank,{language:'griego',unit:7,limit:30,rng});
-  assert.equal(tables.length,24);
+  assert.equal(tables.length,30);
   assert.ok(tables.every(t=>t.gender&&t.cells.length===8&&t.sources.length===3));
   const hippos=tables.find(t=>t.paradigm.includes('ἵππος')&&t.paradigm.includes('ἀγαθός'));
   assert.ok(hippos);
@@ -132,6 +137,12 @@ test('escritura nominal triple no penaliza el orden atributivo válido y mantien
     assert.equal(correctWritten(q,'ἀπαράδεκτος').status,'morphology');
   }
   const later=makeGreekNounPhraseQuestions(bank,{language:'griego',unit:7,limit:30,rng});
-  assert.ok(later.some(q=>q.paradigm.includes('δῶρον')||
-    q.paradigm.includes('λόγος')||q.paradigm.includes('νίκη')));
+  assert.equal(later.length,30);
+  assert.ok(later.every(q=>q.sources.length===3&&
+    correctWritten(q,q.acceptedForms[0]).correct));
+  // El sorteo de treinta preguntas entre cientos de posibilidades no
+  // garantiza elegir un lema concreto: comprobar la elegibilidad real.
+  const possible=greekNounPhrasePairs(bank,{language:'griego',unit:7});
+  assert.ok(possible.some(p=>['griego-sustantivo-doron',
+    'griego-sustantivo-logos','griego-sustantivo-nike'].includes(p.noun.id)));
 });

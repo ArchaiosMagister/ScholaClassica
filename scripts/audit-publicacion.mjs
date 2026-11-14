@@ -60,10 +60,20 @@ assert.ok(read('apps/morfologia/index.html').includes('id="review-mode"'));
 const locked=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 assert.equal(morphology.vocabulaSha,locked.sources.vocabula.sha);
 const nouns=morphology.records.filter(r=>r.id.startsWith('griego-sustantivo-'));
-assert.equal(nouns.length,8,'Lote nominal explícito, sin altas automáticas');
+// Mantener lista blanca cerrada de modelos conciliados, sin admitir altas
+// automáticas ni modificar los ocho lemas originales.
+const approvedNouns=['hippos','bios','dike','arete','logos','doron','nike','eirene',
+  'anthropos','biblion','zoon','agora','aletheia','adikia','eleutheria',
+  'arche','strategos','epistole','kephale','mache','petra',
+  'ouranos','hoplon','phobos'];
+assert.deepEqual(new Set(nouns.map(n=>n.id)),
+  new Set(approvedNouns.map(id=>'griego-sustantivo-'+id)),
+  'Solo sustantivos conciliados individualmente en ambos lotes');
 assert.ok(nouns.every(n=>n.forms.length===10&&n.gender&&
   n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
   n.evidence.review.includes('pendiente de revisión docente individual')));
+assert.ok(nouns.find(n=>n.id==='griego-sustantivo-anthropos')?.gender==='común',
+  'No falsear como género masculino exclusivo el sustantivo ἄνθρωπος');
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');

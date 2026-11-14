@@ -68,7 +68,7 @@ function updateKinds(){
   const table=input.activity.value==='table';
   const phrase=input.activity.value.startsWith('phrase-')||
     input.activity.value.startsWith('noun-phrase-');
-  const tableKinds=['sustantivo','adjetivo','desinencia','artículo','participio'];
+  const tableKinds=['sustantivo','adjetivo','desinencia','artículo','participio','pronombre'];
   const kinds=phrase?['sintagma']:agreement?['adjetivo']:
     [...new Set(records.filter(r=>!table||tableKinds.includes(r.kind)).map(r=>r.kind))];
   const selected=input.kind.value;
@@ -78,8 +78,7 @@ function updateKinds(){
   input.kind.value=phrase?'sintagma':agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
   $('coverage').textContent=language==='latin2'?
     'Latín II: práctica sin unidades con paradigmas documentados; selección inicial ampliable. Una forma aislada puede tener varios análisis.':
-    COURSE_LABELS[language]+': puedes practicar los contenidos de UD1 a UD'+unit+'.'+
-    (language==='griego'&&unit===4?' UD4 no incorpora nuevas formas a estos ejercicios.':'');
+    COURSE_LABELS[language]+': puedes practicar los contenidos de UD1 a UD'+unit+'.';
 }
 function updateReviewStatus(){
   const info=reviewCounts(reviewState);
