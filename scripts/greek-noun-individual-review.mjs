@@ -141,10 +141,13 @@ export function verifyNineGreekNounRecords(records){
   assert.equal(slots.length,10);
   assert.equal(original.evidence.status,'paradigma-documentado',
    'La verificación individual no debe sustituir otro estado desconocido');
+  assert.equal(original.evidence.review,
+   'conciliación interfuentes; pendiente de revisión docente individual',
+   'La verificación no puede alterar la identidad del origen interfuentes');
   const record=structuredClone(original);
   record.evidence={
    ...original.evidence,
-   review:'10/10 formas contrastadas individualmente con tabla de declinación ática y gramática académica; no constituye prueba de atestación textual para cada forma',
+   review:'conciliación interfuentes; 10/10 formas contrastadas individualmente con tabla de declinación ática y gramática académica; no constituye prueba de atestación textual para cada forma',
    individualVerification:{
     status:'contrastado-individualmente',
     date:REVIEW_DATE,scope:'morfología ática escolar, sin dual ni artículos',
