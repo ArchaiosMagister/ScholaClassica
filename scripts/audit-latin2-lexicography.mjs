@@ -49,7 +49,7 @@ async function* streamLines(path){
   try {for await(const line of lines)yield line;}
   finally {lines.close();input.destroy();}
 }
-export async function runLexicographyAudit(options,{minPrimaryRows=400000}={}){
+export async function runLexicographyAudit(options,{minPrimaryRows=900000}={}){
   const files={...defaults,...options};
   const rel=relative(root,files.out);
   assert.ok(rel.startsWith('build'+sep)&&!rel.startsWith('..'),
@@ -111,6 +111,12 @@ export async function runLexicographyAudit(options,{minPrimaryRows=400000}={}){
     summary.matchedLemmaFormRows+' coincidencias de lema+forma');
   console.log('Fuentes independientes: '+summary.independentSourceCount+
     '; estatus: '+JSON.stringify(summary.byStatus));
+  console.log('Distribución por prioridad: '+JSON.stringify(summary.byPriority)+
+    '; filas de entrada descartadas: '+summary.malformedRows);
+  console.log('Primeras incidencias P0/P1 para revisión docente: '+
+    JSON.stringify(findings.filter(f=>f.priority!=='P2').slice(0,12)
+      .map(f=>({form:f.displayForm,lemma:f.lemma,analysis:f.analysis,
+        status:f.status,evidence:f.evidence.map(x=>x.features).slice(0,2)}))));
   console.log('Informes exclusivamente docentes: '+relative(root,files.out));
   return {summary,entries,findings};
 }
