@@ -41,7 +41,10 @@ export function greekNounPhrasePairs(bank,{language,unit}){
   const article=shape(records.find(r=>r.id==='griego-articulo'),'artículo');
   const nouns=records.filter(r=>r.kind==='sustantivo'&&
     r.id.startsWith('griego-sustantivo-')&&
-    r.evidence?.review?.includes('conciliación interfuentes'));
+    r.evidence?.review?.includes('conciliación interfuentes')&&
+    // ἄνθρωπος es de género común (ὁ/ἡ): se practica individualmente,
+    // pero no se fuerza a una única concordancia con el adjetivo.
+    r.gender!=='común');
   const adjectives=ADJECTIVE_IDS.map(id=>shape(records.find(r=>r.id===id),'adjetivo'));
   return nouns.flatMap(noun=>{
     shape(noun,'sustantivo');
