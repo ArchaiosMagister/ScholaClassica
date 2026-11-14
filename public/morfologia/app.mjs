@@ -189,7 +189,7 @@ function reply(q,choice){
   for(const button of $('answers').querySelectorAll('button')){
     button.disabled=true;
     const raw=q.options[Number(button.dataset.choiceIndex)];
-    if(raw===q.correct)button.classList.add('correct');
+    if(raw===q.correct||q.acceptedForms?.includes(raw))button.classList.add('correct');
     else if(raw===choice)button.classList.add('incorrect');
   }
   setFeedback((result.correct?'Correcto. ':'Revisa la respuesta. ')+
