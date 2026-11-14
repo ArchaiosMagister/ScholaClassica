@@ -9,6 +9,7 @@ export const GRAMMAR_CORE=[
  './assets/app.js','./val/app.js',
  './assets/curriculum.json','./val/curriculum.json',
  './assets/curriculum-latin1.json','./val/curriculum-latin1.json',
+ './assets/curriculum-griego1.json','./val/curriculum-griego1.json',
  './assets/curriculum-latin4.json','./val/curriculum-latin4.json',
  './assets/style.css','./assets/participios.css','./assets/language-colors.css',
  './assets/theme.js','./assets/icon.svg','./assets/gramatica-offline.js'

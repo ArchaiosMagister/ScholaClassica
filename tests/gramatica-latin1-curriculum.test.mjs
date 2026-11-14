@@ -6,6 +6,7 @@ import {makeLatin1Curriculum,latin1ActivePerfects}
  from '../scripts/adapt-appendix-latin1.mjs';
 import {adaptLatin1App}
  from '../scripts/adapt-appendix-latin1-ui.mjs';
+import {adaptGreek1App} from '../scripts/adapt-appendix-griego1-ui.mjs';
 import {adaptLatin4App}
  from '../scripts/adapt-appendix-latin4-ui.mjs';
 import {GRAMMAR_CORE}
@@ -39,7 +40,7 @@ test('Latín I: cuatro lecciones completas con equivalencia ES/VAL y sin depende
   assert.equal(JSON.stringify(built.latin.units.map(x=>x.topics.map(t=>t.title))),
     JSON.stringify(originalBank.latin.units.map(x=>x.topics.map(t=>t.title))),
     'No cambiar ni adelantar los epígrafes de las diez unidades');
-  const updates=new Set(['3:1','4:0','4:1','5:0']);
+  const updates=new Set(['1:0','3:0','3:1','4:0','4:1','5:0','6:0','7:2']);
   for(let u=1;u<=10;u++)
    for(let i=0;i<originalBank.latin.units[u-1].topics.length;i++)
     if(!updates.has(u+':'+i))
@@ -92,7 +93,7 @@ test('El selector de Latín I carga la nueva copia sin alterar Griego I, 4.º ni
  for(const {locale,source,app} of tests){
   const original=read(join(from,source),app);
   const after4=adaptLatin4App(original,locale);
-  const expected=adaptLatin1App(after4,locale);
+  const expected=adaptGreek1App(adaptLatin1App(after4,locale),locale);
   const integrated=read(join(out,source),app);
   assert.equal(integrated,expected,'Adaptador bilingüe no reproducible');
   const asset=locale==='es'?'assets/curriculum-latin1.json':'curriculum-latin1.json';
