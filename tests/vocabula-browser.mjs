@@ -35,6 +35,12 @@ try{
   assert.equal(response.status(),200);
   await page.waitForFunction(()=>document.querySelector('#cloud-status')?.textContent.includes('Vocabulario actualizado'));
   assert.equal(await page.locator('#subject').inputValue(),'gr1');
+  const grComplement=page.locator('#units input[value="Sin unidad acreditada"]');
+  assert.equal(await grComplement.count(),1);
+  assert.match(await grComplement.locator('xpath=..').textContent(),
+    /Complementario · sin unidad asignada/);
+  assert.match(await page.locator('#scope').textContent(),
+    /no se convierte en exigible/);
   assert.equal(await page.locator('#units input:checked').count(),0);
   assert.equal(await page.locator('#start').isDisabled(),true);
   await page.locator('#units input').first().check();
@@ -43,6 +49,12 @@ try{
   await page.locator('#start').click();
   assert.ok((await page.locator('#practice').textContent()).length>20);
   await page.locator('#subject').selectOption('lat1');
+  const latinComplement=page.locator('#units input[value="UD 11–12"]');
+  assert.equal(await latinComplement.count(),1);
+  assert.match(await latinComplement.locator('xpath=..').textContent(),
+    /Ampliación · fuera de las unidades habituales/);
+  assert.match(await page.locator('#scope').textContent(),
+    /General no equivale a exigible/);
   assert.equal(await page.locator('#units input:checked').count(),0);
   await page.locator('#units input').first().check();
   assert.equal(await page.locator('#start').isEnabled(),true);
@@ -56,6 +68,8 @@ try{
   assert.equal(await page.locator('#units input:checked').count(),1,
     'El cambio de corpus debe conservar la unidad compartida');
   assert.ok((await page.locator('#scope').textContent()).includes('General y Examen'));
+  assert.match(await page.locator('#scope').textContent(),/no exigibles automáticamente/);
+  assert.equal(await page.locator('#units input[value="UD 11–12"]').count(),1);
   await page.locator('#none').click();
   await page.locator('#units input[value="UD 4"]').check();
   const result=await page.evaluate(()=>{
@@ -90,6 +104,30 @@ try{
     'UD4 Examen sí contiene flumen');
   await page.locator('#corpus').selectOption('all');
   await page.locator('#search').fill('');
+  await page.locator('#corpus').selectOption('general');
+  await page.locator('#none').click();
+  await page.locator('#units input[value="UD 11–12"]').check();
+  assert.equal(await page.locator('#start').isEnabled(),true);
+  assert.match(await page.locator('#dictionary .dictrow').first().textContent(),
+    /Ampliación · fuera de las unidades habituales/);
+  await page.locator('#corpus').selectOption('examen');
+  assert.equal(await page.locator('#units input[value="UD 11–12"]').count(),0,
+    'La lista de Examen no hereda los bloques de ampliación');
+  assert.match(await page.locator('#scope').textContent(),/lista docente/);
+  await page.locator('#corpus').selectOption('all');
+  assert.equal(await page.locator('#units input[value="UD 11–12"]').count(),1);
+  await page.locator('#subject').selectOption('gr1');
+  await page.locator('#corpus').selectOption('general');
+  assert.equal(await page.locator('#units input[value="Sin unidad acreditada"]').count(),1);
+  await page.locator('#units input[value="Sin unidad acreditada"]').check();
+  assert.equal(await page.locator('#start').isEnabled(),true);
+  assert.match(await page.locator('#dictionary .dictrow').first().textContent(),
+    /Complementario · sin unidad asignada/);
+  await page.setViewportSize({width:390,height:844});
+  const compBox=await page.locator('#units input[value="Sin unidad acreditada"]')
+    .locator('xpath=..').boundingBox();
+  assert.ok(compBox&&compBox.width<=390,'El grupo debe caber en una pantalla móvil');
+  await page.setViewportSize({width:1280,height:800});
   assert.equal(await page.locator('#open-teacher').count(),0,
     'La administración antigua no debe aparecer en la copia del alumnado');
   assert.equal(await page.locator('#teacher-dialog').count(),0);
