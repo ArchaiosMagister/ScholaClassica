@@ -27,6 +27,29 @@ const SELECTED=[
   {id:'eirene',lemma:'εἰρήνη',genitive:'εἰρήνης',gender:'femenino',decl:'1.ª declinación (η)',
     unit:7,vocab:'UD 6–7',grammarUnit:3}
 ];
+// Ampliación prudente. Solo ἄνθρωπος se adelanta a UD1 porque Appendix
+// lo muestra explícitamente en la UD1; los otros seis mantienen la unidad
+// común acreditada por Vocabula («UD 1–4»), sin adivinar subunidades.
+const EARLY_ADDITIONS=[
+  {id:'anthropos',lemma:'ἄνθρωπος',genitive:'ἀνθρώπου',gender:'común',
+    decl:'2.ª declinación',unit:1,vocab:'UD 1–4',grammarUnit:1},
+  {id:'biblion',lemma:'βιβλίον',genitive:'βιβλίου',gender:'neutro',
+    decl:'2.ª declinación',unit:4,vocab:'UD 1–4',grammarUnit:2},
+  {id:'zoon',lemma:'ζῷον',genitive:'ζῴου',gender:'neutro',
+    decl:'2.ª declinación',unit:4,vocab:'UD 1–4',grammarUnit:2},
+  {id:'agora',lemma:'ἀγορά',genitive:'ἀγορᾶς',gender:'femenino',
+    decl:'1.ª declinación (α puro)',genitiveSuffix:'–ας',
+    unit:4,vocab:'UD 1–4',grammarUnit:3},
+  {id:'aletheia',lemma:'ἀλήθεια',genitive:'ἀληθείας',gender:'femenino',
+    decl:'1.ª declinación (α puro)',genitiveSuffix:'–ας',
+    unit:4,vocab:'UD 1–4',grammarUnit:3},
+  {id:'adikia',lemma:'ἀδικία',genitive:'ἀδικίας',gender:'femenino',
+    decl:'1.ª declinación (α puro)',genitiveSuffix:'–ας',
+    unit:4,vocab:'UD 1–4',grammarUnit:3},
+  {id:'eleutheria',lemma:'ἐλευθερία',genitive:'ἐλευθερίας',gender:'femenino',
+    decl:'1.ª declinación (α puro)',genitiveSuffix:'–ας',
+    unit:4,vocab:'UD 1–4',grammarUnit:3}
+];
 // La cantidad vocálica no se exige en los ejercicios, pero sí acento y espíritu.
 // No se borra la iota suscrita ni otros elementos de la flexión.
 const noQuantity=s=>String(s).normalize('NFD').replace(/[\u0304\u0306]/gu,'').normalize('NFC');
@@ -47,8 +70,9 @@ function checkVocab(items,spec){
   assert.equal(entries.length,1,'Lema o unidad de examen ambiguos: '+spec.lemma);
   const entry=entries[0];
   const gen=entry.form.split(',')[1]?.trim()||'';
-  assert.ok(gen==='–ου'||gen==='–ης','Enunciado nominal no esperado: '+entry.form);
-  assert.equal(gen,'–'+(spec.decl.startsWith('1.')?'ης':'ου'),
+  assert.ok(['–ου','–ης','–ας'].includes(gen),'Enunciado nominal no esperado: '+entry.form);
+  assert.equal(gen,spec.genitiveSuffix||
+    '–'+(spec.decl.startsWith('1.')?'ης':'ου'),
     'Genitivo curricular incoherente: '+spec.lemma);
   return entry;
 }
@@ -58,7 +82,7 @@ function checkGrammar(curriculum,spec){
   const topic=curriculum.griego.units.find(u=>u.number===spec.grammarUnit)?.topics
     .find(x=>x.title===title);
   assert.ok(topic,'Falta correspondencia en Appendix: '+spec.lemma);
-  const expected=spec.decl.startsWith('1.')?'–ης':
+  const expected=spec.decl.startsWith('1.')?(spec.genitiveSuffix||'–ης'):
     spec.gender==='neutro'?'–ον':'–ος';
   assert.ok(topic.html.includes(expected),'El modelo del Appendix cambió: '+spec.lemma);
   return title;
@@ -79,7 +103,10 @@ function readOneNoun(spec,rows,entry,curriculum,vocabulaSha){
   assert.ok(gen&&key(gen[1])===key(spec.genitive),'Genitivo no coincide: '+spec.lemma);
   // Género documentado: ejemplo UniMorph del artículo nominativo singular.
   const article=nom[3];
-  assert.ok(article?.startsWith(GENDERS[spec.gender]+' '),
+  const documentedGender=spec.gender==='común'?
+    article?.startsWith('ὁ, ἡ '):
+    article?.startsWith(GENDERS[spec.gender]+' ');
+  assert.ok(documentedGender,
     'El artículo nominal no acredita género de '+spec.lemma);
   // Control interfuentes de los principales morfemas, además de nominativo/genitivo.
   if(spec.gender==='neutro'){
@@ -98,7 +125,7 @@ function readOneNoun(spec,rows,entry,curriculum,vocabulaSha){
     id:'griego-sustantivo-'+spec.id,
     language:'griego',unit:spec.unit,kind:'sustantivo',gender:spec.gender,
     paradigm:noQuantity(spec.lemma)+', '+noQuantity(spec.genitive)+' ('+
-      GENDERS[spec.gender]+') · '+spec.decl,
+      (GENDERS[spec.gender]||'ὁ/ἡ')+') · '+spec.decl,
     forms,
     evidence:{
       source:'UniMorph grc + Vocabula; cotejo curricular con Appendix',
@@ -123,6 +150,26 @@ export function compileGreekNounBatch({curriculum,vocabulaData,unimorphParts,voc
     records.push(readOneNoun(spec,unimorphParts.flat(),entry,curriculum,vocabulaSha));
   }
   assert.equal(records.length,8);
+  return records;
+}
+// Se preserva el lote inicial de ocho fichas e índices originales.
+// Los sustantivos adicionales se añaden al final del banco, no entre ellas.
+export function compileGreekEarlyNounBatch({curriculum,vocabulaData,unimorphParts,vocabulaSha}){
+  assert.ok(/^[a-f0-9]{40}$/.test(vocabulaSha));
+  assert.ok(Array.isArray(unimorphParts)&&unimorphParts.length===8);
+  const lex=vocabList(vocabulaData),rows=unimorphParts.flat();
+  const records=EARLY_ADDITIONS.map(spec=>{
+    const entry=checkVocab(lex,spec);
+    if(spec.id==='anthropos'){
+      const introductory=curriculum.griego.units.find(u=>u.number===1)
+        ?.topics.find(t=>t.title==='Copulativas con nominativo y genitivo')?.html;
+      assert.ok(introductory?.includes('ἄνθρωπος'),
+        'ἄνθρωπος no está acreditado en UD1: no adelantarlo');
+    }
+    return readOneNoun(spec,rows,entry,curriculum,vocabulaSha);
+  });
+  assert.equal(records.length,7);
+  assert.equal(new Set(records.map(r=>r.id)).size,7);
   return records;
 }
 export async function readGreekNounSource(source){
