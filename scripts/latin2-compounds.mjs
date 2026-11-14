@@ -136,9 +136,31 @@ export function analyseCompound(target){
         // normalmente en ACUSATIVO con el sujeto del ACI, no en nominativo.
         const accepted=new Set(['urum','uram','uros','uras','ura'].map(end=>p.stem+end));
         if(accepted.has(a))result.checks.push('participio-futuro-acusativo');
-        else if(['urus','uri','urae'].some(end=>a===p.stem+end))
-          result.issues.push('participio-futuro-en-nominativo-no-acusativo');
-        else result.issues.push('tema-de-futuro-no-coincidente');
+        else {
+          // En los cuadros escolares se cita el infinitivo futuro con
+          // participio en nominativo (p. ej. usurus, usuri, usurae esse).
+          // En un ACI real debe concordar con su sujeto acusativo:
+          // ambas convenciones son distintas y no se confunden.
+          const citations={
+            urus:{case:'NOM',gender:'masculino',number:'SG'},
+            uri:{case:'NOM',gender:'masculino',number:'PL'},
+            urae:{case:'NOM',gender:'femenino',number:'PL'}
+          };
+          const suffix=a.startsWith(p.stem)?a.slice(p.stem.length):'';
+          if(Object.hasOwn(citations,suffix)){
+            result.checks.push('participio-futuro-cita-paradigmatica');
+            result.paradigmCitation={
+              ...citations[suffix],
+              convention:'cita-del-paradigma-fuera-de-contexto',
+              aciAccusativeRequired:true,
+              note:'La lectura nominativa se admite como enunciado morfológico, no como sustituto del acusativo en una oración de infinitivo con sujeto acusativo.',
+              reference:'Allen & Greenough §§164, 498a, 584; DCC',
+              uri:'https://dcc.dickinson.edu/grammar/latin/stems',
+              individualVerification:false,
+              textualAttestation:false
+            };
+          }else result.issues.push('tema-de-futuro-no-coincidente');
+        }
       }else{
         if(a===p.stem+'um')result.checks.push(isFuturePassive?
           'supino-acusativo':'participio-perfecto-acusativo');
@@ -152,9 +174,11 @@ export function analyseCompound(target){
     // Una diferencia frente al enunciado es una reserva técnica,
     // no la declaración de que una grafía latina es imposible.
     result.status='reserva-de-analisis';
-  }else result.status=result.orthographicVariant?
-    'estructura-compatible-con-variante-documentada':
-    'estructura-compatible-con-paradigma';
+  }else result.status=result.paradigmCitation?
+    'estructura-compatible-con-enunciado-paradigmatico':
+    result.orthographicVariant?
+      'estructura-compatible-con-variante-documentada':
+      'estructura-compatible-con-paradigma';
   return result;
 }
 export function createCompoundWitnessCollector(compounds){
