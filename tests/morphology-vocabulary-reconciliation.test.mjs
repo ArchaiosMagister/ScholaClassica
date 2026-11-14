@@ -38,7 +38,7 @@ test('No convertir los bloques UD1–4, UD6–7 y UD9–10 en unidades arbitrari
   assert.equal(classifyVocabularyUnit('Preposiciones').type,'transversal');
   assert.equal(classifyVocabularyUnit('Sin unidad acreditada').type,'unaccredited');
   assert.throws(()=>classifyVocabularyUnit('UD 10–2'),/malformada/);
-  assert.throws(()=>parseVocabularySource('window.VOCAB=[{}]'),/VOCAB|formato/);
+  assert.throws(()=>parseVocabularySource('window.VOCAB=[{}]'),/Vocabula|VOCAB|formato/);
 });
 
 test('Vocabula general no equivale a exigible; ninguna etiqueta ajena altera el currículo',()=>{
