@@ -64,6 +64,15 @@ export function compilePauCompoundVerbs(exams){
         }
       }
     }
+    if(type==='impersonal'){
+      for(const [tense,form] of [
+        ['presente',lemma==='pugno'?'pugnatur':'venitur'],
+        ['imperfecto',lemma==='pugno'?'pugnabatur':'veniebatur'],
+        ['futuro',lemma==='pugno'?'pugnabitur':'venietur']
+      ])forms.push({form,person:'3.ª singular',tense,voice:'pasiva',
+        analysis:'verbo · '+headword+' · 3.ª persona · singular · '+
+          tense+' · indicativo · voz pasiva (impersonal)'});
+    }
     assert.ok(forms.some(f=>requested.has(latinFold(f.form))),
       'Un compuesto no corresponde a una forma examinada: '+lemma);
     results.push(emitRecord('compuesto-'+lemma,headword,forms));
