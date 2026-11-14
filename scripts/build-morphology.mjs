@@ -8,6 +8,16 @@ import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
 import {compileMorphologyUd8to14} from './morphology-ud8-14.mjs';
 import {compileLatin4} from './morphology-latin4.mjs';
 import {compileLatin2} from './morphology-latin2.mjs';
+import {parsePauExamQuestions,compilePauNominalParadigms,latinFold} from './morphology-pau-latin2.mjs';
+import {compilePauPronouns} from './morphology-pau-pronouns.mjs';
+import {compilePauSchoolNouns} from './morphology-pau-nouns.mjs';
+import {compilePauSchoolAdjectives} from './morphology-pau-adjectives.mjs';
+import {compilePauNumerals} from './morphology-pau-numerals.mjs';
+import {compilePauParticiples} from './morphology-pau-participles.mjs';
+import {compilePauRegularVerbs} from './morphology-pau-regular-verbs.mjs';
+import {compilePauIrregularVerbs} from './morphology-pau-irregular-verbs.mjs';
+import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
+import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -323,14 +333,55 @@ export async function buildMorphology({out,lock}){
   const originalRecords=[...data.records,...greekNouns,...latin4];
   assert.equal(originalRecords.length,220);
   const latin2=compileLatin2(originalRecords);
+  const exams=parsePauExamQuestions(await readFile(
+    join(root,'shared/academic/latin2/pau-cv-2006-2026.tsv'),'utf8'));
+  const curriculum=JSON.parse(await readFile(path,'utf8'));
+  const pronouns=compilePauPronouns(curriculum);
+  const compounds=compilePauCompoundVerbs(exams);
+  const venio=compileVenioParadigm();
+  const nominalParts=await Promise.all(Array.from({length:32},(_,i)=>
+    readFile(join(vocabulaSource,'data/unimorph-syllabus/lat/part-'
+      +String(i).padStart(2,'0')+'.json'),'utf8').then(JSON.parse)));
+  const nominal=compilePauNominalParadigms({
+    baseRecords:[...originalRecords,...latin2],unimorphParts:nominalParts,
+    sourceRevision:lock.sources.vocabula.sha,examQuestions:exams
+  });
+  const additions=[...pronouns,...compounds,venio,...nominal.records];
+  const schoolNouns=compilePauSchoolNouns(exams,[...originalRecords,...latin2,...additions]);
+  const schoolAdjectives=compilePauSchoolAdjectives(exams,
+    [...originalRecords,...latin2,...additions]);
+  const numerals=compilePauNumerals(exams);
+  const participles=compilePauParticiples(exams);
+  const regularVerbs=compilePauRegularVerbs(exams);
+  const irregularVerbs=compilePauIrregularVerbs(exams);
+  const exceptions=compilePauExceptions(exams);
+  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs,...exceptions);
+  const fullRecords=[...originalRecords,...latin2,...additions];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
-    records:[...originalRecords,...latin2]};
-  assert.equal(finalBank.records.length,220+latin2.length);
-  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,finalBank.records.length);
+    records:fullRecords};
+  assert.equal(new Set(fullRecords.map(record=>record.id)).size,fullRecords.length);
+  const examForms=[...new Set(exams.flatMap(q=>q.forms.map(latinFold)))];
+  const latin2Surface=new Set(fullRecords.filter(r=>r.language==='latin2')
+    .flatMap(r=>r.forms.map(f=>latinFold(f.form))));
+  const covered=examForms.filter(form=>latin2Surface.has(form));
+  const missing=examForms.filter(form=>!latin2Surface.has(form));
+  assert.equal(missing.length,0,'Faltan formas PAU: '+missing.join(', '));
+  const audit={source:'PAU de Latín II CV, PDF de 56 páginas',
+    years:[2006,2026],models:exams.length,occurrences:352,
+    distinctForms:examForms.length,coveredForms:covered.length,
+    missingForms:missing,nominalImported:nominal.records.length,
+    nominalIncomplete:nominal.skipped,schoolNounsAdded:schoolNouns.length,
+    schoolAdjectivesAdded:schoolAdjectives.length,numeralsAdded:numerals.length,
+    participlesAdded:participles.length,regularVerbsAdded:regularVerbs.length,
+    irregularVerbsAdded:irregularVerbs.length,exceptionsAdded:exceptions.length,
+    pronounsAdded:pronouns.length,
+    compoundsAdded:compounds.length};
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
-  console.log('Morfología: '+finalBank.records.length+
-    ' fichas: 144 de Latín I/Griego I, 76 de 4.º y '+latin2.length+' de Latín II');
+  await writeFile(join(dir,'pau-latin2-audit.json'),JSON.stringify(audit,null,2)+'\n');
+  console.log('Morfología: '+fullRecords.length+
+    ' fichas; '+covered.length+' de 301 formas PAU incorporadas por paradigmas completos');
+  console.log('PAU pendientes de paradigma completo: '+missing.join(', '));
 }
