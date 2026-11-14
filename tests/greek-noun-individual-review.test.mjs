@@ -67,7 +67,12 @@ test('90/90 casillas griegas cotejadas por caso y número, sin inventar duales',
 });
 
 test('Mutaciones en cualquier casilla, diacrítico, etiqueta, género o unidad fallan cerradas',()=>{
- const original=selected.map(x=>structuredClone(x));
+ const original=selected.map(x=>{
+  const record=structuredClone(x);
+  record.evidence.review='conciliación interfuentes; pendiente de revisión docente individual';
+  delete record.evidence.individualVerification;
+  return record;
+ });
  for(let i=0;i<original.length;i++){
   const record=original[i];
   for(let j=0;j<record.forms.length;j++){
