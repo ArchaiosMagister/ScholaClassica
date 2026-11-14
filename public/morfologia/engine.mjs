@@ -41,9 +41,17 @@ function analysisLabel(record,entry){
   if(!ANALYSIS_CATEGORIES.has(record.kind))throw Error('Categoría no documentada');
   return record.kind+' · '+text;
 }
+function ordinaryEntries(record){
+  if(record.language!=='latin2')return record.forms;
+  // Variantes de uso raro: válidas como soluciones alternativas, pero no
+  // candidatas ordinarias al sorteo de formas, ni distractores gráficos.
+  const frequent=record.forms.filter(f=>!f.usage||
+    !/variante|menos frecuente|poco frecuente|rara/i.test(f.usage));
+  return frequent.length?frequent:record.forms;
+}
 function groupedForms(record){
   const groups=new Map();
-  for(const entry of record.forms){
+  for(const entry of ordinaryEntries(record)){
     const form=fold(entry.form);
     if(!groups.has(form))groups.set(form,new Set());
     groups.get(form).add(analysisLabel(record,entry));
@@ -133,7 +141,10 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const distractors=unique(grouped.map(x=>x.form))
           .filter(form=>!forms.has(form));
         if(distractors.length<3)continue;
-        const correct=shuffle(acceptedForms,rng)[0];
+        const core=ordinaryEntries(record).filter(f=>
+          fold(f.analysis)===analysis).map(f=>fold(f.form));
+        const regularChoices=acceptedForms.filter(form=>core.includes(form));
+        const correct=shuffle(regularChoices.length?regularChoices:acceptedForms,rng)[0];
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),correct],rng);
         candidates.push({
           id:record.id+':form:'+index,activity,
