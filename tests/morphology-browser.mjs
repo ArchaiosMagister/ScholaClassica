@@ -132,6 +132,39 @@ try{
  assert.ok((await page.locator('#expression-headword').textContent()).startsWith(' ('));
  assert.equal(await page.locator('#paradigm').isVisible(),false);
  assert.ok((await page.locator('#answers button').allTextContents()).some(t=>t.startsWith('adjetivo · ')));
+ // La tanda mixta no queda monopolizada por el repertorio verbal de Latín II.
+ await page.locator('#new').click();
+ await page.locator('#kind').selectOption('todos');
+ await page.locator('#start').click();
+ const shownCategories=new Set();
+ for(let n=0;n<10;n++){
+   const buttons=page.locator('#answers button');
+   assert.equal(await buttons.count(),4);
+   await buttons.first().click();
+   const correct=await page.locator('#answers button.correct').textContent();
+   shownCategories.add(correct.split(' · ')[0]);
+   await page.locator('#next').click();
+ }
+ assert.ok(shownCategories.size>=4,
+   'Latín II debe mezclar categorías gramaticales: '+[...shownCategories].join(', '));
+ // Comprobar en un ejercicio real el enunciado abreviado y la corrección.
+ await page.locator('#repeat').click();
+ await page.locator('#new').click();
+ await page.locator('#kind').selectOption('verbo');
+ await page.locator('#start').click();
+ const verbCaption=await page.locator('#expression-headword').textContent();
+ const canonical=await page.evaluate(async()=>{
+   const {displayLatin2VerbHeadword}=await import('./engine.mjs');
+   const data=await fetch('./data/paradigmas.json').then(r=>r.json());
+   const current=document.querySelector('#expression-headword').textContent;
+   return data.records.filter(r=>r.language==='latin2'&&r.kind==='verbo')
+     .some(r=>current===' ('+displayLatin2VerbHeadword(r.headword)+')');
+ });
+ assert.ok(canonical,'El enunciado visible debe omitir infinitivo o guion de supino');
+ assert.ok(verbCaption.includes('('));
+ await page.locator('#answers button').first().click();
+ assert.ok(await page.locator('#answers button.correct').count()===1,
+   'La visualización abreviada no puede alterar la clave de corrección');
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
  console.log('OK: perfectos UD4, adjetivos UD5, concordancia griega y caché offline propia en GitHub Pages');
