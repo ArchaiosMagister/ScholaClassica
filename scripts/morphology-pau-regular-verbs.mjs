@@ -65,6 +65,54 @@ const MODELS=[
  ['iugulo','iugulo, iugulare, iugulavi, iugulatum (1.ª)','1','iugul','iugulav','iugulat'],
  ['conficio','conficio, conficere, confeci, confectum (3.ª mixta)','m','confic','confec','confect']
 ];
+
+// Lemas nuevos acreditados por subrayados y tablas del Cuaderno 2026–27.
+// Es obligatorio acreditar tema, clase y enunciado antes de derivar el resto.
+// No se incluyen mediante esta tabla los irregulares, impersonales ni
+// participios aislados (tienen sus propios paradigmas).
+const CUADERNO_MODELS=[
+ ['occupo','occupo, occupare, occupavi, occupatum (1.ª)','1','occup','occupav','occupat'],
+ ['dimitto','dimitto, dimittere, dimisi, dimissum (3.ª)','3','dimitt','dimis','dimiss'],
+ ['munio','munio, munire, munivi, munitum (4.ª)','4','mun','muniv','munit'],
+ ['consumo','consumo, consumere, consumpsi, consumptum (3.ª)','3','consum','consumps','consumpt'],
+ ['mitto','mitto, mittere, misi, missum (3.ª)','3','mitt','mis','miss'],
+ ['promoveo','promoveo, promovere, promovi, promotum (2.ª)','2','promov','promov','promot'],
+ ['coemo','coemo, coemere, coemi, coemptum (3.ª)','3','coem','coem','coempt'],
+ ['instituo','instituo, instituere, institui, institutum (3.ª)','3','institu','institu','institut'],
+ ['cogo','cogo, cogere, coegi, coactum (3.ª)','3','cog','coeg','coact'],
+ ['vinco','vinco, vincere, vici, victum (3.ª)','3','vinc','vic','vict'],
+ ['mando','mando, mandare, mandavi, mandatum (1.ª)','1','mand','mandav','mandat'],
+ ['permoveo','permoveo, permovere, permovi, permotum (2.ª)','2','permov','permov','permot'],
+ ['suppeto','suppeto, suppetere, suppetivi, suppetitum (3.ª)','3','suppet','suppetiv','suppetit','intrans'],
+ ['capio','capio, capere, cepi, captum (3.ª mixta)','m','cap','cep','capt'],
+ ['deligo','deligo, deligere, delegi, delectum (3.ª)','3','delig','deleg','delect'],
+ ['arcesso','arcesso, arcessere, arcessivi, arcessitum (3.ª)','3','arcess','arcessiv','arcessit'],
+ ['pugno','pugno, pugnare, pugnavi, pugnatum (1.ª)','1','pugn','pugnav','pugnat'],
+ ['nuntio','nuntio, nuntiare, nuntiavi, nuntiatum (1.ª)','1','nunti','nuntiav','nuntiat'],
+ ['perago','perago, peragere, peregi, peractum (3.ª)','3','perag','pereg','peract'],
+ ['hiemo','hiemo, hiemare, hiemavi, hiematum (1.ª)','1','hiem','hiemav','hiemat','intrans'],
+ ['moneo','moneo, monere, monui, monitum (2.ª)','2','mon','monu','monit'],
+ ['ambulo','ambulo, ambulare, ambulavi, ambulatum (1.ª)','1','ambul','ambulav','ambulat','intrans'],
+ ['sentio','sentio, sentire, sensi, sensum (4.ª)','4','sent','sens','sens'],
+ ['consulo','consulo, consulere, consului, consultum (3.ª)','3','consul','consulu','consult'],
+ ['deleo','deleo, delere, delevi, deletum (2.ª)','2','del','delev','delet'],
+ ['habeo','habeo, habere, habui, habitum (2.ª)','2','hab','habu','habit'],
+ ['audio','audio, audire, audivi, auditum (4.ª)','4','aud','audiv','audit'],
+ ['amo','amo, amare, amavi, amatum (1.ª)','1','am','amav','amat'],
+ ['duco','duco, ducere, duxi, ductum (3.ª)','3','duc','dux','duct'],
+ ['pono','pono, ponere, posui, positum (3.ª)','3','pon','posu','posit'],
+ ['occido','occido, occidere, occidi, occisum (3.ª)','3','occid','occid','occis'],
+ ['excludo','excludo, excludere, exclusi, exclusum (3.ª)','3','exclud','exclus','exclus'],
+ ['promitto','promitto, promittere, promisi, promissum (3.ª)','3','promitt','promis','promiss'],
+ ['cognosco','cognosco, cognoscere, cognovi, cognitum (3.ª)','3','cognosc','cognov','cognit'],
+ ['fleo','fleo, flere, flevi, fletum (2.ª)','2','fl','flev','flet'],
+ ['adorior','adorior, adoriri, adortus sum (4.ª deponente)','4','ador',null,null,'dep'],
+ ['consequor','consequor, consequi, consecutus sum (3.ª deponente)','3','consequ',null,null,'dep'],
+ ['prosequor','prosequor, prosequi, prosecutus sum (3.ª deponente)','3','prosequ',null,null,'dep'],
+ ['subsequor','subsequor, subsequi, subsecutus sum (3.ª deponente)','3','subsequ',null,null,'dep'],
+ ['populor','populor, populari, populatus sum (1.ª deponente)','1','popul',null,null,'dep']
+];
+
 const SFX={
   '1':{prs:['o','as','at','amus','atis','ant'],impf:['abam','abas','abat','abamus','abatis','abant'],
     fut:['abo','abis','abit','abimus','abitis','abunt'],
@@ -168,7 +216,9 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
   }
   if(deponent&&!['proficiscor','polliceor'].includes(lemma)){
     const depStem={moror:'morat',circumplector:'circumplex',patior:'pass',
-      insequor:'insecut',sequor:'secut'}[lemma];
+      insequor:'insecut',sequor:'secut',adorior:'adort',
+      consequor:'consecut',prosequor:'prosecut',subsequor:'subsecut',
+      populor:'populat'}[lemma];
     assert.ok(depStem,'Falta el tema de perfecto deponente: '+lemma);
     for(const [tense,aux] of Object.entries(SUM)){
       for(const [i,[person,number]] of PERSONS.entries()){
@@ -214,7 +264,7 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
 export function compilePauRegularVerbs(exams){
   const requested=new Set(exams.flatMap(q=>q.forms.map(latinFold)));
   const results=[],seen=new Set();
-  for(const [lemma,headword,cls,stem,perfect,ppp,flag] of MODELS){
+  for(const [lemma,headword,cls,stem,perfect,ppp,flag] of [...MODELS,...CUADERNO_MODELS]){
     if(seen.has(lemma))continue;seen.add(lemma);
     const r=produce(lemma,headword,cls,stem,perfect,ppp,flag);
     const infForms=[];
@@ -227,7 +277,8 @@ export function compilePauRegularVerbs(exams){
       inf(stem+SFX[cls].inf[1],'presente','pasiva (deponente, sentido activo)');
       const depStem={moror:'morat',proficiscor:'profect',polliceor:'pollicit',
         circumplector:'circumplex',patior:'pass',insequor:'insecut',
-        sequor:'secut'}[lemma];
+        sequor:'secut',adorior:'adort',consequor:'consecut',
+        prosequor:'prosecut',subsequor:'subsecut',populor:'populat'}[lemma];
       assert.ok(depStem,'Falta el perfecto deponente: '+lemma);
       inf(depStem+'um esse','perfecto','pasiva (deponente, sentido activo)');
       inf(depStem+'urum esse','futuro','activa (deponente)');
