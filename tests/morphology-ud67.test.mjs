@@ -32,8 +32,11 @@ test('Latín UD6: tres demostrativos y relativo, sin vocativo fabricado',()=>{
   }
   assert.equal(get('latin-ud6-hic').forms.find(f=>f.analysis==='nominativo masculino singular')?.form,'hic');
   assert.equal(get('latin-ud6-relativo').forms.find(f=>f.analysis==='acusativo femenino plural')?.form,'quas');
-  assert.ok(!availableRecords(bank,{language:'latin',unit:5}).some(r=>r.kind==='pronombre'));
-  assert.equal(availableRecords(bank,{language:'latin',unit:6}).filter(r=>r.kind==='pronombre').length,4);
+  assert.deepEqual(new Set(availableRecords(bank,{language:'latin',unit:5})
+    .filter(r=>r.kind==='pronombre').map(r=>r.id)),
+    new Set(['latin-ud3-pronombres-personales','latin-ud5-forico-is']));
+  assert.equal(availableRecords(bank,{language:'latin',unit:6})
+    .filter(r=>r.kind==='pronombre').length,6);
 });
 test('Latín UD7: cuarta y quinta declinación, futuro activo y pasivo con sum',()=>{
   for(const id of ['latin-ud7-exercitus','latin-ud7-cornu','latin-ud7-res']){
@@ -94,11 +97,13 @@ test('Griego UD7: cuatro paradigmas pronominales y personales con variantes tón
 test('sintagmas latinos: sólo sustantivos de género acreditado, y nunca civis/dux',()=>{
   assert.throws(()=>makePhraseQuestions(bank,{language:'latin',unit:4}),/solo está disponible desde UD5/);
   const early=phrasePairs(bank,{language:'latin',unit:5});
-  assert.equal(early.length,5*4,'rosa, dominus, bellum, flumen y mare con cuatro adjetivos');
+  assert.equal(early.length,5*5,
+    'Cinco sustantivos elegibles con los cuatro modelos anteriores y bonus de UD2');
   assert.ok(early.every(p=>p.provenance.length===2));
   assert.ok(early.every(p=>!p.noun.paradigm.startsWith('civis,')&&!p.noun.paradigm.startsWith('dux,')));
   const later=phrasePairs(bank,{language:'latin',unit:7});
-  assert.equal(later.length,8*4,'UD7 añade exercitus, cornu y res');
+  assert.equal(later.length,8*5,
+    'UD7 incorpora exercitus, cornu y res con cinco adjetivos disponibles');
   const q=makePhraseQuestions(bank,{language:'latin',unit:5,limit:30,rng});
   assert.equal(q.length,30);
   for(const item of q){
