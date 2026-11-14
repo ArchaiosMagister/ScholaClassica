@@ -13,14 +13,6 @@ export const GRAMMAR_CORE=[
  './assets/theme.js','./assets/icon.svg','./assets/gramatica-offline.js'
 ];
 export async function buildGrammarPwa(destination){
- const offline=String.raw`// Solo se registra dentro de /apps/gramatica/.
-if('serviceWorker' in navigator){
- window.addEventListener('load',()=>{
-  navigator.serviceWorker.register(new URL('./sw.js',new URL('../',document.currentScript?.src||location.href)))
-   .catch(()=>{}); // El contenido sigue accesible con la red habitual.
- });
-}
-`;
  // Evita rutas relativas erróneas al cargar el registro desde val/curso.html.
  const registration=String.raw`if('serviceWorker' in navigator){
  const scope=new URL(document.currentScript.src).href;
@@ -74,9 +66,7 @@ if('serviceWorker' in navigator){
   "  }",
   " })());",
   "});"
- ].join('
-')+'
-';
+ ].join('\n')+'\n';
  await writeFile(join(destination,'sw.js'),sw);
  console.log('Gramática ScholaClassica: PWA offline aislada '+version);
 }
