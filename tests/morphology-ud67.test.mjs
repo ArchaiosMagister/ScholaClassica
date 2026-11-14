@@ -34,9 +34,10 @@ test('Latín UD6: tres demostrativos y relativo, sin vocativo fabricado',()=>{
   assert.equal(get('latin-ud6-relativo').forms.find(f=>f.analysis==='acusativo femenino plural')?.form,'quas');
   assert.deepEqual(new Set(availableRecords(bank,{language:'latin',unit:5})
     .filter(r=>r.kind==='pronombre').map(r=>r.id)),
-    new Set(['latin-ud3-pronombres-personales','latin-ud5-forico-is']));
+    new Set(['latin-ud3-pronombres-personales','latin-ud5-forico-is',
+      'latin-ud5-reflexivo-sui']));
   assert.equal(availableRecords(bank,{language:'latin',unit:6})
-    .filter(r=>r.kind==='pronombre').length,6);
+    .filter(r=>r.kind==='pronombre').length,7);
 });
 test('Latín UD7: cuarta y quinta declinación, futuro activo y pasivo con sum',()=>{
   for(const id of ['latin-ud7-exercitus','latin-ud7-cornu','latin-ud7-res']){
