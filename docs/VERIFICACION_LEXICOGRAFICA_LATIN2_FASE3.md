@@ -57,6 +57,12 @@ Los archivos `compuestos-resumen.json`, `compuestos-evidencias.ndjson` y `compue
 
 El cotejo puede ejecutarse con UniMorph solamente (flujo de integración normal, sin fuente independiente adicional) o con el JSONL de LEMLAT (flujo específico, aislado). Pruebas automáticas: estructuras de participio, subjuntivo, deponentes, inversión del orden, concordancia, excepciones, infinitivos y procedencia. Una ejecución válida declara siempre `individuallyVerified: false`, `attestedPhrases: 0` y `modifiedBankRecords: 0`.
 
+### Revisión de integración y ejecución recurrente
+
+La verificación secundaria se ejecuta en el flujo `.github/workflows/lexicografia-lemlat3.yml` sobre PR pertinentes, mediante ejecución manual y **en cada actualización de `main`** tras una integración autorizada. La compilación ordinaria conserva un control independiente con UniMorph; los informes de dos fuentes son artefactos del flujo especializado, sin publicación de datos externos ni incorporación del código de LEMLAT a la PWA.
+
+Se rechazan archivos de fuente independiente vacíos, con proveedores mezclados o con revisiones heterogéneas; de lo contrario se atribuirían acuerdos inexistentes. La PR permanece en borrador. **La fusión en `main` activaría también el flujo ordinario de publicación de GitHub Pages**; antes de fusionar, se requiere autorización específica de publicación, además de las validaciones verdes.
+
 ### Fuentes gramaticales y filológicas
 
 - Allen & Greenough, [The Three Stems (§164)](https://latindictionary.co/academy/grammar/164), formación de participios y tiempos compuestos.
