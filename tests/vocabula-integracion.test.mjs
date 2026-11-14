@@ -5,6 +5,7 @@ import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {mergeCatalog,matchCatalog} from '../public/docente/vocabula-catalog.mjs';
 import {correctLatin4Vocabula,LATIN4_LEXICAL_CORRECTIONS} from '../scripts/latin4-lexical-editorial.mjs';
+import {reconcileLatin4ExamUd8,LATIN4_UD8_EXAM_REVIEW} from '../scripts/latin4-ud8-reconciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'.sources/vocabula'),target=join(root,'dist/apps/vocabulario');
 const names=['choice.js','config.js','scope.js'];
@@ -70,8 +71,22 @@ test('Solo dos lemas de 4.º se corrigen en la copia, preservando el origen comp
    .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
  assert.equal(from.length,2055);
  assert.equal(to.length,from.length);
- assert.deepEqual(to,correctLatin4Vocabula(from));
+ assert.deepEqual(to,reconcileLatin4ExamUd8(correctLatin4Vocabula(from)));
  const changes=to.filter((e,i)=>e.form!==from[i].form);
+ const curriculumChanges=to.filter((e,i)=>e.units.join('|')!==from[i].units.join('|'));
+ assert.equal(curriculumChanges.length,17);
+ assert.deepEqual(curriculumChanges.map(e=>e.id).sort(),
+   LATIN4_UD8_EXAM_REVIEW.map(x=>x.examId).sort());
+ for(const e of curriculumChanges){
+   assert.deepEqual(e.units,['UD 8']);
+   assert.deepEqual(e.curricularProvenance?.originalUnits,['UD 8–9']);
+   const fromRecord=from.find(x=>x.id===e.id);
+   assert.deepEqual(e.originals,fromRecord.originals);
+   assert.deepEqual(e.answers,fromRecord.answers);
+   assert.equal(e.meaning,fromRecord.meaning);
+ }
+ const other=to.filter(e=>e.subject==='lat4'&&e.mode==='examen'&&e.units.includes('UD 8–9'));
+ assert.equal(other.length,0);
  assert.equal(changes.length,2);
  assert.deepEqual(changes.map(e=>e.id).sort(),
    LATIN4_LEXICAL_CORRECTIONS.map(x=>x.id).sort());
