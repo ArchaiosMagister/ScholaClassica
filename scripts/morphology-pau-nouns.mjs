@@ -52,7 +52,7 @@ libido|libido, libidinis|femenino|3m|libidin
 praedo|praedo, praedonis|masculino|3m|praedon
 victor|victor, victoris|masculino|3m|victor
 `.trim().split('\n').map(x=>x.split('|'));
-const DECLS={1f:'1.ª',2m:'2.ª',2n:'2.ª',3m:'3.ª',3n:'3.ª',4m:'4.ª',5f:'5.ª'};
+const DECLS={'1f':'1.ª','2m':'2.ª','2n':'2.ª','3m':'3.ª','3n':'3.ª','4m':'4.ª','5f':'5.ª'};
 function caseMap(noun,stem,group,isIStem){
   const sg={
     '1f':[noun,noun,stem+'am',stem+'ae',stem+'ae',stem+'a'],
