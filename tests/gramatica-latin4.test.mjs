@@ -83,6 +83,9 @@ test('Castellano y valenciano: terminología, paradigmas y procedencia paralelos
  assert.match(topic(va,7,1).html,/Plusquamperfet/);
  assert.match(topic(es,8,1).html,/Pronombres personales/);
  assert.match(topic(va,8,1).html,/Pronoms personals/);
+ assert.ok(flattened(va).every(t=>!t.html.includes('una terminación')&&
+  !t.html.includes('tema consonántico')&&!t.html.includes('Neutro sing.')),
+  'Rótulos valencianos de 4.º no deben conservar castellanismos evidentes');
  for(let u=1;u<=8;u++){
   for(let j=0;j<a[u-1].topics.length;j++){
    const tables=(body)=>[...body.matchAll(/<table\b/gu)].length;
