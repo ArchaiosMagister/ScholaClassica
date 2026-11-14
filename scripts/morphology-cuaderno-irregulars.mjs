@@ -239,9 +239,15 @@ export function compileCuadernoIrregulars(){
     ['ferre','presente','activa'],['ferri','presente','pasiva'],
     ['tulisse','perfecto','activa'],['latum esse','perfecto','pasiva'],
     ['laturum esse','futuro','activa'],['latum iri','futuro','pasiva']]));
-  records.push(infinitives('eo',records[1].headword,[
+  const eoInf=infinitives('eo',records[1].headword,[
     ['ire','presente','activa'],['isse','perfecto','activa'],
-    ['ivisse','perfecto','activa'],['iturum esse','futuro','activa']]));
+    ['ivisse','perfecto','activa'],
+    ['iturum esse','futuro','activa'],['ituram esse','futuro','activa'],
+    ['ituros esse','futuro','activa'],['ituras esse','futuro','activa'],
+    ['itura esse','futuro','activa']]);
+  for(const f of eoInf.forms)if(f.form==='ivisse')
+    f.usage='variante de perfecto con v, poco frecuente en el latín clásico';
+  records.push(eoInf);
   records.push(infinitives('fio',records[2].headword,[
     ['fieri','presente','activa (sentido pasivo)'],
     ['factum esse','perfecto','pasiva'],['factum iri','futuro','pasiva']]));
