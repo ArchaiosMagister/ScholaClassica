@@ -25,7 +25,7 @@ export function parseVocabularySource(source){
   const m=String(source).match(/^window\.VOCAB=(\[[\s\S]*\]);?\s*$/u);
   assert.ok(m,'La fuente Vocabula cambió de formato');
   const items=JSON.parse(m[1]);
-  assert.ok(Array.isArray(items)&&items.length>=2000);
+  assert.ok(Array.isArray(items)&&items.length>=2000,'Vocabula incompleta o cambiada');
   assert.ok(items.every(x=>typeof x.id==='string'&&x.form&&
     ['general','examen'].includes(x.mode)));
   return items;
