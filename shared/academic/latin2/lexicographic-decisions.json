@@ -65,6 +65,51 @@
     {
       "title": "LEMLAT 3.0, analizador fijado",
       "uri": "https://github.com/CIRCSE/LEMLAT3"
+    },
+    {
+      "title": "Allen & Greenough §§164, 498a, 584 (DCC): participio futuro + esse y concordancia en estilo indirecto",
+      "uri": "https://dcc.dickinson.edu/grammar/latin/tenses-infinitive-indirect-discourse"
+    }
+  ],
+  "compoundParadigmDecisions": [
+    {
+      "recordId": "latin2-pau-infinitivo-utor",
+      "lemma": "utor",
+      "form": "usurus esse",
+      "participleCase": "NOM",
+      "participleGender": "masculino",
+      "participleNumber": "SG",
+      "resolution": "cita-paradigmatica-infinitivo-futuro",
+      "action": "conservar-como-modelo-morfologico",
+      "individualVerification": false,
+      "accreditText": false,
+      "reason": "Participio futuro masculino singular en nominativo: válido como forma de cita del paradigma; no sustituye al acusativo exigido en una construcción de ACI."
+    },
+    {
+      "recordId": "latin2-pau-infinitivo-utor",
+      "lemma": "utor",
+      "form": "usuri esse",
+      "participleCase": "NOM",
+      "participleGender": "masculino",
+      "participleNumber": "PL",
+      "resolution": "cita-paradigmatica-infinitivo-futuro",
+      "action": "conservar-como-modelo-morfologico",
+      "individualVerification": false,
+      "accreditText": false,
+      "reason": "Participio futuro masculino plural en nominativo: válido como forma de cita del paradigma; el contexto sintáctico determina la concordancia en uso real."
+    },
+    {
+      "recordId": "latin2-pau-infinitivo-utor",
+      "lemma": "utor",
+      "form": "usurae esse",
+      "participleCase": "NOM",
+      "participleGender": "femenino",
+      "participleNumber": "PL",
+      "resolution": "cita-paradigmatica-infinitivo-futuro",
+      "action": "conservar-como-modelo-morfologico",
+      "individualVerification": false,
+      "accreditText": false,
+      "reason": "Participio futuro femenino plural en nominativo: válido como forma de cita del paradigma; no se interpreta como acusativo del sujeto de ACI."
     }
   ]
 }
