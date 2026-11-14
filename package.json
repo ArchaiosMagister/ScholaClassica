@@ -33,6 +33,7 @@
     "lexicografia:lat2": "node scripts/audit-latin2-lexicography.mjs",
     "test:lexicografia:lat2": "node --test tests/lexicografia-latin2.test.mjs",
     "lexicografia:lat2:compuestos": "node scripts/audit-latin2-compounds.mjs",
-    "test:lexicografia:lat2:compuestos": "node --test tests/latin2-compounds.test.mjs"
+    "test:lexicografia:lat2:compuestos": "node --test tests/latin2-compounds.test.mjs",
+    "audit:morfologia:vocabulario": "node scripts/audit-morphology-vocabulary.mjs"
   }
 }
