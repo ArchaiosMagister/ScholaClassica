@@ -52,6 +52,22 @@ function chart(headword,id,entries,{compoundStem=null,compoundVoice='pasiva'}={}
   for(const [tense,mood,voice,table] of entries)
     appendTense(forms,headword,tense,mood,voice,table);
   if(compoundStem)compound(forms,headword,compoundStem,compoundVoice);
+  const imperatives={
+    fero:[['fer','singular','activa'],['ferte','plural','activa'],
+      ['ferre','singular','pasiva'],['ferimini','plural','pasiva']],
+    eo:[['i','singular','activa'],['ite','plural','activa']]
+  };
+  for(const [form,number,voice] of imperatives[id]||[]){
+    forms.push(word(form,desc(headword,'2.ª',number,'presente','imperativo',voice),
+      {person:'2.ª '+number,number,tense:'presente',mood:'imperativo',voice}));
+  }
+  // Allen y Greenough §204: fīmus y fītis son formas de empleo restringido
+  // en prosa clásica. Se mantienen como flexiones legítimas, pero fuera del
+  // sorteo ordinario hasta decisión docente.
+  if(id==='fio')for(const f of forms){
+    if(['fimus','fitis'].includes(f.form)&&f.tense==='presente'&&f.mood==='indicativo')
+      f.usage='forma poco frecuente en prosa clásica';
+  }
   const seen=new Set();
   return {id:'latin2-cuaderno-irregular-'+id,language:'latin2',unit:0,
     kind:'verbo',headword,paradigm:headword,
