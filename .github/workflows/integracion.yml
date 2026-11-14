@@ -78,6 +78,8 @@ jobs:
         run: npm run build
       - name: Cotejar lema + forma + rasgos de Latín II con UniMorph congelado
         run: npm run lexicografia:lat2
+      - name: Auditar la estructura de las perífrasis de Latín II (una fuente)
+        run: npm run lexicografia:lat2:compuestos
       - name: Preparar artefacto docente separado y desactivado (sin desplegar)
         run: npm run build:docente
       - name: Auditar paquete estático de Cloudflare Pages sin publicación
