@@ -51,7 +51,7 @@ test('Parser UniMorph estricto y exportación independiente comprobada',()=>{
   assert.throws(()=>parseExternalEvidenceRow(JSON.stringify({
     source:'UniMorph',revision:'abc',lemma:'civis',form:'civium',
     features:['N','GEN','PL']
-  })),/independiente/);
+  })),/LEMLAT3 o Collatinus/);
   const row=parseExternalEvidenceRow(JSON.stringify({
     source:'LEMLAT3',revision:'fijada',tagset:'UniMorph',
     reference:'LEMLAT3:export:1',nativeFeatures:'lemma=civis,gen,pl',
