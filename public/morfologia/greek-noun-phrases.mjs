@@ -10,6 +10,13 @@ const NUMBERS=['singular','plural'];
 // el sustantivo contable y el número; se mantiene en los ejercicios anteriores.
 const ADJECTIVE_IDS=['griego-adj-agathos','griego-adj-barbaros','griego-adj-megas'];
 const unique=a=>[...new Set(a)];
+// La reserva pertenece al registro académico; sin esa decisión el
+// paradigma tradicional conserva los dos números (y sus claves históricas).
+function practiceNumbers(noun){
+  return noun.id==='griego-sustantivo-ouranos'&&
+    noun.evidence?.individualVerification?.practiceExclusion?.policy===
+      'exclude-plural-from-new-exercises'?['singular']:NUMBERS;
+}
 function shape(r,kind){
   if(!r||r.language!=='griego'||r.kind!==kind||
     r.evidence?.status!=='paradigma-documentado')
@@ -50,8 +57,7 @@ export function greekNounPhrasePairs(bank,{language,unit}){
     shape(noun,'sustantivo');
     if(!['masculino','femenino','neutro'].includes(noun.gender))
       throw Error('Sustantivo sin género único: '+noun.paradigm);
-    for(const cas of CASES)for(const number of
-      (noun.id==='griego-sustantivo-ouranos'?['singular']:NUMBERS))
+    for(const cas of CASES)for(const number of practiceNumbers(noun))
       if(nounForm(noun,cas,number,noun.gender).length!==1)
         throw Error('Sustantivo sin casilla única documentada: '+noun.paradigm);
     return adjectives.map(adjective=>({
@@ -64,8 +70,7 @@ export function greekNounPhrasePairs(bank,{language,unit}){
 }
 function cells(pair){
   const output=[];
-  for(const cas of CASES)for(const number of
-    (pair.noun.id==='griego-sustantivo-ouranos'?['singular']:NUMBERS)){
+  for(const cas of CASES)for(const number of practiceNumbers(pair.noun)){
     const article=nounForm(pair.article,cas,number,pair.gender);
     const noun=nounForm(pair.noun,cas,number,pair.gender);
     const adj=nounForm(pair.adjective,cas,number,pair.gender);
@@ -100,12 +105,12 @@ export function makeGreekNounPhraseQuestions(bank,input={}){
 export function makeGreekNounPhraseTables(bank,input={}){
   const {pairs,limit,rng,reviewMode,reviewState,now}=options(bank,input);
   const questions=pairs.map(pair=>({
-    id:pair.id+':table'+(pair.noun.id==='griego-sustantivo-ouranos'?':singular':''),
+    id:pair.id+':table'+(practiceNumbers(pair.noun).length===1?':singular':''),
     activity:'table',kind:'sintagma',language:'griego',
     paradigm:pair.paradigm,evidence:pair.adjective.evidence,sources:pair.provenance,
     gender:pair.gender,cells:cells(pair),
     prompt:'Declina artículo + sustantivo + adjetivo en '+pair.gender+
-      (pair.noun.id==='griego-sustantivo-ouranos'?' singular.':'.')+
+      (practiceNumbers(pair.noun).length===1?' singular.':'.')+
       ' Se aceptan las dos posiciones atributivas.'
   }));
   return selectReviewCandidates(questions,{mode:reviewMode,state:reviewState,limit,rng,now});
