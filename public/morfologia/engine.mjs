@@ -35,6 +35,25 @@ const ANALYSIS_CATEGORIES=new Set(['sustantivo','adjetivo','pronombre','verbo',
 export function analysisHeadword(record){
   return fold(record.headword||record.paradigm.split(' · ')[0]);
 }
+// Los bancos del Appendix y PAU emplean enunciados verbales abreviados y
+// extensos para un mismo lema. Se reconocen como el MISMO verbo al reunir
+// lecturas de una forma, sin confundir homógrafos de otras clases (liber).
+function analysisLemmaKey(record){
+  const head=analysisHeadword(record);
+  return record.language==='latin2'&&
+    ['verbo','participio','infinitivo'].includes(record.kind)?
+    'verbal:'+head.split(',')[0].trim().toLowerCase():'lexico:'+head;
+}
+const HEADWORD_PLACEHOLDER='\uE000';
+function normalizedLatin2Reading(record,entry){
+  const head=analysisHeadword(record);
+  const label=analysisLabel(record,entry);
+  return label.replace(' · '+head+' · ',' · '+HEADWORD_PLACEHOLDER+' · ');
+}
+function visibleLatin2Reading(record,template){
+  return template.replace(' · '+HEADWORD_PLACEHOLDER+' · ',
+    ' · '+analysisHeadword(record)+' · ');
+}
 // En Latín II el enunciado visible sigue el convenio de otras páginas:
 // presente + perfecto + supino; deponentes: presente + perfecto.
 // Se conserva el enunciado completo original en las fichas y auditorías.
@@ -121,7 +140,8 @@ function analysisDistractors(record,grouped,target,index){
     const derived=target.replaceAll(record.kind+' · ',substitute+' · ');
     if(derived!==target&&!other.includes(derived))other.push(derived);
   }
-  return other;
+  return record.language==='latin2'?
+    other.filter(x=>x.split(' · ')[0]===record.kind):other;
 }
 // Ordenar por semejanza de rasgos una vez descartadas todas las lecturas
 // verdaderas. La aleatoriedad se conserva para empates y orden de botones.
@@ -186,11 +206,10 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
   const usedLatin2Prompts=new Set();
   if(activity==='analysis'&&language==='latin2'){
     for(const source of bank.records.filter(r=>r.language==='latin2'&&r.unit<=unit)){
-      const head=analysisHeadword(source);
       for(const f of practiceEligibleEntries(source)){
-        const key=head+'\\u0000'+fold(f.form);
+        const key=analysisLemmaKey(source)+'\\u0000'+fold(f.form);
         if(!latin2Index.has(key))latin2Index.set(key,new Set());
-        latin2Index.get(key).add(analysisLabel(source,f));
+        latin2Index.get(key).add(normalizedLatin2Reading(source,f));
       }
     }
   }
@@ -233,11 +252,13 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
     }
     if(activity==='analysis'){
       const allGrouped=language==='latin2'?grouped.map(g=>{
-        const key=analysisHeadword(record)+'\\u0000'+g.form;
-        return {...g,analysis:[...(latin2Index.get(key)||new Set([g.analysis]))].join(' / ')};
+        const key=analysisLemmaKey(record)+'\\u0000'+g.form;
+        const templates=latin2Index.get(key);
+        return {...g,analysis:templates?
+          [...templates].map(x=>visibleLatin2Reading(record,x)).join(' / '):g.analysis};
       }):grouped;
       for(const [index,g] of allGrouped.entries()){
-        const key=analysisHeadword(record)+'\\u0000'+g.form;
+        const key=analysisLemmaKey(record)+'\\u0000'+g.form;
         if(language==='latin2'&&usedLatin2Prompts.has(key))continue;
         // Agrupar también categorías verbales del mismo lema: "ferre" es
         // infinitivo presente activo y puede ser imperativo o 2.ª pasiva.
