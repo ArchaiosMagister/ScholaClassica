@@ -12,6 +12,7 @@ import {adaptEvolutioStudentCopy,adaptVocabulaStudentCopy} from './adapt-student
 import {buildDocenteGrammarIndex} from './build-docente-gramatica.mjs';
 import {adaptAppendixLatin4} from './adapt-appendix-latin4.mjs';
 import {adaptAppendixLatin4UI} from './adapt-appendix-latin4-ui.mjs';
+import {buildGrammarPwa} from './build-gramatica-pwa.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -153,6 +154,7 @@ await buildDocenteGrammarIndex({vocabulaSource,out});
 // en los dos idiomas, solo en dist: no se altera ninguno de los originales.
 await adaptAppendixLatin4({destination,source,vocabulaSource});
 await adaptAppendixLatin4UI(destination);
+await buildGrammarPwa(destination);
 
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
 await adaptVocabulaOled(vocabulaDestination);
