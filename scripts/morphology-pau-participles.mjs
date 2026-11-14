@@ -106,10 +106,14 @@ export function compilePauParticiples(exams){
       (gender,number)=>firstDecl(stem,gender,number));
     if(r.forms.some(f=>requested.has(latinFold(f.form))))output.push(r);
   }
+  const presentSeen=new Set();
   for(const [id,headword,stem,nom] of [...PRESENT,...CUADERNO_PRESENT]){
-    if(seen.has(id))continue;seen.add(id);
+    if(presentSeen.has(id))continue;presentSeen.add(id);
     const r=compile(id,headword,'presente','activa',
       (gender,number)=>presentDecl(stem,nom,gender,number));
+    // El mismo verbo puede ofrecer participio de presente y perfecto:
+    // no son el mismo paradigma ni deben bloquearse mutuamente.
+    if(seen.has(id))r.id+='-present';
     if(r.forms.some(f=>requested.has(latinFold(f.form))))output.push(r);
   }
   return output;
