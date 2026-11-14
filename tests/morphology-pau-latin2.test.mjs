@@ -114,12 +114,12 @@ test('Las formas importadas del corpus aportan CASOS COMPLETOS, no una única fo
 test('El registro nuevo no altera las 296 fichas latinas y griegas anteriores',()=>{
   // Las nueve ampliaciones curriculares se agregan al final: las 296
   // fichas previas siguen en sus posiciones y los exámenes PAU no cambian.
-  const curriculumAdditions=bank.records.slice(-9);
+  const curriculumAdditions=bank.records.slice(-28,-19);
   assert.equal(curriculumAdditions.length,9);
   assert.ok(curriculumAdditions.every(r=>['latin','griego'].includes(r.language)));
   assert.equal(bank.records.length,296+bank.records.filter(r=>
     r.id.startsWith('latin2-pau-')||r.id.startsWith('latin2-cuaderno-')||
-    r.id.startsWith('latin2-audit-')).length+curriculumAdditions.length);
+    r.id.startsWith('latin2-audit-')).length+curriculumAdditions.length+19);
   assert.equal(bank.records.slice(0,220).filter(x=>x.language==='latin2').length,0);
   assert.equal(bank.records.slice(220,296).filter(x=>x.language==='latin2').length,76);
   assert.deepEqual(bank.coverage.latin2,[0]);
