@@ -127,6 +127,35 @@ export function makeLatin4Curriculum({curriculum,indicative,nouns,adjectives,loc
   pluperfect:activeTense(indicative,'pluperfect',locale),
   fourth:get(7,0),personal:get(3,0)
  };
+
+ // Enmiendas editoriales solo en la copia de 4.º, con comprobación de origen.
+ const once=(text,from,to)=>{
+  assert.equal(text.split(from).length-1,1,'Cambió el texto importado: '+from);
+  return text.replace(from,to);
+ };
+ const secondTitle=locale==='es'?'Segunda declinación · puer y ager':
+  'Segona declinació · puer i ager';
+ const secondCorrected=locale==='es'?
+  'Segunda declinación · <i lang="la">puer</i> y <i lang="la">ager</i>':
+  'Segona declinació · <i lang="la">puer</i> i <i lang="la">ager</i>';
+ src.second=once(src.second,'<caption>'+secondTitle+'</caption>',
+  '<caption>'+secondCorrected+'</caption>');
+ for(const term of ['puer','ager'])for(const number of ['singular','plural']){
+  src.second=once(src.second,'<th scope="col">'+term+' · '+number+'</th>',
+   '<th scope="col"><i lang="la">'+term+'</i> · '+number+'</th>');
+ }
+ if(locale==='val'){
+  src.third=once(src.third,'<th scope="col" rowspan="2">Caso</th>',
+   '<th scope="col" rowspan="2">Cas</th>');
+  src.third=once(src.third,'· M/F, consonante','· M/F, consonant');
+  src.third=once(src.third,'· neutro, consonante','· neutre, consonant');
+  src.third=once(src.third,'· neutro, en','· neutre, en');
+ }else{
+  src.adj3=once(src.adj3,'pauper, pauperis',
+   '<i lang="la">pauper, pauperis</i>');
+  src.adj3=once(src.adj3,'dives, divitis',
+   '<i lang="la">dives, divitis</i>');
+ }
  const derived=MAP.map((topicNames,i)=>({
   number:i+1,
   topics:topicNames.map(id=>{
