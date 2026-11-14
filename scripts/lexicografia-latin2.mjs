@@ -190,7 +190,7 @@ export function createMatcher(targets){
   const stats={totalRows:0,relevantRows:0,matchedLemmaFormRows:0,
     malformedRows:0};
   return {targets,stats,seenLemmas,
-    ingest(row,{source='UniMorph',revision=UNIMORPH_LATIN_REVISION,line=0}={}){
+    ingest(row,{source='UniMorph Latin',revision=UNIMORPH_LATIN_REVISION,line=0}={}){
       stats.totalRows++;
       const lemma=latinKey(row.lemma);
       if(relevantLemmas.has(lemma))seenLemmas.add(lemma);
