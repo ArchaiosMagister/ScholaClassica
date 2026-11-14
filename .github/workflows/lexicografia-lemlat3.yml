@@ -8,6 +8,10 @@ on:
       - 'scripts/lexicografia-latin2.mjs'
       - 'scripts/audit-latin2-lexicography.mjs'
       - 'tests/lemlat3-latin2.test.mjs'
+      - 'scripts/latin2-compounds.mjs'
+      - 'scripts/audit-latin2-compounds.mjs'
+      - 'tests/latin2-compounds.test.mjs'
+      - 'shared/academic/latin2/lexicographic-decisions.json'
   workflow_dispatch:
 
 permissions:
@@ -64,7 +68,7 @@ jobs:
       - name: Construir banco de Latín II fuera de Pages
         run: npm run build
       - name: Probar convertidor y reglas de evidencia
-        run: node --test tests/lexicografia-latin2.test.mjs tests/lemlat3-latin2.test.mjs
+        run: node --test tests/lexicografia-latin2.test.mjs tests/lemlat3-latin2.test.mjs tests/latin2-compounds.test.mjs
       - name: Preparar formas simples prioritarias PAU y cuaderno
         run: node scripts/lemlat3-latin2.mjs prepare
       - name: Instalar biblioteca de base de datos requerida por el ejecutable LEMLAT3
@@ -89,14 +93,18 @@ jobs:
         run: node scripts/lemlat3-latin2.mjs convert
       - name: Contrastar UniMorph y LEMLAT sin alterar el banco
         run: npm run lexicografia:lat2 -- --independent build/academic-audits/latin2-lexicon/lemlat-evidencias.jsonl
+      - name: Cotejar individualmente los 7307 compuestos mediante componentes
+        run: npm run lexicografia:lat2:compuestos -- --independent build/academic-audits/latin2-lexicon/lemlat-evidencias.jsonl
       - name: Impedir que los informes entren en la web del alumnado
         shell: bash
         run: |
           set -euo pipefail
           test -f build/academic-audits/latin2-lexicon/lemlat-resumen.json
+          test -f build/academic-audits/latin2-lexicon/compuestos-resumen.json
           test ! -e dist/academic-audits
+          test ! -e dist/compuestos-resumen.json
           test ! -e dist/lemlat-evidencias.jsonl
-          node -e 'const f=require("fs");const x=JSON.parse(f.readFileSync("build/academic-audits/latin2-lexicon/resumen.json"));if(x.independentSourceCount!==2||x.individuallyVerified!==false)process.exit(1)'
+          node -e 'const f=require("fs");const d="build/academic-audits/latin2-lexicon/";const x=JSON.parse(f.readFileSync(d+"resumen.json"));const y=JSON.parse(f.readFileSync(d+"compuestos-resumen.json"));if(x.independentSourceCount!==2||x.individuallyVerified!==false||y.total!==7307||y.individuallyVerified!==false||y.attestedPhrases!==0)process.exit(1)'
       - name: Archivar únicamente informes docentes independientes
         if: always()
         uses: actions/upload-artifact@v4
@@ -109,5 +117,8 @@ jobs:
             build/academic-audits/latin2-lexicon/resumen.json
             build/academic-audits/latin2-lexicon/evidencias.ndjson
             build/academic-audits/latin2-lexicon/revision-prioritaria.tsv
+            build/academic-audits/latin2-lexicon/compuestos-resumen.json
+            build/academic-audits/latin2-lexicon/compuestos-evidencias.ndjson
+            build/academic-audits/latin2-lexicon/compuestos-reservas.tsv
           if-no-files-found: warn
           retention-days: 30
