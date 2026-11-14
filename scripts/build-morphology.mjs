@@ -7,6 +7,7 @@ import {compileAdditionalMorphology} from './morphology-expansion.mjs';
 import {compileMorphologyUd67} from './morphology-ud6-ud7.mjs';
 import {compileMorphologyUd8to14} from './morphology-ud8-14.mjs';
 import {compileLatin4} from './morphology-latin4.mjs';
+import {compileLatin2} from './morphology-latin2.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -319,14 +320,17 @@ export async function buildMorphology({out,lock}){
     syllabusJs:await readFile(join(vocabulaSource,'gramatica-contenidos.js'),'utf8'),
     latinAdjectivesHtml:await readFile(join(source,'adjetivos.html'),'utf8')
   });
+  const originalRecords=[...data.records,...greekNouns,...latin4];
+  assert.equal(originalRecords.length,220);
+  const latin2=compileLatin2(originalRecords);
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
-    coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8]},
-    records:[...data.records,...greekNouns,...latin4]};
-  assert.equal(finalBank.records.length,220);
-  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,220);
+    coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
+    records:[...originalRecords,...latin2]};
+  assert.equal(finalBank.records.length,220+latin2.length);
+  assert.equal(new Set(finalBank.records.map(record=>record.id)).size,finalBank.records.length);
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
   console.log('Morfología: '+finalBank.records.length+
-    ' fichas: 144 de Latín I/Griego I y 76 para Latín 4.º ESO UD1–UD8');
+    ' fichas: 144 de Latín I/Griego I, 76 de 4.º y '+latin2.length+' de Latín II');
 }
