@@ -14,7 +14,8 @@ export function validateBank(bank){
          'participio','infinitivo'].includes(record.kind)||
        !Array.isArray(record.forms)||record.forms.length<
          (record.language==='latin2'&&record.kind==='infinitivo'?2:
-          record.id==='griego-ud6-infinitivos-presentes'?4:6)||
+          ['griego-ud6-infinitivos-presentes','latin-ud5-reflexivo-sui']
+            .includes(record.id)?4:6)||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');
     if(ids.has(record.id))throw Error('Ficha repetida');ids.add(record.id);
     for(const f of record.forms)
@@ -135,6 +136,12 @@ function analysisDistractors(record,grouped,target,index){
   }
   // Un distractor léxicamente verosímil de otra categoría se intercala solo
   // ocasionalmente. No se alteran jamás las lecturas correctas ni el enunciado.
+  // El reflexivo latino carece de nominativo. Esa imposibilidad explícita
+  // en la gramática puede servir como distractor sin inventar flexiones.
+  if(record.id==='latin-ud5-reflexivo-sui'){
+    const nominative='pronombre · nominativo · singular o plural';
+    if(!other.includes(nominative))other.push(nominative);
+  }
   if(record.language!=='latin2'&&index%4===0&&
     ['sustantivo','adjetivo','pronombre'].includes(record.kind)){
     const substitute={sustantivo:'adjetivo',adjetivo:'sustantivo',pronombre:'adjetivo'}[record.kind];
