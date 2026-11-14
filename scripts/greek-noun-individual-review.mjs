@@ -144,9 +144,9 @@ export function verifyNineGreekNounRecords(records){
   const record=structuredClone(original);
   record.evidence={
    ...original.evidence,
-   status:'formas-contrastadas-individualmente',
    review:'10/10 formas contrastadas individualmente con tabla de declinación ática y gramática académica; no constituye prueba de atestación textual para cada forma',
    individualVerification:{
+    status:'contrastado-individualmente',
     date:REVIEW_DATE,scope:'morfología ática escolar, sin dual ni artículos',
     source:target.url,grammar:target.grammar,
     sourceRelationship:'UniMorph syllabus y Wiktionary pueden compartir origen; el cotejo de la clase flexiva con Peek es independiente',
