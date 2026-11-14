@@ -95,6 +95,32 @@ test('Castellano y valenciano: terminología, paradigmas y procedencia paralelos
  }
 });
 
+test('Erratas de 4.º: rótulos valencianos y latinismos en cursiva en ambas lenguas',()=>{
+ for(const [bank,locale] of [[es,'es'],[va,'val']]){
+  const table=topic(bank,2,0).html;
+  const title=locale==='es'?
+    'Segunda declinación · <i lang="la">puer</i> y <i lang="la">ager</i>':
+    'Segona declinació · <i lang="la">puer</i> i <i lang="la">ager</i>';
+  assert.ok(table.includes('<caption>'+title+'</caption>'));
+  for(const name of ['puer','ager'])for(const number of ['singular','plural']){
+    assert.ok(table.includes('<th scope="col"><i lang="la">'+name+
+      '</i> · '+number+'</th>'));
+    assert.ok(!table.includes('<th scope="col">'+name+' · '+number+'</th>'));
+  }
+ }
+ const third=topic(va,5,0).html;
+ assert.ok(third.includes('<th scope="col" rowspan="2">Cas</th>'));
+ assert.ok(third.includes('· M/F, consonant'));
+ assert.ok(third.includes('· neutre, consonant'));
+ assert.ok(third.includes('· neutre, en'));
+ assert.ok(!/\b(?:Caso|consonante|neutro)\b/u.test(third));
+ const adjective=topic(es,7,0).html;
+ assert.ok(adjective.includes('<i lang="la">pauper, pauperis</i>'));
+ assert.ok(adjective.includes('<i lang="la">dives, divitis</i>'));
+ assert.ok(!adjective.includes('; pauper, pauperis'));
+ assert.ok(!adjective.includes('; y dives, divitis'));
+});
+
 test('La gramática de 4.º se abre en la biblioteca y en el itinerario de ScholaClassica',()=>{
  const portal=read(root,'public/app.js'),index=read(root,'public/index.html');
  assert.ok(portal.includes("id:'gramatica',label:'Gramática · Latín de 4.º de ESO'"));
