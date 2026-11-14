@@ -207,8 +207,18 @@ export function createMatcher(targets){
         if(!target._seen)target._seen=new Set();
         if(target._seen.has(identity))continue;
         target._seen.add(identity);
-        // Cupo por fuente: las muchas lecturas de UniMorph nunca deben
-        // desplazar del informe la primera lectura de LEMLAT3.
+        // La clasificación compara TODAS las lecturas únicas, incluso
+        // cuando solo se conservan ocho ejemplos visibles por fuente.
+        if(!target._allComparisons)
+          target._allComparisons={uniqueRows:0,compatible:new Map()};
+        target._allComparisons.uniqueRows++;
+        if(!comparison.conflicts.length){
+          if(!target._allComparisons.compatible.has(source))
+            target._allComparisons.compatible.set(source,new Map());
+          const dims=[...new Set(comparison.matched)].sort();
+          target._allComparisons.compatible.get(source).set(dims.join('|'),new Set(dims));
+        }
+        // Cupo de presentación únicamente; nunca afecta al veredicto.
         if(target.evidence.filter(e=>e.source===source).length<8)
           target.evidence.push({
           source,revision,line,
@@ -222,29 +232,27 @@ export function createMatcher(targets){
 }
 function classifyTarget(target,sources){
   if(target.type==='compuesto')return 'requiere-analizador-de-compuestos';
-  if(!target.evidence.length)return sources.hasLemma(target.lemma)?
+  const comparisons=target._allComparisons;
+  if(!comparisons?.uniqueRows)return sources.hasLemma(target.lemma)?
     'no-hallada-para-lema':'lema-fuera-de-cobertura';
-  const best=target.evidence.filter(e=>!e.comparison.conflicts.length);
-  const bySource=new Map();
-  for(const item of best){
-    if(item.comparison.matched.length<2)continue;
-    if(!bySource.has(item.source))bySource.set(item.source,[]);
-    bySource.get(item.source).push(new Set(item.comparison.matched));
-  }
-  // Dos fuentes distintas han de coincidir realmente en >=2 dimensiones.
-  // No basta una etiqueta vaga de categoría en LEMLAT y una completa de UniMorph.
-  const sourceEntries=[...bySource.entries()];
-  for(let i=0;i<sourceEntries.length;i++){
-    for(let j=i+1;j<sourceEntries.length;j++){
-      for(const a of sourceEntries[i][1])for(const b of sourceEntries[j][1]){
-        if([...a].filter(x=>b.has(x)).length>=2)
-          return 'acuerdo-de-fuentes-no-testimonio-textual';
+  const perSource=[...(comparisons.compatible?.entries()||[])];
+  // Comparar todos los perfiles distintos, no solo las ocho muestras
+  // retenidas por fuente para el archivo del informe.
+  for(let i=0;i<perSource.length;i++){
+    for(let j=i+1;j<perSource.length;j++){
+      for(const a of perSource[i][1].values()){
+        if(a.size<2)continue;
+        for(const b of perSource[j][1].values()){
+          if(b.size<2)continue;
+          if([...a].filter(x=>b.has(x)).length>=2)
+            return 'acuerdo-de-fuentes-no-testimonio-textual';
+        }
       }
     }
   }
-  if(best.length&&best.some(e=>e.comparison.matched.length>=2))
-    return 'coincidencia-parcial-de-rasgos';
-  if(best.length)return 'lema-y-forma-coincidentes-rasgos-insuficientes';
+  const profiles=perSource.flatMap(([,features])=>[...features.values()]);
+  if(profiles.some(s=>s.size>=2))return 'coincidencia-parcial-de-rasgos';
+  if(profiles.length)return 'lema-y-forma-coincidentes-rasgos-insuficientes';
   return 'discrepancia-de-rasgos-pendiente';
 }
 export function finalizeAudit(matcher,{sources=[]}={}){
@@ -255,7 +263,12 @@ export function finalizeAudit(matcher,{sources=[]}={}){
     const {id,recordId,kind,lemma,form,displayForm,analysis,expected,priority,
       corpusQuestions,type,evidence}=t;
     return {id,recordId,kind,lemma,form,displayForm,analysis,expected,priority,
-      corpusQuestions,type,status,evidence};
+      corpusQuestions,type,status,evidence,
+      comparisonCoverage:{
+        uniqueAnalysesCompared:t._allComparisons?.uniqueRows||0,
+        displayedExamples:evidence.length,
+        examplesTruncated:(t._allComparisons?.uniqueRows||0)>evidence.length
+      }};
   });
   const byStatus=Object.fromEntries([...new Set(entries.map(e=>e.status))].sort()
     .map(s=>[s,entries.filter(e=>e.status===s).length]));
@@ -272,6 +285,7 @@ export function finalizeAudit(matcher,{sources=[]}={}){
     matchedLemmaFormRows:stats.matchedLemmaFormRows,records:new Set(entries.map(e=>e.recordId)).size,
     entries:entries.length,byStatus,byPriority,
     findingsForReview:findings.length,
+    entriesWithTruncatedExampleDisplays:entries.filter(e=>e.comparisonCoverage.examplesTruncated).length,
     individuallyVerified:false,claimsOfTextualAttestation:0,
     notes:[
       'Una coincidencia en UniMorph no prueba presencia en textos clásicos.',
