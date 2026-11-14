@@ -5,7 +5,7 @@ import {latinFold} from './morphology-pau-latin2.mjs';
 export const CUADERNO_SOURCE='Cuaderno de Latín II, curso 2026–2027, pp. 18–54';
 export const canonicalCuadernoForm=x=>{
   const f=latinFold(x.replace(/[.,;:!?]+$/g,''));
-  return f==='comsumpserat'?'consumpserat':f;
+  return ({comsumpserat:'consumpserat',sensitur:'sentitur'})[f]||f;
 };
 export function parseCuadernoQuestions(source){
   const list=source.split(/\r?\n/)
@@ -51,7 +51,9 @@ export function auditCuaderno(bank,questions){
       {page:22,source:'comsumpserat',normalized:'consumpserat',
         reason:'errata visible en el cuaderno; perfecto de consumo, consumpsi, consumptum'},
       {page:50,source:'ligadura tipográfica perdida en extracción',normalized:'flumina',
-        reason:'la palabra impresa en el ejercicio es flumina'}
+        reason:'la palabra impresa en el ejercicio es flumina'},
+      {page:51,source:'sensitur',normalized:'sentitur',
+        reason:'errata en la tabla de ejercicios: el presente pasivo de sentio es sentitur'}
     ],irregulars:['fero','eo','fio','volo'],
     paradigmVerification:'verificaciones de fuente, flexiones explícitas y paradigmas escolares generados; no implica cotejo individual de cada celda'};
 }
