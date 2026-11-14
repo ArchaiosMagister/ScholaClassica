@@ -74,13 +74,29 @@ export function analyseCompound(target){
     if(!p.stem){
       result.issues.push('enunciado-sin-tema-de-supino');
     }else{
-      const recognized=Object.entries(participleEndings[expectedNum]||{})
-        .filter(([g,end])=>ptcp===p.stem+end&&(p.gender===null||p.gender===g));
+      // La grafía adgressus es variante reconocida de aggressus
+      // (Lewis & Short, s.v. aggredior/aggressus); no generalizar
+      // asimilaciones ad-/ag- a otros verbos sin fuente.
+      const variants=target.lemma==='aggredior'&&p.stem==='aggress'
+        ?['adgress']: [];
+      const recognized=[p.stem,...variants].flatMap(stem=>
+        Object.entries(participleEndings[expectedNum]||{})
+          .filter(([g,end])=>ptcp===stem+end&&(p.gender===null||p.gender===g))
+          .map(([gender])=>({gender,stem})));
       if(recognized.length){
         result.checks.push('concordancia-participial');
         result.checks.push('tema-del-enunciado');
-        result.participleInterpretations=recognized.map(([gender])=>({
+        result.participleInterpretations=recognized.map(({gender})=>({
           gender,number:expectedNum,case:'NOM'}));
+        if(recognized.some(x=>x.stem!==p.stem)){
+          result.orthographicVariant={
+            from:p.stem,to:recognized.find(x=>x.stem!==p.stem).stem,
+            reference:'Lewis & Short s.v. aggredior/adgressus',
+            uri:'https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n1556/',
+            individualVerification:false
+          };
+          result.checks.push('variante-ortografica-documentada');
+        }
       }else if(/(?:us|um|ae|i|a)$/.test(ptcp)){
         result.issues.push('tema-o-concordancia-no-coincidente');
       }else result.issues.push('participio-no-identificado');
@@ -136,7 +152,9 @@ export function analyseCompound(target){
     // Una diferencia frente al enunciado es una reserva técnica,
     // no la declaración de que una grafía latina es imposible.
     result.status='reserva-de-analisis';
-  }else result.status='estructura-compatible-con-paradigma';
+  }else result.status=result.orthographicVariant?
+    'estructura-compatible-con-variante-documentada':
+    'estructura-compatible-con-paradigma';
   return result;
 }
 export function createCompoundWitnessCollector(compounds){
