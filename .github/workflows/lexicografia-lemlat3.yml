@@ -104,7 +104,7 @@ jobs:
           test ! -e dist/academic-audits
           test ! -e dist/compuestos-resumen.json
           test ! -e dist/lemlat-evidencias.jsonl
-          node -e 'const f=require("fs");const d="build/academic-audits/latin2-lexicon/";const x=JSON.parse(f.readFileSync(d+"resumen.json"));const y=JSON.parse(f.readFileSync(d+"compuestos-resumen.json"));if(x.independentSourceCount!==2||x.individuallyVerified!==false||x.editorialReview.decisionsApplied!==4||x.editorialReview.certifiedForms!==0||y.total!==7307||y.individuallyVerified!==false||y.attestedPhrases!==0||y.byStatus["reserva-de-analisis"]!==3)process.exit(1)'
+          node -e 'const f=require("fs");const d="build/academic-audits/latin2-lexicon/";const x=JSON.parse(f.readFileSync(d+"resumen.json"));const y=JSON.parse(f.readFileSync(d+"compuestos-resumen.json"));if(x.independentSourceCount!==2||x.individuallyVerified!==false||x.editorialReview.decisionsApplied!==4||x.editorialReview.certifiedForms!==0||y.total!==7307||y.individuallyVerified!==false||y.attestedPhrases!==0||(y.byStatus["reserva-de-analisis"]||0)!==0||y.byStatus["estructura-compatible-con-enunciado-paradigmatico"]!==3||y.editorialParadigmsApplied!==3)process.exit(1)'
       - name: Archivar únicamente informes docentes independientes
         if: always()
         uses: actions/upload-artifact@v4
