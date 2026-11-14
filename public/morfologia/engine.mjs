@@ -222,12 +222,17 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
       // (civēs / civīs en acusativo plural, por ejemplo). Nunca se ofrece una
       // variante válida como distractor de la otra.
       const byAnalysis=new Map();
-      for(const entry of practiceEligibleEntries(record)){
+      const allowed=new Set(practiceEligibleEntries(record));
+      // Conservar los índices originales del banco: el progreso offline se
+      // identifica por record.id:form:posición. Omitir lecturas reservadas
+      // sin renumerar las preguntas legítimas ya practicadas.
+      for(const entry of record.forms){
         const analysis=fold(entry.analysis),form=fold(entry.form);
         if(!byAnalysis.has(analysis))byAnalysis.set(analysis,new Set());
-        byAnalysis.get(analysis).add(form);
+        if(allowed.has(entry))byAnalysis.get(analysis).add(form);
       }
       for(const [index,[analysis,forms]] of [...byAnalysis].entries()){
+        if(forms.size===0)continue;
         const acceptedForms=[...forms];
         const distractors=unique(grouped.map(x=>x.form))
           .filter(form=>!forms.has(form));
