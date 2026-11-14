@@ -73,13 +73,33 @@ test('Infinitivos perfectos y futuros distinguen supino, PPP y futuro activo',()
     assert.equal(item.construction,construction);
   }
 });
-test('Un nominativo del participio futuro no se certifica como ACI acusativo',()=>{
+test('Los tres nominativos de utor son modelos de cita, no un ACI acreditado',()=>{
   const head='utor, uti, usus sum (3.ª deponente)';
-  const bad=analyseCompound(target('usurus esse','infinitivo',head,'futuro · voz activa'));
-  assert.equal(bad.status,'reserva-de-analisis');
-  assert.ok(bad.issues.includes('participio-futuro-en-nominativo-no-acusativo'));
+  for(const [form,gender,number] of [
+    ['usurus esse','masculino','SG'],
+    ['usuri esse','masculino','PL'],
+    ['usurae esse','femenino','PL']
+  ]){
+    const cited=analyseCompound(target(form,'infinitivo',head,'futuro · voz activa'));
+    assert.equal(cited.status,'estructura-compatible-con-enunciado-paradigmatico',form);
+    assert.deepEqual(cited.issues,[]);
+    assert.ok(cited.checks.includes('participio-futuro-cita-paradigmatica'));
+    assert.equal(cited.paradigmCitation.case,'NOM');
+    assert.equal(cited.paradigmCitation.gender,gender);
+    assert.equal(cited.paradigmCitation.number,number);
+    assert.equal(cited.paradigmCitation.aciAccusativeRequired,true);
+    assert.equal(cited.paradigmCitation.individualVerification,false);
+    assert.equal(cited.paradigmCitation.textualAttestation,false);
+  }
+});
+test('ACI de utor: acusativo válido y forma artificial no aprobada',()=>{
+  const head='utor, uti, usus sum (3.ª deponente)';
   const good=analyseCompound(target('usurum esse','infinitivo',head,'futuro · voz activa'));
   assert.equal(good.status,'estructura-compatible-con-paradigma');
+  assert.ok(good.checks.includes('participio-futuro-acusativo'));
+  const invalid=analyseCompound(target('usuribus esse','infinitivo',head,'futuro · voz activa'));
+  assert.equal(invalid.status,'reserva-de-analisis');
+  assert.ok(invalid.issues.includes('tema-de-futuro-no-coincidente'));
 });
 test('Los enunciados con paréntesis interiores toman el último tema nominal',()=>{
   const a=analyseCompound(target('relatus est','verbo',
