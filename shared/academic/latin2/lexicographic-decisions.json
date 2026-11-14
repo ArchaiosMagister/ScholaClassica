@@ -1,0 +1,115 @@
+{
+  "schema": "schola-latin2-editorial-review/v1",
+  "updated": "2026-11-14",
+  "affectsStudentBank": false,
+  "basis": "Cotejo UniMorph Latin + LEMLAT3; la ausencia de análisis no es evidencia negativa de una forma",
+  "decisions": [
+    {
+      "recordId": "latin2-pau-school-adjective-nonnullus",
+      "form": "nonnullae",
+      "case": "GEN",
+      "number": "SG",
+      "gender": "FEM",
+      "resolution": "flexion-regular-documentada-no-atestiguacion",
+      "action": "conservar-lectura",
+      "individualVerification": false,
+      "sourceNote": "nonnullus, -a, -um, adjetivo de primera clase: genitivo femenino singular -ae. La coincidencia gráfica con nominativo/vocativo plural no excluye el genitivo singular.",
+      "reason": "Sincretismo legítimo; laguna de cobertura en las fuentes comparadas, no contradicción del paradigma."
+    },
+    {
+      "recordId": "latin2-pau-school-adjective-nonnullus",
+      "form": "nonnullae",
+      "case": "DAT",
+      "number": "SG",
+      "gender": "FEM",
+      "resolution": "flexion-regular-documentada-no-atestiguacion",
+      "action": "conservar-lectura",
+      "individualVerification": false,
+      "sourceNote": "nonnullus, -a, -um, adjetivo de primera clase: dativo femenino singular -ae, homógrafo de genitivo singular y nominativo/vocativo plural.",
+      "reason": "Sincretismo legítimo; laguna de cobertura en las fuentes comparadas, no contradicción del paradigma."
+    },
+    {
+      "recordId": "latin2-pau-school-noun-segesta",
+      "form": "segestae",
+      "case": "NOM",
+      "number": "PL",
+      "gender": "FEM",
+      "resolution": "reserva-onomastica-de-uso",
+      "action": "no-certificar-ni-excluir-automaticamente",
+      "individualVerification": false,
+      "sourceNote": "El topónimo Segesta presenta paradigma formal de primera declinación, pero los plurales de un nombre propio de ciudad exigen documentación de uso onomástico.",
+      "reason": "La regularidad desinencial no acredita una lectura de nominativo plural realmente usada."
+    },
+    {
+      "recordId": "latin2-pau-school-noun-segesta",
+      "form": "segestae",
+      "case": "VOC",
+      "number": "PL",
+      "gender": "FEM",
+      "resolution": "reserva-onomastica-de-uso",
+      "action": "no-certificar-ni-excluir-automaticamente",
+      "individualVerification": false,
+      "sourceNote": "El topónimo Segesta presenta paradigma formal de primera declinación, pero los plurales de un nombre propio de ciudad exigen documentación de uso onomástico.",
+      "reason": "La regularidad desinencial no acredita una lectura de vocativo plural realmente usada."
+    }
+  ],
+  "bibliographicBasis": [
+    {
+      "title": "Allen and Greenough, New Latin Grammar, §§164, 193, 203",
+      "uri": "https://dcc.dickinson.edu/grammar/latin/periphrastic-conjugations"
+    },
+    {
+      "title": "UniMorph Latin, corpus fijado",
+      "uri": "https://github.com/unimorph/lat"
+    },
+    {
+      "title": "LEMLAT 3.0, analizador fijado",
+      "uri": "https://github.com/CIRCSE/LEMLAT3"
+    },
+    {
+      "title": "Allen & Greenough §§164, 498a, 584 (DCC): participio futuro + esse y concordancia en estilo indirecto",
+      "uri": "https://dcc.dickinson.edu/grammar/latin/tenses-infinitive-indirect-discourse"
+    }
+  ],
+  "compoundParadigmDecisions": [
+    {
+      "recordId": "latin2-pau-infinitivo-utor",
+      "lemma": "utor",
+      "form": "usurus esse",
+      "participleCase": "NOM",
+      "participleGender": "masculino",
+      "participleNumber": "SG",
+      "resolution": "cita-paradigmatica-infinitivo-futuro",
+      "action": "conservar-como-modelo-morfologico",
+      "individualVerification": false,
+      "accreditText": false,
+      "reason": "Participio futuro masculino singular en nominativo: válido como forma de cita del paradigma; no sustituye al acusativo exigido en una construcción de ACI."
+    },
+    {
+      "recordId": "latin2-pau-infinitivo-utor",
+      "lemma": "utor",
+      "form": "usuri esse",
+      "participleCase": "NOM",
+      "participleGender": "masculino",
+      "participleNumber": "PL",
+      "resolution": "cita-paradigmatica-infinitivo-futuro",
+      "action": "conservar-como-modelo-morfologico",
+      "individualVerification": false,
+      "accreditText": false,
+      "reason": "Participio futuro masculino plural en nominativo: válido como forma de cita del paradigma; el contexto sintáctico determina la concordancia en uso real."
+    },
+    {
+      "recordId": "latin2-pau-infinitivo-utor",
+      "lemma": "utor",
+      "form": "usurae esse",
+      "participleCase": "NOM",
+      "participleGender": "femenino",
+      "participleNumber": "PL",
+      "resolution": "cita-paradigmatica-infinitivo-futuro",
+      "action": "conservar-como-modelo-morfologico",
+      "individualVerification": false,
+      "accreditText": false,
+      "reason": "Participio futuro femenino plural en nominativo: válido como forma de cita del paradigma; no se interpreta como acusativo del sujeto de ACI."
+    }
+  ]
+}
