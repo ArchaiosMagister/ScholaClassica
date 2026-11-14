@@ -173,6 +173,10 @@ const PERF={perfecto:['i','isti','it','imus','istis','erunt'],
 const SUM={perfecto:['sum','es','est','sumus','estis','sunt'],
   pluscuamperfecto:['eram','eras','erat','eramus','eratis','erant'],
   'futuro perfecto':['ero','eris','erit','erimus','eritis','erunt']};
+const COMPOUND_SUBJ={
+  perfecto:['sim','sis','sit','simus','sitis','sint'],
+  pluscuamperfecto:['essem','esses','esset','essemus','essetis','essent']
+};
 const PPP=(stem,gender,number)=>stem+(
   number==='singular'?
     {masculino:'us',femenino:'a',neutro:'um'}[gender]:
@@ -247,6 +251,24 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
       }
     }
   }
+  if(deponent||ppp&&!['intrans','no-passive'].includes(flag)){
+    const compoundBase=deponent?{
+      moror:'morat',proficiscor:'profect',polliceor:'pollicit',
+      circumplector:'circumplex',patior:'pass',insequor:'insecut',
+      sequor:'secut',adorior:'adort',consequor:'consecut',
+      prosequor:'prosecut',subsequor:'subsecut',populor:'populat'
+    }[lemma]:ppp;
+    assert.ok(compoundBase,'No consta perfecto pasivo de '+lemma);
+    for(const [tense,auxiliaries] of Object.entries(COMPOUND_SUBJ)){
+      for(const [i,[person,number]] of PERSONS.entries()){
+        for(const gender of ['masculino','femenino','neutro']){
+          add(PPP(compoundBase,gender,number)+' '+auxiliaries[i],
+            person,number,tense,'subjuntivo',
+            deponent?'pasiva (deponente, sentido activo)':'pasiva');
+        }
+      }
+    }
+  }
   const voice=deponent?'pasiva (deponente, sentido activo)':'activa';
   if(cls==='1'){
     forms.push({form:stem+'a',analysis:'verbo · '+headword+
@@ -267,6 +289,12 @@ export function compilePauRegularVerbs(exams){
   for(const [lemma,headword,cls,stem,perfect,ppp,flag] of [...MODELS,...CUADERNO_MODELS]){
     if(seen.has(lemma))continue;seen.add(lemma);
     const r=produce(lemma,headword,cls,stem,perfect,ppp,flag);
+    const fromWorkbook=CUADERNO_MODELS.some(candidate=>candidate[0]===lemma);
+    if(fromWorkbook)r.evidence={
+      ...r.evidence,source:'Cuaderno de Latín II 2026–27, lemas y paradigmas escolares',
+      file:'shared/academic/latin2/cuaderno-2026-27-morfologia.tsv',
+      topic:'Conjugación completa de lemas empleados en el cuaderno'
+    };
     const infForms=[];
     const isDep=flag==='dep';
     function inf(form,tense,voice){
@@ -300,8 +328,8 @@ export function compilePauRegularVerbs(exams){
       assert.ok(infForms.length>=2,'Infinitivos incompletos: '+lemma);
       results.push({id:'latin2-pau-regular-infinitive-'+lemma,
         language:'latin2',unit:0,kind:'infinitivo',headword,paradigm:headword,
-        forms:infForms,evidence:{source:'Conjugación escolar latina y texto PAU',
-          file:'shared/academic/latin2/pau-cv-2006-2026.tsv',
+        forms:infForms,evidence:{source:fromWorkbook?'Cuaderno de Latín II 2026–27; conjugación escolar':'Conjugación escolar latina y texto PAU',
+          file:fromWorkbook?'shared/academic/latin2/cuaderno-2026-27-morfologia.tsv':'shared/academic/latin2/pau-cv-2006-2026.tsv',
           status:'paradigma-documentado',topic:'Infinitivos documentados',
           caption:lemma,unit:0,
           verification:'modelos escolares; solo se incluye si forma requerida por PAU',
