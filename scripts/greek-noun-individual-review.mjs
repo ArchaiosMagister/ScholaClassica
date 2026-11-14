@@ -155,7 +155,12 @@ export function verifyNineGreekNounRecords(records){
     sourceRelationship:'UniMorph syllabus y Wiktionary pueden compartir origen; el cotejo de la clase flexiva con Peek es independiente',
     checkedCount:10,slots,
     ...(target.historicalReservation?
-     {historicalReservation:target.historicalReservation}:{})
+     {historicalReservation:target.historicalReservation,
+      practiceExclusion:{
+       policy:'exclude-plural-from-new-exercises',
+       reason:'Uso plural no acreditado para griego clásico; mantener formas y progreso histórico',
+       slots:slots.filter(x=>x.number==='plural').map(x=>x.case+':'+x.number)
+      }}:{})
    }
   };
   checkedRecords.push(record);
