@@ -46,15 +46,24 @@ test('Parser UniMorph estricto y exportación independiente comprobada',()=>{
     lemma:'cīvis',form:'cīvium',features:['N','GEN','PL'],
     rawFeatures:'N;GEN;PL'});
   assert.equal(parseUniMorphRow('incompleta'),null);
+  assert.deepEqual(parseUniMorphRow('amō\tamō\tV;IND;X-UNKNOWN;1;SG').features,
+    ['V','IND','X-UNKNOWN','1','SG']);
   assert.throws(()=>parseExternalEvidenceRow(JSON.stringify({
     source:'UniMorph',revision:'abc',lemma:'civis',form:'civium',
     features:['N','GEN','PL']
   })),/independiente/);
   const row=parseExternalEvidenceRow(JSON.stringify({
-    source:'LEMLAT3',revision:'fijada',lemma:'civis',
-    form:'civium',features:['N','GEN','PL']
+    source:'LEMLAT3',revision:'fijada',tagset:'UniMorph',
+    reference:'LEMLAT3:export:1',nativeFeatures:'lemma=civis,gen,pl',
+    lemma:'civis',form:'civium',features:['N','GEN','PL']
   }));
   assert.equal(row.source,'LEMLAT3');
+  assert.throws(()=>parseExternalEvidenceRow(JSON.stringify({
+    ...row,source:'UniMorph Latin'
+  })),/LEMLAT3 o Collatinus/);
+  assert.throws(()=>parseExternalEvidenceRow(JSON.stringify({
+    ...row,tagset:'LEMLAT-nativo'
+  })),/conversión de etiquetas/);
 });
 test('Se comparan caso, número, persona, tiempo y modo sin suponer rasgos ausentes',()=>{
   const expected=expectedFeatures(bank.records[0],bank.records[0].forms[0]);
