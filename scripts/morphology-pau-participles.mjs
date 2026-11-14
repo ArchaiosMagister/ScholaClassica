@@ -104,7 +104,17 @@ export function compilePauParticiples(exams){
     const r=compile(id,headword,'perfecto',
       dep==='dep'?'pasiva (deponente, sentido activo)':'pasiva',
       (gender,number)=>firstDecl(stem,gender,number));
-    if(r.forms.some(f=>requested.has(latinFold(f.form))))output.push(r);
+    const aux=['sum','es','est','sumus','estis','sunt',
+      'eram','eras','erat','eramus','eratis','erant',
+      'ero','eris','erit','erimus','eritis','erunt',
+      'sim','sis','sit','simus','sitis','sint',
+      'essem','esses','esset','essemus','essetis','essent'];
+    const used=r.forms.some(f=>{
+      const form=latinFold(f.form);
+      return requested.has(form)||aux.some(a=>
+        requested.has(form+' '+a)||requested.has(a+' '+form));
+    });
+    if(used)output.push(r);
   }
   const presentSeen=new Set();
   for(const [id,headword,stem,nom] of [...PRESENT,...CUADERNO_PRESENT]){
