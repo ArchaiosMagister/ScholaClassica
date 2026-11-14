@@ -57,8 +57,9 @@ test('Las variantes gráficas no se declaran erratas automáticas',()=>{
     'aggredior, aggredi, aggressus sum (3.ª deponente)',
     '1.ª persona · singular · perfecto · indicativo · voz pasiva (deponente, sentido activo)',
     {person:'1',number:'SG'}));
-  assert.equal(a.status,'reserva-de-analisis');
-  assert.ok(a.issues.includes('tema-o-concordancia-no-coincidente'));
+  assert.equal(a.status,'estructura-compatible-con-variante-documentada');
+  assert.ok(a.checks.includes('variante-ortografica-documentada'));
+  assert.equal(a.orthographicVariant.individualVerification,false);
 });
 test('Infinitivos perfectos y futuros distinguen supino, PPP y futuro activo',()=>{
   const head='amo, amavi, amatum (1.ª)';
