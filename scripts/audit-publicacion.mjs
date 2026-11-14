@@ -63,7 +63,9 @@ const nouns=morphology.records.filter(r=>r.id.startsWith('griego-sustantivo-'));
 // Mantener lista blanca cerrada de modelos conciliados, sin admitir altas
 // automáticas ni modificar los ocho lemas originales.
 const approvedNouns=['hippos','bios','dike','arete','logos','doron','nike','eirene',
-  'anthropos','biblion','zoon','agora','aletheia','adikia','eleutheria'];
+  'anthropos','biblion','zoon','agora','aletheia','adikia','eleutheria',
+  'arche','strategos','epistole','kephale','mache','petra',
+  'ouranos','hoplon','phobos'];
 assert.deepEqual(new Set(nouns.map(n=>n.id)),
   new Set(approvedNouns.map(id=>'griego-sustantivo-'+id)),
   'Solo sustantivos conciliados individualmente en ambos lotes');
