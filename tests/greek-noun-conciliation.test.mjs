@@ -65,9 +65,9 @@ test('desbloqueo curricular: cuatro nombres UD4 y otros cuatro únicamente UD7',
   // vocabulario agrupado UD1–4, sin adelantarles arbitrariamente la unidad.
   assert.equal(availableRecords(bank,{language:'griego',unit:3,kind:'sustantivo'}).length,1);
   assert.equal(availableRecords(bank,{language:'griego',unit:4,kind:'sustantivo'}).length,11);
-  assert.equal(availableRecords(bank,{language:'griego',unit:5,kind:'sustantivo'}).length,11);
-  assert.equal(availableRecords(bank,{language:'griego',unit:6,kind:'sustantivo'}).length,11);
-  assert.equal(availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'}).length,15);
+  assert.equal(availableRecords(bank,{language:'griego',unit:5,kind:'sustantivo'}).length,13);
+  assert.equal(availableRecords(bank,{language:'griego',unit:6,kind:'sustantivo'}).length,13);
+  assert.equal(availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'}).length,21);
 });
 test('las fuentes se rechazan ante género contradictorio, laguna o falta de unidad',()=>{
   const wrongForms=structuredClone(unimorphParts);
@@ -95,8 +95,8 @@ test('sintagmas triples: dos posiciones atributivas correctas, acento grave cont
   assert.equal(graveInContext('μεγάλη'),'μεγάλη');
   assert.throws(()=>greekNounPhrasePairs(bank,{language:'latin',unit:5}),/solo se habilitan/);
   assert.throws(()=>greekNounPhrasePairs(bank,{language:'griego',unit:4}),/solo se habilitan/);
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:5}).length,30);
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,42);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:5}).length,36);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,60);
   assert.ok(!greekNounPhrasePairs(bank,{language:'griego',unit:7})
     .some(p=>p.noun.id==='griego-sustantivo-anthropos'),
     'El género común no se puede tratar como una concordancia unívoca');
