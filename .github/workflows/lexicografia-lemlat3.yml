@@ -80,8 +80,11 @@ jobs:
             -C build/academic-audits/latin2-lexicon/runtime
           cd build/academic-audits/latin2-lexicon/runtime/linux_embedded
           chmod u+x ./lemlat
-          ./lemlat -s 0 -i "$GITHUB_WORKSPACE/build/academic-audits/latin2-lexicon/lemlat-input.txt" \
-            -x "$GITHUB_WORKSPACE/build/academic-audits/latin2-lexicon/lemlat-result.xml"
+          # parseCLI.c (LEMLAT original) reserva solo 80 bytes para -i/-x.
+          # Las rutas largas de Actions corrompen la memoria: usar nombres cortos.
+          cp "$GITHUB_WORKSPACE/build/academic-audits/latin2-lexicon/lemlat-input.txt" ./input.txt
+          ./lemlat -s 0 -i input.txt -x result.xml
+          cp result.xml "$GITHUB_WORKSPACE/build/academic-audits/latin2-lexicon/lemlat-result.xml"
       - name: Convertir XML real y registrar entradas sin cobertura
         run: node scripts/lemlat3-latin2.mjs convert
       - name: Contrastar UniMorph y LEMLAT sin alterar el banco
