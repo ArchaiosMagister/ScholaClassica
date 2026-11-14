@@ -51,9 +51,7 @@ Incluye:
   lemas propios.
 - Control negativo de formas inventadas y de una pasiva personal
   inexistente para el simple `eo`.
-- Revisión marcada, sin certificación improcedente, del uso pasivo
-  personal de `noceo`, que ciertos repertorios generan por analogía
-  y cuyo uso clásico es predominantemente impersonal.
+- Criterio cerrado para `noceo`: pasiva **impersonal** normal (`nocetur`, `nocitum est`), con ejemplos en Cicerón y César. Lewis & Short registra pasivas personales muy excepcionales (Vitruvio, Solino); esas casillas solo reconstruidas por modelo llevan **pendiente de cotejo individual** y quedan fuera del sorteo, sin declararlas imposibles.
 - Un test de regresión que introduce deliberadamente una forma verbal
   incorrecta y exige que la construcción falle.
 
@@ -82,8 +80,7 @@ conservándose.
 - Cotejo **individual** de los lemas regulares que actualmente se
   declinan y conjugan por modelos escolares, con clasificación por
   evidencia de cada casilla, no por cobertura del vocabulario.
-- Evaluación de usos excepcionales de verbos predominantemente
-  intransitivos (particularmente `noceo`) y de perfectos alternativos.
+- Contrastar testimonios de otras pasivas personales excepcionales y perfectos alternativos, distinguiendo formas *atestiguadas* de modelos completos reconstruidos.
 - Filtros didácticos de frecuencia/uso y verificación contextual con
   textos de Selectividad para elegir la lectura sintácticamente pertinente.
 
