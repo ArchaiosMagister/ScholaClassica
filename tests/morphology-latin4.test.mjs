@@ -137,3 +137,27 @@ test('Fuentes cambiadas abortan la compilación y no contaminan Latín I o Grieg
   assert.ok(bank.records.filter(r=>r.language==='latin').every(r=>r.unit<=10));
   assert.ok(bank.records.filter(r=>r.language==='griego').every(r=>r.unit<=14));
 });
+
+test('Los 76 enunciados de 4.º son completos solo para presentación',()=>{
+ assert.equal(latin4.length,76);
+ const get=id=>latin4.find(r=>r.id===id);
+ assert.equal(get('latin4-docente-lat-puella').paradigm,'puella');
+ assert.equal(get('latin4-docente-lat-puella').enunciation,'puella, puellae');
+ assert.equal(get('latin4-docente-lat-servus').enunciation,'servus, servi');
+ assert.equal(get('latin4-docente-lat-bellum').enunciation,'bellum, belli');
+ assert.equal(get('latin4-docente-lat-exercitus').enunciation,'exercitus, exercitus');
+ assert.equal(get('latin4-docente-lat-amo-present').enunciation,'amo, amavi, amatum');
+ assert.equal(get('latin4-docente-lat-lego-imperfect').enunciation,'lego, legi, lectum');
+ assert.ok(latin4.every(r=>r.enunciation&&!r.enunciation.includes('<')));
+ assert.ok(latin4.every(r=>r.forms.length>=6),'No alterar ni completar las flexiones');
+ const subject={...bank,records:[get('latin4-docente-lat-puella')]};
+ const [q]=makeQuestions(subject,{language:'latin4',unit:1,activity:'analysis',rng,limit:1});
+ assert.equal(q.headword,'puella');
+ assert.equal(q.enunciation,'puella, puellae');
+ const written=makeWrittenQuestions(subject,{language:'latin4',unit:1,limit:1,rng});
+ assert.equal(written[0].enunciation,'puella, puellae');
+ assert.ok(correctWritten(written[0],written[0].acceptedForms[0]).correct);
+ const combo=makePhraseQuestions(bank,{language:'latin4',unit:3,limit:10,rng});
+ assert.ok(combo.some(q=>q.enunciation?.includes('puella, puellae')));
+ assert.ok(combo.every(q=>q.paradigm.includes(' + ')&&q.enunciation?.includes(' + ')));
+});
