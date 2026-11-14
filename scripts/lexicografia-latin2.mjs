@@ -18,16 +18,25 @@ export function parseUniMorphRow(line){
   const row=line.trimEnd().split('\t');
   if(row.length!==3||!row.every(Boolean))return null;
   const [lemma,form,features]=row;
-  if(!/^[\p{L}.\d;+]+$/u.test(features))return null;
-  return {lemma,form,features:features.split(';'),rawFeatures:features};
+  const tags=features.split(';');
+  // Las etiquetas son datos de una fuente externa: signos como '-' o '?'
+  // son posibles y NO deben provocar que descartemos silenciosamente filas.
+  if(!tags.every(t=>t.trim().length>0))return null;
+  return {lemma,form,features:tags,rawFeatures:features};
 }
 export function parseExternalEvidenceRow(line){
   const v=JSON.parse(line);
   assert.ok(v&&typeof v.lemma==='string'&&v.lemma.trim());
   assert.ok(typeof v.form==='string'&&v.form.trim());
-  assert.ok(typeof v.source==='string'&&v.source.trim()&&
-    v.source!=='UniMorph','La segunda fuente debe ser independiente de UniMorph');
+  assert.ok(['LEMLAT3','Collatinus'].includes(v.source),
+    'La fuente secundaria debe ser LEMLAT3 o Collatinus, no otro nombre arbitrario ni una copia de UniMorph');
+  assert.equal(v.tagset,'UniMorph',
+    'La conversión de etiquetas nativas a UniMorph debe ser explícita y auditable');
   assert.ok(typeof v.revision==='string'&&v.revision.trim());
+  assert.ok(typeof v.reference==='string'&&v.reference.trim(),
+    'Falta referencia individual del registro original');
+  assert.ok(typeof v.nativeFeatures==='string'&&v.nativeFeatures.trim(),
+    'La exportación debe conservar las etiquetas nativas para auditoría');
   assert.ok(Array.isArray(v.features)&&v.features.every(x=>
     typeof x==='string'&&x.length>0));
   return {...v,rawFeatures:v.features.join(';')};
@@ -200,7 +209,10 @@ export function createMatcher(targets){
         target._seen.add(identity);
         if(target.evidence.length<8)target.evidence.push({
           source,revision,line,
-          features:row.rawFeatures,comparison});
+          features:row.rawFeatures,
+          ...(row.reference?{reference:row.reference}:{}),
+          ...(row.nativeFeatures?{nativeFeatures:row.nativeFeatures}:{}),
+          comparison});
       }
     }
   };
