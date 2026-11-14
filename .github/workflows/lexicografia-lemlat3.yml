@@ -11,6 +11,7 @@ on:
       - 'scripts/latin2-compounds.mjs'
       - 'scripts/audit-latin2-compounds.mjs'
       - 'tests/latin2-compounds.test.mjs'
+      - 'tests/latin2-compound-source-integrity.test.mjs'
       - 'shared/academic/latin2/lexicographic-decisions.json'
   workflow_dispatch:
 
@@ -68,7 +69,7 @@ jobs:
       - name: Construir banco de Latín II fuera de Pages
         run: npm run build
       - name: Probar convertidor y reglas de evidencia
-        run: node --test tests/lexicografia-latin2.test.mjs tests/lemlat3-latin2.test.mjs tests/latin2-compounds.test.mjs
+        run: node --test tests/lexicografia-latin2.test.mjs tests/lemlat3-latin2.test.mjs tests/latin2-compounds.test.mjs tests/latin2-compound-source-integrity.test.mjs
       - name: Preparar formas simples prioritarias PAU y cuaderno
         run: node scripts/lemlat3-latin2.mjs prepare
       - name: Instalar biblioteca de base de datos requerida por el ejecutable LEMLAT3
