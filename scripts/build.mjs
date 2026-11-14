@@ -14,6 +14,8 @@ import {adaptAppendixLatin4} from './adapt-appendix-latin4.mjs';
 import {adaptAppendixLatin4UI} from './adapt-appendix-latin4-ui.mjs';
 import {adaptAppendixLatin1} from './adapt-appendix-latin1.mjs';
 import {adaptAppendixLatin1UI} from './adapt-appendix-latin1-ui.mjs';
+import {adaptAppendixGreek1} from './grammar-bilingual-editorial.mjs';
+import {adaptAppendixGreek1UI} from './adapt-appendix-griego1-ui.mjs';
 import {buildGrammarPwa} from './build-gramatica-pwa.mjs';
 import {correctLatin4Vocabula} from './latin4-lexical-editorial.mjs';
 import {reconcileLatin4ExamUd8} from './latin4-ud8-reconciliation.mjs';
@@ -163,8 +165,10 @@ await buildDocenteGrammarIndex({vocabulaSource,out});
 // en los dos idiomas, solo en dist: no se altera ninguno de los originales.
 await adaptAppendixLatin4({destination,source,vocabulaSource});
 await adaptAppendixLatin1({destination,source});
+await adaptAppendixGreek1({destination,source});
 await adaptAppendixLatin4UI(destination);
 await adaptAppendixLatin1UI(destination);
+await adaptAppendixGreek1UI(destination);
 await buildGrammarPwa(destination);
 
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
