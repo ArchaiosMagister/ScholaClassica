@@ -59,12 +59,24 @@ export async function runCompoundAudit(params={}){
     collector.ingest(row,'UniMorph Latin',UNIMORPH_LATIN_REVISION);
   }
   if(p.independent){
+    let secondarySource=null,secondaryRevision=null;
     for await(const raw of lines(p.independent)){
       if(!raw.trim())continue;
       const row=parseExternalEvidenceRow(raw);
+      if(secondarySource===null){
+        secondarySource=row.source;
+        secondaryRevision=row.revision;
+      }else{
+        assert.equal(row.source,secondarySource,
+          'No mezclar proveedores independientes en un mismo archivo');
+        assert.equal(row.revision,secondaryRevision,
+          'No mezclar revisiones de la fuente independiente');
+      }
       secondaryRows++;
       collector.ingest(row,row.source,row.revision);
     }
+    assert.ok(secondaryRows>0,
+      'Fuente secundaria vacía: no contabilizar dos proveedores sin evidencia');
   }
   collector.complete(compound);
   const editorial=JSON.parse(await readFile(p.editorial,'utf8'));
