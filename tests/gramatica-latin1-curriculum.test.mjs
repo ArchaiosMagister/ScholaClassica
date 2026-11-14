@@ -81,9 +81,10 @@ test('La corrección de UD4 solo retira las dos tablas y explicaciones pasivas, 
   assert.equal(count(corrected,/<table\b/gu),4);
   assert.equal(count(corrected,/<h3>Paradigma · (?:voz|veu) activa<\/h3>/gu),2);
   assert.equal(count(corrected,/<h3>(?:Verbo|Verb) <i lang="la">sum<\/i><\/h3>/gu),2);
-  assert.doesNotMatch(corrected,/<h3>Paradigma · (?:voz|veu) passiva<\/h3>/u);
+  assert.doesNotMatch(corrected,/<h3>Paradigma · (?:voz pasiva|veu passiva)<\/h3>/u);
   assert.throws(()=>latin1ActivePerfects(
-    text.replace(/ La (?:voz|veu) pasiva se forma/u,' Texto sin referencia'),
+    text.replace(locale==='es'?' La voz pasiva se forma':' La veu passiva es forma',
+      ' Texto sin referencia'),
     locale),/dos referencias/);
  }
 });
