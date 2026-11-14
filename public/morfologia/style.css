@@ -19,6 +19,9 @@ button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #efa
 .secondary{background:transparent;color:#24547b}.secondary:hover:not(:disabled){background:#e7f0f9}
 .session-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .score{font-weight:700;margin:0}.paradigm{margin:12px 0 10px;color:#3c6486;font-size:1.05rem;font-style:italic}
+#expression-headword{font-size:.6em;font-weight:500;color:#466781;letter-spacing:0;overflow-wrap:anywhere}
+.expression{display:flex;align-items:baseline;flex-wrap:wrap;gap:.1em .3em}
+html:is([data-theme="dark"],[data-theme="oled"]) #expression-headword{color:#bddaf0}
 #question-title{margin-top:8px}.expression{font-size:clamp(1.5rem,4vw,2rem);font-weight:700;margin:9px 0 18px}
 .answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:20px 0}
 .answers button{text-align:left;background:#ecf4fb;color:#244666;border:1px solid #b9d0e3;min-height:54px;word-break:break-word}
