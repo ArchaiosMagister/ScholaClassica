@@ -4,9 +4,10 @@ import {existsSync,readFileSync,readdirSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {mergeCatalog,matchCatalog} from '../public/docente/vocabula-catalog.mjs';
+import {correctLatin4Vocabula,LATIN4_LEXICAL_CORRECTIONS} from '../scripts/latin4-lexical-editorial.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'.sources/vocabula'),target=join(root,'dist/apps/vocabulario');
-const names=['choice.js','config.js','data.js','scope.js'];
+const names=['choice.js','config.js','scope.js'];
 const digest=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 test('Vocabula importa vocabulario y avisos de alumnado, sin gestión docente heredada',()=>{
   for(const file of names)assert.equal(digest(join(target,file)),digest(join(source,file)),'Se modificó '+file);
@@ -60,6 +61,31 @@ test('no se publica la morfología anterior ni backend o datos internos',()=>{
   for(const file of ['gramatica.html','morfologia.html','gramatica.js','morfologia.js','gramatica-importada.js','backend','data','scripts','tests','docs'])
     assert.equal(existsSync(join(target,file)),false,'Se copió inesperadamente '+file);
   assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','icons'].sort());
+});
+
+test('Solo dos lemas de 4.º se corrigen en la copia, preservando el origen completo',()=>{
+ const from=JSON.parse(readFileSync(join(source,'data.js'),'utf8')
+   .replace(/^window\\.VOCAB\\s*=\\s*/,'').replace(/;\\s*$/,''));
+ const to=JSON.parse(readFileSync(join(target,'data.js'),'utf8')
+   .replace(/^window\\.VOCAB\\s*=\\s*/,'').replace(/;\\s*$/,''));
+ assert.equal(from.length,2055);
+ assert.equal(to.length,from.length);
+ assert.deepEqual(to,correctLatin4Vocabula(from));
+ const changes=to.filter((e,i)=>e.form!==from[i].form);
+ assert.equal(changes.length,2);
+ assert.deepEqual(changes.map(e=>e.id).sort(),
+   LATIN4_LEXICAL_CORRECTIONS.map(x=>x.id).sort());
+ for(const entry of changes){
+   const original=from.find(x=>x.id===entry.id);
+   assert.deepEqual(entry.originals,original.originals);
+   assert.deepEqual(entry.units,['UD 8–9']);
+   assert.equal(entry.mode,'examen');
+ }
+ const teacher=JSON.parse(readFileSync(join(root,'dist/docente/vocabula-catalog.json'),'utf8'));
+ assert.equal(teacher.words.length,from.length);
+ for(const change of changes)
+   assert.equal(teacher.words.find(x=>x.id===change.id)?.form,change.form);
+ assert.equal(digest(join(source,'data.js'))===digest(join(target,'data.js')),false);
 });
 
 test('La búsqueda docente combina las 2055 fichas originales y las aportaciones',()=>{
