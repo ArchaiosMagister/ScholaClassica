@@ -122,6 +122,31 @@ test('Coincidencias de dos fuentes independientes se distinguen de dos copias Un
   assert.equal(entries.find(x=>x.analysis.includes('presente')&&x.form==='amo')
     .status,'acuerdo-de-fuentes-no-testimonio-textual');
 });
+
+test('La novena lectura también cuenta para consenso aunque no se muestre entre ocho ejemplos',()=>{
+  const targets=makeTargets(bank);
+  const matcher=createMatcher(targets);
+  for(let i=0;i<8;i++)
+    matcher.ingest(parseUniMorphRow(
+      'amō\tamō\tV;IND;ACT;FUT;1;SG;VAR'+i));
+  matcher.ingest(parseUniMorphRow('amō\tamō\tV;IND;ACT;PRS;1;SG'));
+  matcher.ingest(parseUniMorphRow('amō\tamō\tV;IND;ACT;PRS;1;SG'),{
+    source:'LEMLAT3',revision:'e8328948fb4b9b73b625aeda3639137c5e49a1ff'
+  });
+  const {summary,entries}=finalizeAudit(matcher,{sources:[
+    {id:'UniMorph Latin'}, {id:'LEMLAT3'}
+  ]});
+  const present=entries.find(x=>x.lemma==='amo'&&x.form==='amo'&&
+    x.analysis.includes('presente'));
+  assert.equal(present.evidence.filter(x=>x.source==='UniMorph Latin').length,8);
+  assert.ok(present.evidence.filter(x=>x.source==='UniMorph Latin')
+    .every(x=>x.comparison.conflicts.includes('tense')));
+  assert.equal(present.comparisonCoverage.uniqueAnalysesCompared,10);
+  assert.equal(present.comparisonCoverage.examplesTruncated,true);
+  assert.equal(present.status,'acuerdo-de-fuentes-no-testimonio-textual');
+  assert.ok(summary.entriesWithTruncatedExampleDisplays>=1);
+});
+
 test('El CLI escribe informes solo en build/ y conserva casos no concluyentes',async()=>{
   await mkdir(join(root,'build','academic-audits'),{recursive:true});
   const dir=await mkdtemp(join(root,'build','academic-audits','pilot-test-'));
