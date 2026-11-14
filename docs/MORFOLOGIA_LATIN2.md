@@ -16,6 +16,34 @@ Cuando se incorpore una práctica contextual, el subrayado de la lectura
 correspondiente deberá depender de una oración acreditada y de una
 solución sintáctica documentada, no de la frecuencia de las formas.
 
+## Variedad en las tandas y presentación uniforme (Latín II)
+
+Cuando se selecciona **«Todas las categorías disponibles»**, las tandas se
+reparten por las categorías que realmente tengan preguntas elegibles: sustantivo,
+adjetivo, pronombre, verbo, participio e infinitivo. La selección aleatoria se
+efectúa dentro de cada categoría y se alternan las familias en la tanda para
+evitar que las numerosas flexiones verbales desplacen sistemáticamente las demás.
+Esta distribución se aplica al análisis, la elección de forma, la producción
+escrita y las tablas cuando admitan varias categorías. Si se selecciona una
+categoría concreta, el filtro se respeta. La repetición inteligente prioriza
+los ejercicios pendientes **dentro de cada categoría**, sin sacrificar la
+diversidad cuando se solicitan todas.
+
+Los **enunciados verbales mostrados** siguen la convención común de las webs
+docentes, sin alterar el enunciado de procedencia ni los análisis persistidos:
+- **Verbos ordinarios:** primera persona de presente, primera persona de
+  perfecto, supino y conjugación entre paréntesis:
+  `amo, amavi, amatum (1.ª)`.
+- **Deponentes:** presente, perfecto compuesto y conjugación entre paréntesis:
+  `utor, usus sum (3.ª deponente)`.
+- **Irregulares sin supino:** presente y perfecto, con la indicación
+  pertinente entre paréntesis: `sum, fui (irregular)`.
+
+La presentación abreviada se aplica coherentemente al enunciado de la forma,
+las opciones de análisis, las preguntas escritas y la retroalimentación,
+sin modificar el valor real usado para evaluar las respuestas. Se mantiene
+el banco filológico completo para las auditorías y la trazabilidad.
+
 ## Latín II: criterios docentes
 
 Latín II se presenta **sin unidades**. El banco inicial reutiliza

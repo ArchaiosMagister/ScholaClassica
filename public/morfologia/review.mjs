@@ -46,7 +46,7 @@ export function reviewCounts(state,now=Date.now()){
     due:records.filter(r=>r.seen>0&&r.dueAt<=now).length};
 }
 export function selectReviewCandidates(candidates,{mode='all',state=emptyReview(),
-  limit=10,rng=Math.random,now=Date.now()}={}){
+  limit=10,rng=Math.random,now=Date.now(),balanceByKind=false}={}){
   if(!['all','smart','errors','due','new'].includes(mode)||!Number.isInteger(limit)||
     limit<1||limit>30)throw Error('Filtro de repaso inválido');
   const saved=sanitizeReview(state).items;
@@ -76,15 +76,43 @@ export function selectReviewCandidates(candidates,{mode='all',state=emptyReview(
       const id=reviewKey(candidate);
       if(seen.has(id))continue;
       seen.add(id);picked.push(candidate);
-      if(picked.length===limit)return picked;
+      if(!balanceByKind&&picked.length===limit)return picked;
     }
     return picked;
   };
-  if(mode==='errors')return unique(difficult);
-  if(mode==='due')return unique(shuffled(groups.due));
-  if(mode==='new')return unique(shuffled(groups.new));
-  if(mode==='smart')return unique(shuffled(groups.due),shuffled(groups.new),shuffled(groups.later));
-  return unique(shuffled(candidates));
+  // Con «Todas las categorías» en Latín II no debe ganar siempre el
+  // enorme número de formas verbales. Se mezclan categorías y, dentro
+  // de cada una, se conserva el orden de prioridad del repaso elegido.
+  const take=items=>{
+    if(!balanceByKind)return items.slice(0,limit);
+    const buckets=new Map();
+    for(const item of items){
+      const kind=item.kind||'sin-categoria';
+      if(!buckets.has(kind))buckets.set(kind,[]);
+      buckets.get(kind).push(item);
+    }
+    const kinds=shuffled([...buckets.keys()]);
+    const positions=new Map(kinds.map(kind=>[kind,0]));
+    const selected=[];
+    while(selected.length<limit){
+      let added=false;
+      for(const kind of kinds){
+        const at=positions.get(kind),bucket=buckets.get(kind);
+        if(at>=bucket.length)continue;
+        selected.push(bucket[at]);
+        positions.set(kind,at+1);
+        added=true;
+        if(selected.length===limit)break;
+      }
+      if(!added)break;
+    }
+    return selected;
+  };
+  if(mode==='errors')return take(unique(difficult));
+  if(mode==='due')return take(unique(shuffled(groups.due)));
+  if(mode==='new')return take(unique(shuffled(groups.new)));
+  if(mode==='smart')return take(unique(shuffled(groups.due),shuffled(groups.new),shuffled(groups.later)));
+  return take(unique(shuffled(candidates)));
 }
 export function readReview(storage){
   try{return sanitizeReview(JSON.parse(storage.getItem(REVIEW_STORAGE_KEY)||'null'))}
