@@ -41,7 +41,7 @@ const ALIUS={
   singular:{
     nominativo:[['alius'],['alia'],['aliud']],
     acusativo:[['alium'],['aliam'],['aliud']],
-    genitivo:[['alterius'],['alterius'],['alterius']],
+    genitivo:[['alterius','alius'],['alterius','alius'],['alterius','alius']],
     dativo:[['alii'],['alii'],['alii']],
     ablativo:[['alio'],['alia'],['alio']]
   },
@@ -71,6 +71,8 @@ function pronoun(id,headword,type,table){
     for(const [i,gender] of GENDERS.entries()){
       for(const form of cells[i]){
         forms.push({form,case:cas,gender,number,
+          ...(id==='alius'&&cas==='genitivo'&&form==='alius'?
+            {usage:'genitivo singular poco frecuente; alterius es preferido'}:{}),
           analysis:'pronombre · '+type+' · '+headword+
             ' · '+cas+' · '+gender+' · '+number});
       }

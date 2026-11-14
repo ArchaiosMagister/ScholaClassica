@@ -41,23 +41,38 @@ function analysisLabel(record,entry){
   if(!ANALYSIS_CATEGORIES.has(record.kind))throw Error('Categoría no documentada');
   return record.kind+' · '+text;
 }
+function ordinaryEntries(record){
+  if(record.language!=='latin2')return record.forms;
+  // Variantes de uso raro: válidas como soluciones alternativas, pero no
+  // candidatas ordinarias al sorteo de formas, ni distractores gráficos.
+  const frequent=record.forms.filter(f=>!f.usage||
+    !/variante|menos frecuente|poco frecuente|rara/i.test(f.usage));
+  return frequent.length?frequent:record.forms;
+}
 function groupedForms(record){
   const groups=new Map();
+  const regularSurfaces=new Set(ordinaryEntries(record).map(f=>fold(f.form)));
   for(const entry of record.forms){
     const form=fold(entry.form);
+    // Una variante rara puede compartir grafía con una forma corriente:
+    // en ese caso se deben conservar TODAS las lecturas posibles.
+    if(!regularSurfaces.has(form))continue;
     if(!groups.has(form))groups.set(form,new Set());
     groups.get(form).add(analysisLabel(record,entry));
   }
   return [...groups].map(([form,features])=>({form,analysis:[...features].join(' / ')}));
 }
 function analysisDistractors(record,grouped,target,index){
-  const other=unique(grouped.map(x=>x.analysis)).filter(x=>x!==target);
+  const correctReadings=new Set(target.split(' / '));
+  const other=unique(grouped.map(x=>x.analysis))
+    .filter(x=>x!==target&&!correctReadings.has(x));
   // Los infinitivos con únicamente dos formas documentadas pueden examinarse
   // sin inventar flexiones: el distractor describe otra combinación de rasgos.
   if(record.language==='latin2'&&record.kind==='infinitivo'){
     for(const tense of ['presente','perfecto','futuro'])for(const voice of ['activa','pasiva']){
       const label='infinitivo · '+record.headword+' · '+tense+' · voz '+voice;
-      if(label!==target&&!other.includes(label))other.push(label);
+      if(label!==target&&!correctReadings.has(label)&&!other.includes(label))
+        other.push(label);
     }
   }
   // Un distractor léxicamente verosímil de otra categoría se intercala solo
@@ -114,6 +129,21 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
   if(activity==='agreement'&&(language!=='griego'||unit<5))
     throw Error('La concordancia griega solo está disponible desde UD5');
   const candidates=[];
+  // Para Latín II, el análisis de una forma admite lecturas repartidas
+  // entre fichas de verbo personal, imperativo e infinitivo de un mismo
+  // enunciado. Agrupamos las interpretaciones sin inventar el contexto.
+  const latin2Index=new Map();
+  const usedLatin2Prompts=new Set();
+  if(activity==='analysis'&&language==='latin2'){
+    for(const source of bank.records.filter(r=>r.language==='latin2'&&r.unit<=unit)){
+      const head=analysisHeadword(source);
+      for(const f of source.forms){
+        const key=head+'\\u0000'+fold(f.form);
+        if(!latin2Index.has(key))latin2Index.set(key,new Set());
+        latin2Index.get(key).add(analysisLabel(source,f));
+      }
+    }
+  }
   if(activity==='agreement')
     candidates.push(...agreementCandidates(bank,records,rng));
   for(const record of activity==='agreement'?[]:records){
@@ -133,7 +163,15 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const distractors=unique(grouped.map(x=>x.form))
           .filter(form=>!forms.has(form));
         if(distractors.length<3)continue;
-        const correct=shuffle(acceptedForms,rng)[0];
+        const core=ordinaryEntries(record).filter(f=>
+          fold(f.analysis)===analysis).map(f=>fold(f.form));
+        // No se debe sortear un análisis cuya única evidencia sean
+        // flexiones analógicas no contrastadas o variantes reservadas.
+        // Si hay una forma corriente para ese análisis, se conservan
+        // las variantes documentadas como respuestas alternativas.
+        if(record.language==='latin2'&&core.length===0)continue;
+        const regularChoices=acceptedForms.filter(form=>core.includes(form));
+        const correct=shuffle(regularChoices.length?regularChoices:acceptedForms,rng)[0];
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),correct],rng);
         candidates.push({
           id:record.id+':form:'+index,activity,
@@ -144,10 +182,18 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
       }
     }
     if(activity==='analysis'){
-      for(const [index,g] of grouped.entries()){
-        // Agrupar los casos sincréticos impide presentar falsas respuestas únicas.
-        const distractors=analysisDistractors(record,grouped,g.analysis,index);
+      const allGrouped=language==='latin2'?grouped.map(g=>{
+        const key=analysisHeadword(record)+'\\u0000'+g.form;
+        return {...g,analysis:[...(latin2Index.get(key)||new Set([g.analysis]))].join(' / ')};
+      }):grouped;
+      for(const [index,g] of allGrouped.entries()){
+        const key=analysisHeadword(record)+'\\u0000'+g.form;
+        if(language==='latin2'&&usedLatin2Prompts.has(key))continue;
+        // Agrupar también categorías verbales del mismo lema: "ferre" es
+        // infinitivo presente activo y puede ser imperativo o 2.ª pasiva.
+        const distractors=analysisDistractors(record,allGrouped,g.analysis,index);
         if(distractors.length<3)continue;
+        if(language==='latin2')usedLatin2Prompts.add(key);
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),g.analysis],rng);
         candidates.push({
           id:record.id+':analysis:'+index,activity,

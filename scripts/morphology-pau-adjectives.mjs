@@ -124,7 +124,7 @@ function nominalThird(stem,gender,number,{one=false,lemma,comparative=false}={})
   return [gender==='neutro'?stem+'ia':stem+'es',
     gender==='neutro'?stem+'ia':stem+'es',
     gender==='neutro'?stem+'ia':stem+'es',
-    stem+'ium',stem+'ibus',stem+'ibus'];
+    stem+(lemma==='supplex'?'um':'ium'),stem+'ibus',stem+'ibus'];
 }
 function record(lemma,headword,degree,type,flex){
   const forms=[];
@@ -134,6 +134,16 @@ function record(lemma,headword,degree,type,flex){
     values.forEach((form,i)=>forms.push({form,case:CASES[i],gender,number,
       analysis:'adjetivo · grado '+degree+' · '+headword+' · '+
         CASES[i]+' · '+gender+' · '+number+' · tipo '+type}));
+    if(lemma==='supplex'){
+      const supplemental=number==='singular'?
+        [{form:'supplice',case:'ablativo',usage:'variante contextual: uso sustantivado o poético; no prioritaria como adjetivo'}]:
+        [{form:'supplicium',case:'genitivo',usage:'variante rara'}];
+      for(const variant of supplemental)forms.push({
+        ...variant,gender,number,
+        analysis:'adjetivo · grado '+degree+' · '+headword+' · '+
+          variant.case+' · '+gender+' · '+number+' · tipo '+type
+      });
+    }
   }
   return {id:'latin2-pau-school-adjective-'+lemma,language:'latin2',unit:0,
     kind:'adjetivo',headword,paradigm:headword,forms,

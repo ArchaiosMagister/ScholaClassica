@@ -52,6 +52,22 @@ function chart(headword,id,entries,{compoundStem=null,compoundVoice='pasiva'}={}
   for(const [tense,mood,voice,table] of entries)
     appendTense(forms,headword,tense,mood,voice,table);
   if(compoundStem)compound(forms,headword,compoundStem,compoundVoice);
+  const imperatives={
+    fero:[['fer','singular','activa'],['ferte','plural','activa'],
+      ['ferre','singular','pasiva'],['ferimini','plural','pasiva']],
+    eo:[['i','singular','activa'],['ite','plural','activa']]
+  };
+  for(const [form,number,voice] of imperatives[id]||[]){
+    forms.push(word(form,desc(headword,'2.ª',number,'presente','imperativo',voice),
+      {person:'2.ª '+number,number,tense:'presente',mood:'imperativo',voice}));
+  }
+  // Allen y Greenough §204: fīmus y fītis son formas de empleo restringido
+  // en prosa clásica. Se mantienen como flexiones legítimas, pero fuera del
+  // sorteo ordinario hasta decisión docente.
+  if(id==='fio')for(const f of forms){
+    if(['fimus','fitis'].includes(f.form)&&f.tense==='presente'&&f.mood==='indicativo')
+      f.usage='forma poco frecuente en prosa clásica';
+  }
   const seen=new Set();
   return {id:'latin2-cuaderno-irregular-'+id,language:'latin2',unit:0,
     kind:'verbo',headword,paradigm:headword,
@@ -85,7 +101,7 @@ function fero(){
 }
 function eo(){
   const h='eo, ire, ii (ivi), itum (irregular)',a='activa';
-  return chart(h,'eo',[
+  const record=chart(h,'eo',[
     ['presente','indicativo',a,['eo','is','it','imus','itis','eunt']],
     ['imperfecto','indicativo',a,['ibam','ibas','ibat','ibamus','ibatis','ibant']],
     ['futuro','indicativo',a,['ibo','ibis','ibit','ibimus','ibitis','ibunt']],
@@ -98,6 +114,44 @@ function eo(){
     ['perfecto','subjuntivo',a,['ierim','ieris','ierit','ierimus','ieritis','ierint']],
     ['pluscuamperfecto','subjuntivo',a,['issem','isses','isset','issemus','issetis','issent']]
   ]);
+  // A&G §203: los perfectos con v son variantes reales, aunque menos
+  // habituales en la forma simple eo. Se conservan todos sus tiempos.
+  const extra=[];
+  for(const f of record.forms){
+    if(/^ier/.test(f.form)&&
+       ['perfecto','pluscuamperfecto','futuro perfecto'].includes(f.tense)){
+      extra.push({...f,form:f.form.replace(/^ier/,'iver'),
+        usage:'variante de perfecto con v, poco frecuente en prosa clásica'});
+    }
+    if(/^iss/.test(f.form)&&f.tense==='pluscuamperfecto'&&
+       f.mood==='subjuntivo'){
+      extra.push({...f,form:f.form.replace(/^iss/,'iviss'),
+        usage:'variante de perfecto con v, poco frecuente en prosa clásica'});
+    }
+    if(/^iv/.test(f.form))
+      f.usage='variante de perfecto con v, poco frecuente en prosa clásica';
+  }
+  const impersonal=[
+    ['itur','presente','indicativo'],['ibatur','imperfecto','indicativo'],
+    ['ibitur','futuro','indicativo'],['eatur','presente','subjuntivo'],
+    ['iretur','imperfecto','subjuntivo'],
+    ['itum est','perfecto','indicativo'],
+    ['itum erat','pluscuamperfecto','indicativo'],
+    ['itum erit','futuro perfecto','indicativo'],
+    ['itum sit','perfecto','subjuntivo'],
+    ['itum esset','pluscuamperfecto','subjuntivo']
+  ];
+  for(const [form,tense,mood] of impersonal){
+    record.forms.push(word(form,desc(h,'3.ª','singular',tense,mood,'pasiva')+
+      ' (impersonal)',{person:'3.ª singular',number:'singular',
+        tense,mood,voice:'pasiva',construction:'impersonal'}));
+  }
+  const seen=new Set(record.forms.map(f=>f.form+'|'+f.analysis));
+  for(const f of extra){
+    const key=f.form+'|'+f.analysis;
+    if(!seen.has(key)){record.forms.push(f);seen.add(key);}
+  }
+  return record;
 }
 function fio(){
   const h='fio, fieri, factus sum (irregular)';
@@ -178,16 +232,24 @@ export function compileCuadernoIrregulars(){
   assert.equal(new Set(records.map(x=>x.id)).size,4);
   for(const r of records){
     const modes=new Set(r.forms.map(f=>f.mood));
-    assert.deepEqual([...modes],['indicativo','subjuntivo']);
+    assert.ok(modes.has('indicativo')&&modes.has('subjuntivo'),r.id+' pierde modos personales');
+    if(['latin2-cuaderno-irregular-fero','latin2-cuaderno-irregular-eo'].includes(r.id))
+      assert.ok(modes.has('imperativo'),r.id+' pierde imperativo');
     assert.ok(r.forms.length>=60,r.id);
   }
   records.push(infinitives('fero',records[0].headword,[
     ['ferre','presente','activa'],['ferri','presente','pasiva'],
     ['tulisse','perfecto','activa'],['latum esse','perfecto','pasiva'],
     ['laturum esse','futuro','activa'],['latum iri','futuro','pasiva']]));
-  records.push(infinitives('eo',records[1].headword,[
+  const eoInf=infinitives('eo',records[1].headword,[
     ['ire','presente','activa'],['isse','perfecto','activa'],
-    ['ivisse','perfecto','activa'],['iturum esse','futuro','activa']]));
+    ['ivisse','perfecto','activa'],
+    ['iturum esse','futuro','activa'],['ituram esse','futuro','activa'],
+    ['ituros esse','futuro','activa'],['ituras esse','futuro','activa'],
+    ['itura esse','futuro','activa']]);
+  for(const f of eoInf.forms)if(f.form==='ivisse')
+    f.usage='variante de perfecto con v, poco frecuente en el latín clásico';
+  records.push(eoInf);
   records.push(infinitives('fio',records[2].headword,[
     ['fieri','presente','activa (sentido pasivo)'],
     ['factum esse','perfecto','pasiva'],['factum iri','futuro','pasiva']]));

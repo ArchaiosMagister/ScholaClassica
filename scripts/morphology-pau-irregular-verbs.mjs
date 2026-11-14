@@ -46,13 +46,20 @@ function forms(id,name,blueprints,perfectStem){
 }
 function sum(){
   const head='sum, esse, fui (irregular)';
-  return forms('sum',head,[
+  const r=forms('sum',head,[
     ['presente',null,['sum','es','est','sumus','estis','sunt']],
     ['imperfecto',null,['eram','eras','erat','eramus','eratis','erant']],
     ['futuro',null,['ero','eris','erit','erimus','eritis','erunt']],
     ['presente','subjuntivo',['sim','sis','sit','simus','sitis','sint']],
     ['imperfecto','subjuntivo',['essem','esses','esset','essemus','essetis','essent']]
   ],'fu');
+  for(const [form,number] of [['es','singular'],['este','plural']]){
+    r.forms.push({form,person:'2.ª '+number,number,tense:'presente',
+      mood:'imperativo',voice:'activa',
+      analysis:'verbo · '+head+' · 2.ª persona · '+number+
+        ' · presente · imperativo · voz activa'});
+  }
+  return r;
 }
 function possum(){
   const head='possum, posse, potui (irregular)';

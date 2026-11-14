@@ -61,7 +61,7 @@ frumentum|frumentum, frumenti|neutro|2n|frument
 oppidum|oppidum, oppidi|neutro|2n|oppid
 nuntius|nuntius, nuntii|masculino|2m|nunti
 cursus|cursus, cursūs|masculino|4m|curs
-adulescens|adulescens, adulescentis|masculino|3m|adulescent
+adulescens|adulescens, adulescentis|masculino|3m|adulescent|i
 subsidium|subsidium, subsidii|neutro|2n|subsidi
 responsum|responsum, responsi|neutro|2n|respons
 timor|timor, timoris|masculino|3m|timor
@@ -83,7 +83,7 @@ function caseMap(noun,stem,group,isIStem){
     '3m':[noun,noun,stem+'em',stem+'is',stem+'i',stem+'e'],
     '3n':[noun,noun,noun,stem+'is',stem+'i',stem+'e'],
     '4m':[noun,noun,stem+'um',stem+'us',stem+'ui',stem+'u'],
-    '4n':[noun,noun,noun,stem+'us',stem+'ui',stem+'u'],
+    '4n':[noun,noun,noun,stem+'us',stem+'u',stem+'u'],
     '5f':[noun,noun,stem+'em',stem+'ei',stem+'ei',stem+'e']
   }[group];
   const pl={
@@ -123,9 +123,17 @@ export function compilePauSchoolNouns(exams,existing){
           ' · '+DECLS[group]+' declinación'});
       }
     }
+    // adulescentium es el genitivo plural habitual; adulescentum
+    // aparece también, pero no debe desplazar al primero por analogía.
+    if(lemma==='adulescens'){
+      forms.push({form:'adulescentum',case:'genitivo',gender,number:'plural',
+        usage:'variante menos frecuente',
+        analysis:'sustantivo · '+headword+' · genitivo · '+gender+
+          ' · plural · '+DECLS[group]+' declinación'});
+    }
     const match=forms.some(f=>targets.has(latinFold(f.form)));
     if(!match)continue;
-    assert.equal(forms.length,12);
+    assert.equal(forms.length,lemma==='adulescens'?13:12);
     result.push({id:'latin2-pau-school-noun-'+lemma,language:'latin2',unit:0,
       kind:'sustantivo',headword,gender,paradigm:headword,forms,
       evidence:{source:'Paradigma escolar de declinación; PAU CV y Cuaderno de Latín II 2026–27',

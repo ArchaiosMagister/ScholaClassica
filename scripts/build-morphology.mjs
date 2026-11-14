@@ -18,8 +18,14 @@ import {compilePauRegularVerbs} from './morphology-pau-regular-verbs.mjs';
 import {compilePauIrregularVerbs} from './morphology-pau-irregular-verbs.mjs';
 import {parseCuadernoQuestions,auditCuaderno} from './morphology-cuaderno.mjs';
 import {compileCuadernoIrregulars} from './morphology-cuaderno-irregulars.mjs';
+import {compileEoParticiples} from './morphology-audit-eo-participles.mjs';
 import {compileCuadernoFeroCompounds} from './morphology-cuaderno-fero-prefijos.mjs';
 import {compileCuadernoDefectives} from './morphology-cuaderno-defectivos.mjs';
+import {auditLatin2Morphology,assertLatin2AuditPasses} from './audit-morphology-latin2.mjs';
+import {compileCuadernoNominalReference} from './morphology-cuaderno-nominal.mjs';
+import {compileCuadernoComparativeReference} from './morphology-cuaderno-comparison.mjs';
+import {auditLatin2Nominal,assertLatin2NominalAuditPasses} from './audit-morphology-latin2-nominal.mjs';
+import {auditLatin2Verbal,assertLatin2VerbalAuditPasses} from './audit-morphology-latin2-verbal.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
@@ -362,9 +368,16 @@ export async function buildMorphology({out,lock}){
   const regularVerbs=compilePauRegularVerbs(combinedQuestions);
   const irregularVerbs=compilePauIrregularVerbs(combinedQuestions)
     .filter(r=>!['latin2-pau-irregular-fero','latin2-pau-irregular-confero'].includes(r.id));
-  const workbookIrregulars=[...compileCuadernoIrregulars(),...compileCuadernoFeroCompounds(),...compileCuadernoDefectives()];
+  const workbookIrregulars=[...compileCuadernoIrregulars(),...compileCuadernoFeroCompounds(),...compileCuadernoDefectives(),compileEoParticiples()];
   const exceptions=compilePauExceptions(exams);
-  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars);
+  const nominalPrior=[...originalRecords,...latin2,...additions,
+    ...schoolNouns,...schoolAdjectives,...numerals,...participles,
+    ...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars];
+  const extraPronouns=compileCuadernoNominalReference(nominalPrior);
+  const extraComparisons=compileCuadernoComparativeReference([...nominalPrior,...extraPronouns]);
+  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,
+    ...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars,
+    ...extraPronouns,...extraComparisons);
   const fullRecords=[...originalRecords,...latin2,...additions];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
@@ -386,6 +399,12 @@ export async function buildMorphology({out,lock}){
     irregularVerbsAdded:irregularVerbs.length,exceptionsAdded:exceptions.length,
     pronounsAdded:pronouns.length,
     compoundsAdded:compounds.length};
+  const philologyAudit=auditLatin2Morphology(finalBank);
+  assertLatin2AuditPasses(philologyAudit);
+  const nominalAudit=auditLatin2Nominal(finalBank);
+  assertLatin2NominalAuditPasses(nominalAudit);
+  const verbalAudit=auditLatin2Verbal(finalBank);
+  assertLatin2VerbalAuditPasses(verbalAudit);
   const cuadernoAudit=auditCuaderno(finalBank,cuaderno);
   assert.equal(cuadernoAudit.missingForms.length,0,
     'Faltan formas del cuaderno: '+cuadernoAudit.missingForms.join(', '));
@@ -394,6 +413,19 @@ export async function buildMorphology({out,lock}){
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
   await writeFile(join(dir,'pau-latin2-audit.json'),JSON.stringify(audit,null,2)+'\n');
   await writeFile(join(dir,'cuaderno-latin2-audit.json'),JSON.stringify(cuadernoAudit,null,2)+'\n');
+  await writeFile(join(dir,'latin2-filologia-fase1.json'),JSON.stringify(philologyAudit,null,2)+'\n');
+  await writeFile(join(dir,'latin2-filologia-nominal.json'),JSON.stringify(nominalAudit,null,2)+'\n');
+  await writeFile(join(dir,'latin2-filologia-verbal.json'),JSON.stringify(verbalAudit,null,2)+'\n');
+  console.log('Auditoría verbal Latín II: '+verbalAudit.summary.records+
+    ' paradigmas y '+verbalAudit.summary.checkedCells+' formas comprobadas estructuralmente; '+
+    verbalAudit.blockingIssues.length+' errores bloqueantes');
+  console.log('Auditoría nominal Latín II: '+nominalAudit.summary.records+
+    ' paradigmas, '+nominalAudit.summary.exactChecks+' controles específicos, '+
+    nominalAudit.blockingIssues.length+' errores bloqueantes');
+  console.log('Auditoría filológica Latín II: '+philologyAudit.summary.records+
+    ' paradigmas, '+philologyAudit.summary.forms+' casillas, '+
+    philologyAudit.blockingIssues.length+' errores bloqueantes y '+
+    philologyAudit.reviewIssues.length+' notas de uso a revisar');
   console.log('Cuaderno Latín II: '+cuadernoAudit.coveredForms+' de '+cuadernoAudit.distinctForms+
     ' formas distintas cubiertas. Pendientes: '+cuadernoAudit.missingForms.join(', '));
   console.log('Morfología: '+fullRecords.length+
