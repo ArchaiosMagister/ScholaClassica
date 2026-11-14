@@ -27,6 +27,8 @@ test('Auditoría nominal reproducible con más de cuarenta controles de flexión
   assertLatin2NominalAuditPasses(live);
   assert.equal(live.completeIndividualVerification,false);
   assert.ok(live.summary.records>70);
+  assert.ok(live.summary.checkedCells>1000,'No se auditaron todas las casillas nominales');
+  assert.equal(live.summary.checkedCells,live.summary.forms);
   assert.ok(live.summary.exactChecks>=40);
   assert.equal(live.blockingIssues.length,0);
   assert.ok(live.reviewIssues.length>=1);
@@ -171,4 +173,15 @@ test('Las variantes poco frecuentes se aceptan, pero no se sortean como palabras
   assert.match(surface.correct,/nominativo/);
   assert.match(surface.correct,/genitivo/);
   assert.ok(alius.forms.some(f=>f.form==='alterius'&&f.case==='genitivo'));
+});
+
+test('Las casillas nominales defectuosas se detectan incluso en lemas no vigilados individualmente',()=>{
+  const sample=find('malus','adjetivo')||find('optimus','adjetivo');
+  assert.ok(sample);
+  const variant={...sample,forms:sample.forms.map((f,i)=>i===0?
+    {...f,case:'caso inventado'}:f)};
+  const corrupted={...bank,records:bank.records.map(r=>r.id===sample.id?variant:r)};
+  const bad=auditLatin2Nominal(corrupted);
+  assert.ok(bad.blockingIssues.some(x=>x.code==='NOMINAL_MISSING_ACCIDENT'));
+  assert.throws(()=>assertLatin2NominalAuditPasses(bad));
 });
