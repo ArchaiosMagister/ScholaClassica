@@ -48,6 +48,13 @@ jobs:
           ref: 0e16505b7631298a0448c4160a5d258f82732bfe
           path: .sources/vocabula
           persist-credentials: false
+      - name: Obtener UniMorph Latin completo en revisión fijada (solo auditoría)
+        uses: actions/checkout@v4
+        with:
+          repository: unimorph/lat
+          ref: 050924c9f013e6aba4d7c87be243a1d79b6c5b10
+          path: .sources/unimorph-latin
+          persist-credentials: false
       - name: Validar núcleo léxico de Vocabula original (entorno CommonJS aislado)
         run: |
           mkdir -p "$RUNNER_TEMP/vocabula-original"
@@ -69,6 +76,8 @@ jobs:
         run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
+      - name: Cotejar lema + forma + rasgos de Latín II con UniMorph congelado
+        run: npm run lexicografia:lat2
       - name: Preparar artefacto docente separado y desactivado (sin desplegar)
         run: npm run build:docente
       - name: Auditar paquete estático de Cloudflare Pages sin publicación
@@ -112,6 +121,13 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
+      - name: Archivar informe privado de verificación léxica de Latín II
+        uses: actions/upload-artifact@v4
+        with:
+          name: latin2-verificacion-lexicografica-fase1
+          path: build/academic-audits/latin2-lexicon/
+          if-no-files-found: error
+          retention-days: 30
       - name: Archivar catálogo académico para inspección (sin publicar la webapp)
         uses: actions/upload-artifact@v4
         with:
