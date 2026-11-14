@@ -97,7 +97,11 @@ function checkVocab(items,spec){
     key(x.form.split(',')[0].trim())===key(spec.lemma)&&x.units?.includes(spec.vocab));
   assert.equal(entries.length,1,'Lema o unidad de examen ambiguos: '+spec.lemma);
   const entry=entries[0];
-  const gen=entry.form.split(',')[1]?.trim()||'';
+  // Enunciados como «κεφαλή, –ῆς (ἡ)» incluyen el artículo del género
+  // después del genitivo abreviado; ese artículo se coteja por separado
+  // con UniMorph y no pertenece a la terminación del genitivo.
+  const gen=(entry.form.split(',')[1]?.trim()||'')
+    .replace(/\s+\((?:ὁ|ἡ|τὸ|τό)\)$/u,'');
   assert.ok(['–ου','–οῦ','–ης','–ῆς','–ας'].includes(gen),'Enunciado nominal no esperado: '+entry.form);
   assert.equal(gen,spec.vocabSuffix||spec.genitiveSuffix||
     '–'+(spec.decl.startsWith('1.')?'ης':'ου'),
