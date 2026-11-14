@@ -16,8 +16,7 @@ function displayLatin4QuestionText(question,value){
   for(let i=0;i<original.length;i++){
     const head=original[i].split(' · ')[0].trim(),full=shown[i].trim();
     if(!head||!full||head===full)continue;
-    const quoted=head.replace(/[|\\{}()[\]^$+*?.]/g,'\\const letter=/[\p{L}\p{M}]/u;
-');
+    const quoted=head.replace(/[|\\{}()[\]^$+*?.]/g,'\\$&');
     result=result.replace(new RegExp('(?<![\\p{L}\\p{M}])'+quoted+
       '(?![\\p{L}\\p{M}])','gu'),full);
   }
