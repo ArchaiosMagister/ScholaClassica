@@ -11,7 +11,7 @@ Se contrasta **cada combinación de nominativo/vocativo/acusativo/genitivo/dativ
 
 **Estado de evidencia:** las 90/90 casillas están **verificadas como formas flexivas áticas**. Esto **no** significa que se hayan encontrado 90 testimonios individualizados en textos clásicos. La matriz de UniMorph procedente de Vocabula y las tablas de Wiktionary pueden compartir información de origen; por ello se coteja **también** la clase flexiva y su acentuación con la gramática académica independiente. No se presume independencia entre las dos compilaciones lexicales.
 
-**Conservación:** no se renumeran fichas ni se alteran sus formas o unidades, el vocabulario exigible, la selección aleatoria ni la configuración del profesor. Se añade únicamente evidencia persistente y una prueba automática individual por casilla. Los registros originales quedan intactos; los cambios se derivan exclusivamente al construir ScholaClassica.
+**Conservación:** no se renumeran fichas ni se alteran sus diez formas, unidades o enunciados, ni el vocabulario exigible o la configuración del profesor. Se añade evidencia persistente por casilla. **Por decisión docente**, únicamente se excluyen de los ejercicios nuevos las cinco casillas plurales de οὐρανός; permanecen en el banco, con su cotejo y sus identificadores de historial. Las preguntas singulares conservan sus claves anteriores. Las tablas de solo singular reciben claves nuevas para no atribuirles el historial de las tablas completas. Los registros originales de Vocabula y Appendix no se modifican.
 
 ## Matriz completa de 90 casillas
 
@@ -106,7 +106,7 @@ Se contrasta **cada combinación de nominativo/vocativo/acusativo/genitivo/dativ
 | genitivo | οὐρανοῦ | οὐρανῶν |
 | dativo | οὐρανῷ | οὐρανοῖς |
 
-**Reserva diacrónica (no morfológica):** las cinco formas plurales son correctas conforme a la segunda declinación, pero la fuente del lema indica que **no se usaban en la literatura clásica** y que se documentan en griego posterior, especialmente en escritos cristianos. La aplicación conserva las formas previamente disponibles y documenta la limitación; no se excluyen del sorteo sin decisión docente específica.
+**Reserva diacrónica (no morfológica):** las cinco formas plurales son correctas conforme a la segunda declinación, pero la fuente del lema indica que **no se usaban en la literatura clásica** y que se documentan en griego posterior, especialmente en escritos cristianos. La aplicación conserva las diez formas en el banco y documenta la limitación. **Decisión docente aprobada:** excluir exclusivamente estas cinco casillas plurales de los sorteos nuevos de elección, análisis, escritura, tablas y sintagmas; mantener las cinco formas y el historial de práctica antiguo.
 
 ### ὅπλον — UD10 (neutro)
 
@@ -139,11 +139,11 @@ Se contrasta **cada combinación de nominativo/vocativo/acusativo/genitivo/dativ
 - Los nueve lemas pertenecen a las unidades de exigibilidad preexistentes: UD5 (2), UD7 (4), UD9 (1), UD10 (2).
 - No se importan duales, artículos, glosas nuevas, variantes dialectales ni formas no presentes ya en el banco.
 - `scripts/greek-noun-individual-review.mjs`: matriz explícita revisada de 90 casillas, enlace por lema y estado individual.
-- `tests/greek-noun-individual-review.test.mjs`: comparación de las 90 casillas, pruebas negativas de 90 alteraciones, invariantes de unidad/género/estatus y comprobación de ejercicios.
+- `tests/greek-noun-individual-review.test.mjs`: comparación de las 90 casillas, pruebas negativas de 90 alteraciones, invariantes de unidad/género/estatus, exclusión del plural de οὐρανός en todas las modalidades, inmutabilidad de las diez formas y preservación de las claves históricas.
 - `tests/morphology-vocabulary-reconciliation.test.mjs`: exige que las nueve fichas se incorporen al final, con evidencia individual y sin alteración de la elegibilidad o la práctica escrita.
 
 **Fuentes de paradigma general:** 
 - Primera declinación: https://human.libretexts.org/Bookshelves/Languages/Greek/Ancient_Greek_I%3A_A_21st_Century_Approach_%28Peek%29/01%3A_Chapters/1.17%3A_First_Declension_Nouns_in__and_-_and
 - Segunda declinación: https://human.libretexts.org/Bookshelves/Languages/Greek/Ancient_Greek_I%3A_A_21st_Century_Approach_%28Peek%29/01%3A_Chapters/1.19%3A_Second_Declension_Nouns
 
-**Pendiente de decisión docente, solo si se desea un filtro estrictamente clásico:** ¿deben excluirse las cinco formas plurales de `οὐρανός` de los ejercicios, manteniéndolas en la base y en el historial? Por seguridad la propuesta no altera el sorteo. Esta cuestión no invalida su corrección flexiva.
+**Decisión docente aplicada:** los cinco plurales de `οὐρανός` se conservan en el banco y el historial, pero **no se seleccionan en ejercicios nuevos**, ni siquiera al usar repetición inteligente, revisión de errores o elementos pendientes. Se mantiene el singular de οὐρανός en todas las modalidades, incluidas las tablas y los sintagmas. La decisión no cuestiona la corrección morfológica de las formas ni elimina datos previos. Los otros ocho paradigmas permanecen íntegros y sin exclusiones.
