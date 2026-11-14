@@ -79,6 +79,7 @@ const CUADERNO_MODELS=[
  ['promoveo','promoveo, promovere, promovi, promotum (2.ª)','2','promov','promov','promot'],
  ['coemo','coemo, coemere, coemi, coemptum (3.ª)','3','coem','coem','coempt'],
  ['instituo','instituo, instituere, institui, institutum (3.ª)','3','institu','institu','institut'],
+ ['constituo','constituo, constituere, constitui, constitutum (3.ª)','3','constitu','constitu','constitut'],
  ['cogo','cogo, cogere, coegi, coactum (3.ª)','3','cog','coeg','coact'],
  ['vinco','vinco, vincere, vici, victum (3.ª)','3','vinc','vic','vict'],
  ['mando','mando, mandare, mandavi, mandatum (1.ª)','1','mand','mandav','mandat'],
