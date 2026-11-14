@@ -69,7 +69,7 @@ export async function runCompoundAudit(params={}){
   const summary={...summarizeCompounds(compound),primarySourceRows:primaryRows,
     secondarySourceRows:secondaryRows,
     independentSourceCount:p.independent?2:1};
-  const reserved=compound.filter(x=>x.status!=='estructura-compatible-con-paradigma');
+  const reserved=compound.filter(x=>x.status==='reserva-de-analisis');
   const cols=['priority','status','recordId','lemma','form','analysis','issues'];
   const tsv=cols.join('\t')+'\n'+reserved.map(x=>
     cols.map(k=>safe(k==='issues'?x.issues.join(' | '):x[k]))
