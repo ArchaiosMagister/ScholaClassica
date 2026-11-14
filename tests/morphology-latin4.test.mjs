@@ -23,13 +23,13 @@ const rng=()=>.42;
 
 test('Latín 4.º: compilación reproducible, ocho unidades y 76 modelos aislados',()=>{
   validateBank(bank);
-  assert.equal(bank.records.length,220);
+  assert.ok(bank.records.length>220);
   assert.deepEqual(bank.coverage.latin4,[1,2,3,4,5,6,7,8]);
-  assert.deepEqual(bank.records.slice(144),latin4);
+  assert.deepEqual(bank.records.slice(144,220),latin4);
   assert.equal(latin4.length,76);
   assert.deepEqual(Array.from({length:8},(_,i)=>latin4.filter(r=>r.unit===i+1).length),
     [2,11,2,17,6,19,12,7]);
-  assert.equal(new Set(bank.records.map(r=>r.id)).size,220);
+  assert.equal(new Set(bank.records.map(r=>r.id)).size,bank.records.length);
   assert.ok(latin4.every(r=>r.language==='latin4'&&
     r.evidence.status==='paradigma-documentado'&&r.forms.every(f=>f.form&&f.analysis)));
   assert.equal(bank.vocabulaSha,lock.sources.vocabula.sha);
@@ -132,7 +132,7 @@ test('Fuentes cambiadas abortan la compilación y no contaminan Latín I o Grieg
       'Adjetivos de primera clase SIN REVISAR · <i lang="la">bonus</i>')}),/paradigma de bonus/);
   assert.throws(()=>compileLatin4({...args,teacherImperfectsJs:'window.GRAMMAR_PARADIGMS=[];'}),
     /cambió de formato/);
-  assert.equal(bank.records.filter(r=>r.language!=='latin4').length,144);
+  assert.equal(bank.records.filter(r=>!['latin4','latin2'].includes(r.language)).length,144);
   assert.ok(bank.records.filter(r=>r.language==='latin').every(r=>r.unit<=10));
   assert.ok(bank.records.filter(r=>r.language==='griego').every(r=>r.unit<=14));
 });

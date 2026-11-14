@@ -39,7 +39,8 @@ const STUDY_CATALOG=Object.freeze({
   ],
   lat2:[
     {id:'gramatica',label:'Gramática · Latín II',href:'apps/gramatica/curso.html?lengua=latin&curso=2'},
-    {id:'vocabulario',label:'Vocabulario · Latín II',href:'apps/vocabulario/index.html?subject=lat2'}
+    {id:'vocabulario',label:'Vocabulario · Latín II',href:'apps/vocabulario/index.html?subject=lat2'},
+    {id:'morfologia',label:'Práctica de morfología · Latín II',href:'apps/morfologia/index.html?subject=lat2'}
   ],
   gr1:[
     {id:'gramatica',label:'Gramática · Griego I',href:'apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1'},

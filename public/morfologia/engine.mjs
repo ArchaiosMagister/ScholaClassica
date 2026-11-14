@@ -1,17 +1,19 @@
 // Motor puro, sin generación de flexiones ni redes externas.
 import {selectReviewCandidates} from './review.mjs';
 const fold=s=>String(s).normalize('NFC').trim();
-export const COURSE_LABELS={latin:'Latín I',griego:'Griego I',latin4:'Latín · 4.º de ESO'};
+export const COURSE_LABELS={latin:'Latín I',griego:'Griego I',latin4:'Latín · 4.º de ESO',latin2:'Latín II'};
 export function validateBank(bank){
   if(bank?.schema!=='schola-morphology-source/v1'||!/^[a-f0-9]{40}$/.test(bank.appendixSha))
     throw Error('Banco morfológico no documentado');
   if(!Array.isArray(bank.records)||bank.records.length===0)throw Error('Banco vacío');
   const ids=new Set();
   for(const record of bank.records){
-    if(!['latin','griego','latin4'].includes(record.language)||
+    if(!['latin','griego','latin4','latin2'].includes(record.language)||
        !Number.isInteger(record.unit)||!bank.coverage?.[record.language]?.includes(record.unit)||
-       !['sustantivo','verbo','desinencia','artículo','adjetivo','pronombre'].includes(record.kind)||
-       !Array.isArray(record.forms)||record.forms.length<6||
+       !['sustantivo','verbo','desinencia','artículo','adjetivo','pronombre',
+         'participio','infinitivo'].includes(record.kind)||
+       !Array.isArray(record.forms)||record.forms.length<
+         (record.language==='latin2'&&record.kind==='infinitivo'?2:6)||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');
     if(ids.has(record.id))throw Error('Ficha repetida');ids.add(record.id);
     for(const f of record.forms)
@@ -28,14 +30,44 @@ export function shuffle(items,rng=Math.random){
   return copy;
 }
 const unique=list=>[...new Set(list)];
+const ANALYSIS_CATEGORIES=new Set(['sustantivo','adjetivo','pronombre','verbo',
+  'participio','infinitivo','artículo','desinencia']);
+export function analysisHeadword(record){
+  return fold(record.headword||record.paradigm.split(' · ')[0]);
+}
+function analysisLabel(record,entry){
+  const text=fold(entry.analysis);
+  if(record.language==='latin2')return text;
+  if(!ANALYSIS_CATEGORIES.has(record.kind))throw Error('Categoría no documentada');
+  return record.kind+' · '+text;
+}
 function groupedForms(record){
   const groups=new Map();
   for(const entry of record.forms){
     const form=fold(entry.form);
     if(!groups.has(form))groups.set(form,new Set());
-    groups.get(form).add(fold(entry.analysis));
+    groups.get(form).add(analysisLabel(record,entry));
   }
   return [...groups].map(([form,features])=>({form,analysis:[...features].join(' / ')}));
+}
+function analysisDistractors(record,grouped,target,index){
+  const other=unique(grouped.map(x=>x.analysis)).filter(x=>x!==target);
+  // Los infinitivos con únicamente dos formas documentadas pueden examinarse
+  // sin inventar flexiones: el distractor describe otra combinación de rasgos.
+  if(record.language==='latin2'&&record.kind==='infinitivo'){
+    for(const tense of ['presente','perfecto','futuro'])for(const voice of ['activa','pasiva']){
+      const label='infinitivo · '+record.headword+' · '+tense+' · voz '+voice;
+      if(label!==target&&!other.includes(label))other.push(label);
+    }
+  }
+  // Un distractor léxicamente verosímil de otra categoría se intercala solo
+  // ocasionalmente. No se alteran jamás las lecturas correctas ni el enunciado.
+  if(index%4===0&&['sustantivo','adjetivo','pronombre'].includes(record.kind)){
+    const substitute={sustantivo:'adjetivo',adjetivo:'sustantivo',pronombre:'adjetivo'}[record.kind];
+    const derived=target.replaceAll(record.kind+' · ',substitute+' · ');
+    if(derived!==target&&!other.includes(derived))other.push(derived);
+  }
+  return other;
 }
 export function availableRecords(bank,{language,unit,kind='todos'}){
   validateBank(bank);
@@ -114,12 +146,13 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
     if(activity==='analysis'){
       for(const [index,g] of grouped.entries()){
         // Agrupar los casos sincréticos impide presentar falsas respuestas únicas.
-        const distractors=unique(grouped.map(x=>x.analysis)).filter(x=>x!==g.analysis);
+        const distractors=analysisDistractors(record,grouped,g.analysis,index);
         if(distractors.length<3)continue;
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),g.analysis],rng);
         candidates.push({
           id:record.id+':analysis:'+index,activity,
           prompt:'¿Qué análisis admite esta forma?',paradigm:record.paradigm,
+          headword:analysisHeadword(record),
           form:g.form,correct:g.analysis,options,evidence:record.evidence,language,
           ambiguous:g.analysis.includes(' / ')
         });

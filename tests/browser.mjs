@@ -67,6 +67,9 @@ try{
   assert.equal(await page.locator('.path-links a').count(),3);
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
+  await coursePicker.selectOption('lat2');
+  assert.equal(await page.locator('.path-links a').count(),3);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín II'));
   await coursePicker.selectOption('lat1');
   assert.equal(await page.locator('.path-links a').count(),5);
   await page.locator('.path-links a[data-study-tool="gramatica"]').click();

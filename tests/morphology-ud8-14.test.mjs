@@ -17,8 +17,8 @@ test('Cobertura total de Latín I UD1–10 y Griego I UD1–14, recompilada por 
   validateBank(bank);
   assert.equal(added.length,52);
   assert.deepEqual(bank.records.slice(84,136),added);
-  assert.equal(bank.records.length,220);
-  assert.equal(new Set(bank.records.map(r=>r.id)).size,220);
+  assert.ok(bank.records.length>220);
+  assert.equal(new Set(bank.records.map(r=>r.id)).size,bank.records.length);
   assert.deepEqual(bank.coverage.latin,Array.from({length:10},(_,i)=>i+1));
   assert.deepEqual(bank.coverage.griego,Array.from({length:14},(_,i)=>i+1));
   const byLanguageUnit=(language,unit)=>added.filter(r=>r.language===language&&r.unit===unit);

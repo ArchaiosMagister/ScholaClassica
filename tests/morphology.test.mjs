@@ -19,8 +19,8 @@ test('el banco tiene SHA del Appendix fijado y se recompila exactamente desde su
   assert.deepEqual(compiled.records.slice(0,core.records.length),core.records);
   assert.equal(compiled.vocabulaSha,lock.sources.vocabula.sha);
   validateBank(compiled);
-  assert.equal(compiled.records.length,220);
-  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10,11,12,13,14],latin4:[1,2,3,4,5,6,7,8]});
+  assert.ok(compiled.records.length>220);
+  assert.deepEqual(compiled.coverage,{latin:[1,2,3,4,5,6,7,8,9,10],griego:[1,2,3,4,5,6,7,8,9,10,11,12,13,14],latin4:[1,2,3,4,5,6,7,8],latin2:[0]});
   assert.ok(compiled.records.every(r=>r.evidence.status==='paradigma-documentado'));
   assert.ok(compiled.records.every(r=>r.forms.every(f=>f.form&&!f.form.includes('<'))));
 });
