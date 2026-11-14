@@ -24,6 +24,7 @@ test('La fuente del cuaderno conserva las 119 marcas y los 120 ejercicios',()=>{
   assert.deepEqual(questions.find(q=>q.page===29).forms.filter(x=>x.includes(' ')),['collata erant']);
   assert.deepEqual(questions.find(q=>q.page===47).forms.filter(x=>x.includes(' ')),['victi sunt']);
   assert.equal(canonicalCuadernoForm('comsumpserat'),'consumpserat');
+  assert.equal(canonicalCuadernoForm('sensitur'),'sentitur');
   assert.equal(canonicalCuadernoForm('captæ sumus'),'captae sumus');
   assert.equal(canonicalCuadernoForm('ipsōrum'),'ipsorum');
 });
