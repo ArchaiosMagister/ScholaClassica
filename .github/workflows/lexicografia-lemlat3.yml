@@ -1,6 +1,9 @@
 name: Latín II - contraste independiente LEMLAT3 (solo auditoría)
 
 on:
+  # Tras una integración en main, repetir el cotejo sin desplegar artefactos.
+  push:
+    branches: [main]
   pull_request:
     paths:
       - '.github/workflows/lexicografia-lemlat3.yml'
