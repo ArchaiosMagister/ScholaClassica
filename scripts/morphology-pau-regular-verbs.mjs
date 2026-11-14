@@ -166,6 +166,18 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
       add(stem+x,person,number,tense,mood,voice);
     });
   }
+  if(deponent&&!['proficiscor','polliceor'].includes(lemma)){
+    const depStem={moror:'morat',circumplector:'circumplex',patior:'pass',
+      insequor:'insecut',sequor:'secut'}[lemma];
+    assert.ok(depStem,'Falta el tema de perfecto deponente: '+lemma);
+    for(const [tense,aux] of Object.entries(SUM)){
+      for(const [i,[person,number]] of PERSONS.entries()){
+        for(const gender of ['masculino','femenino','neutro'])
+          add(PPP(depStem,gender,number)+' '+aux[i],person,number,
+            tense,'indicativo','pasiva (deponente, sentido activo)');
+      }
+    }
+  }
   if(perfect&&!deponent){
     for(const [time,endings] of Object.entries(PERF)){
       const subj=time.includes('subjuntivo');
@@ -205,7 +217,6 @@ export function compilePauRegularVerbs(exams){
   for(const [lemma,headword,cls,stem,perfect,ppp,flag] of MODELS){
     if(seen.has(lemma))continue;seen.add(lemma);
     const r=produce(lemma,headword,cls,stem,perfect,ppp,flag);
-    if(r.forms.some(x=>requested.has(latinFold(x.form))))results.push(r);
     const infForms=[];
     const isDep=flag==='dep';
     function inf(form,tense,voice){
@@ -231,7 +242,10 @@ export function compilePauRegularVerbs(exams){
         if(flag!=='no-passive'&&flag!=='intrans')inf(ppp+'um iri','futuro','pasiva');
       }
     }
-    if(infForms.some(f=>requested.has(latinFold(f.form)))){
+    const relevant=r.forms.some(f=>requested.has(latinFold(f.form)))||
+      infForms.some(f=>requested.has(latinFold(f.form)));
+    if(relevant){
+      results.push(r);
       assert.ok(infForms.length>=2,'Infinitivos incompletos: '+lemma);
       results.push({id:'latin2-pau-regular-infinitive-'+lemma,
         language:'latin2',unit:0,kind:'infinitivo',headword,paradigm:headword,
