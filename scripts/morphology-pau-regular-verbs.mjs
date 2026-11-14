@@ -293,6 +293,34 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
       analysis:'verbo · '+headword+' · 2.ª persona · '+number+
         ' · presente · imperativo · voz '+voice});
   }
+  if(lemma==='noceo'){
+    // Lewis & Short, s.v. noceo: pasiva impersonal frecuente en prosa
+    // clásica (nocetur, nocitum est). La personal está atestiguada
+    // excepcionalmente (Vitruvio 2.9; Solino 40), pero su conjugación
+    // personal completa NO queda verificada por ese par de testimonios.
+    // Conservar las flexiones analógicas para auditoría, fuera del sorteo.
+    for(const f of forms)if(f.voice==='pasiva'){
+      f.usage='variante personal excepcional: reconstrucción por modelo sin cotejo individual; excluir del sorteo';
+      f.verification='pendiente-de-cotejo-individual';
+    }
+    const impersonals=[
+      ['nocetur','presente','indicativo'],
+      ['nocebatur','imperfecto','indicativo'],
+      ['nocebitur','futuro','indicativo'],
+      ['noceatur','presente','subjuntivo'],
+      ['noceretur','imperfecto','subjuntivo'],
+      ['nocitum est','perfecto','indicativo'],
+      ['nocitum erat','pluscuamperfecto','indicativo'],
+      ['nocitum erit','futuro perfecto','indicativo'],
+      ['nocitum sit','perfecto','subjuntivo'],
+      ['nocitum esset','pluscuamperfecto','subjuntivo']
+    ];
+    for(const [form,tense,mood] of impersonals){
+      add(form,'3.ª','singular',tense,mood,'pasiva (impersonal)');
+      forms[forms.length-1].construction='impersonal';
+      forms[forms.length-1].evidenceStatus='paradigma-impersonal-escolar';
+    }
+  }
   const dedup=[...new Map(forms.map(f=>[latinFold(f.form)+'|'+f.analysis,f])).values()];
   return {id:'latin2-pau-regular-verb-'+lemma,language:'latin2',unit:0,
     kind:'verbo',headword,paradigm:headword,forms:dedup,
