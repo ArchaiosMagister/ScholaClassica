@@ -45,6 +45,12 @@ export function adaptLatin4App(source,locale){
   /document\.querySelector\('#course-title'\)\.textContent=[^\n]+;updateSelectors\(\);/u,
   "document.querySelector('#course-title').textContent=courseName;updateSelectors();",
   'Título visible');
+ if(!es)source=once(source,
+  "document.querySelector('#course-title').textContent=courseName;updateSelectors();",
+  "document.querySelector('#course-title').textContent=courseName;updateSelectors();"+
+  "const translationNote=document.querySelector('main > .course-note');"+
+  "if(translationNote)translationNote.hidden=selection.year==='4';",
+  'Aviso antiguo de traducción en Valenciano');
  const asset=es?'assets/curriculum-latin4.json':'curriculum-latin4.json';
  const ordinary=es?'assets/curriculum.json?v=20261110-final1':
   'curriculum.json?v=20261110-final1';
