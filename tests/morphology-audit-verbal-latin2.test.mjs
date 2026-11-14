@@ -169,3 +169,64 @@ test('Una alteración de un deponente se detecta y bloquea la compilación',()=>
     i.code==='IMPERATIVE_MISSING'&&i.id===original.id));
   assert.throws(()=>assertLatin2VerbalAuditPasses(report),/errores verbales bloqueantes/i);
 });
+
+test('Noceo conserva la pasiva impersonal clásica y reserva las personales analógicas',()=>{
+  const noceo=record('latin2-pau-regular-verb-noceo');
+  assert.ok(noceo,'Falta noceo');
+  const impersonal=[
+    ['nocetur','presente','indicativo'],
+    ['nocebatur','imperfecto','indicativo'],
+    ['nocebitur','futuro','indicativo'],
+    ['noceatur','presente','subjuntivo'],
+    ['noceretur','imperfecto','subjuntivo'],
+    ['nocitum est','perfecto','indicativo'],
+    ['nocitum erat','pluscuamperfecto','indicativo'],
+    ['nocitum erit','futuro perfecto','indicativo'],
+    ['nocitum sit','perfecto','subjuntivo'],
+    ['nocitum esset','pluscuamperfecto','subjuntivo']
+  ];
+  for(const [surface,tense,mood] of impersonal){
+    assert.ok(forms(noceo,surface).some(f=>f.tense===tense&&f.mood===mood&&
+      f.construction==='impersonal'&&f.person==='3.ª singular'),surface);
+  }
+  const personal=noceo.forms.filter(f=>f.voice==='pasiva');
+  assert.ok(personal.length>20);
+  assert.ok(personal.every(f=>f.verification==='pendiente-de-cotejo-individual'&&
+    /variante/.test(f.usage)));
+  const sample={...bank,records:[noceo]};
+  for(const activity of ['form','analysis']){
+    const questions=makeQuestions(sample,{language:'latin2',unit:0,
+      activity,limit:30,rng:()=>.19});
+    assert.ok(questions.length>0);
+    assert.ok(questions.every(q=>evaluate(q,q.correct).correct));
+    assert.equal(questions.some(q=>q.form==='noceor'),false,
+      'No debe sortearse una pasiva personal analógica como noceor');
+    assert.equal(questions.some(q=>q.form==='nocebamur'),false);
+  }
+  const report=auditLatin2Verbal(bank);
+  assert.ok(report.resolvedCriteria.some(x=>x.code==='NOCEO_PASSIVE'));
+  assert.ok(!report.reviewIssues.some(x=>x.code==='NOCEO_PASSIVE_USAGE'));
+});
+
+test('Fimus y fitis: posibles pero fuera del sorteo habitual',()=>{
+  const fio=record('latin2-cuaderno-irregular-fio');
+  assert.ok(fio);
+  assert.ok(['fimus','fitis'].every(form=>forms(fio,form).some(f=>
+    /poco frecuente/.test(f.usage))));
+  const questions=makeQuestions({...bank,records:[fio]},{
+    language:'latin2',unit:0,activity:'analysis',limit:30,rng:()=>.2});
+  assert.ok(!questions.some(q=>['fimus','fitis'].includes(q.form)));
+});
+
+test('Supplex admite supplice contextual sin plantearlo como análisis ordinario',()=>{
+  const supplex=record('latin2-pau-school-adjective-supplex');
+  assert.ok(supplex);
+  assert.ok(supplex.forms.some(f=>f.form==='supplici'&&
+    f.case==='ablativo'&&!f.usage));
+  assert.ok(supplex.forms.some(f=>f.form==='supplice'&&
+    f.case==='ablativo'&&/variante/.test(f.usage)));
+  const cases=makeQuestions({...bank,records:[supplex]},{
+    language:'latin2',unit:0,activity:'analysis',limit:30,rng:()=>.37});
+  assert.ok(cases.length>1);
+  assert.equal(cases.some(q=>q.form==='supplice'),false);
+});
