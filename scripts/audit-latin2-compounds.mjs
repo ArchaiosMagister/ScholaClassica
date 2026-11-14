@@ -16,10 +16,11 @@ const root=resolve(import.meta.dirname,'..');
 const defaults={
   entries:join(root,'build/academic-audits/latin2-lexicon/evidencias.ndjson'),
   unimorph:join(root,'.sources/unimorph-latin/lat'),
-  out:join(root,'build/academic-audits/latin2-lexicon')
+  out:join(root,'build/academic-audits/latin2-lexicon'),
+  editorial:join(root,'shared/academic/latin2/lexicographic-decisions.json')
 };
 function options(argv){
-  const paths={...defaults},allowed=new Set(['entries','unimorph','independent','out']);
+  const paths={...defaults},allowed=new Set(['entries','unimorph','independent','out','editorial']);
   for(let i=0;i<argv.length;i+=2){
     assert.ok(/^--/.test(argv[i])&&allowed.has(argv[i].slice(2))&&argv[i+1],
       'Argumento no válido: '+argv[i]);
@@ -66,9 +67,30 @@ export async function runCompoundAudit(params={}){
     }
   }
   collector.complete(compound);
+  const editorial=JSON.parse(await readFile(p.editorial,'utf8'));
+  assert.equal(editorial.schema,'schola-latin2-editorial-review/v1');
+  let paradigmDecisionsApplied=0;
+  for(const decision of editorial.compoundParadigmDecisions||[]){
+    const matches=compound.filter(x=>x.recordId===decision.recordId&&
+      x.lemma===decision.lemma&&x.form===decision.form);
+    assert.equal(matches.length,1,'La decisión paradigmática debe identificar una única forma: '+decision.form);
+    const entry=matches[0];
+    assert.equal(entry.status,'estructura-compatible-con-enunciado-paradigmatico',
+      'El analizador debe reconocer el modelo morfológico antes de aplicar criterio docente');
+    assert.equal(entry.paradigmCitation.case,decision.participleCase);
+    assert.equal(entry.paradigmCitation.gender,decision.participleGender);
+    assert.equal(entry.paradigmCitation.number,decision.participleNumber);
+    assert.equal(decision.individualVerification,false);
+    assert.equal(decision.accreditText,false);
+    entry.editorialReview={resolution:decision.resolution,
+      action:decision.action,reason:decision.reason,
+      individualVerification:false,accreditText:false};
+    paradigmDecisionsApplied++;
+  }
   const summary={...summarizeCompounds(compound),primarySourceRows:primaryRows,
     secondarySourceRows:secondaryRows,
-    independentSourceCount:p.independent?2:1};
+    independentSourceCount:p.independent?2:1,
+    editorialParadigmsApplied:paradigmDecisionsApplied};
   const reserved=compound.filter(x=>x.status==='reserva-de-analisis');
   const cols=['priority','status','recordId','lemma','form','analysis','issues'];
   const tsv=cols.join('\t')+'\n'+reserved.map(x=>
