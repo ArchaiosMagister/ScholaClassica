@@ -13,6 +13,7 @@ const storage=(()=>{try{return window.localStorage}catch{return null}})();
 let reviewState=readReview(storage),bank=null,questions=[],position=0,score=0,answered=false;
 let focusInput=null;
 const grammaticalName=kind=>({sustantivo:'Sustantivos',verbo:'Verbos',
+  participio:'Participios',infinitivo:'Infinitivos',
   desinencia:'Desinencias',artículo:'Artículo',adjetivo:'Adjetivos',pronombre:'Pronombres'})[kind]||kind;
 function theme(){
   let preference='system';
@@ -30,7 +31,8 @@ function updateFilters(){
   const language=input.subject.value,coverage=bank.coverage[language];
   const old=Number(input.unit.value);
   input.unit.replaceChildren();
-  coverage.forEach(unit=>option(input.unit,String(unit),'UD'+unit));
+  $('unit-label').hidden=language==='latin2';
+  coverage.forEach(unit=>option(input.unit,String(unit),language==='latin2'?'Temario completo':'UD'+unit));
   input.unit.value=coverage.includes(old)?String(old):String(coverage[0]);
   updateActivities();
 }
@@ -40,7 +42,8 @@ function updateActivities(){
   const opt=input.activity.querySelector('option[value="agreement"]');
   if(opt){opt.hidden=!canAgree;opt.disabled=!canAgree}
   if(!canAgree&&input.activity.value==='agreement')input.activity.value='form';
-  const canPhrases=Number(input.unit.value)>=(input.subject.value==='latin4'?3:5);
+  const canPhrases=input.subject.value!=='latin2'&&
+    Number(input.unit.value)>=(input.subject.value==='latin4'?3:5);
   for(const mode of ['phrase-written','phrase-table']){
     const item=input.activity.querySelector('option[value="'+mode+'"]');
     if(item){item.hidden=!canPhrases;item.disabled=!canPhrases}
@@ -63,7 +66,7 @@ function updateKinds(){
   const table=input.activity.value==='table';
   const phrase=input.activity.value.startsWith('phrase-')||
     input.activity.value.startsWith('noun-phrase-');
-  const tableKinds=['sustantivo','adjetivo','desinencia','artículo'];
+  const tableKinds=['sustantivo','adjetivo','desinencia','artículo','participio'];
   const kinds=phrase?['sintagma']:agreement?['adjetivo']:
     [...new Set(records.filter(r=>!table||tableKinds.includes(r.kind)).map(r=>r.kind))];
   const selected=input.kind.value;
@@ -71,7 +74,9 @@ function updateKinds(){
   if(!agreement&&!phrase)option(input.kind,'todos','Todas las categorías disponibles');
   kinds.forEach(kind=>option(input.kind,kind,grammaticalName(kind)));
   input.kind.value=phrase?'sintagma':agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
-  $('coverage').textContent=COURSE_LABELS[language]+': puedes practicar los contenidos de UD1 a UD'+unit+'.'+
+  $('coverage').textContent=language==='latin2'?
+    'Latín II: práctica del temario completo, sin unidades. Las formas aisladas pueden tener más de un análisis.':
+    COURSE_LABELS[language]+': puedes practicar los contenidos de UD1 a UD'+unit+'.'+
     (language==='griego'&&unit===4?' UD4 no incorpora nuevas formas a estos ejercicios.':'');
 }
 function updateReviewStatus(){
@@ -134,11 +139,14 @@ function showQuestion(){
   answered=false;focusInput=null;
   $('counter').textContent='Ejercicio '+(position+1)+' de '+questions.length;
   $('score').textContent='Aciertos: '+score;
+  $('paradigm').hidden=q.activity==='analysis';
   $('paradigm').textContent=q.paradigm;
   $('paradigm').lang=q.language==='griego'?'grc':'la';
   $('question-title').textContent=q.prompt;
   $('expression').hidden=q.activity!=='analysis';
-  $('expression').textContent=q.activity==='analysis'?q.form:'';
+  $('expression-form').textContent=q.activity==='analysis'?q.form:'';
+  $('expression-headword').textContent=q.activity==='analysis'?
+    ' ('+(q.headword||q.paradigm.split(' · ')[0])+')':'';
   $('expression').lang=q.language==='griego'?'grc':'la';
   $('answers').hidden=!['form','analysis','agreement'].includes(q.activity);
   $('written-response').hidden=q.activity!=='written';
@@ -295,6 +303,7 @@ async function initialize(){
     if(subject==='lat4')input.subject.value='latin4';
     else if(subject==='lat1')input.subject.value='latin';
     else if(subject==='gr1')input.subject.value='griego';
+    else if(subject==='lat2')input.subject.value='latin2';
     updateFilters();
     updateReviewStatus();
     $('start').disabled=false;
