@@ -11,6 +11,9 @@ import {compileLatin2} from './morphology-latin2.mjs';
 import {parsePauExamQuestions,compilePauNominalParadigms,latinFold} from './morphology-pau-latin2.mjs';
 import {compilePauPronouns} from './morphology-pau-pronouns.mjs';
 import {compilePauSchoolNouns} from './morphology-pau-nouns.mjs';
+import {compilePauSchoolAdjectives} from './morphology-pau-adjectives.mjs';
+import {compilePauNumerals} from './morphology-pau-numerals.mjs';
+import {compilePauParticiples} from './morphology-pau-participles.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -342,7 +345,11 @@ export async function buildMorphology({out,lock}){
   });
   const additions=[...pronouns,...compounds,venio,...nominal.records];
   const schoolNouns=compilePauSchoolNouns(exams,[...originalRecords,...latin2,...additions]);
-  additions.push(...schoolNouns);
+  const schoolAdjectives=compilePauSchoolAdjectives(exams,
+    [...originalRecords,...latin2,...additions]);
+  const numerals=compilePauNumerals(exams);
+  const participles=compilePauParticiples(exams);
+  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles);
   const fullRecords=[...originalRecords,...latin2,...additions];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
@@ -358,6 +365,8 @@ export async function buildMorphology({out,lock}){
     distinctForms:examForms.length,coveredForms:covered.length,
     missingForms:missing,nominalImported:nominal.records.length,
     nominalIncomplete:nominal.skipped,schoolNounsAdded:schoolNouns.length,
+    schoolAdjectivesAdded:schoolAdjectives.length,numeralsAdded:numerals.length,
+    participlesAdded:participles.length,
     pronounsAdded:pronouns.length,
     compoundsAdded:compounds.length};
   const dir=join(out,'apps/morfologia/data');
