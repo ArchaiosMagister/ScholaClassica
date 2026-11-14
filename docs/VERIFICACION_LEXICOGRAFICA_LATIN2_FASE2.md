@@ -44,3 +44,27 @@ Los artefactos docentes, con retención limitada, se archivan en `build/academic
 - https://github.com/CIRCSE/LEMLAT3/wiki
 - https://github.com/unimorph/lat
 - https://github.com/ArchaiosMagister/ScholaClassica/pull/68
+
+
+## Resultado de la primera ejecución completa con dos fuentes (14-11-2026)
+
+Ejecución **satisfactoria**: https://github.com/ArchaiosMagister/ScholaClassica/actions/runs/43593474252
+
+- Lote P0/P1: 1.162 análisis; 1.134 análisis de formas simples; 28 análisis de compuestos reservados.
+- LEMLAT3: 463 grafías simples distintas; 461 reconocidas, **dos sin resultado** (`duos`, `segestae`); 693 análisis nativos y 2.097 filas de evidencia con lema.
+- Cobertura de los análisis prioritarios: 980 con alguna evidencia LEMLAT3; 603 con evidencia UniMorph, sin que ambas cifras deban sumarse por existir solapamiento.
+- Clasificación P0/P1: 481 acuerdos documentales de dos fuentes (no testimonio textual); 589 coincidencias parciales; 4 discrepancias pendientes; 53 lemas fuera de cobertura; 7 formas no halladas bajo lema conocido; 28 análisis compuestos pendientes. **Suma: 1.162.**
+- Sobre el banco completo (22.049 análisis): 481 acuerdos entre fuentes; 4.307 coincidencias parciales; 153 discrepancias pendientes; 1.593 lemas fuera de cobertura; 8.208 formas no halladas bajo lema conocido; 7.307 análisis compuestos.
+- El ejecutable original pudo ejecutarse tras emplear nombres cortos de archivos en lugar de rutas largas y la biblioteca adecuada de MariaDB.
+- Ninguna casilla pasó automáticamente a `individualmenteVerificada`. No se introducen alteraciones de preguntas ni habilitaciones del sorteo.
+
+### Cuatro análisis prioritarios que requieren contraste filológico
+
+1. `segestae` de **Segesta**: nominativo plural femenino.
+2. `segestae` de **Segesta**: vocativo plural femenino.
+3. `nonnullae` de **nonnullus, -a, -um**: genitivo singular femenino.
+4. `nonnullae` de **nonnullus, -a, -um**: dativo singular femenino.
+
+En `nonnullae`, UniMorph solo ofrece las lecturas nominativo/vocativo plural femenino, mientras que LEMLAT analiza la grafía con otro lema `non-nullus` (no coincide sin una regla justificada de equivalencia lematizada). La falta de estas lecturas en los recursos no invalida por sí sola los genitivos y dativos previsibles por el paradigma regular. En `segestae`, UniMorph solo aporta genitivo/dativo/locativo singular y el ejecutable LEMLAT3 no la reconoce; la pertinencia de pluralizar un topónimo normalmente singular requiere criterio filológico independiente de la mera desinencia morfológica.
+
+No se han corregido ni excluido estas cuatro casillas de oficio.
