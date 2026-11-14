@@ -64,7 +64,8 @@ try{
   assert.equal(await page.locator('.path-links a').count(),1);
   assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Griego II'));
   await coursePicker.selectOption('lat4');
-  assert.equal(await page.locator('.path-links a').count(),3);
+  assert.equal(await page.locator('.path-links a').count(),4);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
   await coursePicker.selectOption('lat2');
@@ -112,6 +113,68 @@ try{
     assert.ok(await page.locator('header').count(),'Falta encabezado en '+route);
     assert.equal(errors.length,0,'Error JavaScript en '+route+': '+errors.join(' | '));
   }
+  // Latín de 4.º: ocho unidades de consulta, sin ejercicios, en ambos idiomas.
+  const grammar=base+'/apps/gramatica/';
+  const fourth=await page.goto(grammar+'curso.html?lengua=latin&curso=4&unidad=1',
+    {waitUntil:'networkidle'});
+  assert.equal(fourth.status(),200);
+  assert.match(await page.locator('#course-title').textContent(),/Latín · 4.º de ESO/);
+  assert.equal(await page.locator('#unit-buttons button').count(),8);
+  assert.equal(await page.locator('.unit-section').count(),1);
+  assert.deepEqual(await page.locator('.lesson-title').allTextContents(),
+    ['Lengua flexiva y conceptos fundamentales','Funciones de los casos','Primera declinación']);
+  assert.equal(await page.locator('form[action*="gramatica"] #answer-input').count(),0);
+  await page.locator('#unit-buttons button[data-unit="6"]').click();
+  await page.waitForURL(/curso=4&unidad=6/);
+  assert.equal(await page.locator('.unit-section').count(),6);
+  assert.deepEqual(await page.locator('.unit-section').last().locator('.lesson-title').allTextContents(),
+    ['Perfecto de indicativo activo','Voz pasiva: presente e imperfecto']);
+  assert.ok((await page.locator('.unit-section').last().textContent()).includes('amavi'));
+  assert.ok(!(await page.locator('.unit-section').last().textContent()).includes('Pluscuamperfecto de indicativo activo'));
+  const courseSpanish=await page.locator('#site-language').inputValue();
+  assert.equal(courseSpanish,'curso.html');
+  await page.locator('#site-language').selectOption('val/curso.html');
+  await page.waitForURL(/\/apps\/gramatica\/val\/curso\.html\?lengua=latin&curso=4&unidad=6/);
+  assert.match(await page.locator('#course-title').textContent(),/Llatí · 4t d'ESO/);
+  assert.deepEqual(await page.locator('.unit-section').last().locator('.lesson-title').allTextContents(),
+    ["Perfet d'indicatiu actiu",'Veu passiva: present i imperfet']);
+  assert.ok((await page.locator('.unit-section').last().textContent()).includes('Perfet d’indicatiu'));
+  await page.locator('#unit-buttons button[data-unit="7"]').click();
+  assert.deepEqual(await page.locator('.unit-section').last().locator('.lesson-title').allTextContents(),
+    ['Adjectius de la tercera declinació',"Plusquamperfet d'indicatiu actiu"]);
+  await page.locator('#unit-buttons button[data-unit="8"]').click();
+  assert.deepEqual(await page.locator('.unit-section').last().locator('.lesson-title').allTextContents(),
+    ['Quarta i quinta declinació','Pronoms personals']);
+  assert.equal(await page.locator('#unit-buttons button[data-unit="9"]').count(),0);
+  // Cambio inverso de idioma conserva también la unidad y el curso.
+  await page.locator('#site-language').selectOption('../curso.html');
+  await page.waitForURL(/\/apps\/gramatica\/curso\.html\?lengua=latin&curso=4&unidad=8/);
+  assert.equal(await page.locator('.unit-section').count(),8);
+  // Es imposible seleccionar 4.º dentro de Griego.
+  await page.locator('#course-language').selectOption('griego');
+  assert.equal(await page.locator('#course-year option[value="4"]').evaluate(x=>x.disabled),true);
+  assert.equal(await page.locator('#course-year').inputValue(),'1');
+  await page.locator('#course-language').selectOption('latin');
+  await page.locator('#course-year').selectOption('4');
+  await page.locator('#unit-buttons button[data-unit="1"]').click();
+  // La gramática completa de 4.º se conserva offline en su caché independiente.
+  await page.waitForFunction(async()=>{
+    const regs=await navigator.serviceWorker.getRegistrations();
+    return regs.some(r=>r.active&&r.scope.endsWith('/apps/gramatica/'));
+  },null,{timeout:15000});
+  const grammarCaches=await page.evaluate(async()=>await caches.keys());
+  assert.ok(grammarCaches.some(k=>k.startsWith('schola-gramatica-')));
+  await page.context().setOffline(true);
+  const grammarOffline=await page.goto(grammar+'val/curso.html?lengua=latin&curso=4&unidad=5',
+    {waitUntil:'load'});
+  assert.equal(grammarOffline.status(),200);
+  await page.waitForFunction(()=>document.querySelectorAll('#unit-buttons button').length===8,
+    null,{timeout:10000});
+  assert.equal(await page.locator('.unit-section').count(),5);
+  assert.ok((await page.locator('.unit-section').last().textContent()).includes('Tercera declinació'));
+  await page.context().setOffline(false);
+  assert.deepEqual(errors,[],'Errores en gramática Latín 4.º bilingüe: '+errors.join(' | '));
+
   // Portada: dos accesos grandes, ambos funcionales e independientes.
   const etymHome=await page.goto(base+'/apps/etymologicon/',{waitUntil:'networkidle'});
   assert.equal(etymHome.status(),200);

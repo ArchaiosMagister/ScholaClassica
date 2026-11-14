@@ -26,6 +26,7 @@ for(const [index,tab] of tabs.entries()){
 // Solo enlaza a rutas existentes; no crea contenidos ni modifica sus configuraciones.
 const STUDY_CATALOG=Object.freeze({
   lat4:[
+    {id:'gramatica',label:'Gramática · Latín de 4.º de ESO',href:'apps/gramatica/curso.html?lengua=latin&curso=4&unidad=1'},
     {id:'vocabulario',label:'Vocabulario · Latín de 4.º de ESO',href:'apps/vocabulario/index.html?subject=lat4'},
     {id:'morfologia',label:'Práctica de morfología · Latín de 4.º de ESO',href:'apps/morfologia/index.html?subject=lat4'},
     {id:'palabra-dia',label:'Palabra del día · 4.º ESO (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/4eso/',external:true}
