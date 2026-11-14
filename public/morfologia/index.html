@@ -30,10 +30,11 @@
         <select id="subject">
           <option value="latin4">Latín · 4.º de ESO</option>
           <option value="latin">Latín I</option>
+          <option value="latin2">Latín II</option>
           <option value="griego">Griego I</option>
         </select>
       </label>
-      <label>Unidad acumulativa
+      <label id="unit-label">Unidad acumulativa
         <select id="unit"></select>
       </label>
       <label>Ejercicio
@@ -78,7 +79,7 @@
     </div>
     <p id="paradigm" class="paradigm" lang="la"></p>
     <h2 id="question-title" tabindex="-1">Pregunta</h2>
-    <div id="expression" class="expression" hidden></div>
+    <div id="expression" class="expression" hidden><span id="expression-form"></span><span id="expression-headword"></span></div>
     <div id="answers" class="answers" role="group" aria-label="Elige una respuesta"></div>
     <div id="written-response" class="productive" hidden>
       <label for="answer-input">Tu respuesta</label>
@@ -114,6 +115,7 @@
   <section class="notes" aria-labelledby="scope-title">
     <h2 id="scope-title">Qué vas a practicar</h2>
     <p><strong>Latín de 4.º ESO (UD1–UD8):</strong> primera y segunda declinación, presente, adjetivos de primera clase, imperfecto, tercera declinación, perfecto y voz pasiva, adjetivos de tercera y pluscuamperfecto, cuarta y quinta declinación y pronombres personales. Las unidades se desbloquean siguiendo la progresión de 4.º.</p>
+    <p><strong>Latín II (temario completo):</strong> análisis de sustantivos, adjetivos, pronombres, verbos, participios e infinitivos con categoría, enunciado y accidentes morfológicos expresos. Las formas aisladas muestran todas sus lecturas posibles; solo una oración permitiría señalar mediante subrayado la lectura sintáctica concreta.</p>
     <p><strong>Latín I (UD1–UD10):</strong> declinaciones, adjetivos, verbos activos y pasivos, pronombres, infinitivos, comparativos y participios. Las UD8–UD10 incorporan <i>idem</i> e <i>ipse</i>, infinitivos, el comparativo <i>altior</i>, ejemplos de perfecto pasivo y los participios <i>amans</i> y <i>amatus</i>.</p>
     <p><strong>Griego I (UD1–UD14):</strong> declinaciones, artículo, adjetivos y concordancia, pronombres, participios y tiempos verbales. Las UD8–UD14 incorporan interrogativos e indefinidos, tercera declinación, relativo, participios, futuro, imperfecto, aoristo, perfecto, pluscuamperfecto, contractos y temas en silbante.</p>
     <p>Algunas tablas solo ofrecen desinencias o determinadas formas completas. En esos ejercicios se practican únicamente las formas mostradas en el temario.</p>
