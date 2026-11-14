@@ -52,17 +52,22 @@ export function makeWrittenQuestions(bank,{language,unit,kind='todos',limit=10,r
     const groups=new Map();
     const ordinaryAnalyses=new Set(practiceOrdinaryEntries(record).map(f=>
       clean(f.analysis)));
-    for(const entry of practiceEligibleEntries(record)){
+    const allowed=new Set(practiceEligibleEntries(record));
+    // Preservar los índices históricos del progreso local, incluso cuando
+    // algunas lecturas del banco deban permanecer fuera del sorteo.
+    for(const entry of record.forms){
       const key=clean(entry.analysis);
       if(!groups.has(key))groups.set(key,new Set());
-      groups.get(key).add(clean(entry.form));
+      if(allowed.has(entry))groups.get(key).add(clean(entry.form));
     }
     let i=0;
     for(const [analysis,forms] of groups){
-      if(record.language==='latin2'&&!ordinaryAnalyses.has(analysis))continue;
+      const originalIndex=i++;
+      if(forms.size===0||record.language==='latin2'&&
+        !ordinaryAnalyses.has(analysis))continue;
       const acceptedForms=[...forms];
       candidates.push({
-        id:record.id+':written:'+i++,activity:'written',language,kind:record.kind,
+        id:record.id+':written:'+originalIndex,activity:'written',language,kind:record.kind,
         paradigm:record.paradigm,evidence:record.evidence,
         prompt:(record.kind==='desinencia'?'Escribe la desinencia de ':'Escribe la forma de ')+analysis+'.',
         acceptedForms,correct:acceptedForms[0]
