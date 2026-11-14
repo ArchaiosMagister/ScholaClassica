@@ -35,6 +35,25 @@ const ANALYSIS_CATEGORIES=new Set(['sustantivo','adjetivo','pronombre','verbo',
 export function analysisHeadword(record){
   return fold(record.headword||record.paradigm.split(' · ')[0]);
 }
+// Los bancos del Appendix y PAU emplean enunciados verbales abreviados y
+// extensos para un mismo lema. Se reconocen como el MISMO verbo al reunir
+// lecturas de una forma, sin confundir homógrafos de otras clases (liber).
+function analysisLemmaKey(record){
+  const head=analysisHeadword(record);
+  return record.language==='latin2'&&
+    ['verbo','participio','infinitivo'].includes(record.kind)?
+    'verbal:'+head.split(',')[0].trim().toLowerCase():'lexico:'+head;
+}
+const HEADWORD_PLACEHOLDER='\uE000';
+function normalizedLatin2Reading(record,entry){
+  const head=analysisHeadword(record);
+  const label=analysisLabel(record,entry);
+  return label.replace(' · '+head+' · ',' · '+HEADWORD_PLACEHOLDER+' · ');
+}
+function visibleLatin2Reading(record,template){
+  return template.replace(' · '+HEADWORD_PLACEHOLDER+' · ',
+    ' · '+analysisHeadword(record)+' · ');
+}
 // En Latín II el enunciado visible sigue el convenio de otras páginas:
 // presente + perfecto + supino; deponentes: presente + perfecto.
 // Se conserva el enunciado completo original en las fichas y auditorías.
@@ -70,18 +89,24 @@ function analysisLabel(record,entry){
   if(!ANALYSIS_CATEGORIES.has(record.kind))throw Error('Categoría no documentada');
   return record.kind+' · '+text;
 }
-function ordinaryEntries(record){
+// Mantener íntegra la fuente, pero impedir que lecturas expresamente
+// reservadas por falta de cotejo pasen al sorteo o a las soluciones.
+export function practiceEligibleEntries(record){
   if(record.language!=='latin2')return record.forms;
-  // Variantes de uso raro: válidas como soluciones alternativas, pero no
-  // candidatas ordinarias al sorteo de formas, ni distractores gráficos.
-  const frequent=record.forms.filter(f=>!f.usage||
-    !/variante|menos frecuente|poco frecuente|rara/i.test(f.usage));
-  return frequent.length?frequent:record.forms;
+  return record.forms.filter(f=>f.verification!=='pendiente-de-cotejo-individual'&&
+    !/excluir del sorteo/i.test(f.usage||''));
+}
+export function practiceOrdinaryEntries(record){
+  if(record.language!=='latin2')return record.forms;
+  // Una variante poco común puede aceptarse como respuesta alternativa a
+  // otra casilla documentada, pero no iniciará una pregunta por sí sola.
+  return practiceEligibleEntries(record).filter(f=>
+    !/variante|menos frecuente|poco frecuente|rara/i.test(f.usage||''));
 }
 function groupedForms(record){
   const groups=new Map();
-  const regularSurfaces=new Set(ordinaryEntries(record).map(f=>fold(f.form)));
-  for(const entry of record.forms){
+  const regularSurfaces=new Set(practiceOrdinaryEntries(record).map(f=>fold(f.form)));
+  for(const entry of practiceEligibleEntries(record)){
     const form=fold(entry.form);
     // Una variante rara puede compartir grafía con una forma corriente:
     // en ese caso se deben conservar TODAS las lecturas posibles.
@@ -94,7 +119,10 @@ function groupedForms(record){
 function analysisDistractors(record,grouped,target,index){
   const correctReadings=new Set(target.split(' / '));
   const other=unique(grouped.map(x=>x.analysis))
-    .filter(x=>x!==target&&!correctReadings.has(x));
+    // Un distractor con varias lecturas NO es falso si cualquiera de sus
+    // lecturas coincide con una lectura válida de la forma examinada.
+    .filter(x=>x!==target&&!x.split(' / ').some(reading=>
+      correctReadings.has(reading)));
   // Los infinitivos con únicamente dos formas documentadas pueden examinarse
   // sin inventar flexiones: el distractor describe otra combinación de rasgos.
   if(record.language==='latin2'&&record.kind==='infinitivo'){
@@ -106,12 +134,27 @@ function analysisDistractors(record,grouped,target,index){
   }
   // Un distractor léxicamente verosímil de otra categoría se intercala solo
   // ocasionalmente. No se alteran jamás las lecturas correctas ni el enunciado.
-  if(index%4===0&&['sustantivo','adjetivo','pronombre'].includes(record.kind)){
+  if(record.language!=='latin2'&&index%4===0&&
+    ['sustantivo','adjetivo','pronombre'].includes(record.kind)){
     const substitute={sustantivo:'adjetivo',adjetivo:'sustantivo',pronombre:'adjetivo'}[record.kind];
     const derived=target.replaceAll(record.kind+' · ',substitute+' · ');
     if(derived!==target&&!other.includes(derived))other.push(derived);
   }
-  return other;
+  return record.language==='latin2'?
+    other.filter(x=>x.split(' · ')[0]===record.kind):other;
+}
+// Aproximación lineal: comparar el conjunto de rasgos una sola vez por
+// candidato. La comparación cartesiana entre todas las lecturas sincréticas
+// era cuadrática y bloqueaba la interfaz en paradigmas numerosos.
+function proximityTokens(value){
+  return new Set(value.replaceAll(' / ',' · ').split(' · ')
+    .map(part=>part.trim()).filter(Boolean));
+}
+function proximity(targetTokens,option){
+  let score=0;
+  for(const trait of proximityTokens(option))
+    if(targetTokens.has(trait))score++;
+  return score;
 }
 export function availableRecords(bank,{language,unit,kind='todos'}){
   validateBank(bank);
@@ -165,11 +208,10 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
   const usedLatin2Prompts=new Set();
   if(activity==='analysis'&&language==='latin2'){
     for(const source of bank.records.filter(r=>r.language==='latin2'&&r.unit<=unit)){
-      const head=analysisHeadword(source);
-      for(const f of source.forms){
-        const key=head+'\\u0000'+fold(f.form);
+      for(const f of practiceEligibleEntries(source)){
+        const key=analysisLemmaKey(source)+'\\u0000'+fold(f.form);
         if(!latin2Index.has(key))latin2Index.set(key,new Set());
-        latin2Index.get(key).add(analysisLabel(source,f));
+        latin2Index.get(key).add(normalizedLatin2Reading(source,f));
       }
     }
   }
@@ -182,17 +224,22 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
       // (civēs / civīs en acusativo plural, por ejemplo). Nunca se ofrece una
       // variante válida como distractor de la otra.
       const byAnalysis=new Map();
+      const allowed=new Set(practiceEligibleEntries(record));
+      // Conservar los índices originales del banco: el progreso offline se
+      // identifica por record.id:form:posición. Omitir lecturas reservadas
+      // sin renumerar las preguntas legítimas ya practicadas.
       for(const entry of record.forms){
         const analysis=fold(entry.analysis),form=fold(entry.form);
         if(!byAnalysis.has(analysis))byAnalysis.set(analysis,new Set());
-        byAnalysis.get(analysis).add(form);
+        if(allowed.has(entry))byAnalysis.get(analysis).add(form);
       }
       for(const [index,[analysis,forms]] of [...byAnalysis].entries()){
+        if(forms.size===0)continue;
         const acceptedForms=[...forms];
         const distractors=unique(grouped.map(x=>x.form))
           .filter(form=>!forms.has(form));
         if(distractors.length<3)continue;
-        const core=ordinaryEntries(record).filter(f=>
+        const core=practiceOrdinaryEntries(record).filter(f=>
           fold(f.analysis)===analysis).map(f=>fold(f.form));
         // No se debe sortear un análisis cuya única evidencia sean
         // flexiones analógicas no contrastadas o variantes reservadas.
@@ -212,30 +259,46 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
     }
     if(activity==='analysis'){
       const allGrouped=language==='latin2'?grouped.map(g=>{
-        const key=analysisHeadword(record)+'\\u0000'+g.form;
-        return {...g,analysis:[...(latin2Index.get(key)||new Set([g.analysis]))].join(' / ')};
+        const key=analysisLemmaKey(record)+'\\u0000'+g.form;
+        const templates=latin2Index.get(key);
+        return {...g,analysis:templates?
+          [...templates].map(x=>visibleLatin2Reading(record,x)).join(' / '):g.analysis};
       }):grouped;
       for(const [index,g] of allGrouped.entries()){
-        const key=analysisHeadword(record)+'\\u0000'+g.form;
+        const key=analysisLemmaKey(record)+'\\u0000'+g.form;
         if(language==='latin2'&&usedLatin2Prompts.has(key))continue;
         // Agrupar también categorías verbales del mismo lema: "ferre" es
         // infinitivo presente activo y puede ser imperativo o 2.ª pasiva.
         const distractors=analysisDistractors(record,allGrouped,g.analysis,index);
         if(distractors.length<3)continue;
         if(language==='latin2')usedLatin2Prompts.add(key);
-        const options=shuffle([...shuffle(distractors,rng).slice(0,3),g.analysis],rng);
+        const options=language==='latin2'?null:
+          shuffle([...shuffle(distractors,rng).slice(0,3),g.analysis],rng);
         candidates.push({
           id:record.id+':analysis:'+index,activity,kind:record.kind,
           prompt:'¿Qué análisis admite esta forma?',paradigm:record.paradigm,
           headword:analysisHeadword(record),
           form:g.form,correct:g.analysis,options,evidence:record.evidence,language,
-          ambiguous:g.analysis.includes(' / ')
+          ambiguous:g.analysis.includes(' / '),
+          ...(language==='latin2'?{_grouped:allGrouped,_groupIndex:index}:{})
         });
       }
     }
   }
-  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
+  const selected=selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
     limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
+  // Evaluar el banco completo, pero generar/ordenar opciones de respuesta
+  // solo para las preguntas que efectivamente aparecen en la tanda.
+  if(language!=='latin2'||activity!=='analysis')return selected;
+  return selected.map(question=>{
+    const {_grouped,_groupIndex,...item}=question;
+    const distractors=analysisDistractors(item,_grouped,item.correct,_groupIndex);
+    const targetTokens=proximityTokens(item.correct);
+    const ranked=shuffle(distractors,rng)
+      .map(option=>({option,score:proximity(targetTokens,option)}))
+      .sort((a,b)=>b.score-a.score).map(({option})=>option);
+    return {...item,options:shuffle([...ranked.slice(0,3),item.correct],rng)};
+  });
 }
 export function evaluate(question,choice){
   if(!question?.options?.includes(choice))throw Error('Respuesta ajena al ejercicio');
@@ -244,5 +307,5 @@ export function evaluate(question,choice){
     ' Otras soluciones válidas: '+question.acceptedForms.join(' o ')+'.':'';
   return {correct:valid,expected:variants?question.acceptedForms.join(' / '):question.correct,
     note:question.ambiguous?'Esta forma tiene varios análisis posibles; se muestran juntos.':
-      'Forma tomada directamente de un paradigma curricular publicado.'+variants};
+      'Comprueba el caso, el número, el género o los rasgos verbales.'+variants};
 }
