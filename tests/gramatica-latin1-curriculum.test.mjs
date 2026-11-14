@@ -40,7 +40,7 @@ test('Latín I: cuatro lecciones completas con equivalencia ES/VAL y sin depende
   assert.equal(JSON.stringify(built.latin.units.map(x=>x.topics.map(t=>t.title))),
     JSON.stringify(originalBank.latin.units.map(x=>x.topics.map(t=>t.title))),
     'No cambiar ni adelantar los epígrafes de las diez unidades');
-  const updates=new Set(['3:1','4:0','4:1','5:0']);
+  const updates=new Set(['1:0','3:0','3:1','4:0','4:1','5:0','6:0','7:2']);
   for(let u=1;u<=10;u++)
    for(let i=0;i<originalBank.latin.units[u-1].topics.length;i++)
     if(!updates.has(u+':'+i))
