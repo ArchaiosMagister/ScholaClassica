@@ -13,7 +13,8 @@ export function validateBank(bank){
        !['sustantivo','verbo','desinencia','artículo','adjetivo','pronombre',
          'participio','infinitivo'].includes(record.kind)||
        !Array.isArray(record.forms)||record.forms.length<
-         (record.language==='latin2'&&record.kind==='infinitivo'?2:6)||
+         (record.language==='latin2'&&record.kind==='infinitivo'?2:
+          record.id==='griego-ud6-infinitivos-presentes'?4:6)||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');
     if(ids.has(record.id))throw Error('Ficha repetida');ids.add(record.id);
     for(const f of record.forms)
@@ -286,7 +287,8 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
     }
   }
   const selected=selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
-    limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
+    limit,rng,now,balanceByKind:kind==='todos'&&
+      ['latin','griego','latin2'].includes(language)});
   // Evaluar el banco completo, pero generar/ordenar opciones de respuesta
   // solo para las preguntas que efectivamente aparecen en la tanda.
   if(language!=='latin2'||activity!=='analysis')return selected;
