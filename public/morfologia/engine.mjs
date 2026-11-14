@@ -246,7 +246,11 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const acceptedForms=[...forms];
         const distractors=unique(grouped.map(x=>x.form))
           .filter(form=>!forms.has(form));
-        if(distractors.length<3)continue;
+        // El reflexivo solo tiene tres grafías distintas (se, sui, sibi).
+        // Permitir una pregunta con tres alternativas genuinas, en lugar
+        // de inventar una forma inexistente para alcanzar cuatro opciones.
+        const minimum=record.id==='latin-ud5-reflexivo-sui'?2:3;
+        if(distractors.length<minimum)continue;
         const core=practiceOrdinaryEntries(record).filter(f=>
           fold(f.analysis)===analysis).map(f=>fold(f.form));
         // No se debe sortear un análisis cuya única evidencia sean
