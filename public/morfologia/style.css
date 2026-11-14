@@ -19,6 +19,9 @@ button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #efa
 .secondary{background:transparent;color:#24547b}.secondary:hover:not(:disabled){background:#e7f0f9}
 .session-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .score{font-weight:700;margin:0}.paradigm{margin:12px 0 10px;color:#3c6486;font-size:1.05rem;font-style:italic}
+/* Solo las palabras latinas llevan cursiva: indicaciones gramaticales en redonda. */
+.paradigm[lang="la"]{font-style:normal}
+.latin-enunciation{font-style:italic}
 #expression-headword{font-size:.6em;font-weight:500;color:#466781;letter-spacing:0;overflow-wrap:anywhere}
 .expression:not([hidden]){display:flex;align-items:baseline;flex-wrap:wrap;gap:.1em .3em}
 #unit-label[hidden]{display:none}
