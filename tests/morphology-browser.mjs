@@ -115,6 +115,23 @@ try{
  await page.locator('#kind').selectOption('verbo');
  await page.locator('#start').click();
  assert.equal(await page.locator('#answers button').count(),4);
+ // Latín II funciona desde el mismo banco sin selector de unidades.
+ await page.goto(app+'index.html?subject=lat2',{waitUntil:'load'});
+ await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
+ assert.equal(await page.locator('#subject').inputValue(),'latin2');
+ assert.equal(await page.locator('#unit-label').isVisible(),false);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['Temario completo']);
+ const categories=await page.locator('#kind option').allTextContents();
+ for(const name of ['Sustantivos','Adjetivos','Pronombres','Verbos','Participios','Infinitivos'])
+   assert.ok(categories.includes(name),'Falta categoría '+name);
+ await page.locator('#activity').selectOption('analysis');
+ await page.locator('#kind').selectOption('adjetivo');
+ await page.locator('#start').click();
+ assert.equal(await page.locator('#answers button').count(),4);
+ assert.ok(await page.locator('#expression').isVisible());
+ assert.ok((await page.locator('#expression-headword').textContent()).startsWith(' ('));
+ assert.equal(await page.locator('#paradigm').isVisible(),false);
+ assert.ok((await page.locator('#answers button').allTextContents()).some(t=>t.startsWith('adjetivo · ')));
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
  console.log('OK: perfectos UD4, adjetivos UD5, concordancia griega y caché offline propia en GitHub Pages');
