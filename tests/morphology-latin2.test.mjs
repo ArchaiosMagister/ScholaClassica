@@ -23,8 +23,8 @@ test('Latín II reutiliza formas documentadas sin unidades y sin mutar las 220 f
   assert.deepEqual(new Set(latin2.map(r=>r.kind)),
     new Set(['sustantivo','adjetivo','pronombre','verbo','participio','infinitivo']));
   assert.ok(latin2.every(r=>r.unit===0&&r.evidence.status==='paradigma-documentado'&&
-    r.headword&&r.forms.every(f=>f.analysis.startsWith(r.kind+' · '+r.headword+' · ')||
-      (r.kind==='adjetivo'&&f.analysis.startsWith('adjetivo · grado ')))));
+    r.headword&&r.forms.every(f=>f.analysis.startsWith(r.kind+' · ')&&
+      f.analysis.includes(' · '+r.headword+' · '))));
   assert.equal(availableRecords(bank,{language:'latin2',unit:0}).length,latin2.length);
   assert.throws(()=>availableRecords(bank,{language:'latin2',unit:1}),/todavía no disponible/);
 });
