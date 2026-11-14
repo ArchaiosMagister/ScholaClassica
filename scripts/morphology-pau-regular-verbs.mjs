@@ -272,8 +272,19 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
   }
   const voice=deponent?'pasiva (deponente, sentido activo)':'activa';
   if(cls==='1'){
-    forms.push({form:stem+'a',analysis:'verbo · '+headword+
-      ' · 2.ª persona · singular · presente · imperativo · voz '+voice});
+    // El imperativo deponente usa DESINENCIAS PASIVAS aunque tenga
+    // significado activo: morare / moramini, no *mora / *morate.
+    // Comprobar siempre ambas personas del imperativo de 1.ª conjugación.
+    const formsImperative=deponent?
+      [['singular',stem+'are'],['plural',stem+'amini']]:
+      [['singular',stem+'a'],['plural',stem+'ate']];
+    for(const [number,form] of formsImperative){
+      forms.push({form,person:'2.ª '+number,number,
+        tense:'presente',mood:'imperativo',voice,
+        analysis:'verbo · '+headword+
+          ' · 2.ª persona · '+number+
+          ' · presente · imperativo · voz '+voice});
+    }
   }
   const dedup=[...new Map(forms.map(f=>[latinFold(f.form)+'|'+f.analysis,f])).values()];
   return {id:'latin2-pau-regular-verb-'+lemma,language:'latin2',unit:0,
