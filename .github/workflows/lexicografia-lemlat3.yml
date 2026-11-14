@@ -67,6 +67,10 @@ jobs:
         run: node --test tests/lexicografia-latin2.test.mjs tests/lemlat3-latin2.test.mjs
       - name: Preparar formas simples prioritarias PAU y cuaderno
         run: node scripts/lemlat3-latin2.mjs prepare
+      - name: Instalar biblioteca de base de datos requerida por el ejecutable LEMLAT3
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libmariadbd19t64
       - name: Ejecutar CLI oficial LEMLAT3 sobre entradas priorizadas
         shell: bash
         run: |
