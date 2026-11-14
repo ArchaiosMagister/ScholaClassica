@@ -6,6 +6,7 @@ import {makeLatin1Curriculum,latin1ActivePerfects}
  from '../scripts/adapt-appendix-latin1.mjs';
 import {adaptLatin1App}
  from '../scripts/adapt-appendix-latin1-ui.mjs';
+import {adaptGreek1App} from '../scripts/adapt-appendix-griego1-ui.mjs';
 import {adaptLatin4App}
  from '../scripts/adapt-appendix-latin4-ui.mjs';
 import {GRAMMAR_CORE}
