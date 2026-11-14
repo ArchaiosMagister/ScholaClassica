@@ -50,10 +50,12 @@ El primer piloto no marca ninguna casilla como `individualmenteVerificada: true`
 Es posible importar un archivo **JSONL** exportado por LEMLAT 3.0 (o Collatinus), previa conversión explícita de sus etiquetas al mismo significado gramatical que UniMorph. Cada línea:
 
 ```json
-{"source":"LEMLAT3","revision":"sha-inmutable-del-análisis","lemma":"civis","form":"civium","features":["N","GEN","PL"]}
+{"source":"LEMLAT3","revision":"sha-inmutable-del-análisis","tagset":"UniMorph","reference":"LEMLAT3:registro-123","nativeFeatures":"sustantivo:genitivo:plural","lemma":"civis","form":"civium","features":["N","GEN","PL"]}
 ```
 
-`revision` debe ser el identificador real de la extracción, no una versión hipotética. Este archivo **no está incluido** por defecto. Hasta que se produzca una exportación confiable del analizador, **la ejecución automática cuenta exactamente una fuente independiente**.
+`revision` debe ser el identificador real de la extracción, no una versión hipotética. La `reference` identifica el registro original; `nativeFeatures` conserva las categorías originales del analizador y `tagset: "UniMorph"` indica que la conversión se ha realizado explícitamente. El importador rechaza otros nombres de fuente y etiquetas nativas sin convertir: una coincidencia basada en traducciones improvisadas de la terminología **no cuenta como evidencia independiente**.
+
+Este archivo **no está incluido** por defecto. Hasta que se produzca una exportación confiable del analizador, **la ejecución automática cuenta exactamente una fuente independiente**.
 
 LEMLAT 3.0 (CIRCSE) tiene licencia **CC BY-NC-SA 4.0**; Collatinus es **GPLv3**. Su integración como programas de auditoría separados debe respetar las licencias respectivas. Nunca copiar indiscriminadamente sus bases o código a la PWA. Tampoco atribuir dos votos independientes a derivados de la misma fuente.
 
@@ -71,7 +73,7 @@ Para un segundo archivo independiente cuya procedencia y licencia se hayan revis
 npm run lexicografia:lat2 -- --independent ruta/a/lemlat-export.jsonl
 ```
 
-La validación automática rechaza un corpus primario truncado y cualquier ruta de resultados dentro de `dist/` o `public/`. GitHub Actions publica los informes **solo como artefacto de revisión docente** `latin2-verificacion-lexicografica-fase1` (retención: 30 días), nunca como parte de GitHub Pages.
+La validación automática exige **más de 900.000 registros válidos** del corpus primario (no vale la selección de Vocabula), tolera etiquetas desconocidas sin descartarlas silenciosamente y rechaza cualquier ruta de resultados dentro de `dist/` o `public/`. GitHub Actions publica los informes **solo como artefacto de revisión docente** `latin2-verificacion-lexicografica-fase1` (retención: 30 días), nunca como parte de GitHub Pages.
 
 ## Próximas etapas (no realizadas en este piloto)
 
