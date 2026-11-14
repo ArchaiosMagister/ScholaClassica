@@ -192,7 +192,7 @@ try{
     const data=await fetch('./data/paradigmas.json').then(r=>r.json());
     return data.records.filter(r=>r.id.startsWith('griego-sustantivo-')).length;
   });
-  assert.equal(present,15,'La PWA debe conservar los ocho lemas y sumar siete acreditados');
+  assert.equal(present,24,'La PWA debe incluir los 24 lemas conciliados de tres lotes');
   await page.locator('#table-cells input').evaluateAll(fields=>{
     for(const field of fields){field.value='x';field.dispatchEvent(new Event('input',{bubbles:true}))}
   });
@@ -201,7 +201,7 @@ try{
   assert.equal(await page.locator('.evidence-links').count(),0);
   await page.context().setOffline(false);
   assert.deepEqual(errors,[]);
-  console.log('OK: quince sustantivos griegos y sintagmas triples offline, sin regresiones latinas');
+  console.log('OK: 24 sustantivos griegos y sintagmas triples offline, sin regresiones latinas');
 }finally{
   if(browser)await browser.close();
   await new Promise(done=>server.close(done));
