@@ -119,7 +119,7 @@ function nominalThird(stem,gender,number,{one=false,lemma,comparative=false}={})
   if(n){
     const nom=one?lemma:(gender==='neutro'?stem+'e':stem+'is');
     return [nom,nom,gender==='neutro'?nom:stem+'em',
-      stem+'is',stem+'i',lemma==='supplex'?stem+'e':stem+'i'];
+      stem+'is',stem+'i',stem+'i'];
   }
   return [gender==='neutro'?stem+'ia':stem+'es',
     gender==='neutro'?stem+'ia':stem+'es',
@@ -136,7 +136,7 @@ function record(lemma,headword,degree,type,flex){
         CASES[i]+' · '+gender+' · '+number+' · tipo '+type}));
     if(lemma==='supplex'){
       const supplemental=number==='singular'?
-        [{form:'supplici',case:'ablativo',usage:'variante menos frecuente'}]:
+        [{form:'supplice',case:'ablativo',usage:'variante contextual: uso sustantivado o poético; no prioritaria como adjetivo'}]:
         [{form:'supplicium',case:'genitivo',usage:'variante rara'}];
       for(const variant of supplemental)forms.push({
         ...variant,gender,number,
