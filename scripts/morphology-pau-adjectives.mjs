@@ -51,6 +51,28 @@ const COMPARATIVES=[
   ['amplior','amplior, amplius','amplior'],
   ['miserior','miserior, miserius','miserior']
 ];
+
+const CUADERNO_FIRST=[
+ ['publicus','publicus, publica, publicum','public'],
+ ['humanissimus','humanissimus, humanissima, humanissimum','humanissim','superlativo'],
+ ['creber','creber, crebra, crebrum','crebr'],
+ ['integer','integer, integra, integrum','integr'],
+ ['plurimus','plurimus, plurima, plurimum','plurim','superlativo'],
+ ['brevissimus','brevissimus, brevissima, brevissimum','brevissim','superlativo'],
+ ['durus','durus, dura, durum','dur'],
+ ['multus','multus, multa, multum','mult'],
+ ['bonus','bonus, bona, bonum','bon']
+];
+const CUADERNO_THIRD=[
+ ['fortis','fortis, forte','fort'],
+ ['nobilis','nobilis, nobile','nobil']
+];
+const CUADERNO_COMPARATIVES=[
+ ['gravior','gravior, gravius','gravior'],
+ ['dulcior','dulcior, dulcius','dulcior'],
+ ['fortior','fortior, fortius','fortior']
+];
+
 const NUMBERS=['singular','plural'];
 const V1=(stem,gender,number)=>(
   number==='singular'?
@@ -62,8 +84,9 @@ const V1=(stem,gender,number)=>(
       neutro:[stem+'a',stem+'a',stem+'a',stem+'orum',stem+'is',stem+'is']})[gender]
 );
 function nominalFirst(lemma,stem,gender,number){
-  if(lemma==='liber'&&gender==='masculino'&&number==='singular'){
-    const f=V1(stem,gender,number);f[0]='liber';f[1]='liber';return f;
+  if(['liber','creber','integer'].includes(lemma)&&
+      gender==='masculino'&&number==='singular'){
+    const f=V1(stem,gender,number);f[0]=lemma;f[1]=lemma;return f;
   }
   if(lemma==='totus'||lemma==='nullus'||lemma==='alius'||lemma==='alter'||lemma==='ipse'){
     const f=V1(stem,gender,number);
@@ -115,7 +138,9 @@ function record(lemma,headword,degree,type,flex){
   return {id:'latin2-pau-school-adjective-'+lemma,language:'latin2',unit:0,
     kind:'adjetivo',headword,paradigm:headword,forms,
     evidence:{source:'Paradigma latino escolar y lemas PAU CV',
-      file:'shared/academic/latin2/pau-cv-2006-2026.tsv',unit:0,
+      file:[...CUADERNO_FIRST,...CUADERNO_THIRD,...CUADERNO_COMPARATIVES].some(x=>x[0]===lemma)?
+        'shared/academic/latin2/cuaderno-2026-27-morfologia.tsv':
+        'shared/academic/latin2/pau-cv-2006-2026.tsv',unit:0,
       status:'paradigma-documentado',topic:'Lemas PAU de adjetivos',
       caption:lemma,verification:'generación escolar; cada forma requiere cotejo si se desea certificarla individualmente',
       notes:'Paradigma completo derivado únicamente de modelo y tema declarados.'}};
@@ -131,17 +156,17 @@ export function compilePauSchoolAdjectives(exams,existing){
     if(outputs.some(x=>x.id===row.id))return;
     outputs.push(row);
   }
-  for(const [lemma,headword,stem,degree='positivo',type='primera clase'] of FIRST){
+  for(const [lemma,headword,stem,degree='positivo',type='primera clase'] of [...FIRST,...CUADERNO_FIRST]){
     if(type==='tercera clase')continue;
     if(lemma==='alius'||lemma==='ipse'||lemma==='alter')continue; // pronombres / paradigmas ya declarados.
     add(record(lemma,headword,degree,type,(g,n)=>nominalFirst(lemma,stem,g,n)));
   }
-  for(const [lemma,headword,stem,one] of THIRD_TWO){
+  for(const [lemma,headword,stem,one] of [...THIRD_TWO,...CUADERNO_THIRD]){
     if(lemma==='reliquis')continue;
     add(record(lemma,headword,'positivo','tercera clase, '+(one||'dos terminaciones'),
       (g,n)=>nominalThird(stem,g,n,{one:one==='una terminación',lemma})));
   }
-  for(const [lemma,headword,stem] of COMPARATIVES){
+  for(const [lemma,headword,stem] of [...COMPARATIVES,...CUADERNO_COMPARATIVES]){
     add(record(lemma,headword,'comparativo','tercera declinación, dos terminaciones',
       (g,n)=>nominalThird(stem,g,n,{comparative:true})));
   }

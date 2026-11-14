@@ -1,6 +1,37 @@
 // Participios completos asociados a lemas de las preguntas de PAU.
 import assert from 'node:assert/strict';
 import {latinFold} from './morphology-pau-latin2.mjs';
+// Participios aislados subrayados o propuestos en los seis niveles del Cuaderno.
+// Se agregan al catálogo de temas flexivos: no son formas de sum.
+const CUADERNO_PPP=[
+ ['coemo','coemo, coemere, coemi, coemptum (3.ª)','coempt'],
+ ['habeo','habeo, habere, habui, habitum (2.ª)','habit'],
+ ['consequor','consequor, consequi, consecutus sum (3.ª deponente)','consecut','dep'],
+ ['cognosco','cognosco, cognoscere, cognovi, cognitum (3.ª)','cognit'],
+ ['proficiscor','proficiscor, proficisci, profectus sum (3.ª deponente)','profect','dep'],
+ ['cogo','cogo, cogere, coegi, coactum (3.ª)','coact'],
+ ['permoveo','permoveo, permovere, permovi, permotum (2.ª)','permot'],
+ ['nuntio','nuntio, nuntiare, nuntiavi, nuntiatum (1.ª)','nuntiat'],
+ ['perago','perago, peragere, peregi, peractum (3.ª)','peract'],
+ ['duco','duco, ducere, duxi, ductum (3.ª)','duct'],
+ ['capio','capio, capere, cepi, captum (3.ª mixta)','capt'],
+ ['excludo','excludo, excludere, exclusi, exclusum (3.ª)','exclus'],
+ ['mitto','mitto, mittere, misi, missum (3.ª)','miss'],
+ ['do','do, dare, dedi, datum (1.ª)','dat'],
+ ['deleo','deleo, delere, delevi, deletum (2.ª)','delet'],
+ ['amo','amo, amare, amavi, amatum (1.ª)','amat'],
+ ['pono','pono, ponere, posui, positum (3.ª)','posit'],
+ ['occido','occido, occidere, occidi, occisum (3.ª)','occis'],
+ ['audio','audio, audire, audivi, auditum (4.ª)','audit']
+];
+const CUADERNO_PRESENT=[
+ ['promitto','promitto, promittere, promisi, promissum (3.ª)','promittent','promittens'],
+ ['redeo','redeo, redire, redii, reditum (irregular)','redeunt','rediens'],
+ ['fleo','fleo, flere, flevi, fletum (2.ª)','flent','flens'],
+ ['habeo','habeo, habere, habui, habitum (2.ª)','habent','habens'],
+ ['audio','audio, audire, audivi, auditum (4.ª)','audient','audiens']
+];
+
 const CASES=['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'];
 const GENDERS=['masculino','femenino','neutro'];
 const PPP=[
@@ -58,22 +89,41 @@ function compile(id,headword,tense,voice,decl){
   return {id:'latin2-pau-participle-'+id,language:'latin2',unit:0,kind:'participio',
     headword,paradigm:headword,forms,evidence:{
       source:'Modelos escolares de flexión de participios y lemas PAU CV',
-      file:'shared/academic/latin2/pau-cv-2006-2026.tsv',
+      file:[...CUADERNO_PPP,...CUADERNO_PRESENT].some(row=>row[0]===id)?
+        'shared/academic/latin2/cuaderno-2026-27-morfologia.tsv':
+        'shared/academic/latin2/pau-cv-2006-2026.tsv',
       status:'paradigma-documentado',topic:'Formas participiales de PAU',caption:id,unit:0,
       verification:'generación morfológica; no constituye cotejo independiente de cada forma',
       notes:'Paradigma nominal íntegro con tiempo y voz del verbo; no se separan los compuestos verbales.'}};
 }
 export function compilePauParticiples(exams){
   const requested=new Set(exams.flatMap(q=>q.forms.map(latinFold)));
-  const output=[];
-  for(const [id,headword,stem] of PPP){
-    const r=compile(id,headword,'perfecto','pasiva',
+  const output=[],seen=new Set();
+  for(const [id,headword,stem,dep] of [...PPP,...CUADERNO_PPP]){
+    if(seen.has(id))continue;seen.add(id);
+    const r=compile(id,headword,'perfecto',
+      dep==='dep'?'pasiva (deponente, sentido activo)':'pasiva',
       (gender,number)=>firstDecl(stem,gender,number));
-    if(r.forms.some(f=>requested.has(latinFold(f.form))))output.push(r);
+    const aux=['sum','es','est','sumus','estis','sunt',
+      'eram','eras','erat','eramus','eratis','erant',
+      'ero','eris','erit','erimus','eritis','erunt',
+      'sim','sis','sit','simus','sitis','sint',
+      'essem','esses','esset','essemus','essetis','essent'];
+    const used=r.forms.some(f=>{
+      const form=latinFold(f.form);
+      return requested.has(form)||aux.some(a=>
+        requested.has(form+' '+a)||requested.has(a+' '+form));
+    });
+    if(used)output.push(r);
   }
-  for(const [id,headword,stem,nom] of PRESENT){
+  const presentSeen=new Set();
+  for(const [id,headword,stem,nom] of [...PRESENT,...CUADERNO_PRESENT]){
+    if(presentSeen.has(id))continue;presentSeen.add(id);
     const r=compile(id,headword,'presente','activa',
       (gender,number)=>presentDecl(stem,nom,gender,number));
+    // El mismo verbo puede ofrecer participio de presente y perfecto:
+    // no son el mismo paradigma ni deben bloquearse mutuamente.
+    if(seen.has(id))r.id+='-present';
     if(r.forms.some(f=>requested.has(latinFold(f.form))))output.push(r);
   }
   return output;
