@@ -6,9 +6,8 @@ import {compileGreekExigibleNounBatch} from '../scripts/greek-noun-conciliation.
 import {INDIVIDUAL_GREEK_NOUN_CHECKS,verifyNineGreekNounRecords,CASE_ORDER,
  NUMBER_ORDER} from '../scripts/greek-noun-individual-review.mjs';
 import {availableRecords} from '../public/morfologia/engine.mjs';
-import {makeTableExercises} from '../public/morfologia/tables.mjs';
-import {evaluateTable,correctWritten} from '../public/morfologia/written.mjs';
-import {makeWrittenQuestions} from '../public/morfologia/written.mjs';
+import {makeTableExercises,makeWrittenQuestions,evaluateTable,correctWritten}
+ from '../public/morfologia/written.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const vocab=join(root,'.sources/vocabula');
