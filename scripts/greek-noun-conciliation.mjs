@@ -50,6 +50,34 @@ const EARLY_ADDITIONS=[
     decl:'1.ª declinación (α puro)',genitiveSuffix:'–ας',
     unit:4,vocab:'UD 1–4',grammarUnit:3}
 ];
+// Palabras exigibles con lección propia o bloque curricular delimitado.
+// Las de «UD 6–7» se habilitan en UD7, nunca en UD6 por conjetura.
+// Se aceptan grafías distintas de genitivo abreviado solo cuando constan
+// expresamente en la ficha de Vocabula; la flexión procede de UniMorph.
+const EXIGIBLE_ADDITIONS=[
+  {id:'arche',lemma:'ἀρχή',genitive:'ἀρχῆς',gender:'femenino',
+    decl:'1.ª declinación (η)',vocabSuffix:'–ῆς',
+    unit:5,vocab:'UD 5',grammarUnit:3},
+  {id:'strategos',lemma:'στρατηγός',genitive:'στρατηγοῦ',gender:'masculino',
+    decl:'2.ª declinación',unit:5,vocab:'UD 5',grammarUnit:1},
+  {id:'epistole',lemma:'ἐπιστολή',genitive:'ἐπιστολῆς',gender:'femenino',
+    decl:'1.ª declinación (η)',unit:7,vocab:'UD 6–7',grammarUnit:3},
+  {id:'kephale',lemma:'κεφαλή',genitive:'κεφαλῆς',gender:'femenino',
+    decl:'1.ª declinación (η)',vocabSuffix:'–ῆς',
+    unit:7,vocab:'UD 6–7',grammarUnit:3},
+  {id:'mache',lemma:'μάχη',genitive:'μάχης',gender:'femenino',
+    decl:'1.ª declinación (η)',unit:7,vocab:'UD 6–7',grammarUnit:3},
+  {id:'petra',lemma:'πέτρα',genitive:'πέτρας',gender:'femenino',
+    decl:'1.ª declinación (α puro)',genitiveSuffix:'–ας',
+    unit:7,vocab:'UD 6–7',grammarUnit:3},
+  {id:'ouranos',lemma:'οὐρανός',genitive:'οὐρανοῦ',gender:'masculino',
+    decl:'2.ª declinación',vocabSuffix:'–οῦ',
+    unit:9,vocab:'UD 9',grammarUnit:1},
+  {id:'hoplon',lemma:'ὅπλον',genitive:'ὅπλου',gender:'neutro',
+    decl:'2.ª declinación',unit:10,vocab:'UD 10',grammarUnit:2},
+  {id:'phobos',lemma:'φόβος',genitive:'φόβου',gender:'masculino',
+    decl:'2.ª declinación',unit:10,vocab:'UD 10',grammarUnit:1}
+];
 // La cantidad vocálica no se exige en los ejercicios, pero sí acento y espíritu.
 // No se borra la iota suscrita ni otros elementos de la flexión.
 const noQuantity=s=>String(s).normalize('NFD').replace(/[\u0304\u0306]/gu,'').normalize('NFC');
@@ -70,8 +98,8 @@ function checkVocab(items,spec){
   assert.equal(entries.length,1,'Lema o unidad de examen ambiguos: '+spec.lemma);
   const entry=entries[0];
   const gen=entry.form.split(',')[1]?.trim()||'';
-  assert.ok(['–ου','–ης','–ας'].includes(gen),'Enunciado nominal no esperado: '+entry.form);
-  assert.equal(gen,spec.genitiveSuffix||
+  assert.ok(['–ου','–οῦ','–ης','–ῆς','–ας'].includes(gen),'Enunciado nominal no esperado: '+entry.form);
+  assert.equal(gen,spec.vocabSuffix||spec.genitiveSuffix||
     '–'+(spec.decl.startsWith('1.')?'ης':'ου'),
     'Genitivo curricular incoherente: '+spec.lemma);
   return entry;
@@ -170,6 +198,19 @@ export function compileGreekEarlyNounBatch({curriculum,vocabulaData,unimorphPart
   });
   assert.equal(records.length,7);
   assert.equal(new Set(records.map(r=>r.id)).size,7);
+  return records;
+}
+export function compileGreekExigibleNounBatch({curriculum,vocabulaData,unimorphParts,vocabulaSha}){
+  assert.ok(/^[a-f0-9]{40}$/.test(vocabulaSha));
+  assert.ok(Array.isArray(unimorphParts)&&unimorphParts.length===8);
+  const lex=vocabList(vocabulaData),rows=unimorphParts.flat();
+  const recordIds=new Set();
+  const records=EXIGIBLE_ADDITIONS.map(spec=>{
+    assert.ok(!recordIds.has(spec.id),'Candidatura duplicada');recordIds.add(spec.id);
+    const source=checkVocab(lex,spec);
+    return readOneNoun(spec,rows,source,curriculum,vocabulaSha);
+  });
+  assert.equal(records.length,9);
   return records;
 }
 export async function readGreekNounSource(source){
