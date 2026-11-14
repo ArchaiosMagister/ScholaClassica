@@ -271,20 +271,27 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
     }
   }
   const voice=deponent?'pasiva (deponente, sentido activo)':'activa';
-  if(cls==='1'){
-    // El imperativo deponente usa DESINENCIAS PASIVAS aunque tenga
-    // significado activo: morare / moramini, no *mora / *morate.
-    // Comprobar siempre ambas personas del imperativo de 1.ª conjugación.
-    const formsImperative=deponent?
-      [['singular',stem+'are'],['plural',stem+'amini']]:
-      [['singular',stem+'a'],['plural',stem+'ate']];
-    for(const [number,form] of formsImperative){
-      forms.push({form,person:'2.ª '+number,number,
-        tense:'presente',mood:'imperativo',voice,
-        analysis:'verbo · '+headword+
-          ' · 2.ª persona · '+number+
-          ' · presente · imperativo · voz '+voice});
-    }
+  // El imperativo es una casilla esencial del paradigma, no un fenómeno
+  // exclusivo de la primera conjugación. Los deponentes reciben desinencias
+  // pasivas y significación activa en las cinco clases.
+  const imperativeEndings=deponent?{
+    '1':['are','amini'],'2':['ere','emini'],
+    '3':['ere','imini'],'4':['ire','imini'],m:['ere','imini']
+  }:{
+    '1':['a','ate'],'2':['e','ete'],
+    '3':['e','ite'],'4':['i','ite'],m:['e','ite']
+  };
+  const endings=imperativeEndings[cls];
+  assert.equal(endings.length,2);
+  for(const [i,number] of ['singular','plural'].entries()){
+    // dico, duco y facio son las excepciones con imperativo breve
+    // dic, duc, fac. El resto mantiene el tema y su vocal de clase.
+    const form=!deponent&&i===0&&['dico','duco','facio'].includes(lemma)?
+      stem:stem+endings[i];
+    forms.push({form,person:'2.ª '+number,number,
+      tense:'presente',mood:'imperativo',voice,
+      analysis:'verbo · '+headword+' · 2.ª persona · '+number+
+        ' · presente · imperativo · voz '+voice});
   }
   const dedup=[...new Map(forms.map(f=>[latinFold(f.form)+'|'+f.analysis,f])).values()];
   return {id:'latin2-pau-regular-verb-'+lemma,language:'latin2',unit:0,
