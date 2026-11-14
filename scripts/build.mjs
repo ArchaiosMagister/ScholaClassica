@@ -10,6 +10,8 @@ import {adaptEvolutioDifficulty} from './adapt-evolutio-difficulty.mjs';
 import {adaptAppendixOled,adaptEvolutioOled,adaptVocabulaOled} from './adapt-integrated-oled.mjs';
 import {adaptEvolutioStudentCopy,adaptVocabulaStudentCopy} from './adapt-student-copy.mjs';
 import {buildDocenteGrammarIndex} from './build-docente-gramatica.mjs';
+import {adaptAppendixLatin4} from './adapt-appendix-latin4.mjs';
+import {adaptAppendixLatin4UI} from './adapt-appendix-latin4-ui.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -147,6 +149,10 @@ await writeFile(join(out,'docente/vocabula-catalog.json'),JSON.stringify({
 }));
 console.log('Catálogo docente de Vocabula:',docenteWords.length,'entradas originales');
 await buildDocenteGrammarIndex({vocabulaSource,out});
+// La gramática de 4.º se deriva de Appendix y del temario de Vocabula
+// en los dos idiomas, solo en dist: no se altera ninguno de los originales.
+await adaptAppendixLatin4({destination,source,vocabulaSource});
+await adaptAppendixLatin4UI(destination);
 
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
 await adaptVocabulaOled(vocabulaDestination);
