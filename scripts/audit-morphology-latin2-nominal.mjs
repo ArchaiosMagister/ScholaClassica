@@ -93,6 +93,37 @@ export function auditLatin2Nominal(bank){
   const records=bank.records.filter(r=>r.language==='latin2');
   const nominal=records.filter(r=>['sustantivo','adjetivo','pronombre'].includes(r.kind));
   const blocking=[],review=[];
+  const allowedCases=new Set(['nominativo','vocativo','acusativo','genitivo','dativo','ablativo']);
+  const allowedGenders=new Set(['masculino','femenino','neutro']);
+  const allowedNumbers=new Set(['singular','plural']);
+  let checkedCells=0;
+  // Comprobación estructural de TODAS las casillas nominales (la verificación
+  // filológica individual de cada celda continúa siendo un nivel distinto).
+  for(const r of nominal)for(const f of r.forms){
+    checkedCells++;
+    if(!allowedCases.has(f.case)||!allowedNumbers.has(f.number)){
+      issue(blocking,'NOMINAL_MISSING_ACCIDENT',r.id,f.form,
+        {case:f.case,number:f.number});
+      continue;
+    }
+    if(f.gender&&!allowedGenders.has(f.gender))
+      issue(blocking,'NOMINAL_INVALID_GENDER',r.id,f.form,{gender:f.gender});
+    if(r.kind!=='pronombre'&&!allowedGenders.has(f.gender))
+      issue(blocking,'NOMINAL_UNDECLARED_GENDER',r.id,f.form);
+    if(!f.analysis?.startsWith(r.kind+' · ')||
+       !f.analysis.includes(' · '+r.headword+' · ')||
+       !f.analysis.includes(' · '+f.case+' · ')||
+       !f.analysis.includes(' · '+f.number)){
+      issue(blocking,'NOMINAL_ANALYSIS_INCOMPLETE',r.id,f.form,
+        {case:f.case,number:f.number});
+    }
+    if(r.kind==='adjetivo'&&(!f.analysis.includes(' · grado ')||
+        !f.analysis.includes(' · tipo ')))
+      issue(blocking,'ADJECTIVE_GRADE_OR_TYPE_MISSING',r.id,f.form);
+    if(r.kind==='sustantivo'&&(!f.analysis.includes(' declinación')||
+        !f.analysis.includes(' · '+f.gender+' · ')))
+      issue(blocking,'NOUN_GENDER_OR_DECLENSION_MISSING',r.id,f.form);
+  }
   for(const [kind,head,form,cas,number,gender] of EXPECTED){
     const candidates=choose(nominal,head,kind);
     if(!candidates.some(r=>findForm(r,form,cas,number,gender).length))
@@ -141,7 +172,7 @@ export function auditLatin2Nominal(bank){
       forms:nominal.reduce((n,r)=>n+r.forms.length,0),
       byCategory:Object.fromEntries(['sustantivo','adjetivo','pronombre'].map(
         kind=>[kind,nominal.filter(r=>r.kind===kind).length])),
-      exactChecks:EXPECTED.length,exclusions:FORBIDDEN.length,
+      checkedCells,exactChecks:EXPECTED.length,exclusions:FORBIDDEN.length,
       reservedVariantChecks:4},
     blockingIssues:blocking,reviewIssues:review,
     referenceNotes:auditReferences,
