@@ -201,6 +201,43 @@ try{
      'UD4 no puede anticipar la pasiva compuesta '+lang);
    assert.equal(await page.locator('.lesson-body a[href$="indicativo.html"]').count(),0,
      'No debe depender de la página de indicativo conectada '+lang);
+   const puer=units.nth(0).locator('caption').filter({hasText:'puer'}).first();
+   assert.ok((await puer.innerHTML()).includes('<i lang="la">puer</i>'),
+     'Sin cursiva el lema puer en UD1 '+lang);
+   assert.ok((await puer.innerHTML()).includes('<i lang="la">ager</i>'),
+     'Sin cursiva el lema ager en UD1 '+lang);
+   const personal=units.nth(2).locator('th[scope="col"]').filter({hasText:'ego'}).first();
+   assert.ok((await personal.innerHTML()).includes('<i lang="la">ego</i>'),
+     'Sin cursiva el pronombre ego en UD3 '+lang);
+   assert.match(await personal.textContent(),lang==='es'?/1\.ª sing\./:/1a sing\./);
+  }
+  for(const [prefix,lang] of [['','es'],['val/','val']]){
+   const res=await page.goto(grammar+prefix+
+     'curso.html?lengua=latin&curso=1&unidad=7',{waitUntil:'load'});
+   assert.equal(res.status(),200,'Latín I UD7 sin conexión '+lang);
+   await page.waitForFunction(()=>document.querySelectorAll('.unit-section').length===7,
+     null,{timeout:10000});
+   const relative=page.locator('.unit-section').nth(5).locator('caption')
+     .filter({hasText:'qui'}).last();
+   assert.ok((await relative.innerHTML()).includes('<i lang="la">quod</i>'));
+   assert.ok((await relative.textContent()).includes(lang==='es'?'Relativo':'Relatiu'));
+   const future=page.locator('.unit-section').nth(6).locator('caption')
+     .filter({hasText:'sum, esse'}).last();
+   assert.ok((await future.innerHTML()).includes('<i lang="la">sum, esse</i>'),
+     'Falta cursiva en el futuro de sum '+lang);
+  }
+  for(const [prefix,lang] of [['','es'],['val/','val']]){
+   const res=await page.goto(grammar+prefix+
+     'curso.html?lengua=griego&curso=1&unidad=5',{waitUntil:'load'});
+   assert.equal(res.status(),200,'Griego I offline '+lang);
+   await page.waitForFunction(()=>document.querySelectorAll('.unit-section').length===5,
+     null,{timeout:10000});
+   const greek=await page.locator('.unit-section').nth(4)
+     .locator('.lesson-body').first().textContent();
+   assert.ok(greek.includes('ἀγαθός, ἀγαθή, ἀγαθόν'),
+     'La tabla de Griego I UD5 debe conservar espíritu suave '+lang);
+   assert.ok(!greek.includes('ἀγαθός, αγαθή, ἀγαθόν'),
+     'Grafía sin espíritu en la copia visible de Griego I '+lang);
   }
   await page.context().setOffline(false);
   assert.deepEqual(errors,[],'Errores en Latín I bilingüe sin conexión: '+errors.join(' | '));
