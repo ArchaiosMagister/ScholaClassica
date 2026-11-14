@@ -56,6 +56,7 @@ const MODELS=[
  ['violo','violo, violare, violavi, violatum (1.ª)','1','viol','violav','violat'],
  ['dissideo','dissideo, dissidere, dissedi (2.ª)','2','dissid','dissed',null,'intrans'],
  ['insequor','insequor, insequi, insecutus sum (3.ª deponente)','3','insequ',null,null,'dep'],
+ ['sequor','sequor, sequi, secutus sum (3.ª deponente)','3','sequ',null,null,'dep'],
  ['conficio','conficio, conficere, confeci, confectum (3.ª mixta)','m','confic','confec','confect'],
  ['confugio','confugio, confugere, confugi (3.ª mixta)','m','confug','confug',null,'intrans'],
  ['accipio','accipio, accipere, accepi, acceptum (3.ª mixta)','m','accip','accep','accept'],
@@ -185,17 +186,6 @@ function produce(lemma,headword,cls,stem,perfect,ppp,flag){
     }
   }
   const voice=deponent?'pasiva (deponente, sentido activo)':'activa';
-  const inf=stem+SFX[cls].inf[0];
-  // Los verbos en -io en 3.ª mixta forman pasivos de presente con -i, pero
-  // facio tiene el infinitivo pasivo irregular fieri; nunca producir 'faci'.
-  forms.push({form:inf,analysis:'infinitivo · '+headword+' · presente · voz '+voice,tense:'presente'});
-  if(deponent){
-    forms.push({form:stem+SFX[cls].inf[1],analysis:'infinitivo · '+headword+
-      ' · presente · voz pasiva (deponente, sentido activo)',tense:'presente'});
-  }else if(flag!=='no-passive'){
-    forms.push({form:stem+SFX[cls].inf[1],analysis:'infinitivo · '+headword+
-      ' · presente · voz pasiva',tense:'presente'});
-  }
   if(cls==='1'){
     forms.push({form:stem+'a',analysis:'verbo · '+headword+
       ' · 2.ª persona · singular · presente · imperativo · voz '+voice});
@@ -216,6 +206,42 @@ export function compilePauRegularVerbs(exams){
     if(seen.has(lemma))continue;seen.add(lemma);
     const r=produce(lemma,headword,cls,stem,perfect,ppp,flag);
     if(r.forms.some(x=>requested.has(latinFold(x.form))))results.push(r);
+    const infForms=[];
+    const isDep=flag==='dep';
+    function inf(form,tense,voice){
+      if(form)infForms.push({form,tense,voice,
+        analysis:'infinitivo · '+headword+' · '+tense+' · voz '+voice});
+    }
+    if(isDep){
+      inf(stem+SFX[cls].inf[1],'presente','pasiva (deponente, sentido activo)');
+      const depStem={moror:'morat',proficiscor:'profect',polliceor:'pollicit',
+        circumplector:'circumplex',patior:'pass',insequor:'insecut',
+        sequor:'secut'}[lemma];
+      assert.ok(depStem,'Falta el perfecto deponente: '+lemma);
+      inf(depStem+'um esse','perfecto','pasiva (deponente, sentido activo)');
+      inf(depStem+'urum esse','futuro','activa (deponente)');
+    }else{
+      inf(stem+SFX[cls].inf[0],'presente','activa');
+      if(flag!=='no-passive')inf(stem+SFX[cls].inf[1],'presente','pasiva');
+      if(perfect)inf(perfect+'isse','perfecto','activa');
+      if(ppp){
+        if(flag!=='no-passive'&&flag!=='intrans')
+          inf(ppp+'um esse','perfecto','pasiva');
+        inf(ppp+'urum esse','futuro','activa');
+        if(flag!=='no-passive'&&flag!=='intrans')inf(ppp+'um iri','futuro','pasiva');
+      }
+    }
+    if(infForms.some(f=>requested.has(latinFold(f.form)))){
+      assert.ok(infForms.length>=2,'Infinitivos incompletos: '+lemma);
+      results.push({id:'latin2-pau-regular-infinitive-'+lemma,
+        language:'latin2',unit:0,kind:'infinitivo',headword,paradigm:headword,
+        forms:infForms,evidence:{source:'Conjugación escolar latina y texto PAU',
+          file:'shared/academic/latin2/pau-cv-2006-2026.tsv',
+          status:'paradigma-documentado',topic:'Infinitivos documentados',
+          caption:lemma,unit:0,
+          verification:'modelos escolares; solo se incluye si forma requerida por PAU',
+          notes:'Infinitivos completos separados de los verbos personales.'}});
+    }
   }
   return results;
 }
