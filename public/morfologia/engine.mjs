@@ -272,25 +272,33 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const distractors=analysisDistractors(record,allGrouped,g.analysis,index);
         if(distractors.length<3)continue;
         if(language==='latin2')usedLatin2Prompts.add(key);
-        let ranked=shuffle(distractors,rng);
-        if(language==='latin2'){
-          const targetTokens=proximityTokens(g.analysis);
-          ranked=ranked.map(option=>({option,score:proximity(targetTokens,option)}))
-            .sort((a,b)=>b.score-a.score).map(({option})=>option);
-        }
-        const options=shuffle([...ranked.slice(0,3),g.analysis],rng);
+        const options=language==='latin2'?null:
+          shuffle([...shuffle(distractors,rng).slice(0,3),g.analysis],rng);
         candidates.push({
           id:record.id+':analysis:'+index,activity,kind:record.kind,
           prompt:'¿Qué análisis admite esta forma?',paradigm:record.paradigm,
           headword:analysisHeadword(record),
           form:g.form,correct:g.analysis,options,evidence:record.evidence,language,
-          ambiguous:g.analysis.includes(' / ')
+          ambiguous:g.analysis.includes(' / '),
+          ...(language==='latin2'?{_grouped:allGrouped,_groupIndex:index}:{})
         });
       }
     }
   }
-  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
+  const selected=selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
     limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
+  // Evaluar el banco completo, pero generar/ordenar opciones de respuesta
+  // solo para las preguntas que efectivamente aparecen en la tanda.
+  if(language!=='latin2'||activity!=='analysis')return selected;
+  return selected.map(question=>{
+    const {_grouped,_groupIndex,...item}=question;
+    const distractors=analysisDistractors(item,_grouped,item.correct,_groupIndex);
+    const targetTokens=proximityTokens(item.correct);
+    const ranked=shuffle(distractors,rng)
+      .map(option=>({option,score:proximity(targetTokens,option)}))
+      .sort((a,b)=>b.score-a.score).map(({option})=>option);
+    return {...item,options:shuffle([...ranked.slice(0,3),item.correct],rng)};
+  });
 }
 export function evaluate(question,choice){
   if(!question?.options?.includes(choice))throw Error('Respuesta ajena al ejercicio');
