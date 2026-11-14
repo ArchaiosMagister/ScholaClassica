@@ -165,6 +165,11 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         if(distractors.length<3)continue;
         const core=ordinaryEntries(record).filter(f=>
           fold(f.analysis)===analysis).map(f=>fold(f.form));
+        // No se debe sortear un análisis cuya única evidencia sean
+        // flexiones analógicas no contrastadas o variantes reservadas.
+        // Si hay una forma corriente para ese análisis, se conservan
+        // las variantes documentadas como respuestas alternativas.
+        if(record.language==='latin2'&&core.length===0)continue;
         const regularChoices=acceptedForms.filter(form=>core.includes(form));
         const correct=shuffle(regularChoices.length?regularChoices:acceptedForms,rng)[0];
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),correct],rng);
