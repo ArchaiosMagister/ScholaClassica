@@ -76,7 +76,7 @@ try{
   assert.match(result.flumen.source,/General: UD 5 · UD 8/);
   assert.match(result.flumen.source,/Examen: UD 4/);
   assert.equal(result.idCount,result.total);
-  await page.locator('details.help').last().locator('summary').click();
+  await page.locator('details.help').last().locator('summary').first().click();
   await page.locator('#search').fill('flumen');
   assert.equal(await page.locator('#dictionary .dictrow').count(),1,
     'Una ficha idéntica de General y Examen no puede duplicarse');
