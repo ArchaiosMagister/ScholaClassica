@@ -28,7 +28,8 @@ import {auditLatin2Nominal,assertLatin2NominalAuditPasses} from './audit-morphol
 import {auditLatin2Verbal,assertLatin2VerbalAuditPasses} from './audit-morphology-latin2-verbal.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
-import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
+import {compileGreekNounBatch,compileGreekEarlyNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
+import {compileLatinCurricularFollowup} from './morphology-curricular-followup.mjs';
 import {compileCurricularGapBatch} from './morphology-curricular-gaps.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
@@ -382,7 +383,14 @@ export async function buildMorphology({out,lock}){
   // Apéndice curricular: AL FINAL para preservar los identificadores e índices
   // de las 220 fichas originales y de toda la práctica de Latín II.
   const curricularGaps=compileCurricularGapBatch(curriculum);
-  const fullRecords=[...originalRecords,...latin2,...additions,...curricularGaps];
+  // Segundo lote también al final: conservar todas las posiciones de PR 72.
+  const latinFollowup=compileLatinCurricularFollowup(curriculum,
+    [...originalRecords,...latin2,...additions,...curricularGaps]);
+  const greekFollowup=compileGreekEarlyNounBatch({
+    curriculum,...sourceData,vocabulaSha:lock.sources.vocabula.sha
+  });
+  const fullRecords=[...originalRecords,...latin2,...additions,...curricularGaps,
+    ...latinFollowup,...greekFollowup];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
     records:fullRecords};
@@ -435,6 +443,7 @@ export async function buildMorphology({out,lock}){
   console.log('Morfología: '+fullRecords.length+
     ' fichas; '+covered.length+' de 301 formas PAU incorporadas por paradigmas completos');
   console.log('Cobertura curricular: '+curricularGaps.length+
-    ' paradigmas nuevos en Latín I y Griego I, con evidencia propia.');
+    ' paradigmas del primer bloque, '+(latinFollowup.length+greekFollowup.length)+
+    ' del segundo bloque, con fuentes documentadas.');
   console.log('PAU pendientes de paradigma completo: '+missing.join(', '));
 }
