@@ -101,7 +101,7 @@ function fero(){
 }
 function eo(){
   const h='eo, ire, ii (ivi), itum (irregular)',a='activa';
-  return chart(h,'eo',[
+  const record=chart(h,'eo',[
     ['presente','indicativo',a,['eo','is','it','imus','itis','eunt']],
     ['imperfecto','indicativo',a,['ibam','ibas','ibat','ibamus','ibatis','ibant']],
     ['futuro','indicativo',a,['ibo','ibis','ibit','ibimus','ibitis','ibunt']],
@@ -114,6 +114,44 @@ function eo(){
     ['perfecto','subjuntivo',a,['ierim','ieris','ierit','ierimus','ieritis','ierint']],
     ['pluscuamperfecto','subjuntivo',a,['issem','isses','isset','issemus','issetis','issent']]
   ]);
+  // A&G §203: los perfectos con v son variantes reales, aunque menos
+  // habituales en la forma simple eo. Se conservan todos sus tiempos.
+  const extra=[];
+  for(const f of record.forms){
+    if(/^ier/.test(f.form)&&
+       ['perfecto','pluscuamperfecto','futuro perfecto'].includes(f.tense)){
+      extra.push({...f,form:f.form.replace(/^ier/,'iver'),
+        usage:'variante de perfecto con v, poco frecuente en prosa clásica'});
+    }
+    if(/^iss/.test(f.form)&&f.tense==='pluscuamperfecto'&&
+       f.mood==='subjuntivo'){
+      extra.push({...f,form:f.form.replace(/^iss/,'iviss'),
+        usage:'variante de perfecto con v, poco frecuente en prosa clásica'});
+    }
+    if(/^iv/.test(f.form))
+      f.usage='variante de perfecto con v, poco frecuente en prosa clásica';
+  }
+  const impersonal=[
+    ['itur','presente','indicativo'],['ibatur','imperfecto','indicativo'],
+    ['ibitur','futuro','indicativo'],['eatur','presente','subjuntivo'],
+    ['iretur','imperfecto','subjuntivo'],
+    ['itum est','perfecto','indicativo'],
+    ['itum erat','pluscuamperfecto','indicativo'],
+    ['itum erit','futuro perfecto','indicativo'],
+    ['itum sit','perfecto','subjuntivo'],
+    ['itum esset','pluscuamperfecto','subjuntivo']
+  ];
+  for(const [form,tense,mood] of impersonal){
+    record.forms.push(word(form,desc(h,'3.ª','singular',tense,mood,'pasiva')+
+      ' (impersonal)',{person:'3.ª singular',number:'singular',
+        tense,mood,voice:'pasiva',construction:'impersonal'}));
+  }
+  const seen=new Set(record.forms.map(f=>f.form+'|'+f.analysis));
+  for(const f of extra){
+    const key=f.form+'|'+f.analysis;
+    if(!seen.has(key)){record.forms.push(f);seen.add(key);}
+  }
+  return record;
 }
 function fio(){
   const h='fio, fieri, factus sum (irregular)';
