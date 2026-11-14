@@ -4,6 +4,7 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {join} from 'node:path';
+import {verifyNineGreekNounRecords} from './greek-noun-individual-review.mjs';
 const CASES=[['nominativo','NOM'],['vocativo','VOC'],['acusativo','ACC'],
   ['genitivo','GEN'],['dativo','DAT']];
 const NUMBERS=[['singular','SG'],['plural','PL']];
@@ -215,7 +216,7 @@ export function compileGreekExigibleNounBatch({curriculum,vocabulaData,unimorphP
     return readOneNoun(spec,rows,source,curriculum,vocabulaSha);
   });
   assert.equal(records.length,9);
-  return records;
+  return verifyNineGreekNounRecords(records);
 }
 export async function readGreekNounSource(source){
   const vocabulaData=await readFile(join(source,'data.js'),'utf8');

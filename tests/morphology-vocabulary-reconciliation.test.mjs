@@ -99,11 +99,14 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
     assert.equal(new Set(r.forms.map(f=>f.case+':'+f.number)).size,10);
     assert.ok(['masculino','femenino','neutro'].includes(r.gender));
     assert.equal(r.evidence.vocabulaSha,lock.sources.vocabula.sha);
-    assert.ok(r.evidence.review.includes('pendiente de revisión docente individual'));
+    assert.ok(r.evidence.review.includes('10/10 formas contrastadas'));
     assert.equal(r.evidence.status,'paradigma-documentado');
+    assert.equal(r.evidence.individualVerification.status,'contrastado-individualmente');
+    assert.equal(r.evidence.individualVerification.checkedCount,10);
+    assert.equal(r.evidence.individualVerification.slots.length,10);
     const written=makeWrittenQuestions(only(r),
       {language:'griego',unit:r.unit,limit:30,rng});
-    assert.ok(written.length>=8);
+    assert.ok(written.length>=(r.id==='griego-sustantivo-ouranos'?5:8));
     assert.ok(written.every(q=>correctWritten(q,q.acceptedForms[0]).correct));
     const decl=makeTableExercises(only(r),{language:'griego',unit:r.unit,rng});
     assert.equal(decl.length,1);

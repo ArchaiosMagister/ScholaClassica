@@ -71,7 +71,28 @@ assert.deepEqual(new Set(nouns.map(n=>n.id)),
   'Solo sustantivos conciliados individualmente en ambos lotes');
 assert.ok(nouns.every(n=>n.forms.length===10&&n.gender&&
   n.evidence.vocabulaSha===locked.sources.vocabula.sha&&
-  n.evidence.review.includes('pendiente de revisión docente individual')));
+  n.evidence.review.includes('conciliación interfuentes')&&
+  (n.evidence.review.includes('pendiente de revisión docente individual')||
+   (n.evidence.individualVerification?.status==='contrastado-individualmente'&&
+    n.evidence.individualVerification.checkedCount===10&&
+    n.evidence.individualVerification.slots?.length===10))),
+  'Sustantivo sin procedencia pendiente o cotejo de diez casillas');
+assert.equal(nouns.filter(n=>n.evidence.individualVerification?.status===
+  'contrastado-individualmente').length,9,
+  'Solo nueve lemas autorizados pueden declararse contrastados');
+const ouranos=nouns.find(n=>n.id==='griego-sustantivo-ouranos');
+assert.ok(ouranos&&ouranos.forms.length===10&&
+  ouranos.forms.filter(f=>f.number==='plural').length===5,
+  'Las cinco formas plurales de οὐρανός deben conservarse en el banco');
+const expectedExcluded=['nominativo','vocativo','acusativo','genitivo','dativo']
+  .map(cas=>cas+':plural');
+assert.deepEqual(ouranos.evidence.individualVerification?.practiceExclusion?.slots,
+  expectedExcluded,'Excluir exactamente los cinco plurales de οὐρανός del sorteo');
+assert.equal(ouranos.evidence.individualVerification.practiceExclusion.policy,
+  'exclude-plural-from-new-exercises');
+assert.ok(nouns.filter(n=>n.id!=='griego-sustantivo-ouranos')
+  .every(n=>!n.evidence.individualVerification?.practiceExclusion),
+  'No excluir los plurales de otros sustantivos');
 assert.ok(nouns.find(n=>n.id==='griego-sustantivo-anthropos')?.gender==='común',
   'No falsear como género masculino exclusivo el sustantivo ἄνθρωπος');
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
