@@ -25,7 +25,7 @@ const EXPECTED=[
   ['adjetivo','vetus','veterum','genitivo','plural','neutro'],
   ['adjetivo','vetus','vetera','acusativo','plural','neutro'],
   ['adjetivo','supplex','supplicum','genitivo','plural','masculino'],
-  ['adjetivo','supplex','supplice','ablativo','singular','femenino'],
+  ['adjetivo','supplex','supplici','ablativo','singular','femenino'],
   ['sustantivo','mare','maria','nominativo','plural','neutro'],
   ['sustantivo','mare','marium','genitivo','plural','neutro'],
   ['sustantivo','mare','mari','ablativo','singular','neutro'],
@@ -68,6 +68,7 @@ const FORBIDDEN=[
   ['adjetivo','brevis','brevum','genitivo','plural','masculino'],
   ['adjetivo','vetus','veterium','genitivo','plural','masculino'],
   ['adjetivo','supplex','supplicium','genitivo','plural','masculino','ordinaria'],
+  ['adjetivo','supplex','supplice','ablativo','singular','masculino','ordinaria'],
   ['pronombre','alter','alterae','acusativo','plural','femenino'],
   ['pronombre','alius','aliae','acusativo','plural','femenino'],
   ['adjetivo','duo','dua','nominativo','plural','femenino'],
@@ -79,7 +80,8 @@ const auditReferences=[
   {page:66,source:'brevis (gen. pl. -um, abl. sg. -e)',
     judgment:'errata del resumen: brevium y brevi (Allen & Greenough §114)'},
   {page:66,source:'audax y vetus',judgment:'-i y -ium frente a consonántico -e y -um'},
-  {page:67,source:'vetus: veterior',judgment:'comparativo preferido vetustior (A&G §125); no sustituir sin criterio'},
+  {page:67,source:'vetus: veterior',judgment:'vetustior, comparativo clásico habitual (A&G §125); veterior, arcaísmo atestiguado en Catón, Origines 1, fr. 25 (Lewis & Short). No extender a paradigma de sorteo sin cotejo'},
+  {page:66,source:'supplex: suplici/supplice',judgment:'ablativo adjetival usual supplici; supplice contextual, sustantivado o poético (Lewis & Short); gen. pl. supplicum habitual, supplicium testimoniado en Livio'},
   {page:67,source:'grados irregulares',judgment:'modelos bonus/melior/optimus y otros (§129)'},
   {page:70,source:'alterae (acusativo femenino plural)',judgment:'alteras'},
   {page:70,source:'aliae (acusativo femenino plural)',judgment:'alias'},
@@ -140,7 +142,7 @@ export function auditLatin2Nominal(bank){
   }
   for(const [kind,head,form,cas,number,gender] of [
     ['adjetivo','supplex','supplicium','genitivo','plural','masculino'],
-    ['adjetivo','supplex','supplici','ablativo','singular','masculino'],
+    ['adjetivo','supplex','supplice','ablativo','singular','masculino'],
     ['sustantivo','adulescens','adulescentum','genitivo','plural','masculino'],
     ['pronombre','alius','alius','genitivo','singular','femenino']
   ]){
@@ -163,6 +165,10 @@ export function auditLatin2Nominal(bank){
     issue(blocking,'PLURES_INVENTED_SINGULAR','plures','singular');
   // Revisión posterior, no transformar posibilidad léxica en paradigma
   // comprobado: locativos, género contextual, dativos plurales raros.
+  review.push({code:'VETUS_ARCHAIC_COMPARATIVE',
+    scope:'vetus: vetustior (uso clásico normal); veterior (arcaísmo atestiguado en Catón, Origines 1 fr. 25)',
+    status:'criterio cerrado: no sortear un paradigma veterior generado por analogía; conservar el testimonio en la auditoría',
+    source:'Lewis & Short s. v. vetus; Allen & Greenough §125'});
   review.push({code:'NOMINAL_CONTEXT_AND_VARIANTS',
     scope:'Nombres comunes en género, alomorfía, variantes poéticas y locativos',
     status:'no se consideran verificados por el mero cotejo de la tabla escolar'});

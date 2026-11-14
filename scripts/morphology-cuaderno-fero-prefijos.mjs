@@ -35,6 +35,17 @@ export function compileCuadernoFeroCompounds(){
         return {...f,form,analysis:f.analysis.replaceAll(baseFinite.headword,headword)};
       });
       assert.equal(forms.length,parent.forms.length,id+' '+kind);
+      if(id==='refero'){
+        // Allen & Greenough §200 consigna rettuli como tema clásico.
+        // La variante retuli permanece, pero no debe ocultar rettuli,
+        // rettuleram, rettulisse, etc., en los análisis de este verbo.
+        const withVariant=forms.filter(f=>/^retul/.test(f.form)).map(f=>({
+          ...f,form:f.form.replace(/^retul/,'rettul')
+        }));
+        for(const f of forms)if(/^retul/.test(f.form))
+          f.usage='variante de perfecto retul- junto a rettul-';
+        forms.push(...withVariant);
+      }
       output.push({id:'latin2-cuaderno-irregular-'+id+suffix,
         language:'latin2',unit:0,kind,headword,paradigm:headword,
         forms,evidence:evid});

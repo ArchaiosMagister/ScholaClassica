@@ -112,7 +112,7 @@ test('Las formas importadas del corpus aportan CASOS COMPLETOS, no una única fo
   }
 });
 test('El registro nuevo no altera las 296 fichas latinas y griegas anteriores',()=>{
-  assert.equal(bank.records.length,296+bank.records.filter(r=>r.id.startsWith('latin2-pau-')||r.id.startsWith('latin2-cuaderno-')).length);
+  assert.equal(bank.records.length,296+bank.records.filter(r=>r.id.startsWith('latin2-pau-')||r.id.startsWith('latin2-cuaderno-')||r.id.startsWith('latin2-audit-')).length);
   assert.equal(bank.records.slice(0,220).filter(x=>x.language==='latin2').length,0);
   assert.equal(bank.records.slice(220,296).filter(x=>x.language==='latin2').length,76);
   assert.deepEqual(bank.coverage.latin2,[0]);
