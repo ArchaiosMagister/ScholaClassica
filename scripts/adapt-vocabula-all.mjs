@@ -26,8 +26,12 @@ export function adaptVocabulaAllApp(js){
   const newStats="function stats(){if($('corpus').value==='all'){const t=scholaVocabularyProgress(base(),progress);$('learned').textContent=t.learned;$('accuracy').textContent=t.accuracy;$('pending').textContent=t.pending;return}const ids=new Set(base().map(e=>e.id)),p=Object.entries(progress).filter(([id])=>ids.has(id)).map(([,v])=>v);$('learned').textContent=p.length;let total=p.reduce((a,v)=>a+v.total,0);$('accuracy').textContent=total?Math.round(p.reduce((a,v)=>a+v.right,0)/total*100)+'%':'—';$('pending').textContent=p.filter(v=>v.failed).length}";
   js=once(js,oldStats,newStats,'estadísticas por corpus');
   js=once(js,";update()}\nfunction dictionary",
-    ";if($('corpus').value==='all')$('scope').textContent='Practica juntos General y Examen. Cada ficha muestra sus unidades por modalidad; las acepciones distintas permanecen separadas.';update()}\nfunction dictionary",
+    ";$('scope').textContent=scholaVocabularyScopeDescription($('subject').value,$('corpus').value,$('scope').textContent);update()}\nfunction dictionary",
     'descripción del corpus Todo');
+  js=once(js,
+    "${esc(u)}</label>",
+    "${esc(scholaVocabularyUnitCaption($('subject').value,u))}</label>",
+    'etiqueta legible del selector sin cambiar valor de unidad');
   js=once(js,
     "<small>${esc(e.units.join(' · '))}</small>",
     "<small>${esc(scholaVocabularyProvenance(e))}</small>",
@@ -73,7 +77,7 @@ export function adaptVocabulaAllReport(js){
 export async function adaptVocabulaAll(destination,root){
   const source=await readFile(join(root,'scripts/vocabula-all-model.mjs'),'utf8');
   assert.ok(source.startsWith('// Vista combinada'));
-  assert.equal((source.match(/^export /gmu)||[]).length,6,
+  assert.equal((source.match(/^export /gmu)||[]).length,8,
     'Cambió la interfaz del modelo');
   const classic="'use strict';\n"+source.replace(/^export /gmu,'');
   await writeFile(join(destination,'schola-all.js'),classic);
