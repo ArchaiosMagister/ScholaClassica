@@ -83,7 +83,7 @@ function caseMap(noun,stem,group,isIStem){
     '3m':[noun,noun,stem+'em',stem+'is',stem+'i',stem+'e'],
     '3n':[noun,noun,noun,stem+'is',stem+'i',stem+'e'],
     '4m':[noun,noun,stem+'um',stem+'us',stem+'ui',stem+'u'],
-    '4n':[noun,noun,noun,stem+'us',stem+'ui',stem+'u'],
+    '4n':[noun,noun,noun,stem+'us',stem+'u',stem+'u'],
     '5f':[noun,noun,stem+'em',stem+'ei',stem+'ei',stem+'e']
   }[group];
   const pl={
