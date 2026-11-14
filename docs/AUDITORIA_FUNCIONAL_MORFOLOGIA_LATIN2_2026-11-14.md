@@ -67,7 +67,26 @@ se favorecen análisis próximos dentro de una misma categoría y lema,
 preferentemente diferentes en pocos rasgos morfológicos.
 La puntuación permanece basada en la cadena original validada.
 
-### C. Media: incoherencia entre respuesta admitida y resaltado
+### C. Alta: lecturas omitidas por diferencias entre enunciados verbales
+
+**Hallazgo adicional:** seis verbos del banco aparecen con dos enunciados de
+procedencia distintos (`amo`, `habeo`, `duco`, `audio`, `capio`, `sum`).
+La agrupación anterior empleaba el texto completo del enunciado como clave,
+por lo que una misma grafía podía no reunir interpretaciones que procedían de
+las distintas fichas del mismo lema. En la conciliación se localizaron al
+menos **15 grafías** con lecturas diferentes repartidas entre esas variantes.
+Ejemplos: `ducam` (futuro de indicativo y presente de subjuntivo),
+`es` (indicativo e imperativo), `amatis` (forma verbal personal y
+lecturas del participio).
+
+**Corrección:** el agrupador distingue identidad léxica del formato del
+enunciado: para verbos, infinitivos y participios de un mismo lema reúne
+las lecturas, normalizando el enunciado para su presentación; mantiene
+separados los homógrafos de lexemas distintos como `liber` (adjetivo)
+y `liber` (sustantivo). Se conservan las lecturas originales sin
+reescribir los datos persistentes.
+
+### D. Media: incoherencia entre respuesta admitida y resaltado
 
 **Hallazgo:** el motor podía aceptar más de una respuesta en sus datos,
 mientras que la interfaz resaltaba como correcta solamente
@@ -78,7 +97,7 @@ elegida y conserva las otras como variantes admitidas.
 **Corrección:** se marca como correcta cualquier opción contenida
 en el conjunto de soluciones admitidas, sin modificar la evaluación.
 
-### D. Menor: retroalimentación con afirmación innecesaria de procedencia
+### E. Menor: retroalimentación con afirmación innecesaria de procedencia
 
 Se sustituye una frase genérica sobre la procedencia de la forma por
 una indicación pedagógica sobre los rasgos que hay que comprobar. No
@@ -102,6 +121,13 @@ vocabulario, docente y auditoría académica deben permanecer verdes.
 
 ## Cuestiones pendientes que no se modifican sin criterio docente
 
+0. **Cobertura de «Elegir la forma correcta»:** 32 fichas no pueden
+   producir las cuatro opciones requeridas utilizando únicamente sus
+   propias casillas; 30 pertenecen a infinitivos, una a un pronombre
+   y otra a un sustantivo. Las otras modalidades siguen disponibles.
+   No se añaden formas inventadas; para ampliar la cobertura haría
+   falta aprobar un conjunto de distractores documentados y
+   compatibles con los criterios docentes.
 1. **«Volver a los errores»:** el sistema incluye toda pregunta con
    `wrong > 0`, incluso después de aciertos posteriores. Hay que
    decidir si debe mostrar errores históricos o solo los todavía no
