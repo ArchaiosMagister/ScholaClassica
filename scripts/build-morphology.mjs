@@ -21,6 +21,8 @@ import {compileCuadernoIrregulars} from './morphology-cuaderno-irregulars.mjs';
 import {compileCuadernoFeroCompounds} from './morphology-cuaderno-fero-prefijos.mjs';
 import {compileCuadernoDefectives} from './morphology-cuaderno-defectivos.mjs';
 import {auditLatin2Morphology,assertLatin2AuditPasses} from './audit-morphology-latin2.mjs';
+import {compileCuadernoNominalReference} from './morphology-cuaderno-nominal.mjs';
+import {compileCuadernoComparativeReference} from './morphology-cuaderno-comparison.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
@@ -365,7 +367,14 @@ export async function buildMorphology({out,lock}){
     .filter(r=>!['latin2-pau-irregular-fero','latin2-pau-irregular-confero'].includes(r.id));
   const workbookIrregulars=[...compileCuadernoIrregulars(),...compileCuadernoFeroCompounds(),...compileCuadernoDefectives()];
   const exceptions=compilePauExceptions(exams);
-  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars);
+  const nominalPrior=[...originalRecords,...latin2,...additions,
+    ...schoolNouns,...schoolAdjectives,...numerals,...participles,
+    ...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars];
+  const extraPronouns=compileCuadernoNominalReference(nominalPrior);
+  const extraComparisons=compileCuadernoComparativeReference([...nominalPrior,...extraPronouns]);
+  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,
+    ...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars,
+    ...extraPronouns,...extraComparisons);
   const fullRecords=[...originalRecords,...latin2,...additions];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
