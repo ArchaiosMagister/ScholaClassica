@@ -5,7 +5,9 @@ import {join,resolve} from 'node:path';
 import {compileGreekExigibleNounBatch} from '../scripts/greek-noun-conciliation.mjs';
 import {INDIVIDUAL_GREEK_NOUN_CHECKS,verifyNineGreekNounRecords,CASE_ORDER,
  NUMBER_ORDER} from '../scripts/greek-noun-individual-review.mjs';
-import {availableRecords} from '../public/morfologia/engine.mjs';
+import {availableRecords,makeQuestions,practiceEligibleEntries,practiceOrdinaryEntries} from '../public/morfologia/engine.mjs';
+import {makeGreekNounPhraseQuestions,makeGreekNounPhraseTables} from '../public/morfologia/greek-noun-phrases.mjs';
+import {applyReview,emptyReview,reviewCounts} from '../public/morfologia/review.mjs';
 import {makeTableExercises,makeWrittenQuestions,evaluateTable,correctWritten}
  from '../public/morfologia/written.mjs';
 
@@ -111,18 +113,22 @@ test('οὐρανός: cinco plurales correctos en el paradigma, pero reserva di
  assert.match(word.evidence.review,/no constituye prueba de atestación textual/);
 });
 
-test('Las diez casillas de cada lema siguen corregibles en las actividades, sin alterar sorteo',()=>{
+test('Las nueve fichas siguen corregibles: οὐρανός solo con las cinco formas singulares',()=>{
  for(const record of selected){
   const single={...bank,records:[record]};
   const table=makeTableExercises(single,{language:'griego',unit:record.unit,rng:()=>.5});
   assert.equal(table.length,1);
-  assert.equal(table[0].cells.length,10);
+  assert.equal(table[0].cells.length,record.id==='griego-sustantivo-ouranos'?5:10);
+  if(record.id==='griego-sustantivo-ouranos'){
+   assert.ok(table[0].cells.every(c=>c.number==='singular'));
+   assert.ok(table[0].id.endsWith(':singular'));
+  }
   const answers=Object.fromEntries(table[0].cells.map(x=>[x.id,x.acceptedForms[0]]));
   assert.equal(evaluateTable(table[0],answers).complete,true);
   const written=makeWrittenQuestions(single,{
    language:'griego',unit:record.unit,limit:30,rng:()=>.5
   });
-  assert.ok(written.length>=8);
+  assert.ok(written.length>=(record.id==='griego-sustantivo-ouranos'?5:8));
   assert.ok(written.every(q=>correctWritten(q,q.acceptedForms[0]).correct));
  }
 });
