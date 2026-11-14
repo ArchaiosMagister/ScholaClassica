@@ -123,7 +123,7 @@ test('Coincidencias de dos fuentes independientes se distinguen de dos copias Un
     .status,'acuerdo-de-fuentes-no-testimonio-textual');
 });
 
-test('La novena lectura también cuenta para consenso aunque no se muestre entre ocho ejemplos',()=>{
+test('La novena lectura cuenta para consenso y queda visible entre ocho muestras seleccionadas',()=>{
   const targets=makeTargets(bank);
   const matcher=createMatcher(targets);
   for(let i=0;i<8;i++)
@@ -140,7 +140,8 @@ test('La novena lectura también cuenta para consenso aunque no se muestre entre
     x.analysis.includes('presente'));
   assert.equal(present.evidence.filter(x=>x.source==='UniMorph Latin').length,8);
   assert.ok(present.evidence.filter(x=>x.source==='UniMorph Latin')
-    .every(x=>x.comparison.conflicts.includes('tense')));
+    .some(x=>x.comparison.conflicts.length===0),
+    'La muestra conserva una lectura que respalda la conclusión');
   assert.equal(present.comparisonCoverage.uniqueAnalysesCompared,10);
   assert.equal(present.comparisonCoverage.examplesTruncated,true);
   assert.equal(present.status,'acuerdo-de-fuentes-no-testimonio-textual');
