@@ -65,9 +65,9 @@ test('no se publica la morfología anterior ni backend o datos internos',()=>{
 
 test('Solo dos lemas de 4.º se corrigen en la copia, preservando el origen completo',()=>{
  const from=JSON.parse(readFileSync(join(source,'data.js'),'utf8')
-   .replace(/^window\\.VOCAB\\s*=\\s*/,'').replace(/;\\s*$/,''));
+   .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
  const to=JSON.parse(readFileSync(join(target,'data.js'),'utf8')
-   .replace(/^window\\.VOCAB\\s*=\\s*/,'').replace(/;\\s*$/,''));
+   .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
  assert.equal(from.length,2055);
  assert.equal(to.length,from.length);
  assert.deepEqual(to,correctLatin4Vocabula(from));
