@@ -51,8 +51,12 @@ function ordinaryEntries(record){
 }
 function groupedForms(record){
   const groups=new Map();
-  for(const entry of ordinaryEntries(record)){
+  const regularSurfaces=new Set(ordinaryEntries(record).map(f=>fold(f.form)));
+  for(const entry of record.forms){
     const form=fold(entry.form);
+    // Una variante rara puede compartir grafía con una forma corriente:
+    // en ese caso se deben conservar TODAS las lecturas posibles.
+    if(!regularSurfaces.has(form))continue;
     if(!groups.has(form))groups.set(form,new Set());
     groups.get(form).add(analysisLabel(record,entry));
   }
