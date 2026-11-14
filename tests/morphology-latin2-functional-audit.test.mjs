@@ -227,3 +227,26 @@ test('Un homógrafo sustantivo y adjetivo no se fusiona como si fuera un lema',(
   assert.ok(qs.every(q=>readings(q.correct).every(a=>
     a.startsWith(q.kind+' · '))));
 });
+
+test('Las reservas no renumeran preguntas antiguas ni reasignan progreso offline',()=>{
+  const noceo=latin2.find(r=>r.id==='latin2-pau-regular-verb-noceo');
+  const order=[...new Set(noceo.forms.map(f=>f.analysis))];
+  const source=only(noceo);
+  for(const seed of [3,11,19]){
+    const config={...base,rng:seedRng(seed)};
+    const forms=makeQuestions(source,{...config,activity:'form'});
+    const written=makeWrittenQuestions(source,{...config,rng:seedRng(seed)});
+    for(const question of forms){
+      const index=Number(question.id.split(':form:')[1]);
+      assert.ok(Number.isInteger(index));
+      assert.equal(question.prompt,
+        'Selecciona la forma de '+order[index]+'.',question.id);
+    }
+    for(const question of written){
+      const index=Number(question.id.split(':written:')[1]);
+      assert.ok(Number.isInteger(index));
+      assert.equal(question.prompt,
+        'Escribe la forma de '+order[index]+'.',question.id);
+    }
+  }
+});
