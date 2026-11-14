@@ -1,0 +1,70 @@
+{
+  "schema": "schola-latin2-editorial-review/v1",
+  "updated": "2026-11-14",
+  "affectsStudentBank": false,
+  "basis": "Cotejo UniMorph Latin + LEMLAT3; la ausencia de análisis no es evidencia negativa de una forma",
+  "decisions": [
+    {
+      "recordId": "latin2-pau-school-adjective-nonnullus",
+      "form": "nonnullae",
+      "case": "GEN",
+      "number": "SG",
+      "gender": "FEM",
+      "resolution": "flexion-regular-documentada-no-atestiguacion",
+      "action": "conservar-lectura",
+      "individualVerification": false,
+      "sourceNote": "nonnullus, -a, -um, adjetivo de primera clase: genitivo femenino singular -ae. La coincidencia gráfica con nominativo/vocativo plural no excluye el genitivo singular.",
+      "reason": "Sincretismo legítimo; laguna de cobertura en las fuentes comparadas, no contradicción del paradigma."
+    },
+    {
+      "recordId": "latin2-pau-school-adjective-nonnullus",
+      "form": "nonnullae",
+      "case": "DAT",
+      "number": "SG",
+      "gender": "FEM",
+      "resolution": "flexion-regular-documentada-no-atestiguacion",
+      "action": "conservar-lectura",
+      "individualVerification": false,
+      "sourceNote": "nonnullus, -a, -um, adjetivo de primera clase: dativo femenino singular -ae, homógrafo de genitivo singular y nominativo/vocativo plural.",
+      "reason": "Sincretismo legítimo; laguna de cobertura en las fuentes comparadas, no contradicción del paradigma."
+    },
+    {
+      "recordId": "latin2-pau-school-noun-segesta",
+      "form": "segestae",
+      "case": "NOM",
+      "number": "PL",
+      "gender": "FEM",
+      "resolution": "reserva-onomastica-de-uso",
+      "action": "no-certificar-ni-excluir-automaticamente",
+      "individualVerification": false,
+      "sourceNote": "El topónimo Segesta presenta paradigma formal de primera declinación, pero los plurales de un nombre propio de ciudad exigen documentación de uso onomástico.",
+      "reason": "La regularidad desinencial no acredita una lectura de nominativo plural realmente usada."
+    },
+    {
+      "recordId": "latin2-pau-school-noun-segesta",
+      "form": "segestae",
+      "case": "VOC",
+      "number": "PL",
+      "gender": "FEM",
+      "resolution": "reserva-onomastica-de-uso",
+      "action": "no-certificar-ni-excluir-automaticamente",
+      "individualVerification": false,
+      "sourceNote": "El topónimo Segesta presenta paradigma formal de primera declinación, pero los plurales de un nombre propio de ciudad exigen documentación de uso onomástico.",
+      "reason": "La regularidad desinencial no acredita una lectura de vocativo plural realmente usada."
+    }
+  ],
+  "bibliographicBasis": [
+    {
+      "title": "Allen and Greenough, New Latin Grammar, §§164, 193, 203",
+      "uri": "https://dcc.dickinson.edu/grammar/latin/periphrastic-conjugations"
+    },
+    {
+      "title": "UniMorph Latin, corpus fijado",
+      "uri": "https://github.com/unimorph/lat"
+    },
+    {
+      "title": "LEMLAT 3.0, analizador fijado",
+      "uri": "https://github.com/CIRCSE/LEMLAT3"
+    }
+  ]
+}
