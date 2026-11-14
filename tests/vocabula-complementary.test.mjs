@@ -107,13 +107,18 @@ test('Fichas de examen, procedencia y progreso conservan sus valores anteriores'
   'Cæsar','eques, equitis (m.)'];
  const latin=scholaVocabularyAll(current,'lat1');
  for(const form of cases){
-  const card=latin.find(e=>e.form.startsWith(form));
-  assert.ok(card,'Se perdió '+form);
-  const original=card.scholaSources.map(x=>current.find(e=>e.id===x.id));
-  assert.deepEqual(card.scholaSources.map(x=>x.units),
-   original.map(e=>e.units));
-  assert.ok(scholaVocabularyProvenance(card).includes('General:'));
-  assert.ok(scholaVocabularyProvenance(card).includes('Examen:'));
+  const cards=latin.filter(e=>e.form.startsWith(form));
+  assert.ok(cards.length,'Se perdió '+form);
+  const sources=cards.flatMap(card=>card.scholaSources);
+  const original=sources.map(x=>current.find(e=>e.id===x.id));
+  assert.deepEqual(sources.map(x=>x.units),original.map(e=>e.units));
+  assert.ok(sources.some(e=>e.mode==='general'));
+  assert.ok(sources.some(e=>e.mode==='examen'));
+  const captions=cards.map(scholaVocabularyProvenance);
+  assert.ok(captions.some(text=>text.includes('General:')));
+  assert.ok(captions.some(text=>text.includes('Examen:')));
+  // Las glosas distintas nunca deben fusionarse solo por compartir lema.
+  assert.equal(new Set(sources.map(x=>x.id)).size,sources.length);
  }
  const originalProgress={
   [latin[0].id]:{total:3,right:2,failed:true}
