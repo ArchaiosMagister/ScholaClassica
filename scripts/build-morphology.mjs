@@ -362,4 +362,5 @@ export async function buildMorphology({out,lock}){
   await writeFile(join(dir,'pau-latin2-audit.json'),JSON.stringify(audit,null,2)+'\n');
   console.log('Morfología: '+fullRecords.length+
     ' fichas; '+covered.length+' de 301 formas PAU incorporadas por paradigmas completos');
+  console.log('PAU pendientes de paradigma completo: '+missing.join(', '));
 }
