@@ -250,3 +250,15 @@ test('Las reservas no renumeran preguntas antiguas ni reasignan progreso offline
     }
   }
 });
+
+test('Generar un análisis mixto del banco completo no bloquea la interfaz',()=>{
+  const start=performance.now();
+  const questions=makeQuestions(bank,{
+    language:'latin2',unit:0,kind:'todos',activity:'analysis',
+    limit:10,rng:seedRng(13)
+  });
+  const elapsed=performance.now()-start;
+  assert.equal(questions.length,10);
+  assert.ok(elapsed<8000,
+    'La selección de diez preguntas tarda '+elapsed.toFixed(0)+' ms');
+});
