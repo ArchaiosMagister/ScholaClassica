@@ -82,7 +82,7 @@ test('Deduplicación conservadora: todos los cursos, fuentes, acepciones y origi
  const silva=latin.filter(e=>e.form==='silva, –æ');
  assert.equal(silva.length,2);
  assert.equal(new Set(silva.map(e=>e.meaning)).size,2);
- const akouo=greek.filter(e=>e.form==='ἀκούω');
+ const akouo=greek.filter(e=>e.form==='ἀκούω');
  assert.equal(akouo.length,2);
  assert.equal(new Set(akouo.map(e=>e.meaning)).size,2);
  const oikeo=greek.filter(e=>e.form==='οἰκέω');
