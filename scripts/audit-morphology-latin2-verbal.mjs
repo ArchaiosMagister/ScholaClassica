@@ -170,9 +170,33 @@ export function auditLatin2Verbal(bank){
       reportIssue(blocking,'FIO_SYNTHETIC_PERFECT',id,'feci',
         'feci pertenece a facio, no a fio');
   }
-  if(lookup.get('latin2-pau-regular-verb-noceo'))
-    review.push({code:'NOCEO_PASSIVE_USAGE',id:'latin2-pau-regular-verb-noceo',
-      detail:'Las formas pasivas personales figuran en algunos repertorios, pero se utiliza preferentemente la pasiva impersonal; cotejo de corpus pendiente'});
+  const noceo=lookup.get('latin2-pau-regular-verb-noceo');
+  const impersonalNoceo=[
+    ['nocetur','presente','indicativo'],
+    ['nocebatur','imperfecto','indicativo'],
+    ['nocebitur','futuro','indicativo'],
+    ['noceatur','presente','subjuntivo'],
+    ['noceretur','imperfecto','subjuntivo'],
+    ['nocitum est','perfecto','indicativo'],
+    ['nocitum erat','pluscuamperfecto','indicativo'],
+    ['nocitum erit','futuro perfecto','indicativo'],
+    ['nocitum sit','perfecto','subjuntivo'],
+    ['nocitum esset','pluscuamperfecto','subjuntivo']
+  ];
+  if(!noceo)reportIssue(blocking,'NOCEO_MISSING','noceo','','Falta paradigma');
+  else{
+    for(const [form,tense,mood] of impersonalNoceo){
+      if(!noceo.forms.some(f=>norm(f.form)===form&&f.tense===tense&&
+         f.mood===mood&&f.construction==='impersonal'&&
+         f.person==='3.ª singular'&&f.voice.includes('impersonal')))
+        reportIssue(blocking,'NOCEO_IMPERSONAL_MISSING',noceo.id,form,tense+' '+mood);
+    }
+    const personal=noceo.forms.filter(f=>f.voice==='pasiva');
+    if(!personal.length||personal.some(f=>
+        !isVariant(f)||f.verification!=='pendiente-de-cotejo-individual'))
+      reportIssue(blocking,'NOCEO_PERSONAL_PASSIVE_NOT_RESTRICTED',
+        noceo.id,'','La pasiva personal excepcional no se debe sortear sin cotejo individual');
+  }
   review.push({code:'PARADIGM_GENERATION_NOT_INDIVIDUALLY_CERTIFIED',
     id:'latin2-all-verbs',detail:'La auditoría estructural no implica cotejo de cada una de las casillas con textos clásicos'});
   return {
@@ -183,6 +207,10 @@ export function auditLatin2Verbal(bank){
       imperativeModels:IMPERATIVES.length,canonicalReadings:CANONICAL.length,
       negativeControls:INVALID.length},
     blockingIssues:blocking,reviewIssues:review,
+    resolvedCriteria:[
+      {code:'NOCEO_PASSIVE',criterion:'impersonal clásica; personal excepcional atestiguada, generadas por analogía fuera del sorteo hasta verificación individual',source:'Lewis & Short s. v. noceo; Oxford Latin Syntax §4.23'},
+      {code:'FIO_RESTRICTED',criterion:'fimus y fitis reconocidas, con uso restringido y sin sorteo ordinario',source:'Allen y Greenough §204'}
+    ],
     completeIndividualVerification:false};
 }
 export function assertLatin2VerbalAuditPasses(report){
