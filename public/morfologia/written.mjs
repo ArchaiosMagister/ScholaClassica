@@ -2,6 +2,7 @@
 import {availableRecords} from './engine.mjs';
 import {selectReviewCandidates} from './review.mjs';
 const cases={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
+  latin2:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
   latin4:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
   griego:['nominativo','vocativo','acusativo','genitivo','dativo']};
 const clean=text=>String(text??'').trim().normalize('NFC').replace(/\s+/g,' ');
@@ -9,7 +10,7 @@ const unique=values=>[...new Set(values)];
 function comparison(text,{language,ending=false}={}){
   let value=clean(text).toLocaleLowerCase(language==='griego'?'el':'la');
   if(ending)value=value.replace(/^[\u2010-\u2015-]+/u,'');
-  if(language==='latin'||language==='latin4')value=value.replace(/æ/g,'ae').replace(/œ/g,'oe')
+  if(['latin','latin4','latin2'].includes(language))value=value.replace(/æ/g,'ae').replace(/œ/g,'oe')
     .normalize('NFD').replace(/\u0304/gu,'').normalize('NFC');
   if(language==='griego')value=value.normalize('NFD')
     .replace(/[\u0304\u0306]/gu,'').normalize('NFC');
@@ -72,7 +73,7 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
   const records=availableRecords(bank,{language,unit,kind});
   const candidates=[];
   for(const record of records){
-    if(!['sustantivo','adjetivo','desinencia','artículo'].includes(record.kind))continue;
+    if(!['sustantivo','adjetivo','desinencia','artículo','participio'].includes(record.kind))continue;
     const genders=unique(record.forms.map(f=>f.gender).filter(Boolean));
     for(const gender of genders.length?genders:[null]){
       const entries=gender?record.forms.filter(f=>f.gender===gender):record.forms;
