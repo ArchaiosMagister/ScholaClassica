@@ -49,6 +49,47 @@ try{
   await page.locator('#activity').selectOption('cards');
   await page.locator('#start').click();
   assert.ok((await page.locator('#practice').textContent()).length>20);
+  assert.equal(await page.locator('#corpus option').count(),3,
+    'Debe haber una tercera modalidad solo en ScholaClassica');
+  await page.locator('#corpus').selectOption('all');
+  assert.equal(await page.locator('#corpus').inputValue(),'all');
+  assert.equal(await page.locator('#units input:checked').count(),1,
+    'El cambio de corpus debe conservar la unidad compartida');
+  assert.ok((await page.locator('#scope').textContent()).includes('General y Examen'));
+  await page.locator('#none').click();
+  await page.locator('#units input[value="UD 4"]').check();
+  const result=await page.evaluate(()=>{
+    const combined=scholaVocabularyAll(VOCAB,'lat1',['UD 4']);
+    const ac=combined.find(e=>e.form==='ac (conj.)');
+    const flumen=combined.find(e=>e.form==='flumen, fluminis (n.)');
+    return {ac:ac?{mode:ac.mode,source:scholaVocabularyProvenance(ac),
+      selected:ac.scholaSelectedIds}:null,flumen:flumen?{
+      sources:flumen.scholaSources.map(s=>s.mode),
+      source:scholaVocabularyProvenance(flumen)}:null,
+      idCount:new Set(combined.map(e=>e.id)).size,total:combined.length};
+  });
+  assert.ok(result.ac&&result.flumen);
+  assert.equal(result.ac.mode,'examen');
+  assert.match(result.ac.source,/General: UD 7/);
+  assert.match(result.ac.source,/Examen: UD 4/);
+  assert.deepEqual(result.flumen.sources,['general','examen']);
+  assert.match(result.flumen.source,/General: UD 5 · UD 8/);
+  assert.match(result.flumen.source,/Examen: UD 4/);
+  assert.equal(result.idCount,result.total);
+  await page.locator('details.help').last().locator('summary').first().click();
+  await page.locator('#search').fill('flumen');
+  assert.equal(await page.locator('#dictionary .dictrow').count(),1,
+    'Una ficha idéntica de General y Examen no puede duplicarse');
+  assert.match(await page.locator('#dictionary .dictrow').first().textContent(),/General:.*Examen:/);
+  await page.locator('#corpus').selectOption('general');
+  await page.locator('#search').fill('flumen');
+  assert.equal(await page.locator('#dictionary .dictrow').count(),0,
+    'UD4 General no contiene flumen');
+  await page.locator('#corpus').selectOption('examen');
+  assert.equal(await page.locator('#dictionary .dictrow').count(),1,
+    'UD4 Examen sí contiene flumen');
+  await page.locator('#corpus').selectOption('all');
+  await page.locator('#search').fill('');
   assert.equal(await page.locator('#open-teacher').count(),0,
     'La administración antigua no debe aparecer en la copia del alumnado');
   assert.equal(await page.locator('#teacher-dialog').count(),0);
