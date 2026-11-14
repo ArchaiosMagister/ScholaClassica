@@ -27,7 +27,8 @@ test('Appendix castellano y valenciano mantiene originales salvo adaptaciones vi
   const pages=crawl(appendixSource).filter(path=>path.endsWith('.html'));
   const adapted=['assets/style.css','assets/language-colors.css','assets/theme.js',
     'assets/app.js','val/app.js',...pages];
-  const extra=['assets/curriculum-latin4.json','val/curriculum-latin4.json'];
+  const extra=['assets/curriculum-latin4.json','val/curriculum-latin4.json',
+    'assets/gramatica-offline.js','sw.js'];
   compareApp(appendixSource,appendixTarget,adapted,extra);
   const curriculumFiles=['assets/curriculum.json','val/curriculum.json'];
   for(const name of curriculumFiles)
@@ -45,7 +46,8 @@ test('Appendix castellano y valenciano mantiene originales salvo adaptaciones vi
       // La única edición HTML adicional autorizada es el selector de 4.º
       // y, en la portada, el enlace de consulta. Restaurarlos debe
       // producir los bytes esperados con el ajuste OLED preexistente.
-      const withoutOption=actual.replace(/<option value="4">[^<]*<\/option>/u,'');
+      const withoutOption=actual.replace(/<option value="4">[^<]*<\/option>/u,'')
+        .replace(/<script src="(?:\.\.\/)?assets\/gramatica-offline\.js" defer><\/script>/u,'');
       const reverted=page.endsWith('index.html')?withoutOption.replace(
         /<p class="course-note"><a href="curso.html\?lengua=latin&amp;curso=4&amp;unidad=1">[^<]*<\/a><\/p>/u,''):withoutOption;
       assert.equal(reverted,expected,'HTML de Appendix sufrió cambios inesperados: '+page);
