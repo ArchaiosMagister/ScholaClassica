@@ -174,6 +174,36 @@ try{
   assert.ok((await page.locator('.unit-section').last().textContent()).includes('Tercera declinació'));
   await page.context().setOffline(false);
   assert.deepEqual(errors,[],'Errores en gramática Latín 4.º bilingüe: '+errors.join(' | '));
+  // Latín I: cuatro temas completos dentro de las unidades, precargados
+  // en las dos lenguas. La primera visita a UD5 ya se realiza sin conexión.
+  await page.context().setOffline(true);
+  for(const [prefix,lang] of [['','es'],['val/','val']]){
+   const result=await page.goto(grammar+prefix+
+     'curso.html?lengua=latin&curso=1&unidad=5',{waitUntil:'load'});
+   assert.equal(result.status(),200,'Latín I offline '+lang);
+   await page.waitForFunction(()=>document.querySelectorAll('.unit-section').length===5,
+     null,{timeout:10000});
+   const units=page.locator('.unit-section');
+   const third=units.nth(2).locator('.lesson-body').nth(1);
+   const fourth=units.nth(3).locator('.lesson-body');
+   const fifth=units.nth(4).locator('.lesson-body').first();
+   assert.equal(await fourth.first().locator('table').count(),1,
+     'Tercera declinación sin paradigma '+lang);
+   assert.equal(await fourth.nth(1).locator('table').count(),4,
+     'Perfecto y pluscuamperfecto deben conservar voz activa y sum '+lang);
+   assert.equal(await fifth.locator('table').count(),5,
+     'Los cinco modelos adjetivales de UD5 no están completos '+lang);
+   assert.ok((await third.textContent()).includes('Romani alti sunt'),
+     'Falta ejemplo de sustantivación '+lang);
+   const activeText=await fourth.nth(1).textContent();
+   assert.ok(activeText.includes('amavi')&&activeText.includes('fueram'));
+   assert.ok(!activeText.includes('amatus sum')&&!activeText.includes('amatus eram'),
+     'UD4 no puede anticipar la pasiva compuesta '+lang);
+   assert.equal(await page.locator('.lesson-body a[href$="indicativo.html"]').count(),0,
+     'No debe depender de la página de indicativo conectada '+lang);
+  }
+  await page.context().setOffline(false);
+  assert.deepEqual(errors,[],'Errores en Latín I bilingüe sin conexión: '+errors.join(' | '));
 
   // Portada: dos accesos grandes, ambos funcionales e independientes.
   const etymHome=await page.goto(base+'/apps/etymologicon/',{waitUntil:'networkidle'});
