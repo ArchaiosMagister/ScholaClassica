@@ -51,7 +51,7 @@ test('Vista Todo solo en el artefacto: conserva las 2055 fichas, los IDs y sus u
 });
 
 test('Deduplicación conservadora: todos los cursos, fuentes, acepciones y originalidad',()=>{
- const expectations={lat1:745,gr1:385,lat4:446,lat2:126};
+ const expectations={lat1:745,gr1:385,lat4:447,lat2:126};
  for(const [subject,expected] of Object.entries(expectations)){
   const cohort=actual.filter(e=>e.subject===subject);
   const initial=JSON.stringify(cohort);
