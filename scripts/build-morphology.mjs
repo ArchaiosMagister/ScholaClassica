@@ -19,6 +19,7 @@ import {compilePauIrregularVerbs} from './morphology-pau-irregular-verbs.mjs';
 import {parseCuadernoQuestions,auditCuaderno} from './morphology-cuaderno.mjs';
 import {compileCuadernoIrregulars} from './morphology-cuaderno-irregulars.mjs';
 import {compileCuadernoFeroCompounds} from './morphology-cuaderno-fero-prefijos.mjs';
+import {compileCuadernoDefectives} from './morphology-cuaderno-defectivos.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
@@ -361,7 +362,7 @@ export async function buildMorphology({out,lock}){
   const regularVerbs=compilePauRegularVerbs(combinedQuestions);
   const irregularVerbs=compilePauIrregularVerbs(combinedQuestions)
     .filter(r=>!['latin2-pau-irregular-fero','latin2-pau-irregular-confero'].includes(r.id));
-  const workbookIrregulars=[...compileCuadernoIrregulars(),...compileCuadernoFeroCompounds()];
+  const workbookIrregulars=[...compileCuadernoIrregulars(),...compileCuadernoFeroCompounds(),...compileCuadernoDefectives()];
   const exceptions=compilePauExceptions(exams);
   additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs,...exceptions,...workbookIrregulars);
   const fullRecords=[...originalRecords,...latin2,...additions];
