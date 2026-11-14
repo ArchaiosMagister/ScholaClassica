@@ -4,6 +4,7 @@
 import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
+import {fixLatin1Typography} from './grammar-bilingual-editorial.mjs';
 
 const UNIT_TOPICS=Object.freeze({
  es:[
@@ -135,7 +136,7 @@ export function makeLatin1Curriculum({curriculum,nouns,adjectives,indicative,loc
    'No descargar capítulos para esta unidad');
  }
  assert.deepEqual(output.griego,curriculum.griego,'Griego I intacto');
- return output;
+ return fixLatin1Typography(output,locale);
 }
 export async function adaptAppendixLatin1({destination,source}){
  for(const [locale,folder,sourceCurriculum,targetCurriculum] of [
