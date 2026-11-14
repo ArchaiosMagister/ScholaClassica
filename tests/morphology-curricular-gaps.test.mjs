@@ -19,7 +19,7 @@ const one=r=>({...bank,records:[r]});
 test('9 nuevos paradigmas tienen procedencia comprobable; no cambian registros antiguos',()=>{
   validateBank(bank);
   assert.equal(batch.length,9);
-  assert.deepEqual(bank.records.slice(-28,-19),batch,
+  assert.deepEqual(bank.records.slice(-37,-28),batch,
     'El segundo bloque se anexa después de los nueve modelos originales');
   assert.equal(new Set(batch.map(r=>r.id)).size,9);
   assert.equal(batch.filter(r=>r.language==='latin').length,6);
