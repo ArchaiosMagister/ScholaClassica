@@ -12,6 +12,8 @@ import {adaptEvolutioStudentCopy,adaptVocabulaStudentCopy} from './adapt-student
 import {buildDocenteGrammarIndex} from './build-docente-gramatica.mjs';
 import {adaptAppendixLatin4} from './adapt-appendix-latin4.mjs';
 import {adaptAppendixLatin4UI} from './adapt-appendix-latin4-ui.mjs';
+import {adaptAppendixLatin1} from './adapt-appendix-latin1.mjs';
+import {adaptAppendixLatin1UI} from './adapt-appendix-latin1-ui.mjs';
 import {buildGrammarPwa} from './build-gramatica-pwa.mjs';
 import {correctLatin4Vocabula} from './latin4-lexical-editorial.mjs';
 import {reconcileLatin4ExamUd8} from './latin4-ud8-reconciliation.mjs';
@@ -160,7 +162,9 @@ await buildDocenteGrammarIndex({vocabulaSource,out});
 // La gramática de 4.º se deriva de Appendix y del temario de Vocabula
 // en los dos idiomas, solo en dist: no se altera ninguno de los originales.
 await adaptAppendixLatin4({destination,source,vocabulaSource});
+await adaptAppendixLatin1({destination,source});
 await adaptAppendixLatin4UI(destination);
+await adaptAppendixLatin1UI(destination);
 await buildGrammarPwa(destination);
 
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
