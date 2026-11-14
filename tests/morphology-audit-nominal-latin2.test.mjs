@@ -139,3 +139,36 @@ test('Las tablas nominales y adjetivales nuevas se limitan a los modelos declara
   assert.ok(qs.length>5);
   assert.ok(qs.every(q=>evaluate(q,q.correct).correct));
 });
+
+test('Las variantes poco frecuentes se aceptan, pero no se sortean como palabras aisladas',()=>{
+  const cases=[
+    ['supplex','adjetivo',['supplicium'],['supplici']],
+    ['adulescens','sustantivo',['adulescentum'],[]]
+  ];
+  for(const [head,kind,excluded,common] of cases){
+    const r=find(head,kind);
+    assert.ok(r);
+    for(const activity of ['form','analysis']){
+      const qs=makeQuestions({...bank,records:[r]},{
+        language:'latin2',unit:0,activity,limit:30,rng:()=>.21});
+      assert.ok(qs.length>3);
+      for(const q of qs){
+        if(activity==='analysis')assert.ok(!excluded.includes(q.form),
+          head+' no debe sortear la variante infrecuente '+q.form);
+        else assert.ok(!excluded.includes(q.form),
+          head+' no debe proponer la variante infrecuente '+q.form);
+        assert.equal(evaluate(q,q.correct).correct,true);
+      }
+    }
+    assert.ok(common.every(form=>r.forms.some(x=>x.form===form)));
+  }
+  const alius=find('alius','pronombre');
+  const questions=makeQuestions({...bank,records:[alius]},{
+    language:'latin2',unit:0,activity:'analysis',limit:30,rng:()=>.29});
+  const surface=questions.find(q=>q.form==='alius');
+  // El nominativo habitual y el genitivo raro pueden coincidir en grafía.
+  assert.ok(surface);
+  assert.match(surface.correct,/nominativo/);
+  assert.match(surface.correct,/genitivo/);
+  assert.ok(alius.forms.some(f=>f.form==='alterius'&&f.case==='genitivo'));
+});
