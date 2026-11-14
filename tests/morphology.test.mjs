@@ -30,11 +30,14 @@ test('el currículo desbloquea tiempos y categorías solo en su unidad',()=>{
   const l3=availableRecords(compiled,{language:'latin',unit:3});
   const l4=availableRecords(compiled,{language:'latin',unit:4});
   const l5=availableRecords(compiled,{language:'latin',unit:5});
-  assert.equal(l1.length,9);
-  assert.equal(l2.length,15);
-  assert.equal(l3.length,26);
-  assert.equal(l4.length,42);
-  assert.equal(l5.length,46);
+  // Se suman los modelos pu(e)r/ager (UD1), bonus (UD2), personales e
+  // imperativos (UD3) y fórico is (UD5), manteniendo la acumulación.
+  assert.deepEqual([l1.length,l2.length,l3.length,l4.length,l5.length],
+    [11,18,31,47,52]);
+  assert.ok(!l1.some(r=>r.id==='latin-ud2-adjetivo-bonus'));
+  assert.ok(l2.some(r=>r.id==='latin-ud2-adjetivo-bonus'));
+  assert.ok(!l2.some(r=>r.id==='latin-ud3-pronombres-personales'));
+  assert.ok(l3.some(r=>r.id==='latin-ud3-pronombres-personales'));
   assert.ok(l1.some(r=>r.paradigm.startsWith('rosa')));
   assert.ok(l1.every(r=>r.unit===1));
   assert.ok(l2.some(r=>r.paradigm.includes('imperfecto')));
