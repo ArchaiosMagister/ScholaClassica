@@ -67,7 +67,7 @@ export function latin1ActivePerfects(indicative,locale){
  assert.equal(removedNotes,2,'Deben retirarse las dos referencias a pasiva');
  // En cada paradigma la tabla pasiva se encuentra entre su subtítulo
  // y el de sum. Se mantienen los dos paradigmas activos y los de sum.
- const passiveHeading='<h3>Paradigma · '+(locale==='es'?'voz':'veu')+' pasiva</h3>';
+ const passiveHeading='<h3>Paradigma · '+(locale==='es'?'voz pasiva':'veu passiva')+'</h3>';
  const sumHeading='<h3>'+(locale==='es'?'Verbo':'Verb')+' <i lang="la">sum</i></h3>';
  let passiveTables=0;
  while(part.includes(passiveHeading)){
