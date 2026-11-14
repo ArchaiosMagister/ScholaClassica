@@ -27,7 +27,8 @@ test('Appendix castellano y valenciano mantiene originales salvo adaptaciones vi
   const pages=crawl(appendixSource).filter(path=>path.endsWith('.html'));
   const adapted=['assets/style.css','assets/language-colors.css','assets/theme.js',
     'assets/app.js','val/app.js',...pages];
-  const extra=['assets/curriculum-latin4.json','val/curriculum-latin4.json',
+  const extra=['assets/curriculum-latin1.json','val/curriculum-latin1.json',
+    'assets/curriculum-latin4.json','val/curriculum-latin4.json',
     'assets/gramatica-offline.js','sw.js'];
   compareApp(appendixSource,appendixTarget,adapted,extra);
   const curriculumFiles=['assets/curriculum.json','val/curriculum.json'];
