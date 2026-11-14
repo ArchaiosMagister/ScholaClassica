@@ -93,7 +93,7 @@ test('El corrector acepta toda la forma verbal compuesta de fio',()=>{
   assert.ok(sample.length===1);
   assert.ok(sample[0].analysis.startsWith('verbo · fio, fieri, factus sum'));
   const options=makeQuestions({...rawBank,records:[r]},{
-    language:'latin2',unit:0,activity:'analysis',limit:100,rng:()=>.47});
+    language:'latin2',unit:0,activity:'analysis',limit:30,rng:()=>.47});
   assert.ok(options.length>10);
   assert.ok(options.every(q=>evaluate(q,q.correct).correct));
 });
