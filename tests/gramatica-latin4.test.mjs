@@ -6,6 +6,7 @@ import {join,resolve} from 'node:path';
 import {makeLatin4Curriculum,adaptAppendixLatin4}
   from '../scripts/adapt-appendix-latin4.mjs';
 import {adaptLatin4App} from '../scripts/adapt-appendix-latin4-ui.mjs';
+import {GRAMMAR_CORE} from '../scripts/build-gramatica-pwa.mjs';
 const root=resolve(import.meta.dirname,'..');
 const src=join(root,'.sources/appendix'),dest=join(root,'dist/apps/gramatica');
 const read=(dir,file)=>readFileSync(join(dir,file),'utf8');
@@ -139,4 +140,22 @@ test('El adaptador exige el temario docente exacto, no inventa UD9–10',()=>{
  const o=JSON.parse(mat[1]);
  assert.equal(o.syllabi.lat4.length,8);
  assert.ok(!o.syllabi.lat4.some(([u])=>/^UD (?:9|10)$/.test(u)));
+});
+
+test('Caché de la gramática separada de la portada, morfología y Evolutio',()=>{
+ const script=read(dest,'sw.js');
+ const helper=read(dest,'assets/gramatica-offline.js');
+ assert.match(script,/const PREFIX="schola-gramatica-"/);
+ assert.match(script,/url.pathname.startsWith\(SCOPE.pathname\)/);
+ assert.match(script,/key.startsWith\(PREFIX\)/);
+ assert.ok(!script.includes('caches.delete(key=>!'));
+ assert.ok(helper.includes("new URL('../sw.js',scope)"));
+ assert.equal(new Set(GRAMMAR_CORE).size,GRAMMAR_CORE.length);
+ for(const name of ['assets/curriculum-latin4.json','val/curriculum-latin4.json',
+  'curso.html','val/curso.html','assets/app.js','val/app.js'])
+  assert.ok(GRAMMAR_CORE.includes('./'+name),name);
+ for(const name of ['index.html','curso.html','val/index.html','val/curso.html'])
+  assert.ok(read(dest,name).includes('gramatica-offline.js'));
+ execFileSync(process.execPath,['--check',join(dest,'sw.js')]);
+ execFileSync(process.execPath,['--check',join(dest,'assets/gramatica-offline.js')]);
 });
