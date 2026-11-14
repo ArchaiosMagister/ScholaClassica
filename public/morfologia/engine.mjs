@@ -35,6 +35,35 @@ const ANALYSIS_CATEGORIES=new Set(['sustantivo','adjetivo','pronombre','verbo',
 export function analysisHeadword(record){
   return fold(record.headword||record.paradigm.split(' · ')[0]);
 }
+// En Latín II el enunciado visible sigue el convenio de otras páginas:
+// presente + perfecto + supino; deponentes: presente + perfecto.
+// Se conserva el enunciado completo original en las fichas y auditorías.
+export function displayLatin2VerbHeadword(value){
+  const raw=fold(value);
+  const end=raw.match(/^(.*?)(\s+\([^()]*\))$/u);
+  if(!end)return raw;
+  const parts=end[1].split(/,\s*/u);
+  const label=end[2];
+  if(parts.length===4){
+    parts.splice(1,1); // quitar infinitivo de presente
+  }else if(parts.length===3){
+    if(/deponente/i.test(label)){
+      parts.splice(1,1); // conservar presente y perfecto compuesto
+    }else if(/^[—–-]$/.test(parts[2])){
+      parts.pop(); // los verbos sin supino no exhiben un guion como forma
+    }else if(/irregular/i.test(label)&&
+      /^(?:esse|posse|velle|nolle|malle|ire|ferre|fieri|edere|fore)$/i.test(parts[1])){
+      parts.splice(1,1); // presente, perfecto (irregular sin supino)
+    }
+  }
+  return parts.join(', ')+label;
+}
+export function displayLatin2QuestionText(question,value){
+  if(question?.language!=='latin2'||
+    !['verbo','participio','infinitivo'].includes(question.kind))return value;
+  const raw=fold(question.headword||question.paradigm?.split(' · ')[0]);
+  return raw?String(value).replaceAll(raw,displayLatin2VerbHeadword(raw)):value;
+}
 function analysisLabel(record,entry){
   const text=fold(entry.analysis);
   if(record.language==='latin2')return text;
@@ -174,7 +203,7 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const correct=shuffle(regularChoices.length?regularChoices:acceptedForms,rng)[0];
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),correct],rng);
         candidates.push({
-          id:record.id+':form:'+index,activity,
+          id:record.id+':form:'+index,activity,kind:record.kind,
           prompt:'Selecciona la forma de '+analysis+'.',
           paradigm:record.paradigm,form:correct,correct,acceptedForms,options,
           evidence:record.evidence,language
@@ -196,7 +225,7 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         if(language==='latin2')usedLatin2Prompts.add(key);
         const options=shuffle([...shuffle(distractors,rng).slice(0,3),g.analysis],rng);
         candidates.push({
-          id:record.id+':analysis:'+index,activity,
+          id:record.id+':analysis:'+index,activity,kind:record.kind,
           prompt:'¿Qué análisis admite esta forma?',paradigm:record.paradigm,
           headword:analysisHeadword(record),
           form:g.form,correct:g.analysis,options,evidence:record.evidence,language,
@@ -205,7 +234,8 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
       }
     }
   }
-  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,limit,rng,now});
+  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
+    limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
 }
 export function evaluate(question,choice){
   if(!question?.options?.includes(choice))throw Error('Respuesta ajena al ejercicio');
