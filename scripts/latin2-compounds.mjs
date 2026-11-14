@@ -22,7 +22,7 @@ const participleEndings={
   SG:{masculino:'us',femenino:'a',neutro:'um'},
   PL:{masculino:'i',femenino:'ae',neutro:'a'}
 };
-const pastTime=['futuro perfecto','pluscuamperfecto','perfecto'];
+const pastTime=['futuro perfecto','pluscuamperfecto','perfecto','futuro'];
 const finiteMood=['indicativo','subjuntivo'];
 
 function properties(target){
