@@ -1,4 +1,5 @@
-import {validateBank,makeQuestions,evaluate,COURSE_LABELS,availableRecords} from './engine.mjs';
+import {validateBank,makeQuestions,evaluate,COURSE_LABELS,availableRecords,
+  displayLatin2QuestionText} from './engine.mjs';
 import {makeWrittenQuestions,makeTableExercises,correctWritten,evaluateTable} from './written.mjs';
 import {makePhraseQuestions,makePhraseTables} from './sintagmas.mjs';
 import {makeGreekNounPhraseQuestions,makeGreekNounPhraseTables} from './greek-noun-phrases.mjs';
@@ -140,13 +141,13 @@ function showQuestion(){
   $('counter').textContent='Ejercicio '+(position+1)+' de '+questions.length;
   $('score').textContent='Aciertos: '+score;
   $('paradigm').hidden=q.activity==='analysis';
-  $('paradigm').textContent=q.paradigm;
+  $('paradigm').textContent=displayLatin2QuestionText(q,q.paradigm);
   $('paradigm').lang=q.language==='griego'?'grc':'la';
-  $('question-title').textContent=q.prompt;
+  $('question-title').textContent=displayLatin2QuestionText(q,q.prompt);
   $('expression').hidden=q.activity!=='analysis';
   $('expression-form').textContent=q.activity==='analysis'?q.form:'';
   $('expression-headword').textContent=q.activity==='analysis'?
-    ' ('+(q.headword||q.paradigm.split(' · ')[0])+')':'';
+    ' ('+displayLatin2QuestionText(q,q.headword||q.paradigm.split(' · ')[0])+')':'';
   $('expression').lang=q.language==='griego'?'grc':'la';
   $('answers').hidden=!['form','analysis','agreement'].includes(q.activity);
   $('written-response').hidden=q.activity!=='written';
@@ -158,7 +159,7 @@ function showQuestion(){
   if(q.activity==='written'){
     answer.disabled=false;answer.value='';answer.lang=q.language==='griego'?'grc':'la';
     $('check-written').disabled=false;
-    answer.setAttribute('aria-label',q.prompt);
+    answer.setAttribute('aria-label',displayLatin2QuestionText(q,q.prompt));
     focusInput=answer;answer.focus();
   }else if(q.activity==='table'){
     createTable(q);
@@ -166,9 +167,10 @@ function showQuestion(){
     focusInput=$('table-cells').querySelector('input');
     focusInput?.focus();
   }else{
-    for(const choice of q.options){
+    for(const [index,choice] of q.options.entries()){
       const button=document.createElement('button');
-      button.type='button';button.textContent=choice;
+      button.type='button';button.textContent=displayLatin2QuestionText(q,choice);
+      button.dataset.choiceIndex=String(index);
       button.lang=['form','agreement'].includes(q.activity)?
         (q.language==='griego'?'grc':'la'):'es';
       button.addEventListener('click',()=>reply(q,choice));
@@ -184,11 +186,12 @@ function reply(q,choice){
   saveReview(reviewKey(q),result.correct);
   for(const button of $('answers').querySelectorAll('button')){
     button.disabled=true;
-    if(button.textContent===q.correct)button.classList.add('correct');
-    else if(button.textContent===choice)button.classList.add('incorrect');
+    const raw=q.options[Number(button.dataset.choiceIndex)];
+    if(raw===q.correct)button.classList.add('correct');
+    else if(raw===choice)button.classList.add('incorrect');
   }
   setFeedback((result.correct?'Correcto. ':'Revisa la respuesta. ')+
-    'Solución: '+result.expected+'. '+result.note,
+    'Solución: '+displayLatin2QuestionText(q,result.expected)+'. '+result.note,
     result.correct?'correct':'incorrect');
   completeQuestion(q);
 }
