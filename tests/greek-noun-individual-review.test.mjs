@@ -36,7 +36,8 @@ test('90/90 casillas griegas cotejadas por caso y número, sin inventar duales',
   assert.equal(record.gender,spec.gender);
   assert.equal(record.forms.length,10);
   assert.equal(spec.forms.length,5);
-  assert.equal(record.evidence.status,'formas-contrastadas-individualmente');
+  assert.equal(record.evidence.status,'paradigma-documentado');
+  assert.equal(record.evidence.individualVerification.status,'contrastado-individualmente');
   assert.equal(record.evidence.vocabulaSha,lock.sources.vocabula.sha);
   const v=record.evidence.individualVerification;
   assert.equal(v.checkedCount,10);
@@ -100,7 +101,8 @@ test('οὐρανός: cinco plurales correctos en el paradigma, pero reserva di
   x.usage==='no-acreditado-en-griego-clasico-por-esta-fuente').length,5);
  assert.equal(v.slots.filter(x=>x.number==='singular'&&x.usage).length,0);
  assert.ok(word.forms.some(x=>x.form==='οὐρανοῖς'&&x.number==='plural'));
- assert.equal(word.evidence.status,'formas-contrastadas-individualmente');
+ assert.equal(word.evidence.status,'paradigma-documentado');
+ assert.equal(word.evidence.individualVerification.status,'contrastado-individualmente');
  assert.match(word.evidence.review,/no constituye prueba de atestación textual/);
 });
 
