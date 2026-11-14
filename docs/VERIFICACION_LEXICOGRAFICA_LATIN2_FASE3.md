@@ -24,7 +24,7 @@ El analizador `scripts/latin2-compounds.mjs`, invocado por `scripts/audit-latin2
 | Participio, auxiliar, flexión y enunciado compatibles | **7.249** |
 | Variantes gráficas `adgressus` / `aggressus` documentadas | **54** |
 | Forma irregular `futurum esse` (de `sum`) | **1** |
-| Infinitivos de futuro de `utor` que requieren criterio de presentación | **3** |
+| Citas paradigmáticas del futuro activo de `utor` (`ūsūrus`, `ūsūrī`, `ūsūrae` + `esse`) | **3** |
 | **Total** | **7.307** |
 
 ### Qué se comprueba
@@ -33,7 +33,17 @@ El analizador `scripts/latin2-compounds.mjs`, invocado por `scripts/audit-latin2
 - En deponentes: las formas con flexión pasiva conservan el valor semántico activo, sin confundirlo con la voz activa morfológica.
 - En infinitivos: se distinguen participio perfecto + `esse`, participio futuro activo + `esse` y supino + `iri`, y se contempla `futurum esse` como caso irregular. Se revisa la función habitual del **acusativo** del participio en ACI.
 - Las 54 formas de `adgressus` corresponden a una **variante documentada** del participio de `aggredior`. Se reconoce exclusivamente esta equivalencia, apoyada en Lewis & Short, sin deducir todas las asimilaciones posibles ni convertir las frases en testimonios documentados.
-- Las tres reservas reales son `usurus esse`, `usuri esse` y `usurae esse`. En un infinitivo futuro activo construido como **ACI**, las terminaciones nominativas del participio no sustituyen a las acusativas. No obstante, `usurus esse` puede presentarse como fórmula **de cita de paradigma** (participio futuro + `esse`). Debe distinguirse la exposición morfológica de una construcción sintáctica y no eliminar las formas sin decisión docente.
+- Las tres formas `usurus esse`, `usuri esse` y `usurae esse` se **conservan como citas paradigmáticas**, respectivamente con participio futuro nominativo masculino singular, masculino plural y femenino plural. Esta presentación fuera de contexto no constituye un ACI: si se construye una oración de infinitivo con sujeto acusativo, el participio debe concordar en **acusativo**. El código conserva esta distinción con el estado `estructura-compatible-con-enunciado-paradigmatico` y la propiedad `aciAccusativeRequired: true`, sin dar por atestiguada ninguna expresión.
+
+### Decisión editorial definitiva para los tres modelos de *utor*
+
+- `ūsūrus esse`: participio futuro, nominativo masculino singular, enunciación de paradigma.
+- `ūsūrī esse`: participio futuro, nominativo masculino plural, enunciación de paradigma.
+- `ūsūrae esse`: participio futuro, nominativo femenino plural, enunciación de paradigma.
+
+En una proposición subordinada de **acusativo con infinitivo**, el participio futuro concuerda con el sujeto acusativo (por ejemplo, `se usurum esse`). El programa de auditoría **no interpreta automáticamente** las tres fórmulas nominativas como ejemplos de ACI, ni las borra por no estar en acusativo. Cada ficha conserva la decisión en `shared/academic/latin2/lexicographic-decisions.json` y los informes la incorporan mediante `editorialReview`, sin alterar el banco de los ejercicios.
+
+Fuentes: [Allen & Greenough §164](https://dcc.dickinson.edu/grammar/latin/stems), [§498](https://dcc.dickinson.edu/grammar/latin/future-participle) y [§584](https://dcc.dickinson.edu/grammar/latin/tenses-infinitive-indirect-discourse). La forma de cita es una **convención de descripción morfológica**; no se confunde con testimonio textual.
 
 ### Evidencia externa en los componentes
 
@@ -43,7 +53,7 @@ Sobre los 7.307 análisis: **5.463** tienen evidencia externa para sus dos compo
 
 ### Informes y límites de seguridad
 
-Los archivos `compuestos-resumen.json`, `compuestos-evidencias.ndjson` y `compuestos-reservas.tsv` se producen en `build/academic-audits/latin2-lexicon/` (artefacto docente), no en `dist/` ni en GitHub Pages. `compuestos-reservas.tsv` contiene únicamente las **tres** reservas sin resolver; las variantes y el caso irregular quedan en el registro de evidencias con etiquetas propias.
+Los archivos `compuestos-resumen.json`, `compuestos-evidencias.ndjson` y `compuestos-reservas.tsv` se producen en `build/academic-audits/latin2-lexicon/` (artefacto docente), no en `dist/` ni en GitHub Pages. `compuestos-reservas.tsv` conserva cabecera pero **ninguna reserva pendiente** en el conjunto actual; las **tres** formas de `utor` tienen estado de cita paradigmática, y las variantes ortográficas y el caso irregular permanecen distinguidos en el registro de evidencias.
 
 El cotejo puede ejecutarse con UniMorph solamente (flujo de integración normal, sin fuente independiente adicional) o con el JSONL de LEMLAT (flujo específico, aislado). Pruebas automáticas: estructuras de participio, subjuntivo, deponentes, inversión del orden, concordancia, excepciones, infinitivos y procedencia. Una ejecución válida declara siempre `individuallyVerified: false`, `attestedPhrases: 0` y `modifiedBankRecords: 0`.
 
@@ -54,4 +64,4 @@ El cotejo puede ejecutarse con UniMorph solamente (flujo de integración normal,
 - Lewis & Short, [`aggredior` (`adg-`)](https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n1556/) y [`aggressus`](https://logeion.org/aggressus).
 - [UniMorph Latin](https://github.com/unimorph/lat) y [LEMLAT 3.0](https://github.com/CIRCSE/LEMLAT3), revisiones inmutables detalladas en la [fase 2](VERIFICACION_LEXICOGRAFICA_LATIN2_FASE2.md).
 
-**Resultado:** la totalidad de los 7.307 casos ya cuenta con una auditoría estructural clasificada; solo **tres** requieren resolver la conveniencia de su presentación como infinitivos futuros. **No** se declaran verificadas individualmente 7.304 formas: eso requeriría evidencia adicional por flexión y, cuando proceda, testimonios latinos concretos.
+**Resultado:** los 7.307 análisis compuestos quedan clasificados estructuralmente y **no queda ninguna reserva estructural abierta** en el conjunto actual. Las tres lecturas de `utor` se documentan como modelos de cita, no como acusativos de un ACI. Ninguna de las 7.307 expresiones queda individualmente certificada ni atestiguada por esta auditoría; ambas operaciones exigirían evidencia adicional por flexión y contexto.
