@@ -71,9 +71,11 @@ test('Supplex y adulescens distinguen la forma regular y la variante histórica'
   const supplex=find('supplex','adjetivo');
   assert.ok(supplex);
   assert.ok(findForm(supplex,'supplicum','genitivo','plural','neutro').length);
-  assert.ok(findForm(supplex,'supplice','ablativo','singular','masculino').length);
+  assert.ok(findForm(supplex,'supplici','ablativo','singular','masculino').length);
   const rare=findForm(supplex,'supplicium','genitivo','plural','masculino');
   assert.ok(rare.length&&rare.every(f=>f.usage==='variante rara'));
+  const contextual=findForm(supplex,'supplice','ablativo','singular','masculino');
+  assert.ok(contextual.length&&contextual.every(f=>/poétic|sustantivad/i.test(f.usage)));
   const adulescens=find('adulescens','sustantivo');
   assert.ok(adulescens);
   assert.ok(findForm(adulescens,'adulescentium','genitivo','plural','masculino').length);
@@ -144,7 +146,7 @@ test('Las tablas nominales y adjetivales nuevas se limitan a los modelos declara
 
 test('Las variantes poco frecuentes se aceptan, pero no se sortean como palabras aisladas',()=>{
   const cases=[
-    ['supplex','adjetivo',['supplicium'],['supplici']],
+    ['supplex','adjetivo',['supplicium','supplice'],['supplici']],
     ['adulescens','sustantivo',['adulescentum'],[]]
   ];
   for(const [head,kind,excluded,common] of cases){
