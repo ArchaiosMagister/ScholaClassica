@@ -123,11 +123,29 @@ export async function prepare({bank,pau,cuaderno,input,manifest}){
     cuaderno:parseCuadernoQuestions(workbook).flatMap(x=>x.forms)});
   const prioritized=targets.filter(x=>x.priority!=='P2');
   const simple=prioritized.filter(x=>x.type==='simple');
-  const words=[...new Set(simple.map(x=>x.form))].sort();
-  assert.ok(prioritized.length&&words.length,'Sin formas priorizadas para LEMLAT3');
-  const payload={schema:'schola-lemlat3-batch/v1',revision:LEMLAT3_REVISION,
+  const priorityWords=[...new Set(simple.map(x=>x.form))].sort();
+  const compounds=targets.filter(x=>x.type==='compuesto');
+  const auxiliaries=new Set(['sum','es','est','sumus','estis','sunt',
+    'eram','eras','erat','eramus','eratis','erant',
+    'ero','eris','erit','erimus','eritis','erunt',
+    'sim','sis','sit','simus','sitis','sint',
+    'essem','esses','esset','essemus','essetis','essent']);
+  const componentWords=[...new Set(compounds.map(x=>{
+    const [a,b]=x.form.split(' ');
+    return auxiliaries.has(a)?b:a;
+  }))].sort();
+  const words=[...new Set([...priorityWords,...componentWords,
+    'sum','es','est','sumus','estis','sunt','esse','iri',
+    'eram','eras','erat','eramus','eratis','erant',
+    'ero','eris','erit','erimus','eritis','erunt',
+    'sim','sis','sit','simus','sitis','sint',
+    'essem','esses','esset','essemus','essetis','essent'])].sort();
+  assert.ok(prioritized.length&&words.length&&compounds.length,
+    'Sin formas priorizadas o compuestos para LEMLAT3');
+  const payload={schema:'schola-lemlat3-batch/v2',revision:LEMLAT3_REVISION,
     priorityAnalyses:prioritized.length,compoundAnalyses:prioritized.length-simple.length,
-    distinctSimpleWords:words.length,words};
+    distinctSimpleWords:priorityWords.length,allCompounds:compounds.length,
+    compoundComponentWords:componentWords.length,totalQueryWords:words.length,words};
   await save(input,words.join('\n')+'\n');
   await save(manifest,JSON.stringify(payload,null,2)+'\n');
   return payload;
