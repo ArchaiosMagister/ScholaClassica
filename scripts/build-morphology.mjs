@@ -18,6 +18,7 @@ import {compilePauRegularVerbs} from './morphology-pau-regular-verbs.mjs';
 import {compilePauIrregularVerbs} from './morphology-pau-irregular-verbs.mjs';
 import {parseCuadernoQuestions,auditCuaderno} from './morphology-cuaderno.mjs';
 import {compileCuadernoIrregulars} from './morphology-cuaderno-irregulars.mjs';
+import {compileEoParticiples} from './morphology-audit-eo-participles.mjs';
 import {compileCuadernoFeroCompounds} from './morphology-cuaderno-fero-prefijos.mjs';
 import {compileCuadernoDefectives} from './morphology-cuaderno-defectivos.mjs';
 import {auditLatin2Morphology,assertLatin2AuditPasses} from './audit-morphology-latin2.mjs';
@@ -366,7 +367,7 @@ export async function buildMorphology({out,lock}){
   const regularVerbs=compilePauRegularVerbs(combinedQuestions);
   const irregularVerbs=compilePauIrregularVerbs(combinedQuestions)
     .filter(r=>!['latin2-pau-irregular-fero','latin2-pau-irregular-confero'].includes(r.id));
-  const workbookIrregulars=[...compileCuadernoIrregulars(),...compileCuadernoFeroCompounds(),...compileCuadernoDefectives()];
+  const workbookIrregulars=[...compileCuadernoIrregulars(),...compileCuadernoFeroCompounds(),...compileCuadernoDefectives(),compileEoParticiples()];
   const exceptions=compilePauExceptions(exams);
   const nominalPrior=[...originalRecords,...latin2,...additions,
     ...schoolNouns,...schoolAdjectives,...numerals,...participles,
