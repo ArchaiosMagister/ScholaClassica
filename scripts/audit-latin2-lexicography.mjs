@@ -19,11 +19,12 @@ const defaults={
   unimorph:join(root,'.sources/unimorph-latin/lat'),
   pau:join(root,'shared/academic/latin2/pau-cv-2006-2026.tsv'),
   cuaderno:join(root,'shared/academic/latin2/cuaderno-2026-27-morfologia.tsv'),
-  out:join(root,'build/academic-audits/latin2-lexicon')
+  out:join(root,'build/academic-audits/latin2-lexicon'),
+  editorial:join(root,'shared/academic/latin2/lexicographic-decisions.json')
 };
 function argsToOptions(argv){
   const options={...defaults};
-  const names=new Set(['bank','unimorph','pau','cuaderno','out','independent']);
+  const names=new Set(['bank','unimorph','pau','cuaderno','out','independent','editorial']);
   for(let i=0;i<argv.length;i++){
     const name=argv[i];
     assert.ok(name.startsWith('--')&&names.has(name.slice(2)),
@@ -99,6 +100,32 @@ export async function runLexicographyAudit(options,{minPrimaryRows=900000}={}){
   summary.malformedRows=matcher.stats.malformedRows;
   summary.pauDistinctForms=new Set(exams.flatMap(x=>x.forms)).size;
   summary.cuadernoQuestionGroups=workbook.length;
+  // Registrar decisiones filológicas sobre el informe, NO el banco ni el sorteo.
+  const editorial=JSON.parse(await readFile(files.editorial,'utf8'));
+  assert.equal(editorial.schema,'schola-latin2-editorial-review/v1');
+  const disposition={};
+  for(const decision of editorial.decisions){
+    const matches=entries.filter(e=>e.recordId===decision.recordId&&
+      e.form===decision.form&&e.expected.case===decision.case&&
+      e.expected.number===decision.number&&e.expected.gender===decision.gender);
+    assert.ok(matches.length<=1,'Decisión editorial no unívoca: '+decision.recordId);
+    if(!matches.length){
+      // Las pruebas unitarias con bancos reducidos no contienen todo Latín II.
+      assert.ok(!bank.records.some(r=>r.id===decision.recordId),
+        'Se perdió una forma del banco revisado: '+decision.recordId);
+      continue;
+    }
+    assert.equal(decision.individualVerification,false,
+      'La revisión estructural no equivale a certificación individual');
+    matches[0].editorialReview={resolution:decision.resolution,
+      action:decision.action,individualVerification:false,
+      reason:decision.reason};
+    disposition[decision.resolution]=(disposition[decision.resolution]||0)+1;
+  }
+  summary.editorialReview={decisionsApplied:Object.values(disposition)
+    .reduce((a,b)=>a+b,0),byResolution:disposition,
+    modifiedAcademicBank:false,certifiedForms:0};
+
   // Desglose estrictamente de PAU/cuaderno (P0/P1). Las concordancias
   // globales pueden incluir P2 y no deben atribuirse todas a selectividad.
   const priorityEntries=entries.filter(x=>x.priority!=='P2');
