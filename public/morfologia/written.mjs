@@ -1,5 +1,5 @@
 // Práctica productiva: todas las soluciones proceden literalmente del banco validado.
-import {availableRecords} from './engine.mjs';
+import {availableRecords,practiceEligibleEntries,practiceOrdinaryEntries} from './engine.mjs';
 import {selectReviewCandidates} from './review.mjs';
 const cases={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
   latin2:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -50,13 +50,16 @@ export function makeWrittenQuestions(bank,{language,unit,kind='todos',limit=10,r
   const candidates=[];
   for(const record of records){
     const groups=new Map();
-    for(const entry of record.forms){
+    const ordinaryAnalyses=new Set(practiceOrdinaryEntries(record).map(f=>
+      clean(f.analysis)));
+    for(const entry of practiceEligibleEntries(record)){
       const key=clean(entry.analysis);
       if(!groups.has(key))groups.set(key,new Set());
       groups.get(key).add(clean(entry.form));
     }
     let i=0;
     for(const [analysis,forms] of groups){
+      if(record.language==='latin2'&&!ordinaryAnalyses.has(analysis))continue;
       const acceptedForms=[...forms];
       candidates.push({
         id:record.id+':written:'+i++,activity:'written',language,kind:record.kind,
@@ -75,17 +78,21 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
   const candidates=[];
   for(const record of records){
     if(!['sustantivo','adjetivo','desinencia','artículo','participio'].includes(record.kind))continue;
-    const genders=unique(record.forms.map(f=>f.gender).filter(Boolean));
+    const accepted=practiceEligibleEntries(record);
+    const ordinary=practiceOrdinaryEntries(record);
+    const genders=unique(ordinary.map(f=>f.gender).filter(Boolean));
     for(const gender of genders.length?genders:[null]){
-      const entries=gender?record.forms.filter(f=>f.gender===gender):record.forms;
-      const available=cases[language].filter(c=>entries.some(f=>f.case===c));
+      const entries=gender?accepted.filter(f=>f.gender===gender):accepted;
+      const basic=gender?ordinary.filter(f=>f.gender===gender):ordinary;
+      const available=cases[language].filter(c=>basic.some(f=>f.case===c));
       if(available.length<4)continue;
       const cells=[];
       for(const cas of available){
         for(const number of ['singular','plural']){
           const acceptedForms=unique(entries.filter(f=>f.case===cas&&f.number===number)
             .map(f=>clean(f.form)));
-          if(!acceptedForms.length)continue;
+          if(!acceptedForms.length||!basic.some(f=>f.case===cas&&
+            f.number===number))continue;
           cells.push({id:cas+':'+number,case:cas,number,acceptedForms});
         }
       }
