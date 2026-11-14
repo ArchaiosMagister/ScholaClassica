@@ -93,7 +93,7 @@ test('El selector de Latín I carga la nueva copia sin alterar Griego I, 4.º ni
  for(const {locale,source,app} of tests){
   const original=read(join(from,source),app);
   const after4=adaptLatin4App(original,locale);
-  const expected=adaptLatin1App(after4,locale);
+  const expected=adaptGreek1App(adaptLatin1App(after4,locale),locale);
   const integrated=read(join(out,source),app);
   assert.equal(integrated,expected,'Adaptador bilingüe no reproducible');
   const asset=locale==='es'?'assets/curriculum-latin1.json':'curriculum-latin1.json';
