@@ -172,3 +172,58 @@ test('Modalidades de repaso: cinco filtros, categorías y prioridades conservada
       !q.id.endsWith(':0')||!state.items[q.id]));
   }
 });
+
+test('Dos enunciados verbales para el mismo lema reúnen las lecturas sin duplicarlas',()=>{
+  const full='duco, ducere, duxi, ductum (3.ª)';
+  const short='duco, duxi, ductum (3.ª)';
+  const makeRecord=(id,headword,values)=>({
+    id,language:'latin2',unit:0,kind:'verbo',headword,paradigm:headword,
+    evidence:{status:'paradigma-documentado'},
+    forms:values.map(([form,reading])=>({
+      form,analysis:'verbo · '+headword+' · '+reading
+    }))
+  });
+  const a=makeRecord('test-verb-short',short,[
+    ['ducam','1.ª persona · singular · futuro · indicativo · voz activa'],
+    ['duco','1.ª persona · singular · presente · indicativo · voz activa'],
+    ['ducis','2.ª persona · singular · presente · indicativo · voz activa'],
+    ['ducit','3.ª persona · singular · presente · indicativo · voz activa'],
+    ['ducimus','1.ª persona · plural · presente · indicativo · voz activa'],
+    ['ducitis','2.ª persona · plural · presente · indicativo · voz activa']
+  ]);
+  const b=makeRecord('test-verb-full',full,[
+    ['ducam','1.ª persona · singular · presente · subjuntivo · voz activa'],
+    ['ducas','2.ª persona · singular · presente · subjuntivo · voz activa'],
+    ['ducat','3.ª persona · singular · presente · subjuntivo · voz activa'],
+    ['ducamus','1.ª persona · plural · presente · subjuntivo · voz activa'],
+    ['ducatis','2.ª persona · plural · presente · subjuntivo · voz activa'],
+    ['ducant','3.ª persona · plural · presente · subjuntivo · voz activa']
+  ]);
+  const qs=makeQuestions({...bank,records:[a,b]},{
+    ...base,activity:'analysis',rng:seedRng(4)
+  });
+  const ducam=qs.filter(q=>q.form==='ducam');
+  assert.equal(ducam.length,1,'La misma forma no puede repetirse por variantes del enunciado');
+  assert.equal(readings(ducam[0].correct).length,2);
+  assert.match(ducam[0].correct,/futuro · indicativo/);
+  assert.match(ducam[0].correct,/presente · subjuntivo/);
+  assert.ok(!ducam[0].correct.includes(full),
+    'La pantalla no debe mezclar los dos enunciados del mismo verbo');
+  assert.ok(readings(ducam[0].correct).every(x=>x.includes(short)));
+  const correct=new Set(readings(ducam[0].correct));
+  assert.ok(ducam[0].options.filter(x=>x!==ducam[0].correct)
+    .every(x=>readings(x).every(reading=>!correct.has(reading))));
+});
+
+test('Un homógrafo sustantivo y adjetivo no se fusiona como si fuera un lema',()=>{
+  const candidates=latin2.filter(r=>r.headword?.startsWith('liber,')&&
+    ['sustantivo','adjetivo'].includes(r.kind));
+  assert.equal(candidates.length,2);
+  const qs=makeQuestions({...bank,records:candidates},{
+    ...base,activity:'analysis',rng:seedRng(9)
+  }).filter(q=>q.form==='liber');
+  assert.equal(qs.length,2,'liber sustantivo y liber adjetivo son lexemas diferentes');
+  assert.deepEqual(new Set(qs.map(q=>q.kind)),new Set(['adjetivo','sustantivo']));
+  assert.ok(qs.every(q=>readings(q.correct).every(a=>
+    a.startsWith(q.kind+' · '))));
+});
