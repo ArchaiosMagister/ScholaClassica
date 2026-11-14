@@ -56,6 +56,8 @@ try{
   assert.equal(await page.locator('#units input:checked').count(),1,
     'El cambio de corpus debe conservar la unidad compartida');
   assert.ok((await page.locator('#scope').textContent()).includes('General y Examen'));
+  await page.locator('#none').click();
+  await page.locator('#units input[value="UD 4"]').check();
   const result=await page.evaluate(()=>{
     const combined=scholaVocabularyAll(VOCAB,'lat1',['UD 4']);
     const ac=combined.find(e=>e.form==='ac (conj.)');
