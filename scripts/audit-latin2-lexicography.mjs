@@ -99,6 +99,20 @@ export async function runLexicographyAudit(options,{minPrimaryRows=900000}={}){
   summary.malformedRows=matcher.stats.malformedRows;
   summary.pauDistinctForms=new Set(exams.flatMap(x=>x.forms)).size;
   summary.cuadernoQuestionGroups=workbook.length;
+  // Desglose estrictamente de PAU/cuaderno (P0/P1). Las concordancias
+  // globales pueden incluir P2 y no deben atribuirse todas a selectividad.
+  const priorityEntries=entries.filter(x=>x.priority!=='P2');
+  summary.priorityCotejo={
+    total:priorityEntries.length,
+    byStatus:Object.fromEntries([...new Set(priorityEntries.map(x=>x.status))].sort()
+      .map(status=>[status,priorityEntries.filter(x=>x.status===status).length])),
+    analysesWithLemlatEvidence:priorityEntries.filter(x=>
+      x.evidence.some(e=>e.source==='LEMLAT3')).length,
+    analysesWithUniMorphEvidence:priorityEntries.filter(x=>
+      x.evidence.some(e=>e.source==='UniMorph Latin')).length,
+    analysedSimple:priorityEntries.filter(x=>x.type==='simple').length,
+    reservedCompounds:priorityEntries.filter(x=>x.type==='compuesto').length
+  };
   await mkdir(files.out,{recursive:true});
   await Promise.all([
     writeFile(join(files.out,'resumen.json'),JSON.stringify(summary,null,2)+'\n'),
@@ -113,6 +127,7 @@ export async function runLexicographyAudit(options,{minPrimaryRows=900000}={}){
     '; estatus: '+JSON.stringify(summary.byStatus));
   console.log('Distribución por prioridad: '+JSON.stringify(summary.byPriority)+
     '; filas de entrada descartadas: '+summary.malformedRows);
+  console.log('Cotejo prioritario PAU/cuaderno: '+JSON.stringify(summary.priorityCotejo));
   console.log('Primeras incidencias P0/P1 para revisión docente: '+
     JSON.stringify(findings.filter(f=>f.priority!=='P2').slice(0,12)
       .map(f=>({form:f.displayForm,lemma:f.lemma,analysis:f.analysis,
