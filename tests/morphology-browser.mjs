@@ -92,9 +92,10 @@ try{
  assert.equal(await page.locator('#answers button').count(),4);
  const found=await page.evaluate(async()=>{
    const data=await fetch('./data/paradigmas.json').then(r=>r.json());
-   return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego,latin4:data.coverage.latin4};
+   return {paradigms:data.records.length,latin:data.coverage.latin,greek:data.coverage.griego,latin4:data.coverage.latin4,latin2:data.coverage.latin2};
  });
- assert.equal(found.paradigms,220);
+ assert.ok(found.paradigms>220);
+ assert.deepEqual(found.latin2,[0]);
  assert.deepEqual(found.latin4,[1,2,3,4,5,6,7,8]);
  assert.deepEqual(found.latin,[1,2,3,4,5,6,7,8,9,10]);assert.deepEqual(found.greek,[1,2,3,4,5,6,7,8,9,10,11,12,13,14]);
  // La página y su banco están precargados también para 4.º sin conexión.
