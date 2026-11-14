@@ -14,6 +14,7 @@ import {compilePauSchoolNouns} from './morphology-pau-nouns.mjs';
 import {compilePauSchoolAdjectives} from './morphology-pau-adjectives.mjs';
 import {compilePauNumerals} from './morphology-pau-numerals.mjs';
 import {compilePauParticiples} from './morphology-pau-participles.mjs';
+import {compilePauRegularVerbs} from './morphology-pau-regular-verbs.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -349,7 +350,8 @@ export async function buildMorphology({out,lock}){
     [...originalRecords,...latin2,...additions]);
   const numerals=compilePauNumerals(exams);
   const participles=compilePauParticiples(exams);
-  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles);
+  const regularVerbs=compilePauRegularVerbs(exams);
+  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs);
   const fullRecords=[...originalRecords,...latin2,...additions];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
@@ -366,7 +368,7 @@ export async function buildMorphology({out,lock}){
     missingForms:missing,nominalImported:nominal.records.length,
     nominalIncomplete:nominal.skipped,schoolNounsAdded:schoolNouns.length,
     schoolAdjectivesAdded:schoolAdjectives.length,numeralsAdded:numerals.length,
-    participlesAdded:participles.length,
+    participlesAdded:participles.length,regularVerbsAdded:regularVerbs.length,
     pronounsAdded:pronouns.length,
     compoundsAdded:compounds.length};
   const dir=join(out,'apps/morfologia/data');
