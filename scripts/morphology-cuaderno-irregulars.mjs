@@ -232,7 +232,9 @@ export function compileCuadernoIrregulars(){
   assert.equal(new Set(records.map(x=>x.id)).size,4);
   for(const r of records){
     const modes=new Set(r.forms.map(f=>f.mood));
-    assert.deepEqual([...modes],['indicativo','subjuntivo']);
+    assert.ok(modes.has('indicativo')&&modes.has('subjuntivo'),r.id+' pierde modos personales');
+    if(['latin2-cuaderno-irregular-fero','latin2-cuaderno-irregular-eo'].includes(r.id))
+      assert.ok(modes.has('imperativo'),r.id+' pierde imperativo');
     assert.ok(r.forms.length>=60,r.id);
   }
   records.push(infinitives('fero',records[0].headword,[
