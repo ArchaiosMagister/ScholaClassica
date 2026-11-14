@@ -120,7 +120,7 @@ try{
  await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:10000});
  assert.equal(await page.locator('#subject').inputValue(),'latin2');
  assert.equal(await page.locator('#unit-label').isVisible(),false);
- assert.deepEqual(await page.locator('#unit option').allTextContents(),['Temario completo']);
+ assert.deepEqual(await page.locator('#unit option').allTextContents(),['Sin unidades']);
  const categories=await page.locator('#kind option').allTextContents();
  for(const name of ['Sustantivos','Adjetivos','Pronombres','Verbos','Participios','Infinitivos'])
    assert.ok(categories.includes(name),'Falta categoría '+name);
