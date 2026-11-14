@@ -32,7 +32,7 @@ function updateFilters(){
   const old=Number(input.unit.value);
   input.unit.replaceChildren();
   $('unit-label').hidden=language==='latin2';
-  coverage.forEach(unit=>option(input.unit,String(unit),language==='latin2'?'Temario completo':'UD'+unit));
+  coverage.forEach(unit=>option(input.unit,String(unit),language==='latin2'?'Sin unidades':'UD'+unit));
   input.unit.value=coverage.includes(old)?String(old):String(coverage[0]);
   updateActivities();
 }
@@ -75,7 +75,7 @@ function updateKinds(){
   kinds.forEach(kind=>option(input.kind,kind,grammaticalName(kind)));
   input.kind.value=phrase?'sintagma':agreement?'adjetivo':(kinds.includes(selected)?selected:'todos');
   $('coverage').textContent=language==='latin2'?
-    'Latín II: práctica del temario completo, sin unidades. Las formas aisladas pueden tener más de un análisis.':
+    'Latín II: práctica sin unidades con paradigmas documentados; selección inicial ampliable. Una forma aislada puede tener varios análisis.':
     COURSE_LABELS[language]+': puedes practicar los contenidos de UD1 a UD'+unit+'.'+
     (language==='griego'&&unit===4?' UD4 no incorpora nuevas formas a estos ejercicios.':'');
 }
