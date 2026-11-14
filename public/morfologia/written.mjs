@@ -66,7 +66,8 @@ export function makeWrittenQuestions(bank,{language,unit,kind='todos',limit=10,r
       });
     }
   }
-  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,limit,rng,now});
+  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
+    limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
 }
 export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng=Math.random,
   reviewMode='all',reviewState,now=Date.now()}={}){
@@ -96,7 +97,8 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
           'en singular y plural.',cells});
     }
   }
-  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,limit,rng,now});
+  return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
+    limit,rng,now,balanceByKind:language==='latin2'&&kind==='todos'});
 }
 export function evaluateTable(question,answers){
   if(question?.activity!=='table'||!Array.isArray(question.cells)||
