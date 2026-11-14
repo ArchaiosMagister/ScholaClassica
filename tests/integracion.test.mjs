@@ -25,11 +25,31 @@ function compareApp(source,target,exceptions=[],extras=[]){
 test('Appendix castellano y valenciano mantiene originales salvo adaptaciones visuales de dist',()=>{
   const appendixSource=join(root,'.sources/appendix'),appendixTarget=join(out,'apps/gramatica');
   const pages=crawl(appendixSource).filter(path=>path.endsWith('.html'));
-  compareApp(appendixSource,appendixTarget,['assets/style.css','assets/language-colors.css','assets/theme.js',...pages]);
+  const adapted=['assets/style.css','assets/language-colors.css','assets/theme.js',
+    'assets/app.js','val/app.js',...pages];
+  const extra=['assets/curriculum-latin4.json','val/curriculum-latin4.json'];
+  compareApp(appendixSource,appendixTarget,adapted,extra);
+  const curriculumFiles=['assets/curriculum.json','val/curriculum.json'];
+  for(const name of curriculumFiles)
+    assert.equal(hash(join(appendixSource,name)),hash(join(appendixTarget,name)),
+      'Los diez temas de Latín I y los catorce de Griego I no se pueden modificar');
+  const coursePages=new Set(['index.html','curso.html','val/index.html','val/curso.html']);
   for(const page of pages){
     const original=readFileSync(join(appendixSource,page),'utf8');
     const expected=original.replace(/(assets\/(?:theme\.js|style\.css|language-colors\.css)\?v=[a-zA-Z0-9-]+)(?=["'])/g,'$1-oled1');
-    assert.equal(readFileSync(join(appendixTarget,page),'utf8'),expected,'HTML de Appendix: '+page);
+    const actual=readFileSync(join(appendixTarget,page),'utf8');
+    if(coursePages.has(page)){
+      assert.ok(actual.includes('<option value="4">'),'Falta opción curricular en '+page);
+      assert.ok(actual.includes('curso=4&amp;unidad=1')||page.endsWith('curso.html'),
+        'Falta el enlace directo a 4.º: '+page);
+      // La única edición HTML adicional autorizada es el selector de 4.º
+      // y, en la portada, el enlace de consulta. Restaurarlos debe
+      // producir los bytes esperados con el ajuste OLED preexistente.
+      const withoutOption=actual.replace(/<option value="4">[^<]*<\/option>/u,'');
+      const reverted=page.endsWith('index.html')?withoutOption.replace(
+        /<p class="course-note"><a href="curso.html\?lengua=latin&amp;curso=4&amp;unidad=1">[^<]*<\/a><\/p>/u,''):withoutOption;
+      assert.equal(reverted,expected,'HTML de Appendix sufrió cambios inesperados: '+page);
+    }else assert.equal(actual,expected,'HTML de Appendix: '+page);
   }
   for(const file of ['index.html','curso.html','val/index.html','val/curso.html','assets/curriculum.json','val/curriculum.json'])
     assert.ok(existsSync(join(out,'apps/gramatica',file)),file);
