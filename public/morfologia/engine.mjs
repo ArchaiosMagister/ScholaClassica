@@ -143,16 +143,18 @@ function analysisDistractors(record,grouped,target,index){
   return record.language==='latin2'?
     other.filter(x=>x.split(' · ')[0]===record.kind):other;
 }
-// Ordenar por semejanza de rasgos una vez descartadas todas las lecturas
-// verdaderas. La aleatoriedad se conserva para empates y orden de botones.
-function proximity(target,option){
-  const tokens=reading=>new Set(reading.split(' · ').map(x=>x.trim()));
-  const candidates=target.split(' / ').map(tokens);
-  return Math.max(...option.split(' / ').map(reading=>{
-    const entries=tokens(reading);
-    return Math.max(...candidates.map(correct=>
-      [...entries].filter(token=>correct.has(token)).length));
-  }));
+// Aproximación lineal: comparar el conjunto de rasgos una sola vez por
+// candidato. La comparación cartesiana entre todas las lecturas sincréticas
+// era cuadrática y bloqueaba la interfaz en paradigmas numerosos.
+function proximityTokens(value){
+  return new Set(value.replaceAll(' / ',' · ').split(' · ')
+    .map(part=>part.trim()).filter(Boolean));
+}
+function proximity(targetTokens,option){
+  let score=0;
+  for(const trait of proximityTokens(option))
+    if(targetTokens.has(trait))score++;
+  return score;
 }
 export function availableRecords(bank,{language,unit,kind='todos'}){
   validateBank(bank);
@@ -270,9 +272,12 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
         const distractors=analysisDistractors(record,allGrouped,g.analysis,index);
         if(distractors.length<3)continue;
         if(language==='latin2')usedLatin2Prompts.add(key);
-        const ranked=shuffle(distractors,rng);
-        if(language==='latin2')ranked.sort((a,b)=>
-          proximity(g.analysis,b)-proximity(g.analysis,a));
+        let ranked=shuffle(distractors,rng);
+        if(language==='latin2'){
+          const targetTokens=proximityTokens(g.analysis);
+          ranked=ranked.map(option=>({option,score:proximity(targetTokens,option)}))
+            .sort((a,b)=>b.score-a.score).map(({option})=>option);
+        }
         const options=shuffle([...ranked.slice(0,3),g.analysis],rng);
         candidates.push({
           id:record.id+':analysis:'+index,activity,kind:record.kind,
