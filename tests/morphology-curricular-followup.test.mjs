@@ -30,7 +30,8 @@ test('Segundo lote: 19 fichas nuevas, fuentes explícitas y las anteriores sin d
   assert.ok(extras.every(r=>r.evidence.status==='paradigma-documentado'));
   assert.deepEqual(bank.records.slice(-28,-16),
     compileLatinCurricularFollowup(curriculum,bank.records.slice(0,-28)));
-  assert.ok(extras.every(r=>!bank.records.slice(0,-19).some(old=>old.id===r.id)));
+  assert.ok(extras.every(r=>!bank.records.slice(0,-28).some(old=>old.id===r.id)));
+
   assert.equal(bank.records.filter(r=>r.language==='latin2').length,500,
     'Latín II y su verificación permanecen intactos');
   assert.equal(bank.records.filter(r=>r.language==='latin').length,89);
