@@ -133,7 +133,7 @@ test('Fuentes cambiadas abortan la compilación y no contaminan Latín I o Grieg
   assert.throws(()=>compileLatin4({...args,teacherImperfectsJs:'window.GRAMMAR_PARADIGMS=[];'}),
     /cambió de formato/);
   assert.equal(bank.records.filter(r=>!['latin4','latin2'].includes(r.language)).length,
-    144+9+19,'El banco anterior permanece intacto y se anexan los dos lotes curriculares');
+    144+9+19+9,'El banco anterior se conserva y se agregan tres lotes curriculares');
   assert.ok(bank.records.filter(r=>r.language==='latin').every(r=>r.unit<=10));
   assert.ok(bank.records.filter(r=>r.language==='griego').every(r=>r.unit<=14));
 });
