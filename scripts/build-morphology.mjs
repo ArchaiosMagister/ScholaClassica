@@ -16,6 +16,7 @@ import {compilePauNumerals} from './morphology-pau-numerals.mjs';
 import {compilePauParticiples} from './morphology-pau-participles.mjs';
 import {compilePauRegularVerbs} from './morphology-pau-regular-verbs.mjs';
 import {compilePauIrregularVerbs} from './morphology-pau-irregular-verbs.mjs';
+import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -353,7 +354,8 @@ export async function buildMorphology({out,lock}){
   const participles=compilePauParticiples(exams);
   const regularVerbs=compilePauRegularVerbs(exams);
   const irregularVerbs=compilePauIrregularVerbs(exams);
-  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs);
+  const exceptions=compilePauExceptions(exams);
+  additions.push(...schoolNouns,...schoolAdjectives,...numerals,...participles,...regularVerbs,...irregularVerbs,...exceptions);
   const fullRecords=[...originalRecords,...latin2,...additions];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
@@ -364,6 +366,7 @@ export async function buildMorphology({out,lock}){
     .flatMap(r=>r.forms.map(f=>latinFold(f.form))));
   const covered=examForms.filter(form=>latin2Surface.has(form));
   const missing=examForms.filter(form=>!latin2Surface.has(form));
+  assert.equal(missing.length,0,'Faltan formas PAU: '+missing.join(', '));
   const audit={source:'PAU de Latín II CV, PDF de 56 páginas',
     years:[2006,2026],models:exams.length,occurrences:352,
     distinctForms:examForms.length,coveredForms:covered.length,
@@ -371,7 +374,7 @@ export async function buildMorphology({out,lock}){
     nominalIncomplete:nominal.skipped,schoolNounsAdded:schoolNouns.length,
     schoolAdjectivesAdded:schoolAdjectives.length,numeralsAdded:numerals.length,
     participlesAdded:participles.length,regularVerbsAdded:regularVerbs.length,
-    irregularVerbsAdded:irregularVerbs.length,
+    irregularVerbsAdded:irregularVerbs.length,exceptionsAdded:exceptions.length,
     pronounsAdded:pronouns.length,
     compoundsAdded:compounds.length};
   const dir=join(out,'apps/morfologia/data');
