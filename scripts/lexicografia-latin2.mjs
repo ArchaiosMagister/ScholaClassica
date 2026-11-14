@@ -218,14 +218,24 @@ export function createMatcher(targets){
           const dims=[...new Set(comparison.matched)].sort();
           target._allComparisons.compatible.get(source).set(dims.join('|'),new Set(dims));
         }
-        // Cupo de presentación únicamente; nunca afecta al veredicto.
-        if(target.evidence.filter(e=>e.source===source).length<8)
-          target.evidence.push({
-          source,revision,line,
+        // Cupo de presentación: reservar muestras de mayor utilidad
+        // para que un acuerdo posterior no desaparezca del informe.
+        // Nunca altera la clasificación calculada con todos los perfiles.
+        const sample={source,revision,line,
           features:row.rawFeatures,
           ...(row.reference?{reference:row.reference}:{}),
           ...(row.nativeFeatures?{nativeFeatures:row.nativeFeatures}:{}),
-          comparison});
+          comparison};
+        const visible=target.evidence.filter(e=>e.source===source);
+        if(visible.length<8)target.evidence.push(sample);
+        else {
+          const quality=e=>(e.comparison.conflicts.length===0?100:0)+
+            e.comparison.matched.length*3-e.comparison.conflicts.length*5;
+          const worst=visible.reduce((a,b)=>quality(a)<=quality(b)?a:b);
+          if(quality(sample)>quality(worst)){
+            target.evidence[target.evidence.indexOf(worst)]=sample;
+          }
+        }
       }
     }
   };
