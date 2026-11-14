@@ -207,7 +207,10 @@ export function createMatcher(targets){
         if(!target._seen)target._seen=new Set();
         if(target._seen.has(identity))continue;
         target._seen.add(identity);
-        if(target.evidence.length<8)target.evidence.push({
+        // Cupo por fuente: las muchas lecturas de UniMorph nunca deben
+        // desplazar del informe la primera lectura de LEMLAT3.
+        if(target.evidence.filter(e=>e.source===source).length<8)
+          target.evidence.push({
           source,revision,line,
           features:row.rawFeatures,
           ...(row.reference?{reference:row.reference}:{}),
@@ -222,9 +225,23 @@ function classifyTarget(target,sources){
   if(!target.evidence.length)return sources.hasLemma(target.lemma)?
     'no-hallada-para-lema':'lema-fuera-de-cobertura';
   const best=target.evidence.filter(e=>!e.comparison.conflicts.length);
-  const count=new Set(best.map(e=>e.source)).size;
-  if(count>=2&&best.some(e=>e.comparison.matched.length>=3))
-    return 'acuerdo-de-fuentes-no-testimonio-textual';
+  const bySource=new Map();
+  for(const item of best){
+    if(item.comparison.matched.length<2)continue;
+    if(!bySource.has(item.source))bySource.set(item.source,[]);
+    bySource.get(item.source).push(new Set(item.comparison.matched));
+  }
+  // Dos fuentes distintas han de coincidir realmente en >=2 dimensiones.
+  // No basta una etiqueta vaga de categoría en LEMLAT y una completa de UniMorph.
+  const sourceEntries=[...bySource.entries()];
+  for(let i=0;i<sourceEntries.length;i++){
+    for(let j=i+1;j<sourceEntries.length;j++){
+      for(const a of sourceEntries[i][1])for(const b of sourceEntries[j][1]){
+        if([...a].filter(x=>b.has(x)).length>=2)
+          return 'acuerdo-de-fuentes-no-testimonio-textual';
+      }
+    }
+  }
   if(best.length&&best.some(e=>e.comparison.matched.length>=2))
     return 'coincidencia-parcial-de-rasgos';
   if(best.length)return 'lema-y-forma-coincidentes-rasgos-insuficientes';
