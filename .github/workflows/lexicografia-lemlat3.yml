@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   lemlat3:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 35
     steps:
       - name: ScholaClassica sin credenciales persistentes
@@ -70,7 +70,7 @@ jobs:
       - name: Instalar biblioteca de base de datos requerida por el ejecutable LEMLAT3
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends libmariadbd19t64
+          sudo apt-get install -y --no-install-recommends libmariadbd19
       - name: Ejecutar CLI oficial LEMLAT3 sobre entradas priorizadas
         shell: bash
         run: |
