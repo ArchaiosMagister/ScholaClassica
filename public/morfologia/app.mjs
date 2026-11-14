@@ -108,11 +108,15 @@ function completeQuestion(q){
 function createTable(q){
   const target=$('table-cells');
   target.replaceChildren();
+  // No mostrar una columna plural vacía en las tablas limitadas a singular.
+  const hasPlural=q.cells.some(cell=>cell.number==='plural');
+  target.closest('table').querySelector('thead th:last-child').hidden=!hasPlural;
+  const numbers=hasPlural?['singular','plural']:['singular'];
   const names=[...new Set(q.cells.map(c=>c.case))];
   for(const cas of names){
     const row=document.createElement('tr');
     const th=document.createElement('th');th.scope='row';th.textContent=cas;row.append(th);
-    for(const number of ['singular','plural']){
+    for(const number of numbers){
       const cell=q.cells.find(c=>c.case===cas&&c.number===number);
       const td=document.createElement('td');
       if(cell){
