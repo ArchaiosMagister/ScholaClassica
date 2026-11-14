@@ -24,7 +24,8 @@ test('Todas las páginas, modelos y convocatorias PAU: 352 preguntas, 301 formas
     [54,'B','missi sunt']])assert.ok(has(p,m,f),p+' '+m+' '+f);
   assert.equal(report.occurrences,352);assert.equal(report.distinctForms,301);
   assert.equal(report.models,78);
-  assert.equal(report.coveredForms+report.missingForms.length,301);
+  assert.equal(report.coveredForms,301,'Alguna forma de examen sigue sin paradigma');
+  assert.deepEqual(report.missingForms,[]);
 });
 test('Los compuestos se analizan enteros y con el verbo léxico, nunca como sum',()=>{
   const expected=[
@@ -115,4 +116,61 @@ test('El registro nuevo no altera las 296 fichas latinas y griegas anteriores',(
   assert.equal(bank.records.slice(0,220).filter(x=>x.language==='latin2').length,0);
   assert.equal(bank.records.slice(220,296).filter(x=>x.language==='latin2').length,76);
   assert.deepEqual(bank.coverage.latin2,[0]);
+});
+
+test('Últimas excepciones: paradigmas completos y lecturas de examen',()=>{
+  const byId=id=>latin2.find(r=>r.id==='latin2-pau-exception-'+id);
+  for(const [id,form,kind] of [
+    ['quidam','quidam','pronombre'],['quidam','quadam','pronombre'],
+    ['quisque','quisque','pronombre'],['alius','alium','pronombre'],
+    ['binominis','binominis','adjetivo'],['complures','complures','adjetivo'],
+    ['deliciae','deliciae','sustantivo'],['civis','civium','sustantivo'],
+    ['percussor','percussorum','sustantivo']
+  ]){
+    const r=byId(id);
+    assert.ok(r,'Ausencia del paradigma '+id);
+    assert.equal(r.kind,kind);
+    assert.ok(r.forms.some(f=>latinFold(f.form)===form),id+' no produce '+form);
+    assert.ok(r.forms.length>=6);
+    assert.ok(r.forms.every(f=>f.analysis.includes(' · '+r.headword+' · ')));
+  }
+  assert.equal(byId('deliciae').forms.some(f=>f.number==='singular'),false);
+  assert.equal(byId('complures').forms.some(f=>f.number==='singular'),false);
+  assert.ok(byId('binominis').forms.some(f=>f.form==='binominia'));
+});
+test('Todos los paradigmas escolares mantienen la forma PAU y los seis casos que les corresponden',()=>{
+  const selected=latin2.filter(x=>
+    x.id.startsWith('latin2-pau-school-')||
+    x.id.startsWith('latin2-pau-exception-'));
+  assert.ok(selected.length>=50);
+  for(const record of selected){
+    assert.equal(record.unit,0);
+    assert.equal(record.evidence.status,'paradigma-documentado');
+    assert.ok(record.forms.length>=6);
+    for(const cas of ['nominativo','vocativo','acusativo','genitivo','dativo','ablativo']){
+      if(record.kind==='pronombre'&&cas==='vocativo')continue;
+      assert.ok(record.forms.some(f=>f.case===cas),'Caso ausente '+record.id+' '+cas);
+    }
+  }
+});
+test('No se confunden verbos deponentes, participios y sujetos de la forma compuesta',()=>{
+  const prof=latin2.find(x=>x.id==='latin2-pau-compuesto-proficiscor');
+  const moror=latin2.find(x=>x.id==='latin2-pau-regular-verb-moror');
+  const imp=moror.forms.find(x=>x.form==='moraretur');
+  assert.ok(imp&&/imperfecto · subjuntivo · voz pasiva \(deponente/.test(imp.analysis));
+  const personal=latin2.find(x=>x.id==='latin2-pau-regular-verb-proficiscor');
+  assert.ok(personal.forms.some(x=>x.form==='proficiscitur'));
+  assert.ok(personal.forms.every(x=>!x.analysis.startsWith('participio')));
+  assert.ok(prof.forms.some(x=>x.form==='profectus est'));
+  assert.ok(!prof.forms.some(x=>x.form==='est'));
+  const ven=latin2.find(x=>x.id==='latin2-pau-venio-indicativo-subjuntivo');
+  assert.ok(ven.forms.filter(x=>x.form==='venit').length===2);
+  const irregular=latin2.find(x=>x.id==='latin2-pau-irregular-sum');
+  assert.ok(irregular.forms.some(x=>x.form==='fuisset'&&
+    x.analysis.includes('pluscuamperfecto · subjuntivo')));
+  const r=latin2.find(x=>x.id==='latin2-pau-regular-verb-pervado');
+  assert.ok(r.forms.filter(x=>x.form==='pervaserit').length===2);
+  const inf=latin2.find(x=>x.id==='latin2-pau-regular-infinitive-conquiro');
+  assert.ok(inf&&inf.forms.some(x=>x.form==='conquiri'));
+  assert.ok(inf.forms.every(x=>x.analysis.startsWith('infinitivo')));
 });
