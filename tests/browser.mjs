@@ -64,7 +64,8 @@ try{
   assert.equal(await page.locator('.path-links a').count(),1);
   assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Griego II'));
   await coursePicker.selectOption('lat4');
-  assert.equal(await page.locator('.path-links a').count(),3);
+  assert.equal(await page.locator('.path-links a').count(),4);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
   await coursePicker.selectOption('lat2');
