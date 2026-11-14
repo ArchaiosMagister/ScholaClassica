@@ -57,10 +57,29 @@ export function scholaVocabularyAll(entries,subject,units=null,failedProgress=nu
   }
   return output;
 }
+// Etiquetas exclusivamente de presentación: NO se modifican las unidades
+// académicas de las fichas ni los values del selector de unidades.
+export function scholaVocabularyUnitCaption(subject,unit){
+  if(subject==='lat1'&&unit==='UD 11–12')
+    return 'Ampliación · fuera de las unidades habituales';
+  if(subject==='gr1'&&unit==='Sin unidad acreditada')
+    return 'Complementario · sin unidad asignada';
+  return unit;
+}
+export function scholaVocabularyScopeDescription(subject,mode,original){
+  if(!['lat1','gr1'].includes(subject))return original;
+  if(mode==='examen')
+    return 'Vocabulario de examen: selección de la lista docente por unidades. No incluye automáticamente los grupos complementarios.';
+  if(mode==='all')
+    return 'Todo el vocabulario reúne General y Examen. Los grupos de ampliación siguen siendo complementarios, no exigibles automáticamente. Cada ficha indica su procedencia.';
+  return subject==='lat1'?
+    'Vocabulario general de estudio, con unidades y un grupo de ampliación fuera del temario habitual. General no equivale a exigible en examen.':
+    'Vocabulario general para estudiar y repasar. Incluye un grupo complementario sin unidad asignada, que no se convierte en exigible para examen.';
+}
 export function scholaVocabularyProvenance(entry,chosenUnits=null){
   if(!entry.scholaSources){
-    return chosenUnits===null?entry.units.join(' · '):
-      entry.units.filter(u=>chosenUnits.includes(u)).join(' · ');
+    return chosenUnits===null?entry.units.map(u=>scholaVocabularyUnitCaption(entry.subject,u)).join(' · '):
+      entry.units.filter(u=>chosenUnits.includes(u)).map(u=>scholaVocabularyUnitCaption(entry.subject,u)).join(' · ');
   }
   const sourcesByMode=new Map();
   for(const source of entry.scholaSources){
@@ -71,7 +90,7 @@ export function scholaVocabularyProvenance(entry,chosenUnits=null){
     }
   }
   return [...sourcesByMode].map(([mode,units])=>
-    (mode==='general'?'General':'Examen')+': '+units.join(' · ')).join('  |  ');
+    (mode==='general'?'General':'Examen')+': '+units.map(u=>scholaVocabularyUnitCaption(entry.subject,u)).join(' · ')).join('  |  ');
 }
 export function scholaVocabularyProgress(entries,progress){
   const groups=entries.map(entry=>{
