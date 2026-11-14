@@ -28,7 +28,7 @@ import {auditLatin2Nominal,assertLatin2NominalAuditPasses} from './audit-morphol
 import {auditLatin2Verbal,assertLatin2VerbalAuditPasses} from './audit-morphology-latin2-verbal.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
-import {compileGreekNounBatch,compileGreekEarlyNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
+import {compileGreekNounBatch,compileGreekEarlyNounBatch,compileGreekExigibleNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 import {compileLatinCurricularFollowup} from './morphology-curricular-followup.mjs';
 import {compileCurricularGapBatch} from './morphology-curricular-gaps.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -389,8 +389,12 @@ export async function buildMorphology({out,lock}){
   const greekFollowup=compileGreekEarlyNounBatch({
     curriculum,...sourceData,vocabulaSha:lock.sources.vocabula.sha
   });
+  const greekExigible=compileGreekExigibleNounBatch({
+    curriculum,...sourceData,vocabulaSha:lock.sources.vocabula.sha
+  });
+  // Lote de conciliación III: solo al final; ninguna ficha antigua cambia de ID.
   const fullRecords=[...originalRecords,...latin2,...additions,...curricularGaps,
-    ...latinFollowup,...greekFollowup];
+    ...latinFollowup,...greekFollowup,...greekExigible];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
     records:fullRecords};
@@ -444,6 +448,7 @@ export async function buildMorphology({out,lock}){
     ' fichas; '+covered.length+' de 301 formas PAU incorporadas por paradigmas completos');
   console.log('Cobertura curricular: '+curricularGaps.length+
     ' paradigmas del primer bloque, '+(latinFollowup.length+greekFollowup.length)+
-    ' del segundo bloque, con fuentes documentadas.');
+    ' del segundo bloque y '+greekExigible.length+
+    ' del tercer bloque, con fuentes documentadas.');
   console.log('PAU pendientes de paradigma completo: '+missing.join(', '));
 }
