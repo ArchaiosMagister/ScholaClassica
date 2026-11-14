@@ -20,6 +20,7 @@ const FIRST=[
   ['acerbus','acerbus, acerba, acerbum','acerb'],
   ['clarissimus','clarissimus, clarissima, clarissimum','clarissim','superlativo'],
   ['facundissimus','facundissimus, facundissima, facundissimum','facundissim','superlativo'],
+  ['prudentissimus','prudentissimus, prudentissima, prudentissimum','prudentissim','superlativo'],
   ['opportunus','opportunus, opportuna, opportunum','opportun'],
   ['universus','universus, universa, universum','univers'],
   ['decimus','decimus, decima, decimum','decim'],
@@ -41,7 +42,7 @@ const THIRD_TWO=[
   ['innocens','innocens, innocentis','innocent','una terminación'],
   ['recens','recens, recentis','recent','una terminación'],
   ['supplex','supplex, supplicis','supplic','una terminación'],
-  ['prudentissimus','prudentissimus, prudentissima, prudentissimum','prudentissim','first']
+  ['prudens','prudens, prudentis','prudent','una terminación']
 ];
 const COMPARATIVES=[
   ['citerior','citerior, citerius','citerior'],
@@ -84,7 +85,7 @@ function nominalFirst(lemma,stem,gender,number){
 function nominalThird(stem,gender,number,{one=false,lemma,comparative=false}={}){
   const n=number==='singular';
   if(comparative){
-    const nom=gender==='neutro'?stem.slice(0,-2)+'ius':stem;
+    const nom=gender==='neutro'?stem.slice(0,-2)+'us':stem;
     if(n)return [nom,nom,gender==='neutro'?nom:stem+'em',
       stem+'is',stem+'i',stem+'e'];
     return [gender==='neutro'?stem+'a':stem+'es',
@@ -136,7 +137,7 @@ export function compilePauSchoolAdjectives(exams,existing){
     add(record(lemma,headword,degree,type,(g,n)=>nominalFirst(lemma,stem,g,n)));
   }
   for(const [lemma,headword,stem,one] of THIRD_TWO){
-    if(one==='first'||lemma==='reliquis')continue;
+    if(lemma==='reliquis')continue;
     add(record(lemma,headword,'positivo','tercera clase, '+(one||'dos terminaciones'),
       (g,n)=>nominalThird(stem,g,n,{one:one==='una terminación',lemma})));
   }
