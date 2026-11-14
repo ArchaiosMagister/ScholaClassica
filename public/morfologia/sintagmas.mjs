@@ -66,6 +66,9 @@ function nounPairs(records,language='latin'){
       pairs.push({language,noun,adjective,gender,
         id:language+':'+noun.id+':'+adjective.id,
         paradigm:adjective.paradigm+' + '+noun.paradigm,
+        ...(language==='latin4'?{enunciation:
+          (adjective.enunciation||adjective.paradigm.split(' · ')[0])+' + '+
+          (noun.enunciation||noun.paradigm.split(' · ')[0])}:{}),
         provenance:[noun.evidence,adjective.evidence],
         note:'Adjetivo y sustantivo latinos: caso, número y género concordantes.'});
     }
@@ -134,6 +137,7 @@ export function makePhraseQuestions(bank,{language,unit,limit=10,rng=Math.random
       output.push({
         id:model.id+':'+cell.id,activity:'written',kind:'sintagma',language,
         paradigm:model.pair.paradigm,evidence:model.pair.adjective.evidence,
+        ...(model.pair.enunciation?{enunciation:model.pair.enunciation}:{}),
         sources:model.pair.provenance,acceptedForms:cell.acceptedForms,
         correct:cell.acceptedForms[0],
         prompt:'Escribe el sintagma en '+cell.case+' '+model.gender+' '+cell.number+
@@ -148,6 +152,7 @@ export function makePhraseTables(bank,{language,unit,limit=10,rng=Math.random,
   const output=models(bank,language,unit).map(model=>({
     id:model.id+':table',activity:'table',kind:'sintagma',language,gender:model.gender,
     paradigm:model.pair.paradigm,evidence:model.pair.adjective.evidence,
+        ...(model.pair.enunciation?{enunciation:model.pair.enunciation}:{}),
     sources:model.pair.provenance,cells:model.cells,
     prompt:'Declina el sintagma completo en '+model.gender+
       (language==='griego'?' (artículo + adjetivo sustantivado)':' (adjetivo + sustantivo)')+'.'

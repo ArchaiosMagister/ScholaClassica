@@ -265,6 +265,7 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
           id:record.id+':form:'+index,activity,kind:record.kind,
           prompt:'Selecciona la forma de '+analysis+'.',
           paradigm:record.paradigm,form:correct,correct,acceptedForms,options,
+          ...(record.enunciation?{enunciation:record.enunciation}:{}),
           evidence:record.evidence,language
         });
       }
@@ -290,6 +291,7 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
           id:record.id+':analysis:'+index,activity,kind:record.kind,
           prompt:'¿Qué análisis admite esta forma?',paradigm:record.paradigm,
           headword:analysisHeadword(record),
+          ...(record.enunciation?{enunciation:record.enunciation}:{}),
           form:g.form,correct:g.analysis,options,evidence:record.evidence,language,
           ambiguous:g.analysis.includes(' / '),
           ...(language==='latin2'?{_grouped:allGrouped,_groupIndex:index}:{})

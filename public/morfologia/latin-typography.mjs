@@ -6,21 +6,39 @@ import {displayLatin2QuestionText} from './engine.mjs';
 const latinCourses=new Set(['latin','latin2','latin4']);
 const headings=/^(?:desinencias?|artículos?|declinación|conjugación|sintagmas?|concordancia|formas?|terminaciones?|primera|segunda|tercera|cuarta|quinta)\b/iu;
 const letter=/[\p{L}\p{M}]/u;
+// En 4.º la cita completa es editorial y queda separada del paradigma.
+function displayLatin4QuestionText(question,value){
+  if(question?.language!=='latin4'||!question.enunciation)return value;
+  const original=String(question.paradigm||'').split(' + ');
+  const shown=String(question.enunciation).split(' + ');
+  if(original.length!==shown.length)return value;
+  let result=String(value??'');
+  for(let i=0;i<original.length;i++){
+    const head=original[i].split(' · ')[0].trim(),full=shown[i].trim();
+    if(!head||!full||head===full)continue;
+    const quoted=head.replace(/[|\\{}()[\]^$+*?.]/g,'\\$&');
+    result=result.replace(new RegExp('(?<![\\p{L}\\p{M}])'+quoted+
+      '(?![\\p{L}\\p{M}])','gu'),full);
+  }
+  return result;
+}
 function latinEnunciation(question){
   if(!latinCourses.has(question?.language))return [];
-  const raw=String(question.headword||question.paradigm?.split(' · ')[0]||'').trim();
+  const raw=String(question.language==='latin4'&&question.enunciation||
+    question.headword||question.paradigm?.split(' · ')[0]||'').trim();
   if(!raw||/^\d/u.test(raw)||headings.test(raw))return [];
   // En Latín II se aplica primero el enunciado abreviado acordado.
   const normalized=displayLatin2QuestionText(question,raw);
   // El paréntesis final indica conjugación, declinación, género o irregularidad.
   // No es parte de las palabras latinas (p. ej. «(3.ª deponente)»).
-  const core=normalized.replace(/\s+\([^()]*\)$/u,'');
+  const core=normalized.replace(/\s+\([^()]*\)$/u,'').replace(/\s+[–—-]$/u,'');
   return core.split(/\s+\+\s+/u).map(x=>x.trim())
     .filter(x=>x&&!headings.test(x)&&
       /^[\p{L}\p{M}][\p{L}\p{M}\s,'’.\-–()]*$/u.test(x));
 }
 export function latinEnunciationSegments(question,value){
-  const text=String(displayLatin2QuestionText(question,value??''));
+  const text=String(displayLatin4QuestionText(question,
+    displayLatin2QuestionText(question,value??'')));
   const candidates=latinEnunciation(question);
   if(!candidates.length)return [{text,italic:false}];
   const pieces=[];

@@ -13,6 +13,7 @@ import {buildDocenteGrammarIndex} from './build-docente-gramatica.mjs';
 import {adaptAppendixLatin4} from './adapt-appendix-latin4.mjs';
 import {adaptAppendixLatin4UI} from './adapt-appendix-latin4-ui.mjs';
 import {buildGrammarPwa} from './build-gramatica-pwa.mjs';
+import {correctLatin4Vocabula} from './latin4-lexical-editorial.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -143,7 +144,12 @@ if(!bankMatch)throw Error('Formato de banco Vocabula desconocido: no publicar');
 const originalWords=JSON.parse(bankMatch[1]);
 if(!Array.isArray(originalWords)||originalWords.length<1000)
   throw Error('Banco original de Vocabula incompleto: no publicar');
-const docenteWords=originalWords.map(({id,subject,mode,form,meaning,answers,units})=>
+// Enmiendas filológicas reproducibles: la fuente inmovilizada y sus originales
+// siguen intactos; ambas vistas integradas muestran los mismos lemas.
+const studentWords=correctLatin4Vocabula(originalWords);
+await writeFile(join(vocabulaDestination,'data.js'),
+  'window.VOCAB='+JSON.stringify(studentWords)+';\n');
+const docenteWords=studentWords.map(({id,subject,mode,form,meaning,answers,units})=>
   ({id,subject,mode,form,meaning,answers,units}));
 await writeFile(join(out,'docente/vocabula-catalog.json'),JSON.stringify({
   schema:1,source:vocabulaLock.sha,words:docenteWords

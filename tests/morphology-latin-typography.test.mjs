@@ -75,3 +75,37 @@ test('Irregulares: la indicación editorial permanece en redonda',()=>{
   assert.deepEqual(italic(parts),['sum, fui']);
   assert.equal(roman(parts),' (irregular)');
 });
+
+test('Latín 4.º: el enunciado de la ficha es completo sin alterar la pregunta',()=>{
+  const verb={language:'latin4',kind:'verbo',paradigm:'amo · presente activo',
+    enunciation:'amo, amavi, amatum'};
+  const shown=show(verb,verb.paradigm);
+  assert.deepEqual(italic(shown),['amo, amavi, amatum']);
+  assert.equal(reconstructed(shown),'amo, amavi, amatum · presente activo');
+  assert.equal(roman(shown),' · presente activo');
+  assert.equal(verb.paradigm,'amo · presente activo');
+  const noun={language:'latin4',kind:'sustantivo',paradigm:'servus',
+    enunciation:'servus, servi',headword:'servus'};
+  const analysis=show(noun,' (servus)');
+  assert.deepEqual(italic(analysis),['servus, servi']);
+  assert.equal(reconstructed(analysis),' (servus, servi)');
+  assert.deepEqual(italic(show(noun,'Escribe la forma de genitivo singular.')),[]);
+});
+test('Latín 4.º: dos palabras de sintagma en cursiva y conectores en redonda',()=>{
+ const q={language:'latin4',kind:'sintagma',
+   paradigm:'bonus, bona, bonum · primera clase + puella',
+   enunciation:'bonus, bona, bonum + puella, puellae'};
+ const shown=show(q,q.paradigm);
+ assert.deepEqual(italic(shown),['bonus, bona, bonum','puella, puellae']);
+ assert.equal(reconstructed(shown),
+   'bonus, bona, bonum · primera clase + puella, puellae');
+ assert.ok(roman(shown).includes(' · primera clase + '));
+});
+test('Latín 4.º: sum tiene forma irregular completa sin poner etiqueta en cursiva',()=>{
+ const q={language:'latin4',kind:'verbo',paradigm:'sum · presente',
+   enunciation:'sum, fui – (irr.)'};
+ const shown=show(q,q.paradigm);
+ assert.deepEqual(italic(shown),['sum, fui']);
+ assert.equal(reconstructed(shown),'sum, fui – (irr.) · presente');
+ assert.ok(roman(shown).includes('(irr.) · presente'));
+});

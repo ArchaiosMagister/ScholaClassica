@@ -19,6 +19,30 @@ const TOPICS={
   7:'Adjetivos de la tercera declinación y pluscuamperfecto',
   8:'Cuarta y quinta declinación y pronombres personales'
 };
+// Enunciados documentados en los modelos de Appendix y el léxico fijado de Vocabula.
+// Son SOLO presentación: nunca se emplean para generar flexiones ni correcciones.
+const VERBAL_ENUNCIATIONS=Object.freeze({
+ amo:'amo, amavi, amatum',
+ ambulo:'ambulo, ambulavi, ambulatum',
+ debeo:'debeo, debui, debitum',
+ habeo:'habeo, habui, habitum',
+ video:'video, vidi, visum',
+ duco:'duco, duxi, ductum',
+ lego:'lego, legi, lectum',
+ ludo:'ludo, lusi, lusum',
+ capio:'capio, cepi, captum',
+ audio:'audio, audivi, auditum',
+ pugno:'pugno, pugnavi, pugnatum',
+ sum:'sum, fui – (irr.)'
+});
+function displayEnunciation(record){
+ const head=record.paradigm.split(' · ')[0];
+ if(record.kind==='verbo')return VERBAL_ENUNCIATIONS[head]||head;
+ if(record.kind!=='sustantivo'||head.includes(','))return head;
+ const gen=record.forms.find(f=>f.case==='genitivo'&&f.number==='singular')?.form;
+ assert.ok(gen,'Falta genitivo acreditado para el enunciado '+record.id);
+ return head+', '+gen;
+}
 const clean=s=>String(s||'').replace(/<[^>]*>/g,'')
   .replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&aelig;/g,'æ')
   .replace(/&AElig;/g,'Æ').replace(/\s+/g,' ').trim().normalize('NFC');
@@ -75,6 +99,7 @@ function teacherRecord(item,file,sha){
     assert.ok(gender,'Sustantivo sin género documentado '+item.id);
     record.gender=gender;
   }
+  record.enunciation=displayEnunciation(record);
   return record;
 }
 // Correspondencia expresa entre la introducción de un contenido en Latín I y 4.º.
@@ -99,12 +124,16 @@ function appendixModels(baseRecords){
       r.unit===sourceUnit&&r.kind===kind&&predicate(r));
     assert.equal(rows.length,expected,
       'Cambió el conjunto de modelos de Appendix para 4.º UD'+unit+'/'+kind);
-    for(const item of rows)output.push({
-      ...item,id:'latin4-appendix-'+item.id,language:'latin4',unit,
-      forms:item.forms.map(f=>({...f})),
-      evidence:{...item.evidence,unit,sourceUnit,topic:TOPICS[unit],
-        notes:'Paradigma curricular publicado en Appendix, habilitado en 4.º únicamente desde UD'+unit+'.'}
-    });
+    for(const item of rows){
+      const record={
+        ...item,id:'latin4-appendix-'+item.id,language:'latin4',unit,
+        forms:item.forms.map(f=>({...f})),
+        evidence:{...item.evidence,unit,sourceUnit,topic:TOPICS[unit],
+          notes:'Paradigma curricular publicado en Appendix, habilitado en 4.º únicamente desde UD'+unit+'.'}
+      };
+      record.enunciation=displayEnunciation(record);
+      output.push(record);
+    }
   }
   assert.equal(output.length,49);
   return output;
@@ -137,7 +166,8 @@ function firstClassAdjective(html){
   assert.equal(forms.find(f=>f.analysis==='vocativo masculino singular').form,'bone');
   assert.equal(forms.find(f=>f.analysis==='ablativo femenino singular').form,'bonā');
   return {id:'latin4-appendix-bonus',language:'latin4',unit:3,
-    kind:'adjetivo',paradigm:'bonus, bona, bonum · primera clase',forms,
+    kind:'adjetivo',paradigm:'bonus, bona, bonum · primera clase',
+    enunciation:'bonus, bona, bonum',forms,
     evidence:sourceEvidence(3,'Appendix grammaticae','adjetivos.html',caption,
       'Tabla completa publicada de la primera clase, sin completar formas por analogía.')};
 }

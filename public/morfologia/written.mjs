@@ -69,6 +69,7 @@ export function makeWrittenQuestions(bank,{language,unit,kind='todos',limit=10,r
       candidates.push({
         id:record.id+':written:'+originalIndex,activity:'written',language,kind:record.kind,
         paradigm:record.paradigm,evidence:record.evidence,
+        ...(record.enunciation?{enunciation:record.enunciation}:{}),
         prompt:(record.kind==='desinencia'?'Escribe la desinencia de ':'Escribe la forma de ')+analysis+'.',
         acceptedForms,correct:acceptedForms[0]
       });
@@ -108,7 +109,8 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
       if(cells.length!==available.length*2)continue;
       const id=record.id+':table:'+(gender||'none');
       candidates.push({id,activity:'table',language,kind:record.kind,
-        paradigm:record.paradigm,evidence:record.evidence,gender,
+        paradigm:record.paradigm,evidence:record.evidence,
+        ...(record.enunciation?{enunciation:record.enunciation}:{}),gender,
         prompt:'Completa las formas '+(gender?'del '+gender+' ':'')+
           'en singular y plural.',cells});
     }
