@@ -106,13 +106,19 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
           cells.push({id:cas+':'+number,case:cas,number,acceptedForms});
         }
       }
-      if(cells.length!==available.length*2)continue;
-      const id=record.id+':table:'+(gender||'none');
+      // El nuevo ejercicio de οὐρανός solo pide singular; la tabla
+      // completa anterior conserva su clave y su historial en el dispositivo.
+      const singularOnly=record.id==='griego-sustantivo-ouranos'&&
+        cells.length===available.length&&
+        cells.every(c=>c.number==='singular');
+      if(cells.length!==available.length*2&&!singularOnly)continue;
+      const id=record.id+':table:'+(gender||'none')+
+        (singularOnly?':singular':'');
       candidates.push({id,activity:'table',language,kind:record.kind,
         paradigm:record.paradigm,evidence:record.evidence,
         ...(record.enunciation?{enunciation:record.enunciation}:{}),gender,
         prompt:'Completa las formas '+(gender?'del '+gender+' ':'')+
-          'en singular y plural.',cells});
+          (singularOnly?'en singular.':'en singular y plural.'),cells});
     }
   }
   return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,
