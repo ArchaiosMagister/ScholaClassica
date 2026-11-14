@@ -387,6 +387,8 @@ export async function buildMorphology({out,lock}){
     pronounsAdded:pronouns.length,
     compoundsAdded:compounds.length};
   const cuadernoAudit=auditCuaderno(finalBank,cuaderno);
+  assert.equal(cuadernoAudit.missingForms.length,0,
+    'Faltan formas del cuaderno: '+cuadernoAudit.missingForms.join(', '));
   const dir=join(out,'apps/morfologia/data');
   await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
