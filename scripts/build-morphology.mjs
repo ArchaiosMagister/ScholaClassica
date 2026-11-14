@@ -20,6 +20,7 @@ import {parseCuadernoQuestions,auditCuaderno} from './morphology-cuaderno.mjs';
 import {compileCuadernoIrregulars} from './morphology-cuaderno-irregulars.mjs';
 import {compileCuadernoFeroCompounds} from './morphology-cuaderno-fero-prefijos.mjs';
 import {compileCuadernoDefectives} from './morphology-cuaderno-defectivos.mjs';
+import {auditLatin2Morphology,assertLatin2AuditPasses} from './audit-morphology-latin2.mjs';
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
@@ -386,6 +387,8 @@ export async function buildMorphology({out,lock}){
     irregularVerbsAdded:irregularVerbs.length,exceptionsAdded:exceptions.length,
     pronounsAdded:pronouns.length,
     compoundsAdded:compounds.length};
+  const philologyAudit=auditLatin2Morphology(finalBank);
+  assertLatin2AuditPasses(philologyAudit);
   const cuadernoAudit=auditCuaderno(finalBank,cuaderno);
   assert.equal(cuadernoAudit.missingForms.length,0,
     'Faltan formas del cuaderno: '+cuadernoAudit.missingForms.join(', '));
@@ -394,6 +397,11 @@ export async function buildMorphology({out,lock}){
   await writeFile(join(dir,'paradigmas.json'),JSON.stringify(finalBank,null,2)+'\n');
   await writeFile(join(dir,'pau-latin2-audit.json'),JSON.stringify(audit,null,2)+'\n');
   await writeFile(join(dir,'cuaderno-latin2-audit.json'),JSON.stringify(cuadernoAudit,null,2)+'\n');
+  await writeFile(join(dir,'latin2-filologia-fase1.json'),JSON.stringify(philologyAudit,null,2)+'\n');
+  console.log('Auditoría filológica Latín II: '+philologyAudit.summary.records+
+    ' paradigmas, '+philologyAudit.summary.forms+' casillas, '+
+    philologyAudit.blockingIssues.length+' errores bloqueantes y '+
+    philologyAudit.reviewIssues.length+' notas de uso a revisar');
   console.log('Cuaderno Latín II: '+cuadernoAudit.coveredForms+' de '+cuadernoAudit.distinctForms+
     ' formas distintas cubiertas. Pendientes: '+cuadernoAudit.missingForms.join(', '));
   console.log('Morfología: '+fullRecords.length+
