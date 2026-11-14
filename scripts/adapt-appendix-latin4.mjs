@@ -130,7 +130,13 @@ export function makeLatin4Curriculum({curriculum,indicative,nouns,adjectives,loc
  const derived=MAP.map((topicNames,i)=>({
   number:i+1,
   topics:topicNames.map(id=>{
-   const html=src[id];
+   // Correcciones ortotipográficas valencianas únicamente en la copia derivada:
+   // los archivos originales continúan intocados y cotejables por SHA.
+   const html=locale==='val'?src[id]
+    .replaceAll('una terminación','una terminació')
+    .replaceAll('tema consonántico','tema consonàntic')
+    .replaceAll('Neutro sing.','Neutre sing.')
+    .replaceAll('Neutro pl.','Neutre pl.'):src[id];
    assert.ok(typeof html==='string'&&html.length>140,'Tema vacío: '+id);
    assert.ok(!/<(?:button|form|script|input)\b/iu.test(html),'Actividad no permitida: '+id);
    const [sourceUnit,sourceTopic]=META[id];
