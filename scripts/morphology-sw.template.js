@@ -3,7 +3,7 @@ const CACHE_PREFIX='schola-morphology-';
 const CACHE_NAME=CACHE_PREFIX+'__MORPHOLOGY_CACHE_VERSION__';
 const CORE=[
   './','./index.html','./style.css','./app.mjs','./engine.mjs',
-  './written.mjs','./review.mjs','./greek-keyboard.mjs','./sintagmas.mjs',
+  './written.mjs','./review.mjs','./latin-typography.mjs','./greek-keyboard.mjs','./sintagmas.mjs',
   './greek-noun-phrases.mjs','./data/paradigmas.json',
   './data/LICENSE-SUSTANTIVOS-GRIEGOS.md'
 ];

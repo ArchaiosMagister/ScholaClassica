@@ -4,6 +4,7 @@ import {makeWrittenQuestions,makeTableExercises,correctWritten,evaluateTable} fr
 import {makePhraseQuestions,makePhraseTables} from './sintagmas.mjs';
 import {makeGreekNounPhraseQuestions,makeGreekNounPhraseTables} from './greek-noun-phrases.mjs';
 import {mountGreekKeyboard} from './greek-keyboard.mjs';
+import {renderLatinEnunciation} from './latin-typography.mjs';
 import {readReview,writeReview,emptyReview,applyReview,reviewCounts,reviewKey} from './review.mjs';
 
 const $=id=>document.getElementById(id);
@@ -91,10 +92,11 @@ function saveReview(key,correct){
     $('network-status').textContent='El navegador no permite guardar el progreso. La práctica sigue disponible.';
   updateReviewStatus();
 }
-function setFeedback(text,type=''){
+function setFeedback(text,type='',question=null){
   const feedback=$('feedback');
   feedback.hidden=false;feedback.className='feedback '+type;
-  feedback.textContent=text;
+  if(question)renderLatinEnunciation(feedback,question,text);
+  else feedback.textContent=text;
 }
 function completeQuestion(q){
   answered=true;
@@ -141,13 +143,13 @@ function showQuestion(){
   $('counter').textContent='Ejercicio '+(position+1)+' de '+questions.length;
   $('score').textContent='Aciertos: '+score;
   $('paradigm').hidden=q.activity==='analysis';
-  $('paradigm').textContent=displayLatin2QuestionText(q,q.paradigm);
+  renderLatinEnunciation($('paradigm'),q,q.paradigm);
   $('paradigm').lang=q.language==='griego'?'grc':'la';
-  $('question-title').textContent=displayLatin2QuestionText(q,q.prompt);
+  renderLatinEnunciation($('question-title'),q,q.prompt);
   $('expression').hidden=q.activity!=='analysis';
   $('expression-form').textContent=q.activity==='analysis'?q.form:'';
-  $('expression-headword').textContent=q.activity==='analysis'?
-    ' ('+displayLatin2QuestionText(q,q.headword||q.paradigm.split(' · ')[0])+')':'';
+  renderLatinEnunciation($('expression-headword'),q,q.activity==='analysis'?
+    ' ('+(q.headword||q.paradigm.split(' · ')[0])+')':'');
   $('expression').lang=q.language==='griego'?'grc':'la';
   $('answers').hidden=!['form','analysis','agreement'].includes(q.activity);
   $('written-response').hidden=q.activity!=='written';
@@ -169,7 +171,7 @@ function showQuestion(){
   }else{
     for(const [index,choice] of q.options.entries()){
       const button=document.createElement('button');
-      button.type='button';button.textContent=displayLatin2QuestionText(q,choice);
+      button.type='button';renderLatinEnunciation(button,q,choice);
       button.dataset.choiceIndex=String(index);
       button.lang=['form','agreement'].includes(q.activity)?
         (q.language==='griego'?'grc':'la'):'es';
@@ -192,7 +194,7 @@ function reply(q,choice){
   }
   setFeedback((result.correct?'Correcto. ':'Revisa la respuesta. ')+
     'Solución: '+displayLatin2QuestionText(q,result.expected)+'. '+result.note,
-    result.correct?'correct':'incorrect');
+    result.correct?'correct':'incorrect',q);
   completeQuestion(q);
 }
 function checkWritten(){
@@ -208,7 +210,7 @@ function checkWritten(){
     result.status==='orthography'?'Revisa la ortografía. ':'Forma incorrecta. ';
   setFeedback(label+'Solución: '+result.expected+'. '+result.note,
     result.status==='correct'?'correct':
-      result.status==='orthography'?'orthography':'incorrect');
+      result.status==='orthography'?'orthography':'incorrect',q);
   answer.disabled=true;$('check-written').disabled=true;
   completeQuestion(q);
 }

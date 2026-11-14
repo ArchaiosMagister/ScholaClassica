@@ -165,6 +165,32 @@ try{
  await page.locator('#answers button').first().click();
  assert.ok(await page.locator('#answers button.correct').count()===1,
    'La visualización abreviada no puede alterar la clave de corrección');
+ // Cursiva solo en el enunciado latino, también al practicar sin conexión.
+ await page.locator('#new').click();
+ await page.locator('#activity').selectOption('analysis');
+ await page.locator('#kind').selectOption('verbo');
+ await page.locator('#start').click();
+ assert.equal(await page.locator('#paradigm').isVisible(),false);
+ const latinHead=page.locator('#expression-headword .latin-enunciation');
+ assert.equal(await latinHead.count(),1,'El enunciado verbal tiene un único tramo latino');
+ assert.equal(await latinHead.evaluate(el=>getComputedStyle(el).fontStyle),'italic');
+ const mark=await page.locator('#expression-headword').evaluate(el=>
+   [...el.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE)
+     .map(n=>n.textContent).join(''));
+ assert.match(mark,/\([^()]+\)/,'La conjugación o irregularidad queda fuera de la cursiva');
+ assert.ok(await page.locator('#answers button .latin-enunciation').count()>0);
+ await page.locator('#answers button').first().click();
+ assert.ok(await page.locator('#feedback .latin-enunciation').count()>0);
+ await page.locator('#new').click();
+ await page.locator('#activity').selectOption('written');
+ await page.locator('#kind').selectOption('sustantivo');
+ await page.locator('#start').click();
+ assert.ok(await page.locator('#paradigm .latin-enunciation').count()>0);
+ assert.equal(await page.locator('#paradigm').evaluate(el=>getComputedStyle(el).fontStyle),
+   'normal','El contenedor no debe poner en cursiva la declinación');
+ assert.equal(await page.locator('#paradigm .latin-enunciation')
+   .evaluate(el=>getComputedStyle(el).fontStyle),'italic');
+ assert.ok(await page.locator('#question-title .latin-enunciation').count()>0);
  await page.context().setOffline(false);
  assert.deepEqual(errors,[]);
  console.log('OK: perfectos UD4, adjetivos UD5, concordancia griega y caché offline propia en GitHub Pages');
