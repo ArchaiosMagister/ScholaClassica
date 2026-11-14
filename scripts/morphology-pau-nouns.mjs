@@ -61,7 +61,7 @@ frumentum|frumentum, frumenti|neutro|2n|frument
 oppidum|oppidum, oppidi|neutro|2n|oppid
 nuntius|nuntius, nuntii|masculino|2m|nunti
 cursus|cursus, cursūs|masculino|4m|curs
-adulescens|adulescens, adulescentis|masculino|3m|adulescent
+adulescens|adulescens, adulescentis|masculino|3m|adulescent|i
 subsidium|subsidium, subsidii|neutro|2n|subsidi
 responsum|responsum, responsi|neutro|2n|respons
 timor|timor, timoris|masculino|3m|timor
@@ -122,6 +122,14 @@ export function compilePauSchoolNouns(exams,existing){
           'sustantivo · '+headword+' · '+cas+' · '+gender+' · '+number+
           ' · '+DECLS[group]+' declinación'});
       }
+    }
+    // adulescentium es el genitivo plural habitual; adulescentum
+    // aparece también, pero no debe desplazar al primero por analogía.
+    if(lemma==='adulescens'){
+      forms.push({form:'adulescentum',case:'genitivo',gender,number:'plural',
+        usage:'variante menos frecuente',
+        analysis:'sustantivo · '+headword+' · genitivo · '+gender+
+          ' · plural · '+DECLS[group]+' declinación'});
     }
     const match=forms.some(f=>targets.has(latinFold(f.form)));
     if(!match)continue;
