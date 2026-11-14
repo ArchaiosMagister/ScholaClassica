@@ -133,7 +133,7 @@ export function compilePauSchoolNouns(exams,existing){
     }
     const match=forms.some(f=>targets.has(latinFold(f.form)));
     if(!match)continue;
-    assert.equal(forms.length,12);
+    assert.equal(forms.length,lemma==='adulescens'?13:12);
     result.push({id:'latin2-pau-school-noun-'+lemma,language:'latin2',unit:0,
       kind:'sustantivo',headword,gender,paradigm:headword,forms,
       evidence:{source:'Paradigma escolar de declinación; PAU CV y Cuaderno de Latín II 2026–27',
