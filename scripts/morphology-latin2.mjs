@@ -58,7 +58,9 @@ const nominal=(f,kind,head,extra)=>({
 });
 function nounRecords(records){
   return NOUNS.map(([prefix,headword,gender,declension])=>{
-    const possible=records.filter(r=>r.kind==='sustantivo'&&r.paradigm.startsWith(prefix));
+    const selectedLanguage=['puella','rex,','corpus,'].includes(prefix)?'latin4':'latin';
+    const possible=records.filter(r=>r.language===selectedLanguage&&
+      r.kind==='sustantivo'&&r.paradigm.startsWith(prefix));
     assert.equal(possible.length,1,'El sustantivo cambió: '+prefix);
     const r=possible[0];
     assert.ok(r.forms.every(f=>f.case&&f.number),'Casos no acreditados: '+prefix);
