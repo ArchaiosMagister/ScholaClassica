@@ -67,7 +67,8 @@ export function scholaVocabularyUnitCaption(subject,unit){
   return unit;
 }
 export function scholaVocabularyScopeDescription(subject,mode,original){
-  if(!['lat1','gr1'].includes(subject))return original;
+  if(!['lat1','gr1'].includes(subject))return mode==='all'?
+    'Practica juntos General y Examen. Cada ficha muestra sus unidades por modalidad; las acepciones distintas permanecen separadas.':original;
   if(mode==='examen')
     return 'Vocabulario de examen: selección de la lista docente por unidades. No incluye automáticamente los grupos complementarios.';
   if(mode==='all')
