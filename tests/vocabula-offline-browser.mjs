@@ -113,11 +113,18 @@ try{
  await page.locator('#send-report').click();
  await page.getByText('Aviso guardado en este dispositivo.',{exact:false}).waitFor();
  assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),1);
+ await page.locator('#report-dialog [data-close="report-dialog"]').first().click();
+ await page.locator('#corpus').selectOption('all');
+ await page.getByRole('button',{name:'Avisar de un error'}).click();
+ await page.locator('#report-message').fill('Aviso genérico desde Todo, enviado más tarde.');
+ await page.locator('#send-report').click();
+ await page.getByText('Aviso guardado en este dispositivo.',{exact:false}).waitFor();
+ assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),2);
  assert.equal(requests.length,beforeOffline,'No debe haber envíos al backend sin red');
  await page.reload({waitUntil:'load'});
  assert.equal(await page.evaluate(()=>localStorage.getItem('classics-progress-v1')),progress,
   'El progreso debe sobrevivir a la recarga offline');
- assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),1);
+ assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),2);
  // Progreso exportable/importable incluso sin conexión.
  await page.evaluate(()=>localStorage.setItem('classics-progress-v1','{}'));
  await page.reload({waitUntil:'load'});
@@ -130,6 +137,11 @@ try{
  await page.waitForFunction(()=>scholaVocabulaOffline.pendingCount()===0,null,{timeout:15000});
  assert.ok(requests.some(r=>r.action==='report'&&r.message==='Revisar esta traducción cuando vuelva Internet.'),
   'Debe enviarse el aviso pendiente al recuperar Internet');
+ assert.ok(requests.some(r=>r.action==='report'&&
+   r.message.includes('Aviso genérico desde Todo, enviado más tarde.')&&
+   r.message.includes('Selección: Todo el vocabulario (General y Examen)')&&
+   r.mode==='general'),
+   'El aviso combinado pendiente debe conservar su contexto tras la reconexión');
  assert.ok(requests.filter(r=>r.action==='public_words').length>=2,
   'Debe reanudarse la sincronización docente');
  const remaining=await page.evaluate(async()=>await caches.keys());

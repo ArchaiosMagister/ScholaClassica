@@ -5,6 +5,7 @@ import {resolve} from 'node:path';
 import {
   validateWordInput,validateWordFilter,validateReportReview,validateReportFilter
 } from '../supabase/functions/_shared/vocab-admin-policy.mjs';
+import {vocabulaReportDisplayMode} from '../public/docente/admin-vocabula.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const src=path=>readFileSync(resolve(root,path),'utf8');
@@ -87,4 +88,16 @@ test('La interfaz nunca interpreta HTML del alumnado y reinicia los datos al cer
   assert.match(html,/id="admin-word-form"/);
   assert.match(html,/id="admin-report-list"/);
   assert.match(html,/id="notice-source"/);
+});
+
+test('Área docente: la etiqueta Todo reconoce la procedencia sin reinterpretar modos antiguos',()=>{
+ const merged={
+   mode:'general',message:'Falta una ficha.\n\n[Selección: Todo el vocabulario (General y Examen). Unidades marcadas: UD 4.]'
+ };
+ assert.equal(vocabulaReportDisplayMode(merged),'Todo el vocabulario · General y Examen');
+ assert.equal(vocabulaReportDisplayMode({...merged,mode:'examen'}),'Todo el vocabulario · General y Examen');
+ assert.equal(vocabulaReportDisplayMode({mode:'general',message:'Falta una ficha.'}),'general');
+ assert.equal(vocabulaReportDisplayMode({mode:'examen',message:'Todo el vocabulario'}),'examen');
+ assert.equal(vocabulaReportDisplayMode({...merged,message:'<img src=x onerror=alert(1)>'}),'general');
+ assert.equal(merged.mode,'general');
 });
