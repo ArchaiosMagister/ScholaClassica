@@ -69,15 +69,25 @@ export function adaptVocabulaAllHtml(html){
   return html;
 }
 export function adaptVocabulaAllReport(js){
-  return once(js,
-    "mode:$('corpus').value,units:[...$('units')",
-    "mode:$('corpus').value==='all'?'general':$('corpus').value,units:[...$('units')",
-    'avisos sin entrada en modo Todo');
+  // La API original solo admite General o Examen. El contexto combinado se
+  // añade al texto del aviso: nunca se finge una tercera modalidad en Supabase.
+  js=once(js,
+    "reportContext=entry?{subject:entry.subject,mode:entry.mode,units:[...entry.units],entry_id:entry.id,entry_form:entry.form}:{subject:$('subject').value,mode:$('corpus').value,units:[...$('units').querySelectorAll('input:checked')].map(x=>x.value),entry_id:'',entry_form:''};const c=reportContext;",
+    "reportContext=scholaVocabularyReportContext(entry,$('subject').value,$('corpus').value,selectedUnits());const c=reportContext;",
+    'contexto de ficha y selección');
+  js=once(js,'esc(modeLabel(c.subject,c.mode))',
+    "esc(c.scholaMode==='all'?'Todo el vocabulario':modeLabel(c.subject,c.mode))",
+    'modalidad visible en el formulario');
+  js=once(js,
+    " $('report-dialog').showModal();$('report-message').focus();}",
+    " $('report-message').maxLength=scholaVocabularyReportMaxLength(c);$('report-dialog').showModal();$('report-message').focus();}",
+    'límite seguro del mensaje con procedencia');
+  return js;
 }
 export async function adaptVocabulaAll(destination,root){
   const source=await readFile(join(root,'scripts/vocabula-all-model.mjs'),'utf8');
   assert.ok(source.startsWith('// Vista combinada'));
-  assert.equal((source.match(/^export /gmu)||[]).length,8,
+  assert.equal((source.match(/^export /gmu)||[]).length,11,
     'Cambió la interfaz del modelo');
   const classic="'use strict';\n"+source.replace(/^export /gmu,'');
   await writeFile(join(destination,'schola-all.js'),classic);
