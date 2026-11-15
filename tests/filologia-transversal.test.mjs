@@ -27,6 +27,8 @@ test('Auditoría filológica completa: tres currículos ES/VAL, cobertura y orig
   assert.equal(report.greekIndividualReview.totalParadigms,7);
   assert.equal(report.greekIndividualReview.totalSlotsChecked,110);
   assert.equal(report.greekIndividualReview.totalReadingsChecked,116);
+  assert.equal(report.latinAdjectiveReview.checkedModels,10);
+  assert.equal(report.latinAdjectiveReview.checkedSlots,360);
 });
 test('Las listas de Examen no se confunden con la práctica ni el General',()=>{
   const {latin1,latin4,griego1}=report.subjects;
