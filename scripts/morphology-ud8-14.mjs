@@ -89,9 +89,14 @@ function nounFormsFromBlock(block,caption){
         const sourceCell=row[model*2+n+1];
         const isElpisVoc=caption==='Temas en oclusiva · tabla 113'&&
           model===0&&i===1&&n===0;
+        const isHegemonVoc=caption==='Temas en nasal (ν) · tabla 115'&&
+          model===1&&i===1&&n===0;
         if(isElpisVoc)assert.equal(sourceCell,'ἐλπί*',
           'Cambió el vocativo anotado de ἐλπίς: revisar la fuente');
-        for(const form of greekCell(isElpisVoc?'ἐλπί':sourceCell)){
+        if(isHegemonVoc)assert.equal(sourceCell,'ἡγεμόν',
+          'Cambió el vocativo de ἡγεμών: se exige nuevo contraste filológico');
+        for(const form of greekCell(isElpisVoc?'ἐλπί':
+          isHegemonVoc?'ἡγεμών':sourceCell)){
           forms.push({form,case:cas,number,analysis:cas+' '+number});
         }
       }
@@ -257,6 +262,12 @@ function greekThirdNouns(curriculum){
                reason:'El asterisco es llamada de nota; vocativo en -ιδ sin dental.',
                scope:'vocativo singular de ἐλπίς',
                reference:'Cambridge Grammar of Classical Greek, §4.40; Peek, módulo 13'}
+           }:{}),
+           ...(caption==='Temas en nasal (ν) · tabla 115'&&index===1?{
+             correction:{sourceCell:'ἡγεμόν',form:'ἡγεμών',
+               reason:'Los oxítonos de tema nasal como ἡγεμών conservan el nominativo en vocativo.',
+               scope:'vocativo singular de ἡγεμών',
+               reference:'Smyth, Greek Grammar, §259 (columna ἡγεμών)'}
            }:{})}));
       }
     }
