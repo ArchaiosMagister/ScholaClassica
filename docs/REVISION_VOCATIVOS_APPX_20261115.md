@@ -11,7 +11,7 @@ PR original de Appendix: https://github.com/ArchaiosMagister/Appendix-grammatica
 
 ## Actualización académica con control de versión
 
-Para validar la corrección **sin alterar el repositorio original ni desplegar ScholaClassica**, esta rama fija Appendix al commit `887e3545233f7cf7e4356360c2c71abbb5438786` de la PR de corrección. Las versiones de Vocabula y Evolutio permanecen sin cambios.
+Para validar la corrección **sin alterar el repositorio original ni desplegar ScholaClassica**, esta rama fija Appendix al commit `0d0901c0a9cce46735f8479c7286ad3c77d8ab3e` de la PR de corrección. Las versiones de Vocabula y Evolutio permanecen sin cambios.
 
 Las dos variantes lingüísticas (ES/VA) de los HTML de gramática y sus `curriculum.json` contienen la corrección. La compilación debe reproducirla, además, en los paradigmas `latin-adj-acer`, `latin4-appendix-latin-adj-acer` y `griego-ud8-noun-113-0-0`.
 
