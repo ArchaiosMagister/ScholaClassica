@@ -70,7 +70,9 @@ export function scholaVocabularyScopeDescription(subject,mode,original){
   if(!['lat1','gr1'].includes(subject))return mode==='all'?
     'Practica juntos General y Examen. Cada ficha muestra sus unidades por modalidad; las acepciones distintas permanecen separadas.':original;
   if(mode==='examen')
-    return 'Vocabulario de examen: selección de la lista docente por unidades. No incluye automáticamente los grupos complementarios.';
+    return 'Vocabulario de examen: selección de la lista docente por unidades. No incluye automáticamente los grupos complementarios.'+
+      (subject==='lat1'?' No hay lista específica incorporada para las unidades 8–10.':
+       ' No hay lista específica incorporada para las unidades 11–14.');
   if(mode==='all')
     return 'Todo el vocabulario reúne General y Examen. Los grupos de ampliación siguen siendo complementarios, no exigibles automáticamente. Cada ficha indica su procedencia.';
   return subject==='lat1'?
@@ -120,4 +122,42 @@ export function scholaVocabularyRecordProgress(progress,entry,ok){
     progress[id]={total:previous.total+1,right:previous.right+Number(ok),failed:!ok};
   }
   return progress;
+}
+
+
+// Contexto de los avisos en «Todo el vocabulario».
+// El backend original solo admite general o examen: nunca enviar all,
+// añadir columnas ni cambiar IDs. El contexto docente se conserva en el mensaje.
+export function scholaVocabularyReportContext(entry,subject,selectedMode,chosenUnits=[]){
+  if(!['general','examen','all'].includes(selectedMode)||
+     !Array.isArray(chosenUnits))throw Error('Selección de vocabulario inválida');
+  const result=entry?{
+    subject:entry.subject,mode:entry.mode,units:[...entry.units],
+    entry_id:entry.id,entry_form:entry.form
+  }:{
+    subject,mode:selectedMode==='all'?'general':selectedMode,
+    units:[...chosenUnits],entry_id:'',entry_form:''
+  };
+  if(selectedMode!=='all')return result;
+  const sources=entry?.scholaSources||[];
+  const provenance=sources.map(source=>
+    (source.mode==='general'?'General':'Examen')+
+    ' ('+source.units.join(' · ')+')'+
+    ' [ID '+source.id+']').join(' / ');
+  const note='Selección: Todo el vocabulario (General y Examen). '+
+    (entry?'Procedencia de esta ficha: '+(provenance||'no indicada')+'.':
+      'Unidades marcadas: '+(chosenUnits.join(' · ')||'ninguna')+'.');
+  return {...result,scholaMode:'all',scholaNote:note};
+}
+export function scholaVocabularyReportMaxLength(context){
+  return 2000-(context.scholaNote?context.scholaNote.length+4:0);
+}
+export function scholaVocabularyReportPayload(context,kind,message){
+  const value=String(message);
+  const text=value+(context.scholaNote?'\n\n['+context.scholaNote+']':'');
+  if(text.length>2000)throw Error(
+    'El aviso es demasiado largo para incluir su procedencia. Acorta el texto.');
+  if(!['general','examen'].includes(context.mode))throw Error('Modalidad no admitida');
+  return {subject:context.subject,mode:context.mode,units:[...context.units],
+    entry_id:context.entry_id,entry_form:context.entry_form,kind,message:text};
 }
