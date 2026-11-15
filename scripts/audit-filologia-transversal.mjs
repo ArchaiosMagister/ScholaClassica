@@ -91,6 +91,11 @@ export function analyzeTransversal({curricula,bank,sourceVocabulary,
   const sourcePreserved=assertLexicalIntegrity(sourceVocabulary,integratedVocabulary);
   const allIds=new Set(bank.records.map(x=>x.id));
   assert.equal(allIds.size,bank.records.length,'ID de paradigma repetido');
+  const noteMarkers=bank.records.filter(r=>
+      ['latin','latin4','griego'].includes(r.language))
+    .flatMap(r=>r.forms.filter(f=>/[∗*†※]/u.test(f.form))
+      .map(f=>({id:r.id,language:r.language,unit:r.unit,
+        form:f.form,analysis:f.analysis})));
   const subjects={};const reviews=[];
   for(const spec of TRANSVERSAL_COURSES){
     const grammar=curricula[spec.key];
@@ -178,7 +183,7 @@ export function analyzeTransversal({curricula,bank,sourceVocabulary,
   const diagnostics={schema:'scholaclassica-filologia-transversal/v1',
     sourceShas:{appendix:lock.sources.appendix.sha,
       vocabula:lock.sources.vocabula.sha},
-    sourcePreserved,subjects,reviews,
+    sourcePreserved,subjects,reviews,noteMarkers,
     note:'Los candidatos por género NO constituyen enmiendas aprobadas. '+
       'La coincidencia de lemas sin diacríticos es solo una búsqueda orientativa. '+
       'La paridad de tablas ES/VAL es estructural, no traducción validada frase por frase.'};
@@ -210,7 +215,7 @@ if(main){
   writeFileSync(join(dest,'filologia-transversal-v1.json'),
     JSON.stringify(report,null,2)+'\n');
   console.log('AUDITORIA_TRANSVERSAL',JSON.stringify({
-    subjects:report.subjects,reviews:report.reviews,
+    subjects:report.subjects,reviews:report.reviews,noteMarkers:report.noteMarkers,
     sourcePreserved:report.sourcePreserved
   }));
 }
