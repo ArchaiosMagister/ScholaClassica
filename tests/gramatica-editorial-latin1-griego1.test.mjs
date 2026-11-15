@@ -121,7 +121,7 @@ test('Enmiendas fallan ante un origen que ha cambiado, sin realizar sustitucione
    /No hay una coincidencia única/);
   const movingVoc=structuredClone(original);
   movingVoc.griego.units[4].topics[1].html=
-    movingVoc.griego.units[4].topics[1].html.replace('μέγα–<strong>ς</strong>','μέγα–<strong>ν</strong>');
+    movingVoc.griego.units[4].topics[1].html.replace('<strong>Voc.</strong></th><td>μέγα–<strong>ς</strong>','<strong>Voc.</strong></th><td>μέγα–<strong>ν</strong>');
   assert.throws(()=>makeGreek1TypographyCurriculum(movingVoc,locale),
     /No hay una coincidencia única/);
   const movingNasal=structuredClone(original);
