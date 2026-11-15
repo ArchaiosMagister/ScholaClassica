@@ -75,7 +75,13 @@ function nounFormsFromBlock(block,caption){
   assert.equal(columns.length,1+models*2);
   const output=[];
   for(let model=0;model<models;model++){
-    const lemma=block[1][model+1].split(' (')[0].trim().normalize('NFC');
+    let lemma=block[1][model+1].split(' (')[0].trim().normalize('NFC');
+    const isFather=caption==='Temas en líquida (ρ, λ) · tabla 119'&&
+      model===0&&lemma.startsWith('πάτηρ,');
+    if(isFather){
+      assert.equal(lemma,'πάτηρ, πατρός','Cambió el enunciado fuente de πατήρ');
+      lemma='πατήρ, πατρός';
+    }
     assert.ok(lemma&&!lemma.includes('—'),'Sin enunciado del sustantivo');
     const forms=[];
     block.slice(3).forEach((row,i)=>{
@@ -91,12 +97,16 @@ function nounFormsFromBlock(block,caption){
           model===0&&i===1&&n===0;
         const isHegemonVoc=caption==='Temas en nasal (ν) · tabla 115'&&
           model===1&&i===1&&n===0;
+        const isFatherNom=isFather&&i===0&&n===0;
+        if(isFatherNom)assert.equal(sourceCell,'πάτηρ',
+          'Cambió la forma del nominativo de πατήρ en la fuente');
         if(isElpisVoc)assert.equal(sourceCell,'ἐλπί*',
           'Cambió el vocativo anotado de ἐλπίς: revisar la fuente');
         if(isHegemonVoc)assert.equal(sourceCell,'ἡγεμόν',
           'Cambió el vocativo de ἡγεμών: se exige nuevo contraste filológico');
         for(const form of greekCell(isElpisVoc?'ἐλπί':
-          isHegemonVoc?'ἡγεμών':sourceCell)){
+          isHegemonVoc?'ἡγεμών':
+          isFatherNom?'πατήρ':sourceCell)){
           forms.push({form,case:cas,number,analysis:cas+' '+number});
         }
       }
@@ -268,6 +278,13 @@ function greekThirdNouns(curriculum){
                reason:'Los oxítonos de tema nasal como ἡγεμών conservan el nominativo en vocativo.',
                scope:'vocativo singular de ἡγεμών',
                reference:'Smyth, Greek Grammar, §259 (columna ἡγεμών)'}
+           }:{}),
+           ...(caption==='Temas en líquida (ρ, λ) · tabla 119'&&group===1&&index===0?{
+             correction:{sourceLemma:'πάτηρ, πατρός',
+               correctedLemma:'πατήρ, πατρός',sourceCell:'πάτηρ',
+               form:'πατήρ',scope:'nominativo singular y enunciado de πατήρ',
+               reason:'El nominativo es oxítono πατήρ; el vocativo recesivo es πάτερ.',
+               reference:'Smyth, Greek Grammar, §262'}
            }:{})}));
       }
     }
