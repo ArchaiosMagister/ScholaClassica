@@ -81,7 +81,8 @@ function verbal(records,language,lemma,group,unit){
   lemma==='sum'&&['presente','imperfecto'].includes(group.tense)?'':' activo');
  return single(records,r=>r.language===language&&r.unit===unit&&
   r.kind==='verbo'&&(language==='latin'||r.id.startsWith('latin4-appendix-'))&&
-  r.paradigm.startsWith(lemma+' ')&&r.paradigm.endsWith(' · '+ending),
+  (r.paradigm.startsWith(lemma+' ')||r.paradigm.startsWith(lemma+','))&&
+  r.paradigm.endsWith(' · '+ending),
   language+' '+lemma+' '+ending+' UD'+unit);
 }
 function checked(record,expected,kind,label){
