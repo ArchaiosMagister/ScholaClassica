@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {fixLatin1Typography} from './grammar-bilingual-editorial.mjs';
+import {reconcileThirdDeclensionInstructions} from './latin-third-declension-editorial.mjs';
 
 const UNIT_TOPICS=Object.freeze({
  es:[
@@ -120,6 +121,7 @@ export function makeLatin1Curriculum({curriculum,nouns,adjectives,indicative,loc
   assert.ok(nouns.includes(byId(4,0).html.slice(0,100)),
     'Cambió la procedencia del paradigma valenciano');
  }
+ byId(4,0).html=reconcileThirdDeclensionInstructions(byId(4,0).html,locale);
  const active=latin1ActivePerfects(indicative,locale);
  if(locale==='val')assert.equal(byId(4,1).html,
   oncePart(indicative,'<h2 id="perfecto-de-indicativo">',
