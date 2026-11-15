@@ -146,6 +146,64 @@ function compareGreekEvidence(bank,words){
  }
  return {verifiedSourceReferences:tied.length,problems};
 }
+// Comparación nominal solo cuando el vocabulario y la práctica declaran
+// expresamente género y, en su caso, genitivo COMPLETO. Las terminaciones
+// abreviadas (-is, –ου) nunca se expanden por analogía.
+function explicitGender(form,language){
+ const text=String(form||'');
+ if(language==='griego'){
+   if(/\(ὁ\s*\/\s*ἡ\)/u.test(text))return 'común';
+   if(/\(ὁ\)/u.test(text))return 'masculino';
+   if(/\(ἡ\)/u.test(text))return 'femenino';
+   if(/\((?:τὸ|τό)\)/u.test(text))return 'neutro';
+   return null;
+ }
+ const m=text.match(/\((m|f|n)\.\)/iu);
+ return m?{m:'masculino',f:'femenino',n:'neutro'}[m[1].toLowerCase()]:null;
+}
+function fullGenitive(form,language){
+ const part=String(form||'').split(',')[1]?.trim();
+ if(!part||/^[–—-]/u.test(part)||part.includes('/')||part.includes('+'))return null;
+ const cleaned=part.replace(/\s+\([^()]*\)\s*$/u,'').trim();
+ if(language==='griego'?!/^[\p{Script=Greek}]/u.test(cleaned):
+   !/^[a-zæœ]/iu.test(foldLatin(cleaned)))return null;
+ return cleaned.length<=35?cleaned:null;
+}
+function auditNominalAttributes(records,entries,language){
+ const nouns=records.filter(r=>r.kind==='sustantivo'&&r.gender);
+ const byLemma=new Map();
+ for(const r of nouns){
+   const lemma=head(r.enunciation||r.headword||r.paradigm);
+   const key=fold(lemma,language);
+   if(!byLemma.has(key))byLemma.set(key,[]);
+   byLemma.get(key).push(r);
+ }
+ let genderComparisons=0,genitiveComparisons=0;
+ const review=[];
+ for(const e of entries.filter(x=>x.mode==='examen')){
+   const matches=byLemma.get(fold(head(e.form),language))||[];
+   const gender=explicitGender(e.form,language);
+   if(!matches.length)continue;
+   if(gender){
+     genderComparisons++;
+     if(!matches.some(r=>r.gender===gender)){
+       review.push({type:'gender-conflict',vocabId:e.id,form:e.form,
+         expected:gender,models:matches.map(r=>({id:r.id,gender:r.gender}))});
+     }
+   }
+   const genitive=fullGenitive(e.form,language);
+   if(!genitive)continue;
+   const modelForms=matches.flatMap(r=>r.forms.filter(f=>
+     f.case==='genitivo'&&f.number==='singular').map(f=>f.form));
+   if(!modelForms.length)continue;
+   genitiveComparisons++;
+   if(!modelForms.some(x=>fold(x,language)===fold(genitive,language)))
+     review.push({type:'full-genitive-conflict',vocabId:e.id,form:e.form,
+       expected:genitive,models:matches.map(r=>r.id),
+       candidates:modelForms.slice(0,8)});
+ }
+ return {genderComparisons,genitiveComparisons,review};
+}
 function nominalCollisions(records,language){
  const index=new Map();
  for(const record of records.filter(r=>['sustantivo','adjetivo'].includes(r.kind))){
@@ -205,6 +263,7 @@ export function auditTransversal({bank,vocabulary,originalVocabulary,curricula,l
    const unitViolations=records.filter(r=>r.unit<1||r.unit>c.max)
      .map(r=>({record:r.id,unit:r.unit}));
    const collisions=nominalCollisions(records,c.morphology);
+   const nominalAttributes=auditNominalAttributes(records,entries,c.morphology);
    courses[c.key]={
      grammar:grammar.counts,grammaticalDifferences:grammar.differences,
      records:records.length,recordsPerUnit:Array.from({length:c.max},(_,i)=>
@@ -215,7 +274,7 @@ export function auditTransversal({bank,vocabulary,originalVocabulary,curricula,l
        outOfScopeExam:outOfScope.filter(x=>x.mode==='examen').length,
        outOfScopeExamEntries:outOfScope.filter(x=>x.mode==='examen')
          .map(x=>({id:x.id,form:x.form,units:[...x.units]}))},
-     unitViolations,nominalCollisions:collisions,
+     unitViolations,nominalCollisions:collisions,nominalAttributes,
      lexicalMatchingExamples:matched.slice(0,12).map(v=>head(v.form)),
      unmatchedExamExamples:missing.slice(0,15).map(v=>({id:v.id,form:v.form,units:v.units}))
    };
@@ -248,6 +307,7 @@ if(main){
      vocabulary:v.vocabulary,unitViolations:v.unitViolations,
      nominalCollisionCount:v.nominalCollisions.length,
      nominalCollisionExamples:v.nominalCollisions.slice(0,12),
+     nominalAttributes:v.nominalAttributes,
      unmatchedExamExamples:v.unmatchedExamExamples.slice(0,6)}]))};
  process.stdout.write(JSON.stringify(print,null,2)+'\n');
 }
