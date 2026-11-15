@@ -146,7 +146,7 @@ try{
   assert.match(reports[0].message,/Selección: Todo el vocabulario \(General y Examen\)/);
   assert.match(reports[0].message,/Unidades marcadas: Sin unidad acreditada/);
   assert.equal('scholaNote' in reports[0],false,'No ampliar el contrato del backend');
-  await page.locator('#report-dialog [data-close="report-dialog"]').click();
+  await page.locator('#report-dialog [data-close="report-dialog"]').first().click();
   // El diccionario de Todo debe enviar la ficha combinada real, no la forma
   // recuperada por un único ID original.
   await page.locator('#subject').selectOption('lat1');
@@ -169,7 +169,7 @@ try{
   assert.match(reports[1].message,/Examen \(UD 4\)/);
   for(const source of origins)assert.ok(reports[1].message.includes(source.id));
   assert.equal('scholaNote' in reports[1],false);
-  await page.locator('#report-dialog [data-close="report-dialog"]').click();
+  await page.locator('#report-dialog [data-close="report-dialog"]').first().click();
   // En General y Examen el contenido del aviso del alumno sigue intacto.
   await page.locator('#corpus').selectOption('general');
   await page.getByRole('button',{name:'Avisar de un error'}).click();
