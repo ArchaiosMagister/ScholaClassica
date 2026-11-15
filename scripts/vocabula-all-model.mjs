@@ -57,9 +57,26 @@ export function scholaVocabularyAll(entries,subject,units=null,failedProgress=nu
   }
   return output;
 }
+// Solo controla la visibilidad del selector de Latín de 4.º, nunca el banco.
+export function scholaVocabularyVisibleUnits(subject,units,showExtra=false){
+  if(!Array.isArray(units))throw Error('Lista de unidades inválida');
+  return subject==='lat4'&&!showExtra?
+    units.filter(u=>u!=='UD 9'&&u!=='UD 10'):[...units];
+}
+// Criterio docente sobre una ficha ya existente en los dos corpus.
+// La anotación es de presentación, no altera form, meaning, answers ni IDs.
+export function scholaVocabularyEditorialNote(entry){
+  if(!entry||entry.subject!=='lat4'||
+    !String(entry.form||'').startsWith('lavor, lavatus sum'))return '';
+  const ids=entry.scholaSources?.map(s=>s.id)||[entry.id];
+  return ids.some(id=>id==='e9f4ac2d73fdd5c0'||id==='f17ac10e4e2d3b55')?
+    'Uso medio-pasivo/reflexivo de lavo; no es un verbo deponente puro.':'';
+}
 // Etiquetas exclusivamente de presentación: NO se modifican las unidades
 // académicas de las fichas ni los values del selector de unidades.
 export function scholaVocabularyUnitCaption(subject,unit){
+  if(subject==='lat4'&&(unit==='UD 9'||unit==='UD 10'))
+    return 'Ampliación · '+unit+' (opcional)';
   if(subject==='lat1'&&unit==='UD 11–12')
     return 'Ampliación · fuera de las unidades habituales';
   if(subject==='gr1'&&unit==='Sin unidad acreditada')
@@ -67,6 +84,12 @@ export function scholaVocabularyUnitCaption(subject,unit){
   return unit;
 }
 export function scholaVocabularyScopeDescription(subject,mode,original){
+  if(subject==='lat4'){
+    const supplement='Las UD9 y UD10 quedan fuera de las ocho unidades habituales; puedes recuperarlas activando «Mostrar ampliación».';
+    if(mode==='all')return 'Todo el vocabulario reúne General y Examen, con procedencias y acepciones separadas. '+supplement;
+    if(mode==='examen')return 'Vocabulario de examen del temario habitual; las fichas complementarias conservan su clasificación original. '+supplement;
+    return 'Vocabulario general de 4.º organizado por unidades. '+supplement;
+  }
   if(!['lat1','gr1'].includes(subject))return mode==='all'?
     'Practica juntos General y Examen. Cada ficha muestra sus unidades por modalidad; las acepciones distintas permanecen separadas.':original;
   if(mode==='examen')
