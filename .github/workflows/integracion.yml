@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ArchaiosMagister/Appendix-grammaticae
-          ref: a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c
+          ref: 4c89f9b032e356f033f507eafbb66b49d6bb6761
           path: .sources/appendix
           persist-credentials: false
       - name: Obtener Evolutio original en commit fijado (solo lectura)

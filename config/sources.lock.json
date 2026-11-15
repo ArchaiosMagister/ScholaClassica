@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "date": "2026-11-13",
+  "date": "2026-11-15",
   "note": "SHA de auditoría, no seguimiento implícito de main",
   "sources": {
     "appendix": {
       "repository": "ArchaiosMagister/Appendix-grammaticae",
-      "sha": "a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c",
+      "sha": "4c89f9b032e356f033f507eafbb66b49d6bb6761",
       "integrated": true,
       "target": "apps/gramatica"
     },
