@@ -6,6 +6,14 @@ const el=id=>document.getElementById(id);
 const subjects={lat4:'Latín · 4.º ESO',lat1:'Latín I',lat2:'Latín II',gr1:'Griego I'};
 const kinds={translation:'Traducción o respuesta',missing:'Palabra que falta',units:'Unidad o examen',other:'Otro problema'};
 const states={pending:'Pendiente',reviewing:'En revisión',resolved:'Resuelta',dismissed:'Descartada'};
+// El backend histórico conserva modo general/examen; un aviso escrito desde
+// «Todo» añade su procedencia al mensaje y se identifica aquí sin alterar DB.
+export function vocabulaReportDisplayMode(report){
+  const note='\\n\\n[Selección: Todo el vocabulario (General y Examen).';
+  return typeof report?.message==='string'&&report.message.includes(note)&&
+    report.message.endsWith(']')?
+    'Todo el vocabulario · General y Examen':report?.mode;
+}
 const PAGE=50;
 const text=(tag,value,cls='')=>{
   const node=document.createElement(tag);node.textContent=String(value??'');
@@ -178,7 +186,7 @@ function renderReports(){
   for(const report of reports){
     const card=text('article','','notice');
     card.append(text('h4',(kinds[report.kind]||report.kind)+' · '+(report.entry_form||'Sin lema')),
-      text('small',[(subjects[report.subject]||report.subject),report.mode,
+      text('small',[(subjects[report.subject]||report.subject),vocabulaReportDisplayMode(report),
         (report.units||[]).join(' · '),
         report.created_at?new Date(report.created_at).toLocaleString('es-ES'):''].join(' · ')),
       text('p',report.message));
