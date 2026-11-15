@@ -93,6 +93,14 @@ test('Griego I UD8: interrogativos, indefinidos y 16 paradigmas de tercera decli
   assert.ok(w);
   assert.equal(correctWritten(w,'ἡγεμών').correct,true);
   assert.equal(correctWritten(w,'ἡγεμόν').correct,false);
+  const pater=find('griego-ud8-noun-119-1-0');
+  assert.ok(pater.paradigm.startsWith('πατήρ, πατρός'));
+  assert.equal(pater.forms.find(f=>f.case==='nominativo'&&
+    f.number==='singular').form,'πατήρ');
+  assert.equal(pater.forms.find(f=>f.case==='vocativo'&&
+    f.number==='singular').form,'πάτερ');
+  assert.equal(pater.evidence.correction?.sourceCell,'πάτηρ');
+  assert.ok(!pater.forms.some(f=>f.form==='πάτηρ'));
   assert.equal(find('griego-ud8-noun-114-0-0').gender,'neutro');
   assert.equal(find('griego-ud8-noun-114-0-0').forms.find(f=>
     f.analysis==='nominativo plural').form,'τραύματα');
