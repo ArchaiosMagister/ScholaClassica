@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {compileAdditionalMorphology} from '../scripts/morphology-expansion.mjs';
 import {availableRecords,makeQuestions,evaluate} from '../public/morfologia/engine.mjs';
+import {makeWrittenQuestions,correctWritten} from '../public/morfologia/written.mjs';
 const root=resolve(import.meta.dirname,'..'),src=join(root,'.sources/appendix');
 const curriculum=JSON.parse(readFileSync(join(src,'assets/curriculum.json'),'utf8'));
 const latinIndicativeHtml=readFileSync(join(src,'indicativo.html'),'utf8');
@@ -66,7 +67,7 @@ test('Latín UD5: brevis, acer, audax, vetus; casos y género con sincretismo',(
 test('Griego UD5: dos modelos regulares y dos irregulares con acentos y fusiones reales',()=>{
   const forms=id=>expanded.find(r=>r.id==='griego-adj-'+id).forms;
   for(const id of ['agathos','barbaros','polys','megas']){
-    assert.equal(forms(id).length,30);
+    assert.equal(forms(id).length,id==='megas'?31:30);
     assert.ok(forms(id).every(f=>f.case&&f.gender&&f.number));
   }
   const caseForm=(id,cas,gender,number)=>forms(id).find(f=>f.case===cas&&f.gender===gender&&f.number===number).form;
@@ -78,6 +79,20 @@ test('Griego UD5: dos modelos regulares y dos irregulares con acentos y fusiones
   assert.equal(caseForm('polys','acusativo','neutro','singular').normalize('NFC'),'πολύ');
   assert.equal(caseForm('megas','nominativo','neutro','singular').normalize('NFC'),'μέγα');
   assert.equal(caseForm('megas','acusativo','neutro','singular').normalize('NFC'),'μέγα');
+  const megasVoc=expanded.find(r=>r.id==='griego-adj-megas');
+  const mascVocs=megasVoc.forms.filter(f=>f.case==='vocativo'&&
+    f.gender==='masculino'&&f.number==='singular').map(f=>f.form);
+  assert.deepEqual(mascVocs,['μεγάλε','μέγας']);
+  assert.equal(megasVoc.evidence.individualVerification?.primaryForm,'μεγάλε');
+  assert.equal(megasVoc.evidence.individualVerification?.acceptedVariant,'μέγας');
+  const qv=makeWrittenQuestions({...bank,records:[megasVoc]},
+    {language:'griego',unit:5,limit:35,rng:()=>.41}).find(q=>
+      q.prompt.includes('vocativo masculino singular'));
+  assert.ok(qv,'El vocativo irregular debe ser practicable');
+  assert.deepEqual(qv.acceptedForms,['μεγάλε','μέγας']);
+  assert.equal(correctWritten(qv,'μεγάλε').correct,true);
+  assert.equal(correctWritten(qv,'μέγας').correct,true);
+  assert.equal(correctWritten(qv,'μέγαλο').correct,false);
   assert.ok(!availableRecords(bank,{language:'griego',unit:4}).some(r=>r.kind==='adjetivo'));
   assert.equal(availableRecords(bank,{language:'griego',unit:5}).filter(r=>r.kind==='adjetivo').length,4);
 });
