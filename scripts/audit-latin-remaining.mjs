@@ -34,6 +34,7 @@ export const LATIN_EXTRA_FUTURES=Object.freeze({
   capio:['capiar','capieris','capietur','capiemur','capiemini','capientur']},
  sum:['ero','eris','erit','erimus','eritis','erunt']
 });
+export const ORIOR_ESCOLAR_NOTE="orior se mantiene escolarmente en la cuarta conjugación por su enunciado orior, oriris, oriri, ortus sum, pero es un deponente de flexión mixta o excepcional: presenta rasgos de tercera conjugación en parte de su paradigma. La etiqueta cuarta no implica que todas sus formas sigan el modelo regular de audio. Se conservan las formas documentadas sin introducir variantes.";
 export const LATIN_EXTRA_DEPONENTS=Object.freeze({
  hortor:['hortor','hortaris','hortatur','hortamur','hortamini','hortantur'],
  vereor:['vereor','vereris','veretur','veremur','veremini','verentur'],
@@ -143,7 +144,7 @@ export function auditLatinRemainingCurricularForms(bank){
   assert.ok(row.forms.every(f=>f.voice==='pasiva (deponente, sentido activo)' &&
     f.mood==='indicativo'),'Clasificación verbal alterada: '+lemma);
   deponent.push({...check(row,verbSlots(forms),verbalKey),lemma,source:DEP,
-    note:lemma==='orior'?'oriris es la opción docente; otras fuentes recogen una variante.':null});
+    note:lemma==='orior'?ORIOR_ESCOLAR_NOTE:null});
  }
  const imp=one(records,'latin-ud3-imperativos','latin',3,'verbo');
  const reference=[];
@@ -176,10 +177,7 @@ export function auditLatinRemainingCurricularForms(bank){
   limitation:'Las formas se cotejan con tablas y gramáticas, no con ocurrencias textuales individuales.',
   findings:{
    sourceErrata:[],
-   teacherReservations:[
-    {lemma:'orior',matter:'Variante de segunda persona según fuente y criterio escolar',
-     action:'Conservar oriris y la nota documentada; no promover variantes sin decisión.'}
-   ]
+   teacherReservations:[]
   },
   results:{nominal,future,deponent,imperative,teacherImperfect}
  };
