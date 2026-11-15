@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {auditGreekRiskParadigms} from './audit-greek-high-risk.mjs';
 import {LATIN4_LEXICAL_CORRECTIONS} from './latin4-lexical-editorial.mjs';
 import {LATIN4_UD8_EXAM_REVIEW} from './latin4-ud8-reconciliation.mjs';
 
@@ -89,6 +90,7 @@ export function analyzeTransversal({curricula,bank,sourceVocabulary,
   assert.equal(lock.sources.appendix.integrated,true);
   assert.equal(lock.sources.vocabula.integrated,true);
   const sourcePreserved=assertLexicalIntegrity(sourceVocabulary,integratedVocabulary);
+  const greekIndividualReview=auditGreekRiskParadigms(bank);
   const allIds=new Set(bank.records.map(x=>x.id));
   assert.equal(allIds.size,bank.records.length,'ID de paradigma repetido');
   const noteMarkers=bank.records.filter(r=>
@@ -183,7 +185,7 @@ export function analyzeTransversal({curricula,bank,sourceVocabulary,
   const diagnostics={schema:'scholaclassica-filologia-transversal/v1',
     sourceShas:{appendix:lock.sources.appendix.sha,
       vocabula:lock.sources.vocabula.sha},
-    sourcePreserved,subjects,reviews,noteMarkers,
+    sourcePreserved,subjects,reviews,noteMarkers,greekIndividualReview,
     note:'Los candidatos por género NO constituyen enmiendas aprobadas. '+
       'La coincidencia de lemas sin diacríticos es solo una búsqueda orientativa. '+
       'La paridad de tablas ES/VAL es estructural, no traducción validada frase por frase.'};
@@ -216,6 +218,7 @@ if(main){
     JSON.stringify(report,null,2)+'\n');
   console.log('AUDITORIA_TRANSVERSAL',JSON.stringify({
     subjects:report.subjects,reviews:report.reviews,noteMarkers:report.noteMarkers,
+    greekIndividualReview:report.greekIndividualReview,
     sourcePreserved:report.sourcePreserved
   }));
 }
