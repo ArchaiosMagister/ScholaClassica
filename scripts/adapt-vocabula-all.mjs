@@ -11,6 +11,10 @@ function once(s,from,to,label){
 }
 export function adaptVocabulaAllApp(js){
   js=once(js,
+    "function entryNotesHTML(e){return (e.usage?",
+    "function entryNotesHTML(e){const scholaNote=scholaVocabularyEditorialNote(e);return (scholaNote?`<p class=\\\"small\\\">${esc(scholaNote)}</p>`:'')+(e.usage?",
+    'anotación filológica visible tras revelar respuesta');
+  js=once(js,
     "function base(){return VOCAB.filter(e=>e.subject===$('subject').value&&e.mode===$('corpus').value)}",
     "function base(){return $('corpus').value==='all'?scholaVocabularyAll(VOCAB,$('subject').value):VOCAB.filter(e=>e.subject===$('subject').value&&e.mode===$('corpus').value)}",
     'lista por modalidad');
@@ -29,6 +33,10 @@ export function adaptVocabulaAllApp(js){
     ";$('scope').textContent=scholaVocabularyScopeDescription($('subject').value,$('corpus').value,$('scope').textContent);update()}\nfunction dictionary",
     'descripción del corpus Todo');
   js=once(js,
+    "let units=[...new Set(base().flatMap(e=>e.units))].sort((a,b)=>a.localeCompare(b,'es',{numeric:true}));$('units').innerHTML=units.map",
+    "let units=[...new Set(base().flatMap(e=>e.units))].sort((a,b)=>a.localeCompare(b,'es',{numeric:true}));$('schola-lat4-extra').hidden=$('subject').value!=='lat4';units=scholaVocabularyVisibleUnits($('subject').value,units,$('schola-lat4-extra-enabled').checked);$('units').innerHTML=units.map",
+    'ocultar ampliación hasta que se solicite en Latín de 4.º');
+  js=once(js,
     "${esc(u)}</label>",
     "${esc(scholaVocabularyUnitCaption($('subject').value,u))}</label>",
     'etiqueta legible del selector sin cambiar valor de unidad');
@@ -41,12 +49,20 @@ export function adaptVocabulaAllApp(js){
     "${esc(scholaVocabularyProvenance(e,s.units))}",
     'fuente visible en los ejercicios');
   js=once(js,
+    "$('subject').onchange=()=>{invalidateSession();setup()};",
+    "$('subject').onchange=()=>{$('schola-lat4-extra-enabled').checked=false;invalidateSession();setup()};$('schola-lat4-extra-enabled').onchange=()=>{const keep=selectedUnits();invalidateSession();setup(keep)};",
+    'ocultar ampliación al cambiar de curso y actualizar selección sin perder historial');
+  js=once(js,
     "const p=progress[e.id]||{total:0,right:0,failed:false};p.total++;p.right+=Number(ok);p.failed=!ok;progress[e.id]=p;",
     "scholaVocabularyRecordProgress(progress,e,ok);",
     'conservación de claves de progreso');
   return js;
 }
 export function adaptVocabulaAllHtml(html){
+  html=once(html,
+    '<div class="unithead"><label id="unit-label">Unidades</label>',
+    '<div id="schola-lat4-extra" hidden><label class="check" for="schola-lat4-extra-enabled"><input id="schola-lat4-extra-enabled" type="checkbox"> Mostrar ampliación · UD9 y UD10 (opcional)</label></div><div class="unithead"><label id="unit-label">Unidades</label>',
+    'acceso explícito a unidades complementarias');
   html=once(html,
     '<option value="examen">Sólo de examen</option></select>',
     '<option value="examen">Sólo de examen</option><option value="all">Todo el vocabulario</option></select>',
@@ -59,6 +75,10 @@ export function adaptVocabulaAllHtml(html){
     'Al cambiar de asignatura se desmarcan las unidades; al pasar entre General y Examen sólo se conservan las que coincidan.',
     'Al cambiar de asignatura se desmarcan las unidades; al pasar entre General, Examen y Todo solo se conservan las que coincidan.',
     'ayuda de cambio de corpus');
+  html=once(html,
+    'El botón Todas incluye también los bloques sin unidad acreditada, si los hay.',
+    'El botón Todas selecciona los grupos visibles, incluidos los complementarios cuando se muestran. En Latín de 4.º, las UD9 y UD10 solo aparecen si activas Mostrar ampliación.',
+    'alcance del botón Todas');
   html=once(html,
     'Las palabras repetidas se presentan una sola vez y conservan sus unidades y acepciones.',
     'En Todo el vocabulario las fichas idénticas se muestran una sola vez, con unidades diferenciadas por modalidad. Las acepciones distintas siguen separadas.',
@@ -93,7 +113,7 @@ export function adaptVocabulaAllReport(js){
 export async function adaptVocabulaAll(destination,root){
   const source=await readFile(join(root,'scripts/vocabula-all-model.mjs'),'utf8');
   assert.ok(source.startsWith('// Vista combinada'));
-  assert.equal((source.match(/^export /gmu)||[]).length,11,
+  assert.equal((source.match(/^export /gmu)||[]).length,13,
     'Cambió la interfaz del modelo');
   const classic="'use strict';\n"+source.replace(/^export /gmu,'');
   await writeFile(join(destination,'schola-all.js'),classic);
