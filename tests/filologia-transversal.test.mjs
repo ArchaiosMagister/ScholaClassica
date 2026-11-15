@@ -24,6 +24,9 @@ test('Auditoría filológica completa: tres currículos ES/VAL, cobertura y orig
   assert.ok(report.reviews.every(x=>x.entryId&&x.paradigmId&&x.form));
   assert.deepEqual(report.noteMarkers,[],
     'Un asterisco o signo de nota aparece en una respuesta de morfología');
+  assert.equal(report.greekIndividualReview.totalParadigms,7);
+  assert.equal(report.greekIndividualReview.totalSlotsChecked,110);
+  assert.equal(report.greekIndividualReview.totalReadingsChecked,116);
 });
 test('Las listas de Examen no se confunden con la práctica ni el General',()=>{
   const {latin1,latin4,griego1}=report.subjects;
@@ -68,6 +71,16 @@ test('Las formas corregidas en Appendix se leen realmente en morfología integra
   assert.ok(elpis,'Falta el paradigma de ἐλπίς');
   const voc=elpis.forms.find(x=>x.case==='vocativo'&&x.number==='singular');
   assert.equal(voc?.form.normalize('NFC'),'ἐλπί'.normalize('NFC'));
+  const hegemon=all.bank.records.find(x=>x.language==='griego'&&
+    lexicalKey(x.paradigm)===lexicalKey('ἡγεμών'));
+  assert.ok(hegemon);
+  assert.equal(hegemon.forms.find(x=>x.case==='vocativo'&&
+    x.number==='singular')?.form,'ἡγεμών');
+  const megas=all.bank.records.find(x=>x.id==='griego-adj-megas');
+  assert.ok(megas);
+  assert.deepEqual(megas.forms.filter(x=>x.case==='vocativo'&&
+    x.gender==='masculino'&&x.number==='singular').map(x=>x.form),
+    ['μεγάλε','μέγας']);
   const ouranos=all.bank.records.find(x=>x.language==='griego'&&
     lexicalKey(x.paradigm)===lexicalKey('οὐρανός'));
   assert.ok(ouranos,'Conservar el registro de οὐρανός');
