@@ -35,6 +35,14 @@ test('Morfología curricular: no se habilitan paradigmas fuera de las unidades',
   assert.deepEqual(course.unitViolations,[]);
  }
 });
+test('Géneros y genitivos completos: no se detectan discrepancias donde consta cotejo explícito',()=>{
+ for(const [name,course] of Object.entries(report.courses)){
+   assert.ok(course.nominalAttributes.genderComparisons>=0);
+   assert.ok(course.nominalAttributes.genitiveComparisons>=0);
+   assert.deepEqual(course.nominalAttributes.review,[],
+     'Existe una nueva contradicción nominal que debe revisarse: '+name);
+ }
+});
 test('Latín 4: 26 paradigmas docentes y 49 reutilizados de Appendix sin cambios de casilla',()=>{
  const x=report.latin4Sources;
  assert.equal(x.teacher,26);
