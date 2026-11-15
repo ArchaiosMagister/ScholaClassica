@@ -46,7 +46,9 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
   assert.ok(!to.includes('id="open-teacher"'));
   assert.ok(!to.includes('id="teacher-dialog"'));
   const studentJs=readFileSync(join(target,'teacher.js'),'utf8');
-  assert.match(studentJs,/value==='all'/);
+  assert.match(studentJs,/scholaMode==='all'/);
+  assert.match(studentJs,/scholaVocabularyReportPayload\(reportContext/);
+  assert.match(studentJs,/openReport\(selected\(\)\.find/);
   assert.notEqual(studentJs,readFileSync(join(source,'teacher.js'),'utf8'));
   assert.ok(studentJs.includes('function openReport('));
   assert.ok(studentJs.includes("api('report'"));
