@@ -212,7 +212,9 @@ export function auditTransversal({bank,vocabulary,originalVocabulary,curricula,l
      vocabulary:{total:entries.length,general:general.length,exam:exam.length,
        examWithMorphologicalLemma:matched.length,examWithoutMorphologicalLemma:missing.length,
        byGroup:grouped,outOfScope:outOfScope.length,
-       outOfScopeExam:outOfScope.filter(x=>x.mode==='examen').length},
+       outOfScopeExam:outOfScope.filter(x=>x.mode==='examen').length,
+       outOfScopeExamEntries:outOfScope.filter(x=>x.mode==='examen')
+         .map(x=>({id:x.id,form:x.form,units:[...x.units]}))},
      unitViolations,nominalCollisions:collisions,
      lexicalMatchingExamples:matched.slice(0,12).map(v=>head(v.form)),
      unmatchedExamExamples:missing.slice(0,15).map(v=>({id:v.id,form:v.form,units:v.units}))
