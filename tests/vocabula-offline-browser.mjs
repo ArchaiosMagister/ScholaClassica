@@ -120,9 +120,10 @@ try{
  // Progreso exportable/importable incluso sin conexión.
  await page.evaluate(()=>localStorage.setItem('classics-progress-v1','{}'));
  await page.reload({waitUntil:'load'});
+ await page.locator('details.help').first().locator('summary').click();
  await page.locator('#import').setInputFiles({name:'progreso-vocabulario.json',
   mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,progress:JSON.parse(progress)}))});
- await page.getByText('Progreso importado.').waitFor();
+ await page.waitForFunction(()=>document.querySelector('#storage')?.textContent==='Progreso importado.');
  assert.equal(await page.evaluate(()=>localStorage.getItem('classics-progress-v1')),progress);
  await context.setOffline(false);
  await page.waitForFunction(()=>scholaVocabulaOffline.pendingCount()===0,null,{timeout:15000});
