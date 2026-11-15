@@ -67,16 +67,15 @@ export function adaptVocabulaOfflineTeacher(js){
  js=once(js,originalSync,adaptedSync,'sincronización y reenvío');
  const originalReport="try{await api('report',{...reportContext,kind:$('report-kind').value,message:$('report-message').value});$('report-form').innerHTML='<p role=\"status\" class=\"feedback\">Aviso enviado. Gracias por ayudar a mejorar el vocabulario.</p><button type=\"button\" data-close=\"report-dialog\">Cerrar</button>'}catch(e){status('report-status',e.message,true);$('send-report').disabled=false}";
  const adaptedReport=String.raw`try{
-   const report={...reportContext,kind:$('report-kind').value,message:$('report-message').value};
+   const report=scholaVocabularyReportPayload(reportContext,$('report-kind').value,$('report-message').value);
    if(!navigator.onLine)throw new TypeError('Sin conexión');
    await api('report',report);
    $('report-form').innerHTML='<p role="status" class="feedback">Aviso enviado. Gracias por ayudar a mejorar el vocabulario.</p><button type="button" data-close="report-dialog">Cerrar</button>';
  }catch(e){
    if(!navigator.onLine||e instanceof TypeError){
      try{
-       scholaVocabulaOffline.queueReport({
-         ...reportContext,kind:$('report-kind').value,message:$('report-message').value
-       });
+       scholaVocabulaOffline.queueReport(scholaVocabularyReportPayload(
+         reportContext,$('report-kind').value,$('report-message').value));
        $('report-form').innerHTML='<p role="status" class="feedback">Aviso guardado en este dispositivo. Se enviará al recuperar la conexión y abrir el vocabulario.</p><button type="button" data-close="report-dialog">Cerrar</button>';
        pendingStatus();
      }catch(storageError){
