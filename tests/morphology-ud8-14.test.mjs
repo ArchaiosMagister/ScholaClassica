@@ -69,6 +69,38 @@ test('Griego I UD8: interrogativos, indefinidos y 16 paradigmas de tercera decli
   assert.equal(nouns.length,16);
   assert.ok(nouns.every(r=>r.forms.length>=10));
   assert.ok(nouns.every(r=>r.forms.every(f=>f.case&&f.number)));
+  const elpis=find('griego-ud8-noun-113-0-0');
+  const voc=elpis.forms.find(f=>f.case==='vocativo'&&f.number==='singular');
+  assert.equal(voc.form.normalize('NFC'),'ἐλπί'.normalize('NFC'),
+    'El asterisco de la nota no puede ser parte de la flexión');
+  assert.ok(!elpis.forms.some(f=>f.form.includes('*')));
+  assert.equal(elpis.evidence.correction?.sourceCell,'ἐλπί*');
+  assert.equal(elpis.evidence.correction?.form,'ἐλπί');
+  assert.equal(correctWritten({activity:'written',kind:'sustantivo',language:'griego',
+    acceptedForms:['ἐλπί']},'ἐλπί').correct,true);
+  assert.equal(correctWritten({activity:'written',kind:'sustantivo',language:'griego',
+    acceptedForms:['ἐλπί']},'ἐλπί*').correct,false);
+  const hegemon=find('griego-ud8-noun-115-0-1');
+  assert.ok(hegemon,'Falta ἡγεμών en la tabla nasal 115');
+  const hVoc=hegemon.forms.find(f=>f.case==='vocativo'&&f.number==='singular');
+  assert.equal(hVoc?.form,'ἡγεμών','El vocativo de ἡγεμών coincide con el nominativo');
+  assert.equal(hegemon.evidence.correction?.sourceCell,'ἡγεμόν');
+  assert.equal(hegemon.evidence.correction?.form,'ἡγεμών');
+  assert.equal(hegemon.forms.filter(f=>f.case==='vocativo'&&f.number==='singular').length,1);
+  const hw=makeWrittenQuestions({...bank,records:[hegemon]},
+    {language:'griego',unit:8,limit:30,rng});
+  const w=hw.find(x=>x.prompt.includes('vocativo singular'));
+  assert.ok(w);
+  assert.equal(correctWritten(w,'ἡγεμών').correct,true);
+  assert.equal(correctWritten(w,'ἡγεμόν').correct,false);
+  const pater=find('griego-ud8-noun-119-1-0');
+  assert.ok(pater.paradigm.startsWith('πατήρ, πατρός'));
+  assert.equal(pater.forms.find(f=>f.case==='nominativo'&&
+    f.number==='singular').form,'πατήρ');
+  assert.equal(pater.forms.find(f=>f.case==='vocativo'&&
+    f.number==='singular').form,'πάτερ');
+  assert.equal(pater.evidence.correction?.sourceCell,'πάτηρ');
+  assert.ok(!pater.forms.some(f=>f.form==='πάτηρ'));
   assert.equal(find('griego-ud8-noun-114-0-0').gender,'neutro');
   assert.equal(find('griego-ud8-noun-114-0-0').forms.find(f=>
     f.analysis==='nominativo plural').form,'τραύματα');

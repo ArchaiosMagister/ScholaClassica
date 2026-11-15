@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
+import {reconcileThirdDeclensionInstructions} from './latin-third-declension-editorial.mjs';
 const MAP=[
   ['intro','cases','first'],
   ['second','present'],
@@ -122,7 +123,8 @@ export function makeLatin4Curriculum({curriculum,indicative,nouns,adjectives,loc
  const src={
   intro,cases:get(1,3),first,second,present:get(1,1).replace(/<p>[\s\S]*?<\/p>/u,''),
   adj1:get(2,0),prepositions:get(2,1),imperfect:get(2,2),
-  third:thirdNouns(nouns),perfect:activeTense(indicative,'perfect',locale),
+  third:reconcileThirdDeclensionInstructions(thirdNouns(nouns),locale),
+  perfect:activeTense(indicative,'perfect',locale),
   passive:get(3,2),adj3:thirdAdjectives(adjectives),
   pluperfect:activeTense(indicative,'pluperfect',locale),
   fourth:get(7,0),personal:get(3,0)

@@ -6,7 +6,8 @@ import {scholaVocabularyAll,scholaVocabularyIdentity,
  scholaVocabularyProvenance,scholaVocabularyProgress,
  scholaVocabularyRecordProgress,scholaVocabularyReportContext,
  scholaVocabularyReportMaxLength,scholaVocabularyReportPayload,
- scholaVocabularyScopeDescription} from '../scripts/vocabula-all-model.mjs';
+ scholaVocabularyScopeDescription,scholaVocabularyVisibleUnits,
+ scholaVocabularyEditorialNote} from '../scripts/vocabula-all-model.mjs';
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport}
  from '../scripts/adapt-vocabula-all.mjs';
 import {createHash} from 'node:crypto';
@@ -41,6 +42,9 @@ test('Vista Todo solo en el artefacto: conserva las 2055 fichas, los IDs y sus u
  const app=readFileSync(join(integrated,'app.js'),'utf8');
  assert.match(app,/scholaVocabularyAll\(VOCAB/);
  assert.match(app,/scholaVocabularyRecordProgress\(progress,e,ok\)/);
+ assert.match(app,/scholaVocabularyEditorialNote\(e\)/);
+ assert.match(app,/scholaVocabularyVisibleUnits\(/);
+ assert.match(app,/schola-lat4-extra-enabled/);
  assert.ok(!app.includes('VOCAB.push('));
  assert.match(readFileSync(join(integrated,'index.html'),'utf8'),
   /<option value="all">Todo el vocabulario<\/option>/u);

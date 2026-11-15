@@ -74,6 +74,40 @@ export function makeGreek1TypographyCurriculum(curriculum,locale){
  topic.html=once(topic.html,'ἀγαθός, αγαθή, ἀγαθόν',
   'ἀγαθός, ἀγαθή, ἀγαθόν',
   'UD5: espíritu suave del femenino de ἀγαθός '+locale);
+ // Griego I UD5: el vocativo masculino habitual es μεγάλε (Smyth 311);
+ // μέγας está documentado como variante, pero no debe ser el único modelo.
+ // Se adapta solo la copia ES/VAL, sin escribir Appendix original.
+ const irregular=result.griego.units[4].topics[1];
+ assert.equal(irregular.title,locale==='es'?
+  'Adjetivos irregulares: πολύς y μέγας':
+  'Adjectius irregulars: πολύς i μέγας');
+ irregular.html=once(irregular.html,
+  '<th scope="row"><strong>Voc.</strong></th><td>μέγα–<strong>ς</strong> </td><td>μεγάλ–<strong>η</strong> </td>',
+  '<th scope="row"><strong>Voc.</strong></th><td>μεγάλ–<strong>ε</strong> </td><td>μεγάλ–<strong>η</strong> </td>',
+  'UD5: vocativo habitual de μέγας '+locale);
+ irregular.html+='<p class="grammatical-note">'+(locale==='es'?
+  'El vocativo masculino singular habitual de <i lang="grc">μέγας</i> es <i lang="grc">μεγάλε</i>. También se documenta <i lang="grc">μέγας</i> como variante poco frecuente.':
+  'El vocatiu masculí singular habitual de <i lang="grc">μέγας</i> és <i lang="grc">μεγάλε</i>. També es documenta <i lang="grc">μέγας</i> com a variant poc freqüent.')+'</p>';
+ // Griego I UD8: el vocativo del oxítono ἡγεμών coincide con el
+ // nominativo (Smyth 259): ἡγεμών, no ἡγεμόν.
+ const dental=result.griego.units[7].topics[2];
+ assert.equal(dental.title,locale==='es'?
+  'Tercera declinación: consonantes':'Tercera declinació: consonants');
+ const vocativeLabel=locale==='es'?'Vocativo':'Vocatiu';
+ dental.html=once(dental.html,
+  '<th scope="row"><strong>'+vocativeLabel+'</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμόν</td><td>ἡγεμόν<strong>ες</strong></td>',
+  '<th scope="row"><strong>'+vocativeLabel+'</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμών</td><td>ἡγεμόν<strong>ες</strong></td>',
+  'UD8: vocativo de ἡγεμών '+locale);
+ // UD8: el nominativo de 'padre' lleva oxítona πατήρ, frente al
+ // vocativo recesivo πάτερ. En el original πάτηρ estaba mal acentuado
+ // tanto en el enunciado como en la casilla, en ambas lenguas.
+ assert.equal(dental.html.split('πάτηρ').length,3,
+  'Cambió el número de referencias a πατήρ en Griego I '+locale);
+ dental.html=dental.html.replaceAll('πάτηρ','πατήρ');
+ dental.html=once(dental.html,
+  'πάτ<strong>η</strong>ρ',
+  'πατ<strong>ή</strong>ρ',
+  'UD8: nominativo πατήρ frente a vocativo πάτερ '+locale);
  assert.deepEqual(result.latin,curriculum.latin);
  return result;
 }
@@ -87,5 +121,5 @@ export async function adaptAppendixGreek1({destination,source}){
   const result=makeGreek1TypographyCurriculum(sourceBank,locale);
   await writeFile(join(destination,folder,output),JSON.stringify(result));
  }
- console.log('Appendix: Griego I ES/VAL, espíritu de ἀγαθή corregido en la copia.');
+ console.log('Appendix: Griego I ES/VAL, anotación de μέγας y vocativo de ἡγεμών revisados en copia.');
 }

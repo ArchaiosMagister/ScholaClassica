@@ -75,7 +75,13 @@ function nounFormsFromBlock(block,caption){
   assert.equal(columns.length,1+models*2);
   const output=[];
   for(let model=0;model<models;model++){
-    const lemma=block[1][model+1].split(' (')[0].trim().normalize('NFC');
+    let lemma=block[1][model+1].split(' (')[0].trim().normalize('NFC');
+    const isFather=caption==='Temas en líquida (ρ, λ) · tabla 119'&&
+      model===0&&lemma.startsWith('πάτηρ,');
+    if(isFather){
+      assert.equal(lemma,'πάτηρ, πατρός','Cambió el enunciado fuente de πατήρ');
+      lemma='πατήρ, πατρός';
+    }
     assert.ok(lemma&&!lemma.includes('—'),'Sin enunciado del sustantivo');
     const forms=[];
     block.slice(3).forEach((row,i)=>{
@@ -83,7 +89,24 @@ function nounFormsFromBlock(block,caption){
       assert.equal(row[0],['Nominativo','Vocativo','Acusativo','Genitivo','Dativo'][i]);
       for(let n=0;n<2;n++){
         const number=n?'plural':'singular',cas=GR_CASES[i];
-        for(const form of greekCell(row[model*2+n+1])){
+        // En la tabla 113 el asterisco de ἐλπί* remite a la nota
+        // filológica sobre temas en -ιδ; NO es parte del vocativo.
+        // Enmienda de una sola casilla, con origen y lectura verificables.
+        const sourceCell=row[model*2+n+1];
+        const isElpisVoc=caption==='Temas en oclusiva · tabla 113'&&
+          model===0&&i===1&&n===0;
+        const isHegemonVoc=caption==='Temas en nasal (ν) · tabla 115'&&
+          model===1&&i===1&&n===0;
+        const isFatherNom=isFather&&i===0&&n===0;
+        if(isFatherNom)assert.equal(sourceCell,'πάτηρ',
+          'Cambió la forma del nominativo de πατήρ en la fuente');
+        if(isElpisVoc)assert.equal(sourceCell,'ἐλπί*',
+          'Cambió el vocativo anotado de ἐλπίς: revisar la fuente');
+        if(isHegemonVoc)assert.equal(sourceCell,'ἡγεμόν',
+          'Cambió el vocativo de ἡγεμών: se exige nuevo contraste filológico');
+        for(const form of greekCell(isElpisVoc?'ἐλπί':
+          isHegemonVoc?'ἡγεμών':
+          isFatherNom?'πατήρ':sourceCell)){
           forms.push({form,case:cas,number,analysis:cas+' '+number});
         }
       }
@@ -243,7 +266,26 @@ function greekThirdNouns(curriculum){
         out.push(record('griego-ud8-noun-'+caption.match(/tabla (\d+)/)[1]+'-'+group+'-'+index,
           'griego',unit,'sustantivo',spec.lemma+' · tercera declinación ('+type+')',
           spec.forms,topic,caption,'Formas nominales completas, sin reconstruir el tema ni asignar género ambiguo.',
-          {gender:/tabla 114/.test(caption)?'neutro':null}));
+          {gender:/tabla 114/.test(caption)?'neutro':null,
+           ...(caption==='Temas en oclusiva · tabla 113'?{
+             correction:{sourceCell:'ἐλπί*',form:'ἐλπί',
+               reason:'El asterisco es llamada de nota; vocativo en -ιδ sin dental.',
+               scope:'vocativo singular de ἐλπίς',
+               reference:'Cambridge Grammar of Classical Greek, §4.40; Peek, módulo 13'}
+           }:{}),
+           ...(caption==='Temas en nasal (ν) · tabla 115'&&index===1?{
+             correction:{sourceCell:'ἡγεμόν',form:'ἡγεμών',
+               reason:'Los oxítonos de tema nasal como ἡγεμών conservan el nominativo en vocativo.',
+               scope:'vocativo singular de ἡγεμών',
+               reference:'Smyth, Greek Grammar, §259 (columna ἡγεμών)'}
+           }:{}),
+           ...(caption==='Temas en líquida (ρ, λ) · tabla 119'&&group===1&&index===0?{
+             correction:{sourceLemma:'πάτηρ, πατρός',
+               correctedLemma:'πατήρ, πατρός',sourceCell:'πάτηρ',
+               form:'πατήρ',scope:'nominativo singular y enunciado de πατήρ',
+               reason:'El nominativo es oxítono πατήρ; el vocativo recesivo es πάτερ.',
+               reference:'Smyth, Greek Grammar, §262'}
+           }:{})}));
       }
     }
   }

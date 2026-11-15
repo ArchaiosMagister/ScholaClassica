@@ -117,6 +117,75 @@ try{
   assert.match(await page.locator('#scope').textContent(),/lista docente/);
   await page.locator('#corpus').selectOption('all');
   assert.equal(await page.locator('#units input[value="UD 11–12"]').count(),1);
+  // Latín 4.º: la ampliación existe en el banco pero nunca aparece
+  // por defecto, ni siquiera al pulsar «Todas».
+  await page.locator('#subject').selectOption('lat4');
+  await page.locator('#corpus').selectOption('general');
+  assert.equal(await page.locator('#schola-lat4-extra').isVisible(),true);
+  assert.equal(await page.locator('#schola-lat4-extra-enabled').isChecked(),false);
+  assert.equal(await page.locator('#units input[value="UD 9"]').count(),0);
+  assert.equal(await page.locator('#units input[value="UD 10"]').count(),0);
+  assert.equal(await page.locator('#units input').count(),8);
+  assert.match(await page.locator('#scope').textContent(),/Mostrar ampliación/);
+  await page.locator('#all').click();
+  assert.equal(await page.locator('#units input:checked').count(),8);
+  assert.equal(await page.locator('#start').isEnabled(),true);
+  await page.locator('#schola-lat4-extra-enabled').check();
+  assert.equal(await page.locator('#units input').count(),10);
+  assert.equal(await page.locator('#units input:checked').count(),8,
+    'Activar ampliación no marca automáticamente nuevos bloques');
+  assert.match(await page.locator('#units input[value="UD 9"]')
+    .locator('xpath=..').textContent(),/Ampliación/);
+  await page.locator('#none').click();
+  await page.locator('#units input[value="UD 10"]').check();
+  await page.locator('#search').fill('lavor');
+  assert.equal(await page.locator('#dictionary .dictrow').count(),1);
+  assert.match(await page.locator('#dictionary .dictrow').first().textContent(),
+    /uso medio-pasivo\/reflexivo de lavo/i);
+  const historyBefore=await page.evaluate(()=>{
+    const id=VOCAB.find(e=>e.subject==='lat4'&&e.mode==='general'&&
+      e.form.startsWith('lavor,')).id;
+    const state=JSON.parse(localStorage.getItem('classics-progress-v1')||'{}');
+    state[id]={total:4,right:3,failed:true};
+    localStorage.setItem('classics-progress-v1',JSON.stringify(state));
+    return localStorage.getItem('classics-progress-v1');
+  });
+  await page.locator('#corpus').selectOption('examen');
+  assert.equal(await page.locator('#units input[value="UD 9"]').count(),0);
+  assert.equal(await page.locator('#units input[value="UD 10"]').count(),1);
+  assert.match(await page.locator('#dictionary .dictrow').first().textContent(),
+    /no es un verbo deponente puro/i);
+  await page.locator('#corpus').selectOption('all');
+  const combined=await page.evaluate(()=>{
+    const card=scholaVocabularyAll(VOCAB,'lat4',['UD 10']).find(e=>
+      e.form.startsWith('lavor,'));
+    return card.scholaSources.map(s=>s.id);
+  });
+  assert.deepEqual(combined.sort(),['e9f4ac2d73fdd5c0','f17ac10e4e2d3b55'].sort());
+  assert.match(await page.locator('#dictionary .dictrow').first().textContent(),
+    /uso medio-pasivo\/reflexivo de lavo/i);
+  await page.evaluate(()=>{
+    const e=scholaVocabularyAll(VOCAB,'lat4',['UD 10']).find(x=>
+      x.form.startsWith('lavor,'));
+    start([e]);
+  });
+  await page.locator('#reveal').click();
+  assert.match(await page.locator('#answerarea').textContent(),/medio-pasivo\/reflexivo/);
+  await page.locator('#schola-lat4-extra-enabled').uncheck();
+  assert.equal(await page.locator('#units input[value="UD 9"]').count(),0);
+  assert.equal(await page.locator('#units input[value="UD 10"]').count(),0);
+  assert.equal(await page.locator('#units input:checked').count(),0);
+  assert.equal(await page.locator('#start').isDisabled(),true);
+  assert.equal(await page.evaluate(()=>localStorage.getItem('classics-progress-v1')),historyBefore,
+    'Ocultar ampliación no altera el progreso conservado');
+  await page.locator('#schola-lat4-extra-enabled').check();
+  await page.locator('#units input[value="UD 10"]').check();
+  assert.equal(await page.locator('#start').isEnabled(),true);
+  await page.setViewportSize({width:390,height:844});
+  const extraBox=await page.locator('#schola-lat4-extra').boundingBox();
+  assert.ok(extraBox&&extraBox.width<=390);
+  await page.setViewportSize({width:1280,height:800});
+  await page.locator('#search').fill('');
   await page.locator('#subject').selectOption('gr1');
   await page.locator('#corpus').selectOption('general');
   assert.equal(await page.locator('#units input[value="Sin unidad acreditada"]').count(),1);

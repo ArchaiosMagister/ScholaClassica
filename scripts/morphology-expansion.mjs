@@ -153,17 +153,35 @@ function greekAdjectives(curriculum){
             (number==='singular'?g+1:g+4);
           const form=lemmaForm(row[col]);
           assert.ok(form&&!form.includes('–'),'Forma griega dividida o vacía: '+m.caption);
-          forms.push({form,analysis:
-            ['nominativo','vocativo','acusativo','genitivo','dativo'][index]+' '+GENDERS[g]+' '+number,
+          const analysis=['nominativo','vocativo','acusativo','genitivo','dativo'][index]+
+            ' '+GENDERS[g]+' '+number;
+          const item={form,analysis,
             case:['nominativo','vocativo','acusativo','genitivo','dativo'][index],
-            number,gender:GENDERS[g]});
+            number,gender:GENDERS[g]};
+          const megasVoc=m.id==='megas'&&index===1&&
+            number==='singular'&&g===0;
+          if(megasVoc){
+            // Smyth 311 / CGCG 5.13: μεγάλε es la forma habitual;
+            // μέγας está atestiguada como variante, no se descarta.
+            assert.equal(form,'μέγας','Cambió la lectura fuente del vocativo de μέγας');
+            forms.push({...item,form:'μεγάλε'},item);
+          }else forms.push(item);
         }
       }
     });
     return {id:'griego-adj-'+m.id,language:'griego',unit,kind:'adjetivo',
-      paradigm:m.paradigm,forms,evidence:evidence({unit,topic:m.topic,
-        file:'assets/curriculum.json',caption:m.caption,
-        notes:'Formas literales de la tabla del Appendix; se restituye el contenido de las celdas rowspan sin derivar flexiones.'})};
+      paradigm:m.paradigm,forms,evidence:{
+        ...evidence({unit,topic:m.topic,
+          file:'assets/curriculum.json',caption:m.caption,
+          notes:'Formas acreditadas por la tabla; las celdas rowspan se restituyen sin deducir flexiones.'}),
+        ...(m.id==='megas'?{individualVerification:{
+          slot:'vocativo masculino singular',sourceForm:'μέγας',
+          primaryForm:'μεγάλε',acceptedVariant:'μέγας',
+          reason:'Smyth §311 a: vocativo habitual μεγάλε; μέγας ocasional.',
+          sources:['https://grammars.alpheios.net/smyth/xhtml/body.1_div1.2_div2.4.html',
+            'https://pressbooks.pub/ancientgreek/chapter/29/']
+        }}:{})
+      }};
   });
 }
 export function compileAdditionalMorphology({curriculum,latinIndicativeHtml,latinAdjectivesHtml}){

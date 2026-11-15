@@ -87,8 +87,21 @@ test('Las cinco intervenciones A3–A7 se derivan de las dos fuentes inmutables'
   assert.equal((greekNew.html.match(/<table\b/gu)||[]).length,
    (greekOld.html.match(/<table\b/gu)||[]).length);
   assert.equal(graecum.griego.units.length,14);
+  const adjective=unit(graecum,'griego',5,1).html;
+  assert.match(adjective,/μεγάλ–<strong>ε<\/strong>/);
+  assert.match(adjective,/μεγάλε/);
+  assert.match(adjective,locale==='es'?/variante poco frecuente/:/variant poc freqüent/);
+  assert.equal((adjective.match(/<table\b/gu)||[]).length,
+    (unit(original,'griego',5,1).html.match(/<table\b/gu)||[]).length);
+  const third=unit(graecum,'griego',8,2).html;
+  assert.match(third,/ἡγεμών<\/td>/);
+  assert.ok(!third.includes('<td>ἡγεμόν</td>'));
+  assert.ok(third.includes('πατήρ, πατρός'));
+  assert.ok(third.includes('πατ<strong>ή</strong>ρ'));
+  assert.ok(!third.includes('πάτηρ'));
+  assert.ok(!third.includes('πάτ<strong>η</strong>ρ'));
   for(let u=1;u<=14;u++)for(let t=0;t<graecum.griego.units[u-1].topics.length;t++)
-   if(!(u===5&&t===0))assert.deepEqual(unit(graecum,'griego',u,t),
+   if(!new Set(['5:0','5:1','8:2']).has(u+':'+t))assert.deepEqual(unit(graecum,'griego',u,t),
     unit(original,'griego',u,t),'Alteración griega fuera de UD5 '+locale);
   assert.deepEqual(beforeLatin.griego,original.griego);
  }
@@ -106,6 +119,16 @@ test('Enmiendas fallan ante un origen que ha cambiado, sin realizar sustitucione
    .replace('αγαθή','ἀγαθή');
   assert.throws(()=>makeGreek1TypographyCurriculum(moved,locale),
    /No hay una coincidencia única/);
+  const movingVoc=structuredClone(original);
+  movingVoc.griego.units[4].topics[1].html=
+    movingVoc.griego.units[4].topics[1].html.replace('<strong>Voc.</strong></th><td>μέγα–<strong>ς</strong>','<strong>Voc.</strong></th><td>μέγα–<strong>ν</strong>');
+  assert.throws(()=>makeGreek1TypographyCurriculum(movingVoc,locale),
+    /No hay una coincidencia única/);
+  const movingNasal=structuredClone(original);
+  movingNasal.griego.units[7].topics[2].html=
+    movingNasal.griego.units[7].topics[2].html.replace('<td>ἡγεμόν</td>','<td>ἡγεμών</td>');
+  assert.throws(()=>makeGreek1TypographyCurriculum(movingNasal,locale),
+    /No hay una coincidencia única/);
  }
 });
 test('El cargador sirve currículo correcto a cada curso y la PWA precarga los cuatro',()=>{

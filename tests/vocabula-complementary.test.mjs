@@ -4,7 +4,8 @@ import {readFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {
  scholaVocabularyUnitCaption,scholaVocabularyScopeDescription,
- scholaVocabularyProvenance,scholaVocabularyAll
+ scholaVocabularyProvenance,scholaVocabularyAll,
+ scholaVocabularyVisibleUnits,scholaVocabularyEditorialNote
 } from '../scripts/vocabula-all-model.mjs';
 
 const root=resolve(import.meta.dirname,'..');
@@ -43,9 +44,11 @@ test('Solo se introducen rótulos de alumnado, sin modificar 2055 fichas ni unid
   assert.match(scholaVocabularyScopeDescription(sub,'all',''),
    /no exigibles automáticamente/);
  }
- assert.equal(scholaVocabularyScopeDescription('lat4','general','origen'),'origen');
- assert.match(scholaVocabularyScopeDescription('lat4','all','origen'),
-  /General y Examen/);
+ assert.match(scholaVocabularyScopeDescription('lat4','general','origen'),/Mostrar ampliación/);
+ assert.match(scholaVocabularyScopeDescription('lat4','examen','origen'),/unidades habituales/);
+ assert.match(scholaVocabularyScopeDescription('lat4','all','origen'),/General y Examen/);
+ assert.match(scholaVocabularyUnitCaption('lat4','UD 9'),/Ampliación/);
+ assert.match(scholaVocabularyUnitCaption('lat4','UD 10'),/Ampliación/);
 });
 
 test('Latín I: 140 etiquetas de ampliación, solo 73 lemas sin unidad anterior',()=>{
@@ -132,4 +135,58 @@ test('Fichas de examen, procedencia y progreso conservan sus valores anteriores'
  assert.match(markup,/scholaVocabularyUnitCaption\(\$\('subject'\)\.value,u\)/u);
  assert.match(markup,/scholaVocabularyScopeDescription/u);
  assert.ok(!markup.includes("e.units=e.units.map("));
+});
+
+
+test('4.º: UD9 y UD10 son ampliación optativa, sin modificar modalidades ni fichas',()=>{
+ const records=current.filter(e=>e.subject==='lat4');
+ const labels=[...new Set(records.flatMap(e=>e.units))].sort();
+ const before=JSON.stringify(records);
+ const regular=scholaVocabularyVisibleUnits('lat4',labels);
+ assert.ok(regular.includes('UD 8'));
+ assert.ok(!regular.includes('UD 9')&&!regular.includes('UD 10'));
+ assert.deepEqual(regular,labels.filter(x=>!['UD 9','UD 10'].includes(x)));
+ assert.deepEqual(scholaVocabularyVisibleUnits('lat4',labels,true),labels);
+ assert.deepEqual(scholaVocabularyVisibleUnits('lat1',labels),labels);
+ assert.deepEqual(scholaVocabularyVisibleUnits('gr1',labels),labels);
+ assert.equal(labels.length,10);
+ for(const mode of ['general','examen']){
+   const entries=records.filter(e=>e.mode===mode);
+   assert.ok(entries.some(e=>e.units.includes('UD 10')));
+   const avail=entries.filter(e=>e.units.includes('UD 10'));
+   assert.equal(avail.length,mode==='general'?42:6);
+ }
+ assert.equal(records.filter(e=>e.mode==='general'&&e.units.includes('UD 9')).length,44);
+ assert.equal(JSON.stringify(records),before,'El filtro no puede alterar datos');
+ assert.throws(()=>scholaVocabularyVisibleUnits('lat4',null),/Lista de unidades/);
+});
+
+test('4.º: lavor conserva las dos fichas y recibe una anotación, no un paradigma deponente falso',()=>{
+ const ids=['e9f4ac2d73fdd5c0','f17ac10e4e2d3b55'];
+ for(const id of ids){
+   const original=origin.find(e=>e.id===id);
+   const currentEntry=current.find(e=>e.id===id);
+   assert.ok(original&&currentEntry,id);
+   assert.deepEqual(currentEntry,original);
+   assert.deepEqual(currentEntry.units,['UD 10']);
+   assert.equal(currentEntry.meaning,'‘lavarse’');
+   assert.deepEqual(currentEntry.answers,['lavarse']);
+   assert.match(scholaVocabularyEditorialNote(currentEntry),/medio-pasivo\/reflexivo de lavo/);
+   assert.match(scholaVocabularyEditorialNote(currentEntry),/no es un verbo deponente puro/);
+ }
+ const together=scholaVocabularyAll(current,'lat4',['UD 10']).find(e=>
+   e.scholaSources?.some(x=>ids.includes(x.id)));
+ assert.ok(together);
+ assert.equal(together.scholaSources.length,2);
+ assert.equal(scholaVocabularyEditorialNote(together),
+   scholaVocabularyEditorialNote(current.find(e=>e.id===ids[0])));
+ assert.equal(scholaVocabularyEditorialNote({...together,subject:'lat1'}),'');
+ assert.equal(scholaVocabularyEditorialNote({...together,id:'otro',scholaSources:[]}), '');
+ assert.equal(scholaVocabularyEditorialNote(null),'');
+ const oldProgress={ [ids[0]]:{total:7,right:6,failed:false},
+   [ids[1]]:{total:3,right:2,failed:true} };
+ const snapshot=JSON.stringify(oldProgress);
+ assert.ok(scholaVocabularyAll(current,'lat4',['UD 10'],oldProgress)
+   .some(e=>e.scholaSources?.some(x=>ids.includes(x.id))));
+ assert.equal(JSON.stringify(oldProgress),snapshot);
 });
