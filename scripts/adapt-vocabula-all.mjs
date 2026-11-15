@@ -75,6 +75,12 @@ export function adaptVocabulaAllReport(js){
     "reportContext=entry?{subject:entry.subject,mode:entry.mode,units:[...entry.units],entry_id:entry.id,entry_form:entry.form}:{subject:$('subject').value,mode:$('corpus').value,units:[...$('units').querySelectorAll('input:checked')].map(x=>x.value),entry_id:'',entry_form:''};const c=reportContext;",
     "reportContext=scholaVocabularyReportContext(entry,$('subject').value,$('corpus').value,selectedUnits());const c=reportContext;",
     'contexto de ficha y selección');
+  // El diccionario combinaba la ficha, pero el aviso recuperaba un registro
+  // original por ID y perdía sus otras procedencias. Priorizar la ficha visible.
+  js=once(js,
+    'openReport(VOCAB.find(entry=>entry.id===button.dataset.reportId));',
+    'openReport(selected().find(entry=>entry.id===button.dataset.reportId)||VOCAB.find(entry=>entry.id===button.dataset.reportId));',
+    'fuente completa del aviso en el diccionario');
   js=once(js,'esc(modeLabel(c.subject,c.mode))',
     "esc(c.scholaMode==='all'?'Todo el vocabulario':modeLabel(c.subject,c.mode))",
     'modalidad visible en el formulario');
