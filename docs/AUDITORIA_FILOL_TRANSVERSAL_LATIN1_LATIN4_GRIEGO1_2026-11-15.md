@@ -29,13 +29,13 @@ Las listas de apartados y el número de tablas por apartado coinciden **estructu
 
 **Control de regresión:** también se verifica el vocativo masculino singular `acer` en Latín I y Latín de 4.º y la conservación de las cinco formas plurales de `οὐρανός` en el banco, aunque estén excluidas del sorteo por decisión docente. La auditoría registra asteriscos u otros signos de llamada de nota que pudieran contaminar respuestas futuras.
 
-## 3. Reservas que no deben corregirse automáticamente
+## 3. Decisiones docentes aplicadas y reservas curriculares
 
-### A. Clasificación de `lavor, lavatus sum` en el material complementario de Latín de 4.º
+### A. `lavor, lavatus sum`: uso medio-pasivo/reflexivo de `lavo`
 
 El vocabulario de **Examen UD10**, fuera de las ocho unidades habituales, contiene seis formas de aspecto pasivo, entre ellas `lavor, lavatus sum`, glosada «lavarse» (ID `f17ac10e4e2d3b55`). Los otros ejemplos de este grupo corresponden a deponentes habituales (`admiror`, `conor`, `persequor`, `polliceor`, `utor`). Pero `lavor` también es forma **medio-pasiva** de `lavo`, verbo que tiene paradigma activo. Logeion (Lewis & Short, bajo `lavo`) documenta el empleo medio de `lavor`; Allen y Greenough distinguen los verbos deponentes de los verbos activos con valor medio-pasivo. **No hay base para redefinirlo unilateralmente como deponente puro**.
 
-**Reserva docente:** determinar si la ficha debe presentarse como forma media/reflexiva de `lavo`, o conservar el tratamiento escolar del bloque de complementarios. No cambia la ficha original ni se presenta como error cerrado.
+**Decisión docente aprobada (15 de noviembre de 2026, opción A):** identificar expresamente `lavor, lavatus sum` como **uso medio-pasivo/reflexivo de `lavo`, no como verbo deponente puro**. La copia integrada presenta una nota interpretativa en las fichas General (`e9f4ac2d73fdd5c0`) y Examen (`f17ac10e4e2d3b55`), en el diccionario y después de las respuestas. No altera el enunciado, la glosa «lavarse», la unidad UD10, los IDs, el historial, las respuestas aceptadas ni la fuente Vocabula independiente. En «Todo el vocabulario» se conserva la nota al combinar fichas idénticas.
 
 Fuentes de consulta: https://logeion.org/lavo ; https://romanreader.lyceum.institute/grammar/allen-greenough/verbs
 
@@ -45,13 +45,13 @@ Fuentes de consulta: https://logeion.org/lavo ; https://romanreader.lyceum.insti
 - **Latín I:** la lista de Examen termina en UD7; no hay listas acreditadas UD8–UD10.
 - **Griego I:** Examen termina en UD10; no hay listas acreditadas UD11–UD14. El repertorio alfabético no asignado sigue siendo complementario.
 
-**Reserva docente:** cualquier cambio de exigibilidad, etiqueta o visibilidad de las unidades sobrantes requiere una elección explícita; no se fabrican listas mediante los vocabularios Generales.
+**Decisión docente aprobada (15 de noviembre de 2026, opción A):** en Vocabula de Latín de 4.º, **ocultar las UD9 y UD10 del selector habitual**. El alumnado puede recuperar esas unidades mediante la casilla «Mostrar ampliación · UD9 y UD10 (opcional)», inicialmente desmarcada. El botón «Todas» solo marca los bloques visibles; al desactivar la ampliación se cierran las sesiones anteriores y desaparecen las casillas complementarias, sin borrar fichas ni progreso. Al cambiar de asignatura, la ampliación se desactiva por seguridad curricular. El acceso explícito funciona en General, Examen y Todo; las unidades sin fichas de un determinado corpus no se inventan. Las fichas y su clasificación académica permanecen intactas en los dos bancos. Las listas de Latín I UD8–UD10 y Griego I UD11–UD14 siguen en reserva, sin promoción automática.
 
 ### C. Límites del cotejo
 
 No se han acreditado **discrepancias explícitas de género** entre los sustantivos cuyos lemas y géneros pudieron cruzarse sin ambigüedad. `φύλαξ` se documenta en Vocabula como común a masculino y femenino: es una variedad legítima de transcripción (`ὁ, ἡ` frente a `ὁ o ἡ`), **no** un error de género. Los paradigmas de tercera declinación derivados de modelos no deben adquirir género único por deducción automática.
 
-Este bloque no equivale a verificar individualmente todos los lemas ni todas las traducciones ES/VAL; tampoco certifica que 2.055 fichas hayan recibido revisión lexicográfica palabra por palabra. Sus pruebas comprueban la integridad de datos y los cruces posibles, además de la enmienda precisa descrita.
+Este bloque no equivale a verificar individualmente todos los lemas ni todas las traducciones ES/VAL; tampoco certifica que 2.055 fichas hayan recibido revisión lexicográfica palabra por palabra. Sus pruebas comprueban la integridad de datos, los cruces posibles, la enmienda de Griego I y las dos decisiones docentes de presentación; no certifican de forma individual la totalidad del léxico.
 
 ## 4. Ruta de ejecución y siguiente bloque
 
