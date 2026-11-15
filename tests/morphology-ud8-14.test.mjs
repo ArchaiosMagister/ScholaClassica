@@ -80,6 +80,19 @@ test('Griego I UD8: interrogativos, indefinidos y 16 paradigmas de tercera decli
     acceptedForms:['ἐλπί']},'ἐλπί').correct,true);
   assert.equal(correctWritten({activity:'written',kind:'sustantivo',language:'griego',
     acceptedForms:['ἐλπί']},'ἐλπί*').correct,false);
+  const hegemon=find('griego-ud8-noun-115-0-1');
+  assert.ok(hegemon,'Falta ἡγεμών en la tabla nasal 115');
+  const hVoc=hegemon.forms.find(f=>f.case==='vocativo'&&f.number==='singular');
+  assert.equal(hVoc?.form,'ἡγεμών','El vocativo de ἡγεμών coincide con el nominativo');
+  assert.equal(hegemon.evidence.correction?.sourceCell,'ἡγεμόν');
+  assert.equal(hegemon.evidence.correction?.form,'ἡγεμών');
+  assert.equal(hegemon.forms.filter(f=>f.case==='vocativo'&&f.number==='singular').length,1);
+  const hw=makeWrittenQuestions({...bank,records:[hegemon]},
+    {language:'griego',unit:8,limit:30,rng});
+  const w=hw.find(x=>x.prompt.includes('vocativo singular'));
+  assert.ok(w);
+  assert.equal(correctWritten(w,'ἡγεμών').correct,true);
+  assert.equal(correctWritten(w,'ἡγεμόν').correct,false);
   assert.equal(find('griego-ud8-noun-114-0-0').gender,'neutro');
   assert.equal(find('griego-ud8-noun-114-0-0').forms.find(f=>
     f.analysis==='nominativo plural').form,'τραύματα');
