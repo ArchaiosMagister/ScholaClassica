@@ -100,6 +100,36 @@ La comparación ha revelado una **sobregeneralización en el texto expositivo de
 
 Esta corrección no requiere elegir entre variantes: elimina una regla falsa y alinea ambas explicaciones con Allen y Greenough §73 y las excepciones de §78. Las comprobaciones automatizadas cotejan las referencias filológicas principales en las dos traducciones, sin inferir que toda la terminología pedagógica de ambos cursos quede auditada semánticamente.
 
+## 2 quinquies. Tanda de ampliación: cuarta y quinta declinaciones, futuros, deponentes y nueve cruces ES/VAL
+
+El repertorio auditado se amplía con **35 modelos y 262 casillas adicionales**, mediante `scripts/audit-latin-remaining.mjs`. Cada posición se coteja con un patrón gramatical independiente; no se altera el banco ni se deducen formas que no consten en él.
+
+| Ámbito | Modelos | Casillas | Curso y distinción |
+|---|---:|---:|---|
+| Cuarta/quinta declinación | 8 | 96 | `exercitus`, `cornū`, `res` en Latín I/4.º y fichas docentes `exercitus` y `res` |
+| Futuro imperfecto | 11 | 66 | Cinco verbos por voz más `sum`, exclusivamente en Latín I UD7 |
+| Presente deponentes | 5 | 30 | `hortor`, `vereor`, `sequor`, `patior`, `orior` |
+| Imperativo presente activo | 1 | 10 | Cinco conjugaciones; se conserva `duc`, no `duce` |
+| Imperfecto docente de 4.º | 10 | 60 | `ambulo`, `debeo`, `habeo`, `video`, `duco`, `lego`, `ludo`, `capio`, `audio`, `pugno` |
+| **Total adicional** | **35** | **262** | Solo casillas previamente existentes |
+
+### Dictámenes
+
+- Se mantienen las diferencias entre cuarta y quinta declinación: `exercitūs` genitivo singular frente a `exercituum` plural, `cornū` en nominativo/acusativo/vocativo neutro singular frente a `cornua` plural, y `res, rei` con `rerum/rebus` en plural. Las fichas docentes de 4.º conservan su ortografía sin macrones; **no se homogeniza** su representación con el modelo académico que sí indica cantidad.
+- El futuro activo distingue `amabo/habebo` de `ducam/audiam/capiam`, y el pasivo `amabor/habebor` de `ducar/audiar/capiar`; el futuro de `sum` queda separado. Ninguna forma futura se traslada a Latín de 4.º, donde no forma parte de las ocho unidades exigibles.
+- Los cinco presentes deponentes siguen con flexión formalmente pasiva y sentido activo. **Reserva filológica:** `orior` aparece escolarmente bajo cuarta conjugación con `oriris`; Allen y Greenough §191 documentan comportamiento excepcional, «third conjugation in most forms». No hay fundamento para reclasificar automáticamente todo el paradigma ni promover nuevas variantes sin criterio docente. Se conserva la anotación de reserva.
+- Los diez imperfectos docentes de 4.º se cotejan de manera separada para detectar mezclas entre `ducebam`, `capiebam` y `audiebam`, sin reemplazar las formas originales.
+
+Fuentes: Allen y Greenough, [§§88–91: cuarta declinación](https://dcc.dickinson.edu/grammar/latin/4th-declension-stem-paradigm-and-gender), [§§184–190: conjugaciones y deponentes](https://grammars.alpheios.net/allen-greenough/conjugations.htm), [§§190–191: deponentes](https://dcc.dickinson.edu/grammar/latin/deponent-verbs); [Imperativo §448](https://dcc.dickinson.edu/grammar/latin/imperative); [The National Archives: cuarta y quinta](https://www.nationalarchives.gov.uk/latin/stage-1-latin/lessons/lesson-11-fourth-and-fifth-declension-nouns-days-of-the-week/).
+
+### Ampliación de la lectura semántica bilingüe
+
+Además de los siete pares de la fase anterior, el auditor `scripts/audit-latin-bilingual-extra.mjs` incorpora **nueve pares adicionales (16 en total)** y coteja **85 formas latinas y 24 afirmaciones doctrinales por idioma** en esta nueva tanda. Los pasajes comprenden cuarta/quinta declinación en ambos cursos, deponentes y futuro en Latín I, imperfecto en ambas asignaturas, pronombres personales en ambos cursos y reflexivo/fórico en Latín I.
+
+Se comprueban expresamente las diferencias orientativas `dies` masculino («día» / «dia») y femenino («fecha» / «data»), el carácter pasivo formal y activo semántico de los deponentes, la distinción de futuros de primera/segunda frente a tercera/cuarta/mixta, la vocal de enlace del imperfecto, las funciones de pronombres personales y la ausencia de nominativo del reflexivo de tercera persona. **No han aflorado incompatibilidades semánticas demostrables** en esos pasajes. La revisión garantiza únicamente estas correspondencias específicas, no la identidad literal de todas las traducciones ni todas las posibles diferencias idiomáticas.
+
+Los controles incluyen pruebas que introducen fallos deliberados de forma y sentido para asegurarse de que la auditoría los detecte. No se inventan nuevas fichas ni se cambia ninguna procedencia, unidad, ID, género o dato de progreso.
+
 ## 3. Decisiones docentes aplicadas y reservas curriculares
 
 ### A. `lavor, lavatus sum`: uso medio-pasivo/reflexivo de `lavo`
@@ -132,4 +162,4 @@ npm run audit:filologia:transversal
 npm test
 ```
 
-El informe JSON queda **solo como artefacto privado de GitHub Actions** en `build/academic-audits/transversal/filologia-transversal-v1.json`; no se entrega a la PWA del alumnado. El siguiente bloque recomendado es revisar selectivamente los sustantivos y verbos que no entran en estas matrices, contrastar las variantes individualmente y ampliar la lectura ES/VAL a temas menos frecuentes cuando exista evidencia de discrepancia. No fusionar ni publicar estas modificaciones de manera implícita.
+El informe JSON queda **solo como artefacto privado de GitHub Actions** en `build/academic-audits/transversal/filologia-transversal-v1.json`; no se entrega a la PWA del alumnado. El siguiente bloque recomendado es la conciliación específica de excepciones y variantes no cubiertas por las matrices, con prioridad en `orior` y formas irregulares documentadas, y después ampliar la lectura bilingüe únicamente donde existan evidencias concretas de discrepancia. No fusionar ni publicar estas modificaciones de manera implícita.
