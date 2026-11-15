@@ -86,7 +86,7 @@ test('Griego UD5: dos modelos regulares y dos irregulares con acentos y fusiones
   assert.equal(megasVoc.evidence.individualVerification?.primaryForm,'μεγάλε');
   assert.equal(megasVoc.evidence.individualVerification?.acceptedVariant,'μέγας');
   const qv=makeWrittenQuestions({...bank,records:[megasVoc]},
-    {language:'griego',unit:5,limit:35,rng:()=>.41}).find(q=>
+    {language:'griego',unit:5,limit:30,rng:()=>.41}).find(q=>
       q.prompt.includes('vocativo masculino singular'));
   assert.ok(qv,'El vocativo irregular debe ser practicable');
   assert.deepEqual(qv.acceptedForms,['μεγάλε','μέγας']);
