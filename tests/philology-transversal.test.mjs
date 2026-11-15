@@ -57,9 +57,12 @@ test('Sin fabricación de listas ni traslado automático de las unidades supleme
  assert.equal(l1.byGroup['UD 11–12'].general,140);
  assert.equal(l4.general,379);
  assert.equal(l4.exam,127);
- assert.equal(l4.outOfScopeExam,0);
+ // Hallazgo contrastado: seis deponentes de Examen UD10 permanecen en
+ // Vocabula aunque la gramática de 4.º termine en UD8. No ocultarlos sin
+ // decisión docente ni etiquetarlos como materia de UD8.
+ assert.equal(l4.outOfScopeExam,6);
  assert.equal(l4.byGroup['UD 9'].exam,0);
- assert.equal(l4.byGroup['UD 10'].exam,0);
+ assert.equal(l4.byGroup['UD 10'].exam,6);
  assert.equal(l4.byGroup['UD 8–9'],undefined,
    'Las 17 fichas de Examen UD8–9 ya deben estar conciliadas en UD8');
  assert.equal(l4.byGroup['UD 8'].exam,17);
@@ -80,4 +83,25 @@ test('La auditoría detecta mutaciones de IDs léxicos y nunca las corrige en si
   [key,{counts:course.grammar,differences:course.grammaticalDifferences}]));
  assert.throws(()=>auditTransversal({bank,vocabulary:fake,originalVocabulary:source,curricula,lock}),
    /identificadores léxicos/);
+});
+
+test('La enmienda de polliceor cambia solo la conjugación, sin borrar su lectura docente',()=>{
+ const sourceData=JSON.parse(read('.sources/vocabula/data.js')
+   .replace(/^window\.VOCAB=/u,'').replace(/;\s*$/u,''));
+ const compiled=JSON.parse(read('dist/apps/vocabulario/data.js')
+   .replace(/^window\.VOCAB=/u,'').replace(/;\s*$/u,''));
+ const id='ccb8e344f436ae4b';
+ const original=sourceData.find(x=>x.id===id);
+ const result=compiled.find(x=>x.id===id);
+ assert.equal(original.form,'pollĭcĕor, pollĭcĭtus sum (3ª)');
+ assert.equal(result.form,'pollĭcĕor, pollĭcĭtus sum (2ª)');
+ assert.deepEqual(result.units,['UD 10']);
+ assert.equal(result.mode,'examen');
+ assert.equal(result.subject,'lat4');
+ for(const attr of ['meaning','answers','originals'])
+   assert.deepEqual(result[attr],original[attr],attr);
+ assert.equal(result.curricularProvenance,undefined);
+ const others=compiled.filter(e=>e.subject==='lat4'&&e.mode==='examen'&&
+   e.units.includes('UD 10'));
+ assert.equal(others.length,6);
 });
