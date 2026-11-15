@@ -98,6 +98,16 @@ export function makeGreek1TypographyCurriculum(curriculum,locale){
   '<th scope="row"><strong>'+vocativeLabel+'</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμόν</td><td>ἡγεμόν<strong>ες</strong></td>',
   '<th scope="row"><strong>'+vocativeLabel+'</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμών</td><td>ἡγεμόν<strong>ες</strong></td>',
   'UD8: vocativo de ἡγεμών '+locale);
+ // UD8: el nominativo de 'padre' lleva oxítona πατήρ, frente al
+ // vocativo recesivo πάτερ. En el original πάτηρ estaba mal acentuado
+ // tanto en el enunciado como en la casilla, en ambas lenguas.
+ assert.equal(dental.html.split('πάτηρ').length,3,
+  'Cambió el número de referencias a πατήρ en Griego I '+locale);
+ dental.html=dental.html.replaceAll('πάτηρ','πατήρ');
+ dental.html=once(dental.html,
+  'πάτ<strong>η</strong>ρ',
+  'πατ<strong>ή</strong>ρ',
+  'UD8: nominativo πατήρ frente a vocativo πάτερ '+locale);
  assert.deepEqual(result.latin,curriculum.latin);
  return result;
 }
