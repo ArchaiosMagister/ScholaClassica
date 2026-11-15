@@ -113,7 +113,7 @@ try{
  await page.locator('#send-report').click();
  await page.getByText('Aviso guardado en este dispositivo.',{exact:false}).waitFor();
  assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),1);
- await page.locator('#report-dialog [data-close="report-dialog"]').click();
+ await page.locator('#report-dialog [data-close="report-dialog"]').first().click();
  await page.locator('#corpus').selectOption('all');
  await page.getByRole('button',{name:'Avisar de un error'}).click();
  await page.locator('#report-message').fill('Aviso genérico desde Todo, enviado más tarde.');
