@@ -96,8 +96,16 @@ try{
  await page.locator('#yes').click();
  const progress=await page.evaluate(()=>localStorage.getItem('classics-progress-v1'));
  assert.ok(JSON.parse(progress)&&Object.keys(JSON.parse(progress)).length>0);
- const [download]=await Promise.all([page.waitForEvent('download'),page.locator('#export').click()]);
- assert.equal(download.suggestedFilename(),'progreso-vocabulario.json');
+ // En Chromium, la descarga Blob puede no emitir evento con red forzadamente
+ // desactivada: inspeccionamos el JSON que genera el botón sin depender del SO.
+ await page.evaluate(()=>{
+   const original=URL.createObjectURL.bind(URL);
+   URL.createObjectURL=blob=>{window.__vocabExportBlob=blob;return original(blob)};
+ });
+ await page.locator('#export').click();
+ const exported=await page.evaluate(async()=>JSON.parse(await window.__vocabExportBlob.text()));
+ assert.equal(exported.version,1);
+ assert.deepEqual(exported.progress,JSON.parse(progress));
  await page.getByRole('button',{name:'Avisar de un error'}).click();
  await page.locator('#report-message').fill('Revisar esta traducción cuando vuelva Internet.');
  await page.locator('#send-report').click();
