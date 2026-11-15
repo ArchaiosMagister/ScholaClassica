@@ -93,9 +93,10 @@ export function makeGreek1TypographyCurriculum(curriculum,locale){
  const dental=result.griego.units[7].topics[2];
  assert.equal(dental.title,locale==='es'?
   'Tercera declinación: consonantes':'Tercera declinació: consonants');
+ const vocativeLabel=locale==='es'?'Vocativo':'Vocatiu';
  dental.html=once(dental.html,
-  '<th scope="row"><strong>Vocativo</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμόν</td><td>ἡγεμόν<strong>ες</strong></td>',
-  '<th scope="row"><strong>Vocativo</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμών</td><td>ἡγεμόν<strong>ες</strong></td>',
+  '<th scope="row"><strong>'+vocativeLabel+'</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμόν</td><td>ἡγεμόν<strong>ες</strong></td>',
+  '<th scope="row"><strong>'+vocativeLabel+'</strong></th><td>λίμ<strong>ε</strong>ν</td><td>λιμέν<strong>ες</strong></td><td>ἡγεμών</td><td>ἡγεμόν<strong>ες</strong></td>',
   'UD8: vocativo de ἡγεμών '+locale);
  assert.deepEqual(result.latin,curriculum.latin);
  return result;
