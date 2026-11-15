@@ -9,7 +9,7 @@ const states={pending:'Pendiente',reviewing:'En revisión',resolved:'Resuelta',d
 // El backend histórico conserva modo general/examen; un aviso escrito desde
 // «Todo» añade su procedencia al mensaje y se identifica aquí sin alterar DB.
 export function vocabulaReportDisplayMode(report){
-  const note='\\n\\n[Selección: Todo el vocabulario (General y Examen).';
+  const note=String.fromCharCode(10,10)+'[Selección: Todo el vocabulario (General y Examen).';
   return typeof report?.message==='string'&&report.message.includes(note)&&
     report.message.endsWith(']')?
     'Todo el vocabulario · General y Examen':report?.mode;
