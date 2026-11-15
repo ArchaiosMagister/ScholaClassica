@@ -38,7 +38,7 @@ La verificación selectiva se extiende a **siete paradigmas** de Griego I, media
 | `ἐλπίς` | 8 | 10 | 11 | `ἐλπί` sin asterisco; corrección anterior |
 | `ἡγεμών` | 8 | 10 | 11 | `ἡγεμών` es nominativo **y vocativo singular**, no `ἡγεμόν` |
 | `ῥήτωρ` | 8 | 10 | 11 | `ῥῆτορ` vocativo; se conserva según Smyth §259 |
-| `πατήρ` | 8 | 10 | 11 | `πάτερ` vocativo; alternancia fuerte/media/débil |
+| `πατήρ` | 8 | 10 | 11 | **`πατήρ` nominativo** (no `πάτηρ`), `πάτερ` vocativo; alternancia fuerte/media/débil |
 | `ἀνήρ` | 8 | 10 | 11 | `ἄνερ` vocativo; tema sincopado en oblicuos |
 | `πολύς, πολλή, πολύ` | 5 | 30 | 30 | Paradigma escolar completo comprobado; no se inventa forma aislada |
 | `μέγας, μεγάλη, μέγα` | 5 | 30 | 31 | `μεγάλε` vocativo masculino habitual; `μέγας` variante atestiguada |
@@ -47,7 +47,8 @@ La verificación selectiva se extiende a **siete paradigmas** de Griego I, media
 
 1. **`ἡγεμών` (UD8).** En la tabla original de Appendix la casilla vocativa figura `ἡγεμόν`. La gramática de Smyth (§259, columna `ἡγεμών`) registra como vocativo el mismo `ἡγεμών`, manteniendo la forma oxítona. Se ha corregido una **única casilla** en la práctica y la tabla de consulta de ScholaClassica, tanto en castellano como en valenciano, sin tocar los originales. La importación exige la lectura fuente original y falla ante cambios no revisados.
 2. **`μέγας` (UD5).** El modelo de Appendix presentaba el nominativo `μέγας` como única forma de vocativo masculino singular. Smyth (§311 y nota a) y *Cambridge Grammar of Classical Greek* (§5.13) documentan como forma habitual **`μεγάλε`**, y Smyth señala que también se encuentra `μέγας`. En la gramática bilingüe se muestra `μεγάλε` en la tabla y se explica la variante. En morfología se **admiten las dos lecturas**, con `μεγάλε` prioritaria. La ficha mantiene su identificador y el corrector agrupa ambas soluciones para no penalizar una forma documentada.
-3. Se fijan pruebas negativas para las lecturas incorrectas `ἡγεμόν`, `ἐλπί*`, y para una falsa sustitución de `ῥῆτορ`. Se comprueba también que el vocativo de `πολύς` no se rehaga por analogía y que las variantes `-σι(ν)` figuren como dos respuestas válidas.
+3. **`πατήρ` (UD8).** La matriz ha detectado una tercera discrepancia: el Appendix bloqueado lleva `πάτηρ` tanto en el enunciado como en el nominativo singular. En ático, la forma correcta es **`πατήρ`** (Smyth §262; LSJ), mientras que el vocativo conserva el acento recesivo **`πάτερ`**. Se enmiendan solo las dos apariciones del enunciado y la casilla nominativa de la copia gramatical en castellano y valenciano; en el motor se corrigen el enunciado y el nominativo, conservando el vocativo, las restantes casillas y el ID del paradigma.
+4. Se fijan pruebas negativas para las lecturas incorrectas `ἡγεμόν`, `ἐλπί*`, `πάτηρ`, y para una falsa sustitución de `ῥῆτορ`. Se comprueba también que el vocativo de `πολύς` no se rehaga por analogía y que las variantes `-σι(ν)` figuren como dos respuestas válidas.
 
 **Referencias principales:** Herbert Weir Smyth, *Greek Grammar*, §§259, 262 y 311, https://grammars.alpheios.net/smyth/xhtml/body.1_div1.2_div2.4.html ; `Cambridge Grammar of Classical Greek`, §§4.40, 4.55 y 5.13, https://www.cs.toronto.edu/~simon/Athens/Thucydides3/cgcg.pdf ; gramática docente independiente de la tercera declinación, https://correll.github.io/greek-classroom-rome/grammar-06-third-declension.html . Estas referencias se registran en la auditoría privada, no como mensajes de procedencia al alumnado.
 
