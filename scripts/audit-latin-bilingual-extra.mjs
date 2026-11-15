@@ -60,9 +60,9 @@ export function auditLatinAdditionalBilingualSemantics(curricula){
    assert.ok(typeof html==='string','Falta tema de '+item.name+' '+item.course+' '+loc);
    const sourceCount=(html.match(/<table\b/gu)||[]).length;
    assert.equal(sourceCount,item.tables,'Número de tablas inesperado '+item.name+' '+loc);
-   for(const form of item.forms)
-    assert.ok(html.includes(form),'Falta forma latina en '+item.name+' '+loc+': '+form);
    const plain=html.replace(/<[^>]*>/gu,'').replace(/\s+/gu,' ');
+   for(const form of item.forms)
+    assert.ok(plain.includes(form),'Falta forma latina en '+item.name+' '+loc+': '+form);
    for(const phrase of item[loc])
     assert.ok(plain.includes(phrase),
       'Sentido docente divergente en '+item.name+' '+loc+': '+phrase);
