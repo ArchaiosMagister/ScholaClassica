@@ -54,6 +54,22 @@ La verificación selectiva se extiende a **siete paradigmas** de Griego I, media
 
 **Límites:** la matriz no se extrapola automáticamente a los otros paradigmas del banco. El contraste de 110 casillas no sustituye un cotejo de acentos y excepciones en cada resto de la gramática, ni justifica cambios en Vocabula o los bancos de GeneradorExamenes.
 
+## 2 ter. Contraste latino paralelo: cinco adjetivos en dos cursos
+
+Se añade una segunda matriz docente, `scripts/audit-latin-adjectives.mjs`, para cotejar de manera reproducible **360 casillas**: cinco paradigmas × 36 combinaciones de caso/género/número × dos asignaturas. Es un cotejo **flexivo y curricular** de modelos escolares, no la verificación de 360 testimonios en textos latinos. Se aplica a Latín I (UD2 para `bonus`, UD5 para el resto) y a Latín de 4.º (UD3 y UD7, respectivamente), preservando los identificadores y la progresión de cada curso.
+
+| Paradigma | Rasgo filológico decisivo |
+|---|---|
+| `bonus, bona, bonum` | `bone` vocativo masc. singular; `bonā` ablativo femenino singular (cantidad no exigida por el corrector) |
+| `brevis, breve` | `-i` ablativo singular, `brevia` neutro plural, `brevium` genitivo plural |
+| `acer, acris, acre` | `acer` nominativo **y vocativo** masculino singular, no `acre`; `acri`, `acria`, `acrium` |
+| `audax, audacis` | `audaci` ablativo singular, `audacia` neutro plural, `audacium` genitivo plural |
+| `vetus, veteris` | Tema consonántico: **`vetere`** ablativo singular, **`veterum`** genitivo plural, `vetera` neutro plural |
+
+La doble matriz **no ha exigido nuevas enmiendas** en estos diez modelos: las casillas de la copia integrada son coherentes con la distinción entre temas en *-i* y consonánticos. Se añaden pruebas negativas que simulan lecturas erróneas, por ejemplo `acre` por `acer`, `veteri` por `vetere` o `audacum` por `audacium`. Las unidades no se igualan entre 4.º y Bachillerato, porque son secuenciaciones docentes distintas.
+
+**Contrastes principales:** Allen y Greenough, *New Latin Grammar*, §§110 y 114–119, editado en [Dickinson College Commentaries](https://dcc.dickinson.edu/grammar/latin/3rd-declension-adjectives-classification-and-paradigms); [DCC, Latin Core Vocabulary](https://dcc.dickinson.edu/latin-core-list1). No se añaden variantes hipotéticas por analogía ni se altera Appendix.
+
 ## 3. Decisiones docentes aplicadas y reservas curriculares
 
 ### A. `lavor, lavatus sum`: uso medio-pasivo/reflexivo de `lavo`
