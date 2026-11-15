@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {auditLatinRemainingCurricularForms,LATIN_EXTRA_NOUNS,
  LATIN_EXTRA_FUTURES,LATIN_EXTRA_DEPONENTS,LATIN_EXTRA_IMPERATIVES,
- LATIN4_DOCENT_IMPERFECTS} from '../scripts/audit-latin-remaining.mjs';
+ LATIN4_DOCENT_IMPERFECTS,ORIOR_ESCOLAR_NOTE} from '../scripts/audit-latin-remaining.mjs';
 import {makeWrittenQuestions,correctWritten,makeTableExercises}
  from '../public/morfologia/written.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -86,6 +86,10 @@ test('Deponentes: cinco clases, paradigma de sentido activo e imperativo duc',()
  const orior=single('latin-ud7-deponente-orior');
  assert.equal(orior.forms.find(x=>x.person==='2.ª singular').form,'oriris');
  assert.equal(orior.forms.find(x=>x.person==='3.ª plural').form,'oriuntur');
+ assert.match(ORIOR_ESCOLAR_NOTE,/cuarta conjugación/);
+ assert.match(ORIOR_ESCOLAR_NOTE,/tercera conjugación/);
+ assert.match(ORIOR_ESCOLAR_NOTE,/oriris/);
+ assert.ok(!ORIOR_ESCOLAR_NOTE.includes('reclasificar'));
  const sequor=single('latin-ud7-deponente-sequor');
  assert.equal(sequor.forms.find(x=>x.person==='3.ª singular').form,'sequitur');
  assert.ok(sequor.forms.every(x=>x.voice.includes('deponente, sentido activo')));
