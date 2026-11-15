@@ -225,15 +225,18 @@ export function auditTransversal({bank,vocabulary,originalVocabulary,curricula,l
    latin4Sources:latin4TeacherCross(bank,lock),
    courses};
 }
-const main=process.argv[1]&&fileURLToPath(import.meta.url)===resolve(process.argv[1]);
-if(main){
+export function readTransversalAudit(){
  const bank=load('dist/apps/morfologia/data/paradigmas.json');
  const words=parseAssigned(source('dist/apps/vocabulario/data.js'),'window.VOCAB=');
  const original=parseAssigned(source('.sources/vocabula/data.js'),'window.VOCAB=');
  const lock=load('config/sources.lock.json');
  const curricula=Object.fromEntries(CONFIG.map(x=>[x.key,checkGrammars(x)]));
- const audit=auditTransversal({bank,vocabulary:words,originalVocabulary:original,
+ return auditTransversal({bank,vocabulary:words,originalVocabulary:original,
    curricula,lock});
+}
+const main=process.argv[1]&&fileURLToPath(import.meta.url)===resolve(process.argv[1]);
+if(main){
+ const audit=readTransversalAudit();
  const print={schema:audit.schema,totalMorphology:audit.totalMorphology,
   sources:audit.sources,latin4Sources:audit.latin4Sources,
   greekEvidence:audit.greekEvidence,
