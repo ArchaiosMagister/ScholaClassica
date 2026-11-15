@@ -37,6 +37,8 @@ Se han cotejado los artefactos **realmente generados** por `npm run build` con l
 
 Los valores de «lema coincidente» son **indicadores de cobertura aproximada** y no certificación de paradigma completo ni evidencia para importar automáticamente una forma.
 
+**Cotejo nominal limitado a datos explícitos:** en las entradas de Examen que además poseen un modelo nominal comparable se han podido contrastar géneros en 0 casos de Latín I, 1 de Latín de 4.º y 2 de Griego I; genitivos escritos íntegros en 1, 2 y 0 casos, respectivamente. **No aparece ningún conflicto en esas casillas**, pero estas cifras pequeñas impiden extrapolarlo a todos los sustantivos. No se han reconstruido genitivos abreviados ni convertido ejemplos de gramática en listas de exigibles.
+
 ## 3. Enmienda lexicográfica segura: *polliceor*
 
 **Fuente original de Vocabula, Latín de 4.º, General y Examen UD10:**
