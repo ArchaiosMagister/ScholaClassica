@@ -96,6 +96,10 @@ test('Las cinco intervenciones A3–A7 se derivan de las dos fuentes inmutables'
   const third=unit(graecum,'griego',8,2).html;
   assert.match(third,/ἡγεμών<\/td>/);
   assert.ok(!third.includes('<td>ἡγεμόν</td>'));
+  assert.ok(third.includes('πατήρ, πατρός'));
+  assert.ok(third.includes('πατ<strong>ή</strong>ρ'));
+  assert.ok(!third.includes('πάτηρ'));
+  assert.ok(!third.includes('πάτ<strong>η</strong>ρ'));
   for(let u=1;u<=14;u++)for(let t=0;t<graecum.griego.units[u-1].topics.length;t++)
    if(!new Set(['5:0','5:1','8:2']).has(u+':'+t))assert.deepEqual(unit(graecum,'griego',u,t),
     unit(original,'griego',u,t),'Alteración griega fuera de UD5 '+locale);
