@@ -96,6 +96,7 @@ try{
  await page.locator('#yes').click();
  const progress=await page.evaluate(()=>localStorage.getItem('classics-progress-v1'));
  assert.ok(JSON.parse(progress)&&Object.keys(JSON.parse(progress)).length>0);
+ await page.locator('details.help').first().locator('summary').click();
  // En Chromium, la descarga Blob puede no emitir evento con red forzadamente
  // desactivada: inspeccionamos el JSON que genera el botón sin depender del SO.
  await page.evaluate(()=>{
