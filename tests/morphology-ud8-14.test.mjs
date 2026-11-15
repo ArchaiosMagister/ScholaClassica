@@ -69,6 +69,17 @@ test('Griego I UD8: interrogativos, indefinidos y 16 paradigmas de tercera decli
   assert.equal(nouns.length,16);
   assert.ok(nouns.every(r=>r.forms.length>=10));
   assert.ok(nouns.every(r=>r.forms.every(f=>f.case&&f.number)));
+  const elpis=find('griego-ud8-noun-113-0-0');
+  const voc=elpis.forms.find(f=>f.case==='vocativo'&&f.number==='singular');
+  assert.equal(voc.form.normalize('NFC'),'ἐλπί'.normalize('NFC'),
+    'El asterisco de la nota no puede ser parte de la flexión');
+  assert.ok(!elpis.forms.some(f=>f.form.includes('*')));
+  assert.equal(elpis.evidence.correction?.sourceCell,'ἐλπί*');
+  assert.equal(elpis.evidence.correction?.form,'ἐλπί');
+  assert.equal(correctWritten({activity:'written',kind:'sustantivo',language:'griego',
+    acceptedForms:['ἐλπί']},'ἐλπί').correct,true);
+  assert.equal(correctWritten({activity:'written',kind:'sustantivo',language:'griego',
+    acceptedForms:['ἐλπί']},'ἐλπί*').correct,false);
   assert.equal(find('griego-ud8-noun-114-0-0').gender,'neutro');
   assert.equal(find('griego-ud8-noun-114-0-0').forms.find(f=>
     f.analysis==='nominativo plural').form,'τραύματα');
