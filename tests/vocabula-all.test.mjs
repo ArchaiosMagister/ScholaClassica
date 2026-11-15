@@ -4,7 +4,9 @@ import {readFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {scholaVocabularyAll,scholaVocabularyIdentity,
  scholaVocabularyProvenance,scholaVocabularyProgress,
- scholaVocabularyRecordProgress} from '../scripts/vocabula-all-model.mjs';
+ scholaVocabularyRecordProgress,scholaVocabularyReportContext,
+ scholaVocabularyReportMaxLength,scholaVocabularyReportPayload,
+ scholaVocabularyScopeDescription} from '../scripts/vocabula-all-model.mjs';
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport}
  from '../scripts/adapt-vocabula-all.mjs';
 import {createHash} from 'node:crypto';
@@ -43,7 +45,9 @@ test('Vista Todo solo en el artefacto: conserva las 2055 fichas, los IDs y sus u
  assert.match(readFileSync(join(integrated,'index.html'),'utf8'),
   /<option value="all">Todo el vocabulario<\/option>/u);
  assert.match(readFileSync(join(integrated,'teacher.js'),'utf8'),
-  /mode:\$\('corpus'\)\.value==='all'\?'general'/u);
+  /scholaVocabularyReportContext\(entry/);
+ assert.match(readFileSync(join(integrated,'teacher.js'),'utf8'),
+  /scholaVocabularyReportPayload\(reportContext/);
  for(const name of names){
   assert.notEqual(sha(readFileSync(join(integrated,name),'utf8')),
    sha(readFileSync(join(origin,name),'utf8')));
@@ -176,4 +180,90 @@ test('La combinación funciona también con altas docentes sin editar los datos 
  assert.equal(card.scholaSources.length,2);
  assert.deepEqual(card.scholaSelectedIds,[added.id,exam.id]);
  assert.equal(canonical(actual),original);
+});
+
+
+test('Aviso genérico de Todo: conserva el contexto, no transmite modo all ni campos extra',()=>{
+ const selected=['UD 4','UD 7'];
+ const context=scholaVocabularyReportContext(null,'lat1','all',selected);
+ assert.equal(context.mode,'general','Retrocompatibilidad con contrato del backend');
+ assert.equal(context.scholaMode,'all');
+ assert.deepEqual(context.units,selected);
+ assert.equal(context.entry_id,'');
+ assert.ok(context.scholaNote.includes('Todo el vocabulario (General y Examen)'));
+ const text='Solicito que se revise esta palabra.';
+ const report=scholaVocabularyReportPayload(context,'missing',text);
+ assert.equal(report.mode,'general');
+ assert.equal(report.kind,'missing');
+ assert.deepEqual(report.units,selected);
+ assert.ok(report.message.startsWith(text+'\n\n['));
+ assert.ok(report.message.includes('Unidades marcadas: UD 4 · UD 7'));
+ assert.deepEqual(Object.keys(report).sort(),
+   ['subject','mode','units','entry_id','entry_form','kind','message'].sort());
+ assert.equal(scholaVocabularyReportMaxLength(context)+4+context.scholaNote.length,2000);
+ const full=scholaVocabularyReportPayload(context,'missing',
+   'a'.repeat(scholaVocabularyReportMaxLength(context)));
+ assert.equal(full.message.length,2000);
+ assert.throws(()=>scholaVocabularyReportPayload(context,'missing',
+   'a'.repeat(scholaVocabularyReportMaxLength(context)+1)),/demasiado largo/);
+ // En los otros dos corpus no se añade ni modifica la explicación del docente.
+ for(const mode of ['general','examen']){
+   const normal=scholaVocabularyReportContext(null,'lat1',mode,selected);
+   assert.equal(normal.scholaNote,undefined);
+   assert.equal(scholaVocabularyReportMaxLength(normal),2000);
+   assert.equal(scholaVocabularyReportPayload(normal,'other',text).message,text);
+   assert.equal(normal.mode,mode);
+ }
+});
+
+test('El aviso de una ficha Todo informa ambas procedencias sin perder los IDs',()=>{
+ const examples=[
+  ['UD 4','ac (conj.)',['General (UD 7)','Examen (UD 4)']],
+  ['UD 4','flumen, fluminis (n.)',['General (UD 5 · UD 8)','Examen (UD 4)']]
+ ];
+ for(const [unit,form,parts] of examples){
+   const card=scholaVocabularyAll(actual,'lat1',[unit]).find(e=>e.form===form);
+   assert.ok(card,form);
+   const ctx=scholaVocabularyReportContext(card,'lat1','all',[unit]);
+   assert.equal(ctx.mode,card.mode,'No cambiar la modalidad del registro representativo');
+   assert.equal(ctx.entry_id,card.id);
+   assert.deepEqual(ctx.units,card.units);
+   const report=scholaVocabularyReportPayload(ctx,'translation','Otra traducción.');
+   for(const part of parts)assert.ok(report.message.includes(part),form+' '+part);
+   for(const source of card.scholaSources)assert.ok(report.message.includes(source.id));
+   assert.equal(Object.keys(report).includes('scholaNote'),false);
+ }
+ // Los avisos sobre una ficha de un solo corpus siguen señalando la fuente real.
+ const only=scholaVocabularyAll(actual,'lat1',['UD 4']).find(e=>
+   e.form==='ovis, −is (f.)');
+ assert.ok(only&&only.scholaSources.length===1);
+ const report=scholaVocabularyReportPayload(
+   scholaVocabularyReportContext(only,'lat1','all',['UD 4']),
+   'translation','Acepción alternativa.');
+ assert.match(report.message,/Todo el vocabulario/);
+ assert.ok(report.message.includes(only.scholaSources[0].id));
+ assert.equal(report.mode,'examen');
+});
+test('Exigibilidad de unidades tardías: nunca promover General al corpus Examen',()=>{
+ const exam=actual.filter(e=>e.mode==='examen');
+ const coverage=[
+  ['lat1',[8,9,10],7],
+  ['gr1',[11,12,13,14],10]
+ ];
+ for(const [subject,missing,last] of coverage){
+   const course=exam.filter(e=>e.subject===subject);
+   assert.ok(course.length>100);
+   const labels=[...new Set(course.flatMap(e=>e.units))];
+   for(const n of missing){
+     assert.ok(!labels.some(label=>new RegExp('(^|[^0-9])'+n+'([^0-9]|$)').test(label)),
+       'Hay una lista tardía que requiere revisar el dictamen: '+subject+' UD'+n);
+   }
+   assert.ok(labels.some(label=>label.includes(''+last)),
+     subject+' carece incluso de su última unidad acreditada');
+   const display=scholaVocabularyScopeDescription(subject,'examen','');
+   assert.ok(display.includes(subject==='lat1'?'8–10':'11–14'));
+   const count=course.length;
+   assert.equal(actual.filter(e=>e.subject===subject&&e.mode==='examen').length,count);
+   assert.ok(scholaVocabularyAll(actual,subject).length>=count);
+ }
 });
