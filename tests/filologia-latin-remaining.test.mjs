@@ -28,7 +28,7 @@ test('Latín I y 4.º: 35 modelos pendientes con 262 casillas auditadas',()=>{
  assert.equal(ids.length,35);
  assert.equal(new Set(ids).size,ids.length);
  assert.equal(audit.findings.sourceErrata.length,0);
- assert.equal(audit.findings.teacherReservations.length,1);
+ assert.equal(audit.findings.teacherReservations.length,0); // orior: opción A ya resuelta
  for(const r of Object.values(audit.results).flat()){
   assert.ok(single(r.id)?.forms,'Falta ficha original '+r.id);
   assert.ok(r.source.startsWith('https://'),'Falta cita contrastiva '+r.id);
