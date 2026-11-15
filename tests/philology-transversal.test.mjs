@@ -90,17 +90,21 @@ test('La enmienda de polliceor cambia solo la conjugación, sin borrar su lectur
    .replace(/^window\.VOCAB=/u,'').replace(/;\s*$/u,''));
  const compiled=JSON.parse(read('dist/apps/vocabulario/data.js')
    .replace(/^window\.VOCAB=/u,'').replace(/;\s*$/u,''));
- const id='ccb8e344f436ae4b';
- const original=sourceData.find(x=>x.id===id);
- const result=compiled.find(x=>x.id===id);
- assert.equal(original.form,'pollĭcĕor, pollĭcĭtus sum (3ª)');
- assert.equal(result.form,'pollĭcĕor, pollĭcĭtus sum (2ª)');
- assert.deepEqual(result.units,['UD 10']);
- assert.equal(result.mode,'examen');
- assert.equal(result.subject,'lat4');
- for(const attr of ['meaning','answers','originals'])
-   assert.deepEqual(result[attr],original[attr],attr);
- assert.equal(result.curricularProvenance,undefined);
+ for(const [id,mode] of [
+   ['6c627fb664674b71','general'],
+   ['ccb8e344f436ae4b','examen']
+ ]){
+   const original=sourceData.find(x=>x.id===id);
+   const result=compiled.find(x=>x.id===id);
+   assert.equal(original.form,'pollĭcĕor, pollĭcĭtus sum (3ª)');
+   assert.equal(result.form,'pollĭcĕor, pollĭcĭtus sum (2ª)');
+   assert.deepEqual(result.units,['UD 10']);
+   assert.equal(result.mode,mode);
+   assert.equal(result.subject,'lat4');
+   for(const attr of ['meaning','answers','originals'])
+     assert.deepEqual(result[attr],original[attr],attr);
+   assert.equal(result.curricularProvenance,undefined);
+ }
  const others=compiled.filter(e=>e.subject==='lat4'&&e.mode==='examen'&&
    e.units.includes('UD 10'));
  assert.equal(others.length,6);
