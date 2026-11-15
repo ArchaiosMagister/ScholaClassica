@@ -11,9 +11,32 @@ const root=resolve(import.meta.dirname,'..');
 const load=relative=>JSON.parse(readFileSync(join(root,relative),'utf8'));
 const source=relative=>readFileSync(join(root,relative),'utf8');
 const parseAssigned=(raw,prefix)=>{
- const text=String(raw).trim();
- assert.ok(text.startsWith(prefix),'Asignación desconocida: '+prefix);
- return JSON.parse(text.slice(prefix.length).replace(/;\s*$/u,''));
+ // Fuente fijada: se admiten comentarios antes de la asignación, pero no
+ // expresiones ejecutables ni prefijos nuevos. Se extrae solo JSON equilibrado.
+ const text=String(raw),at=text.indexOf(prefix);
+ assert.ok(at>=0&&text.indexOf(prefix,at+prefix.length)<0,
+   'Asignación desconocida o repetida: '+prefix);
+ let start=at+prefix.length;
+ while(/\s/u.test(text[start]||''))start++;
+ const open=text[start],close=open==='['?']':open==='{'?'}':null;
+ assert.ok(close,'La asignación no contiene JSON: '+prefix);
+ let depth=0,quoted=false,escaped=false;
+ for(let end=start;end<text.length;end++){
+   const c=text[end];
+   if(quoted){
+     if(escaped){escaped=false;continue}
+     if(c==='\\'){escaped=true;continue}
+     if(c==='"')quoted=false;
+     continue;
+   }
+   if(c==='"'){quoted=true;continue}
+   if(c===open)depth++;
+   if(c===close){
+     depth--;
+     if(depth===0)return JSON.parse(text.slice(start,end+1));
+   }
+ }
+ throw Error('Asignación JSON sin cierre: '+prefix);
 };
 const CONFIG=Object.freeze([
  {key:'latin1',vocabulary:'lat1',morphology:'latin',grammar:'latin',max:10,
