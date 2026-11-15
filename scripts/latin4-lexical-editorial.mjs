@@ -8,7 +8,10 @@ export const LATIN4_LEXICAL_CORRECTIONS=Object.freeze([
    form:'tēmpŭs, –ŏris (n.)'},
   // Lewis & Short: pollĭcĕor, ĭtus, 2.ª deponente (LS/Scaife, n36862).
   // Corrección únicamente en la copia integrada: UD10 sigue intacta.
-  {id:'ccb8e344f436ae4b',old:'pollĭcĕor, pollĭcĭtus sum (3ª)',
+  {id:'6c627fb664674b71',mode:'general',old:'pollĭcĕor, pollĭcĭtus sum (3ª)',
+   form:'pollĭcĕor, pollĭcĭtus sum (2ª)',units:['UD 10'],
+   source:'https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n36862/'},
+  {id:'ccb8e344f436ae4b',mode:'examen',old:'pollĭcĕor, pollĭcĭtus sum (3ª)',
    form:'pollĭcĕor, pollĭcĭtus sum (2ª)',units:['UD 10'],
    source:'https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n36862/'}
 ]);
@@ -21,7 +24,7 @@ export function correctLatin4Vocabula(entries){
     if(!correction)return entry;
     assert.ok(!found.has(entry.id),'Registro duplicado '+entry.id);
     assert.equal(entry.subject,'lat4');
-    assert.equal(entry.mode,'examen');
+    assert.equal(entry.mode,correction.mode||'examen');
     assert.deepEqual(entry.units,correction.units||['UD 8–9']);
     assert.equal(entry.form,correction.old,
       'Cambió el enunciado original: requiere nueva verificación');
