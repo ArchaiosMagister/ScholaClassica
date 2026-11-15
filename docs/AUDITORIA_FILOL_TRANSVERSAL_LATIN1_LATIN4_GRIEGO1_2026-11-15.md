@@ -70,6 +70,36 @@ La doble matriz **no ha exigido nuevas enmiendas** en estos diez modelos: las ca
 
 **Contrastes principales:** Allen y Greenough, *New Latin Grammar*, §§110 y 114–119, editado en [Dickinson College Commentaries](https://dcc.dickinson.edu/grammar/latin/3rd-declension-adjectives-classification-and-paradigms); [DCC, Latin Core Vocabulary](https://dcc.dickinson.edu/latin-core-list1). No se añaden variantes hipotéticas por analogía ni se altera Appendix.
 
+## 2 quater. Tercera declinación y verbos de Latín I y de 4.º: cotejo selectivo
+
+Se ha añadido un control independiente en `scripts/audit-latin-third-verbs.mjs`, ejecutado sobre las **formas compiladas en cada curso**. No reconstruye ni modifica paradigmas: compara rasgos y lecturas exactas frente a matrices de declinación y conjugación documentadas en Allen y Greenough.
+
+| Bloque | Modelos cotejados | Casillas | Lecturas |
+|---|---:|---:|---:|
+| Tercera declinación: `dux`, `civis`, `flumen`, `mare` en Latín I y 4.º; `rex` y `corpus` docentes solo en 4.º | 10 | 120 | 122 |
+| Indicativo activo y pasivo: presente, imperfecto, perfecto y pluscuamperfecto; `amo`, `habeo`, `duco`, `audio`, `capio`, `sum` según tiempo | 68 | 408 | 408 |
+| Fuente docente de `amo` en 4.º: presente, imperfecto, presente pasivo, perfecto y pluscuamperfecto | 5 | 30 | 30 |
+| **Total** | **83** | **558** | **560** |
+
+La diferencia de dos lecturas respecto de las casillas se debe a las variantes del acusativo plural de `civis` (`cives` y `civis`) en cada curso. La matriz protege `ducum` frente a `civium`, `fluminum` frente a `marium`, el ablativo `mari`, y la identidad de nominativo/vocativo/acusativo de los neutros. En los verbos distingue la tercera de la conjugación mixta (`ducunt` / `capiunt`, `ducebam` / `capiebam`, `duceris` / `caperis`) y los temas de perfecto (`duxi`, `cepi`, `habui`, `fui`) del presente. Los verbos de 4.º mantienen su secuenciación propia. Las cinco fichas docentes de `amo` se cotejan por separado para que una discrepancia futura con la fuente general no pase inadvertida.
+
+**Dictamen:** estos 558 controles no han requerido ninguna enmienda de forma. La revisión es de paradigmas escolares explícitos; no se certifican 560 formas como testimonios en autores latinos ni se extiende el resultado automáticamente a los demás lemas o a los posibles valores contextuales de formas homógrafas. Se han añadido pruebas de regresión que introducen deliberadamente lecturas incorrectas y exigen su rechazo.
+
+Referencias: Allen y Greenough, *New Latin Grammar*, §§73–78, 171–179, [tercera declinación: temas en *-i*](https://dcc.dickinson.edu/grammar/latin/3rd-declension-summary-i-stem-forms), [cuatro conjugaciones](https://dcc.dickinson.edu/grammar/latin/four-conjugations) y [formas de conjugación](https://dcc.dickinson.edu/grammar/latin/forms-conjugation).
+
+### Revisión de equivalencia semántica castellano/valenciano
+
+Se han contrastado **siete pares de temas** entre los currículos integrados de Latín I y 4.º: tercera declinación en ambos cursos, perfecto y pluscuamperfecto activos, y voz pasiva de presente/imperfecto, con **52 referencias objetivas por lengua**. El auditor `scripts/audit-latin-bilingual-semantics.mjs` detecta divergencias en esos referentes y prohíbe anticipar la pasiva compuesta a las unidades de perfecto activo. **No certifica la equivalencia de cada frase de los 30 temas de Latín I y 15 de 4.º.**
+
+La comparación ha revelado una **sobregeneralización en el texto expositivo de la tercera declinación** que era necesario corregir en las dos lenguas:
+
+- El texto castellano identificaba las palabras parisílabas con temas en *-i* y las imparisílabas con temas consonánticos como si la relación fuera absoluta; el valenciano utilizaba «solen», pero seguía siendo necesario explicitar una excepción.
+- Ambos textos daban por hecho que los nominativos en `-bs, -ns, -ps, -rs` pertenecen necesariamente a temas en *-i*. La terminación del nominativo no basta para establecer tal conclusión.
+- **Enmienda aprobada por evidencia**, aplicada solo a las copias de ScholaClassica (UD4 Latín I y UD5 de 4.º, ES/VAL): presentar la relación silábica como **pista no determinante**, con `civis, civis → civium` frente a `canis, canis → canum`, y los casos `urbs, urbis → urbium` y `ars, artis → artium`. Se respeta la flexión individual documentada y se elimina el enunciado categórico.
+- La corrección solo sustituye **dos enunciados explicativos** en cada curso e idioma. Exige una coincidencia exacta de los textos de origen y preserva todas las tablas, IDs, contenidos morfológicos, fichas de Vocabula y progreso. No cambia los archivos de Appendix original.
+
+Esta corrección no requiere elegir entre variantes: elimina una regla falsa y alinea ambas explicaciones con Allen y Greenough §73 y las excepciones de §78. Las comprobaciones automatizadas cotejan las referencias filológicas principales en las dos traducciones, sin inferir que toda la terminología pedagógica de ambos cursos quede auditada semánticamente.
+
 ## 3. Decisiones docentes aplicadas y reservas curriculares
 
 ### A. `lavor, lavatus sum`: uso medio-pasivo/reflexivo de `lavo`
@@ -102,4 +132,4 @@ npm run audit:filologia:transversal
 npm test
 ```
 
-El informe JSON queda **solo como artefacto privado de GitHub Actions** en `build/academic-audits/transversal/filologia-transversal-v1.json`; no se entrega a la PWA del alumnado. El siguiente bloque recomendado es una inspección individual de los modelos nominales y los verbos con clasificación potencialmente equívoca, seguida de lectura contrastiva ES/VAL de los pasajes de mayor riesgo. No fusionar ni publicar estas modificaciones de manera implícita.
+El informe JSON queda **solo como artefacto privado de GitHub Actions** en `build/academic-audits/transversal/filologia-transversal-v1.json`; no se entrega a la PWA del alumnado. El siguiente bloque recomendado es revisar selectivamente los sustantivos y verbos que no entran en estas matrices, contrastar las variantes individualmente y ampliar la lectura ES/VAL a temas menos frecuentes cuando exista evidencia de discrepancia. No fusionar ni publicar estas modificaciones de manera implícita.
