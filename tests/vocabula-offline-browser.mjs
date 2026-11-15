@@ -53,6 +53,7 @@ try{
   const registrations=await navigator.serviceWorker.getRegistrations();
   return registrations.some(r=>r.active&&r.scope.endsWith('/ScholaClassica/apps/vocabulario/'));
  });
+ await page.waitForFunction(()=>navigator.serviceWorker.controller?.scriptURL.endsWith('/ScholaClassica/apps/vocabulario/sw.js'),null,{timeout:18000});
  await page.reload({waitUntil:'load'});
  const info=await page.evaluate(async()=>{
   const regs=await navigator.serviceWorker.getRegistrations();
@@ -66,7 +67,7 @@ try{
    manifest};
  });
  assert.ok(info.regs.some(x=>x.endsWith(modulePath)));
- assert.ok(info.controller?.endsWith(modulePath+'sw.js'));
+ assert.ok(info.controller?.endsWith(modulePath+'sw.js'),'Controlador real: '+info.controller);
  assert.equal(info.manifest.scope,'./');
  assert.ok(info.cachesFound.some(x=>x.startsWith('schola-portal-')));
  assert.ok(info.cachesFound.some(x=>x.startsWith('schola-vocabula-')));
