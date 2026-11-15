@@ -5,7 +5,7 @@
   "sources": {
     "appendix": {
       "repository": "ArchaiosMagister/Appendix-grammaticae",
-      "sha": "887e3545233f7cf7e4356360c2c71abbb5438786",
+      "sha": "0d0901c0a9cce46735f8479c7286ad3c77d8ab3e",
       "integrated": true,
       "target": "apps/gramatica"
     },
