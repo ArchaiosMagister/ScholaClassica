@@ -76,6 +76,8 @@ jobs:
         run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
+      - name: Auditar correspondencias filológicas de Latín I, 4.º y Griego I (solo lectura)
+        run: npm run audit:filologia:transversal
       - name: Cotejar lema + forma + rasgos de Latín II con UniMorph congelado
         run: npm run lexicografia:lat2
       - name: Auditar la estructura de las perífrasis de Latín II (una fuente)
