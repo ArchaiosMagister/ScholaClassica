@@ -20,6 +20,8 @@ import {buildGrammarPwa} from './build-gramatica-pwa.mjs';
 import {correctLatin4Vocabula} from './latin4-lexical-editorial.mjs';
 import {reconcileLatin4ExamUd8} from './latin4-ud8-reconciliation.mjs';
 import {adaptVocabulaAll} from './adapt-vocabula-all.mjs';
+import {buildVocabulaOffline} from './adapt-vocabula-offline.mjs';
+import {buildVocabulaPwa} from './build-vocabula-pwa.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const out=join(root,'dist');
@@ -187,6 +189,8 @@ await writeFile(vocabulaIndex,vocabulaHTML);
 await adaptVocabulaStudentCopy(vocabulaDestination);
 await adaptVocabulaAll(vocabulaDestination,root);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
+await buildVocabulaOffline(vocabulaDestination,root);
+await buildVocabulaPwa(vocabulaDestination);
 
 // Nuevo módulo de práctica propio, separado del Vocabula original.
 const morphologySource=join(root,'public/morfologia');
