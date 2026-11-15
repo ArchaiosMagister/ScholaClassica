@@ -22,6 +22,8 @@ test('Auditoría filológica completa: tres currículos ES/VAL, cobertura y orig
   assert.deepEqual(Object.values(report.subjects).map(x=>x.grammarUnits),[10,8,14]);
   assert.ok(Object.values(report.subjects).every(x=>x.structuralParity===true));
   assert.ok(report.reviews.every(x=>x.entryId&&x.paradigmId&&x.form));
+  assert.deepEqual(report.noteMarkers,[],
+    'Un asterisco o signo de nota aparece en una respuesta de morfología');
 });
 test('Las listas de Examen no se confunden con la práctica ni el General',()=>{
   const {latin1,latin4,griego1}=report.subjects;
