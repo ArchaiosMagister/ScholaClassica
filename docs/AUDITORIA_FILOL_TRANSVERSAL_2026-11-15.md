@@ -39,15 +39,15 @@ Los valores de «lema coincidente» son **indicadores de cobertura aproximada** 
 
 ## 3. Enmienda lexicográfica segura: *polliceor*
 
-**Fuente original de Vocabula, Latín de 4.º, Examen UD10:**
-`pollĭcĕor, pollĭcĭtus sum (3ª)`, ID `ccb8e344f436ae4b`.
+**Fuente original de Vocabula, Latín de 4.º, General y Examen UD10:**
+`pollĭcĕor, pollĭcĭtus sum (3ª)`. IDs: General `6c627fb664674b71` y Examen `ccb8e344f436ae4b`.
 
 **Corrección acreditada:** `pollĭcĕor, pollĭcĭtus sum (2ª)`, deponente de segunda conjugación. El diccionario de Lewis y Short clasifica el lema como `2, v. dep.`; la lista de vocabulario de la Facultad de Clásicas de Cambridge lo clasifica `verb 2 dep`.
 
 - https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n36862/
 - https://www.classics.cam.ac.uk/files/media/as_latin-defined-vocabulary-list.pdf
 
-**Aplicación segura:** cambiar exclusivamente `form` en el adaptador persistente del artefacto integrado (`scripts/latin4-lexical-editorial.mjs`); no alterar su ID, traducciones, alternativas, originales transcritos, unidades ni modo Examen. No publicar ni reescribir `VocabulaLatinaGraecaque` independiente. La ficha sigue en UD10; corregir la conjugación **no equivale a autorizar su exigibilidad dentro de las ocho unidades impartidas**.
+**Aplicación segura:** cambiar exclusivamente `form` de **ambas** fichas en el adaptador persistente del artefacto integrado (`scripts/latin4-lexical-editorial.mjs`); no alterar sus IDs, traducciones, alternativas, originales transcritos, unidades ni modos General/Examen. Al corregir las dos representaciones, «Todo el vocabulario» sigue reuniéndolas en una sola ficha idéntica, sin duplicados ni pérdida de progreso. No publicar ni reescribir `VocabulaLatinaGraecaque` independiente. Las fichas siguen en UD10; corregir la conjugación **no equivale a autorizar su exigibilidad dentro de las ocho unidades impartidas**.
 
 ## 4. Reservas curriculares y docentes
 
