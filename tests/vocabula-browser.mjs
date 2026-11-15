@@ -185,6 +185,7 @@ try{
   const extraBox=await page.locator('#schola-lat4-extra').boundingBox();
   assert.ok(extraBox&&extraBox.width<=390);
   await page.setViewportSize({width:1280,height:800});
+  await page.locator('#search').fill('');
   await page.locator('#subject').selectOption('gr1');
   await page.locator('#corpus').selectOption('general');
   assert.equal(await page.locator('#units input[value="Sin unidad acreditada"]').count(),1);
