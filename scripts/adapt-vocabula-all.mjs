@@ -76,7 +76,7 @@ export function adaptVocabulaAllHtml(html){
     'Al cambiar de asignatura se desmarcan las unidades; al pasar entre General, Examen y Todo solo se conservan las que coincidan.',
     'ayuda de cambio de corpus');
   html=once(html,
-    'El botón Todas incluye también los bloques sin unidad acreditada, si los hay.',
+    'El botón Todas incluye también los grupos sin unidad específica.',
     'El botón Todas selecciona los grupos visibles, incluidos los complementarios cuando se muestran. En Latín de 4.º, las UD9 y UD10 solo aparecen si activas Mostrar ampliación.',
     'alcance del botón Todas');
   html=once(html,
