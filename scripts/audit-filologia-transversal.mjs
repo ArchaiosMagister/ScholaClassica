@@ -8,6 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {auditGreekRiskParadigms} from './audit-greek-high-risk.mjs';
 import {auditLatinAdjectiveRisk} from './audit-latin-adjectives.mjs';
 import {auditLatinNounsAndVerbs} from './audit-latin-third-verbs.mjs';
+import {auditLatinBilingualSemantics} from './audit-latin-bilingual-semantics.mjs';
 import {LATIN4_LEXICAL_CORRECTIONS} from './latin4-lexical-editorial.mjs';
 import {LATIN4_UD8_EXAM_REVIEW} from './latin4-ud8-reconciliation.mjs';
 
@@ -95,6 +96,7 @@ export function analyzeTransversal({curricula,bank,sourceVocabulary,
   const greekIndividualReview=auditGreekRiskParadigms(bank);
   const latinAdjectiveReview=auditLatinAdjectiveRisk(bank);
   const latinNominalVerbalReview=auditLatinNounsAndVerbs(bank);
+  const latinBilingualMeaningReview=auditLatinBilingualSemantics(curricula);
   const allIds=new Set(bank.records.map(x=>x.id));
   assert.equal(allIds.size,bank.records.length,'ID de paradigma repetido');
   const noteMarkers=bank.records.filter(r=>
@@ -190,7 +192,7 @@ export function analyzeTransversal({curricula,bank,sourceVocabulary,
     sourceShas:{appendix:lock.sources.appendix.sha,
       vocabula:lock.sources.vocabula.sha},
     sourcePreserved,subjects,reviews,noteMarkers,greekIndividualReview,
-    latinAdjectiveReview,latinNominalVerbalReview,
+    latinAdjectiveReview,latinNominalVerbalReview,latinBilingualMeaningReview,
     note:'Los candidatos por género NO constituyen enmiendas aprobadas. '+
       'La coincidencia de lemas sin diacríticos es solo una búsqueda orientativa. '+
       'La paridad de tablas ES/VAL es estructural, no traducción validada frase por frase.'};
@@ -226,6 +228,7 @@ if(main){
     greekIndividualReview:report.greekIndividualReview,
     latinAdjectiveReview:report.latinAdjectiveReview,
     latinNominalVerbalReview:report.latinNominalVerbalReview,
+    latinBilingualMeaningReview:report.latinBilingualMeaningReview,
     sourcePreserved:report.sourcePreserved
   }));
 }
