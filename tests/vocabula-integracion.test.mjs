@@ -71,7 +71,7 @@ test('no se publica la morfología anterior ni backend o datos internos',()=>{
   assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','schola-all.js','schola-offline.js','sw.js','manifest.webmanifest','icons'].sort());
 });
 
-test('Solo dos lemas de 4.º se corrigen en la copia, preservando el origen completo',()=>{
+test('Solo tres enmiendas léxicas documentadas en 4.º, preservando el origen completo',()=>{
  const from=JSON.parse(readFileSync(join(source,'data.js'),'utf8')
    .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
  const to=JSON.parse(readFileSync(join(target,'data.js'),'utf8')
@@ -94,17 +94,28 @@ test('Solo dos lemas de 4.º se corrigen en la copia, preservando el origen comp
  }
  const other=to.filter(e=>e.subject==='lat4'&&e.mode==='examen'&&e.units.includes('UD 8–9'));
  assert.equal(other.length,0);
- assert.equal(changes.length,2);
+ assert.equal(changes.length,3);
  assert.deepEqual(changes.map(e=>e.id).sort(),
    LATIN4_LEXICAL_CORRECTIONS.map(x=>x.id).sort());
  for(const entry of changes){
    const original=from.find(x=>x.id===entry.id);
+   const correction=LATIN4_LEXICAL_CORRECTIONS.find(x=>x.id===entry.id);
    assert.deepEqual(entry.originals,original.originals);
-   assert.deepEqual(entry.units,['UD 8']);
-   assert.deepEqual(original.units,['UD 8–9']);
-   assert.deepEqual(entry.curricularProvenance.originalUnits,['UD 8–9']);
+   assert.deepEqual(entry.answers,original.answers);
+   assert.equal(entry.meaning,original.meaning);
    assert.equal(entry.mode,'examen');
+   if(correction.units){
+     assert.deepEqual(entry.units,correction.units);
+     assert.deepEqual(entry.units,original.units);
+     assert.equal(entry.curricularProvenance,undefined);
+   }else{
+     assert.deepEqual(entry.units,['UD 8']);
+     assert.deepEqual(original.units,['UD 8–9']);
+     assert.deepEqual(entry.curricularProvenance.originalUnits,['UD 8–9']);
+   }
  }
+ assert.equal(changes.find(x=>x.id==='ccb8e344f436ae4b')?.form,
+   'pollĭcĕor, pollĭcĭtus sum (2ª)');
  const teacher=JSON.parse(readFileSync(join(root,'dist/docente/vocabula-catalog.json'),'utf8'));
  assert.equal(teacher.words.length,from.length);
  for(const change of changes)
