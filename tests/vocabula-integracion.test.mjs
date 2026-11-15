@@ -7,6 +7,7 @@ import {mergeCatalog,matchCatalog} from '../public/docente/vocabula-catalog.mjs'
 import {correctLatin4Vocabula,LATIN4_LEXICAL_CORRECTIONS} from '../scripts/latin4-lexical-editorial.mjs';
 import {reconcileLatin4ExamUd8,LATIN4_UD8_EXAM_REVIEW} from '../scripts/latin4-ud8-reconciliation.mjs';
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport} from '../scripts/adapt-vocabula-all.mjs';
+import {adaptVocabulaOfflineHtml,adaptVocabulaOfflineTeacher} from '../scripts/adapt-vocabula-offline.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'.sources/vocabula'),target=join(root,'dist/apps/vocabulario');
 const names=['choice.js','config.js','scope.js'];
@@ -41,7 +42,7 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
     .replace('teacher.js?v=20261112','teacher.js?v=20261113-solo-alumnos1')
     .replace('app.js?v=20261112','app.js?v=20261113-alumnos1');
   assert.notEqual(from,to);
-  assert.equal(to,adaptVocabulaAllHtml(expected));
+  assert.equal(to,adaptVocabulaOfflineHtml(adaptVocabulaAllHtml(expected)));
   assert.ok(!to.includes('id="open-teacher"'));
   assert.ok(!to.includes('id="teacher-dialog"'));
   const studentJs=readFileSync(join(target,'teacher.js'),'utf8');
@@ -65,7 +66,7 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
 test('no se publica la morfología anterior ni backend o datos internos',()=>{
   for(const file of ['gramatica.html','morfologia.html','gramatica.js','morfologia.js','gramatica-importada.js','backend','data','scripts','tests','docs'])
     assert.equal(existsSync(join(target,file)),false,'Se copió inesperadamente '+file);
-  assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','schola-all.js','icons'].sort());
+  assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','schola-all.js','schola-offline.js','sw.js','manifest.webmanifest','icons'].sort());
 });
 
 test('Solo dos lemas de 4.º se corrigen en la copia, preservando el origen completo',()=>{
