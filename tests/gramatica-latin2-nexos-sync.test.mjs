@@ -37,7 +37,7 @@ test('Las consultas latinas de Latín II conservan nexos, cursivas y subtipos en
   }
   const items=(chapter.match(/<p class="subordinate-item">– /gu)||[]).length;
   assert.ok(items>=18,'Han desaparecido subtipos con guion: '+prefix);
-  const conditional=chapter.split('<h2 id="condicionales">')[1]||'';
+  const conditional=chapter.split('<p id="condicionales" class="subordinate-type">')[1]||'';
   assert.ok(conditional.includes('<i lang="la">'),
    'Condicionales sin ejemplos latinos en cursiva: '+prefix);
   signatures.push(items);
