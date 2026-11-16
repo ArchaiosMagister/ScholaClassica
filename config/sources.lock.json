@@ -11,7 +11,7 @@
     },
     "vocabula": {
       "repository": "ArchaiosMagister/VocabulaLatinaGraecaque",
-      "sha": "0e16505b7631298a0448c4160a5d258f82732bfe",
+      "sha": "a7be2161a2401816ede78a96981daaac6850b8d2",
       "integrated": true,
       "target": "apps/vocabulario"
     },
