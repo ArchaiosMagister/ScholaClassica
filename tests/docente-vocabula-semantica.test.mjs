@@ -78,7 +78,7 @@ test('la versión docente conserva trazabilidad y la retirada devuelve el banco 
 
 test('el banco original fijado conserva sus 9 diferencias de glosa y 12 de respuesta',()=>{
   const raw=readFileSync(resolve(import.meta.dirname,'../.sources/vocabula/data.js'),'utf8');
-  const matched=/^window\\.VOCAB\\s*=\\s*([\\s\\S]*?);\\s*$/.exec(raw);
+  const matched=/^window\.VOCAB\s*=\s*([\s\S]*?);\s*$/.exec(raw);
   assert.ok(matched,'Formato del banco original fijado');
   const original=JSON.parse(matched[1]);
   assert.equal(original.length,2055);
