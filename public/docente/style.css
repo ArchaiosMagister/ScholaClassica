@@ -20,6 +20,8 @@
 .notice h3{font-size:1.12rem;margin:0 0 6px}
 .notice p{margin:6px 0}
 .notice small{color:#567086}
+#admin-word-list .notice small{display:block;margin:4px 0}
+#admin-word-list .notice p{margin:7px 0 3px}
 .notice a{display:inline-block;margin-top:10px;text-decoration:underline}
 .logout{padding-bottom:50px}
 /* La elección del portal gobierna la zona docente; OLED hereda los colores oscuros. */
