@@ -90,3 +90,50 @@ export function compileLiber({vocabulaData,vocabulaSha,decisions}){
  assert.ok(!record.forms.some(f=>['libera','liberum','liberam'].includes(f.form)));
  return record;
 }
+
+export function compileDomus({vocabulaData,vocabulaSha,decisions}){
+ assert.equal(decisions?.status,'aprobado-por-docente');
+ assert.equal(decisions.choices?.domus,'conservar-variantes-documentadas');
+ const entry=checkLexeme({vocabulaData,id:'b72308a83806b3f2',
+  lemma:'domus',form:'domus, –us (o –i)',unit:'UD 7'});
+ // Formas ordinarias de las dos series del paradigma documentado por
+ // Allen & Greenough §93. Las alternativas se añaden con uso anotado.
+ const forms={
+  nominativo:{singular:'domus',plural:'domūs'},
+  vocativo:{singular:'domus',plural:'domūs'},
+  acusativo:{singular:'domum',plural:'domōs'},
+  genitivo:{singular:'domūs',plural:'domuum'},
+  dativo:{singular:'domuī',plural:'domibus'},
+  ablativo:{singular:'domō',plural:'domibus'}
+ };
+ const alternatives=[
+  ['genitivo','singular','domī','arcaica; atestiguada en Plauto'],
+  ['genitivo','plural','domōrum','tardía o poética'],
+  ['dativo','singular','domō','variante del tema en o'],
+  ['ablativo','singular','domū','variante del tema en u'],
+  ['acusativo','plural','domūs','variante documentada de cuarta'],
+  ['locativo','singular','domī','uso corriente: en casa'],
+  ['locativo','singular','domuī','muy rara, locativo alternativo']
+ ];
+ const restrictedVariants=Object.fromEntries(alternatives.map(([cas,number,word,usage])=>
+  [cas+':'+number+':'+noQuantity(word),usage]));
+ const record=latinNounRecord({lemma:'domus',genitive:'domūs',
+  unit:7,declension:'4.ª y 2.ª (mixta)',forms,gender:'femenino',
+  source:'https://dcc.dickinson.edu/grammar/latin/4th-declension-case-forms',
+  id:'domus',entry,vocabulaSha,decision:'conservar-variantes-documentadas',
+  notes:'Domus tiene tema en u y tema en o; genitivo en -i solo atestiguado de forma restringida. '+
+   'Locativo singular domī (alternativa rara domuī) independiente del genitivo.',
+  restrictedVariants});
+ const expected=new Set(record.forms.map(f=>f.case+':'+f.number+':'+f.form));
+ for(const [cas,number,word,usage] of alternatives){
+  const form=noQuantity(word),key=cas+':'+number+':'+form;
+  assert.ok(!expected.has(key),'Forma repetida sin identificación: '+key);
+  record.forms.push({form,case:cas,number,analysis:cas+' '+number,
+   usage});
+  expected.add(key);
+ }
+ assert.equal(record.forms.length,19);
+ assert.deepEqual(record.forms.filter(f=>f.case==='locativo').map(f=>f.form),['domi','domui']);
+ assert.ok(record.forms.every(f=>f.number==='singular'||f.number==='plural'));
+ return record;
+}

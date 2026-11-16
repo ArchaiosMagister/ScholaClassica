@@ -94,7 +94,7 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
     bank.records.findIndex(x=>x.id===records[0].id)+9),records,
     'Las nueve fichas quedan anexadas al final sin desplazar otras');
   assert.equal(bank.records.filter(x=>x.language==='griego').length,94);
-  assert.equal(bank.records.filter(x=>x.language==='latin').length,91);
+  assert.equal(bank.records.filter(x=>x.language==='latin').length,92);
   for(const r of records){
     assert.equal(r.forms.length,10);
     assert.equal(new Set(r.forms.map(f=>f.case+':'+f.number)).size,10);
@@ -149,7 +149,7 @@ test('Reflexivo se/sui/sibi: selección de forma viable con solo tres opciones r
 
 test('La auditoría de modalidades separa tablas improcedentes y fichas nunca evaluadas',()=>{
   const a=auditPracticeCoverage(bank);
-  assert.equal(a.latin.available,91);
+  assert.equal(a.latin.available,92);
   assert.equal(a.griego.available,94);
   assert.deepEqual(a.latin.noForm,[]);
   assert.deepEqual(a.griego.noForm,[]);
@@ -160,7 +160,7 @@ test('La auditoría de modalidades separa tablas improcedentes y fichas nunca ev
   assert.ok(a.latin.noTable.some(x=>x.kind==='verbo'),
     'La ausencia de tabla verbal nominal no constituye una incidencia');
   assert.ok(a.griego.noTable.some(x=>x.kind==='infinitivo'));
-  assert.equal(a.latin.byUnit.at(-1).cumulative,91);
+  assert.equal(a.latin.byUnit.at(-1).cumulative,92);
   assert.equal(a.griego.byUnit.at(-1).cumulative,94);
   const full=createTeacherAudit(bank,vocabulary,lock.sources.vocabula.sha);
   assert.equal(full.concordance.courses.griego.records,94);

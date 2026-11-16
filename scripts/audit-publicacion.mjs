@@ -133,6 +133,14 @@ assert.equal(liber.forms.find(f=>f.analysis==='genitivo singular').form,'libri')
 assert.ok(!liber.forms.some(f=>['libera','liberum'].includes(f.form)));
 assert.ok(!morphology.records.some(r=>r.id==='latin-adjetivo-reserva-liber-free'),
  'No publicar el adjetivo reservado como calificable');
+const domus=morphology.records.find(r=>r.id==='latin-sustantivo-decision-domus');
+assert.ok(domus&&domus.unit===7&&domus.gender==='femenino'&&
+  domus.forms.length===19&&domus.evidence.teacherDecision==='conservar-variantes-documentadas'&&
+  domus.evidence.vocabulaEntry==='b72308a83806b3f2');
+assert.deepEqual(domus.forms.filter(f=>f.case==='locativo').map(f=>f.form),['domi','domui']);
+assert.deepEqual(domus.forms.filter(f=>f.case==='genitivo'&&f.number==='plural')
+  .map(f=>f.form),['domuum','domorum']);
+assert.ok(domus.evidence.restrictedVariants['genitivo:singular:domi'].includes('arcaica'));
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');
