@@ -11,6 +11,7 @@ import {scholaVocabularyAll,scholaVocabularyIdentity,
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport}
  from '../scripts/adapt-vocabula-all.mjs';
 import {createHash} from 'node:crypto';
+import {GREEK1_KINDYNOS_GENERAL_ID} from '../scripts/greek1-kindynos-ud5-decision.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const origin=join(root,'.sources/vocabula');
@@ -28,7 +29,8 @@ test('Vista Todo solo en el artefacto: conserva las 2055 fichas, los IDs y sus u
  assert.equal(actual.length,2055);
  assert.deepEqual(actual.map(e=>e.id),source.map(e=>e.id));
  assert.equal(new Set(actual.map(e=>e.id)).size,2055);
- for(let i=0;i<source.length;i++)if(source[i].subject!=='lat4')
+ for(let i=0;i<source.length;i++)if(source[i].subject!=='lat4'&&
+   source[i].id!==GREEK1_KINDYNOS_GENERAL_ID)
    assert.deepEqual(actual[i],source[i],'Fichas alteradas de '+source[i].subject);
  const shaBefore=sha(raw);
  assert.equal(sha(readFileSync(join(origin,'data.js'),'utf8')),shaBefore);
