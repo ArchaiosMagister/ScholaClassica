@@ -22,6 +22,19 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
 }
 assert.deepEqual(JSON.parse(read('docente/auth-config.json')),{enabled:false},
   'El portal público no puede contener autenticación docente activada');
+// El itinerario público usa las respuestas castellanas originales; la
+// conciliación valenciana académica no está certificada para publicación.
+const pilotPublic=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
+const pilotOrigin=JSON.parse(readFileSync(
+  join(root,'.sources/evolutio/data/pilot.json'),'utf8'));
+assert.equal(pilotPublic.words.length,522);
+assert.deepEqual(pilotPublic,pilotOrigin,
+  'No sustituir el corrector castellano por propuestas valencianas');
+for(const file of ['shared/academic/evolutio-valenciano',
+  'apps/evolucion-fonetica/data/matriz-522.json',
+  'apps/evolucion-fonetica/data/valenciano.json'])
+  assert.equal(existsSync(join(out,file)),false,
+    'Documentos académicos valencianos en Pages: '+file);
 for(const prohibited of ['dist-docente','build','apps/examenes','supabase/functions']){
   assert.equal(existsSync(join(out,prohibited)),false,
     'No publicar recursos internos ni el generador: '+prohibited);
