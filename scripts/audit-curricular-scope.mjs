@@ -7,6 +7,7 @@ import {join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {classifyVocabularyUnit,parseVocabularySource} from './audit-morphology-vocabulary.mjs';
 import {scholaVocabularyVisibleUnits} from './vocabula-all-model.mjs';
+import {GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_ID} from './greek1-kindynos-ud5-decision.mjs';
 
 export const COURSE_SCOPES=Object.freeze([
   {id:'latin1',subject:'lat1',language:'latin',grammar:'latin',maxUnit:10},
@@ -123,14 +124,34 @@ export function auditCurricularScope({source,integrated,bank,curricula}){
   assert.equal(source.filter(e=>e.subject==='gr1'&&e.mode==='examen'&&
     e.units?.includes('Sin unidad acreditada')).length,0,
     'No trasladar palabras sin UD al vocabulario exigible');
+  const originalGreek=source.find(x=>x.id===GREEK1_KINDYNOS_GENERAL_ID);
+  const integratedGreek=copyById.get(GREEK1_KINDYNOS_GENERAL_ID);
+  const originalExamGreek=source.find(x=>x.id===GREEK1_KINDYNOS_EXAM_ID);
+  assert.equal(originalGreek?.subject,'gr1');
+  assert.equal(originalGreek?.mode,'general');
+  assert.deepEqual(originalGreek?.units,['Sin unidad acreditada']);
+  assert.deepEqual(integratedGreek?.units,['UD 5'],
+    'No perder la única unidad griega aprobada por el docente');
+  assert.deepEqual(copyById.get(GREEK1_KINDYNOS_EXAM_ID),originalExamGreek,
+    'El registro de Examen κίνδυνος debe permanecer intacto');
+  for(const record of source.filter(x=>x.subject==='gr1'&&
+      x.id!==GREEK1_KINDYNOS_GENERAL_ID)){
+    assert.deepEqual(copyById.get(record.id),record,
+      'No cambiar las demás 502 fichas griegas: '+record.id);
+  }
+  assert.equal(integrated.filter(x=>x.subject==='gr1'&&x.mode==='general'&&
+    x.units?.includes('Sin unidad acreditada')).length,183,
+    'Solo una de las 184 fichas General puede adquirir UD5');
   return {
     schema:'scholaclassica-auditoria-alcance-curricular/v1',
     sourceCards:source.length,copyCards:integrated.length,
     courses:summaries,
     reviewedLatin4Ud8Ids:originalEighth.map(e=>e.id),
+    approvedGreek1GeneralUd5Id:GREEK1_KINDYNOS_GENERAL_ID,
+    remainingGreek1GeneralUnassigned:183,
     policy:'Las cifras son evidencias de alcance, no errores filológicos aprobados. '+
       'Las UD9–10 de 4.º son ampliación, nunca currículo obligatorio; '+
-      'una ficha General no se convierte en Examen; no se asignan UD inferidas.'
+      'una ficha General no se convierte en Examen; solo κίνδυνος General tiene UD5 por decisión docente, sin asignaciones inferidas.'
   };
 }
 export function loadCurricularScope(root){

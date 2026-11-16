@@ -6,6 +6,7 @@ import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseVocabularySource} from './audit-morphology-vocabulary.mjs';
+import {GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_ID,GREEK1_KINDYNOS_DECISION} from './greek1-kindynos-ud5-decision.mjs';
 
 const GR_UNASSIGNED='Sin unidad acreditada';
 export const LEDGER_SCHEMA='scholaclassica-gr1-unassigned-individual/v1';
@@ -65,9 +66,21 @@ export function auditGreekUnassigned({source,integrated,curriculumEs,curriculumV
   assert.equal(morph.length,94,'Modelos griegos alterados: revisión necesaria');
   const ledger=unassigned.map(entry=>{
     const inCopy=copyById.get(entry.id);
-    for(const field of ['id','subject','mode','form','meaning','units','answers']){
-      assert.deepEqual(inCopy?.[field],entry[field],
-        'Cambio sin autorización en ficha griega '+entry.id+' · '+field);
+    const approved=entry.id===GREEK1_KINDYNOS_GENERAL_ID;
+    if(approved){
+      for(const field of ['id','subject','mode','form','meaning','answers','originals']){
+        assert.deepEqual(inCopy?.[field],entry[field],
+          'Cambio sin autorización en ficha griega '+entry.id+' · '+field);
+      }
+      assert.deepEqual(inCopy.units,['UD 5'],
+        'La ficha General κίνδυνος debe pertenecer únicamente a UD5');
+      assert.deepEqual(inCopy.curricularProvenance?.originalUnits,
+        ['Sin unidad acreditada'],'Se perdió la procedencia histórica de κίνδυνος');
+      assert.equal(inCopy.curricularProvenance?.matchedExamId,
+        GREEK1_KINDYNOS_EXAM_ID);
+    }else{
+      assert.deepEqual(inCopy,entry,
+        'Cambio sin autorización en ficha griega '+entry.id);
     }
     const lemma=headword(entry.form),key=lemmaKey(entry.form);
     const vocabPeers=known.filter(other=>lemmaKey(other.form)===key)
@@ -102,13 +115,24 @@ export function auditGreekUnassigned({source,integrated,curriculumEs,curriculumV
         grammarCommonUnits:citedEs,
         morphologyParadigms:morphology
       },
-      decision:'Pendiente de criterio docente; conservar Sin unidad acreditada',
-      assignUnit:null,
+      integratedUnits:[...inCopy.units],
+      decision:approved?
+        'Decisión docente 16/11/2026: General κίνδυνος asignado a UD5':
+        'Decisión docente: conservar Sin unidad acreditada',
+      assignUnit:approved?5:null,
       examPromotion:false
     };
   });
   assert.equal(new Set(ledger.map(x=>x.id)).size,184,
     'Revisión individual: ID repetido');
+  assert.equal(ledger.filter(e=>e.assignUnit===5).length,1,
+    'Solo κίνδυνος puede tener nueva adscripción léxica');
+  assert.equal(ledger.filter(e=>e.assignUnit===null).length,
+    GREEK1_KINDYNOS_DECISION.remainingGreekGeneralUnassigned,
+    'Los otros 183 registros deben permanecer sin unidad');
+  assert.equal(integrated.filter(e=>e.subject==='gr1'&&e.mode==='general'&&
+    e.units?.includes(GR_UNASSIGNED)).length,183,
+    'La copia integrada debe conservar 183 fichas General sin UD');
   const counts={};
   for(const e of ledger)counts[e.category]=(counts[e.category]||0)+1;
   const withExam=ledger.filter(x=>x.evidence.unitTaggedVocabularyPeers
@@ -122,11 +146,15 @@ export function auditGreekUnassigned({source,integrated,curriculumEs,curriculumV
       greekEntries:all.length,
       greekMorphologyModels:morph.length,
       greekUnassignedGeneral:unassigned.length,
+      greekUnassignedIntegratedGeneral:183,
+      approvedGeneralUd5:1,
       greekUnassignedExam:0,
       spanishAndValencianUnits:14
     },
     summary:{
       classified:counts,
+      approvedGeneralUd5:1,
+      unchangedGeneralUnassigned:183,
       matchingExamLemmaAndGloss:withExam.length,
       mentionedInBothGrammars:mentioned.length,
       morphologyHeadwordCandidates:withMorph.length,
@@ -144,7 +172,7 @@ export function auditGreekUnassigned({source,integrated,curriculumEs,curriculumV
       'La aparición como ejemplo en un tema de gramática no demuestra que el lema sea vocabulario de examen.',
       'Las claves de búsqueda sin diacríticos griegos son candidatas de cotejo, nunca equivalencias filológicas automáticas.',
       'La coincidencia con un paradigma de morfología no acredita una unidad exigible para vocabulario.',
-      'No se asigna unidad a ninguna ficha ni se modifica el progreso.'
+      'La única reasignación aprobada es κίνδυνος General UD5 en la copia de ScholaClassica; otras 183 fichas General y todas las de Examen e IDs y progreso permanecen intactos.'
     ],
     decisions:ledger
   };
@@ -172,7 +200,7 @@ if(main){
     JSON.stringify({schema:report.schema,summary:report.summary,records:review},null,2)+'\n');
   console.log('AUDITORIA_GRIEGO_184',JSON.stringify({
     basis:report.basis,summary:report.summary,
-    candidates:review.map(x=>({id:x.id,form:x.form,category:x.category,
+    candidates:review.map(x=>({id:x.id,form:x.form,category:x.category,assignUnit:x.assignUnit,
       grammarUnits:x.evidence.grammarCommonUnits,
       morphologyUnits:x.evidence.morphologyParadigms.map(r=>r.unit),
       peers:x.evidence.unitTaggedVocabularyPeers.map(p=>p.units)}))

@@ -13,6 +13,7 @@ import {auditLatinRemainingCurricularForms} from './audit-latin-remaining.mjs';
 import {auditLatinAdditionalBilingualSemantics} from './audit-latin-bilingual-extra.mjs';
 import {LATIN4_LEXICAL_CORRECTIONS} from './latin4-lexical-editorial.mjs';
 import {LATIN4_UD8_EXAM_REVIEW} from './latin4-ud8-reconciliation.mjs';
+import {GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_ID} from './greek1-kindynos-ud5-decision.mjs';
 
 export const TRANSVERSAL_COURSES=Object.freeze([
   {key:'latin1',subject:'lat1',language:'latin',grammar:'latin',
@@ -81,6 +82,14 @@ function assertLexicalIntegrity(original,adapted){
     if(revisedUnits.has(source.id)){
       assert.deepEqual(entry.units,['UD 8'],'Cambio en conciliación de UD8');
       intentional.push(source.id);
+    }else if(source.id===GREEK1_KINDYNOS_GENERAL_ID){
+      assert.deepEqual(source.units,['Sin unidad acreditada']);
+      assert.deepEqual(entry.units,['UD 5'],
+        'La decisión General κίνδυνος UD5 no se aplicó correctamente');
+      const exam=byId.get(GREEK1_KINDYNOS_EXAM_ID);
+      const historicalExam=original.find(e=>e.id===GREEK1_KINDYNOS_EXAM_ID);
+      assert.deepEqual(exam,historicalExam,
+        'La ficha Examen de κίνδυνος debe permanecer íntegra');
     }else{
       assert.deepEqual(entry.units,source.units,
         'Unidad léxica alterada sin autorización '+source.id);
@@ -88,7 +97,8 @@ function assertLexicalIntegrity(original,adapted){
   }
   assert.equal(intentional.length,17);
   return {sourceCards:original.length,integratedCards:adapted.length,
-    intentionalLatin4ExamUd8:17,intentionalLatin4Spelling:editedForms.size};
+    intentionalLatin4ExamUd8:17,intentionalLatin4Spelling:editedForms.size,
+    intentionalGreek1GeneralUd5:1};
 }
 export function analyzeTransversal({curricula,bank,sourceVocabulary,
   integratedVocabulary,lock}){
