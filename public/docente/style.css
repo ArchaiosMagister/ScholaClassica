@@ -76,3 +76,15 @@ html:is([data-theme="dark"],[data-theme="oled"]) #grammar-audit .admin-controls 
 html:is([data-theme="dark"],[data-theme="oled"]) #grammar-audit .admin-controls select{
   color:#edf4ff;background:#142434;border-color:#738ca2
 }
+
+/* Fuentes históricas del mismo lema: los significados no se fusionan. */
+#vocab-admin .admin-word-variant{
+  border-left:3px solid #8095a8;padding:8px 12px;margin:12px 0 2px;
+  background:rgba(92,125,151,.06);border-radius:0 8px 8px 0
+}
+#vocab-admin .admin-word-variant p{margin:7px 0}
+#vocab-admin .admin-word-variant small{display:block;overflow-wrap:anywhere}
+#vocab-admin .admin-word-variant button{margin:7px 0 3px}
+html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin .admin-word-variant{
+  border-left-color:#87a9c4;background:rgba(145,184,215,.1)
+}
