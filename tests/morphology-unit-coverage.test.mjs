@@ -47,6 +47,26 @@ test('No se confunde sintaxis/invariables con lagunas flexivas',()=>{
   assert.equal(report.courses.griego1.units[4].topics
     .find(t=>t.topic==='Sustantivación del adjetivo').mode,'reused');
 });
+test('El infinitivo latino UD8 se reconoce por el análisis real aunque el modelo sea de tipo verbo',()=>{
+  const topic=report.courses.latin1.units[7].topics
+    .find(t=>t.topic==='Infinitivos y oración de infinitivo');
+  assert.equal(topic.status,'categoria-introducida');
+  assert.deepEqual(topic.kinds,['verbo']);
+  assert.equal(topic.markerMatches,true);
+  assert.ok(topic.exactTopicEvidence>=1,'La fuente ha de referir el tema UD8');
+  assert.ok(topic.exercise.verbo.written>0,'Deben poder responderse infinitivos por escrito');
+  const passive=report.courses.latin1.units[8].topics
+    .find(t=>t.topic==='Participio de perfecto y tiempos compuestos pasivos');
+  assert.equal(passive.status,'categoria-introducida');
+  assert.equal(passive.markerMatches,true);
+  assert.ok(passive.exactTopicEvidence>=1);
+});
+test('Las dos reservas de Latín I son independientes de los temas sintácticos',()=>{
+  assert.deepEqual(report.findings.map(x=>[x.course,x.unit,x.topic,x.status]),[
+    ['latin1',1,'Infinitivo de presente activo','sin-modelo-nuevo-de-la-categoria'],
+    ['latin1',2,'El locativo','caso-especial-sin-ficha']
+  ]);
+});
 test('La auditoría es solo lectura, sin modificar unidades, fichas ni progreso',()=>{
   const snapshot=JSON.stringify(sources.bank);
   auditMorphologyCurricularCoverage(sources,{sampleExercises:false});
