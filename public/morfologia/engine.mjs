@@ -14,6 +14,9 @@ export function validateBank(bank){
          'participio','infinitivo'].includes(record.kind)||
        !Array.isArray(record.forms)||record.forms.length<
          (record.language==='latin2'&&record.kind==='infinitivo'?2:
+          record.id==='griego-sustantivo-decision-athenai'&&
+          record.evidence?.numberScope==='plural'&&
+          record.forms.length===5&&record.forms.every(f=>f.number==='plural')?5:
           ['griego-ud6-infinitivos-presentes','latin-ud5-reflexivo-sui']
             .includes(record.id)?4:6)||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');

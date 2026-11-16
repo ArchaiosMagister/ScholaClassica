@@ -49,6 +49,8 @@ export function greekNounPhrasePairs(bank,{language,unit}){
   const nouns=records.filter(r=>r.kind==='sustantivo'&&
     r.id.startsWith('griego-sustantivo-')&&
     r.evidence?.review?.includes('conciliación interfuentes')&&
+    // Atenas, pluralia tantum, no da un sintagma declinable en ambos números.
+    r.evidence?.numberScope!=='plural'&&
     // Los géneros contextuales solo se usan si constan en una decisión
     // docente acreditada; de lo contrario no se improvisa concordancia.
     (r.gender!=='común'||r.agreementGenders?.length));

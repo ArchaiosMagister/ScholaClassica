@@ -21,7 +21,8 @@ const entry=bank.records.find(x=>x.id==='griego-sustantivo-decision-pais');
 test('παῖς se importa sin dual, con diez casillas exactas y los ID anteriores inmutables',()=>{
  assert.ok(entry);
  assert.deepEqual(entry,recompile());
- assert.equal(bank.records.at(-1).id,entry.id,'No desplazar registros históricos');
+ const oldFinal=bank.records.findIndex(x=>x.id==='griego-sustantivo-phobos');
+ assert.equal(bank.records[oldFinal+1].id,entry.id,'No desplazar registros históricos');
  assert.equal(entry.unit,8);
  assert.equal(entry.gender,'común');
  assert.deepEqual(entry.agreementGenders,['masculino','femenino']);

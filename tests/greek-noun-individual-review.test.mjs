@@ -30,7 +30,7 @@ test('90/90 casillas griegas cotejadas por caso y número, sin inventar duales',
  assert.equal(new Set(selected.map(x=>x.id)).size,9);
  assert.deepEqual(bank.records.slice(bank.records.findIndex(x=>x.id===selected[0].id),
   bank.records.findIndex(x=>x.id===selected[0].id)+9),selected,'El banco publicado en build debe conservar evidencia completa');
- assert.equal(bank.records.filter(x=>x.language==='griego').length,93);
+ assert.equal(bank.records.filter(x=>x.language==='griego').length,94);
  let checked=0;
  for(const [i,spec] of INDIVIDUAL_GREEK_NOUN_CHECKS.entries()){
   const record=selected[i];
