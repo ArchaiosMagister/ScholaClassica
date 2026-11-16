@@ -1,6 +1,50 @@
-# Evolutio valenciano — conciliación académica inicial (13/11/2026)
+# Evolutio valenciano — conciliación académica (actualización 16/11/2026)
 
-## Alcance y estado
+## Estado vigente y protección de la versión publicada
+
+Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserva **522** étimos identificados por ID del origen fijado (Evolutio independiente); la ampliación de **100 fichas castellanas** recientemente publicada en ScholaClassica **no se traduce automáticamente ni se incorpora** a esta matriz. Por tanto, las 100 nuevas palabras siguen solo en castellano.
+
+| Estado (16/11/2026) | Entradas | Significado |
+|---|---:|---|
+| Correspondencia léxica `documentat` | **32** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
+| `proposta` | **206** | Propuesta no contrastada individualmente |
+| `pendent` | **284** | Sin solución habilitada; incluye tres reservas solo castellanas |
+| Análisis fonéticos editoriales | **32** | Segmentos revisados; cuatro decisiones docentes recuperadas, seis análisis nuevos |
+| Casos reservados solo castellano | **3** | `octo`, `dictum`, `sigĭllum`: ninguna respuesta valenciana entregable |
+| Normas certificadas para evaluación | **0** | Sigue faltando contraste normativo individual y aprobación integral |
+| Fichas habilitadas para test valenciano | **0** | No publicar hasta cerrar la verificación |
+
+### Decisiones docentes consolidadas
+
+- `noctem → nit`: **VOCALITZACIÓ y SIMPLIFICACIÓ**, provisionalmente, con etapa *nuit* explícita; no se certifica el encadenamiento histórico.
+- `matrem → mare`: **SIMPLIFICACIÓ** de `-tr-` por pérdida de *t*.
+- `fabam → fava` y `caballum → cavall`: debilitamiento intervocálico `-b- → -v-` **explicado sin ley seleccionable**. En `caballum`, revisar **PALATALITZACIÓ** de `-ll-` y **APÒCOPE** de `-u`; `fabam` conserva únicamente pérdida fija de `-m` y no sirve para un test de leyes.
+- `cælum → cel`: **MONOFTONGACIÓ** y **PALATALITZACIÓ** según decisión docente. La pérdida de la vocal final no se certifica como norma adicional.
+- `fĕrrum → ferro`: **OBERTURA** de `-u` a `-o`; se mantiene sin añadir falsa diptongación.
+- `ocŭlum → ull`: **SÍNCOPE** de `ŭ` postónica, seguida de **PALATALITZACIÓ** del grupo `-cl-`, con base vulgar `ŏclu` documentada por DCVB.
+
+Las decisiones sobre el análisis de una palabra **no significan** que se hayan verificado todas sus reglas con DNV ni que la ficha quede aprobada para evaluación. Los indicadores `dnvIndividualChecked`, `teacherApproved` y `playable` permanecen en `false`.
+
+### Seis correspondencias documentadas de nuevo
+
+| Forma latina | Resultado valenciano | DCVB | Análisis editorial no certificado |
+|---|---|---|---|
+| `cælum` | cel | [cel](https://dcvb.iec.cat/results.asp?word=cel) | MONOFTONGACIÓ + PALATALITZACIÓ |
+| `ocŭlum` | ull | [ull](https://dcvb.iec.cat/results.asp?word=ull) | SÍNCOPE + PALATALITZACIÓ |
+| `scholam` | escola | [escola](https://dcvb.iec.cat/results.asp?word=escola) | PRÒTESI + EVOLUCIÓ DE GRAFIES GREGUES |
+| `fŏntem` | font | [font](https://dcvb.iec.cat/results.asp?word=font) | APÒCOPE |
+| `salutem` | salut | [salut](https://dcvb.iec.cat/results.asp?word=salut) | APÒCOPE |
+| `portum` | port (port marítimo) | [port](https://dcvb.iec.cat/results.asp?word=port) | APÒCOPE |
+
+**Reserva histórica:** `octo → huit` y `dictum → dit` quedan apartadas hasta contrastar sus etapas históricas. `sigĭllum → segell` puede anotarse para estudio histórico interno, con aviso explícito de que el DCVB lo caracteriza como voz arcaica reintroducida en el uso culto; **no** autoriza una evolución patrimonial evaluable. La reserva se conserva como dato privado, mientras que las tres fichas aparecen **solo en castellano**.
+
+**Próxima tanda:** `shared/academic/evolutio-valenciano/cola-revisio-24.json` selecciona 24 propuestas particularmente útiles y relativamente deducibles para auditoría individual de DCVB, DNV y secuencia fonética. No son candidaturas autorizadas para preguntas.
+
+Archivos activos: `conciliacion-curada.json`, `revisio-32-2026-11-16.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`. El antiguo `revisio-26.json` se retiene como evidencia histórica. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
+
+---
+
+## Foto histórica del arranque (13/11/2026; sustituida por el estado de arriba)
 
 Se ha preparado la **matriz de los 522 étimos** del banco de Evolutio integrado en ScholaClassica, con el mismo SHA de origen establecido en `config/sources.lock.json`. No se ha cambiado el banco castellano, ni el motor, ni el servicio offline. **No se ha activado la práctica en valenciano.**
 
