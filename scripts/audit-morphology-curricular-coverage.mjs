@@ -100,7 +100,7 @@ const COURSE=Object.freeze([
  {id:'griego1',language:'griego',grammar:'griego',total:14}
 ]);
 const rng=()=>0.371;
-const tableCount=html=>(String(html).match(/<table\\b/gu)||[]).length;
+const tableCount=html=>(String(html).match(/<table\b/gu)||[]).length;
 const sampleModes=(bank,language,unit,kind,subset)=>{
   if(!subset.length)return {choiceAnalysis:0,choiceForm:0,written:0,tables:0};
   const local={...bank,records:subset};
@@ -228,7 +228,7 @@ if(main){
   const out=join(root,'build/academic-audits/morphology');
   mkdirSync(out,{recursive:true});
   writeFileSync(join(out,'cobertura-por-unidades-v1.json'),
-    JSON.stringify(report,null,2)+'\\n');
+    JSON.stringify(report,null,2)+'\n');
   console.log('AUDITORIA_MORFOLOGIA_UNIDADES',JSON.stringify({
     counts:report.counts,findingsTotal:report.findingsTotal,
     findings:report.findings,
