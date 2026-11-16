@@ -7,6 +7,7 @@ import {
  scholaVocabularyProvenance,scholaVocabularyAll,
  scholaVocabularyVisibleUnits,scholaVocabularyEditorialNote
 } from '../scripts/vocabula-all-model.mjs';
+import {GREEK1_KINDYNOS_GENERAL_ID} from '../scripts/greek1-kindynos-ud5-decision.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const parse=file=>JSON.parse(readFileSync(file,'utf8')
@@ -17,12 +18,13 @@ const key=s=>String(s).split(':')[0].split(/[,+(]/u)[0]
  .toLowerCase().replaceAll('æ','ae').replaceAll('œ','oe').replaceAll('ς','σ')
  .normalize('NFD').replace(/\p{M}/gu,'').replace(/\s+/gu,' ').trim();
 
-test('Solo se introducen rótulos de alumnado, sin modificar 2055 fichas ni unidades',()=>{
+test('No se modifican las fichas salvo decisiones de 4.º y κίνδυνος General UD5',()=>{
  assert.equal(origin.length,2055);
  assert.equal(current.length,2055);
  for(let i=0;i<origin.length;i++){
   assert.equal(origin[i].id,current[i].id);
-  if(['lat1','gr1'].includes(origin[i].subject))
+  if(['lat1','gr1'].includes(origin[i].subject)&&
+     origin[i].id!==GREEK1_KINDYNOS_GENERAL_ID)
    assert.deepEqual(current[i],origin[i],
     'No se puede reclasificar un banco sin evidencia de unidad');
  }
@@ -78,11 +80,14 @@ test('Latín I: 140 etiquetas de ampliación, solo 73 lemas sin unidad anterior'
   fromGeneral.units,'No reasignar palabras que aparecen también en unidades previas');
 });
 
-test('Griego I: 184 fichas alfabéticas complementarias sin asignación artificial',()=>{
+test('Griego I: 184 históricas sin UD, 183 integradas tras decisión puntual',()=>{
  const general=origin.filter(e=>e.subject==='gr1'&&e.mode==='general');
  const noUnit=general.filter(e=>e.units.includes('Sin unidad acreditada'));
  assert.equal(noUnit.length,184);
  assert.ok(noUnit.every(e=>e.units.length===1));
+ assert.equal(current.filter(e=>e.subject==='gr1'&&e.mode==='general'&&
+   e.units.includes('Sin unidad acreditada')).length,183);
+ assert.deepEqual(current.find(e=>e.id===GREEK1_KINDYNOS_GENERAL_ID).units,['UD 5']);
  const grouping=scholaVocabularyAll(current,'gr1',['Sin unidad acreditada']);
  assert.ok(grouping.length>0);
  assert.ok(grouping.every(e=>
