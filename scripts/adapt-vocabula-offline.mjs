@@ -12,8 +12,8 @@ export function adaptVocabulaOfflineHtml(html){
    '<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/favicon.ico?v=1"',
    'manifest');
  html=once(html,
-   '<script src="teacher.js?v=20261113-solo-alumnos1" defer></script>',
-   '<script src="schola-offline.js" defer></script><script src="teacher.js?v=20261113-solo-alumnos1" defer></script>',
+   '<script src="teacher.js?v=20261116-schola1" defer></script>',
+   '<script src="schola-offline.js" defer></script><script src="teacher.js?v=20261116-schola1" defer></script>',
    'scripts');
  html=once(html,'<p id="cloud-status" class="small" role="status">Cargando las últimas palabras…</p>',
    '<div><p id="cloud-status" class="small" role="status">Cargando las últimas palabras…</p><p id="pending-reports" class="small" role="status" aria-live="polite"></p></div>',

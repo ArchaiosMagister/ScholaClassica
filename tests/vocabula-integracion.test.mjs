@@ -31,7 +31,7 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
   const expected=from
     .replace('<option value="dark">Oscuro</option>','<option value="dark">Oscuro</option><option value="oled">OLED</option>')
     .replace('<a class="study-tab" href="gramatica.html">Gramática</a>','<a class="study-tab" href="../gramatica/index.html">Gramática de consulta</a>')
-    .replace('<script src="teacher.js?v=20261112" defer></script>','<script src="teacher.js?v=20261112" defer></script><script src="schola-bridge.js" defer></script>')
+    .replace('<script src="teacher.js?v=20261113-alumnos" defer></script>','<script src="teacher.js?v=20261113-alumnos" defer></script><script src="schola-bridge.js" defer></script>')
     .replace('src="theme.js?v=1"','src="theme.js?v=1-oled1"')
     .replace('href="style.css?v=20261109-tabs1"','href="style.css?v=20261109-tabs1-oled1"')
     .replace('Practica el vocabulario original de Latín y Griego por unidades, con tarjetas, test y traducción.','Practica el vocabulario de Latín y Griego por unidades, con tarjetas, test y traducción.')
@@ -39,12 +39,15 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
     .replace('En Griego general, 148 entradas tienen correspondencia con las unidades de examen y 184 quedan sin unidad acreditada. Los grupos de unidades se mantienen unidos; no se asignan unidades por traducción o parecido ortográfico.','En Griego general encontrarás palabras organizadas por unidades y otros grupos para repasar.')
     .replace('<button id="open-teacher" class="primary" type="button">Área de profesor</button>','')
     .replace('<dialog id="teacher-dialog" aria-labelledby="teacher-title"></dialog>','')
-    .replace('teacher.js?v=20261112','teacher.js?v=20261113-solo-alumnos1')
+    .replace('teacher.js?v=20261113-alumnos','teacher.js?v=20261116-schola1')
     .replace('app.js?v=20261112','app.js?v=20261113-alumnos1');
   assert.notEqual(from,to);
   assert.equal(to,adaptVocabulaOfflineHtml(adaptVocabulaAllHtml(expected)));
   assert.ok(!to.includes('id="open-teacher"'));
   assert.ok(!to.includes('id="teacher-dialog"'));
+  const nativeTeacher=readFileSync(join(source,'teacher.js'),'utf8');
+  assert.ok(!nativeTeacher.includes('Authorization')&&!nativeTeacher.includes('sessionStorage'));
+  assert.ok(!from.includes('id="open-teacher"')&&!from.includes('id="teacher-dialog"'));
   const studentJs=readFileSync(join(target,'teacher.js'),'utf8');
   assert.match(studentJs,/scholaMode==='all'/);
   assert.match(studentJs,/scholaVocabularyReportPayload\(reportContext/);

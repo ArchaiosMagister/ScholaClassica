@@ -179,7 +179,7 @@ await adaptVocabulaOled(vocabulaDestination);
 const vocabulaIndex=join(vocabulaDestination,'index.html');
 let vocabulaHTML=await readFile(vocabulaIndex,'utf8');
 const sourceTab='<a class="study-tab" href="gramatica.html">Gramática</a>';
-const sourceScript='<script src="teacher.js?v=20261112" defer></script>';
+const sourceScript='<script src="teacher.js?v=20261113-alumnos" defer></script>';
 if(!vocabulaHTML.includes(sourceTab)||!vocabulaHTML.includes(sourceScript))throw Error('Vocabula cambió su navegación o scripts: revisar adaptación');
 vocabulaHTML=vocabulaHTML.replace(sourceTab,'<a class="study-tab" href="../gramatica/index.html">Gramática de consulta</a>')
   .replace(sourceScript,sourceScript+'<script src="schola-bridge.js" defer></script>')

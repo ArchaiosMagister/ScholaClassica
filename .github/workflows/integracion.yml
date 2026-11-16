@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ArchaiosMagister/VocabulaLatinaGraecaque
-          ref: 0e16505b7631298a0448c4160a5d258f82732bfe
+          ref: a7be2161a2401816ede78a96981daaac6850b8d2
           path: .sources/vocabula
           persist-credentials: false
       - name: Obtener UniMorph Latin completo en revisión fijada (solo auditoría)
