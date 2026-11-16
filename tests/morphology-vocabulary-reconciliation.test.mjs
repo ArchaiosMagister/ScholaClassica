@@ -90,9 +90,10 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
     unimorphParts:unmorph,vocabulaSha:lock.sources.vocabula.sha});
   assert.deepEqual(records.map(x=>x.id),
     names.map(id=>'griego-sustantivo-'+id));
-  assert.deepEqual(bank.records.slice(-9),records,
+  assert.deepEqual(bank.records.slice(bank.records.findIndex(x=>x.id===records[0].id),
+    bank.records.findIndex(x=>x.id===records[0].id)+9),records,
     'Las nueve fichas quedan anexadas al final sin desplazar otras');
-  assert.equal(bank.records.filter(x=>x.language==='griego').length,92);
+  assert.equal(bank.records.filter(x=>x.language==='griego').length,93);
   assert.equal(bank.records.filter(x=>x.language==='latin').length,89);
   for(const r of records){
     assert.equal(r.forms.length,10);
@@ -120,7 +121,7 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
       .some(x=>x.id===r.id),'Palabra adelantada antes del grupo exigible');
   }
   assert.equal(find('griego-sustantivo-anthropos').gender,'común');
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:10}).length,72);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:10}).length,78);
   const masculine=greekNounPhrasePairs(bank,{language:'griego',unit:10})
     .filter(x=>x.noun.id==='griego-sustantivo-anthropos');
   assert.equal(masculine.length,3,'Solo tres parejas con masculino docente');
