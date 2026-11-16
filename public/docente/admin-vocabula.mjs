@@ -1,4 +1,4 @@
-import {mergeCatalog,matchCatalog} from './vocabula-catalog.mjs';
+import {mergeCatalog,matchCatalog,matchingOriginals,entryKey} from './vocabula-catalog.mjs';
 // Herramientas docentes de Vocabula; no reutilizan su código privado heredado.
 // El servidor verifica de nuevo la UUID y el nivel aal2 en CADA operación.
 // Nunca introducir HTML proveniente de palabras o avisos.
@@ -85,7 +85,9 @@ function editWord(word=null){
   el('admin-word-answers').value=(word?.answers||[]).join('\n');
   el('admin-word-units').value=(word?.units||[]).join('; ');
   el('admin-word-category').value=word?.subject==='lat2'?(word?.units||[])[0]||'':'';
-  el('admin-word-exam').checked=word?.in_exam===true;
+  el('admin-word-exam').checked=word?.origin==='original'
+    ?matchingOriginals(catalog,word).some(source=>source.mode==='examen')
+    :word?.in_exam===true;
   el('admin-word-active').checked=word?.active!==false;
   adjustClassification();
   form.hidden=false;
@@ -103,21 +105,38 @@ function renderWords(){
   }
   words=result.rows;moreWords=result.more;matchedTotal=result.total;
   const container=el('admin-word-list');container.replaceChildren();
-  for(const word of words){
+  for(const group of words){
     const card=text('article','', 'notice');
-    card.append(text('h4',word.form),text('p',word.meaning));
-    card.append(text('small',[(subjects[word.subject]||word.subject),
-      word.origin==='original'?'Banco original':'Aportación docente',
-      (word.units||[]).join(' · '),word.in_exam?'General y examen':'General',
-      word.active?'Disponible':'Retirada'].join(' · ')));
-    const edit=text('button',word.origin==='original'?'Crear versión docente':'Editar palabra');
-    edit.type='button';
-    edit.addEventListener('click',()=>editWord(word));
-    card.append(edit);container.append(card);
+    card.append(text('h4',group.form),text('small',
+      (subjects[group.subject]||group.subject)+' · '+
+      group.originals.length+' fichas originales · '+
+      group.docentes.length+' aportaciones docentes'));
+    const overriding=group.docentes.some(word=>word.active!==false);
+    for(const word of [...group.originals,...group.docentes]){
+      const variant=text('div','', 'admin-word-variant');
+      const source=word.origin==='original'
+        ?'Banco original · '+(word.mode==='examen'?'Examen':'General')
+        :'Aportación docente · '+(word.in_exam?'General y examen':'General');
+      variant.append(
+        text('small',source+' · '+(word.units||[]).join(' · ')+
+          (word.origin==='original'?' · ID '+word.id:'')),
+        text('p',word.meaning),
+        text('small','Respuestas: '+(word.answers||[]).join(' · '))
+      );
+      if(word.origin==='original'&&overriding)
+        variant.append(text('small','Sustituida para el alumnado por la aportación docente.'));
+      if(word.origin==='docente')
+        variant.append(text('small',word.active===false?'Retirada (se recupera el original)':'Disponible'));
+      const edit=text('button',word.origin==='original'?'Crear versión docente':'Editar palabra');
+      edit.type='button';
+      edit.addEventListener('click',()=>editWord(word));
+      variant.append(edit);card.append(variant);
+    }
+    container.append(card);
   }
   status('admin-word-status',result.total
     ?'Mostrando '+(wordOffset+1)+'–'+(wordOffset+words.length)+
-      ' de '+result.total+' entradas (originales y aportaciones docentes).'
+      ' de '+result.total+' lemas; las fichas General y Examen conservan sus acepciones y unidades.'
     :'No hay palabras con esos criterios en el banco original ni en las aportaciones docentes.');
   updatePagination();
 }
@@ -163,6 +182,15 @@ async function saveWord(){
     answers,units,
     in_exam:el('admin-word-exam').checked,
     active:el('admin-word-active').checked};
+  const group=catalog.find(group=>group.key===entryKey(body));
+  if(!editingId&&group?.docentes.length)
+    throw Error('Ya existe una aportación docente para esta forma. Edita su ficha.');
+  const impacted=matchingOriginals(catalog,body);
+  if(body.active&&impacted.length&&
+    !window.confirm('Esta aportación sustituirá en Vocabula las '+impacted.length+
+      ' fichas originales de la forma, tanto de General como de Examen cuando existan. '+
+      'Se conservarán sus IDs y datos originales para recuperarlos si retiras la aportación. ¿Continuar?'))
+    return;
   if(editingId){
     const old=customWords.find(word=>word.id===editingId);
     if(old?.active&&body.active===false&&
