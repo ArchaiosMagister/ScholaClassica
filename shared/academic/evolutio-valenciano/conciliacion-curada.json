@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-16",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -355,6 +355,204 @@
         "scope": "lema_i_etimologia"
       },
       "notes": "DCVB, etimologia de port ('port marítim'): del llatí pŏrtu; no traslladar l'obertura castellana -u > -o."
+    },
+    {
+      "latin": "pœnam",
+      "form": "pena",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pena",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Accepció 'càstig o sofriment'; altres homònims pena provenen de penna/pinna, no de poena. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "scutum",
+      "form": "escut",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=escut",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Accepció 'escut defensiu'; no confondre usos derivats ni terminacions cultes. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "spicam",
+      "form": "espiga",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espiga",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Espiga de cereal: SPĪCA; el canvi intervocàlic és -c- > -g-, NO p > g. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "cannam",
+      "form": "canya",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=canya",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Accepció canya vegetal, del llatí CANNA; palatalització -nn- > -ny-. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "guttam",
+      "form": "gota",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gota",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Gota de líquid, del llatí GŬTTA; obertura ŭ > o i reducció de -tt-. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "pannum",
+      "form": "pany",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pany",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "L'accepció moderna 'pany de porta' té origen semàntic en pannu 'tros de tela'; cal explicar el canvi de sentit. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "septem",
+      "form": "set",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=set",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Exclusivament numeral '7'; el DCVB també registra 'set' 'sed' de sĭte, un ètim diferent. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "iurare",
+      "form": "jurar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jurar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Jurar un jurament, del llatí IŪRARE. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "surdum",
+      "form": "sord",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sord",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adjectiu 'que no hi sent', del llatí SŬRDU; no homònim sort. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "hŏrtum",
+      "form": "hort",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=hort",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Hort de conreu, del llatí HŎRTU; h- no s'analitza amb ASPIR castellana. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "sortem",
+      "form": "sort",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sort",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Nom 'sort' (fortuna), del llatí SŎRTE; no el topònim Sort d'etimologia distinta. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "pellem",
+      "form": "pell",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pell",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Pell de persona/animal, del llatí PĔLLE; no el nom pèl. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "crustam",
+      "form": "crosta",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=crosta",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Crosta de pa o ferida, del llatí CRŬSTA. El DCVB alerta que la vocal o oberta pot deure's a influències analògiques; no certificar-ne la mecànica. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "timorem",
+      "form": "temor",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=temor",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Nom de 'por', del llatí TĬMŌRE; documenta pronúncia valenciana de -r final. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "muscam",
+      "form": "mosca",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mosca",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Nom de l'insecte, del llatí MŬSCA; obertura ŭ > o. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "fŏrtia",
+      "form": "força",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Nom de força física, del llatí vulgar FŎRTĬA segons el DCVB; no confondre amb 'forca' d'origen FŬRCA. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "rŏtam",
+      "form": "roda",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roda",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Nom comú 'roda', del llatí RŎTA; no el topònim Roda. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "iuncum",
+      "form": "jonc",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jonc",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Jonc vegetal, del llatí IŬNCU; el DCVB registra pronúncies valencianes tant amb o com amb u. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
     }
   ],
   "proposals": [
@@ -401,13 +599,6 @@
       "notes": null
     },
     {
-      "latin": "iurare",
-      "form": "jurar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "maiorem",
       "form": "major",
       "lexicalStatus": "proposta",
@@ -436,22 +627,8 @@
       "notes": null
     },
     {
-      "latin": "pœnam",
-      "form": "pena",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "radium",
       "form": "raig",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "scutum",
-      "form": "escut",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -466,13 +643,6 @@
     {
       "latin": "spatium",
       "form": "espai",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "spicam",
-      "form": "espiga",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -501,13 +671,6 @@
     {
       "latin": "tonare",
       "form": "tronar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "crustam",
-      "form": "crosta",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -571,13 +734,6 @@
     {
       "latin": "calĕntem",
       "form": "calent",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "cannam",
-      "form": "canya",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -688,13 +844,6 @@
       "notes": null
     },
     {
-      "latin": "hŏrtum",
-      "form": "hort",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "insŭlam",
       "form": "illa",
       "lexicalStatus": "proposta",
@@ -786,20 +935,6 @@
       "notes": null
     },
     {
-      "latin": "pannum",
-      "form": "pany",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "rŏtam",
-      "form": "roda",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "nominare",
       "form": "nomenar",
       "lexicalStatus": "proposta",
@@ -856,13 +991,6 @@
       "notes": null
     },
     {
-      "latin": "guttam",
-      "form": "gota",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "pilum",
       "form": "pèl",
       "lexicalStatus": "proposta",
@@ -886,20 +1014,6 @@
     {
       "latin": "spissum",
       "form": "espés",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "surdum",
-      "form": "sord",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "iuncum",
-      "form": "jonc",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -991,13 +1105,6 @@
     {
       "latin": "dŏmĭnam",
       "form": "dona",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "fŏrtia",
-      "form": "força",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1269,13 +1376,6 @@
       "notes": null
     },
     {
-      "latin": "septem",
-      "form": "set",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "temptare",
       "form": "temptar",
       "lexicalStatus": "proposta",
@@ -1334,13 +1434,6 @@
     {
       "latin": "pedem",
       "form": "peu",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pellem",
-      "form": "pell",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1689,13 +1782,6 @@
       "notes": null
     },
     {
-      "latin": "muscam",
-      "form": "mosca",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "mustum",
       "form": "most",
       "lexicalStatus": "proposta",
@@ -1719,13 +1805,6 @@
     {
       "latin": "ordinare",
       "form": "ordenar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "timorem",
-      "form": "temor",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1768,13 +1847,6 @@
     {
       "latin": "serram",
       "form": "serra",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "sortem",
-      "form": "sort",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
