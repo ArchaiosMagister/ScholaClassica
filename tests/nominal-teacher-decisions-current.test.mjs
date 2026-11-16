@@ -62,8 +62,7 @@ test('ἄνθρωπος conserva sus diez casillas y su género común; masculin
 });
 
 test('No importar por analogía las otras cinco decisiones: exigir la validación individual',()=>{
- for(const id of ['latin-sustantivo-decision-cantus',
-  'latin-sustantivo-decision-domus',
+ for(const id of ['latin-sustantivo-decision-domus',
   'latin-sustantivo-decision-liber'])
   assert.equal(bank.records.some(r=>r.id===id),false,id);
  const vocabula=load('config/sources.lock.json').sources.vocabula.sha;

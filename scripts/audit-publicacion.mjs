@@ -117,6 +117,13 @@ assert.ok(nouns.filter(n=>n.id!=='griego-sustantivo-ouranos')
   'No excluir los plurales de otros sustantivos');
 assert.ok(nouns.find(n=>n.id==='griego-sustantivo-anthropos')?.gender==='común',
   'No falsear como género masculino exclusivo el sustantivo ἄνθρωπος');
+const cantus=morphology.records.find(r=>r.id==='latin-sustantivo-decision-cantus');
+assert.ok(cantus&&cantus.unit===7&&cantus.gender==='masculino'&&
+ cantus.evidence.teacherDecision==='cuarta-sin-mezcla'&&
+ cantus.evidence.vocabulaEntry==='d20502b9069bd664'&&
+ cantus.forms.length===12);
+assert.equal(cantus.forms.find(f=>f.analysis==='genitivo plural').form,'cantuum');
+assert.ok(!cantus.forms.some(f=>['canti','cantorum','cantos'].includes(f.form)));
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');
