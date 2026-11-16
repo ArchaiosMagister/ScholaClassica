@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
-  "date": "2026-11-13",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.",
+  "date": "2026-11-16",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -289,6 +289,72 @@
         "scope": "lema_i_etimologia"
       },
       "notes": null
+    },
+    {
+      "latin": "cælum",
+      "form": "cel",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cel",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "DCVB, etimologia de cel: del llatí caelum; correspondència patrimonial validada lèxicament, lleis encara no certificades."
+    },
+    {
+      "latin": "ocŭlum",
+      "form": "ull",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ull",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "DCVB, etimologia d'ull: del llatí vulgar ŏclu (contracció d'ŏcŭlus). Analitzar la síncope abans de la palatalització, sense traslladar -CUL- castellà."
+    },
+    {
+      "latin": "scholam",
+      "form": "escola",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=escola",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "DCVB, etimologia d'escola: llatí schŏla; verificar lexia i adaptació gràfica, sense suposar un pas fonètic no acreditat."
+    },
+    {
+      "latin": "fŏntem",
+      "form": "font",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=font",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "DCVB, etimologia de font: del llatí fŏnte; l'e final desapareix, -m acusativa és fixa."
+    },
+    {
+      "latin": "salutem",
+      "form": "salut",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=salut",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "DCVB, etimologia de salut: del llatí salūte; pèrdua de -e final."
+    },
+    {
+      "latin": "portum",
+      "form": "port",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=port",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "DCVB, etimologia de port ('port marítim'): del llatí pŏrtu; no traslladar l'obertura castellana -u > -o."
     }
   ],
   "proposals": [
@@ -302,13 +368,6 @@
     {
       "latin": "cadere",
       "form": "caure",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "cælum",
-      "form": "cel",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -377,13 +436,6 @@
       "notes": null
     },
     {
-      "latin": "ocŭlum",
-      "form": "ull",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "pœnam",
       "form": "pena",
       "lexicalStatus": "proposta",
@@ -428,13 +480,6 @@
     {
       "latin": "uittam",
       "form": "veta",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "scholam",
-      "form": "escola",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -629,13 +674,6 @@
       "notes": null
     },
     {
-      "latin": "fŏntem",
-      "form": "font",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "grŏssum",
       "form": "gros",
       "lexicalStatus": "proposta",
@@ -741,13 +779,6 @@
       "notes": null
     },
     {
-      "latin": "octo",
-      "form": "huit",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "ouicŭlam",
       "form": "ovella",
       "lexicalStatus": "proposta",
@@ -771,13 +802,6 @@
     {
       "latin": "nominare",
       "form": "nomenar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "salutem",
-      "form": "salut",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -897,13 +921,6 @@
     {
       "latin": "parabolam",
       "form": "paraula",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "dictum",
-      "form": "dit",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1149,13 +1166,6 @@
     {
       "latin": "serpĕntem",
       "form": "serp",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "sigĭllum",
-      "form": "segell",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1756,13 +1766,6 @@
       "notes": null
     },
     {
-      "latin": "portum",
-      "form": "port",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "serram",
       "form": "serra",
       "lexicalStatus": "proposta",
@@ -1796,6 +1799,29 @@
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
+    }
+  ],
+  "reserved": [
+    {
+      "latin": "octo",
+      "form": "huit",
+      "reason": "Cadena històrica de -ct- i aspiració inicial pendent de verificació completa; només castellà fins a decisió docent.",
+      "mode": "solo_castellano",
+      "historicalStudy": false
+    },
+    {
+      "latin": "dictum",
+      "form": "dit",
+      "reason": "Etapes històriques de -ct- > -it- no verificades una per una; només castellà fins a decisió docent.",
+      "mode": "solo_castellano",
+      "historicalStudy": false
+    },
+    {
+      "latin": "sigĭllum",
+      "form": "segell",
+      "reason": "El DCVB assenyala mot arcaic reintroduït en la llengua culta; estudi històric possible amb advertiment, sense activació ni automatismes.",
+      "mode": "solo_castellano",
+      "historicalStudy": true
     }
   ]
 }
