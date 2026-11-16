@@ -61,9 +61,11 @@ test('ἄνθρωπος conserva sus diez casillas y su género común; masculin
  }
 });
 
-test('No importar por analogía las otras cinco decisiones: exigir la validación individual',()=>{
- for(const id of ['latin-sustantivo-decision-domus'])
-  assert.equal(bank.records.some(r=>r.id===id),false,id);
+test('Las cinco decisiones importadas mantienen IDs nuevos y origen exacto',()=>{
+ for(const id of ['griego-sustantivo-decision-pais',
+  'griego-sustantivo-decision-athenai','latin-sustantivo-decision-cantus',
+  'latin-sustantivo-decision-liber','latin-sustantivo-decision-domus'])
+  assert.equal(bank.records.filter(r=>r.id===id).length,1,id);
  const vocabula=load('config/sources.lock.json').sources.vocabula.sha;
  assert.equal(bank.vocabulaSha,vocabula);
  const source=readFileSync(join(root,'.sources/vocabula/data.js'),'utf8');
