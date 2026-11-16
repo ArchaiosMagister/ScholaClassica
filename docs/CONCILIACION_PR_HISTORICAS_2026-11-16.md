@@ -1,5 +1,7 @@
 # Conciliación de las nueve PR históricas abiertas — 16/11/2026
 
+> **Nota de actualización — 16/11/2026, tras la fase nominal.** Este documento conserva el diagnóstico histórico sobre `main@e023e8b`. Posteriormente, las seis decisiones nominales de la antigua #35 quedaron integradas por separado en las PR #99–#104, publicadas juntas en `main@60f57fc344f13ff979b0044c27dd4e98c0ec69ab` con 446/446 pruebas correctas. La corrección léxica de #96 se ha reconstruido sobre ese `main` en la PR #105 para evitar conflictos antiguos. El resto de reservas de #35 no se importa por analogía. Las PR #45/#46 (valenciano) y #47 (área docente) requieren conciliación separada. Este informe no debe interpretarse como descripción de un estado actual distinto del que consta en cada PR.
+
 **Base examinada:** `main@e023e8bca8ea87a4994b61de35a713aaf00ca087`, tras las integraciones #93, #94 y #95. Este documento es **solo seguimiento docente y técnico**: no modifica bancos, ejercicios, rutas, PWA, Supabase ni acceso público. No se incorporan ramas antiguas mediante merges masivos.
 
 ## Método
