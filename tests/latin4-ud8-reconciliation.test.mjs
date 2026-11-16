@@ -6,6 +6,8 @@ import {join,resolve} from 'node:path';
 import {correctLatin4Vocabula} from '../scripts/latin4-lexical-editorial.mjs';
 import {reconcileLatin4ExamUd8,LATIN4_UD8_EXAM_REVIEW}
   from '../scripts/latin4-ud8-reconciliation.mjs';
+import {applyGreek1KindynosUd5,GREEK1_KINDYNOS_GENERAL_ID}
+  from '../scripts/greek1-kindynos-ud5-decision.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const fromJs=readFileSync(join(root,'.sources/vocabula/data.js'),'utf8');
@@ -34,12 +36,18 @@ test('Las 17 palabras de Examen UD8–9 tienen una pareja explícita en General 
    assert.equal(e.meaning,g.meaning,row.lemma);
  }
 });
-test('La copia solo reasigna UD8 de examen y conserva IDs, glosas, respuestas y originales',()=>{
+test('La copia solo reasigna 17 fichas Examen UD8 y κίνδυνος General UD5 por decisión',()=>{
  assert.equal(original.length,2055);
  assert.equal(built.length,original.length);
- assert.deepEqual(built,reconcileLatin4ExamUd8(correctLatin4Vocabula(original)));
- const altered=built.filter((e,i)=>e.units.join('|')!==original[i].units.join('|'));
+ assert.deepEqual(built,
+   applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(original))));
+ const altered=built.filter((e,i)=>e.subject==='lat4'&&
+   e.units.join('|')!==original[i].units.join('|'));
  assert.equal(altered.length,17);
+ const greek= built.find(e=>e.id===GREEK1_KINDYNOS_GENERAL_ID);
+ assert.deepEqual(greek.units,['UD 5']);
+ assert.deepEqual(original.find(e=>e.id===GREEK1_KINDYNOS_GENERAL_ID).units,
+   ['Sin unidad acreditada']);
  assert.equal(built.filter(e=>e.subject==='lat4'&&e.mode==='examen'&&
    e.units.includes('UD 8–9')).length,0);
  for(const e of altered){
