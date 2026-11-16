@@ -36,6 +36,7 @@
     "test:lexicografia:lat2:compuestos": "node --test tests/latin2-compounds.test.mjs",
     "audit:morfologia:vocabulario": "node scripts/audit-morphology-vocabulary.mjs",
     "test:browser:vocabula:offline": "node tests/vocabula-offline-browser.mjs",
-    "audit:filologia:transversal": "node scripts/audit-filologia-transversal.mjs"
+    "audit:filologia:transversal": "node scripts/audit-filologia-transversal.mjs",
+    "audit:curriculum:scope": "node scripts/audit-curricular-scope.mjs"
   }
 }
