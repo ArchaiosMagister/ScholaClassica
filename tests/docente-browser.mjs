@@ -185,6 +185,17 @@ try{
   assert.ok(silva.includes('General')&&silva.includes('Examen'),silva);
   assert.ok(silva.includes('UD 3')&&silva.includes('UD 6'),silva);
   assert.equal(await silvaCard.first().locator('button').count(),0);
+  assert.equal(await silvaCard.first().locator('.admin-word-variant').count(),2,
+    'Cada ficha histórica de silva debe tener su propia subficha');
+  const sourceIds=[...silva.matchAll(/ID ([a-f0-9]{16})/g)].map(match=>match[1]);
+  assert.equal(sourceIds.length,2,'General y Examen conservan IDs visibles distintos');
+  assert.equal(new Set(sourceIds).size,2);
+  await good.locator('#admin-search').fill(sourceIds[0]);
+  await good.locator('#admin-search-form button[type="submit"]').click();
+  await good.waitForFunction(id=>document.querySelector('#admin-word-list h4')?.textContent==='silva, –æ'
+    &&document.querySelector('#admin-word-list')?.textContent?.includes(id),sourceIds[0]);
+  assert.equal(await good.locator('#admin-word-list .notice').count(),1,
+    'El ID histórico debe permitir recuperar la forma y todas sus acepciones');
   await good.locator('#admin-search').fill('Ephesius');
   await good.locator('#admin-search-form button[type="submit"]').click();
   await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('Ephesius'));
