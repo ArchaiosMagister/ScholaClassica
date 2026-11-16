@@ -4,6 +4,7 @@ import {resolve} from 'node:path';
 import {auditCurricularScope,loadCurricularScope,COURSE_SCOPES}
   from '../scripts/audit-curricular-scope.mjs';
 import {scholaVocabularyVisibleUnits} from '../scripts/vocabula-all-model.mjs';
+import {GREEK1_KINDYNOS_GENERAL_ID} from '../scripts/greek1-kindynos-ud5-decision.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const source=loadCurricularScope(root);
@@ -49,6 +50,8 @@ test('Griego I: 184 fichas sin unidad son General, no Examen',()=>{
   const x=report.courses.griego1;
   assert.deepEqual(x.sourceVocabulary,{general:332,examen:171});
   assert.deepEqual(x.historicalGroups.withoutAccreditedUnit,{general:184,examen:0});
+  assert.equal(report.approvedGreek1GeneralUd5Id,GREEK1_KINDYNOS_GENERAL_ID);
+  assert.equal(report.remainingGreek1GeneralUnassigned,183);
   assert.deepEqual(x.historicalGroups.onlyBeyond,{general:0,examen:0});
   assert.deepEqual(x.firstAndLastExamUnit,[1,10]);
   assert.equal(x.lateExamEntries.length,0);
@@ -63,6 +66,11 @@ test('Guardas contra reclasificaciones o adelantos curriculares no autorizados',
     x.units?.includes('Sin unidad acreditada'));
   greek.mode='examen';
   assert.throws(()=>auditCurricularScope(copy2),/No trasladar palabras sin UD/u);
+  const copy4=structuredClone(source);
+  const greekDifferent=copy4.integrated.find(x=>x.subject==='gr1'&&
+    x.mode==='general'&&x.units?.includes('Sin unidad acreditada'));
+  greekDifferent.units=['UD 5'];
+  assert.throws(()=>auditCurricularScope(copy4),/No cambiar las demás 502 fichas griegas/);
   const copy3=structuredClone(source);
   copy3.bank.records.find(x=>x.language==='latin4').unit=9;
   assert.throws(()=>auditCurricularScope(copy3),/Morfología fuera de las unidades/u);
