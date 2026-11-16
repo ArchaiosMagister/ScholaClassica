@@ -119,6 +119,9 @@ export function practiceEligibleEntries(record){
      !/excluir del sorteo/i.test(f.usage||'')));
 }
 export function practiceOrdinaryEntries(record){
+  if(record.id==='latin-sustantivo-decision-domus')
+    return practiceEligibleEntries(record).filter(f=>
+      !/arcaica|tardía|poética|muy rara/iu.test(f.usage||''));
   if(record.language!=='latin2')return practiceEligibleEntries(record);
   // Una variante poco común puede aceptarse como respuesta alternativa a
   // otra casilla documentada, pero no iniciará una pregunta por sí sola.
