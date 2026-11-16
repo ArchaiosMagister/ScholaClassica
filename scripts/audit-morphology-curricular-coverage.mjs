@@ -9,7 +9,7 @@ import {loadCurricularScope} from './audit-curricular-scope.mjs';
 import {makeQuestions} from '../public/morfologia/engine.mjs';
 import {makeWrittenQuestions,makeTableExercises} from '../public/morfologia/written.mjs';
 
-const d=(topic,kinds)=>({topic,mode:'introduced',kinds:Array.isArray(kinds)?kinds:[kinds]});
+const d=(topic,kinds,markers=[])=>({topic,mode:'introduced',kinds:Array.isArray(kinds)?kinds:[kinds],markers});
 const reuse=(topic,kinds)=>({topic,mode:'reused',kinds:Array.isArray(kinds)?kinds:[kinds]});
 const non=(topic,reason)=>({topic,mode:'not-flexional',reason});
 const special=(topic,feature)=>({topic,mode:'special-case',feature});
@@ -39,11 +39,11 @@ export const CURRICULAR_MORPHOLOGY_PLAN=Object.freeze({
    d('Verbos deponentes','verbo'),
    d('Futuro imperfecto de indicativo: activa, pasiva y sum','verbo'),
    non('Dativo posesivo','Función sintáctica')],
-  [d('Infinitivos y oración de infinitivo','infinitivo'),
+  [d('Infinitivos y oración de infinitivo','verbo',['infinitivo']),
    d('Identidad y énfasis','pronombre'),
    non('Quod causal','Nexo y sintaxis, sin flexión propia')],
   [d('Comparativos y superlativos','adjetivo'),
-   d('Participio de perfecto y tiempos compuestos pasivos',['participio','verbo'])],
+   d('Participio de perfecto y tiempos compuestos pasivos','verbo',['pasivo'])],
   [d('Participios concertados y ablativo absoluto','participio'),
    non('Acusativo de extensión','Función sintáctica')]
  ],
@@ -146,7 +146,11 @@ export function auditMorphologyCurricularCoverage({bank,curricula},{sampleExerci
       const topics=plan[index].map((rule,i)=>{
         const same=introduced.filter(r=>rule.kinds?.includes(r.kind));
         const all=accumulated.filter(r=>rule.kinds?.includes(r.kind));
-        const evidenceSame=same.filter(r=>r.evidence?.topic===rule.topic);
+        const evidenceSame=introduced.filter(r=>r.evidence?.topic===rule.topic);
+        const markers=rule.markers||[];
+        const markerMatches=markers.every(marker=>same.some(r=>
+          r.forms.some(f=>String(f.analysis||'').toLowerCase()
+            .includes(marker.toLowerCase()))));
         let status='no-aplica-flexion',forms=0,exercise=null;
         if(rule.mode==='special-case'){
           const specialForms=accumulated.flatMap(r=>r.forms||[])
@@ -156,7 +160,9 @@ export function auditMorphologyCurricularCoverage({bank,curricula},{sampleExerci
         }else if(rule.mode==='introduced'||rule.mode==='reused'){
           forms=same.reduce((a,r)=>a+r.forms.length,0);
           if(rule.mode==='introduced'){
-            status=same.length?'categoria-introducida':'sin-modelo-nuevo-de-la-categoria';
+            status=rule.kinds.every(kind=>same.some(r=>r.kind===kind))&&markerMatches?
+              'categoria-introducida':
+              (same.length?'categoria-sin-rasgo-tematico':'sin-modelo-nuevo-de-la-categoria');
           }else{
             status=rule.kinds.every(kind=>all.some(r=>r.kind===kind))?
               'aplicacion-de-modelos-previos':'aplicacion-sin-todos-los-modelos';
@@ -177,11 +183,12 @@ export function auditMorphologyCurricularCoverage({bank,curricula},{sampleExerci
           status,newRecords:same.length,newForms:forms,
           exactTopicEvidence:evidenceSame.length,
           inheritedRecords:all.length,
+          ...(markers.length?{markers,markerMatches}:{}),
           ...(exercise?{exercise}:{}),
           ...(rule.mode==='introduced'?{recordIds:same.map(r=>r.id)}:{})
         };
-        if(['sin-modelo-nuevo-de-la-categoria','aplicacion-sin-todos-los-modelos',
-           'caso-especial-sin-ficha'].includes(status)){
+        if(['sin-modelo-nuevo-de-la-categoria','categoria-sin-rasgo-tematico',
+           'aplicacion-sin-todos-los-modelos','caso-especial-sin-ficha'].includes(status)){
           findings.push({course:spec.id,unit:number,topic:rule.topic,
             status,affectedKinds:rule.kinds||[rule.feature],
             note:'Candidato de revisión. La ausencia de un modelo introducido en esta unidad no demuestra por sí sola falta de todas las formas; cotejar material y práctica.'});
