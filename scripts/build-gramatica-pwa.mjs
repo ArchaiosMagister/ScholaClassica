@@ -6,6 +6,8 @@ import {join} from 'node:path';
 const PREFIX='schola-gramatica-';
 export const GRAMMAR_CORE=[
  './index.html','./curso.html','./val/index.html','./val/curso.html',
+ './sintaxis.html','./conjunciones.html','./subordinadas.html',
+ './val/sintaxis.html','./val/conjunciones.html','./val/subordinadas.html',
  './assets/app.js','./val/app.js',
  './assets/curriculum.json','./val/curriculum.json',
  './assets/curriculum-latin1.json','./val/curriculum-latin1.json',
