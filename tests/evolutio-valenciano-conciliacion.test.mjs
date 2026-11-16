@@ -149,5 +149,8 @@ test('La matriz de trabajo no se publica ni sustituye los recursos originales',(
  assert.equal(existsSync(join(dist,'shared/academic/evolutio-valenciano/matriz-522.json')),false);
  assert.equal(existsSync(join(dist,'apps/evolucion-fonetica/data/valenciano.json')),false);
  const built=JSON.parse(readFileSync(join(dist,'apps/evolucion-fonetica/data/pilot.json'),'utf8'));
- assert.deepEqual(built,bank);
+ assert.equal(built.words.length,622);
+ assert.deepEqual(built.words.slice(0,bank.words.length),bank.words);
+ assert.equal(new Set(built.words.map(w=>w.id)).size,622);
+ assert.deepEqual(built.words.slice(bank.words.length).map(w=>w.source.lot),Array(100).fill(21));
 });
