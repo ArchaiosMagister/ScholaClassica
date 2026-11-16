@@ -130,3 +130,38 @@ de un tema puede corresponder a un ejemplo ilustrativo y no a la
 presentación curricular del lema. La verificación de equivalencia
 ES/VAL se refiere a la presencia del lema por unidad, no a la
 corrección de cada traducción o explicación.
+
+
+---
+
+## Cierre posterior: decisión docente aplicada en la copia integrada (16/11/2026)
+
+Este apartado **actualiza** el estado pendiente documentado arriba; los
+resultados de la auditoría histórica se mantienen para trazabilidad.
+
+- **κίνδυνος, –ου (ὁ)**: la ficha **General** con ID
+  `4e48a20fbf2c03fb` recibe **UD 5 solo en ScholaClassica**. El
+  origen `VocabulaLatinaGraecaque` conserva su valor histórico
+  «Sin unidad acreditada», para no alterar otro repositorio sin
+  conciliación de fuentes.
+- La ficha **Examen** ID `37057f0eb0d649e7` conserva su clasificación
+  **UD 5**, glosa, respuestas y progreso histórico; **no se fusionan**
+  ambas fichas.
+- **15 menciones gramaticales** (UD8, UD10, UD12, UD13 y UD14):
+  decisión **conservar sin unidad léxica**, aunque figuren como
+  ejemplos morfológicos o sintácticos en Appendix.
+- **168 restantes**: sin unidad acreditada y sin cambios. Por tanto,
+  quedan **183 fichas General sin unidad en la copia integrada** y
+  **184 en el banco original inmutable**.
+- Ningún otro registro, identificador, forma, paradigma, estado de
+  aprendizaje, glosa o examen ha sido modificado.
+
+La adaptación reproducible y sus verificaciones se recogen en
+`scripts/greek1-kindynos-ud5-decision.mjs`,
+`tests/greek1-kindynos-ud5.test.mjs`,
+`tests/greek-unassigned-individual.test.mjs` y
+`scripts/audit-greek-unassigned-individual.mjs`.
+
+La nueva conciliación preserva por separado la **adscripción histórica
+de la fuente**, `sourceUnits`, y la **adscripción decidida en la copia**,
+`integratedUnits`, sin inventar exigibilidad para las otras entradas.
