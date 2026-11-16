@@ -116,17 +116,17 @@ await adaptEvolutioOled(phoneticsDestination);
 // y su banco de palabras no se modifican. Importación y verificación reproducibles.
 const levelReport=await adaptEvolutioDifficulty({root,target:phoneticsDestination});
 await adaptEvolutioStudentCopy(phoneticsDestination);
-console.log('ScholaClassica: dificultad de Evolutio basada en resultado castellano',levelReport);
+console.log('ScholaClassica: dificultad de Evolutio según deducibilidad y sin nombres propios en práctica',levelReport);
 // Adaptación local exclusivamente al artefacto integrado: no borrar cachés ajenas del origen.
 const swPath=join(phoneticsDestination,'sw.js');
 let sw=await readFile(swPath,'utf8');
 if(!/const VERSION='[^']+';/.test(sw)||!sw.includes('keys.filter(key=>key!==VERSION)'))
   throw Error('Cambió el service worker original de Evolutio; revisar adaptación antes de publicar');
-sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1-resultado-v4';")
+sw=sw.replace(/const VERSION='([^']+)';/,"const CACHE_PREFIX='schola-evolutio-';\nconst VERSION=CACHE_PREFIX+'$1-deducibilidad-v5';")
   .replace('keys.filter(key=>key!==VERSION)','keys.filter(key=>key.startsWith(CACHE_PREFIX)&&key!==VERSION)');
 const cacheItem="'./src/difficulty.mjs',";
 if(!sw.includes(cacheItem)||sw.includes('./src/result-difficulty.mjs'))throw Error('Evolutio cambió la lista precargada de dificultad: revisar');
-sw=sw.replace(cacheItem,cacheItem+"'./src/result-difficulty.mjs',");
+sw=sw.replace(cacheItem,cacheItem+"'./src/result-difficulty.mjs','./src/practice-eligibility.mjs',");
 const fetchOld="if(req.method!=='GET'||new URL(req.url).origin!==self.location.origin)return;";
 const fetchNew="if(req.method!=='GET')return; const url=new URL(req.url); const scope=new URL(self.registration.scope); if(url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname))return;";
 if(!sw.includes(fetchOld))throw Error('Evolutio cambió su SW; revisar antes de adaptar');
