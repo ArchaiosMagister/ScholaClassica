@@ -2,7 +2,7 @@
 -- Remediación conservadora de privilegios; no altera filas ni funciones.
 -- Aplicación en producción mediante una migración controlada de Supabase.
 -- El historial remoto de migraciones es la referencia de ejecución.
-BEGIN;
+-- La migración se ejecuta en transacción por el motor de Supabase.
 
 DO $preflight$
 BEGIN
@@ -52,4 +52,3 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public
 ALTER DEFAULT PRIVILEGES FOR ROLE postgres
   REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
 
-COMMIT;
