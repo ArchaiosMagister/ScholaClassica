@@ -36,7 +36,7 @@ test('Segundo lote: 19 fichas nuevas, fuentes explícitas y las anteriores sin d
 
   assert.equal(bank.records.filter(r=>r.language==='latin2').length,500,
     'Latín II y su verificación permanecen intactos');
-  assert.equal(bank.records.filter(r=>r.language==='latin').length,90);
+  assert.equal(bank.records.filter(r=>r.language==='latin').length,91);
   assert.equal(bank.records.filter(r=>r.language==='griego').length,94);
 });
 

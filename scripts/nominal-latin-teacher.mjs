@@ -68,3 +68,25 @@ export function compileCantus({vocabulaData,vocabulaSha,decisions}){
  assert.ok(!record.forms.some(f=>['canti','cantorum','cantis','cantos','cante'].includes(f.form)));
  return record;
 }
+
+export function compileLiber({vocabulaData,vocabulaSha,decisions}){
+ assert.equal(decisions?.status,'aprobado-por-docente');
+ assert.equal(decisions.choices?.liber,'guardar-ambos');
+ const entry=checkLexeme({vocabulaData,id:'f2f776558dba45b1',
+   lemma:'liber',form:'liber, –bri',unit:'UD 1'});
+ const forms={
+  nominativo:{singular:'liber',plural:'librī'},
+  vocativo:{singular:'liber',plural:'librī'},
+  acusativo:{singular:'librum',plural:'librōs'},
+  genitivo:{singular:'librī',plural:'librōrum'},
+  dativo:{singular:'librō',plural:'librīs'},
+  ablativo:{singular:'librō',plural:'librīs'}
+ };
+ const record=latinNounRecord({lemma:'liber',genitive:'librī',
+  unit:1,declension:'2.ª declinación (pérdida de -e-)',forms,gender:'masculino',
+  source:'https://dcc.dickinson.edu/latin-core-list1',
+  id:'liber',entry,vocabulaSha,decision:'guardar-ambos',
+  notes:'Sustantivo masculino libro, distinto del adjetivo līber, lībera, līberum (libre).'});
+ assert.ok(!record.forms.some(f=>['libera','liberum','liberam'].includes(f.form)));
+ return record;
+}

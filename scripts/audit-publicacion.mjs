@@ -124,6 +124,15 @@ assert.ok(cantus&&cantus.unit===7&&cantus.gender==='masculino'&&
  cantus.forms.length===12);
 assert.equal(cantus.forms.find(f=>f.analysis==='genitivo plural').form,'cantuum');
 assert.ok(!cantus.forms.some(f=>['canti','cantorum','cantos'].includes(f.form)));
+const liber=morphology.records.find(r=>r.id==='latin-sustantivo-decision-liber');
+assert.ok(liber&&liber.unit===1&&liber.gender==='masculino'&&
+ liber.forms.length===12&&
+ liber.evidence.teacherDecision==='guardar-ambos'&&
+ liber.evidence.vocabulaEntry==='f2f776558dba45b1');
+assert.equal(liber.forms.find(f=>f.analysis==='genitivo singular').form,'libri');
+assert.ok(!liber.forms.some(f=>['libera','liberum'].includes(f.form)));
+assert.ok(!morphology.records.some(r=>r.id==='latin-adjetivo-reserva-liber-free'),
+ 'No publicar el adjetivo reservado como calificable');
 assert.ok(read('apps/morfologia/data/LICENSE-SUSTANTIVOS-GRIEGOS.md').includes('CC BY-SA 3.0'));
 assert.ok(read('apps/morfologia/sw.js').includes("'./data/LICENSE-SUSTANTIVOS-GRIEGOS.md'"));
 const vocabEndpoint=read('apps/vocabulario/config.js');
