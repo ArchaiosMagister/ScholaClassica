@@ -249,6 +249,7 @@ try{
   assert.equal(await partial.locator('#notices .notice').count(),1,
     'La bandeja debe conservar los avisos del origen que sigue autorizado');
   assert.ok((await partial.locator('#sources-state').textContent()).includes('Vocabula: conectada'));
+  await partial.locator('#admin-word-list .notice').first().waitFor({state:'visible'});
   assert.equal(await partial.locator('#admin-new').isVisible(),true,
     'El administrador de Vocabula sigue operativo con AAL2');
   assert.equal(await partial.evaluate(()=>window.__teacherMock.session),true,
