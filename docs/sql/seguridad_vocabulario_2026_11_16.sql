@@ -1,7 +1,7 @@
 -- Proyecto: Vocabulario_clasico (wpwlguufpkfnzlbyproe).
 -- No toca las tablas actuales: RLS + ausencia de GRANT directo continúan.
 -- Reduce la exposición por defecto de futuros objetos creados por postgres.
-BEGIN;
+-- La migración se ejecuta en transacción por el motor de Supabase.
 
 DO $preflight$
 BEGIN
@@ -28,4 +28,3 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public
 ALTER DEFAULT PRIVILEGES FOR ROLE postgres
   REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
 
-COMMIT;
