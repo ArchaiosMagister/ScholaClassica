@@ -1,0 +1,22 @@
+{
+  "schema": "schola-nominal-teacher-decisions/v1",
+  "date": "2026-11-13",
+  "scope": "Griego I y Latín I de ScholaClassica; sin modificar fuentes originales",
+  "choices": {
+    "anthropos": "masculino-docente",
+    "athenae": "plural-documentado-pendiente-fuente",
+    "cantus": "cuarta-sin-mezcla",
+    "domus": "conservar-variantes-documentadas",
+    "liber": "guardar-ambos",
+    "pais": "ambos-generos"
+  },
+  "status": "aprobado-por-docente",
+  "interpretation": {
+    "anthropos": "Masculino para sintagmas docentes; se conserva nota sobre posible género femenino en otros contextos.",
+    "athenae": "Habilitar exclusivamente cinco formas plurales áticas después de verificar las fuentes, sin inventar singular.",
+    "cantus": "Solo sustantivo de cuarta declinación en las respuestas; no mezclar un genitivo de segunda.",
+    "domus": "Todas las variantes realmente documentadas, con notas de uso, y locativo singular independiente.",
+    "liber": "Guardar sustantivo liber, libri en práctica nominal y adjetivo liber, libera, liberum como entrada distinta en reserva para la fase de adjetivos.",
+    "pais": "Conservar un único paradigma de flexión nominal y permitir sintagmas concordados masculinos y femeninos."
+  }
+}

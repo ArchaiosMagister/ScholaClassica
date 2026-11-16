@@ -49,23 +49,31 @@ export function greekNounPhrasePairs(bank,{language,unit}){
   const nouns=records.filter(r=>r.kind==='sustantivo'&&
     r.id.startsWith('griego-sustantivo-')&&
     r.evidence?.review?.includes('conciliación interfuentes')&&
-    // ἄνθρωπος es de género común (ὁ/ἡ): se practica individualmente,
-    // pero no se fuerza a una única concordancia con el adjetivo.
-    r.gender!=='común');
+    // Los géneros contextuales solo se usan si constan en una decisión
+    // docente acreditada; de lo contrario no se improvisa concordancia.
+    (r.gender!=='común'||r.agreementGenders?.length));
   const adjectives=ADJECTIVE_IDS.map(id=>shape(records.find(r=>r.id===id),'adjetivo'));
   return nouns.flatMap(noun=>{
     shape(noun,'sustantivo');
-    if(!['masculino','femenino','neutro'].includes(noun.gender))
-      throw Error('Sustantivo sin género único: '+noun.paradigm);
-    for(const cas of CASES)for(const number of practiceNumbers(noun))
-      if(nounForm(noun,cas,number,noun.gender).length!==1)
-        throw Error('Sustantivo sin casilla única documentada: '+noun.paradigm);
-    return adjectives.map(adjective=>({
-      article,noun,adjective,language:'griego',gender:noun.gender,
-      id:'griego:nominal:'+noun.id+':'+adjective.id,
-      paradigm:'Artículo + sustantivo + adjetivo · '+noun.paradigm+' + '+adjective.paradigm,
-      provenance:[article.evidence,noun.evidence,adjective.evidence]
-    }));
+    const genders=noun.agreementGenders||[noun.gender];
+    if(!genders.length||genders.some(g=>!['masculino','femenino','neutro'].includes(g)))
+      throw Error('Sustantivo sin género de concordancia aprobado: '+noun.paradigm);
+    if(noun.gender==='común'&&
+      (noun.evidence?.teacherDecision!=='masculino-docente'||
+       genders.length!==1||genders[0]!=='masculino'))
+      throw Error('Género común sin criterio docente exacto: '+noun.paradigm);
+    return genders.flatMap(gender=>{
+      for(const cas of CASES)for(const number of practiceNumbers(noun))
+        if(nounForm(noun,cas,number,gender).length!==1)
+          throw Error('Sustantivo sin casilla única documentada: '+noun.paradigm);
+      return adjectives.map(adjective=>({
+        article,noun,adjective,language:'griego',gender,
+        id:'griego:nominal:'+noun.id+':'+adjective.id+
+          (noun.gender==='común'?':'+gender:''),
+        paradigm:'Artículo + sustantivo + adjetivo · '+noun.paradigm+' + '+adjective.paradigm,
+        provenance:[article.evidence,noun.evidence,adjective.evidence]
+      }));
+    });
   });
 }
 function cells(pair){

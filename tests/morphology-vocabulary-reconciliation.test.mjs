@@ -120,9 +120,12 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
       .some(x=>x.id===r.id),'Palabra adelantada antes del grupo exigible');
   }
   assert.equal(find('griego-sustantivo-anthropos').gender,'común');
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:10}).length,69);
-  assert.ok(!greekNounPhrasePairs(bank,{language:'griego',unit:10})
-    .some(x=>x.noun.id==='griego-sustantivo-anthropos'));
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:10}).length,72);
+  const masculine=greekNounPhrasePairs(bank,{language:'griego',unit:10})
+    .filter(x=>x.noun.id==='griego-sustantivo-anthropos');
+  assert.equal(masculine.length,3,'Solo tres parejas con masculino docente');
+  assert.ok(masculine.every(x=>x.gender==='masculino'));
+  assert.equal(new Set(masculine.map(x=>x.id)).size,3);
 });
 
 test('Reflexivo se/sui/sibi: selección de forma viable con solo tres opciones reales',()=>{

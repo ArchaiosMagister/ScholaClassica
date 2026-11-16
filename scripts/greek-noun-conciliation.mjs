@@ -199,7 +199,17 @@ export function compileGreekEarlyNounBatch({curriculum,vocabulaData,unimorphPart
       assert.ok(introductory?.includes('ἄνθρωπος'),
         'ἄνθρωπος no está acreditado en UD1: no adelantarlo');
     }
-    return readOneNoun(spec,rows,entry,curriculum,vocabulaSha);
+    const record=readOneNoun(spec,rows,entry,curriculum,vocabulaSha);
+    if(spec.id!=='anthropos')return record;
+    // Decisión docente histórica: practicar solo masculino en sintagmas,
+    // conservando el género común ὁ/ἡ en el paradigma académico y las formas.
+    assert.equal(record.gender,'común');
+    assert.equal(record.forms.length,10);
+    return {...record,agreementGenders:['masculino'],
+      evidence:{...record.evidence,
+        teacherDecision:'masculino-docente',decisionId:'griego-anthropos',
+        notes:record.evidence.notes+
+          ' En sintagmas docentes se usa masculino; el femenino sigue documentado.'}};
   });
   assert.equal(records.length,7);
   assert.equal(new Set(records.map(r=>r.id)).size,7);
