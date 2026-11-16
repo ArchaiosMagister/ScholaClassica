@@ -83,6 +83,24 @@ function rememberStudyAccess(course,id){
   studyState.last[course]=id;
   storeStudyState();
 }
+// Compartir la memoria local entre enlaces de tarjetas y del itinerario.
+// Registrar solo el curso y el identificador de la herramienta, nunca respuestas.
+document.addEventListener('click',event=>{
+  const anchor=event.target?.closest?.('#panel-lenguas a[href], #panel-herramientas a[href]');
+  if(!anchor||anchor.origin!==window.location.origin)return;
+  const matches=[];
+  for(const [course,modules] of Object.entries(STUDY_CATALOG)){
+    for(const module of modules){
+      if(module.external)continue;
+      if(new URL(module.href,window.location.href).href===anchor.href)
+        matches.push({course,id:module.id});
+    }
+  }
+  // Los destinos compartidos se resuelven usando el curso elegido.
+  const selected=matches.length===1?matches[0]:
+    matches.find(x=>x.course===subjectChoice?.value);
+  if(selected)rememberStudyAccess(selected.course,selected.id);
+});
 function renderStudyPath(){
   const course=subjectChoice.value;
   studyState.course=course;
