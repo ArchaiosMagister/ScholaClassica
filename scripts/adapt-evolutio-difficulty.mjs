@@ -5,6 +5,7 @@ import {join} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {RESULT_DIFFICULTY_METHOD,curatedDifficultyIds} from './evolutio-result-difficulty.mjs';
 import {eligiblePracticeWords} from './evolutio-practice-eligibility.mjs';
+import {integrateCastilianAdditions} from './evolutio-castellano-lote100.mjs';
 
 export async function adaptEvolutioDifficulty({root,target}){
  const modulePath=join(target,'src/difficulty.mjs');
@@ -14,16 +15,20 @@ export async function adaptEvolutioDifficulty({root,target}){
  const appPath=join(target,'src/app.mjs');
  const original=await readFile(modulePath,'utf8');
  const oldData=JSON.parse(await readFile(difficultyPath,'utf8'));
- const bank=JSON.parse(await readFile(join(target,'data/pilot.json'),'utf8'));
+ const sourceBank=JSON.parse(await readFile(join(target,'data/pilot.json'),'utf8'));
+ if(sourceBank.words.length!==522)throw new Error('Evolutio cambió su banco original');
+ const bank=integrateCastilianAdditions(sourceBank);
  const ids=new Set(bank.words.map(word=>word.id));
  for(const id of curatedDifficultyIds())if(!ids.has(id))
   throw new Error('Curaduría de dificultad: ID ajeno al banco: '+id);
  const practiceBank=eligiblePracticeWords(bank.words);
- if(bank.words.length!==522||practiceBank.length!==487)
-  throw new Error('Evolutio: hay que revisar la identificación de nombres propios');
+ if(bank.words.length!==622||practiceBank.length!==587)
+  throw new Error('Evolutio: lote 100 o identificación de nombres propios alterados');
+ if(eligiblePracticeWords(sourceBank.words).length!==487)
+  throw new Error('Evolutio: se alteró el filtro original de nombres propios');
  if(oldData.method!=='criterio-didactico-v1')
   throw new Error('Evolutio cambió el criterio de origen: revisar adaptación de dificultad');
- if(bank.words.length!==Object.keys(oldData.assignments).length)
+ if(sourceBank.words.length!==Object.keys(oldData.assignments).length)
   throw new Error('Evolutio: las clasificaciones originales no cubren el banco');
  const start=original.indexOf('const RULE_COMPLEXITY=Object.freeze({');
  const end=original.indexOf('export function makeDifficultyData(',start);
@@ -46,11 +51,14 @@ export async function adaptEvolutioDifficulty({root,target}){
  // Reutiliza la implementación de persistencia y validación del motor ya
  // adaptado: conserva explícitamente las correcciones 'docente'.
  const engine=await import(pathToFileURL(modulePath).href);
+ // La fuente inmovilizada sigue con 522 registros; los 100 nuevos se añaden
+ // únicamente al artefacto integrado antes de recalcular la dificultad.
+ await writeFile(join(target,'data/pilot.json'),JSON.stringify(bank,null,2)+'\n');
  const next=engine.makeDifficultyData(bank.words,oldData.assignments);
  const errors=engine.difficultyErrors(bank.words,next);
  if(errors.length||next.method!==RESULT_DIFFICULTY_METHOD)
   throw new Error('Clasificación de resultado inválida: '+errors.slice(0,4).join(' · '));
- for(const word of bank.words){
+ for(const word of sourceBank.words){
   const previous=oldData.assignments[word.id],record=next.assignments[word.id];
   if(!previous||!record)throw new Error('ID perdido al reclasificar: '+word.id);
   if(previous.origin==='docente'&&(record.level!==previous.level||record.origin!=='docente'))
@@ -84,7 +92,7 @@ export async function adaptEvolutioDifficulty({root,target}){
  const counts=Object.fromEntries([1,2,3,4].map(level=>[
   level,bank.words.filter(w=>next.assignments[w.id].level===level).length
  ]));
- const changed=bank.words.filter(w=>next.assignments[w.id].level!==oldData.assignments[w.id].level).length;
- return {total:bank.words.length,eligiblePractice:practiceBank.length,
+ const changed=sourceBank.words.filter(w=>next.assignments[w.id].level!==oldData.assignments[w.id].level).length;
+ return {total:bank.words.length,added:bank.words.length-sourceBank.words.length,eligiblePractice:practiceBank.length,
   excludedNames:bank.words.length-practiceBank.length,changed,counts,method:next.method};
 }

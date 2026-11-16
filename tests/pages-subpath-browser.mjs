@@ -86,7 +86,10 @@ try{
  },null,{timeout:18000});
  assert.equal(await page.locator('#refresh-app').count(),1);
  const entries=await page.evaluate(async()=>await fetch('./data/pilot.json').then(r=>r.json()));
- assert.equal(entries.words.length,522);
+ assert.equal(entries.words.length,622);
+ assert.equal(new Set(entries.words.map(w=>w.id)).size,622);
+ assert.ok(entries.words.some(w=>w.id==='xl-230'&&w.answers.includes('padre')),
+   'El lote nuevo debe estar disponible también en la subruta real de Pages');
  const keys=await page.evaluate(async()=>await caches.keys());
  for(const cache of ['schola-portal-','schola-etymologicon-','schola-evolutio-'])
    assert.ok(keys.some(k=>k.startsWith(cache)),cache+' no está aislada');

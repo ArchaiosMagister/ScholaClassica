@@ -19,24 +19,54 @@ const unchanged=parse(join(source,'data/pilot.json'));
 const original=parse(join(source,'data/difficulty.json'));
 const updated=parse(join(moduleDir,'data/difficulty.json'));
 const word=latin=>bank.words.find(w=>w.latin===latin);
+const added=bank.words.slice(unchanged.words.length);
 
-test('Se conservan 522 fichas, IDs y decisiones docentes; se revisan solo etiquetas en dist',()=>{
- assert.equal(bank.words.length,522);
- assert.deepEqual(bank,unchanged);
- assert.deepEqual(Object.keys(updated.assignments),Object.keys(original.assignments));
+
+test('Se conservan 522 fichas fuente y se añaden 100 castellanas sin romper IDs ni decisiones docentes',()=>{
+ assert.equal(unchanged.words.length,522);
+ assert.equal(bank.words.length,622);
+ assert.deepEqual(bank.words.slice(0,522),unchanged.words);
+ assert.equal(added.length,100);
+ assert.deepEqual(Object.keys(updated.assignments).slice(0,522),Object.keys(original.assignments));
+ assert.ok(added.every(w=>w.id.startsWith('xl-')&&w.source.lot===21));
  assert.equal(original.method,'criterio-didactico-v1');
  assert.equal(updated.method,RESULT_DIFFICULTY_METHOD);
  assert.equal(updated.status,'clasificacion-provisional');
  const counts=[1,2,3,4].map(level=>bank.words.filter(w=>updated.assignments[w.id].level===level).length);
- assert.equal(counts.reduce((a,b)=>a+b,0),522);
+ assert.equal(counts.reduce((a,b)=>a+b,0),622);
  assert.ok(counts.every(n=>n>0),'Hay niveles vacíos después de la revisión');
- assert.ok(bank.words.filter(w=>updated.assignments[w.id].level!==original.assignments[w.id].level).length>=80);
+ assert.ok(unchanged.words.filter(w=>updated.assignments[w.id].level!==original.assignments[w.id].level).length>=80);
  assert.ok(curatedDifficultyIds().length>=100);
  assert.ok(curatedDifficultyIds().every(id=>bank.words.some(w=>w.id===id)),'Curaduría con ID ajeno');
- for(const w of bank.words){
+ for(const w of unchanged.words){
   const old=original.assignments[w.id],now=updated.assignments[w.id];
   if(old?.origin==='docente')assert.deepEqual(now,old,'No se respeta decisión docente: '+w.id);
  }
+});
+
+test('El lote contiene exactamente 100 patrimoniales inéditas del Excel, con fragmentos y trazabilidad',async()=>{
+ const {CASTILIAN_ADDITIONS,integrateCastilianAdditions,ADDITION_SOURCE}=
+  await import('../scripts/evolutio-castellano-lote100.mjs');
+ const {validationErrors,availableWords,availableFocusedWords}=
+  await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ assert.equal(ADDITION_SOURCE.sheet,'Banco');
+ assert.equal(CASTILIAN_ADDITIONS.length,100);
+ assert.deepEqual(added,CASTILIAN_ADDITIONS);
+ assert.deepEqual(bank,integrateCastilianAdditions(unchanged));
+ assert.deepEqual(validationErrors(bank),[]);
+ const existing=new Set(unchanged.words.map(w=>w.id));
+ assert.ok(added.every(w=>!existing.has(w.id)&&w.source.classification==='PATRIMONIAL'));
+ assert.equal(new Set(added.map(w=>w.id)).size,100);
+ assert.ok(added.every(w=>w.changes.some(c=>c.rule!=='FIX_M')));
+ assert.ok(added.every(w=>w.answers.every(a=>a===a.toLocaleLowerCase('es'))));
+ assert.ok(added.every(w=>updated.assignments[w.id]?.level>=1&&updated.assignments[w.id]?.level<=4));
+ const {RULES}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
+ const all=new Set(RULES.map(r=>r.id));
+ assert.ok(added.every(w=>availableWords([w],all).length===1));
+ for(const r of RULES)for(const w of added.filter(w=>w.changes.some(t=>t.rule===r.id))){
+  assert.deepEqual(availableFocusedWords([w],r.id),[w]);
+ }
+ // El análisis histórico valenciano y los repositorios originales no se modifican.
 });
 
 test('La distancia ortográfica sirve de base auxiliar, pero no fija el nivel de los casos curados',()=>{
@@ -89,7 +119,7 @@ test('Los nombres propios quedan fuera de toda práctica y permanecen en el banc
  const proper=bank.words.filter(isProperName);
  const practice=eligiblePracticeWords(bank.words);
  assert.equal(proper.length,35);
- assert.equal(practice.length,487);
+ assert.equal(practice.length,587);
  assert.ok(proper.some(w=>w.latin==='Christum'));
  assert.ok(proper.some(w=>w.latin==='Cæsarem'));
  assert.ok(proper.some(w=>w.latin==='ægyptum'));
@@ -139,7 +169,7 @@ test('La web integrada precarga los nuevos módulos y el banco para uso offline'
  const js=readFileSync(join(moduleDir,'src/app.mjs'),'utf8');
  assert.match(sw,/src\/result-difficulty\.mjs/);
  assert.match(sw,/src\/practice-eligibility\.mjs/);
- assert.match(sw,/deducibilidad-v5/);
+ assert.match(sw,/lote100-v6/);
  assert.match(sw,/CACHE_PREFIX='schola-evolutio-'/);
  assert.match(js,/dificultad valora si es sencillo deducir el resultado castellano/);
  assert.match(js,/Los nombres propios no aparecen en las prácticas/);

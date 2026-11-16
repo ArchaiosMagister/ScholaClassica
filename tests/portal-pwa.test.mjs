@@ -32,11 +32,13 @@ test('el worker raíz solo intercepta recursos del propio portal',()=>{
  assert.match(js,/serviceWorker\.register\('\.\/sw\.js',\{scope:'\.\/'/);
  assert.match(js,/portalRegistration\.update\(\)/);
 });
-test('Evolutio: 522 fichas, actualización y SW aislado',()=>{
+test('Evolutio: 522 fichas originales y 100 nuevas, actualización y SW aislado',()=>{
  const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
  assert.equal(lock.sources.evolutio.sha,'901dacb125ee7894ea9d11faf7b0d0afa7e713b5');
  const data=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
- assert.equal(data.words.length,522);
+ assert.equal(data.words.length,622);
+ const original=JSON.parse(readFileSync(join(root,'.sources/evolutio/data/pilot.json'),'utf8'));
+ assert.deepEqual(data.words.slice(0,522),original.words);
  assert.ok(data.words.some(w=>w.latin==='uitam'));
  for(const p of ['src/difficulty.mjs','src/result-difficulty.mjs','src/latin.mjs','src/update.mjs','data/difficulty.json'])
    assert.ok(existsSync(join(out,'apps/evolucion-fonetica',p)),p);
@@ -46,7 +48,7 @@ test('Evolutio: 522 fichas, actualización y SW aislado',()=>{
  assert.match(sw,/key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION/);
  assert.match(sw,/src\/difficulty\.mjs/);
  assert.match(sw,/src\/result-difficulty\.mjs/);
- assert.match(sw,/deducibilidad-v5/);
+ assert.match(sw,/lote100-v6/);
  assert.match(sw,/data\/difficulty\.json/);
  assert.match(sw,/url\.pathname\.startsWith\(scope\.pathname\)/);
  assert.ok(!sw.includes('keys.filter(key=>key!==VERSION)'));
