@@ -1,4 +1,4 @@
-import {mergeCatalog,matchCatalog} from './vocabula-catalog.mjs';
+import {entryKey,mergeCatalog,matchCatalog} from './vocabula-catalog.mjs';
 // Herramientas docentes de Vocabula; no reutilizan su código privado heredado.
 // El servidor verifica de nuevo la UUID y el nivel aal2 en CADA operación.
 // Nunca introducir HTML proveniente de palabras o avisos.
@@ -72,7 +72,12 @@ function adjustClassification(){
   el('admin-word-category').required=secondYear;
 }
 function editWord(word=null){
-  // Editar una ficha original crea una versión docente sin reescribir el banco.
+  // El motor actual sobreescribe por subject|form, no por ID o por acepción.
+  // No ofrecer una edición aparentemente individual que suprima variantes.
+  if(word?.origin==='original'&&word.semanticConflict){
+    status('admin-status','Esta forma tiene acepciones o respuestas diferentes según su procedencia. La edición individual requiere una sobreescritura por fuente; no se modifica el banco.',true);
+    return;
+  }
   editingId=word?.origin==='docente'?word.id:null;
   const form=el('admin-word-form');form.reset();
   el('admin-word-heading').textContent=word
@@ -105,15 +110,47 @@ function renderWords(){
   const container=el('admin-word-list');container.replaceChildren();
   for(const word of words){
     const card=text('article','', 'notice');
-    card.append(text('h4',word.form),text('p',word.meaning));
-    card.append(text('small',[(subjects[word.subject]||word.subject),
-      word.origin==='original'?'Banco original':'Aportación docente',
-      (word.units||[]).join(' · '),word.in_exam?'General y examen':'General',
-      word.active?'Disponible':'Retirada'].join(' · ')));
-    const edit=text('button',word.origin==='original'?'Crear versión docente':'Editar palabra');
-    edit.type='button';
-    edit.addEventListener('click',()=>editWord(word));
-    card.append(edit);container.append(card);
+    card.append(text('h4',word.form));
+    if(word.origin==='original'){
+      // Cada variante conserva su propia glosa, respuestas y unidades de
+      // General/Examen. Una sola tarjeta no significa una sola acepción.
+      for(const variant of word.variants){
+        card.append(text('p',variant.meaning));
+        card.append(text('small','Respuestas admitidas: '+variant.answers.join(' · ')));
+        for(const source of variant.sources){
+          const mode=source.mode==='examen'?'Examen':'General';
+          card.append(text('small',mode+' · '+source.units.join(' · ')));
+        }
+      }
+      card.append(text('small',(subjects[word.subject]||word.subject)+
+        ' · Banco original · '+word.sources.length+' ficha(s) conservada(s)'));
+      if(word.semanticConflict){
+        card.append(text('p','Acepciones o respuestas distintas por origen: edición global bloqueada para evitar sustituir varias fichas por una sola.'));
+      }
+    }else{
+      card.append(text('p',word.meaning));
+      card.append(text('small',[(subjects[word.subject]||word.subject),
+        'Aportación docente',(word.units||[]).join(' · '),
+        word.in_exam?'General y examen':'General',
+        word.active?'Disponible':'Retirada'].join(' · ')));
+      if(word.originalSources?.length){
+        card.append(text('small','Sustituye o complementa '+word.originalSources.length+
+          ' ficha(s) originales; el banco original permanece intacto.'));
+        for(const variant of word.originalVariants||[]){
+          card.append(text('small','Original: '+variant.meaning+' · Respuestas: '+
+            variant.answers.join(' · ')+' · '+
+            variant.sources.map(source=>(source.mode==='examen'?'Examen':'General')+
+              ': '+source.units.join(', ')).join(' / ')));
+        }
+      }
+    }
+    if(word.origin!=='original'||!word.semanticConflict){
+      const edit=text('button',word.origin==='original'?'Crear versión docente':'Editar palabra');
+      edit.type='button';
+      edit.addEventListener('click',()=>editWord(word));
+      card.append(edit);
+    }
+    container.append(card);
   }
   status('admin-word-status',result.total
     ?'Mostrando '+(wordOffset+1)+'–'+(wordOffset+words.length)+
@@ -163,6 +200,16 @@ async function saveWord(){
     answers,units,
     in_exam:el('admin-word-exam').checked,
     active:el('admin-word-active').checked};
+  const historical=originalWords.filter(word=>entryKey(word)===entryKey(body));
+  const signatures=new Set(historical.map(word=>JSON.stringify([word.meaning,word.answers||[]])));
+  const existing=editingId?customWords.find(word=>word.id===editingId):null;
+  const sameOverride=existing&&entryKey(existing)===entryKey(body);
+  if(signatures.size>1&&!sameOverride)
+    throw Error('No se puede crear una sobreescritura de esta forma: General y Examen, o distintas unidades, conservan acepciones o respuestas diferentes. Requiere edición por origen.');
+  if(historical.length>1&&!sameOverride&&
+    !window.confirm('Esta versión docente sustituirá '+historical.length+
+      ' fichas originales con la misma forma, incluidas sus unidades y procedencias. ¿Continuar?'))
+    return;
   if(editingId){
     const old=customWords.find(word=>word.id===editingId);
     if(old?.active&&body.active===false&&
