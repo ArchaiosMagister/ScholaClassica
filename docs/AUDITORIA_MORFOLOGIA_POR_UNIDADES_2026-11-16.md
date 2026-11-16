@@ -54,15 +54,60 @@ bilingüe y la tabla de progreso del alumnado.
 
 ## Resultados y decisiones
 
-Los resultados por epígrafe, incluidas las posibles ausencias, se
-determinan por la ejecución real de
-`npm run audit:morfologia:unidades` en GitHub Actions y se adjuntan
-como artefacto JSON. Las comprobaciones se ejecutan también desde
-`tests/morphology-unit-coverage.test.mjs`, donde una supresión
-artificial de los modelos del imperfecto de 4.º debe generar una
-reserva explícita.
+La primera ejecución completa comparó las 32 unidades y 73 epígrafes
+con los registros y cuatro modalidades de preguntas. Identificó
+**tres coincidencias incompletas por tipo técnico**, pero la revisión
+directa de las formas redujo los candidatos a **dos reservas reales
+de cobertura**, ambas en **Latín I**.
 
-No se aprueba incorporar formas nuevas ni trasladar contenidos
-entre unidades solo a partir de los resultados automáticos. Los
-hallazgos que exijan criterio docente se comunicarán como tales antes
-de modificar modelos o la PWA.
+| Curso y unidad | Tema | Diagnóstico documental | Decisión |
+| --- | --- | --- | --- |
+| Latín I UD1 | Infinitivo de presente activo | Appendix documenta literalmente las terminaciones y los ejemplos `amare`, `habere`, `ducere`, `audire`, `capere`. En la práctica no hay un paradigma `infinitivo` introducido en UD1. | Candidato claro: estudiar una ficha con **solo esas cinco formas** verificadas; no inventar nuevas conjugaciones ni anticipar infinitivos compuestos |
+| Latín I UD2 | Locativo | Appendix explica la naturaleza no productiva del caso y documenta `Corinthi`, `Romæ`, `domi`, `humi`, `ruri`. No hay casillas con `case=locativo` en los modelos acumulados hasta UD2. | Reservar para decisión docente: practicar ejemplos expresos como formas aisladas o mantener el locativo como contenido de consulta; **no generar un paradigma locativo regular** |
+
+La comprobación detallada descartó un falso positivo:
+
+- **Latín I UD8, infinitivos:** el registro
+  `latin-ud8-infinitivos` contiene los cinco infinitivos de presente
+  activos, los cinco pasivos y cuatro formas compuestas documentadas.
+  Se almacena como `kind=verbo`, pero sus análisis identifican
+  expresamente `infinitivo`. La auditoría nueva exige también este
+  rasgo real, no solo una etiqueta `kind`.
+- **Latín I UD9, tiempos pasivos compuestos:** los ejemplos se
+  practican como formas verbales con `pasivo` en el análisis. La
+  flexión completa del participio recibe tratamiento en la UD10.
+  No sería correcto exigir ya una tabla independiente completa del
+  participio de perfecto en UD9 para acreditar los ejemplos pasivos.
+
+**Latín de 4.º:** sus ocho unidades incorporan la familia de formas
+correspondiente a cada epígrafe flexivo, sin anticipar UD9 ni UD10.
+
+**Griego I:** todas las unidades en que se introduce una familia
+flexiva cuentan con modelos de la categoría y ejemplos que pueden
+participar en las actividades. Las UD4 y algunos epígrafes de otras
+unidades se destinan a sintaxis, preposiciones o reutilización de
+morfología anterior: no se han señalado como lagunas.
+
+Esta es una **auditoría de cobertura curricular por epígrafe**, no
+una certificación de que cada subclase, irregularidad, grafía griega,
+variante manuscrita o forma de cada lema se haya verificado
+individualmente. La presencia de un paradigma con un `kind`
+compatible es una **primera evidencia**, no prueba de cobertura
+exhaustiva de cada subtema. La revisión filológica individual
+continúa gobernada por sus pruebas especializadas.
+
+## Pruebas y repetibilidad
+
+- `npm run audit:morfologia:unidades` produce la matriz y los
+  hallazgos, sin cambios de contenido.
+- `tests/morphology-unit-coverage.test.mjs` comprueba las 262 fichas,
+  32 unidades y 73 epígrafes, los **dos candidatos** registrados, y
+  verifica que el infinitivo de UD8 es una forma verbal realmente
+  generable. También exige un aviso ante la desaparición artificial
+  del imperfecto de 4.º.
+- GitHub Actions conserva la matriz estructurada como artefacto JSON
+  durante 30 días y ejecuta los tests completos de regresión.
+
+**No se ha añadido ni modificado ningún paradigma, ficha, unidad, ID,
+banco histórico, progreso o aplicación original.** La selección del
+siguiente cambio didáctico queda separada de esta auditoría.
