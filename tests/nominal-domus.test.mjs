@@ -54,7 +54,7 @@ test('Variantes raras admitidas como respuesta, sin preguntas nominales originad
  assert.equal(tables.length,1);
  assert.equal(tables[0].cells.length,12,'El locativo singular no crea columnas dobles');
  assert.equal(evaluateTable(tables[0],Object.fromEntries(tables[0].cells.map(x=>[x.id,x.acceptedForms[0]]))).complete,true);
- const analysis=makeQuestions(just,{language:'latin',unit:7,activity:'analysis',limit:40,rng:()=>.2});
+ const analysis=makeQuestions(just,{language:'latin',unit:7,activity:'form',limit:30,rng:()=>.2});
  assert.ok(analysis.length>0&&analysis.every(q=>evaluate(q,q.correct).correct));
  assert.ok(!analysis.some(q=>q.correct==='domorum'),'La lectura poética no inicia preguntas');
 });
