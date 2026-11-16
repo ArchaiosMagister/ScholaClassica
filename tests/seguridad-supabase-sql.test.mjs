@@ -25,5 +25,5 @@ test('dos proyectos optan por permisos explícitos para objetos futuros de postg
     // No deben introducirse modificaciones de datos ni operaciones destructivas.
     assert.doesNotMatch(content,/\b(?:DELETE FROM|INSERT INTO|UPDATE public\.|DROP TABLE|TRUNCATE TABLE)\b/i);
   }
-  assert.doesNotMatch(vocab,/GRANT SELECT ON TABLE public\.vocab_words TO anon|authenticated;/i);
+  assert.doesNotMatch(vocab,/GRANT SELECT ON TABLE public\.vocab_words TO (?:anon|authenticated);/i);
 });
