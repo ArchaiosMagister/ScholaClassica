@@ -7,11 +7,14 @@ const root=resolve(import.meta.dirname,'..');
 const sql=name=>readFileSync(resolve(root,'docs/sql',name),'utf8');
 const palabra=sql('seguridad_palabra_dia_2026_11_16.sql');
 const vocab=sql('seguridad_vocabulario_2026_11_16.sql');
+const alumno=sql('seguridad_palabra_dia_columnas_alumnos_2026_11_16.sql');
 
 test('Palabra del día mantiene rankings públicos de solo lectura y RLS de estudiantes',()=>{
   assert.match(palabra,/REVOKE ALL PRIVILEGES ON TABLE public\.public_rankings_bach2 FROM anon, authenticated;/);
   assert.match(palabra,/GRANT SELECT ON TABLE public\.public_rankings_bach2 TO anon, authenticated;/);
   assert.match(palabra,/GRANT SELECT ON TABLE public\.students TO authenticated;/);
+  // El GRANT amplio de la primera migración se restringe a columnas en la segunda.
+  assert.match(alumno,/REVOKE SELECT ON TABLE public\.students FROM authenticated;/);
   assert.doesNotMatch(palabra,/GRANT (?:ALL|INSERT|UPDATE|DELETE|TRUNCATE)\b/i);
   assert.match(palabra,/Students can read their own row/);
 });
@@ -26,4 +29,15 @@ test('dos proyectos optan por permisos explícitos para objetos futuros de postg
     assert.doesNotMatch(content,/\b(?:DELETE FROM|INSERT INTO|UPDATE public\.|DROP TABLE|TRUNCATE TABLE)\b/i);
   }
   assert.doesNotMatch(vocab,/GRANT SELECT ON TABLE public\.vocab_words TO (?:anon|authenticated);/i);
+});
+
+test('la reparación posterior deja fuera los hashes de los códigos de alumnos',()=>{
+  const match=alumno.match(/GRANT SELECT \(([^)]+)\)\s+ON TABLE public\.students TO authenticated;/i);
+  assert.ok(match,'Debe conceder solo lectura por columnas');
+  const actual=match[1].split(',').map(v=>v.trim().toLowerCase());
+  assert.deepEqual(actual,[
+    'id','course_id','auth_user_id','created_at','display_name','student_group'
+  ]);
+  assert.ok(!actual.includes('invite_code_hash'));
+  assert.doesNotMatch(alumno,/\b(?:DELETE FROM|INSERT INTO|UPDATE public\.|DROP TABLE|TRUNCATE TABLE)\b/i);
 });
