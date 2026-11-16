@@ -19,14 +19,14 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 let browser;
 const config={enabled:true,origin:base,url:'https://ejemplo.supabase.co',publishableKey:'sb_publishable_test_mock_1234567890',username:'MagisterArchaios',setupOnly:false};
-const install=async(page,allow=true,setupOnly=false)=>{
+const install=async(page,allow=true,setupOnly=false,palabraAllow=allow)=>{
   await page.route('**/functions/v1/schola-palabra-inbox',route=>
     route.fulfill({
-      status:route.request().method()==='OPTIONS'?204:allow?200:403,contentType:'application/json',
+      status:route.request().method()==='OPTIONS'?204:palabraAllow?200:403,contentType:'application/json',
       headers:{'access-control-allow-origin':'*',
         'access-control-allow-methods':'POST, OPTIONS',
         'access-control-allow-headers':'authorization, apikey, content-type'},
-      body:JSON.stringify(allow
+      body:JSON.stringify(palabraAllow
         ?{authorized:true,source:'palabra',items:[{source:'palabra',title:'etimología',
           course:'1.º Bachillerato',summary:'Definición propuesta',
           created_at:'2026-11-12T11:00:00Z'}]}
@@ -231,6 +231,32 @@ try{
   assert.equal(await good.locator('#username').inputValue(),'','Cerrar sesión debe limpiar el usuario');
   assert.equal(await good.locator('#teacher').isVisible(),false);
   assert.equal(errorsGood.length,0,errorsGood.join(';'));
+  // Fallo parcial reproducible: Palabra del día rechaza con 403, pero
+  // ScholaClassica verifica correctamente la sesión docente y mantiene Vocabula.
+  const partial=await browser.newPage();
+  const errorsPartial=[];partial.on('pageerror',error=>errorsPartial.push(error.message));
+  await install(partial,true,false,false);
+  await partial.goto(base+'/docente/index.html',{waitUntil:'networkidle'});
+  await partial.locator('#username').fill('MagisterArchaios');
+  await partial.locator('#password').fill('clave-correcta');
+  await partial.locator('#login-form button').click();
+  await partial.locator('#enroll').waitFor({state:'visible'});
+  await partial.locator('#enroll-start').click();
+  await partial.locator('#enroll-code').fill('123456');
+  await partial.locator('#enroll-form button').click();
+  await partial.locator('#teacher').waitFor({state:'visible'});
+  await partial.waitForFunction(()=>document.querySelector('#sources-state')?.textContent?.includes('Palabra del día: no disponible'));
+  assert.equal(await partial.locator('#notices .notice').count(),1,
+    'La bandeja debe conservar los avisos del origen que sigue autorizado');
+  assert.ok((await partial.locator('#sources-state').textContent()).includes('Vocabula: conectada'));
+  await partial.locator('#admin-word-list .notice').first().waitFor({state:'visible'});
+  assert.equal(await partial.locator('#admin-new').isVisible(),true,
+    'El administrador de Vocabula sigue operativo con AAL2');
+  assert.equal(await partial.evaluate(()=>window.__teacherMock.session),true,
+    'Un 403 de una fuente secundaria nunca debe cerrar la sesión principal');
+  assert.equal(await partial.locator('#unavailable').isVisible(),false);
+  assert.deepEqual(errorsPartial,[]);
+
   const denied=await browser.newPage();
   await install(denied,false);
   await denied.goto(base+'/docente/index.html',{waitUntil:'networkidle'});

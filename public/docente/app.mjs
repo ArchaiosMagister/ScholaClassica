@@ -116,10 +116,11 @@ async function fetchNotices(){
   sourceState={vocabula:'unavailable',palabra:'unavailable'};
   const vocab=results[0].status==='fulfilled'?results[0].value:null;
   const vocabData=vocab&&!vocab.error?vocab.data:null;
-  const remoteStatus=results[1].status==='rejected'?results[1].reason?.status:null;
   const vocabStatus=vocab?.error?.context?.status;
-  if(vocabData?.authorized===false||[401,403].includes(vocabStatus)||
-      [401,403].includes(remoteStatus)){
+  // Solo la denegación del servidor principal invalida la sesión docente.
+  // El puente independiente de Palabra del día puede fallar por 401/403:
+  // marcar esa fuente como no disponible sin perder Vocabula ni la sesión AAL2.
+  if(vocabData?.authorized===false||[401,403].includes(vocabStatus)){
     await client.auth.signOut({scope:'local'});
     state('unavailable','Acceso docente no autorizado por el servidor');
     return;
