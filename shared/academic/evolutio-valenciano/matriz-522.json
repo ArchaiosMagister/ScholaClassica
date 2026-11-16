@@ -1,6 +1,6 @@
 {
   "schema": "schola-evolutio-va-matrix/v1",
-  "date": "2026-11-13",
+  "date": "2026-11-16",
   "origin": {
     "repository": "ArchaiosMagister/EvolucionFonetica",
     "sha": "901dacb125ee7894ea9d11faf7b0d0afa7e713b5",
@@ -11,13 +11,14 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 26,
-    "propuestas": 215,
-    "sinPropuesta": 281,
+    "lexicoDocumentado": 32,
+    "propuestas": 206,
+    "sinPropuesta": 284,
+    "reservasSoloCastellano": 3,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 22,
-    "casosConDiscrepancia": 4
+    "analisisEditoriales": 32,
+    "casosConDiscrepancia": 0
   },
   "records": [
     {
@@ -84,15 +85,56 @@
       },
       "valenciano": {
         "resultado": "cel",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Monoftongació de æ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de c davant e resultant: articulació /s/ representada c en cel."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CAELUM > cel: æ > e per monoftongació; c davant e es palatalitza. La desaparició de la vocal de la terminació no es certifica com a tercera llei en aquesta decisió docent.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cel",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "DCVB, etimologia de cel: del llatí caelum; correspondència patrimonial validada lèxicament, lleis encara no certificades.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -347,9 +389,21 @@
       "valenciano": {
         "resultado": "fava",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "FABAM > fava: la -b- intervocàlica es debilita a -v-, però aquesta lenició no figura com a llei seleccionable dins les 17 normes; només es registra la pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -360,7 +414,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "El canvi intervocàlic -b- > -v- és lenició/fricativització, no SONORITZACIÓ de sordes. El repertori de 17 normes no el recull explícitament."
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -765,9 +820,43 @@
       "valenciano": {
         "resultado": "nit",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "VOC",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Vocalització provisional de -c- en el grup -ct-: estadi intermedi nuit, no palatalització castellana."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Simplificació/reducció provisional de la seqüència vocàlica històrica nuit > nit; el fragment llatí es fa servir com a ancoratge pedagògic, no com a pas directe."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "nŏctem > *nuit > nit: es conserva la cadena provisional acceptada pel docent. Cal encara contrastar les etapes abans de certificar les lleis per a pràctica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -778,7 +867,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "Cal fixar una cadena històrica rigorosa per -ct- > -it- i la reducció vocàlica posterior; no equival a aplicar mecànicament la palatalització castellana."
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -795,15 +885,56 @@
       },
       "valenciano": {
         "resultado": "ull",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SINC",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Síncope de la vocal posttònica ŭ: base vulgar ŏclu segons el DCVB."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Palatalització del grup -cl- sorgit després de la síncope, que culmina en ll."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "OCŬLUM > base vulgar ŏclu > ull. SÍNCOPE i PALATALITZACIÓ són les dues lleis docents; no assignar la llei castellana especial -CUL-.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=ull",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "DCVB, etimologia d'ull: del llatí vulgar ŏclu (contracció d'ŏcŭlus). Analitzar la síncope abans de la palatalització, sense traslladar -CUL- castellà.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1304,15 +1435,52 @@
       },
       "valenciano": {
         "resultado": "escola",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi de e- davant s + consonant."
+          },
+          {
+            "id": "va2",
+            "rule": "GRIE",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Adaptació de la grafia grega ch a c."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SCHOLAM > escola: e- protètica davant s + consonant i adaptació de grafies gregues sch- > esc-. Anàlisi didàctica en revisió.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=escola",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "DCVB, etimologia d'escola: llatí schŏla; verificar lexia i adaptació gràfica, sense suposar un pas fonètic no acreditat.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2751,15 +2919,45 @@
       },
       "valenciano": {
         "resultado": "font",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -e final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "FŎNTEM > font: es conserva ŏ sense diftongació; es perd la -e final.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=font",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "DCVB, etimologia de font: del llatí fŏnte; l'e final desapareix, -m acusativa és fixa.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3227,9 +3425,32 @@
       "valenciano": {
         "resultado": "mare",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació de -tr- per pèrdua de -t- intervocàlica o en grup."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MATREM > mare: desaparició de t en -tr-, com a simplificació segons criteri docent.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -3240,7 +3461,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "La reducció de -tr- podria classificar-se com a simplificació; precisar el tractament històric i la segmentació abans d'exigir una norma."
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3356,8 +3578,8 @@
         "transmission": null
       },
       "valenciano": {
-        "resultado": "huit",
-        "estadoLexico": "proposta",
+        "resultado": null,
+        "estadoLexico": "pendent",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
@@ -3365,7 +3587,13 @@
         "aprobadoDocente": false,
         "aptoParaPractica": false,
         "evidencia": [],
-        "notas": null
+        "notas": "Cadena històrica de -ct- i aspiració inicial pendent de verificació completa; només castellà fins a decisió docent.",
+        "reserva": {
+          "mode": "solo_castellano",
+          "historicalStudy": false,
+          "latin": "octo",
+          "formHistoricaNoJugable": "huit"
+        }
       }
     },
     {
@@ -3507,15 +3735,45 @@
       },
       "valenciano": {
         "resultado": "salut",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SALUTEM > salut: es perd la -e final; la -m desapareix com a norma fixa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=salut",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "DCVB, etimologia de salut: del llatí salūte; pèrdua de -e final.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4202,8 +4460,8 @@
         "transmission": null
       },
       "valenciano": {
-        "resultado": "dit",
-        "estadoLexico": "proposta",
+        "resultado": null,
+        "estadoLexico": "pendent",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
@@ -4211,7 +4469,13 @@
         "aprobadoDocente": false,
         "aptoParaPractica": false,
         "evidencia": [],
-        "notas": null
+        "notas": "Etapes històriques de -ct- > -it- no verificades una per una; només castellà fins a decisió docent.",
+        "reserva": {
+          "mode": "solo_castellano",
+          "historicalStudy": false,
+          "latin": "dictum",
+          "formHistoricaNoJugable": "dit"
+        }
       }
     },
     {
@@ -5658,8 +5922,8 @@
         "transmission": null
       },
       "valenciano": {
-        "resultado": "segell",
-        "estadoLexico": "proposta",
+        "resultado": null,
+        "estadoLexico": "pendent",
         "normas": null,
         "estadoNormas": "pendent",
         "explicacion": null,
@@ -5667,7 +5931,13 @@
         "aprobadoDocente": false,
         "aptoParaPractica": false,
         "evidencia": [],
-        "notas": null
+        "notas": "El DCVB assenyala mot arcaic reintroduït en la llengua culta; estudi històric possible amb advertiment, sense activació ni automatismes.",
+        "reserva": {
+          "mode": "solo_castellano",
+          "historicalStudy": true,
+          "latin": "sigĭllum",
+          "formHistoricaNoJugable": "segell"
+        }
       }
     },
     {
@@ -6542,9 +6812,43 @@
       "valenciano": {
         "resultado": "cavall",
         "estadoLexico": "documentat",
-        "normas": null,
-        "estadoNormas": "discrepancia_documentada",
-        "explicacion": null,
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                4,
+                6
+              ]
+            ],
+            "note": "Palatalització de la lateral llatina geminada -ll- en la lateral palatal escrita ll."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de la vocal final -u després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CABALLUM > cavall: -b- intervocàlica > -v- per debilitament (no avaluable), ll palatal i desaparició de -u final. No etiquetar b→v com SONORITZACIÓ.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
@@ -6555,7 +6859,8 @@
             "scope": "lema_i_etimologia"
           }
         ],
-        "notas": "La -b- intervocàlica > -v- no és SONORITZACIÓ; decidir si se n'explica el canvi no seleccionable i quines altres normes es poden exigir."
+        "notas": null,
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -9577,15 +9882,45 @@
       },
       "valenciano": {
         "resultado": "port",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PORTUM > port: l'acusatiu perd -m i la vocal final -u; no es produeix l'obertura castellana -u > -o.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=port",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "DCVB, etimologia de port ('port marítim'): del llatí pŏrtu; no traslladar l'obertura castellana -u > -o.",
+        "dnvIndividualChecked": false
       }
     },
     {
