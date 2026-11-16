@@ -1,4 +1,4 @@
-# Evolutio valenciano — conciliación académica (actualización 16/11/2026)
+# Evolutio valenciano — conciliación académica (actualización 16/11/2026) · segunda tanda
 
 ## Estado vigente y protección de la versión publicada
 
@@ -6,10 +6,10 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 
 | Estado (16/11/2026) | Entradas | Significado |
 |---|---:|---|
-| Correspondencia léxica `documentat` | **32** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
-| `proposta` | **206** | Propuesta no contrastada individualmente |
+| Correspondencia léxica `documentat` | **50** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
+| `proposta` | **188** | Propuesta no contrastada individualmente |
 | `pendent` | **284** | Sin solución habilitada; incluye tres reservas solo castellanas |
-| Análisis fonéticos editoriales | **32** | Segmentos revisados; cuatro decisiones docentes recuperadas, seis análisis nuevos |
+| Análisis fonéticos editoriales | **50** | Segmentos revisados; cuatro decisiones docentes recuperadas, seis análisis nuevos |
 | Casos reservados solo castellano | **3** | `octo`, `dictum`, `sigĭllum`: ninguna respuesta valenciana entregable |
 | Normas certificadas para evaluación | **0** | Sigue faltando contraste normativo individual y aprobación integral |
 | Fichas habilitadas para test valenciano | **0** | No publicar hasta cerrar la verificación |
@@ -25,6 +25,43 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 
 Las decisiones sobre el análisis de una palabra **no significan** que se hayan verificado todas sus reglas con DNV ni que la ficha quede aprobada para evaluación. Los indicadores `dnvIndividualChecked`, `teacherApproved` y `playable` permanecen en `false`.
 
+### Segunda tanda: contraste individual de 24 candidatas (16/11/2026)
+
+Se han examinado las 24 entradas de la primera cola de revisión, contrastando forma, acepción y etimología con el DCVB y distinguiendo las reservas que impiden trasladarlas automáticamente a un test escolar. **18 correspondencias** pasan a `documentat` con su ficha DCVB individual y análisis editorial; **6 permanecen en `proposta`** con motivo explícito. El DNV no ha podido consultarse entrada por entrada por los medios disponibles: **ninguna** de las 18 tiene `dnvIndividualChecked=true`, `ruleVerified=true`, `teacherApproved=true` ni `playable=true`.
+
+| Latin | Valenciano | Criterio escolar provisional |
+|---|---|---|
+| `pœnam` | pena | MONOFTONGACIÓ, solo acepción 'castigo/aflicción'; evitar confundir con `penna` / `pinna` |
+| `scutum` | escut | PRÒTESI y APÒCOPE, sin abrir -u a -o |
+| `spicam` | espiga | PRÒTESI y SONORITZACIÓ **-c- → -g-**, no `p` |
+| `cannam` | canya | PALATALITZACIÓ `-nn-` → `-ny-` |
+| `guttam` | gota | OBERTURA y SIMPLIFICACIÓ |
+| `pannum` | pany | PALATALITZACIÓ y APÒCOPE; advertencia de evolución semántica |
+| `septem` | set | SIMPLIFICACIÓ y APÒCOPE; solo numeral siete (no `set` 'sed') |
+| `iurare` | jurar | CONSONANTITZACIÓ y APÒCOPE |
+| `surdum` | sord | OBERTURA y APÒCOPE |
+| `hŏrtum` | hort | APÒCOPE; sin aspiración castellana |
+| `sortem` | sort | APÒCOPE; evitar el homónimo toponímico |
+| `pellem` | pell | PALATALITZACIÓ de `ll` y APÒCOPE |
+| `crustam` | crosta | OBERTURA **con advertencia de analogía vocálica en DCVB**; no certificar ley |
+| `timorem` | temor | OBERTURA y APÒCOPE; conservar -r final valenciana |
+| `muscam` | mosca | OBERTURA de ŭ |
+| `fŏrtia` | força | PALATALITZACIÓ de `-ti-`; DCVB confirma la base vulgar |
+| `rŏtam` | roda | SONORITZACIÓ de `-t-` intervocálica |
+| `iuncum` | jonc | CONSONANTITZACIÓ, OBERTURA editorial y APÒCOPE; DCVB documenta variantes valencianas con *o* y *u* |
+
+Los cambios editoriales se localizan sobre los caracteres Unicode del étimo; la pérdida fija de `-m` del acusativo se añade fuera de las leyes seleccionables. La presencia de las 18 fichas en la matriz **no** garantiza que todas esas reglas sean evaluables o que la reconstrucción sea históricamente exhaustiva.
+
+**Seis reservas tras el contraste**
+
+- `senatum → senat` y `uirtutem → virtut`: el DCVB utiliza *pres del llatí*; no convertir estos préstamos cultos en evoluciones patrimoniales automáticas.
+- `uitem → vit`: la acepción correspondiente a `vīte` ('sarmiento') se documenta como femenina **antigua**, mientras otras acepciones de *vit* responden a étimos distintos.
+- `caput → cap`: el DCVB señala `capum` vulgar como origen inmediato, variante de `caput`; falta justificar la cadena a partir del étimo del banco.
+- `spissum → espés`: comprobación DCVB y DNV no cerrada para la grafía valenciana propuesta.
+- `falcem → falç`: vínculo etimológico recogido en el [Gran Diccionari de la Llengua Catalana](https://www.diccionari.cat/GDLC/falc-0), pero falta la ficha individual DCVB y el contraste DNV que exige la matriz.
+
+La cola conserva para las 24 fichas `reviewOutcome`, referencias comprobadas cuando proceden y una explicación de cada reserva. Queda pendiente la certificación normativa, la valoración por ley y la decisión docente de habilitación. Se protege el banco valenciano de 522 frente al lote de 100 fichas **exclusivamente castellanas** publicado con anterioridad.
+
 ### Seis correspondencias documentadas de nuevo
 
 | Forma latina | Resultado valenciano | DCVB | Análisis editorial no certificado |
@@ -38,9 +75,9 @@ Las decisiones sobre el análisis de una palabra **no significan** que se hayan 
 
 **Reserva histórica:** `octo → huit` y `dictum → dit` quedan apartadas hasta contrastar sus etapas históricas. `sigĭllum → segell` puede anotarse para estudio histórico interno, con aviso explícito de que el DCVB lo caracteriza como voz arcaica reintroducida en el uso culto; **no** autoriza una evolución patrimonial evaluable. La reserva se conserva como dato privado, mientras que las tres fichas aparecen **solo en castellano**.
 
-**Próxima tanda:** `shared/academic/evolutio-valenciano/cola-revisio-24.json` selecciona 24 propuestas particularmente útiles y relativamente deducibles para auditoría individual de DCVB, DNV y secuencia fonética. No son candidaturas autorizadas para preguntas.
+**Segunda tanda:** `shared/academic/evolutio-valenciano/cola-revisio-24.json` registra el contraste de 24 candidatas: 18 correspondencias lexicalmente documentadas en el DCVB y 6 reservas explícitas. Ninguna queda autorizada para preguntas; el DNV y la evaluación completa de leyes permanecen pendientes.
 
-Archivos activos: `conciliacion-curada.json`, `revisio-32-2026-11-16.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`. El antiguo `revisio-26.json` se retiene como evidencia histórica. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
+Archivos activos: `conciliacion-curada.json`, `revisio-50-2026-11-16.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`. Las revisiones `revisio-26.json` y `revisio-32-2026-11-16.json` se conservan como evidencias históricas. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
 
 ---
 
