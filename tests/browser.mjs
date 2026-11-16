@@ -759,16 +759,23 @@ try{
     'Evolutio no debe eliminar la caché de Etymologicon');
   assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio muestra error inicial');
   assert.equal(await page.locator('#refresh-app').count(),1,'El nuevo botón Actualizar debe existir');
-  assert.equal(await page.evaluate(async()=>(await fetch('./data/pilot.json').then(r=>r.json())).words.length),522,
-    'Evolutio debe mostrar las 522 fichas de la versión nueva');
+  const publishedWords=await page.evaluate(async()=>{
+    const data=await fetch('./data/pilot.json').then(r=>r.json());
+    return {count:data.words.length,newId:data.words.some(w=>w.id==='xl-230'&&w.answers.includes('padre')),
+      distinct:new Set(data.words.map(w=>w.id)).size};
+  });
+  assert.deepEqual(publishedWords,{count:622,newId:true,distinct:622},
+    'Evolutio debe servir 522 fichas originales y 100 nuevas sin duplicados');
   await page.context().setOffline(true);
   await page.reload({waitUntil:'load'});
   await page.waitForFunction(()=>!document.querySelector('#app .loading'),null,{timeout:10000});
   assert.equal(await page.locator('#app .fatal').count(),0,'Evolutio falla sin conexión');
   const newOfflineResources=await page.evaluate(async()=>{
-    const paths=['./src/difficulty.mjs','./src/result-difficulty.mjs','./src/practice-eligibility.mjs','./src/latin.mjs','./src/update.mjs','./data/difficulty.json'];
+    const paths=['./src/difficulty.mjs','./src/result-difficulty.mjs','./src/practice-eligibility.mjs','./src/latin.mjs','./src/update.mjs','./data/difficulty.json','./data/pilot.json'];
     const results=await Promise.all(paths.map(p=>fetch(p).then(r=>r.ok).catch(()=>false)));
-    return results.every(Boolean);
+    const wordBank=await fetch('./data/pilot.json').then(r=>r.json());
+    return results.every(Boolean)&&wordBank.words.length===622&&
+      wordBank.words.some(w=>w.id==='xl-230'&&w.answers.includes('padre'));
   });
   assert.equal(newOfflineResources,true,'Faltan los nuevos recursos de Evolutio sin conexión');
   const postEvolutioCaches=await page.evaluate(async()=>await caches.keys());
