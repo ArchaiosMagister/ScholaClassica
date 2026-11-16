@@ -95,11 +95,25 @@ test('sintagmas triples: dos posiciones atributivas correctas, acento grave cont
   assert.equal(graveInContext('μεγάλη'),'μεγάλη');
   assert.throws(()=>greekNounPhrasePairs(bank,{language:'latin',unit:5}),/solo se habilitan/);
   assert.throws(()=>greekNounPhrasePairs(bank,{language:'griego',unit:4}),/solo se habilitan/);
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:5}).length,36);
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,60);
-  assert.ok(!greekNounPhrasePairs(bank,{language:'griego',unit:7})
-    .some(p=>p.noun.id==='griego-sustantivo-anthropos'),
-    'El género común no se puede tratar como una concordancia unívoca');
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:5}).length,39);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:7}).length,63);
+  const anthropos=bank.records.find(r=>r.id==='griego-sustantivo-anthropos');
+  assert.equal(anthropos.gender,'común','Conservar el uso femenino histórico');
+  assert.equal(anthropos.evidence.teacherDecision,'masculino-docente');
+  assert.deepEqual(anthropos.agreementGenders,['masculino']);
+  assert.equal(anthropos.forms.length,10);
+  const anthroposPairs=greekNounPhrasePairs(bank,{language:'griego',unit:7})
+    .filter(p=>p.noun.id===anthropos.id);
+  assert.equal(anthroposPairs.length,3);
+  assert.ok(anthroposPairs.every(p=>p.gender==='masculino'));
+  const ids=anthroposPairs.map(p=>p.id);
+  assert.equal(new Set(ids).size,3);
+  const case0=makeGreekNounPhraseTables({...bank,records:bank.records.filter(r=>
+    ['griego-articulo','griego-adj-agathos','griego-adj-barbaros',
+     'griego-adj-megas',anthropos.id].includes(r.id))},
+    {language:'griego',unit:5,limit:3,rng});
+  assert.ok(case0.every(q=>q.cells.find(c=>c.id==='nominativo:singular')
+    .acceptedForms.every(x=>x.startsWith('ὁ '))));
   const tables=makeGreekNounPhraseTables(bank,{language:'griego',unit:7,limit:30,rng});
   assert.equal(tables.length,30);
   assert.ok(tables.every(t=>t.gender&&t.cells.length===8&&t.sources.length===3));
