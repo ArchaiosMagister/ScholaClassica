@@ -19,6 +19,7 @@ import {adaptAppendixGreek1UI} from './adapt-appendix-griego1-ui.mjs';
 import {buildGrammarPwa} from './build-gramatica-pwa.mjs';
 import {correctLatin4Vocabula} from './latin4-lexical-editorial.mjs';
 import {reconcileLatin4ExamUd8} from './latin4-ud8-reconciliation.mjs';
+import {applyGreek1KindynosUd5} from './greek1-kindynos-ud5-decision.mjs';
 import {adaptVocabulaAll} from './adapt-vocabula-all.mjs';
 import {buildVocabulaOffline} from './adapt-vocabula-offline.mjs';
 import {buildVocabulaPwa} from './build-vocabula-pwa.mjs';
@@ -154,7 +155,7 @@ if(!Array.isArray(originalWords)||originalWords.length<1000)
   throw Error('Banco original de Vocabula incompleto: no publicar');
 // Enmiendas filológicas reproducibles: la fuente inmovilizada y sus originales
 // siguen intactos; ambas vistas integradas muestran los mismos lemas.
-const studentWords=reconcileLatin4ExamUd8(correctLatin4Vocabula(originalWords));
+const studentWords=applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(originalWords)));
 await writeFile(join(vocabulaDestination,'data.js'),
   'window.VOCAB='+JSON.stringify(studentWords)+';\n');
 const docenteWords=studentWords.map(({id,subject,mode,form,meaning,answers,units})=>
