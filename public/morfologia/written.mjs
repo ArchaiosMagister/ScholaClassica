@@ -49,6 +49,8 @@ export function makeWrittenQuestions(bank,{language,unit,kind='todos',limit=10,r
   const records=availableRecords(bank,{language,unit,kind});
   const candidates=[];
   for(const record of records){
+    // Los locativos de UD2 se reconocen como casos aislados, no se producen.
+    if(record.evidence?.practiceScope==='recognition-only')continue;
     const groups=new Map();
     const ordinaryAnalyses=new Set(practiceOrdinaryEntries(record).map(f=>
       clean(f.analysis)));
@@ -84,6 +86,7 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
   const records=availableRecords(bank,{language,unit,kind});
   const candidates=[];
   for(const record of records){
+    if(record.evidence?.practiceScope==='recognition-only')continue;
     if(!['sustantivo','adjetivo','desinencia','artículo','participio','pronombre'].includes(record.kind))continue;
     // Las tablas requieren un paradigma de género definido. Mezclar ego/tu
     // en una sola casilla de "singular" falsearía la flexión personal.
