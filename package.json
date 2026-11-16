@@ -37,6 +37,7 @@
     "audit:morfologia:vocabulario": "node scripts/audit-morphology-vocabulary.mjs",
     "test:browser:vocabula:offline": "node tests/vocabula-offline-browser.mjs",
     "audit:filologia:transversal": "node scripts/audit-filologia-transversal.mjs",
-    "audit:curriculum:scope": "node scripts/audit-curricular-scope.mjs"
+    "audit:curriculum:scope": "node scripts/audit-curricular-scope.mjs",
+    "audit:gr1:unassigned": "node scripts/audit-greek-unassigned-individual.mjs"
   }
 }

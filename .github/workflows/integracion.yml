@@ -80,6 +80,8 @@ jobs:
         run: npm run audit:filologia:transversal
       - name: Auditar fronteras de currículo y procedencia de Examen sin reclasificar bancos
         run: npm run audit:curriculum:scope
+      - name: Auditar individualmente 184 fichas griegas sin unidad y cotejar ES/VAL
+        run: npm run audit:gr1:unassigned
       - name: Cotejar lema + forma + rasgos de Latín II con UniMorph congelado
         run: npm run lexicografia:lat2
       - name: Auditar la estructura de las perífrasis de Latín II (una fuente)
@@ -129,6 +131,13 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
+      - name: Archivar las 184 fichas y los candidatos griegos para revisión docente
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-griego1-184-sin-unidad
+          path: build/academic-audits/greek-unassigned/*.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Archivar diagnóstico de unidades complementarias y fichas sin adscripción
         uses: actions/upload-artifact@v4
         with:
