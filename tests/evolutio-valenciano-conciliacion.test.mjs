@@ -11,7 +11,7 @@ const base='shared/academic/evolutio-valenciano/';
 const lock=read('config/sources.lock.json');
 const norms=read(base+'normas.json');
 const curation=read(base+'conciliacion-curada.json');
-const revision=read(base+'revisio-26.json');
+const revision=read(base+'revisio-32-2026-11-16.json');
 const matrix=read(base+'matriz-522.json');
 const source=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
 const bank=JSON.parse(readFileSync(join(source,'data/pilot.json'),'utf8'));
@@ -49,10 +49,10 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='MIN_MBR'));
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='CUL'));
 });
-test('Estados editoriales honestos: 26 documentados léxicamente, 215 propuestas, 281 sin propuesta',()=>{
- assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:26,propuestas:215,
-  sinPropuesta:281,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:22,casosConDiscrepancia:4});
+test('Estados editoriales honestos: 32 documentados, 206 propuestas, 284 pendientes y 3 reservas españolas',()=>{
+ assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:32,propuestas:206,
+  sinPropuesta:284,reservasSoloCastellano:3,normasVerificadas:0,aptasParaPractica:0,
+  analisisEditoriales:32,casosConDiscrepancia:0});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -86,7 +86,7 @@ test('Estados editoriales honestos: 26 documentados léxicamente, 215 propuestas
 test('Casos filológicos documentados y cautela con dobletes y base vulgar',()=>{
  for(const [latin,spanish,valencian] of [
   ['uitam','vida','vida'],['focum','fuego','foc'],['noctem','noche','nit'],
-  ['clauem','llave','clau'],['lupum','lobo','llop'],
+  ['clauem','llave','clau'],['lupum','lobo','llop'],['cælum','cielo','cel'],
   ['filium','hijo','fill'],['matrem','madre','mare'],['pŏrtam','puerta','porta'],
   ['tĕrram','tierra','terra'],['caballum','caballo','cavall']
  ]){
@@ -112,12 +112,12 @@ test('Propuestas sin fuente no se promueven a verificadas',()=>{
  extraneous.proposals.push({latin:'ficticium',form:'fictici',lexicalStatus:'proposta',reference:null});
  assert.throws(()=>assembleEvolutioValenciano(bank,extraneous,norms,lock.sources.evolutio.sha),/sin étimo/);
 });
-test('22 análisis revisados y 4 discrepancias: sin trasplante de normas castellanas',()=>{
+test('32 análisis editoriales revisados, cuatro decisiones docentes incorporadas y cero análisis jugables',()=>{
  const good=matrix.records.filter(w=>w.valenciano.estadoNormas==='analisi_editorial_revisada');
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
- assert.equal(good.length,22);
- assert.equal(disputed.length,4);
- assert.deepEqual(disputed.map(w=>w.latin).sort(),['noctem','matrem','fabam','caballum'].sort());
+ assert.equal(good.length,32);
+ assert.equal(disputed.length,0);
+ assert.deepEqual(revision.pending,[]);
  const allowed=new Set(norms.selectable.map(r=>r.id));
  for(const w of good){
   const letters=[...w.latin];
@@ -133,6 +133,59 @@ test('22 análisis revisados y 4 discrepancias: sin trasplante de normas castell
  assert.ok(record('lupum').valenciano.normas.some(c=>c.rule==='PALAT'));
  assert.ok(record('focum').valenciano.normas.some(c=>c.rule==='APOC'));
  assert.ok(good.every(w=>w.valenciano.aptoParaPractica===false));
+ const rulesFor=latin=>record(latin).valenciano.normas.filter(x=>x.rule!=='FIX_M').map(x=>x.rule);
+ assert.deepEqual(rulesFor('noctem'),['VOC','SIMPL']);
+ assert.deepEqual(rulesFor('matrem'),['SIMPL']);
+ assert.deepEqual(rulesFor('fabam'),[]);
+ assert.deepEqual(rulesFor('caballum'),['PALAT','APOC']);
+ assert.deepEqual(rulesFor('cælum'),['MONOP','PALAT']);
+ assert.deepEqual(rulesFor('ocŭlum'),['SINC','PALAT']);
+ assert.deepEqual(rulesFor('fĕrrum'),['ABER']);
+ assert.deepEqual(rulesFor('scholam'),['PROT','GRIE']);
+ assert.deepEqual(rulesFor('fŏntem'),['APOC']);
+ assert.deepEqual(rulesFor('salutem'),['APOC']);
+ assert.deepEqual(rulesFor('portum'),['APOC']);
+ assert.match(record('noctem').valenciano.explicacion,/provisional/);
+ assert.match(record('fabam').valenciano.explicacion,/no figura com a llei seleccionable/);
+ assert.match(record('caballum').valenciano.explicacion,/no avaluable/);
+ assert.match(record('ocŭlum').valenciano.explicacion,/ŏclu/);
+});
+test('Octo, dictum y sigillum permanecen sólo en castellano sin perder el historial histórico',()=>{
+ const expected=['octo','dictum','sigĭllum'];
+ assert.deepEqual(curation.reserved.map(x=>x.latin),expected);
+ for(const latin of expected){
+  const w=record(latin);
+  assert.equal(w.valenciano.resultado,null);
+  assert.equal(w.valenciano.estadoLexico,'pendent');
+  assert.equal(w.valenciano.normas,null);
+  assert.equal(w.valenciano.aptoParaPractica,false);
+  assert.equal(w.valenciano.reserva.mode,'solo_castellano');
+  assert.ok(!curation.proposals.some(p=>p.latin===latin));
+  assert.ok(!curation.documented.some(p=>p.latin===latin));
+ }
+ assert.equal(record('sigĭllum').valenciano.reserva.historicalStudy,true);
+ assert.match(record('sigĭllum').valenciano.notas,/reintroduït en la llengua culta/);
+ const invalid=structuredClone(curation);
+ invalid.proposals.push({latin:'octo',form:'huit',lexicalStatus:'proposta',reference:null});
+ assert.throws(()=>assembleEvolutioValenciano(bank,invalid,norms,lock.sources.evolutio.sha,revision),
+   /reserva solo castellana/);
+ const broken=structuredClone(curation);
+ broken.reserved[0].mode='auto';
+ assert.throws(()=>assembleEvolutioValenciano(bank,broken,norms,lock.sources.evolutio.sha,revision),
+   /Reserva docente inválida/);
+});
+test('Los seis étimos añadidos tienen fuente DCVB pero no autorización normativa ni práctica',()=>{
+ for(const [latin,form] of [['cælum','cel'],['ocŭlum','ull'],
+  ['scholam','escola'],['fŏntem','font'],['salutem','salut'],['portum','port']]){
+  const w=record(latin);
+  assert.equal(w.valenciano.resultado,form);
+  assert.equal(w.valenciano.estadoLexico,'documentat');
+  assert.equal(w.valenciano.estadoNormas,'analisi_editorial_revisada');
+  assert.equal(w.valenciano.evidencia[0].authority,'DCVB');
+  assert.equal(w.valenciano.dnvIndividualChecked,false);
+  assert.equal(w.valenciano.aprobadoDocente,false);
+  assert.equal(w.valenciano.aptoParaPractica,false);
+ }
 });
 test('No se admiten posiciones erróneas ni aprobaciones ficticias de leyes',()=>{
  const bad=structuredClone(revision);
