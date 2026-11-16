@@ -61,12 +61,25 @@ export function mergeCatalog(original,custom){
     searchKey(a.form).localeCompare(searchKey(b.form),'es')||
     String(a.origin).localeCompare(String(b.origin)));
 }
+// Buscar por cualquier acepción, respuesta o identificador histórico,
+ // también cuando una aportación docente oculta temporalmente la ficha original.
+ // Esto es solo presentación: jamás se mezclan respuestas entre procedencias.
+function searchableFields(item){
+  const originals=[...(item.sources||[]),...(item.originalSources||[])];
+  const variants=[...(item.variants||[]),...(item.originalVariants||[])];
+  return [item.form,item.meaning,...(item.answers||[]),
+    ...originals.flatMap(source=>[
+      source.id,source.meaning,source.mode,...(source.answers||[]),...(source.units||[])
+    ]),
+    ...variants.flatMap(variant=>[variant.meaning,...(variant.answers||[])])
+  ];
+}
 export function matchCatalog(items,{subject='',search='',offset=0,pageSize=50}={}){
   const needle=searchKey(search);
   const matches=items.filter(item=>
     (!subject||item.subject===subject)&&
-    (!needle||searchKey(item.form).includes(needle)||
-      searchKey(item.meaning).includes(needle)));
+    (!needle||searchableFields(item).some(value=>
+      searchKey(value).includes(needle))));
   return {rows:matches.slice(offset,offset+pageSize),total:matches.length,
     more:offset+pageSize<matches.length};
 }

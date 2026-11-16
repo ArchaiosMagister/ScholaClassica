@@ -112,18 +112,20 @@ function renderWords(){
     const card=text('article','', 'notice');
     card.append(text('h4',word.form));
     if(word.origin==='original'){
-      // Cada variante conserva su propia glosa, respuestas y unidades de
-      // General/Examen. Una sola tarjeta no significa una sola acepción.
-      for(const variant of word.variants){
-        card.append(text('p',variant.meaning));
-        card.append(text('small','Respuestas admitidas: '+variant.answers.join(' · ')));
-        for(const source of variant.sources){
-          const mode=source.mode==='examen'?'Examen':'General';
-          card.append(text('small',mode+' · '+source.units.join(' · ')));
-        }
+      // Una fila legible por ID histórico: incluso las glosas idénticas
+      // conservan modo, unidades y respuestas individualizados.
+      for(const source of word.sources){
+        const variant=text('div','','admin-word-variant');
+        variant.append(
+          text('small','Banco original · '+(source.mode==='examen'?'Examen':'General')+
+            ' · '+source.units.join(' · ')+' · ID '+source.id),
+          text('p',source.meaning),
+          text('small','Respuestas admitidas: '+source.answers.join(' · '))
+        );
+        card.append(variant);
       }
       card.append(text('small',(subjects[word.subject]||word.subject)+
-        ' · Banco original · '+word.sources.length+' ficha(s) conservada(s)'));
+        ' · '+word.sources.length+' ficha(s) originales conservadas'));
       if(word.semanticConflict){
         card.append(text('p','Acepciones o respuestas distintas por origen: edición global bloqueada para evitar sustituir varias fichas por una sola.'));
       }
@@ -134,13 +136,22 @@ function renderWords(){
         word.in_exam?'General y examen':'General',
         word.active?'Disponible':'Retirada'].join(' · ')));
       if(word.originalSources?.length){
-        card.append(text('small','Sustituye o complementa '+word.originalSources.length+
-          ' ficha(s) originales; el banco original permanece intacto.'));
-        for(const variant of word.originalVariants||[]){
-          card.append(text('small','Original: '+variant.meaning+' · Respuestas: '+
-            variant.answers.join(' · ')+' · '+
-            variant.sources.map(source=>(source.mode==='examen'?'Examen':'General')+
-              ': '+source.units.join(', ')).join(' / ')));
+        card.append(text('small',word.originalSources.length+
+          ' ficha(s) originales conservadas; la aportación puede afectar a todas.'));
+        for(const source of word.originalSources){
+          const variant=text('div','','admin-word-variant');
+          variant.append(
+            text('small','Banco original · '+(source.mode==='examen'?'Examen':'General')+
+              ' · '+source.units.join(' · ')+' · ID '+source.id),
+            text('p',source.meaning),
+            text('small','Respuestas admitidas: '+source.answers.join(' · ')),
+            text('small',word.active===false?'Original recuperado al retirar la aportación':
+              'Original sustituido mientras la aportación está activa')
+          );
+          card.append(variant);
+        }
+        if(word.originalSemanticConflict){
+          card.append(text('p','Atención: los originales tienen acepciones o respuestas diferentes. Modificar esta aportación afecta a varias procedencias.'));
         }
       }
     }
@@ -204,9 +215,13 @@ async function saveWord(){
   const signatures=new Set(historical.map(word=>JSON.stringify([word.meaning,word.answers||[]])));
   const existing=editingId?customWords.find(word=>word.id===editingId):null;
   const sameOverride=existing&&entryKey(existing)===entryKey(body);
+  const conflictingCustom=customWords.find(word=>
+    word.id!==editingId&&entryKey(word)===entryKey(body));
+  if(conflictingCustom)
+    throw Error('Ya existe una aportación docente para esta forma. Edita la existente.');
   if(signatures.size>1&&!sameOverride)
     throw Error('No se puede crear una sobreescritura de esta forma: General y Examen, o distintas unidades, conservan acepciones o respuestas diferentes. Requiere edición por origen.');
-  if(historical.length>1&&!sameOverride&&
+  if(body.active&&historical.length>1&&
     !window.confirm('Esta versión docente sustituirá '+historical.length+
       ' fichas originales con la misma forma, incluidas sus unidades y procedencias. ¿Continuar?'))
     return;

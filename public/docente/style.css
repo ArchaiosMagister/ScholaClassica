@@ -78,3 +78,15 @@ html:is([data-theme="dark"],[data-theme="oled"]) #grammar-audit .admin-controls 
 html:is([data-theme="dark"],[data-theme="oled"]) #grammar-audit .admin-controls select{
   color:#edf4ff;background:#142434;border-color:#738ca2
 }
+
+
+/* Cada fuente histórica es visible por separado, sin fusionar acepciones. */
+#vocab-admin .admin-word-variant{
+  border-left:3px solid #647f97;padding:8px 12px;margin:11px 0 3px;
+  background:rgba(92,125,151,.08);border-radius:0 8px 8px 0
+}
+#vocab-admin .admin-word-variant p{margin:6px 0}
+#vocab-admin .admin-word-variant small{display:block;overflow-wrap:anywhere}
+html:is([data-theme="dark"],[data-theme="oled"]) #vocab-admin .admin-word-variant{
+  border-left-color:#9cbdd8;background:rgba(145,184,215,.12)
+}
