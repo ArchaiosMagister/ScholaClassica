@@ -157,6 +157,10 @@ test('La auditoría de modalidades separa tablas improcedentes y fichas nunca ev
   assert.deepEqual(a.griego.noAnalysis,[]);
   assert.deepEqual(a.latin.noWritten,[]);
   assert.deepEqual(a.griego.noWritten,[]);
+  assert.deepEqual(a.latin.recognitionOnly,[{
+    id:'latin-ud2-locativos-ejemplos',unit:2,kind:'sustantivo',analysis:5
+  }],'Los locativos no productivos deben tener diagnóstico explícito');
+  assert.deepEqual(a.griego.recognitionOnly,[]);
   assert.ok(a.latin.noTable.some(x=>x.kind==='verbo'),
     'La ausencia de tabla verbal nominal no constituye una incidencia');
   assert.ok(a.griego.noTable.some(x=>x.kind==='infinitivo'));
