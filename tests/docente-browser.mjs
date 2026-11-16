@@ -172,6 +172,17 @@ try{
   await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('magnus'));
   assert.equal(await good.locator('#admin-word-list .notice').count(),1);
   assert.ok((await good.locator('#admin-word-list').textContent()).includes('Banco original'));
+  await good.locator('#admin-search').fill('silva, –æ');
+  await good.locator('#admin-search-form button[type="submit"]').click();
+  await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent==='silva, –æ');
+  assert.equal(await good.locator('#admin-word-list .notice').count(),1);
+  const provenance=await good.locator('#admin-word-list').textContent();
+  assert.ok(provenance.includes('‘selva’')&&provenance.includes('‘bosque’'),
+    'Las dos glosas de silva deben mostrarse separadas');
+  assert.ok(provenance.includes('Banco original · General'));
+  assert.ok(provenance.includes('Banco original · Examen'));
+  assert.equal(await good.locator('#admin-word-list .admin-word-variant').count(),2);
+  assert.equal(await good.locator('#admin-word-list .admin-word-variant button').count(),2);
   await good.locator('#admin-search').fill('Ephesius');
   await good.locator('#admin-search-form button[type="submit"]').click();
   await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('Ephesius'));
