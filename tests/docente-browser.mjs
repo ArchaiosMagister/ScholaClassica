@@ -172,6 +172,16 @@ try{
   await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('magnus'));
   assert.equal(await good.locator('#admin-word-list .notice').count(),1);
   assert.ok((await good.locator('#admin-word-list').textContent()).includes('Banco original'));
+  // Caso de colisión real: no ocultar acepciones ni permitir editar una sola
+  // ficha como si la sobreescritura no afectara también a Examen.
+  await good.locator('#admin-search').fill('silva');
+  await good.locator('#admin-search-form button[type="submit"]').click();
+  await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('silva'));
+  const silva=await good.locator('#admin-word-list .notice').first().textContent();
+  assert.ok(silva.includes('selva')&&silva.includes('bosque'));
+  assert.ok(silva.includes('General')&&silva.includes('Examen'));
+  assert.ok(silva.includes('UD 3')&&silva.includes('UD 6'));
+  assert.equal(await good.locator('#admin-word-list .notice').first().locator('button').count(),0);
   await good.locator('#admin-search').fill('Ephesius');
   await good.locator('#admin-search-form button[type="submit"]').click();
   await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('Ephesius'));
