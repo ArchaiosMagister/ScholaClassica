@@ -22,7 +22,7 @@ export const LATIN1_EARLY_IDS=Object.freeze({
 });
 const textOf=html=>String(html||'').replace(/<[^>]+>/gu,' ')
   .replace(/&aelig;/gu,'æ').replace(/&nbsp;/gu,' ')
-  .replace(/\\s+/gu,' ').normalize('NFC');
+  .replace(/\s+/gu,' ').normalize('NFC');
 
 function lesson(curriculum,unit,title){
   const topic=curriculum?.latin?.units?.find(u=>u.number===unit)
