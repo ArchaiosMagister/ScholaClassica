@@ -31,7 +31,7 @@ import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-ver
 import {compileGreekNounBatch,compileGreekEarlyNounBatch,compileGreekExigibleNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
 import {compilePais} from './nominal-pais.mjs';
 import {compileAthenae} from './nominal-athenae.mjs';
-import {compileCantus} from './nominal-latin-teacher.mjs';
+import {compileCantus,compileLiber} from './nominal-latin-teacher.mjs';
 import {compileLatinCurricularFollowup} from './morphology-curricular-followup.mjs';
 import {compileCurricularGapBatch} from './morphology-curricular-gaps.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -404,8 +404,10 @@ export async function buildMorphology({out,lock}){
     decisions});
   const cantus=compileCantus({...sourceData,vocabulaSha:lock.sources.vocabula.sha,
     decisions});
+  const liber=compileLiber({...sourceData,vocabulaSha:lock.sources.vocabula.sha,
+    decisions});
   const fullRecords=[...originalRecords,...latin2,...additions,...curricularGaps,
-    ...latinFollowup,...greekFollowup,...greekExigible,pais,athenae,cantus];
+    ...latinFollowup,...greekFollowup,...greekExigible,pais,athenae,cantus,liber];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
     records:fullRecords};
