@@ -27,9 +27,24 @@ assert.deepEqual(JSON.parse(read('docente/auth-config.json')),{enabled:false},
 const pilotPublic=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
 const pilotOrigin=JSON.parse(readFileSync(
   join(root,'.sources/evolutio/data/pilot.json'),'utf8'));
-assert.equal(pilotPublic.words.length,522);
-assert.deepEqual(pilotPublic,pilotOrigin,
-  'No sustituir el corrector castellano por propuestas valencianas');
+assert.equal(pilotOrigin.words.length,522);
+assert.equal(pilotPublic.words.length,622);
+assert.deepEqual(pilotPublic.words.slice(0,522),pilotOrigin.words,
+  'No alterar fichas castellanas originales ni sustituirlas por propuestas valencianas');
+assert.deepEqual({version:pilotPublic.version,source:pilotPublic.source},
+  {version:pilotOrigin.version,source:pilotOrigin.source},
+  'Conservar la identidad y procedencia del banco inmovilizado');
+const added=pilotPublic.words.slice(522);
+assert.equal(added.length,100);
+assert.equal(new Set(pilotPublic.words.map(w=>w.id)).size,622);
+assert.ok(added.every(w=>w.source.lot===21 && w.source.classification==='PATRIMONIAL'),
+  'No admitir nuevas fichas fuera del lote editorial revisado');
+assert.ok(added.every(w=>w.answers.every(a=>a===a.toLocaleLowerCase('es'))),
+  'No introducir nombres propios nuevos en prácticas');
+const difficultyPublic=JSON.parse(read('apps/evolucion-fonetica/data/difficulty.json'));
+assert.equal(Object.keys(difficultyPublic.assignments).length,622);
+assert.ok(pilotPublic.words.every(w=>difficultyPublic.assignments[w.id]),
+  'Toda nueva palabra requiere nivel de dificultad');
 for(const file of ['shared/academic/evolutio-valenciano',
   'apps/evolucion-fonetica/data/matriz-522.json',
   'apps/evolucion-fonetica/data/valenciano.json'])
