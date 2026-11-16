@@ -12,6 +12,7 @@ const lock=read('config/sources.lock.json');
 const norms=read(base+'normas.json');
 const curation=read(base+'conciliacion-curada.json');
 const revision=read(base+'revisio-32-2026-11-16.json');
+const queue=read(base+'cola-revisio-24.json');
 const matrix=read(base+'matriz-522.json');
 const source=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
 const bank=JSON.parse(readFileSync(join(source,'data/pilot.json'),'utf8'));
@@ -195,6 +196,37 @@ test('No se admiten posiciones erróneas ni aprobaciones ficticias de leyes',()=
  const invalid=structuredClone(revision);
  invalid.analyses[0].playable=true;
  assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,invalid),/marcada como practicable/);
+});
+test('La cola de 24 propuestas fáciles no certifica ni activa ninguna',()=>{
+ assert.equal(queue.schema,'schola-evolutio-va-review-queue/v1');
+ assert.equal(queue.candidates.length,24);
+ assert.equal(queue.totalProposals,206);
+ assert.equal(queue.approvedForPractice,0);
+ assert.equal(queue.verifiedByThisQueue,0);
+ const proposalSet=new Set(curation.proposals.map(w=>w.latin));
+ const latinSet=new Set(queue.candidates.map(w=>w.latin));
+ assert.equal(latinSet.size,24);
+ assert.deepEqual(queue.candidates.map(w=>w.order),Array.from({length:24},(_,i)=>i+1));
+ for(const item of queue.candidates){
+  assert.ok(proposalSet.has(item.latin),'No priorizar reservas o fichas ya documentadas: '+item.latin);
+  assert.equal(item.sourceStatus,'proposta_sense_evidencia_individual');
+  assert.equal(item.approvedForPractice,false);
+  assert.equal(item.lexicalVerified,false);
+  assert.equal(item.ruleVerified,false);
+  assert.equal(record(item.latin).valenciano.estadoNormas,'pendent');
+  assert.ok(item.reviewScope&&item.plannedChecks.length===4);
+ }
+ assert.ok(!latinSet.has('octo'));
+ assert.ok(!latinSet.has('dictum'));
+ assert.ok(!latinSet.has('sigĭllum'));
+ assert.ok(!queue.candidates.some(c=>c.latin==='cælum'||c.latin==='ocŭlum'));
+});
+test('La revisión original de 26 entradas se conserva como antecedente histórico inmutable',()=>{
+ const historical=read(base+'revisio-26.json');
+ assert.equal(historical.analyses.length,22);
+ assert.equal(historical.pending.length,4);
+ assert.equal(revision.analyses.length,32);
+ assert.deepEqual(revision.analyses.slice(0,22),historical.analyses);
 });
 test('La matriz de trabajo no se publica ni sustituye los recursos originales',()=>{
  const dist=join(root,'dist');
