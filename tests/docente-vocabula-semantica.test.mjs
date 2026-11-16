@@ -76,7 +76,25 @@ test('la versión docente conserva trazabilidad y la retirada devuelve el banco 
   assert.equal(inactive.find(x=>x.origin==='docente').id,'docente-id');
 });
 
-test('el banco compilado mantiene todas sus 2055 fichas, 9 glosas y 12 diferencias de respuestas',()=>{
+test('el banco original fijado conserva sus 9 diferencias de glosa y 12 de respuesta',()=>{
+  const raw=readFileSync(resolve(import.meta.dirname,'../.sources/vocabula/data.js'),'utf8');
+  const matched=/^window\\.VOCAB\\s*=\\s*([\\s\\S]*?);\\s*$/.exec(raw);
+  assert.ok(matched,'Formato del banco original fijado');
+  const original=JSON.parse(matched[1]);
+  assert.equal(original.length,2055);
+  const byKey=new Map();
+  for(const word of original){
+    const key=entryKey(word),arr=byKey.get(key)||[];
+    arr.push(word);byKey.set(key,arr);
+  }
+  assert.equal(byKey.size,1684);
+  assert.equal([...byKey.values()].filter(items=>
+    new Set(items.map(item=>item.meaning)).size>1).length,9);
+  assert.equal([...byKey.values()].filter(items=>
+    new Set(items.map(item=>JSON.stringify(item.answers))).size>1).length,12);
+});
+
+test('la versión compilada mantiene identidad y metadatos tras las enmiendas editoriales',()=>{
   const data=JSON.parse(readFileSync(resolve(import.meta.dirname,
     '../dist/docente/vocabula-catalog.json'),'utf8'));
   assert.equal(data.schema,1);
@@ -84,7 +102,6 @@ test('el banco compilado mantiene todas sus 2055 fichas, 9 glosas y 12 diferenci
   const originalIds=data.words.map(word=>word.id);
   assert.equal(new Set(originalIds).size,2055);
   const rows=mergeCatalog(data.words,[]);
-  assert.equal(rows.length,1684);
   assert.equal(rows.reduce((n,row)=>n+row.sources.length,0),2055);
   assert.deepEqual(new Set(rows.flatMap(row=>row.sources.map(s=>s.id))),new Set(originalIds));
   const byKey=new Map();
@@ -92,13 +109,12 @@ test('el banco compilado mantiene todas sus 2055 fichas, 9 glosas y 12 diferenci
     const key=entryKey(word),arr=byKey.get(key)||[];
     arr.push(word);byKey.set(key,arr);
   }
-  const differingGlossa=[...byKey.values()].filter(items=>
-    new Set(items.map(item=>item.meaning)).size>1);
-  const differingAnswers=[...byKey.values()].filter(items=>
-    new Set(items.map(item=>JSON.stringify(item.answers))).size>1);
-  assert.equal(differingGlossa.length,9);
-  assert.equal(differingAnswers.length,12);
-  assert.equal(rows.filter(row=>row.semanticConflict).length,18);
+  // Las enmiendas de 4.º pueden cambiar alguna forma y, con ello, el número
+  // de claves respecto al banco original. Comparar SIEMPRE con la copia compilada.
+  assert.equal(rows.length,byKey.size);
+  const conflicts=[...byKey.values()].filter(items=>
+    new Set(items.map(item=>JSON.stringify([item.meaning,item.answers||[]]))).size>1);
+  assert.equal(rows.filter(row=>row.semanticConflict).length,conflicts.length);
   for(const row of rows){
     const originals=byKey.get(entryKey(row));
     assert.deepEqual(row.sources.map(s=>s.id),originals.map(s=>s.id));
