@@ -64,10 +64,10 @@ test('desbloqueo curricular: cuatro nombres UD4 y otros cuatro únicamente UD7',
   // Una ficha de género común acreditada en UD1 y seis sustantivos con
   // vocabulario agrupado UD1–4, sin adelantarles arbitrariamente la unidad.
   assert.equal(availableRecords(bank,{language:'griego',unit:3,kind:'sustantivo'}).length,1);
-  assert.equal(availableRecords(bank,{language:'griego',unit:4,kind:'sustantivo'}).length,11);
-  assert.equal(availableRecords(bank,{language:'griego',unit:5,kind:'sustantivo'}).length,13);
-  assert.equal(availableRecords(bank,{language:'griego',unit:6,kind:'sustantivo'}).length,13);
-  assert.equal(availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'}).length,21);
+  assert.equal(availableRecords(bank,{language:'griego',unit:4,kind:'sustantivo'}).length,12);
+  assert.equal(availableRecords(bank,{language:'griego',unit:5,kind:'sustantivo'}).length,14);
+  assert.equal(availableRecords(bank,{language:'griego',unit:6,kind:'sustantivo'}).length,14);
+  assert.equal(availableRecords(bank,{language:'griego',unit:7,kind:'sustantivo'}).length,22);
 });
 test('las fuentes se rechazan ante género contradictorio, laguna o falta de unidad',()=>{
   const wrongForms=structuredClone(unimorphParts);

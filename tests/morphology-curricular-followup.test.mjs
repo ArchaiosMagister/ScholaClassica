@@ -37,7 +37,7 @@ test('Segundo lote: 19 fichas nuevas, fuentes explícitas y las anteriores sin d
   assert.equal(bank.records.filter(r=>r.language==='latin2').length,500,
     'Latín II y su verificación permanecen intactos');
   assert.equal(bank.records.filter(r=>r.language==='latin').length,89);
-  assert.equal(bank.records.filter(r=>r.language==='griego').length,93);
+  assert.equal(bank.records.filter(r=>r.language==='griego').length,94);
 });
 
 test('Reflexivo: solo cuatro casos, mismo valor para singular/plural y sin género',()=>{

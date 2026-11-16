@@ -111,14 +111,18 @@ export function makeTableExercises(bank,{language,unit,kind='todos',limit=10,rng
       const singularOnly=record.id==='griego-sustantivo-ouranos'&&
         cells.length===available.length&&
         cells.every(c=>c.number==='singular');
-      if(cells.length!==available.length*2&&!singularOnly)continue;
+      const pluralOnly=record.id==='griego-sustantivo-decision-athenai'&&
+        record.evidence?.numberScope==='plural'&&
+        cells.length===available.length&&
+        cells.every(c=>c.number==='plural');
+      if(cells.length!==available.length*2&&!singularOnly&&!pluralOnly)continue;
       const id=record.id+':table:'+(gender||'none')+
-        (singularOnly?':singular':'');
+        (singularOnly?':singular':pluralOnly?':plural':'');
       candidates.push({id,activity:'table',language,kind:record.kind,
         paradigm:record.paradigm,evidence:record.evidence,
         ...(record.enunciation?{enunciation:record.enunciation}:{}),gender,
         prompt:'Completa las formas '+(gender?'del '+gender+' ':'')+
-          (singularOnly?'en singular.':'en singular y plural.'),cells});
+          (singularOnly?'en singular.':pluralOnly?'en plural.':'en singular y plural.'),cells});
     }
   }
   return selectReviewCandidates(candidates,{mode:reviewMode,state:reviewState,

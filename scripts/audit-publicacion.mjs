@@ -62,7 +62,7 @@ assert.equal(morphology.vocabulaSha,locked.sources.vocabula.sha);
 const teacherNouns=morphology.records.filter(r=>
   r.id.startsWith('griego-sustantivo-decision-'));
 assert.deepEqual(teacherNouns.map(n=>n.id),
-  ['griego-sustantivo-decision-pais'],
+  ['griego-sustantivo-decision-pais','griego-sustantivo-decision-athenai'],
   'No admitir decisiones nominales nuevas sin auditoría individual');
 const pais=teacherNouns[0];
 assert.ok(pais&&pais.gender==='común'&&
@@ -71,6 +71,14 @@ assert.ok(pais&&pais.gender==='común'&&
   pais.evidence.vocabulaEntry==='2132b8254922c90c'&&
   pais.evidence.teacherDecision==='ambos-generos');
 assert.deepEqual(pais.agreementGenders,['masculino','femenino']);
+const athenai=teacherNouns[1];
+assert.ok(athenai&&athenai.unit===4&&athenai.forms.length===5&&
+  athenai.gender==='femenino'&&athenai.evidence.numberScope==='plural'&&
+  athenai.evidence.vocabulaSha===locked.sources.vocabula.sha&&
+  athenai.evidence.vocabulaEntry==='b8e417b32b6f3692'&&
+  athenai.forms.every(f=>f.number==='plural'));
+assert.deepEqual(athenai.forms.map(f=>f.case),
+  ['nominativo','vocativo','acusativo','genitivo','dativo']);
 const nouns=morphology.records.filter(r=>
   r.id.startsWith('griego-sustantivo-')&&
   !r.id.startsWith('griego-sustantivo-decision-'));
