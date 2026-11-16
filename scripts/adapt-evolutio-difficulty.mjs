@@ -3,16 +3,24 @@
 import {cp,readFile,writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {RESULT_DIFFICULTY_METHOD} from './evolutio-result-difficulty.mjs';
+import {RESULT_DIFFICULTY_METHOD,curatedDifficultyIds} from './evolutio-result-difficulty.mjs';
+import {eligiblePracticeWords} from './evolutio-practice-eligibility.mjs';
 
 export async function adaptEvolutioDifficulty({root,target}){
  const modulePath=join(target,'src/difficulty.mjs');
  const extraModulePath=join(target,'src/result-difficulty.mjs');
+ const eligibilityModulePath=join(target,'src/practice-eligibility.mjs');
  const difficultyPath=join(target,'data/difficulty.json');
  const appPath=join(target,'src/app.mjs');
  const original=await readFile(modulePath,'utf8');
  const oldData=JSON.parse(await readFile(difficultyPath,'utf8'));
  const bank=JSON.parse(await readFile(join(target,'data/pilot.json'),'utf8'));
+ const ids=new Set(bank.words.map(word=>word.id));
+ for(const id of curatedDifficultyIds())if(!ids.has(id))
+  throw new Error('Curaduría de dificultad: ID ajeno al banco: '+id);
+ const practiceBank=eligiblePracticeWords(bank.words);
+ if(bank.words.length!==522||practiceBank.length!==487)
+  throw new Error('Evolutio: hay que revisar la identificación de nombres propios');
  if(oldData.method!=='criterio-didactico-v1')
   throw new Error('Evolutio cambió el criterio de origen: revisar adaptación de dificultad');
  if(bank.words.length!==Object.keys(oldData.assignments).length)
@@ -32,6 +40,7 @@ export async function adaptEvolutioDifficulty({root,target}){
   throw new Error('No coinciden las dos referencias del método de dificultad');
  patched=patched.replaceAll(oldMethod,"'"+RESULT_DIFFICULTY_METHOD+"'");
  await cp(join(root,'scripts/evolutio-result-difficulty.mjs'),extraModulePath);
+ await cp(join(root,'scripts/evolutio-practice-eligibility.mjs'),eligibilityModulePath);
  await writeFile(modulePath,patched);
 
  // Reutiliza la implementación de persistencia y validación del motor ya
@@ -49,9 +58,25 @@ export async function adaptEvolutioDifficulty({root,target}){
  }
  await writeFile(difficultyPath,JSON.stringify(next,null,2)+'\n');
  let app=await readFile(appPath,'utf8');
+ function patchApp(from,to){
+  if(app.split(from).length!==2)
+   throw new Error('Interfaz de Evolutio alterada: '+from.slice(0,90));
+  app=app.replace(from,to);
+ }
+ patchApp("import { DIFFICULTY_LEVELS, difficultyErrors, difficultyLabel, filterWordsByDifficultyLevels } from './difficulty.mjs';",
+  "import { DIFFICULTY_LEVELS, difficultyErrors, difficultyLabel, filterWordsByDifficultyLevels } from './difficulty.mjs';\nimport {eligiblePracticeWords} from './practice-eligibility.mjs';");
+ patchApp("let words=[], difficultyAssignments={}",
+  "let words=[], practiceWords=[], difficultyAssignments={}");
+ patchApp("isFocused()?availableFocusedWords(words,focusRule):availableWords(words,selected)",
+  "isFocused()?availableFocusedWords(practiceWords,focusRule):availableWords(practiceWords,selected)");
+ patchApp("availableFocusedWords(words,r.id),difficultyAssignments,practiceDifficulty",
+  "availableFocusedWords(practiceWords,r.id),difficultyAssignments,practiceDifficulty");
+ patchApp("words=data.words;difficultyAssignments=difficulty.assignments;",
+  "words=data.words;practiceWords=eligiblePracticeWords(words);difficultyAssignments=difficulty.assignments;");
  const helperOld="  <p class=\"helper\">${levels.size===0?'No hay niveles seleccionados.': 'Selecciona uno o varios niveles; la ✓ indica cuáles están activos.'}</p>";
  const helperNew=helperOld+
-  '\n  <p class="helper">La dificultad refleja sobre todo cuánto cuesta deducir el resultado castellano; el número de normas influye menos.</p>';
+  '\n  <p class="helper">La dificultad valora si es sencillo deducir el resultado castellano mediante cambios habituales, con revisión de casos especialmente transparentes u opacos.</p>'+ 
+  '\n  <p class="helper">Los nombres propios no aparecen en las prácticas; puedes consultarlos en Estudiar.</p>';
  if(app.split(helperOld).length!==2)
   throw new Error('Evolutio cambió el selector de dificultad: revisar explicación pedagógica');
  app=app.replace(helperOld,helperNew);
@@ -60,5 +85,6 @@ export async function adaptEvolutioDifficulty({root,target}){
   level,bank.words.filter(w=>next.assignments[w.id].level===level).length
  ]));
  const changed=bank.words.filter(w=>next.assignments[w.id].level!==oldData.assignments[w.id].level).length;
- return {total:bank.words.length,changed,counts,method:next.method};
+ return {total:bank.words.length,eligiblePractice:practiceBank.length,
+  excludedNames:bank.words.length-practiceBank.length,changed,counts,method:next.method};
 }
