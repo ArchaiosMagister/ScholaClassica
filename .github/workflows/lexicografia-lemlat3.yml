@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ArchaiosMagister/Appendix-grammaticae
-          ref: a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c
+          ref: 6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
           path: .sources/appendix
           persist-credentials: false
       - name: Evolutio fijado (solo compilación)
