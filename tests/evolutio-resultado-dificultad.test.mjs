@@ -58,7 +58,7 @@ test('El lote contiene exactamente 100 patrimoniales inéditas del Excel, con fr
  assert.ok(added.every(w=>!existing.has(w.id)&&w.source.classification==='PATRIMONIAL'));
  assert.equal(new Set(added.map(w=>w.id)).size,100);
  assert.ok(added.every(w=>w.changes.some(c=>c.rule!=='FIX_M')));
- assert.ok(added.every(w=>!w.answers.some(a=>/^\\p{Lu}/u.test(a))));
+ assert.ok(added.every(w=>w.answers.every(a=>a===a.toLocaleLowerCase('es'))));
  assert.ok(added.every(w=>updated.assignments[w.id]?.level>=1&&updated.assignments[w.id]?.level<=4));
  const {RULES}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const all=new Set(RULES.map(r=>r.id));
