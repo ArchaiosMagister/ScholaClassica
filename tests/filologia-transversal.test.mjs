@@ -17,7 +17,7 @@ test('Auditoría filológica completa: tres currículos ES/VAL, cobertura y orig
   assert.equal(report.sourcePreserved.intentionalLatin4ExamUd8,17);
   assert.equal(report.sourcePreserved.intentionalLatin4Spelling,4);
   assert.equal(report.sourcePreserved.intentionalGreek1GeneralUd5,1);
-  assert.equal(report.subjects.latin1.morphologyCards,92);
+  assert.equal(report.subjects.latin1.morphologyCards,94);
   assert.equal(report.subjects.latin4.morphologyCards,76);
   assert.equal(report.subjects.griego1.morphologyCards,94);
   assert.deepEqual(Object.values(report.subjects).map(x=>x.grammarUnits),[10,8,14]);
