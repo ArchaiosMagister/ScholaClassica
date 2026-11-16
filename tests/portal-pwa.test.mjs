@@ -46,7 +46,7 @@ test('Evolutio: 522 fichas, actualización y SW aislado',()=>{
  assert.match(sw,/key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION/);
  assert.match(sw,/src\/difficulty\.mjs/);
  assert.match(sw,/src\/result-difficulty\.mjs/);
- assert.match(sw,/deducibilidad-v5/);
+ assert.match(sw,/lote100-v6/);
  assert.match(sw,/data\/difficulty\.json/);
  assert.match(sw,/url\.pathname\.startsWith\(scope\.pathname\)/);
  assert.ok(!sw.includes('keys.filter(key=>key!==VERSION)'));
