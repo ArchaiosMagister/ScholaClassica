@@ -67,3 +67,15 @@ La bandeja muestra como máximo **100 avisos por origen** en su consulta inicial
 4. **Opcional**: paginación histórica de avisos y moderación cruzada, siempre con permisos de cada proyecto y solo si hay necesidad real (prioridad baja).
 
 **Decisión sobre PR #47:** su implementación de código está superada; lo prudente es **cerrarla como histórica sin fusionar**, preservando sus comentarios y dejando las tareas nuevas separadas. Esta PR de auditoría **no modifica** código, funciones, datos ni publicación.
+
+## Cierre de auditoría tras PR #107 (16/11/2026)
+
+Esta sección documenta la **situación posterior** a la auditoría de lectura anterior, sin reescribir las observaciones históricas ni pretender que fueran modificaciones realizadas entonces.
+
+- **Hallazgo semántico corregido en ScholaClassica:** la [PR #107](https://github.com/ArchaiosMagister/ScholaClassica/pull/107) se fusionó en `main` mediante el commit `983e0eeec65a8305baafc9e3a722639795bbb50f` y su [flujo de validación y despliegue](https://github.com/ArchaiosMagister/ScholaClassica/actions/runs/43922765708) terminó correctamente. Conserva las glosas, respuestas, unidades, modos e IDs por fuente en la consulta docente. Bloquea nuevas sobreescrituras ambiguas porque el sistema vigente aún aplica las aportaciones por `subject|form`, no por ID. Esto no modifica el banco histórico ni el progreso.
+- **Función nueva pendiente, no perteneciente a #47:** editar *individualmente* cada variante histórica por su ID requerirá diseño y pruebas independientes del motor de sobreescritura. La vista docente ya no mezcla las variantes; no confundir esa protección con disponer de edición por ID.
+- **La PR #47 queda obsoleta:** el cotejo de sus 25 rutas y de los endpoints confirma que no hay ninguna función exclusiva pendiente que justifique fusionar su implementación. El área docente vigente mantiene identidad, MFA AAL2/TOTP, avisos separados, gestión reversible del vocabulario y revisión de incidencias. Conservar el historial y cerrar la PR sin fusionar.
+- **Pendientes que no bloquean el cierre:** prueba manual con sesión docente real (sin crear datos de ejemplo), revisión de asesores de contraseñas/RLS y privilegios `SECURITY DEFINER` de Palabra del día, y la paginación de avisos como mejora opcional. Estos aspectos son trabajos separados, no razones para reintroducir código histórico de #47.
+- **Alcance de esta PR #106:** exclusivamente el informe de auditoría, más el presente cierre documental. No incluye cambios de aplicación, migraciones, escritura sobre Supabase ni despliegues de Edge Functions.
+
+Este cierre sustituye la recomendación pendiente del punto 1 de «Dictamen y orden de actuación» por el resultado ya materializado en #107; los restantes puntos siguen abiertos como trabajo futuro y no implican una vulnerabilidad confirmada.
