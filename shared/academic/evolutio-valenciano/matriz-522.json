@@ -11,13 +11,13 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 32,
-    "propuestas": 206,
+    "lexicoDocumentado": 50,
+    "propuestas": 188,
     "sinPropuesta": 284,
     "reservasSoloCastellano": 3,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 32,
+    "analisisEditoriales": 50,
     "casosConDiscrepancia": 0
   },
   "records": [
@@ -617,15 +617,45 @@
       },
       "valenciano": {
         "resultado": "jurar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "CONS",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Consonantització de i- inicial en consonant j-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "IŪRARE > jurar: i consonàntica inicial > j i apòcope de -e final.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=jurar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Jurar un jurament, del llatí IŪRARE. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -951,15 +981,45 @@
       },
       "valenciano": {
         "resultado": "pena",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Monoftongació de œ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PŒNAM > pena ('càstig, aflicció'): monoftongació oe > e; la -m final s'elimina com a regla fixa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pena",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Accepció 'càstig o sofriment'; altres homònims pena provenen de penna/pinna, no de poena. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1070,15 +1130,52 @@
       },
       "valenciano": {
         "resultado": "escut",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant s + consonant."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la vocal -u després de desaparèixer la -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SCUTUM > escut: e- protètica davant sc-, pèrdua de la vocal final -u i caiguda fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=escut",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Accepció 'escut defensiu'; no confondre usos derivats ni terminacions cultes. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1145,15 +1242,52 @@
       },
       "valenciano": {
         "resultado": "espiga",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant s + consonant."
+          },
+          {
+            "id": "va2",
+            "rule": "SONOR",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Sonorització de -c- intervocàlica en -g-. No és p > g."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SPICAM > espiga: pròtesi e- inicial davant sp- i sonorització -c- > -g-; desaparició fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=espiga",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Espiga de cereal: SPĪCA; el canvi intervocàlic és -c- > -g-, NO p > g. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1652,15 +1786,45 @@
       },
       "valenciano": {
         "resultado": "crosta",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Obertura de ŭ llatina en o; segons DCVB el timbre obert pot tenir un condicionament analògic no resolt."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CRŬSTAM > crosta: la u es reflecteix en o; la documentació DCVB apunta influència d'altres mots per al timbre obert. Llei encara no certificada.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=crosta",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Crosta de pa o ferida, del llatí CRŬSTA. El DCVB alerta que la vocal o oberta pot deure's a influències analògiques; no certificar-ne la mecànica. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2118,15 +2282,45 @@
       },
       "valenciano": {
         "resultado": "canya",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de la geminada -nn- en la nasal palatal -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CANNAM > canya: -nn- > -ny- palatal i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=canya",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Accepció canya vegetal, del llatí CANNA; palatalització -nn- > -ny-. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3099,15 +3293,45 @@
       },
       "valenciano": {
         "resultado": "hort",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la vocal -u final després de desaparèixer -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "HŎRTUM > hort: es conserva la vocal tònica sense diftongació; -u final i -m desapareixen.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=hort",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Hort de conreu, del llatí HŎRTU; h- no s'analitza amb ASPIR castellana. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3660,15 +3884,56 @@
       },
       "valenciano": {
         "resultado": "pany",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de -nn- en -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PANNUM > pany: -nn- > -ny-, desaparició de -u i -m. El valor actual de 'mecanisme de pany' requereix canvi semàntic.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pany",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "L'accepció moderna 'pany de porta' té origen semàntic en pannu 'tros de tela'; cal explicar el canvi de sentit. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3685,15 +3950,45 @@
       },
       "valenciano": {
         "resultado": "roda",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de -t- intervocàlica en -d-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "RŎTAM > roda: -t- > -d- entre vocals; la ŏ no diftonga i la -m final es perd.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=roda",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Nom comú 'roda', del llatí RŎTA; no el topònim Roda. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3990,15 +4285,56 @@
       },
       "valenciano": {
         "resultado": "gota",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació de -tt- geminada en -t-."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "GŬTTAM > gota: ŭ > o, -tt- > -t- i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=gota",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Gota de líquid, del llatí GŬTTA; obertura ŭ > o i reducció de -tt-. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4140,15 +4476,56 @@
       },
       "valenciano": {
         "resultado": "sord",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de caure -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SŬRDUM > sord: ŭ > o i desaparició de -u i -m finals.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sord",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Adjectiu 'que no hi sent', del llatí SŬRDU; no homònim sort. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4165,15 +4542,67 @@
       },
       "valenciano": {
         "resultado": "jonc",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "CONS",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Consonantització de i- inicial llatina en j-."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ en o de la forma ortogràfica jonc, amb variants dialectals u registrades al DCVB."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "IŬNCUM > jonc: i- > j-, reflex gràfic o de ŭ i desaparició de -u i -m finals. El DCVB documenta variants valencianes amb o i u.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=jonc",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Jonc vegetal, del llatí IŬNCU; el DCVB registra pronúncies valencianes tant amb o com amb u. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5043,15 +5472,34 @@
       },
       "valenciano": {
         "resultado": "força",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Palatalització del grup -ti- seguida de vocal, representada amb ç."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "FŎRTIA (forma vulgar) > força: el grup -ti- evoluciona a la sibilant escrita ç; la o tònica es conserva sense diftongar.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=forca",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Nom de força física, del llatí vulgar FŎRTĬA segons el DCVB; no confondre amb 'forca' d'origen FŬRCA. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6429,15 +6877,56 @@
       },
       "valenciano": {
         "resultado": "set",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació del grup consonàntic -pt- en -t-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la -e final després de caure -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SEPTEM > set (numeral '7'): -pt- > -t-, caiguda de -e i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=set",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Exclusivament numeral '7'; el DCVB també registra 'set' 'sed' de sĭte, un ètim diferent. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6736,15 +7225,56 @@
       },
       "valenciano": {
         "resultado": "pell",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de -ll- llatina geminada en -ll- palatal, encara que la grafia coincidisca."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la -e final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PELLEM > pell: palatalització de ll geminada i caiguda de -e i -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pell",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Pell de persona/animal, del llatí PĔLLE; no el nom pèl. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -9432,15 +9962,45 @@
       },
       "valenciano": {
         "resultado": "mosca",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MŬSCAM > mosca: ŭ > o i pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=mosca",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Nom de l'insecte, del llatí MŬSCA; obertura ŭ > o. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -9607,15 +10167,56 @@
       },
       "valenciano": {
         "resultado": "temor",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "TIMOREM > temor: ĭ > e, -e i -m finals desapareixen; es manté -r en la forma valenciana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=temor",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Nom de 'por', del llatí TĬMŌRE; documenta pronúncia valenciana de -r final. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -9962,15 +10563,45 @@
       },
       "valenciano": {
         "resultado": "sort",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la -e final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SORTEM > sort ('fortuna'): caiguda de -e i -m; no s'ha de confondre amb el topònim Sort.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sort",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Nom 'sort' (fortuna), del llatí SŎRTE; no el topònim Sort d'etimologia distinta. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis.",
+        "dnvIndividualChecked": false
       }
     },
     {
