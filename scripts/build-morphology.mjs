@@ -29,6 +29,7 @@ import {auditLatin2Verbal,assertLatin2VerbalAuditPasses} from './audit-morpholog
 import {compilePauExceptions} from './morphology-pau-exceptions.mjs';
 import {compilePauCompoundVerbs,compileVenioParadigm} from './morphology-pau-verbs.mjs';
 import {compileGreekNounBatch,compileGreekEarlyNounBatch,compileGreekExigibleNounBatch,readGreekNounSource} from './greek-noun-conciliation.mjs';
+import {compilePais} from './nominal-pais.mjs';
 import {compileLatinCurricularFollowup} from './morphology-curricular-followup.mjs';
 import {compileCurricularGapBatch} from './morphology-curricular-gaps.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -392,9 +393,13 @@ export async function buildMorphology({out,lock}){
   const greekExigible=compileGreekExigibleNounBatch({
     curriculum,...sourceData,vocabulaSha:lock.sources.vocabula.sha
   });
-  // Lote de conciliación III: solo al final; ninguna ficha antigua cambia de ID.
+  // Apéndice tras el lote anterior: conservar exactamente su orden e índices.
+  const decisions=JSON.parse(await readFile(join(root,
+    'config/nominal-teacher-decisions.json'),'utf8'));
+  const pais=compilePais({...sourceData,vocabulaSha:lock.sources.vocabula.sha,
+    decisions});
   const fullRecords=[...originalRecords,...latin2,...additions,...curricularGaps,
-    ...latinFollowup,...greekFollowup,...greekExigible];
+    ...latinFollowup,...greekFollowup,...greekExigible,pais];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
     records:fullRecords};

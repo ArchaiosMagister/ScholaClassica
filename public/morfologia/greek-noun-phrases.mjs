@@ -58,10 +58,19 @@ export function greekNounPhrasePairs(bank,{language,unit}){
     const genders=noun.agreementGenders||[noun.gender];
     if(!genders.length||genders.some(g=>!['masculino','femenino','neutro'].includes(g)))
       throw Error('Sustantivo sin género de concordancia aprobado: '+noun.paradigm);
-    if(noun.gender==='común'&&
-      (noun.evidence?.teacherDecision!=='masculino-docente'||
-       genders.length!==1||genders[0]!=='masculino'))
-      throw Error('Género común sin criterio docente exacto: '+noun.paradigm);
+    if(noun.gender==='común'){
+      const decision=noun.evidence?.teacherDecision;
+      const allowed=(
+        noun.id==='griego-sustantivo-anthropos'&&
+        decision==='masculino-docente'&&
+        genders.length===1&&genders[0]==='masculino'
+      )||(
+        noun.id==='griego-sustantivo-decision-pais'&&
+        decision==='ambos-generos'&&
+        genders.length===2&&genders[0]==='masculino'&&genders[1]==='femenino'
+      );
+      if(!allowed)throw Error('Género común sin criterio docente exacto: '+noun.paradigm);
+    }
     return genders.flatMap(gender=>{
       for(const cas of CASES)for(const number of practiceNumbers(noun))
         if(nounForm(noun,cas,number,gender).length!==1)

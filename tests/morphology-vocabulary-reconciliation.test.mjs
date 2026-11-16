@@ -90,9 +90,10 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
     unimorphParts:unmorph,vocabulaSha:lock.sources.vocabula.sha});
   assert.deepEqual(records.map(x=>x.id),
     names.map(id=>'griego-sustantivo-'+id));
-  assert.deepEqual(bank.records.slice(-9),records,
+  assert.deepEqual(bank.records.slice(bank.records.findIndex(x=>x.id===records[0].id),
+    bank.records.findIndex(x=>x.id===records[0].id)+9),records,
     'Las nueve fichas quedan anexadas al final sin desplazar otras');
-  assert.equal(bank.records.filter(x=>x.language==='griego').length,92);
+  assert.equal(bank.records.filter(x=>x.language==='griego').length,93);
   assert.equal(bank.records.filter(x=>x.language==='latin').length,89);
   for(const r of records){
     assert.equal(r.forms.length,10);
@@ -120,7 +121,7 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
       .some(x=>x.id===r.id),'Palabra adelantada antes del grupo exigible');
   }
   assert.equal(find('griego-sustantivo-anthropos').gender,'común');
-  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:10}).length,72);
+  assert.equal(greekNounPhrasePairs(bank,{language:'griego',unit:10}).length,78);
   const masculine=greekNounPhrasePairs(bank,{language:'griego',unit:10})
     .filter(x=>x.noun.id==='griego-sustantivo-anthropos');
   assert.equal(masculine.length,3,'Solo tres parejas con masculino docente');
@@ -149,7 +150,7 @@ test('Reflexivo se/sui/sibi: selección de forma viable con solo tres opciones r
 test('La auditoría de modalidades separa tablas improcedentes y fichas nunca evaluadas',()=>{
   const a=auditPracticeCoverage(bank);
   assert.equal(a.latin.available,89);
-  assert.equal(a.griego.available,92);
+  assert.equal(a.griego.available,93);
   assert.deepEqual(a.latin.noForm,[]);
   assert.deepEqual(a.griego.noForm,[]);
   assert.deepEqual(a.latin.noAnalysis,[]);
@@ -160,8 +161,8 @@ test('La auditoría de modalidades separa tablas improcedentes y fichas nunca ev
     'La ausencia de tabla verbal nominal no constituye una incidencia');
   assert.ok(a.griego.noTable.some(x=>x.kind==='infinitivo'));
   assert.equal(a.latin.byUnit.at(-1).cumulative,89);
-  assert.equal(a.griego.byUnit.at(-1).cumulative,92);
+  assert.equal(a.griego.byUnit.at(-1).cumulative,93);
   const full=createTeacherAudit(bank,vocabulary,lock.sources.vocabula.sha);
-  assert.equal(full.concordance.courses.griego.records,92);
-  assert.equal(full.practice.griego.available,92);
+  assert.equal(full.concordance.courses.griego.records,93);
+  assert.equal(full.practice.griego.available,93);
 });
