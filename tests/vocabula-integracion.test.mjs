@@ -132,7 +132,7 @@ test('Cuatro enmiendas de 4.º se corrigen en la copia, preservando el origen co
  assert.equal(digest(join(source,'data.js'))===digest(join(target,'data.js')),false);
 });
 
-test('La búsqueda docente combina las 2055 fichas originales y las aportaciones',()=>{
+test('La búsqueda docente agrupa 2055 fichas sin fusionar respuestas ni procedencias',()=>{
   const generated=JSON.parse(readFileSync(join(root,'dist/docente/vocabula-catalog.json'),'utf8'));
   const original=JSON.parse(readFileSync(join(source,'data.js'),'utf8')
     .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
@@ -147,13 +147,15 @@ test('La búsqueda docente combina las 2055 fichas originales y las aportaciones
   const catalog=mergeCatalog(generated.words,[extra]);
   const magnus=matchCatalog(catalog,{subject:'lat1',search:'magnus'});
   assert.equal(magnus.total,1);
-  assert.equal(magnus.rows[0].origin,'original');
-  assert.equal(magnus.rows[0].in_exam,true);
+  assert.ok(magnus.rows[0].originals.length>=1);
+  assert.ok(magnus.rows[0].originals.every(word=>word.origin==='original'));
+  assert.ok(magnus.rows[0].originals.some(word=>word.mode==='examen'));
   const added=matchCatalog(catalog,{subject:'lat1',search:'Ephesius'});
   assert.equal(added.total,1);
-  assert.equal(added.rows[0].origin,'docente');
-  assert.deepEqual(added.rows[0].units,['UD 10']);
+  assert.equal(added.rows[0].docentes[0].origin,'docente');
+  assert.deepEqual(added.rows[0].docentes[0].units,['UD 10']);
   const lat2=matchCatalog(catalog,{subject:'lat2',search:'bellum'});
   assert.ok(lat2.total>=1);
-  assert.ok(lat2.rows.every(row=>row.units.every(unit=>!/^UD\s*\d+/i.test(unit))));
+  assert.ok(lat2.rows.every(group=>group.originals.every(row=>
+    row.units.every(unit=>!/^UD\s*\d+/i.test(unit)))));
 });
