@@ -28,10 +28,13 @@ historial remoto y transacción controlada por el servicio.
   `anon` y `authenticated`, restituyendo exclusivamente `SELECT`.
   Especialmente se eliminó `TRUNCATE`, que no queda sujeto a RLS.
   `service_role` y `postgres` mantienen los permisos de mantenimiento.
-- `public.students`: `authenticated` recibe **solo SELECT**. Ya existían
-  las políticas RLS para «mi fila» y «docente autorizado»; sin el GRANT
-  de tabla, estas políticas no bastaban para leer las filas y podían
-  perjudicar consultas de votos y propuestas. `anon` continúa sin SELECT.
+- `public.students`: la primera migración concedió SELECT para
+  `authenticated`, necesario para activar las políticas RLS de «mi fila»
+  y «docente autorizado». **La segunda migración restringe este permiso
+  a las seis columnas de identidad y presentación utilizadas por la app**:
+  `id`, `course_id`, `auth_user_id`, `created_at`, `display_name` y
+  `student_group`. El campo `invite_code_hash` no es legible por los
+  clientes. `anon` continúa sin SELECT.
 - Permisos predeterminados para objetos nuevos creados por `postgres`
   en `public`: se retiraron concesiones generales a `anon` y
   `authenticated` para tablas, secuencias y funciones. Se revocó
@@ -61,7 +64,8 @@ consultas en transacciones de solo lectura con `SET LOCAL ROLE`.
 | Rankings públicos antes/después | **29 / 29 filas** |
 | Tabla de alumnos antes/después | **43 / 43 filas** |
 | `students`: SELECT para `anon` | Denegado |
-| `students`: SELECT para `authenticated` | Concedido, sujeto a RLS |
+| `students`: SELECT para `authenticated` | Solo seis columnas, sujeto a RLS |
+| `students.invite_code_hash`: SELECT para `authenticated` | **Denegado** |
 | Identidad ficticia sin alumno/docente asociado, bajo RLS | **0 filas visibles** |
 | Identidad docente existente, simulada en lectura aislada | **43 filas visibles** |
 | Identidad de alumno existente, consulta de sus votos | **15 votos visibles** |
@@ -131,3 +135,28 @@ Documentación Supabase:
 No reintroducir privilegios `TRUNCATE` públicos como «rollback».
 Cualquier reversión futura debe justificar los privilegios uno por uno
 y comprobar la semántica de RLS de nuevo.
+
+## Corrección complementaria de permisos por columna (16/11/2026)
+
+Al inspeccionar los privilegios de la migración inicial se comprobó que
+`GRANT SELECT ON public.students` permitía también consultar
+`invite_code_hash`, aunque siempre bajo RLS. El navegador nunca
+necesita el hash. Por tanto, se aplicó la migración
+`limit_students_select_columns_hide_access_hash_20261116` en el proyecto
+Palabra_del_dia, reproducida en
+[`docs/sql/seguridad_palabra_dia_columnas_alumnos_2026_11_16.sql`](sql/seguridad_palabra_dia_columnas_alumnos_2026_11_16.sql).
+
+Se revocó el SELECT de tabla entera y se concedió solamente SELECT por
+columna de `id, course_id, auth_user_id, created_at, display_name,
+student_group`. Confirmación con PostgreSQL:
+`has_table_privilege('authenticated', 'public.students', 'SELECT') = false`;
+`has_column_privilege('authenticated', 'public.students',
+'invite_code_hash', 'SELECT') = false`; los campos utilizados por la
+aplicación sí son consultables, `service_role` mantiene sus derechos
+y la RLS continúa activa. No se modificaron filas (43 registros).
+
+Pruebas de solo lectura: identidad ajena a alumnos/docentes, 0 filas;
+identidad docente, 43 fichas visibles; una identidad de alumno pudo
+seguir consultando sus votos (15 en el caso ensayado). Esta corrección
+cierra un alcance de lectura innecesario detectado en la auditoría,
+sin atribuirle explotación ni afirmar que se hayan extraído hashes.
