@@ -90,10 +90,10 @@ const CURATED_TIERS=Object.freeze({
   'xl-112','xl-117','xl-119','xl-126','xl-131','xl-134',
   'xl-145','xl-175','xl-182','xl-184','xl-194','xl-205',
   'xl-255','xl-257','xl-277','xl-300','xl-432','xl-452',
-  'xl-567','xl-577','xl-583','xl-585','xl-592','xl-608',
+  'xl-436','xl-533','xl-567','xl-577','xl-583','xl-585','xl-592','xl-608',
   'xl-722','xl-748','xl-851','xl-1037',
-  'xl-1042','xl-1050',
-  'ge-EVF-0001','ge-EVF-0203','ge-EVF-0322','ge-EVF-0339',
+  'xl-733',
+  'ge-EVF-0001','ge-EVF-0008','ge-EVF-0203','ge-EVF-0322','ge-EVF-0339',
   'ge-EVF-0351','ge-EVF-0362','ge-EVF-0390','ge-EVF-0400',
   'ge-EVF-1009','ge-EVF-1024','ge-EVF-1025',
   'ge-EVF-0352','ge-EVF-0379','ge-EVF-0393',
@@ -104,7 +104,7 @@ const CURATED_TIERS=Object.freeze({
  // Resultado menos evidente: síncopas, reestructuración o varias etapas.
  3: [
   'xl-150','xl-616','xl-728','xl-98','xl-234','xl-720',
-  'xl-1033','xl-1034','xl-1039','xl-1052',
+  'xl-1033','xl-1034','xl-1039','xl-1042','xl-1050','xl-1052',
   'ge-EVF-0187','ge-EVF-0823','ge-EVF-1073'
  ],
  // Resultado prácticamente imposible de recuperar sin conocer su historia.
