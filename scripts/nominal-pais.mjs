@@ -47,6 +47,17 @@ export function compilePais({vocabulaData,unimorphParts,vocabulaSha,decisions}){
   assert.ok(row&&row[1]&&typeof row[1]==='string');
   return {form:noQuantity(row[1]),case:cas,number,analysis:cas+' '+number};
  }));
+ const attested={
+  'nominativo:singular':'παῖς','nominativo:plural':'παῖδες',
+  'vocativo:singular':'παῖ','vocativo:plural':'παῖδες',
+  'acusativo:singular':'παῖδα','acusativo:plural':'παῖδας',
+  'genitivo:singular':'παιδός','genitivo:plural':'παίδων',
+  'dativo:singular':'παιδί','dativo:plural':'παισί'
+ };
+ for(const row of forms){
+  assert.equal(row.form,attested[row.case+':'+row.number],
+    'La lectura de παῖς cambió en UniMorph: cotejo filológico obligatorio');
+ }
  assert.equal(new Set(forms.map(f=>f.analysis)).size,10);
  return {
   id:'griego-sustantivo-decision-pais',language:'griego',unit:8,

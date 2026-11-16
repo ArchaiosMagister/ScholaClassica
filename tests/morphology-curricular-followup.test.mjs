@@ -14,7 +14,9 @@ const root=resolve(import.meta.dirname,'..');
 const curriculum=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
 const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
 const source=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
-const extras=bank.records.slice(-28,-9);
+const exigibleStart=bank.records.findIndex(r=>r.id==='griego-sustantivo-arche');
+assert.ok(exigibleStart>=28,'El lote original de nueve paradigmas no está disponible');
+const extras=bank.records.slice(exigibleStart-19,exigibleStart);
 const latin=extras.filter(r=>r.language==='latin');
 const greek=extras.filter(r=>r.language==='griego');
 const find=id=>bank.records.find(r=>r.id===id);
@@ -28,14 +30,14 @@ test('Segundo lote: 19 fichas nuevas, fuentes explícitas y las anteriores sin d
   assert.equal(greek.length,7);
   assert.equal(new Set(extras.map(r=>r.id)).size,19);
   assert.ok(extras.every(r=>r.evidence.status==='paradigma-documentado'));
-  assert.deepEqual(bank.records.slice(-28,-16),
-    compileLatinCurricularFollowup(curriculum,bank.records.slice(0,-28)));
-  assert.ok(extras.every(r=>!bank.records.slice(0,-28).some(old=>old.id===r.id)));
+  assert.deepEqual(bank.records.slice(exigibleStart-19,exigibleStart-7),
+    compileLatinCurricularFollowup(curriculum,bank.records.slice(0,exigibleStart-19)));
+  assert.ok(extras.every(r=>!bank.records.slice(0,exigibleStart-19).some(old=>old.id===r.id)));
 
   assert.equal(bank.records.filter(r=>r.language==='latin2').length,500,
     'Latín II y su verificación permanecen intactos');
   assert.equal(bank.records.filter(r=>r.language==='latin').length,89);
-  assert.equal(bank.records.filter(r=>r.language==='griego').length,92);
+  assert.equal(bank.records.filter(r=>r.language==='griego').length,93);
 });
 
 test('Reflexivo: solo cuatro casos, mismo valor para singular/plural y sin género',()=>{

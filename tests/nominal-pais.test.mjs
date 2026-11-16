@@ -68,8 +68,8 @@ test('Cambios de fuente se rechazan sin generar formas por analogía',()=>{
  const altered=structuredClone(parts);
  const r=altered.flat().find(x=>x[0]==='παῖς'&&x[2]==='N;DAT;PL');
  r[1]='Forma-No-Acreditada';
- assert.notDeepEqual(compilePais({vocabulaData:source,unimorphParts:altered,
-  vocabulaSha:lock.sources.vocabula.sha,decisions:manifest}),entry);
+ assert.throws(()=>compilePais({vocabulaData:source,unimorphParts:altered,
+  vocabulaSha:lock.sources.vocabula.sha,decisions:manifest}),/lectura|cotejo/);
  const malformed=structuredClone(parts);
  const p=malformed.find(x=>x.some(z=>z[0]==='παῖς'&&z[2]==='N;NOM;SG'));
  p.splice(p.findIndex(x=>x[0]==='παῖς'&&x[2]==='N;NOM;SG'),1);

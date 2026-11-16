@@ -59,7 +59,21 @@ assert.ok(read('apps/morfologia/index.html').includes('id="greek-keyboard"'));
 assert.ok(read('apps/morfologia/index.html').includes('id="review-mode"'));
 const locked=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 assert.equal(morphology.vocabulaSha,locked.sources.vocabula.sha);
-const nouns=morphology.records.filter(r=>r.id.startsWith('griego-sustantivo-'));
+const teacherNouns=morphology.records.filter(r=>
+  r.id.startsWith('griego-sustantivo-decision-'));
+assert.deepEqual(teacherNouns.map(n=>n.id),
+  ['griego-sustantivo-decision-pais'],
+  'No admitir decisiones nominales nuevas sin auditoría individual');
+const pais=teacherNouns[0];
+assert.ok(pais&&pais.gender==='común'&&
+  pais.forms.length===10&&pais.unit===8&&
+  pais.evidence.vocabulaSha===locked.sources.vocabula.sha&&
+  pais.evidence.vocabulaEntry==='2132b8254922c90c'&&
+  pais.evidence.teacherDecision==='ambos-generos');
+assert.deepEqual(pais.agreementGenders,['masculino','femenino']);
+const nouns=morphology.records.filter(r=>
+  r.id.startsWith('griego-sustantivo-')&&
+  !r.id.startsWith('griego-sustantivo-decision-'));
 // Mantener lista blanca cerrada de modelos conciliados, sin admitir altas
 // automáticas ni modificar los ocho lemas originales.
 const approvedNouns=['hippos','bios','dike','arete','logos','doron','nike','eirene',
