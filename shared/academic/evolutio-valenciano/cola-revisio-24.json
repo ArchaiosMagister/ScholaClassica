@@ -1,0 +1,420 @@
+{
+  "schema": "schola-evolutio-va-review-queue/v1",
+  "date": "2026-11-16",
+  "source": "conciliacion-curada.json",
+  "note": "Triatge dels 206 casos lèxics proposats després de conciliar 32 documentats i 3 reserves. Són 24 candidats prioritaris de resultat relativament deduïble; no es consideren verificats pel fet de figurar ací.",
+  "targetLanguage": "ca-ES-valencia",
+  "totalProposals": 206,
+  "verifiedByThisQueue": 0,
+  "approvedForPractice": 0,
+  "candidates": [
+    {
+      "order": 1,
+      "latin": "pœnam",
+      "proposta": "pena",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Monoftongació oe > e; verificar grafia i estrat patrimonial.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 2,
+      "latin": "scutum",
+      "proposta": "escut",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Pròtesi de e- davant sc-; apòcope de -u, confirmar etimologia.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 3,
+      "latin": "spicam",
+      "proposta": "espiga",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Pròtesi de e- i sonorització intervocàlica p > g.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 4,
+      "latin": "cannam",
+      "proposta": "canya",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Palatalització de nn > ny, amb pèrdua de -m fixa.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 5,
+      "latin": "guttam",
+      "proposta": "gota",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Obertura ŭ > o i simplificació de tt, revisar accents.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 6,
+      "latin": "pannum",
+      "proposta": "pany",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Palatalització de nn > ny, apòcope de -u final.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 7,
+      "latin": "septem",
+      "proposta": "set",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Simplificació de -pt- i apòcope de -e.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 8,
+      "latin": "iurare",
+      "proposta": "jurar",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Consonantització inicial i > j i apòcope de -e; revisar articulació.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 9,
+      "latin": "surdum",
+      "proposta": "sord",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Obertura ŭ > o, apòcope de -u i pèrdua fixa de -m.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 10,
+      "latin": "hŏrtum",
+      "proposta": "hort",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Apòcope de -u final; sense aspiració automàtica de h-.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 11,
+      "latin": "senatum",
+      "proposta": "senat",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Apòcope de -u final, mantenint -t.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 12,
+      "latin": "sortem",
+      "proposta": "sort",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "alta",
+      "reviewScope": "Apòcope de -e final i preservació de grup consonàntic.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 13,
+      "latin": "pellem",
+      "proposta": "pell",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Apòcope de -e final; comprovar si -ll- palatal requereix norma específica.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 14,
+      "latin": "crustam",
+      "proposta": "crosta",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Obridura ŭ > o; no confondre sonorització amb canvi de vocal.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 15,
+      "latin": "uirtutem",
+      "proposta": "virtut",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Apòcope de -e final; u inicial consonàntica es representa amb v.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 16,
+      "latin": "timorem",
+      "proposta": "temor",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Obertura de vocal i apòcope; verificar el resultat lèxic valencià.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 17,
+      "latin": "muscam",
+      "proposta": "mosca",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Obertura ŭ > o, sense altres transformacions atribuïdes sense font.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 18,
+      "latin": "fŏrtia",
+      "proposta": "força",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Palatalització de -ti- en -ç-, verificar forma patrimonial.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 19,
+      "latin": "rŏtam",
+      "proposta": "roda",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Sonorització intervocàlica t > d; confirmar el vocalisme tònic.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 20,
+      "latin": "iuncum",
+      "proposta": "jonc",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Consonantització i- > j i obertura ŭ > o; verificació etimològica.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 21,
+      "latin": "uitem",
+      "proposta": "vit",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Consonantització inicial u/v no és llei automàtica puntuable; revisar estat normatiu.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 22,
+      "latin": "spissum",
+      "proposta": "espés",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Pròtesi de e- davant sp- i vocalisme final; comprovar grafia espés.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 23,
+      "latin": "caput",
+      "proposta": "cap",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Apòcope i evolució del final -ut > cap; verificar si hi ha normes elegibles.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    },
+    {
+      "order": 24,
+      "latin": "falcem",
+      "proposta": "falç",
+      "sourceStatus": "proposta_sense_evidencia_individual",
+      "pedagogicalPriority": "mitjana",
+      "reviewScope": "Palatalització -lc- > -lç- i apòcope; comprovar la base llatina exacte.",
+      "plannedChecks": [
+        "DCVB: entrada i accepció",
+        "DNV: grafia i ús valencià",
+        "canvis fonètics i segments",
+        "aprovació docent"
+      ],
+      "approvedForPractice": false,
+      "lexicalVerified": false,
+      "ruleVerified": false
+    }
+  ]
+}
