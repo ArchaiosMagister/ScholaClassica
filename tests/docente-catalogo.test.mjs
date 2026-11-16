@@ -80,6 +80,26 @@ test('Banco integrado: los 2055 IDs y los nueve grupos de glosas discrepantes si
     ['gr1','λαμβάνω'],
     ['gr1','οἰκέω']
   ];
+  const differingAnswers=[
+    ['lat1','bonus, –a, –um'],
+    ['lat1','capio, cepi, captum (mx.)'],
+    ['lat1','multus, –a, –um'],
+    ['lat1','venio, veni, ventum (4ª)'],
+    ['lat1','video, vidi, visum (2ª)'],
+    ['lat1','silva, –æ'],
+    ['lat1','gens, gentis (f.)'],
+    ['lat1','vetus, veteris'],
+    ['lat1','impetus, –us'],
+    ['lat4','dūco (3ª)'],
+    ['lat4','īmpĕrātŏr, –oris (m.)'],
+    ['gr1','οἰκέω']
+  ];
+  for(const [subject,form] of differingAnswers){
+    const group=merged.find(row=>row.key===entryKey({subject,form}));
+    assert.ok(group,form);
+    assert.ok(new Set(group.originals.map(item=>JSON.stringify(item.answers))).size>=2,
+      'No fusionar las respuestas General/Examen o entre UDs de '+form);
+  }
   for(const [subject,form] of nine){
     const group=merged.find(row=>row.key===entryKey({subject,form}));
     assert.ok(group,form);
