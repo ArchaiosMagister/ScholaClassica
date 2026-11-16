@@ -60,21 +60,28 @@ test('Appendix castellano y valenciano mantiene originales salvo adaptaciones vi
 });
 test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y mantiene SW aislado',()=>{
   const source=join(root,'.sources/evolutio'),target=join(out,'apps/evolucion-fonetica');
-  const adapted=['index.html','sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json','style.css'];
+  const adapted=['index.html','sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json','data/pilot.json','style.css'];
   compareApp(source,target,adapted,['src/result-difficulty.mjs','src/practice-eligibility.mjs']);
   for(const file of adapted)assert.notEqual(hash(join(source,file)),hash(join(target,file)),'Adaptación no aplicada: '+file);
-  for(const file of ['src/engine.mjs','src/rules.mjs','src/latin.mjs','data/pilot.json','manifest.webmanifest'])
+  for(const file of ['src/engine.mjs','src/rules.mjs','src/latin.mjs','manifest.webmanifest'])
     assert.equal(hash(join(source,file)),hash(join(target,file)),'Original alterado: '+file);
+  const originalBank=JSON.parse(readFileSync(join(source,'data/pilot.json'),'utf8'));
+  const integratedBank=JSON.parse(readFileSync(join(target,'data/pilot.json'),'utf8'));
+  assert.equal(originalBank.words.length,522);
+  assert.equal(integratedBank.words.length,622);
+  assert.deepEqual(integratedBank.words.slice(0,522),originalBank.words,'El banco original ha sido alterado');
+  assert.equal(new Set(integratedBank.words.map(w=>w.id)).size,622);
   const sw=readFileSync(join(target,'sw.js'),'utf8');
   assert.match(sw,/const CACHE_PREFIX='schola-evolutio-';/);
   assert.match(sw,/keys\.filter\(key=>key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION\)/);
   assert.match(sw,/src\/result-difficulty\.mjs/);
-  assert.match(sw,/deducibilidad-v5/);
+  assert.match(sw,/lote100-v6/);
   const original=JSON.parse(readFileSync(join(source,'data/difficulty.json'),'utf8'));
   const reclassified=JSON.parse(readFileSync(join(target,'data/difficulty.json'),'utf8'));
   assert.equal(original.method,'criterio-didactico-v1');
   assert.equal(reclassified.method,'criterio-deducibilidad-v3');
-  assert.deepEqual(Object.keys(original.assignments),Object.keys(reclassified.assignments));
+  assert.deepEqual(Object.keys(reclassified.assignments).slice(0,522),Object.keys(original.assignments));
+  assert.equal(Object.keys(reclassified.assignments).length,622);
   assert.ok(Object.keys(reclassified.assignments).some(id=>original.assignments[id].level!==reclassified.assignments[id].level));
 });
 test('Etymologicon se construye con su pantalla, corrector y banco ampliado y cerrado, sin publicar material docente interno',()=>{
