@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {mergeCatalog,matchCatalog} from '../public/docente/vocabula-catalog.mjs';
 import {correctLatin4Vocabula,LATIN4_LEXICAL_CORRECTIONS} from '../scripts/latin4-lexical-editorial.mjs';
 import {reconcileLatin4ExamUd8,LATIN4_UD8_EXAM_REVIEW} from '../scripts/latin4-ud8-reconciliation.mjs';
+import {applyGreek1KindynosUd5,GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_ID} from '../scripts/greek1-kindynos-ud5-decision.mjs';
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport} from '../scripts/adapt-vocabula-all.mjs';
 import {adaptVocabulaOfflineHtml,adaptVocabulaOfflineTeacher} from '../scripts/adapt-vocabula-offline.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -81,10 +82,19 @@ test('Cuatro enmiendas de 4.º se corrigen en la copia, preservando el origen co
    .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
  assert.equal(from.length,2055);
  assert.equal(to.length,from.length);
- assert.deepEqual(to,reconcileLatin4ExamUd8(correctLatin4Vocabula(from)));
+ assert.deepEqual(to,applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(from))));
  const changes=to.filter((e,i)=>e.form!==from[i].form);
- const curriculumChanges=to.filter((e,i)=>e.units.join('|')!==from[i].units.join('|'));
+ const allUnitChanges=to.filter((e,i)=>e.units.join('|')!==from[i].units.join('|'));
+ assert.equal(allUnitChanges.length,18,'17 Latín 4.º y una Griego I');
+ const curriculumChanges=allUnitChanges.filter(e=>e.subject==='lat4');
  assert.equal(curriculumChanges.length,17);
+ const greekChange=allUnitChanges.find(e=>e.subject==='gr1');
+ assert.equal(greekChange?.id,GREEK1_KINDYNOS_GENERAL_ID);
+ assert.deepEqual(greekChange.units,['UD 5']);
+ assert.deepEqual(from.find(x=>x.id===GREEK1_KINDYNOS_GENERAL_ID).units,
+   ['Sin unidad acreditada']);
+ assert.deepEqual(to.find(x=>x.id===GREEK1_KINDYNOS_EXAM_ID),
+   from.find(x=>x.id===GREEK1_KINDYNOS_EXAM_ID));
  assert.deepEqual(curriculumChanges.map(e=>e.id).sort(),
    LATIN4_UD8_EXAM_REVIEW.map(x=>x.examId).sort());
  for(const e of curriculumChanges){
@@ -129,6 +139,8 @@ test('Cuatro enmiendas de 4.º se corrigen en la copia, preservando el origen co
  assert.equal(teacher.words.length,from.length);
  for(const change of changes)
    assert.equal(teacher.words.find(x=>x.id===change.id)?.form,change.form);
+ assert.deepEqual(teacher.words.find(x=>x.id===GREEK1_KINDYNOS_GENERAL_ID)?.units,['UD 5']);
+ assert.deepEqual(teacher.words.find(x=>x.id===GREEK1_KINDYNOS_EXAM_ID)?.units,['UD 5']);
  assert.equal(digest(join(source,'data.js'))===digest(join(target,'data.js')),false);
 });
 
