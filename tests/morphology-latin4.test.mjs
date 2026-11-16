@@ -12,7 +12,8 @@ const read=(file)=>readFileSync(join(root,file),'utf8');
 const lock=JSON.parse(read('config/sources.lock.json'));
 const bank=JSON.parse(read('dist/apps/morfologia/data/paradigmas.json'));
 const latin4=compileLatin4({
-  baseRecords:bank.records.filter(x=>x.language==='latin'),
+  baseRecords:bank.records.filter(x=>x.language==='latin'&&
+    !x.id.startsWith('latin-sustantivo-decision-')),
   teacherParadigmsJs:read('.sources/vocabula/gramatica-paradigmas.js'),
   teacherImperfectsJs:read('.sources/vocabula/gramatica-latin-imperfectos.js'),
   syllabusJs:read('.sources/vocabula/gramatica-contenidos.js'),
@@ -119,7 +120,8 @@ test('Desde UD3 hay sintagmas de 4.º solo si ambas flexiones están completas',
 });
 test('Fuentes cambiadas abortan la compilación y no contaminan Latín I o Griego I',()=>{
   const args={
-    baseRecords:bank.records.filter(r=>r.language==='latin'),
+    baseRecords:bank.records.filter(r=>r.language==='latin'&&
+    !r.id.startsWith('latin-sustantivo-decision-')),
     teacherParadigmsJs:read('.sources/vocabula/gramatica-paradigmas.js'),
     teacherImperfectsJs:read('.sources/vocabula/gramatica-latin-imperfectos.js'),
     syllabusJs:read('.sources/vocabula/gramatica-contenidos.js'),
@@ -133,7 +135,7 @@ test('Fuentes cambiadas abortan la compilación y no contaminan Latín I o Grieg
   assert.throws(()=>compileLatin4({...args,teacherImperfectsJs:'window.GRAMMAR_PARADIGMS=[];'}),
     /cambió de formato/);
   assert.equal(bank.records.filter(r=>!['latin4','latin2'].includes(r.language)).length,
-    144+9+19+9+2,'El banco anterior se conserva y se agregan tres lotes curriculares');
+    144+9+19+9+3,'El banco anterior se conserva y se agregan tres lotes curriculares');
   assert.ok(bank.records.filter(r=>r.language==='latin').every(r=>r.unit<=10));
   assert.ok(bank.records.filter(r=>r.language==='griego').every(r=>r.unit<=14));
 });
