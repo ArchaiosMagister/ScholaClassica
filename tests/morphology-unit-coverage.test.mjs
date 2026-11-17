@@ -2,15 +2,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {resolve} from 'node:path';
 import {
-  CURRICULAR_MORPHOLOGY_PLAN,auditMorphologyCurricularCoverage,
-  loadMorphologyCurricularCoverage
+  CURRICULAR_MORPHOLOGY_PLAN,EARLY_LATIN1_RESOLUTIONS,
+  auditMorphologyCurricularCoverage,loadMorphologyCurricularCoverage
 } from '../scripts/audit-morphology-curricular-coverage.mjs';
 
 const sources=loadMorphologyCurricularCoverage(resolve(import.meta.dirname,'..'));
 const report=auditMorphologyCurricularCoverage(sources);
 
-test('Los 262 paradigmas se distribuyen en 32 unidades sin adelantar 4.º UD9–10',()=>{
-  assert.deepEqual(report.counts,{latin1:92,latin4:76,griego1:94});
+test('Los 264 paradigmas se distribuyen en 32 unidades sin adelantar 4.º UD9–10',()=>{
+  assert.deepEqual(report.counts,{latin1:94,latin4:76,griego1:94});
+  assert.equal(report.courses.latin1.units[0].newRecords,13);
+  assert.equal(report.courses.latin1.units[1].newRecords,8);
   assert.equal(Object.values(report.courses).reduce((n,c)=>n+c.grammarUnits,0),32);
   assert.deepEqual(Object.values(report.courses).map(c=>c.grammarUnits),[10,8,14]);
   assert.deepEqual(
@@ -61,11 +63,50 @@ test('El infinitivo latino UD8 se reconoce por el análisis real aunque el model
   assert.equal(passive.markerMatches,true);
   assert.ok(passive.exactTopicEvidence>=1);
 });
-test('Las dos reservas de Latín I son independientes de los temas sintácticos',()=>{
-  assert.deepEqual(report.findings.map(x=>[x.course,x.unit,x.topic,x.status]),[
-    ['latin1',1,'Infinitivo de presente activo','sin-modelo-nuevo-de-la-categoria'],
-    ['latin1',2,'El locativo','caso-especial-sin-ficha']
+test('Las dos reservas de Latín I están resueltas exclusivamente por los ejemplos verificados',()=>{
+  assert.deepEqual(report.findings,[]);
+  assert.equal(report.findingsTotal,0);
+  assert.equal(report.resolutionsTotal,2);
+  assert.deepEqual(report.resolutions.map(x=>[x.course,x.unit,x.recordId]),[
+    ['latin1',1,EARLY_LATIN1_RESOLUTIONS.infinitives.id],
+    ['latin1',2,EARLY_LATIN1_RESOLUTIONS.locatives.id]
   ]);
+  const ud1=report.courses.latin1.units[0].topics
+    .find(t=>t.topic==='Infinitivo de presente activo');
+  assert.equal(ud1.status,'ejemplos-documentados-practicables');
+  assert.deepEqual(ud1.exercise.infinitivo,{
+    choiceAnalysis:5,choiceForm:5,written:5,tables:0
+  });
+  const ud2=report.courses.latin1.units[1].topics
+    .find(t=>t.topic==='El locativo');
+  assert.equal(ud2.status,'caso-especial-presente');
+  assert.deepEqual(ud2.exercise.sustantivo,{
+    choiceAnalysis:5,choiceForm:0,written:0,tables:0
+  },'El locativo no debe aparecer como declinación productiva');
+  assert.equal(ud2.newForms,5);
+});
+test('La pérdida de un ejemplo o de la política no productiva reabre solo su reserva',()=>{
+  const withoutInfinitive=structuredClone(sources.bank);
+  const inf=withoutInfinitive.records.find(r=>
+    r.id===EARLY_LATIN1_RESOLUTIONS.infinitives.id);
+  inf.forms.pop();
+  const first=auditMorphologyCurricularCoverage({
+    ...sources,bank:withoutInfinitive
+  },{sampleExercises:false});
+  assert.deepEqual(first.findings.map(x=>[x.course,x.unit,x.status]),[
+    ['latin1',1,'ejemplos-documentados-pendientes']
+  ]);
+  assert.equal(first.resolutionsTotal,1);
+  const productive=structuredClone(sources.bank);
+  productive.records.find(r=>r.id===EARLY_LATIN1_RESOLUTIONS.locatives.id)
+    .evidence.practiceScope='all';
+  const second=auditMorphologyCurricularCoverage({
+    ...sources,bank:productive
+  },{sampleExercises:false});
+  assert.deepEqual(second.findings.map(x=>[x.course,x.unit,x.status]),[
+    ['latin1',2,'caso-especial-incompleto']
+  ]);
+  assert.equal(second.resolutionsTotal,1);
 });
 test('La auditoría es solo lectura, sin modificar unidades, fichas ni progreso',()=>{
   const snapshot=JSON.stringify(sources.bank);
