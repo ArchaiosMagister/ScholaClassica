@@ -1,5 +1,35 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Segundo contraste histórico: 11 correspondencias y la trampa de las falsas síncopas (17/11/2026)
+
+Se han incorporado **11 contrastes filológicos adicionales**, sin repetir los 9 del bloque anterior, en `contrast-fonetica-historica-uoc-gec11-2026-11-17.json`. Fuentes: *Del llatí al català* de **Esperança Borrell i Vidal y Mònica Miró i Vinaixa (FUOC, 2009)**, consultado en [una copia textual alojada por terceros](https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala) y contrastado en su atribución con la [guía docente de la UOC](https://cv.uoc.edu/tren/trenacc/web/GAT_EXP.PLANDOCENTE?any_academico=20241&cache=S&cod_asignatura=04.542&idioma=CAT&pagina=PD_PREV_PORTAL); la [Gran Enciclopèdia Catalana](https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala) y [RodaMots, que reproduce una explicación de Gómez Llauger y Serra Casals (2014)](https://rodamots.cat/escreix/in-articulo-mortis/). **La copia UOC consultada no está alojada en el servidor original y no se considera prueba documental primaria de testimonios medievales.**
+
+| Correspondencia | Aportación concreta de la fuente | Reserva |
+|---|---|---|
+| `uiridem → verd` | FUOC p. 17: síncope esquemática `uiride(m) > uir'de > verd` | La notación académica no equivale a una forma medieval datada |
+| `sŏlĭdum → sou` | FUOC p. 17: `solidu(m) > sol'du > sou` | Faltan fases posteriores; se conserva sin ley candidata en la cola |
+| `dŏmĭnam → dona` | FUOC p. 17: `domina(m) > dom'na > dona` | La simplificación del grupo nasal sigue pendiente |
+| `pŏpŭlum → poble` | FUOC p. 17: `populu(m) > pop'lu > poble` | Evidencia directa de síncope; sonorización no certificada individualmente |
+| `capere → cabre` | FUOC p. 25: `capere > caber / cabre`, entre las oclusivas intervocálicas | Sonorización de `p` respaldada por el contexto; otras fases pendientes |
+| `cŏrpus → cos` | FUOC p. 30: `cos < corpus` en el tratamiento especial de `-s` final | No explica la reducción consonántica `-rp-`; sigue sin ley |
+| `magistrum → mestre` | FUOC p. 26: `magister > maester > mestre` | **El ejemplo está en nominativo, no en el acusativo del banco** |
+| `draconem → dragó` | GEC: `dracone > dragó` | El ejemplo no explica directamente cada fase de `c > g` |
+| `seniorem → senyor` | GEC: `seniore(m) > senyor`, ejemplo de derivación acusativa | El tratamiento de `-ni-` sigue sin cadena individual |
+| `pericŭlum → perill` | RodaMots: `periculum > perill` y evolución `-cul- > -ll-` | No equiparar automáticamente este resultado con síncope segura |
+| `ocŭlos → ulls` | GEC: `oculu > ull` **solo en singular** | No trasladar sin más las etapas al plural acusativo `ocŭlos` |
+
+### Reserva especial sobre falsas síncopas
+
+El material de FUOC, al tratar las **falsas síncopas**, recuerda que algunos diminutivos terminados en `-clum` admitieron una vocal de apoyo y se escribieron también `-culum`: su desaparición posterior aparente **no puede considerarse siempre una pérdida de una vocal de la base etimológica**. Se han marcado para estudio morfológico-histórico individual `specŭlum`, `ouicŭlam`, `articulum`, `pericŭlum` y `ocŭlos`. Esto **no invalida automáticamente las reglas escolares aprobadas en otros ejemplos ni reetiqueta ninguna de las cinco fichas**. Las 72 hipótesis siguen exactamente como estaban.
+
+**Diferencia entre evidencias:** ahora **20 de las 66** entradas tienen al menos un testimonio normativo histórico o fonético adicional específico: 9 del bloque anterior y 11 nuevas. **No hay 20 cadenas completas demostradas**, sino 20 expedientes parciales enlazados. Todos los indicadores de certificación y práctica siguen en cero.
+
+### Incidencia técnica del DNV
+
+La [interfaz oficial de búsqueda del DNV](https://www.avl.gva.es/lexicval/) se ha podido leer como página base, pero en este entorno muestra **«Sessió caducada»** y una búsqueda inicial vacía con **«No hi ha resultats»**; esto **no permite concluir que un lema esté ausente**. Los otros accesos oficiales ensayados no permitieron recuperar ningún artículo individual. El informe `acces-dnv-electronic-2026-11-17.json` documenta el límite, sin atribuirle al diccionario errores lingüísticos ni inventar resultados. `DNV verificadas individualmente = 0`; continúan pendientes las 66 consultas y los contrastes posteriores de forma, significado y distribución valenciana.
+
+Las pruebas `tests/evolutio-valenciano-fonetica-uoc-gec11.test.mjs` y la regresión de las 66 fichas impiden activar resultados o perder las reservas, sin editar la fuente independiente de Evolutio, las fichas originales, sus IDs ni la versión castellana.
+
 ## Primer contraste normativo oficial y fonética histórica publicada (17/11/2026)
 
 El buscador electrónico del **Diccionari normatiu valencià (DNV)**, que sigue siendo la referencia normativa vigente de la AVL, no ha resultado accesible directamente para verificar lemas individuales. Por ello, el expediente sigue indicando **cero comprobaciones individualizadas del DNV**. Se ha localizado, en cambio, el [acuerdo normativo de la AVL de 20 de mayo de 2002](https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf), que proporciona evidencia normativa **histórica y oficial** para cuatro fichas relacionadas:
