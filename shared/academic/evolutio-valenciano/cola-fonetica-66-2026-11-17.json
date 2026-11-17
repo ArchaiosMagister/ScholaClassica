@@ -1,0 +1,1666 @@
+{
+  "schema": "schola-evolutio-va-phonetic-workqueue/v1",
+  "date": "2026-11-17",
+  "policy": "Cua de treball acadèmic, no un banc d'exercicis. El contrast lèxic no prova lleis ni canvis fonètics; mai inferir o activar canvis amb heurístiques.",
+  "lockedSource": "901dacb125ee7894ea9d11faf7b0d0afa7e713b5",
+  "summary": {
+    "lexicallySupported": 66,
+    "pendingDnv": 66,
+    "pendingHistoricalChain": 66,
+    "pendingLawsAndSpans": 66,
+    "pendingTeacherApproval": 66,
+    "playable": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "latin": "cadere",
+      "form": "caure",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=caure",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 2,
+      "latin": "germanum",
+      "form": "germà",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=germa",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 3,
+      "latin": "homĭnem",
+      "form": "home",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=home",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 4,
+      "latin": "uittam",
+      "form": "veta",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=veta",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 5,
+      "latin": "marmorem",
+      "form": "marbre",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marbre",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 6,
+      "latin": "roborem",
+      "form": "roure",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roure",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 7,
+      "latin": "tonare",
+      "form": "tronar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 8,
+      "latin": "thesaurum",
+      "form": "tresor",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tresor",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 9,
+      "latin": "asĭnum",
+      "form": "ase",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ase",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 10,
+      "latin": "bŏnam",
+      "form": "bona",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=bo",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 11,
+      "latin": "capere",
+      "form": "cabre",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabre",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 12,
+      "latin": "compărāre",
+      "form": "comprar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comprar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 13,
+      "latin": "consilium",
+      "form": "consell",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=consell",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 14,
+      "latin": "credere",
+      "form": "creure",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "Institut d'Estudis Catalans",
+        "url": "https://publicacions.iec.cat/repository/pdf/00000531/00000025.pdf",
+        "scope": "correspondencia_historica_externa_al_dcvb"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 15,
+      "latin": "draconem",
+      "form": "dragó",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=drago",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 16,
+      "latin": "insŭlam",
+      "form": "illa",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=illa",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 17,
+      "latin": "laudare",
+      "form": "lloar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 18,
+      "latin": "legere",
+      "form": "llegir",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegir",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 19,
+      "latin": "luctam",
+      "form": "lluita",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 20,
+      "latin": "meliorem",
+      "form": "millor",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=millor",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 21,
+      "latin": "ouicŭlam",
+      "form": "ovella",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ovella",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 22,
+      "latin": "stylum",
+      "form": "estil",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estil",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 23,
+      "latin": "pilum",
+      "form": "pèl",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pel",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 24,
+      "latin": "putare",
+      "form": "podar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=podar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 25,
+      "latin": "parabolam",
+      "form": "paraula",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=paraula",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 26,
+      "latin": "articulum",
+      "form": "artell",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=artell",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 27,
+      "latin": "cŏrpus",
+      "form": "cos",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cos",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 28,
+      "latin": "dŏmĭnam",
+      "form": "dona",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dona",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 29,
+      "latin": "furcam",
+      "form": "forca",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 30,
+      "latin": "mataxam",
+      "form": "madeixa",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 31,
+      "latin": "mulierem",
+      "form": "muller",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=muller",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 32,
+      "latin": "nigram",
+      "form": "negra",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=negre",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 33,
+      "latin": "podium",
+      "form": "puig",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puig",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 34,
+      "latin": "pŏpŭlum",
+      "form": "poble",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poble",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 35,
+      "latin": "pretium",
+      "form": "preu",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=preu",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 36,
+      "latin": "seniorem",
+      "form": "senyor",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senyor",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 37,
+      "latin": "signa",
+      "form": "senya",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senya",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 38,
+      "latin": "specŭlum",
+      "form": "espill",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espill",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 39,
+      "latin": "tædam",
+      "form": "tea",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teia",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 40,
+      "latin": "texere",
+      "form": "teixir",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 41,
+      "latin": "picare",
+      "form": "pegar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pegar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 42,
+      "latin": "tussem",
+      "form": "tos",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tos",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 43,
+      "latin": "uiridem",
+      "form": "verd",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=verd",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 44,
+      "latin": "temptare",
+      "form": "temptar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=temptar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 45,
+      "latin": "hederam",
+      "form": "heura",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=heura",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 46,
+      "latin": "nostrum",
+      "form": "nostre",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nostre",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 47,
+      "latin": "strictum",
+      "form": "estret",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estret",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 48,
+      "latin": "iuuentutem",
+      "form": "joventut",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=joventut",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 49,
+      "latin": "ocŭlos",
+      "form": "ulls",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ull",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 50,
+      "latin": "pericŭlum",
+      "form": "perill",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=perill",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 51,
+      "latin": "ausare",
+      "form": "gosar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gosar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 52,
+      "latin": "pausare",
+      "form": "posar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=posar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 53,
+      "latin": "monstrare",
+      "form": "mostrar",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mostrar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 54,
+      "latin": "seminare",
+      "form": "sembrar",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sembrar",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 55,
+      "latin": "magistram",
+      "form": "mestra",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestra",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 56,
+      "latin": "magistrum",
+      "form": "mestre",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestre",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 57,
+      "latin": "sŏlĭdum",
+      "form": "sou",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sou",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 58,
+      "latin": "angustum",
+      "form": "angost",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=angost",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 59,
+      "latin": "bibere",
+      "form": "beure",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=beure",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 60,
+      "latin": "committere",
+      "form": "cometre",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cometre",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 61,
+      "latin": "continere",
+      "form": "contindre",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=contenir",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 62,
+      "latin": "corrumpere",
+      "form": "corrompre",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corrompre",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 63,
+      "latin": "cuminum",
+      "form": "comí",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "Gran Diccionari de la Llengua Catalana",
+        "url": "https://www.diccionari.cat/cerca/gran-diccionari-de-la-llengua-catalana?search_api_fulltext_cust=com%C3%AD",
+        "scope": "forma_significat_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 64,
+      "latin": "currere",
+      "form": "córrer",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=correr",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 65,
+      "latin": "imperatorem",
+      "form": "emperador",
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=emperador",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    },
+    {
+      "order": 66,
+      "latin": "bene",
+      "form": "bé",
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "lexicalSource": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=be",
+        "scope": "lema_i_etimologia"
+      },
+      "lexicalContrastCompleted": true,
+      "dnvIndividualChecked": false,
+      "historicalChainIndividuallyChecked": false,
+      "lawsVerified": false,
+      "unicodeSpansVerified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "changes": null,
+      "nextChecks": [
+        "DNV: grafia, accepció i ús valencià",
+        "Confirmar la cadena patrimonial o base vulgar",
+        "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
+        "Validació docent final"
+      ]
+    }
+  ]
+}
