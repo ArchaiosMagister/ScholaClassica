@@ -1,0 +1,52 @@
+{
+  "schema": "schola-evolutio-va-dnv-access-audit/v1",
+  "date": "2026-11-17",
+  "authority": "Acadèmia Valenciana de la Llengua",
+  "resource": "Diccionari normatiu valencià (DNV)",
+  "officialIndexUrl": "https://www.avl.gva.es/lexicval/",
+  "scope": "Prova d'accessibilitat de la interfície pública, NO revisió de cap lema concret. Un 'No hi ha resultats' a l'índex sense consulta no demostra absència d'un mot.",
+  "checks": [
+    {
+      "order": 1,
+      "target": "https://www.avl.gva.es/lexicval/",
+      "method": "Lectura de pàgina pública sense formulari interactiu",
+      "result": "La portada mostra 'Sessió caducada', formulari de 'Consulta simple' i 'No hi ha resultats' amb recompte 0 abans de buscar.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    },
+    {
+      "order": 2,
+      "target": "https://diccionari.avl.gva.es/",
+      "method": "Intent de lectura d'origen alternatiu",
+      "result": "El servidor d'extracció de contingut no retorna una pàgina llegible; error d'accés a aquest URL des de l'entorn.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    },
+    {
+      "order": 3,
+      "target": "https://www.avl.gva.es/dnv",
+      "method": "Intent de ruta antiga des de l'entorn de lectura",
+      "result": "Accés restringit/URL no recuperat en l'entorn. Cap article individual disponible.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    },
+    {
+      "order": 4,
+      "target": "https://www.avl.gva.es/lexicval/",
+      "method": "Proves no confirmades de petició directa amb paràmetres (sense executar la cerca del formulari)",
+      "result": "Les URL amb paràmetres d'assaig no van donar respostes consultables. No hi ha evidència que aquests paràmetres siguen l'API real del lloc.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    }
+  ],
+  "summary": {
+    "dnvEntriesIndividuallyRead": 0,
+    "officialSearchSiteShellReadable": true,
+    "officialInteractiveSearchPerformed": false,
+    "doNotInferMissingWords": true,
+    "candidateEntriesInQueue": 66,
+    "pendingDnv": 66
+  },
+  "policy": "Si el diccionari electrònic està temporalment inaccessible per al procés de consulta, mantenir dnvIndividualChecked=false i no escriure 'no existeix al DNV'. La normativa històrica expressa de l'AVL de 2002 és un expedient separat, amb valor diferent.",
+  "nextStep": "Verificar cada entrada a través d'una consulta real i reproduïble de l'article del DNV amb context de definició, categoria i variant, quan l'accés interactiu permeti recuperar una pàgina individual. No confondre amb DCVB ni amb els acords històrics."
+}
