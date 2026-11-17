@@ -1,13 +1,26 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Integración académica de 66 correspondencias (sin publicación)
+
+Las **66 correspondencias contrastadas** de las dos revisiones (18 + 63) se han incorporado efectivamente al banco académico `conciliacion-curada.json`, con el estado **`contrastat_lexic_sense_fonetica`** y la fuente individual de cada registro. **No se han añadido reglas fonéticas ni se ha alterado ningún ejercicio del alumnado.**
+
+La matriz reproducible `matriz-522.json` distingue ahora cuatro estados: **120** correspondencias con análisis fonético editorial (aún sin certificación normativa), **66** con contraste léxico pero fonética pendiente, **52** propuestas no promovidas —incluidas las 15 reservas de las dos últimas revisiones— y **284** sin propuesta. Total: **522**. Las tres reservas exclusivas para castellano siguen fuera del valenciano.
+
+- Fuentes de las 66: **64 DCVB, 1 IEC y 1 GDLC**. Se conservan la forma propuesta, los IDs de origen y el vínculo al expediente individual.
+- Cada una de las 66 tiene `normas: null`, `estadoNormas: pendent`, `aprobadoDocente: false` y `aptoParaPractica: false`. Las 120 revisiones fonéticas anteriores permanecen intactas y siguen sin ser ejercicios.
+- Se crea `cola-fonetica-66-2026-11-17.json`, con **66 verificaciones pendientes** de DNV, cadena histórica, leyes, posiciones Unicode y validación docente. Es una cola de investigación, **no** la afirmación de que estas verificaciones estén completadas.
+- La separación entre el contraste del léxico y la validación de leyes evita convertir una correspondencia etimológica respaldada en un ejercicio incorrecto.
+
+**Siguiente paso:** revisar individualmente los 66 itinerarios fonéticos, empezando por las transformaciones más sencillas, sin alterar el original ni publicar hasta completar las evidencias. Las 15 reservas requieren examen filológico o decisión docente independientes.
+
 ## Revisión concentrada de las 63 candidaturas restantes (17/11/2026)
 
 Se ha revisado de forma individual **la totalidad de las 63 propuestas** que quedaban de la cola original de 81 casos sin contraste. El expediente `shared/academic/evolutio-valenciano/revisio-restants-63-2026-11-17.json` identifica cada étimo, respuesta propuesta, fuente consultada, observación filológica, reserva y situación de aprobación.
 
 - **50 correspondencias con respaldo léxico/etimológico** (DCVB en la mayoría; estudio del IEC para `credere → creure` y GDLC para `cuminum → comí`). Su respaldo **no equivale** a certificación de cambios fonéticos ni de uso valenciano en el DNV.
 - **13 reservas motivadas**, entre ellas `datum → dau` (etimología discutida), `leguminem → llegum` (acusativo latino neutro incorrecto), `planctum → plany` (derivado postverbal), `sensum → seny` (origen germánico), `luxum → luxe` / `stabĭlem → estable` / `uitium → vici` (préstamos); también `pluuiam → pluja` (base vulgar), `iacere → jaure` (uso valenciano actual), `uiduam → viuda` (doblete de estratos), `acutiare → agutzar` (variante no acreditada en DCVB), `mutabĭlem → mutable` (documentación etimológica individual no recuperada) y `curtare → curtar` (verbo no acreditado).
-- **Las 81 candidaturas originales quedan examinadas y clasificadas** mediante las dos revisiones, esta tanda de 63 y la anterior de 18. **Esto no significa que las 81 hayan quedado verificadas.** Deben integrarse las correspondencias académicas respaldadas en una matriz y analizarse de forma individual sus leyes y segmentos antes de cualquier activación.
-- La matriz existente sigue expresando **120 documentadas, 118 propuestas, 284 pendientes y ninguna ficha apta para práctica**: se mantiene intacta deliberadamente hasta una promoción filológica controlada. Las 100 ampliaciones castellanas tampoco se modifican.
+- **Las 81 candidaturas originales quedaron examinadas y clasificadas** en el expediente histórico de 18 + 63. Desde entonces, las 66 respaldadas han pasado al nuevo estado léxico intermedio. **No están verificadas fonéticamente** ni son evaluables.
+- En el corte anterior, la matriz expresaba **120 documentadas, 118 propuestas y 284 pendientes**. Tras la promoción exclusivamente léxica, ahora distingue **120 + 66 + 52 + 284**, con cero fichas aptas para práctica. Las 100 ampliaciones castellanas siguen intactas.
 
 ### Siguiente bloqueo académico
 
@@ -20,7 +33,8 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 | Estado (17/11/2026) | Entradas | Significado |
 |---|---:|---|
 | Correspondencia léxica `documentat` | **120** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
-| `proposta` | **118** | Propuestas sin habilitar: 22 reservas previas, 15 nuevas y 81 sin contraste individual suficiente |
+| `contrastat_lexic_sense_fonetica` | **66** | Contraste de forma, acepción y etimología; sin análisis de leyes ni validación DNV |
+| `proposta` | **52** | Propuestas con reserva o evidencia insuficiente; ninguna habilitada |
 | `pendent` | **284** | Sin solución habilitada; incluye tres reservas solo castellanas |
 | Análisis fonéticos editoriales | **120** | Análisis léxicos y fonéticos individuales acumulados; ninguno certificado para práctica |
 | Casos reservados solo castellano | **3** | `octo`, `dictum`, `sigĭllum`: ninguna respuesta valenciana entregable |
@@ -49,7 +63,7 @@ Se ha realizado un **inventario íntegro de todas las 146 propuestas**, guardado
 | Nuevas reservas individualizadas por étimo, préstamo, arcaísmo o cadena | **15** | Enumeradas en `incidencies-15-2026-11-17.json`, con referencia DCVB |
 | Pendientes de cotejo lexicográfico individual suficiente | **81** | **No verificadas**; no se inventan fuentes ni reglas, siguen como propuestas |
 
-**Resultado global:** 120 correspondencias documentadas, **118 propuestas aún sin cerrar**, 284 sin propuesta —incluidas tres reservas docentes exclusivamente castellanas—, 120 análisis editoriales y **cero fichas aptas para práctica valenciana**. Se preservan todas las fichas e IDs latinos, la versión independiente, y las 100 palabras añadidas únicamente en castellano.
+**Resultado global del corte histórico previo a la promoción de 66:** 120 correspondencias documentadas, **118 propuestas aún sin cerrar**, 284 sin propuesta —incluidas tres reservas docentes exclusivamente castellanas—, 120 análisis editoriales y **cero fichas aptas para práctica valenciana**. Se preservan todas las fichas e IDs latinos, la versión independiente, y las 100 palabras añadidas únicamente en castellano.
 
 **Veintiocho nuevas correspondencias documentadas:** `aucam → oca`, `comitem → comte`, `maiorem → major`, `multum → molt`, `spartum → espart`, `cæcare → cegar`, `capillum → cabell`, `chŏrdam → corda`, `cupam → cuba`, `grŏssum → gros`, `maurum → moro`, `littĕram → lletra`, `pensare → pesar`, `damnum → dany`, `minorem → menor`, `minutum → menut`, `mustum → most`, `linguam → llengua`, `urticam → ortiga`, `siluam → selva`, `pinnam → penya`, `gubernare → governar`, `inimicum → enemic`, `martium → març`, `regŭlam → regla`, `undam → ona`, `pedem → peu`, `mensuram → mesura`.
 
