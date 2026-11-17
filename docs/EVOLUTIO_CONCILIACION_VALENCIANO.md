@@ -1,5 +1,18 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Revisión fonética individual de las 66 fichas (17/11/2026)
+
+Se han **revisado editorialmente, una por una, las 66 correspondencias con contraste léxico**. Los resultados quedan reproducidos en `shared/academic/evolutio-valenciano/cola-fonetica-66-2026-11-17.json` (esquema `v2`) y protegidos por `tests/evolutio-valenciano-fonetica66-editorial.test.mjs`.
+
+- **66/66 revisiones individuales registradas**, cada una con observación sobre las transformaciones, fuente léxica conservada y reserva de sus dudas históricas.
+- **47 fichas** tienen al menos una transformación fonética **hipotética** representada sobre el étimo latino: **72 candidatos de ley/segmento** en total, todos con posición de grafemas Unicode revisada mecánicamente. Los segmentos siguen la escritura latina fijada por ID, no se trasladan reglas castellanas.
+- **19 fichas** permanecen sin regla seleccionable candidata debido a una evolución compleja, falta de etapas históricas documentadas, homonimia o ausencia de cambio escolar identificable. `bŏnam → bona` no recibe una ley inventada: la `-m` del acusativo se clasifica como pérdida fija no seleccionable.
+- Se documentan con especial reserva `tonare → tronar` (el DCVB explica la `r` por analogía de *tro*, no por metátesis regular), `cadere → caure`, `thesaurum → tresor`, `credere → creure`, `insŭlam → illa`, `cŏrpus → cos`, `pretium → preu`, `magistrum → mestre`, `sŏlĭdum → sou`, `continere → contindre` y `bene → bé`.
+- Los candidatos de ley nunca se incorporan a `revisio-120-2026-11-17.json` ni a `matriz-522.json`. Se mantiene el banco académico en **120 + 66 + 52 + 284** y `aptasParaPractica=0` para preservar el historial anterior.
+- **No se ha completado una comprobación individual en el DNV**, cuya consulta oficial no ha podido verificarse de forma sistemática a través de este entorno. Tampoco se ha certificado la cadena histórica completa de ninguna de estas 66 ni se ha obtenido aprobación docente para evaluarlas. Por tanto, el estado correcto sigue siendo «análisis editorial, no ficha verificada o jugable».
+
+**Próximo control antes de publicar:** cotejar los resultados con el DNV de la AVL, aportar bibliografía histórica específica a los pasos todavía hipotéticos (especialmente en las 19 evoluciones complejas), validar una a una las leyes escolares sobre sus segmentos y presentar al docente solo los criterios filológicos que requieran una elección. No se publica ni se modifica la versión castellana.
+
 ## Integración académica de 66 correspondencias (sin publicación)
 
 Las **66 correspondencias contrastadas** de las dos revisiones (18 + 63) se han incorporado efectivamente al banco académico `conciliacion-curada.json`, con el estado **`contrastat_lexic_sense_fonetica`** y la fuente individual de cada registro. **No se han añadido reglas fonéticas ni se ha alterado ningún ejercicio del alumnado.**
