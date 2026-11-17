@@ -24,7 +24,13 @@
     "complexSourcesDCVB": 19,
     "totalLexicographicEntriesIndividuallyRead": 66,
     "complexEntriesWithoutExplicitEtymologyLine": 1,
-    "complexEntriesStillWithoutLawCandidates": 19
+    "complexEntriesStillWithoutLawCandidates": 19,
+    "historicalAvlAgreementExplicitForms": 3,
+    "historicalAvlAgreementRelatedPlural": 1,
+    "individualHistoricalEvidenceExamplePairs": 4,
+    "indirectHistoricalProsodicEvidence": 1,
+    "currentDnvIndividualChecks": 0,
+    "publishedEvidenceButNotFullCertification": 9
   },
   "entries": [
     {
@@ -74,6 +80,22 @@
           "dnvIndividualChecked": false,
           "fullHistoricalChainCertified": false,
           "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "fonetica_historica_independent",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceStrength": "parella_i_mecanisme_directe",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": false,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": true,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
           "teacherApproved": false,
           "playable": false
         }
@@ -191,6 +213,22 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "avl_historic_official",
+          "sourceAuthority": "Acadèmia Valenciana de la Llengua",
+          "sourceUrl": "https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf",
+          "evidenceStrength": "relacio_morfologica_no_lema_singular",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": false,
+          "avlRelatedPluralOnly": true,
+          "phoneticExamplePublished": false,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -483,6 +521,22 @@
           "dnvIndividualChecked": false,
           "fullHistoricalChainCertified": false,
           "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "avl_historic_official",
+          "sourceAuthority": "Acadèmia Valenciana de la Llengua",
+          "sourceUrl": "https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf",
+          "evidenceStrength": "lema_explicito",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": true,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": false,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
           "teacherApproved": false,
           "playable": false
         }
@@ -1041,6 +1095,22 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "fonetica_historica_independent",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceStrength": "parella_contextual_no_cadena",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": false,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": true,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -1181,6 +1251,22 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "fonetica_historica_independent",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceStrength": "parella_de_tema_llati_i_mecanisme_directe",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": false,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": true,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -2452,6 +2538,22 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "avl_historic_official",
+          "sourceAuthority": "Acadèmia Valenciana de la Llengua",
+          "sourceUrl": "https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf",
+          "evidenceStrength": "lema_explicito",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": true,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": false,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -3560,6 +3662,22 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "fonetica_historica_independent",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceStrength": "parella_i_mecanisme_directe",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": false,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": true,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -4006,6 +4124,22 @@
           "lawsHistoricallyCertified": false,
           "teacherApproved": false,
           "playable": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "avl_historic_official",
+          "sourceAuthority": "Acadèmia Valenciana de la Llengua",
+          "sourceUrl": "https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf",
+          "evidenceStrength": "lema_explicito",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": true,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": false,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -4353,6 +4487,22 @@
           "dnvIndividualChecked": false,
           "fullHistoricalChainCertified": false,
           "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        },
+        "independentSpecificEvidence": {
+          "dossier": "contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json",
+          "category": "fonetica_historica_independent",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceStrength": "contrast_de_formes_romaniques",
+          "reviewCompleted": true,
+          "exactLemmaInAvlAgreement": false,
+          "avlRelatedPluralOnly": false,
+          "phoneticExamplePublished": false,
+          "currentDnvIndividualChecked": false,
+          "individualSchoolLawsCertified": false,
+          "fullHistoricalChainCertified": false,
           "teacherApproved": false,
           "playable": false
         }
