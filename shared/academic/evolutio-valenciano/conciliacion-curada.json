@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-17",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.\nQuarta tanda: 18 étims prioritaris, 14 lexemes amb etimologia DCVB documentada i 4 reserves per base vulgar o homonímia/cadena; s'exclou qualsevol activació sense DNV.\nCinquena tanda (17/11): 12 correspondències etimològiques DCVB amb anàlisi independent i 9 casos reservats per préstec, ús literari, ètim divergent, variació o cadena complexa. No s'atribueix verificació DNV ni jugabilitat.\nSexta tanda: inventari integral de les 146 propostes heretades. 28 noves corresponents DCVB, 22 reserves ja documentades i mantingudes, 15 noves reserves per etimologia/estrat/cadena (inclosa auditoria de quatre ètims llatins incompatibles) i 81 pendents de contrast individual. Cap verificació DNV ni pràctica autoritzada.",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.\nQuarta tanda: 18 étims prioritaris, 14 lexemes amb etimologia DCVB documentada i 4 reserves per base vulgar o homonímia/cadena; s'exclou qualsevol activació sense DNV.\nCinquena tanda (17/11): 12 correspondències etimològiques DCVB amb anàlisi independent i 9 casos reservats per préstec, ús literari, ètim divergent, variació o cadena complexa. No s'atribueix verificació DNV ni jugabilitat.\nSexta tanda: inventari integral de les 146 propostes heretades. 28 noves corresponents DCVB, 22 reserves ja documentades i mantingudes, 15 noves reserves per etimologia/estrat/cadena (inclosa auditoria de quatre ètims llatins incompatibles) i 81 pendents de contrast individual. Cap verificació DNV ni pràctica autoritzada.\nIntegració acadèmica 17/11/2026: 66 correspondències lèxiques contrastades (64 DCVB, 1 IEC, 1 GDLC), ara registrades com a 'contrastat_lexic_sense_fonetica' sense normes, DNV ni aprovació per a pràctica; 15 reserves mantingudes com a propostes. Històric de 120 anàlisis editorials inalterat.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -1327,29 +1327,8 @@
   ],
   "proposals": [
     {
-      "latin": "cadere",
-      "form": "caure",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "crucem",
       "form": "creu",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "germanum",
-      "form": "germà",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "homĭnem",
-      "form": "home",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1376,41 +1355,6 @@
       "notes": null
     },
     {
-      "latin": "uittam",
-      "form": "veta",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "marmorem",
-      "form": "marbre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "roborem",
-      "form": "roure",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "tonare",
-      "form": "tronar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "thesaurum",
-      "form": "tresor",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "lignum",
       "form": "lleny",
       "lexicalStatus": "proposta",
@@ -1418,50 +1362,8 @@
       "notes": null
     },
     {
-      "latin": "asĭnum",
-      "form": "ase",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "auricŭlam",
       "form": "orella",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "bŏnam",
-      "form": "bona",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "capere",
-      "form": "cabre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "compărāre",
-      "form": "comprar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "consilium",
-      "form": "consell",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "credere",
-      "form": "creure",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1481,22 +1383,8 @@
       "notes": null
     },
     {
-      "latin": "draconem",
-      "form": "dragó",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "fĕbrem",
       "form": "febre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "insŭlam",
-      "form": "illa",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1509,27 +1397,6 @@
       "notes": null
     },
     {
-      "latin": "laudare",
-      "form": "lloar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "legere",
-      "form": "llegir",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "luctam",
-      "form": "lluita",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "luxum",
       "form": "luxe",
       "lexicalStatus": "proposta",
@@ -1537,22 +1404,8 @@
       "notes": null
     },
     {
-      "latin": "meliorem",
-      "form": "millor",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "milium",
       "form": "mill",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "ouicŭlam",
-      "form": "ovella",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1579,36 +1432,8 @@
       "notes": null
     },
     {
-      "latin": "stylum",
-      "form": "estil",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pilum",
-      "form": "pèl",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "putare",
-      "form": "podar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "spissum",
       "form": "espés",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "parabolam",
-      "form": "paraula",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1628,13 +1453,6 @@
       "notes": null
     },
     {
-      "latin": "articulum",
-      "form": "artell",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "caput",
       "form": "cap",
       "lexicalStatus": "proposta",
@@ -1649,20 +1467,6 @@
       "notes": null
     },
     {
-      "latin": "cŏrpus",
-      "form": "cos",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "dŏmĭnam",
-      "form": "dona",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "forum",
       "form": "fur",
       "lexicalStatus": "proposta",
@@ -1672,34 +1476,6 @@
     {
       "latin": "fundum",
       "form": "fons",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "furcam",
-      "form": "forca",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mataxam",
-      "form": "madeixa",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mulierem",
-      "form": "muller",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "nigram",
-      "form": "negra",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1726,34 +1502,6 @@
       "notes": "DCVB remite a la base vulgar plŏia: hay que contrastar el étimo concreto antes de aprobar."
     },
     {
-      "latin": "podium",
-      "form": "puig",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pŏpŭlum",
-      "form": "poble",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pretium",
-      "form": "preu",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "seniorem",
-      "form": "senyor",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "sensum",
       "form": "seny",
       "lexicalStatus": "proposta",
@@ -1763,20 +1511,6 @@
     {
       "latin": "serpĕntem",
       "form": "serp",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "signa",
-      "form": "senya",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "specŭlum",
-      "form": "espill",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1796,20 +1530,6 @@
       "notes": null
     },
     {
-      "latin": "tædam",
-      "form": "tea",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "texere",
-      "form": "teixir",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "uitium",
       "form": "vici",
       "lexicalStatus": "proposta",
@@ -1817,50 +1537,8 @@
       "notes": null
     },
     {
-      "latin": "picare",
-      "form": "pegar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "tussem",
-      "form": "tos",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "uiridem",
-      "form": "verd",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "temptare",
-      "form": "temptar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "fibram",
       "form": "fibra",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "hederam",
-      "form": "heura",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "nostrum",
-      "form": "nostre",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1901,34 +1579,6 @@
       "notes": null
     },
     {
-      "latin": "strictum",
-      "form": "estret",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "iuuentutem",
-      "form": "joventut",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "ocŭlos",
-      "form": "ulls",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pericŭlum",
-      "form": "perill",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "iacere",
       "form": "jaure",
       "lexicalStatus": "proposta",
@@ -1957,20 +1607,6 @@
       "notes": null
     },
     {
-      "latin": "ausare",
-      "form": "gosar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pausare",
-      "form": "posar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "ballænam",
       "form": "balena",
       "lexicalStatus": "proposta",
@@ -1985,13 +1621,6 @@
       "notes": null
     },
     {
-      "latin": "monstrare",
-      "form": "mostrar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "passum",
       "form": "pas",
       "lexicalStatus": "proposta",
@@ -1999,36 +1628,8 @@
       "notes": null
     },
     {
-      "latin": "seminare",
-      "form": "sembrar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "magistram",
-      "form": "mestra",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "magistrum",
-      "form": "mestre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "mutabĭlem",
       "form": "mutable",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "sŏlĭdum",
-      "form": "sou",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -2062,64 +1663,8 @@
       "notes": null
     },
     {
-      "latin": "angustum",
-      "form": "angost",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "bibere",
-      "form": "beure",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "committere",
-      "form": "cometre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "continere",
-      "form": "contindre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "corrumpere",
-      "form": "corrompre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "cuminum",
-      "form": "comí",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "currere",
-      "form": "córrer",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "curtare",
       "form": "curtar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "imperatorem",
-      "form": "emperador",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -2134,13 +1679,6 @@
     {
       "latin": "nigrum",
       "form": "negre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "bene",
-      "form": "bé",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -2174,6 +1712,998 @@
       "reason": "El DCVB assenyala mot arcaic reintroduït en la llengua culta; estudi històric possible amb advertiment, sense activació ni automatismes.",
       "mode": "solo_castellano",
       "historicalStudy": true
+    }
+  ],
+  "lexicallyReviewed": [
+    {
+      "latin": "cadere",
+      "form": "caure",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=caure",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "L'entrada dona cadĕre com a ètim del verb caure.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "germanum",
+      "form": "germà",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=germa",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "Germà de parentiu procedeix de germānu. Diferenciar-lo del nom propi Germà i de l'adjectiu 'germànic'.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "homĭnem",
+      "form": "home",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=home",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "Home procedeix de hŏmĭne; el DCVB registra pronúncia valenciana home i plural hòmens, sense implicar cap validació de normes.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "uittam",
+      "form": "veta",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=veta",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El DCVB dona vĭtta com a ètim de veta; el banc té l'acusatiu llatí amb u consonàntica.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "marmorem",
+      "form": "marbre",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marbre",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "El marbre material petri procedeix de marmŏre; no confondre'l amb el peix homònim ni altres usos.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "roborem",
+      "form": "roure",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roure",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Arbre roure procedent de rōbŏre; escollir l'accepció botànica, no el verb homònim.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "tonare",
+      "form": "tronar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Dona tŏnāre, però la -r- es considera afegida per influència del nom tro.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "thesaurum",
+      "form": "tresor",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tresor",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El DCVB dona thesauru i documenta les variants antigues tesaur i tresaur.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "asĭnum",
+      "form": "ase",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ase",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "L'ase animal procedeix de asĭnu; DCVB indica que l'ús com a nom d'animal és menys corrent en moltes zones valencianes.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "bŏnam",
+      "form": "bona",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=bo",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "L'entrada BO inclou el femení bona; etimologia del llatí bŏnu i flexió femenina regular.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "capere",
+      "form": "cabre",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabre",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Etimologia capĕre i pronunciació valenciana documentades; evitar la variant caber en l'exercici.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "compărāre",
+      "form": "comprar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comprar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Font: compĕrāre vulgar, variant de compărāre; cal acreditar la fase vulgar abans de certificar normes.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "consilium",
+      "form": "consell",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=consell",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "Consell com a recomanació procedeix de consĭlĭum; l'homògraf antic concell pot rebre influència de concĭlĭum.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "credere",
+      "form": "creure",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "Institut d'Estudis Catalans",
+        "url": "https://publicacions.iec.cat/repository/pdf/00000531/00000025.pdf",
+        "scope": "correspondencia_historica_externa_al_dcvb"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "La correspondència credere/creure apareix en estudis de fonètica de l'IEC; l'article DCVB consultat no ofereix etimologia explícita.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "draconem",
+      "form": "dragó",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=drago",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El DCVB dona dracōne per a dragó; significat de l'animal fabulós, no el vegetal.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "insŭlam",
+      "form": "illa",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=illa",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Correspondència directa insŭla > illa; l'ús valencià també queda documentat.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "laudare",
+      "form": "lloar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Correspondència laudāre > lloar, en l'accepció d'elogiar; no el topònim homònim.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "legere",
+      "form": "llegir",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegir",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "Llegir lletres procedeix de lĕgĕre; el DCVB diferencia pronúncies valencianes, sense certificar ací la cadena fonètica.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "luctam",
+      "form": "lluita",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: lucta, mateixa accepció.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "meliorem",
+      "form": "millor",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=millor",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: mĕliōre, comparatiu; conserva la -r de millor en valencià.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "ouicŭlam",
+      "form": "ovella",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ovella",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: ovĭcŭla, diminutiu de ovis; pronunciació valenciana documentada.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "stylum",
+      "form": "estil",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estil",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: stilus. Cuidar la grafia escolar i la possible estratificació del significat.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "pilum",
+      "form": "pèl",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pel",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "En la mateixa consulta PEL figura l'homògraf PÈL, del llatí pĭlu. La resposta porta accent: pèl.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "putare",
+      "form": "podar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=podar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: pŭtāre en l'accepció d'esporgar; no generalitzar a qualsevol sentit clàssic de putare.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "parabolam",
+      "form": "paraula",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=paraula",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: parabŏla, amb l'accepció vulgar evolucionada 'mot, vocable'.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "articulum",
+      "form": "artell",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=artell",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Artell com a articulació dels dits, del llatí artĭcŭlu.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "cŏrpus",
+      "form": "cos",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cos",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Cos anatòmic procedeix de cŏrpus. Distingir cos de cós, que té una altra etimologia.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "dŏmĭnam",
+      "form": "dona",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dona",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "La dona 'senyora/dona' procedeix de domĭna; evitar confondre l'ètim amb altres derivats de dominus.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "furcam",
+      "form": "forca",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "La forca agrícola procedeix de fŭrca; el sentit i l'ús valencià estan attestats. No es valida encara la seqüència fonètica.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "mataxam",
+      "form": "madeixa",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: mataxa > madeixa; accepció de conjunt de fil embolicat.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "mulierem",
+      "form": "muller",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=muller",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "Muller com a esposa procedeix de mulĭĕre; el DCVB recull que en la pronúncia valenciana es conserva la -r final.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "nigram",
+      "form": "negra",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=negre",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "NEGRE, NEGRA és un sol article; procedència de nĭgru amb flexió femenina negra.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "podium",
+      "form": "puig",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puig",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: pŏdĭu > puig, amb especialització a 'elevació de terreny' en llatí vulgar.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "pŏpŭlum",
+      "form": "poble",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poble",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Poble procedeix de pŏpŭlu; significat col·lectiu de població.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "pretium",
+      "form": "preu",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=preu",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El DCVB fa derivar el preu monetari del llatí prĕtĭu; correspondència lèxica avalada, no lleis certificades.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "seniorem",
+      "form": "senyor",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senyor",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: sĕniōre 'vell/persona d'autoritat' > senyor, amb canvi de sentit.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "signa",
+      "form": "senya",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senya",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: sĭgna, 'senyals'; diferenciar de seny 'judici'.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "specŭlum",
+      "form": "espill",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espill",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Espill 'mirall', de spĕcŭlu, amb pronunciació valenciana documentada.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "tædam",
+      "form": "tea",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teia",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "L'entrada TEIA/TEA remunta a taeda; documenta la cadena antiga teda > tesa > tea i la distribució valenciana.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "texere",
+      "form": "teixir",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: tĕxĕre > teixir i formes valencianes amb -r final.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "picare",
+      "form": "pegar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pegar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El llatí pĭcare justifica pegar en el sentit d'adherir amb pega (accepció I), no de colpejar.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "tussem",
+      "form": "tos",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tos",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Tos 'acció de tossir' prové del llatí tŭssi; distingir-lo dels altres homònims de TOS.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "uiridem",
+      "form": "verd",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=verd",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "L'adjectiu de color verd procedeix de vĭrĭde; mantenir l'accepció cromàtica.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "temptare",
+      "form": "temptar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=temptar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: temptare/tentare; pronunciació valenciana amb -r documentada.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "hederam",
+      "form": "heura",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=heura",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "L'heura botànica procedeix de hĕdĕra; el DCVB documenta també la forma eura i pronunciacions valencianes.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "nostrum",
+      "form": "nostre",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nostre",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "El possessiu nostre procedeix de nŏstru; el DCVB documenta la pronúncia valenciana amb -e final.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "strictum",
+      "form": "estret",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estret",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: strĭctu, participi de stringĕre; adjectiu estret.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "iuuentutem",
+      "form": "joventut",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=joventut",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: iuventūte > joventut, en l'accepció d'edat juvenil.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "ocŭlos",
+      "form": "ulls",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ull",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El plural ulls correspon a ull; DCVB el deriva de la base vulgar ŏclu (contracció de ŏcŭlus). No certificar la cadena del plural sense detallar-la.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "pericŭlum",
+      "form": "perill",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=perill",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El DCVB fa derivar perill del llatí perīcŭlu en el sentit de risc o perill; lleis pendents.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "ausare",
+      "form": "gosar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gosar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "Etimologia de llatí vulgar ausare; la g- inicial de gosar té explicacions etimològiques alternatives no resoltes.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "pausare",
+      "form": "posar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=posar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: pausare > posar en l'accepció de situar; no confondre amb posar com a model, d'origen francès.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "monstrare",
+      "form": "mostrar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mostrar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: mŏnstrare > mostrar.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "seminare",
+      "form": "sembrar",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sembrar",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "Sembrar amb el sentit de posar llavor a terra procedeix de semĭnāre; la cadena històrica completa queda pendent.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "magistram",
+      "form": "mestra",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestra",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: magĭstra > mestra en l'accepció d'ensenyant.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "magistrum",
+      "form": "mestre",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestre",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: magĭstru > mestre en l'accepció d'ensenyant.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "sŏlĭdum",
+      "form": "sou",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sou",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: sŏlĭdu > sou en el sentit de moneda; el sentit monetari ja pertany al llatí.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "angustum",
+      "form": "angost",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=angost",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: angŭstu > angost, però falta comprovar abast dialectal valencià i utilitat pedagògica.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "bibere",
+      "form": "beure",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=beure",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "El DCVB dona bĭbĕre com a ètim de beure; cal revisar individualment els canvis abans d'autoritzar pràctica.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "committere",
+      "form": "cometre",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cometre",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: commĭttĕre > cometre, en l'accepció de realitzar una acció o confiar una tasca.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "continere",
+      "form": "contindre",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=contenir",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: continēre > contenir; el mateix article registra la pronúncia valenciana contindre.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "corrumpere",
+      "form": "corrompre",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corrompre",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "El verb corrompre procedeix de corrŭmpĕre; documentat, sense certificar encara caràcter patrimonial ni lleis.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "cuminum",
+      "form": "comí",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "Gran Diccionari de la Llengua Catalana",
+        "url": "https://www.diccionari.cat/cerca/gran-diccionari-de-la-llengua-catalana?search_api_fulltext_cust=com%C3%AD",
+        "scope": "forma_significat_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "GDLC d'Enciclopèdia Catalana: ll. cumīnum > comí (espècia Cuminum cyminum), procedent al seu torn del grec.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "currere",
+      "form": "córrer",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=correr",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "El verb córrer procedeix de cŭrrĕre; el DCVB documenta pronunciació valenciana amb -r.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "imperatorem",
+      "form": "emperador",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=emperador",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-restants-63-2026-11-17.json",
+      "notes": "DCVB: imperatore > emperador en la dignitat imperial; no l'accepció de peix ni el topònim.",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "bene",
+      "form": "bé",
+      "lexicalStatus": "contrastat_lexic_sense_fonetica",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=be",
+        "scope": "lema_i_etimologia"
+      },
+      "reviewSource": "revisio-dcvb-prioritaria-2026-11-17.json",
+      "notes": "L'adverbi bé procedeix de bĕne; distingir-lo dels homònims be (lletra, animal).",
+      "dnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
     }
   ]
 }
