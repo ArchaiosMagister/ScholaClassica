@@ -1,5 +1,31 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Primer contraste normativo oficial y fonética histórica publicada (17/11/2026)
+
+El buscador electrónico del **Diccionari normatiu valencià (DNV)**, que sigue siendo la referencia normativa vigente de la AVL, no ha resultado accesible directamente para verificar lemas individuales. Por ello, el expediente sigue indicando **cero comprobaciones individualizadas del DNV**. Se ha localizado, en cambio, el [acuerdo normativo de la AVL de 20 de mayo de 2002](https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf), que proporciona evidencia normativa **histórica y oficial** para cuatro fichas relacionadas:
+
+| Ficha en el banco | Evidencia real del acuerdo AVL (2002) | Alcance |
+|---|---|---|
+| `continere → contindre` | apartado II.2.8: `contindre` expresamente reconocido entre los compuestos de `tindre` | **Lema exacto**; no prueba una ley fonética directa |
+| `specŭlum → espill` | apartado II.3.1: `espill` entre las palabras valencianas oficialmente reconocidas | **Lema exacto**; no valida por sí solo las tres reglas propuestas |
+| `thesaurum → tresor` | apartado II.1.3: `tresor` con **r patrimonial** | **Lema exacto**; no establece la secuencia de metátesis y monoptongación |
+| `homĭnem → home` | apartado II.2.2: plurales `hòmens / homes` | **Relación morfológica indirecta**; no comprobación singular de `home` |
+
+**Precaución adicional:** el acuerdo incluye `tòs` (con acento) en su repertorio, palabra que **no** debe utilizarse para acreditar `tos` 'acción de toser' procedente de `tussem`. La homonimia y la acentuación importan.
+
+Como comprobación independiente de fonética histórica, se han consultado las secciones pertinentes de [*català*, Gran Enciclopèdia Catalana](https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala). Se documentan estas **cuatro correspondencias expresas**:
+
+- `cadere → caure`: se cita en el tratamiento de una consonante de grupo romance que se resuelve en una semivocal `[u]`, sin exponer todas las fases.
+- `lŭcta → lluita`: la fuente explica el tratamiento palatal de la velar en `-ct-`; **el banco utiliza el acusativo `luctam`**, no el nominativo del ejemplo.
+- `sem(i)nare → sembrar`: ejemplo explícito de síncope y aparición de consonante en el grupo `m'n`. Esta evidencia fortalece la **candidatura editorial** de epéntesis de `b`, pero no introduce aún una ley certificada ni cambia los fragmentos de la ficha.
+- `laudare → lloar`: par expreso usado para comparar el tratamiento de consonantes intervocálicas en distintos contextos prosódicos. No da una reconstrucción separada de la `PALAT` inicial o de la `MONOP` de `au`.
+
+La misma obra contrasta las formas romances `ben` y `bé` (junto con `bon` y `bo`) en función del contexto proclítico. Esto es **evidencia indirecta** para `bene → bé`, **no** una declaración individual de su cadena fonética desde BENE.
+
+Quedan registrados **9 expedientes de evidencia puntual** en `shared/academic/evolutio-valenciano/contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json`, enlazados con la cola de las 66 fichas. Se distingue entre **3 lemas reconocidos explícitamente por la AVL**, **1 plural emparentado**, **4 pares históricos explícitos** y **1 contraste prosódico indirecto**. Ninguno equivale a cotejo de la entrada electrónica vigente del DNV ni a aprobación de una ley escolar.
+
+**El estado evaluable permanece inalterado:** 522 fichas, 66 con contraste lexicográfico, 47 con 72 hipótesis de ley y 19 sin ley segura; **0 cadenas completas acreditadas, 0 leyes valencianas certificadas, 0 tarjetas prácticas**. Los datos en castellano y las fuentes originales no se editan. Las nuevas comprobaciones se realizan con `tests/evolutio-valenciano-avl-fonetica-20261117.test.mjs`.
+
 ## Cierre editorial de las 19 cadenas complejas y clasificación de 27 reservas (17/11/2026)
 
 La consulta directa de las **19 entradas adicionales del DCVB** está registrada, una por una, en `contrastos-historics-dcvb-complexos19-2026-11-17.json`, relacionada con la cola de 66. En **18 de las 19** la entrada del diccionario formula explícitamente el étimo; la de **`credere → creure`** documenta formas flexivas medievales y pronunciación valenciana, **pero no presenta una línea etimológica explícita** en el artículo consultado. Las formas conjugadas citadas no acreditan una derivación fonética completa del infinitivo.
