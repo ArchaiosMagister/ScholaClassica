@@ -1,15 +1,15 @@
-# Evolutio valenciano — conciliación académica (actualización 17/11/2026) · tercera tanda
+# Evolutio valenciano — conciliación académica (actualización 17/11/2026) · cuarta tanda
 
 ## Estado vigente y protección de la versión publicada
 
 Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserva **522** étimos identificados por ID del origen fijado (Evolutio independiente); la ampliación de **100 fichas castellanas** recientemente publicada en ScholaClassica **no se traduce automáticamente ni se incorpora** a esta matriz. Por tanto, las 100 nuevas palabras siguen solo en castellano.
 
-| Estado (16/11/2026) | Entradas | Significado |
+| Estado (17/11/2026) | Entradas | Significado |
 |---|---:|---|
-| Correspondencia léxica `documentat` | **66** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
-| `proposta` | **172** | Propuesta no contrastada individualmente |
+| Correspondencia léxica `documentat` | **80** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
+| `proposta` | **158** | Propuesta no contrastada individualmente |
 | `pendent` | **284** | Sin solución habilitada; incluye tres reservas solo castellanas |
-| Análisis fonéticos editoriales | **66** | Segmentos revisados; cuatro decisiones docentes recuperadas, seis análisis nuevos |
+| Análisis fonéticos editoriales | **80** | Análisis léxicos y fonéticos individuales acumulados; ninguno certificado para práctica |
 | Casos reservados solo castellano | **3** | `octo`, `dictum`, `sigĭllum`: ninguna respuesta valenciana entregable |
 | Normas certificadas para evaluación | **0** | Sigue faltando contraste normativo individual y aprobación integral |
 | Fichas habilitadas para test valenciano | **0** | No publicar hasta cerrar la verificación |
@@ -24,6 +24,40 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 - `ocŭlum → ull`: **SÍNCOPE** de `ŭ` postónica, seguida de **PALATALITZACIÓ** del grupo `-cl-`, con base vulgar `ŏclu` documentada por DCVB.
 
 Las decisiones sobre el análisis de una palabra **no significan** que se hayan verificado todas sus reglas con DNV ni que la ficha quede aprobada para evaluación. Los indicadores `dnvIndividualChecked`, `teacherApproved` y `playable` permanecen en `false`.
+
+### Cuarta tanda: 18 candidatas transparentes y homónimas (17/11/2026)
+
+La cuarta tanda contrasta **18** candidaturas de las 172 anteriores: **14** se incorporan al repertorio lexicalmente documentado en el DCVB y **4** permanecen expresamente reservadas. La matriz de 522 IDs históricos contiene ahora 80 documentadas, 158 propuestas y 284 pendientes, de ellas tres reservas originales solo castellanas. Todas siguen sin autorización para practicar; el contraste DNV individual **no se ha completado**.
+
+| Étimo | Valenciano | Leyes en análisis editorial provisional | Advertencia |
+|---|---|---|---|
+| `molam` | mola | Ninguna seleccionable (solo -m fija) | Acepción de piedra de molino; otros sentidos pueden remontarse a `mōle` |
+| `uallem` | vall | PALATALITZACIÓ + APÒCOPE | **Vall femenina** 'valle', no *vall* masculino 'foso' de `vallum` |
+| `aurum` | or | MONOFTONGACIÓ + APÒCOPE | El DCVB registra el estadio histórico *aur* |
+| `mensem` | mes | SIMPLIFICACIÓ + APÒCOPE | Sustantivo 'mes del año', no *mes* adversativo |
+| `uentum` | vent | APÒCOPE | La u consonántica latina se representa v |
+| `cŏrnu` | corn | APÒCOPE | Sin pérdida de -m porque la forma latina no acaba en m |
+| `uĕntrem` | ventre | Ninguna seleccionable (solo -m fija) | Sin diptongación de ĕ; no copiar el análisis castellano |
+| `ferum` | fer | APÒCOPE | Adjetivo 'salvaje', **no** el verbo *fer* procedente de `facere` |
+| `mŏllem` | moll | PALATALITZACIÓ + APÒCOPE | Adjetivo 'blando'; no *moll* 'muelle del puerto', de origen italiano |
+| `semper` | sempre | METÀTESI | Transposición final *-er* > *-re*; sin -m de acusativo |
+| `ordinare` | ordenar | OBERTURA + APÒCOPE | El DCVB registra las variantes antiguas *ordinar* y *ordonar*; carácter regular de la abertura pendiente de certificar |
+| `intrare` | entrar | OBERTURA + APÒCOPE | ĭ inicial > e como análisis provisional |
+| `curtum` | curt | APÒCOPE | La ŭ tónica se conserva como u; no inventar abertura |
+| `calĕntem` | calent | APÒCOPE | La ĕ tónica no se diptonga en valenciano |
+
+Las dos primeras palabras sin leyes seleccionables y otras equivalencias idénticas son léxicamente válidas para el **estudio**, pero no necesariamente sirven como preguntas en las que se evalúan cambios fonéticos. La pérdida fija de -m se incorpora automáticamente solo cuando procede.
+
+**Cuatro reservas adicionales:**
+
+- `totum → tot`: el [DCVB](https://dcvb.iec.cat/results.asp?word=tot) da como origen inmediato la forma vulgar `tottu`, intensiva de `tōtum`. Hace falta justificar esta mediación antes de puntuar.
+- `bonum → bo`: [DCVB: bo](https://dcvb.iec.cat/results.asp?word=bo). La base es `bonu`, pero es necesario explicar la pérdida de -n y la alternancia *bo/bon*.
+- `nouem → nou`: [DCVB: nou](https://dcvb.iec.cat/results.asp?word=nou). El numeral nueve comparte grafía con el fruto 'nuez', el adjetivo 'nuevo' y otros homónimos, todos de procedencia diferente; el final *-ve > -u* requiere contrastar etapas.
+- `milium → mill`: [DCVB: mill](https://dcvb.iec.cat/results.asp?word=mill), sustantivo de 'mijo', procedente de `mīlĭu`, distinto del numeral *mil* (< `mīlle`). Se reserva la cadena de palatalización.
+
+Estas cuatro quedan **como propuestas con fuente y razón de reserva, sin análisis ni respuesta practicable**. Las tres reservas históricas de *octo*, *dictum* y *sigillum* siguen estrictamente *solo castellano*. La cola `cola-revisio-18-2026-11-17.json` deja constancia de cada decisión y del estado de verificación. La revisión `revisio-80-2026-11-17.json` conserva los 66 análisis previos y añade únicamente los 14 nuevos.
+
+**Límite de evidencia:** «etimología documentada» no significa certificación de las 17 leyes ni cotejo individual del DNV. Todos los indicadores `dnvIndividualChecked`, `teacherApproved`, `playable` siguen en falso.
 
 ### Tercera tanda: 19 casos contrastados (17/11/2026)
 
@@ -110,7 +144,7 @@ La cola conserva para las 24 fichas `reviewOutcome`, referencias comprobadas cua
 
 **Segunda tanda:** `shared/academic/evolutio-valenciano/cola-revisio-24.json` registra el contraste de 24 candidatas: 18 correspondencias lexicalmente documentadas en el DCVB y 6 reservas explícitas. Ninguna queda autorizada para preguntas; el DNV y la evaluación completa de leyes permanecen pendientes.
 
-Archivos activos: `conciliacion-curada.json`, `revisio-66-2026-11-17.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json` y `cola-revisio-19-2026-11-17.json`. Las revisiones de 26, 32 y 50 se conservan como evidencias históricas. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
+Archivos activos: `conciliacion-curada.json`, `revisio-80-2026-11-17.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`, `cola-revisio-19-2026-11-17.json` y `cola-revisio-18-2026-11-17.json`. Se conservan las revisiones históricas de 26, 32, 50 y 66 sin alteración. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
 
 ---
 
