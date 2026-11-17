@@ -1,4 +1,4 @@
-# Evolutio valenciano — conciliación académica (actualización 17/11/2026) · quinta tanda
+# Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
 ## Estado vigente y protección de la versión publicada
 
@@ -6,10 +6,10 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 
 | Estado (17/11/2026) | Entradas | Significado |
 |---|---:|---|
-| Correspondencia léxica `documentat` | **92** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
-| `proposta` | **146** | Propuesta no contrastada individualmente |
+| Correspondencia léxica `documentat` | **120** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
+| `proposta` | **118** | Propuestas sin habilitar: 22 reservas previas, 15 nuevas y 81 sin contraste individual suficiente |
 | `pendent` | **284** | Sin solución habilitada; incluye tres reservas solo castellanas |
-| Análisis fonéticos editoriales | **92** | Análisis léxicos y fonéticos individuales acumulados; ninguno certificado para práctica |
+| Análisis fonéticos editoriales | **120** | Análisis léxicos y fonéticos individuales acumulados; ninguno certificado para práctica |
 | Casos reservados solo castellano | **3** | `octo`, `dictum`, `sigĭllum`: ninguna respuesta valenciana entregable |
 | Normas certificadas para evaluación | **0** | Sigue faltando contraste normativo individual y aprobación integral |
 | Fichas habilitadas para test valenciano | **0** | No publicar hasta cerrar la verificación |
@@ -24,6 +24,34 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 - `ocŭlum → ull`: **SÍNCOPE** de `ŭ` postónica, seguida de **PALATALITZACIÓ** del grupo `-cl-`, con base vulgar `ŏclu` documentada por DCVB.
 
 Las decisiones sobre el análisis de una palabra **no significan** que se hayan verificado todas sus reglas con DNV ni que la ficha quede aprobada para evaluación. Los indicadores `dnvIndividualChecked`, `teacherApproved` y `playable` permanecen en `false`.
+
+### Sexta tanda: inventario exhaustivo de las 146 propuestas anteriores (17/11/2026)
+
+Se ha realizado un **inventario íntegro de todas las 146 propuestas**, guardado en `auditoria-pendents-146-2026-11-17.json`. Importante: **inventariar no equivale a comprobar**. Se distingue expresamente qué fichas cuentan con contraste etimológico individual y cuáles permanecen sin evidencia, para evitar certificaciones ficticias.
+
+| Resultado de las 146 propuestas iniciales | Casos | Alcance |
+|---|---:|---|
+| Correspondencia y acepción documentadas de nuevo en DCVB | **28** | 28 análisis editoriales individuales; aún sin contraste DNV ni certificación de las leyes |
+| Reservas ya fundamentadas en las cuatro colas anteriores | **22** | Conservan la razón y referencia histórica, sin análisis ni aprobación |
+| Nuevas reservas individualizadas por étimo, préstamo, arcaísmo o cadena | **15** | Enumeradas en `incidencies-15-2026-11-17.json`, con referencia DCVB |
+| Pendientes de cotejo lexicográfico individual suficiente | **81** | **No verificadas**; no se inventan fuentes ni reglas, siguen como propuestas |
+
+**Resultado global:** 120 correspondencias documentadas, **118 propuestas aún sin cerrar**, 284 sin propuesta —incluidas tres reservas docentes exclusivamente castellanas—, 120 análisis editoriales y **cero fichas aptas para práctica valenciana**. Se preservan todas las fichas e IDs latinos, la versión independiente, y las 100 palabras añadidas únicamente en castellano.
+
+**Veintiocho nuevas correspondencias documentadas:** `aucam → oca`, `comitem → comte`, `maiorem → major`, `multum → molt`, `spartum → espart`, `cæcare → cegar`, `capillum → cabell`, `chŏrdam → corda`, `cupam → cuba`, `grŏssum → gros`, `maurum → moro`, `littĕram → lletra`, `pensare → pesar`, `damnum → dany`, `minorem → menor`, `minutum → menut`, `mustum → most`, `linguam → llengua`, `urticam → ortiga`, `siluam → selva`, `pinnam → penya`, `gubernare → governar`, `inimicum → enemic`, `martium → març`, `regŭlam → regla`, `undam → ona`, `pedem → peu`, `mensuram → mesura`.
+
+Los cambios históricos especificados en `revisio-120-2026-11-17.json` son **editoriales y no certificables aún**. Por ejemplo, `gubernare → governar` explica la lenición `-b- → -v-` sin incorporarla como norma seleccionable; `pedem → peu` conserva la vocalización editorial pero requiere contrastar la cadena; `maurum → moro` mantiene el vocalismo final pendiente de verificación. Las vocales y consonantes se señalan sobre la secuencia Unicode latina, y la pérdida fija de -m no se evalúa como ley elegible.
+
+**Cuatro posibles incompatibilidades de étimo en el banco que requieren decisión docente**, sin corregir automáticamente la palabra latina original:
+
+- `alium → all`: el [DCVB (all)](https://dcvb.iec.cat/results.asp?word=all) parte de **allĭum**, con dos eles; el banco conserva `alium`.
+- `cæpullam → ceba`: el [DCVB (ceba)](https://dcvb.iec.cat/results.asp?word=ceba) ofrece **cēpa**; la forma del banco necesita una justificación distinta si se quiere utilizar.
+- `ballænam → balena`: el [DCVB (balena)](https://dcvb.iec.cat/results.asp?word=balena) utiliza **bālaena**, no la geminada del banco.
+- `nomĭnem → nom`: para el sustantivo neutro latino **nomen**, el acusativo regular es **nomen**, no `nomĭnem`; revisar paradigma y forma de partida.
+
+**Otras once reservas nuevas:** préstamos latinos `uoluntatem → voluntat`, `nauigare → navegar`, `integrare → integrar`; `fundum → fons` por discrepancia de forma casual y terminación; `forum → fur` por la especialización semántica; `lignum → lleny` por el sentido arcaico 'embarcación'; y las cadenas históricas no justificadas de `auricŭlam → orella`, `spatium → espai`, `maium → maig`, `radium → raig`, `crucem → creu`. Estas correspondencias pueden ser lexicográficamente correctas, pero no se dan por **fonéticamente completas** ni elegibles para un test.
+
+**Trabajo pendiente y límite de evidencia:** las 81 propuestas sin contraste individual, la comprobación normativa DNV entrada por entrada y la acreditación de cada ley antes de evaluación. Se registra el resultado de la revisión sin declarar las 81 como verificadas. `dnvIndividualChecked`, `teacherApproved` y `playable` siguen en falso para todas las entradas. Se mantiene la prohibición de publicar.
 
 ### Quinta tanda: 21 candidatas, 12 documentadas, 9 reservas (17/11/2026)
 
@@ -176,7 +204,7 @@ La cola conserva para las 24 fichas `reviewOutcome`, referencias comprobadas cua
 
 **Segunda tanda:** `shared/academic/evolutio-valenciano/cola-revisio-24.json` registra el contraste de 24 candidatas: 18 correspondencias lexicalmente documentadas en el DCVB y 6 reservas explícitas. Ninguna queda autorizada para preguntas; el DNV y la evaluación completa de leyes permanecen pendientes.
 
-Archivos activos: `conciliacion-curada.json`, `revisio-92-2026-11-17.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`, `cola-revisio-19-2026-11-17.json`, `cola-revisio-18-2026-11-17.json` y `cola-revisio-21-2026-11-17.json`. Se conservan las revisiones históricas de 26, 32, 50, 66 y 80 sin alteración. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
+Archivos activos: `conciliacion-curada.json`, `revisio-120-2026-11-17.json`, `matriz-522.json`, `normas.json`, `auditoria-pendents-146-2026-11-17.json`, `incidencies-15-2026-11-17.json` y las cuatro colas de revisión previas. Se conservan las revisiones históricas de 26, 32, 50, 66, 80 y 92 sin alteración. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
 
 ---
 
