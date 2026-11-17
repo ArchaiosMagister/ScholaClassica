@@ -31,7 +31,7 @@ test('Cinc revisions de fonts amb 1 VOC explícita, sense fingir DNV ni cadenes 
  assert.equal(queue.summary.sourcePrecisionFiveReviewed,5);
  assert.equal(queue.summary.sourcePrecisionEntriesStillMissingDnv,5);
  assert.equal(queue.summary.schoolLawsCertifiedThroughSourcePrecision,0);
- assert.equal(queue.summary.totalEntriesWithIndependentSpecificEvidence,25);
+ assert.equal(queue.summary.totalEntriesWithIndependentSpecificEvidence,30);
  assert.equal(queue.entries.filter(x=>x.review.independentSpecificEvidence||
   x.review.followupHistoricalEvidence||x.review.specificLawSourceVerification).length,25);
  for(const [i,item] of dossier.entries.entries()){
