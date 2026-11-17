@@ -28,7 +28,13 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   complexEntriesStillWithoutLawCandidates:19,
   historicalAvlAgreementExplicitForms:3,historicalAvlAgreementRelatedPlural:1,
   individualHistoricalEvidenceExamplePairs:4,indirectHistoricalProsodicEvidence:1,
-  currentDnvIndividualChecks:0,publishedEvidenceButNotFullCertification:9
+  currentDnvIndividualChecks:0,publishedEvidenceButNotFullCertification:9,
+  uoc2009AdditionalPhoneticPairs:7,gecAdditionalPhoneticPairs:3,
+  rodamotsAdditionalPhoneticPairs:1,newPartialHistoricalEvidenceEntries:11,
+  totalEntriesWithIndependentSpecificEvidence:20,
+  morphologicalFalseSyncopeCautions:5,dnvSearchInterfaceAssessed:true,
+  dnvSearchResultsIndividuallyRecovered:0,
+  dnvAccessDossier:'acces-dnv-electronic-2026-11-17.json'
  });
  assert.equal(queue.entries.length,66);
  assert.equal(new Set(queue.entries.map(x=>x.latin)).size,66);
@@ -63,6 +69,21 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
    assert.equal(evidence.playable,false,x.latin);
   }
 
+  const historical=x.review.followupHistoricalEvidence;
+  if(historical){
+   assert.equal(historical.dossier,'contrast-fonetica-historica-uoc-gec11-2026-11-17.json',x.latin);
+   assert.equal(historical.reviewCompleted,true,x.latin);
+   for(const key of ['currentDnvIndividualChecked','allIntermediateFormsHistoricallyAttested',
+    'fullHistoricalChainCertified','individualSchoolLawsCertified','approvedByTeacher','playable'])
+    assert.equal(historical[key],false,x.latin+'/'+key);
+  }
+  const caution=x.review.morphologicalSyncopeCaution;
+  if(caution){
+   assert.equal(caution.dossier,'contrast-fonetica-historica-uoc-gec11-2026-11-17.json');
+   assert.equal(caution.status,'cal_distingir_sincope_i_variant_sufixal');
+   assert.equal(caution.doesNotOverrideExistingRules,true);
+   assert.equal(caution.schoolLawCertified,false);
+  }
   const changes=x.review.proposedChanges;
   assert.ok(Array.isArray(changes),x.latin);
   if(changes.length){
