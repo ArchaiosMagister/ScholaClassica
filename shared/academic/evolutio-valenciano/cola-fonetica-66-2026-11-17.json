@@ -19,7 +19,12 @@
     "lexicographicEntriesIndividuallyRead": 47,
     "lexicographicSourcesDCVB": 46,
     "lexicographicSourcesGDLC": 1,
-    "candidateWordsPendingIndividualLexicographicRead": 0
+    "candidateWordsPendingIndividualLexicographicRead": 0,
+    "complexLexicographicEntriesIndividuallyRead": 19,
+    "complexSourcesDCVB": 19,
+    "totalLexicographicEntriesIndividuallyRead": 66,
+    "complexEntriesWithoutExplicitEtymologyLine": 1,
+    "complexEntriesStillWithoutLawCandidates": 19
   },
   "entries": [
     {
@@ -57,7 +62,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=caure",
+          "individuallyRead": true,
+          "uncertaintyClass": "canvi_fonetic_amb_etapes_pendents",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -95,7 +114,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=germa",
+          "individuallyRead": true,
+          "uncertaintyClass": "final_an_u_i_homonimia",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -386,7 +419,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=tronar",
+          "individuallyRead": true,
+          "uncertaintyClass": "analogia_lexica_no_llei",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -424,7 +471,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=tresor",
+          "individuallyRead": true,
+          "uncertaintyClass": "variants_antigues_sense_cadena_completa",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -526,7 +587,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=bo",
+          "individuallyRead": true,
+          "uncertaintyClass": "sense_llei_seleccionable",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -642,7 +717,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=comprar",
+          "individuallyRead": true,
+          "uncertaintyClass": "base_llatina_vulgar_alternativa",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -744,7 +833,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": false,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=creure",
+          "individuallyRead": true,
+          "uncertaintyClass": "cadena_vocalica_i_etimologia_no_explicita",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -846,7 +949,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=illa",
+          "individuallyRead": true,
+          "uncertaintyClass": "cadena_consonantica_complexa_i_interferencia",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -1318,7 +1435,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=pel",
+          "individuallyRead": true,
+          "uncertaintyClass": "quantitat_vocalica_aclarida_i_homografia",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -1589,7 +1720,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=cos",
+          "individuallyRead": true,
+          "uncertaintyClass": "variant_antiga_amb_r_i_reduccio_pendent",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -1947,7 +2092,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=puig",
+          "individuallyRead": true,
+          "uncertaintyClass": "cadena_diu_i_canvi_semantic",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -2064,7 +2223,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=preu",
+          "individuallyRead": true,
+          "uncertaintyClass": "transformacio_ti_i_vocal_final",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -2382,7 +2555,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=teixir",
+          "individuallyRead": true,
+          "uncertaintyClass": "evolucio_de_x_i_reajustament_verbal",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -2768,7 +2955,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=nostre",
+          "individuallyRead": true,
+          "uncertaintyClass": "variant_flexiva_vocal_final",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -3398,7 +3599,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=mestra",
+          "individuallyRead": true,
+          "uncertaintyClass": "etapes_gistr_i_vocalisme",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -3437,7 +3652,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=mestre",
+          "individuallyRead": true,
+          "uncertaintyClass": "etapes_gistr_i_ultracorreccio",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -3476,7 +3705,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=sou",
+          "individuallyRead": true,
+          "uncertaintyClass": "reduccio_amb_sòl_antic",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -3749,7 +3992,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=contenir",
+          "individuallyRead": true,
+          "uncertaintyClass": "variant_valenciana_de_la_conjugacio",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     },
     {
@@ -4084,7 +4341,21 @@
         "documentedHistoricalChain": false,
         "phoneticLawsIndividuallyVerified": false,
         "approvedByTeacher": false,
-        "playable": false
+        "playable": false,
+        "complexHistoricalEvidenceReview": {
+          "dossier": "contrastos-historics-dcvb-complexos19-2026-11-17.json",
+          "etymologyExplicitlyDisplayed": true,
+          "sourceAuthority": "DCVB",
+          "sourceUrl": "https://dcvb.iec.cat/results.asp?word=be",
+          "individuallyRead": true,
+          "uncertaintyClass": "alternancia_ben_be_i_homografs",
+          "noLawAssigned": true,
+          "dnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "lawsHistoricallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
+        }
       }
     }
   ]
