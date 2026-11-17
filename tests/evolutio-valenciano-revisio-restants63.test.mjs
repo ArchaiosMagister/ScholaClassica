@@ -41,12 +41,18 @@ test('Revisió filològica global: les 81 propostes prèvies tenen exactament un
   const m=matrix.records.find(w=>w.latin===item.latin);
   assert.ok(m,item.latin);
   assert.equal(m.valenciano.resultado,item.proposta);
-  assert.equal(m.valenciano.estadoLexico,'proposta');
+  const staged=item.lexicalReview==='relacio_lexica_etimologica_documentada';
+  assert.equal(m.valenciano.estadoLexico,staged?'contrastat_lexic_sense_fonetica':'proposta');
+  if(staged){
+   assert.equal(m.valenciano.evidencia.length,1);
+   assert.equal(m.valenciano.revisionLexica,'revisio-restants-63-2026-11-17.json');
+   assert.equal(m.valenciano.normas,null);
+  }
   assert.equal(m.valenciano.aprobadoDocente,false);
   assert.equal(m.valenciano.aptoParaPractica,false);
  }
  assert.deepEqual(matrix.summary,{
-  total:522,lexicoDocumentado:120,propuestas:118,sinPropuesta:284,
+  total:522,lexicoDocumentado:120,contrasteLexicoPendienteFonetica:66,propuestas:52,sinPropuesta:284,
   reservasSoloCastellano:3,normasVerificadas:0,aptasParaPractica:0,
   analisisEditoriales:120,casosConDiscrepancia:0
  });
