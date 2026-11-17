@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-17",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.\nQuarta tanda: 18 étims prioritaris, 14 lexemes amb etimologia DCVB documentada i 4 reserves per base vulgar o homonímia/cadena; s'exclou qualsevol activació sense DNV.\nCinquena tanda (17/11): 12 correspondències etimològiques DCVB amb anàlisi independent i 9 casos reservats per préstec, ús literari, ètim divergent, variació o cadena complexa. No s'atribueix verificació DNV ni jugabilitat.",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.\nQuarta tanda: 18 étims prioritaris, 14 lexemes amb etimologia DCVB documentada i 4 reserves per base vulgar o homonímia/cadena; s'exclou qualsevol activació sense DNV.\nCinquena tanda (17/11): 12 correspondències etimològiques DCVB amb anàlisi independent i 9 casos reservats per préstec, ús literari, ètim divergent, variació o cadena complexa. No s'atribueix verificació DNV ni jugabilitat.\nSexta tanda: inventari integral de les 146 propostes heretades. 28 noves corresponents DCVB, 22 reserves ja documentades i mantingudes, 15 noves reserves per etimologia/estrat/cadena (inclosa auditoria de quatre ètims llatins incompatibles) i 81 pendents de contrast individual. Cap verificació DNV ni pràctica autoritzada.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -1015,26 +1015,320 @@
         "scope": "lema_i_etimologia"
       },
       "notes": "PECAT 'falta moral/religiosa', del llatí peccātum; no el topònim homònim. La forma antiga amb -cc- està documentada."
-    }
-  ],
-  "proposals": [
+    },
     {
       "latin": "aucam",
       "form": "oca",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "cadere",
-      "form": "caure",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=oca",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Oca, au palmípeda, del llatí vulgar auca; la monoftongació de au és editorial. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
     },
     {
       "latin": "comitem",
       "form": "comte",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comte",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Comte, dignitat nobiliària, del llatí cŏmĭte, originalment 'company'; sentit medieval derivat i pronunciació valenciana documentada. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "maiorem",
+      "form": "major",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=major",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Major, comparatiu de grandària, del llatí maiōre; DCVB documenta grafies antigues maior/mayor/magor. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "multum",
+      "form": "molt",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=molt",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Molt quantificador/adverbi, del llatí mŭltu; no confondre amb mòlt participi de moldre. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "spartum",
+      "form": "espart",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espart",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Espart, planta i fibra, del llatí spartu; el DCVB registra la pronúncia valenciana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "cæcare",
+      "form": "cegar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cegar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Cegar 'privar de vista' del llatí caecare; la palatalització inicial i la sonorització medial es distingeixen. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "capillum",
+      "form": "cabell",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabell",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Cabell del cap, del llatí capĭllu; la -p- és intervocàlica i passa a -b-, no s'hi aplica sonorització de la l. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "chŏrdam",
+      "form": "corda",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corda",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Corda de lligar, del llatí chorda, mot grec adaptat al llatí; ch inicial es representa c; la h no indica aspiració castellana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "cupam",
+      "form": "cuba",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cuba",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Cuba, recipient/bóta, del llatí cūpa; no el topònim Cuba ni el mot d'origen aràbic per a alcavó. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "grŏssum",
+      "form": "gros",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gros",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adjectiu gros 'gran, voluminós', del llatí grŏssu; no afegir diftongació castellana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "maurum",
+      "form": "moro",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=moro",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Moro com a denominació històrica, del llatí mauru; el resultat final -o té valor editorial i no es considera apòcope. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "littĕram",
+      "form": "lletra",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lletra",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Lletra 'signe d'escriptura', del llatí lĭttĕra; la forma valenciana documenta ll inicial. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "pensare",
+      "form": "pesar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pesar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Pesar 'determinar el pes', del llatí pensare; el DCVB diferencia el substantiu pesar. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "damnum",
+      "form": "dany",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dany",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Dany 'perjudici', del llatí damnum; -mn- palatalitza en -ny-. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "minorem",
+      "form": "menor",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=menor",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Menor comparatiu de petit, del llatí mĭnōre; es conserva la -r final valenciana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "minutum",
+      "form": "menut",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=menut",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Menut 'xicotet' del llatí mĭnūtu; diferenciar de l'ús històric menut com a 'minut' de temps. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "mustum",
+      "form": "most",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=most",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Most, suc de raïm no fermentat, del llatí mŭstu. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "linguam",
+      "form": "llengua",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llengua",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Llengua anatòmica i idioma, del llatí lĭngŭa, amb palatalització de l- inicial, conservant qu/gu gràfic pertinent. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "urticam",
+      "form": "ortiga",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ortiga",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Ortiga (planta) del llatí urtīca; vocalisme inicial u > o i c intervocàlica > g. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "siluam",
+      "form": "selva",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=selva",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Selva 'bosc espès' del llatí sĭlva; u gràfica consonàntica llatina es representa amb v, sense llei seleccionable. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "pinnam",
+      "form": "penya",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=penya",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Penya 'gran roca', del llatí pĭnna ('merlet'); no confondre amb penya 'grup d'amics' sense explicar el canvi semàntic. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "gubernare",
+      "form": "governar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=governar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Governar, del llatí gŭbernare; b intervocàlica > v és lenició explicable però no una de les 17 lleis seleccionables. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "inimicum",
+      "form": "enemic",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=enemic",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Enemic 'adversari', del llatí inimīcu; dues vocals i inicials breus passen a e; la tercera i de l'ètim es conserva. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "martium",
+      "form": "març",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marc",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Març 'tercer mes', del llatí martĭu; el DCVB indexa març dins la consulta 'marc', amb subentrada pròpia, distinta del nom Marc. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "regŭlam",
+      "form": "regla",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=regla",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Regla de mesurar o norma, del llatí rĕgŭla; síncope de la ŭ posttònica. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "undam",
+      "form": "ona",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ona",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Ona de mar, del llatí ŭnda; no confondre amb ona com a nom propi d'altres orígens. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "pedem",
+      "form": "peu",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=peu",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Peu anatòmic, del llatí pĕde; la vocalització de d es descriu editorialment, no com a pèrdua arbitrària. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    },
+    {
+      "latin": "mensuram",
+      "form": "mesura",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mesura",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Mesura 'acte o instrument de mesurar', del llatí mensūra; en valencià es conserva r i la vocal a final. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar."
+    }
+  ],
+  "proposals": [
+    {
+      "latin": "cadere",
+      "form": "caure",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1061,13 +1355,6 @@
       "notes": null
     },
     {
-      "latin": "maiorem",
-      "form": "major",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "maium",
       "form": "maig",
       "lexicalStatus": "proposta",
@@ -1075,22 +1362,8 @@
       "notes": null
     },
     {
-      "latin": "multum",
-      "form": "molt",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "radium",
       "form": "raig",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "spartum",
-      "form": "espart",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1166,29 +1439,8 @@
       "notes": null
     },
     {
-      "latin": "cæcare",
-      "form": "cegar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "capere",
       "form": "cabre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "capillum",
-      "form": "cabell",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "chŏrdam",
-      "form": "corda",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1222,13 +1474,6 @@
       "notes": null
     },
     {
-      "latin": "cupam",
-      "form": "cuba",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "datum",
       "form": "dau",
       "lexicalStatus": "proposta",
@@ -1245,13 +1490,6 @@
     {
       "latin": "fĕbrem",
       "form": "febre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "grŏssum",
-      "form": "gros",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1285,13 +1523,6 @@
       "notes": null
     },
     {
-      "latin": "littĕram",
-      "form": "lletra",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "luctam",
       "form": "lluita",
       "lexicalStatus": "proposta",
@@ -1301,13 +1532,6 @@
     {
       "latin": "luxum",
       "form": "luxe",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "maurum",
-      "form": "moro",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1390,22 +1614,8 @@
       "notes": null
     },
     {
-      "latin": "mensuram",
-      "form": "mesura",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "falcem",
       "form": "falç",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pensare",
-      "form": "pesar",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1474,13 +1684,6 @@
       "notes": null
     },
     {
-      "latin": "martium",
-      "form": "març",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "mataxam",
       "form": "madeixa",
       "lexicalStatus": "proposta",
@@ -1504,13 +1707,6 @@
     {
       "latin": "nomĭnem",
       "form": "nom",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pinnam",
-      "form": "penya",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1546,13 +1742,6 @@
     {
       "latin": "pretium",
       "form": "preu",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "regŭlam",
-      "form": "regla",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1635,22 +1824,8 @@
       "notes": null
     },
     {
-      "latin": "siluam",
-      "form": "selva",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "tussem",
       "form": "tos",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "undam",
-      "form": "ona",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1705,13 +1880,6 @@
       "notes": null
     },
     {
-      "latin": "pedem",
-      "form": "peu",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "temperare",
       "form": "temperar",
       "lexicalStatus": "proposta",
@@ -1728,13 +1896,6 @@
     {
       "latin": "alium",
       "form": "all",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "damnum",
-      "form": "dany",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1880,13 +2041,6 @@
       "notes": null
     },
     {
-      "latin": "urticam",
-      "form": "ortiga",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "uirtutem",
       "form": "virtut",
       "lexicalStatus": "proposta",
@@ -1964,50 +2118,8 @@
       "notes": null
     },
     {
-      "latin": "gubernare",
-      "form": "governar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "imperatorem",
       "form": "emperador",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "inimicum",
-      "form": "enemic",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "linguam",
-      "form": "llengua",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "minorem",
-      "form": "menor",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "minutum",
-      "form": "menut",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mustum",
-      "form": "most",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
