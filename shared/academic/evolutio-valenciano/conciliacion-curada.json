@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-17",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.\nQuarta tanda: 18 étims prioritaris, 14 lexemes amb etimologia DCVB documentada i 4 reserves per base vulgar o homonímia/cadena; s'exclou qualsevol activació sense DNV.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -729,6 +729,160 @@
         "scope": "lema_i_etimologia"
       },
       "notes": "Fel com a bilis o amargor, del llatí fĕl. No té cap transformació seleccionable."
+    },
+    {
+      "latin": "molam",
+      "form": "mola",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mola",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "La mola de molí o pedra de moldre: del llatí mŏla (DCVB, accepcions del grup I). Altres sentits homògrafs es relacionen amb mōle i no són automàticament equivalents."
+    },
+    {
+      "latin": "uallem",
+      "form": "vall",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vall",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Vall FEMENINA, 'terreny entre muntanyes', del llatí valle. No confondre amb vall masculí 'fossat' del llatí vallum."
+    },
+    {
+      "latin": "aurum",
+      "form": "or",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=or",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Or metall, del llatí auru; documenta també l'antic aur. No confondre amb 'or' conjunció d'origen francès."
+    },
+    {
+      "latin": "mensem",
+      "form": "mes",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mes",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "MES masculí 'mes de calendari', del llatí mēnse. No confondre amb 'mes' adversatiu o 'més' comparatiu."
+    },
+    {
+      "latin": "uentum",
+      "form": "vent",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vent",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Vent atmosfèric del llatí vĕntu; inicial u consonàntica escrita v, no una llei independent puntuable."
+    },
+    {
+      "latin": "cŏrnu",
+      "form": "corn",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corn",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Corn banya o objecte corbat del llatí cŏrnu; no confondre amb l'altre corn botànic del llatí cŏrnus."
+    },
+    {
+      "latin": "uĕntrem",
+      "form": "ventre",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ventre",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Ventre de la persona/animal del llatí vĕntre; no hi ha cap llei seleccionable més enllà de la pèrdua fixa de -m."
+    },
+    {
+      "latin": "ferum",
+      "form": "fer",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fer",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adjectiu FER 'salvatge, feréstec', del llatí fĕru; homògraf del verb FER < facere, que s'exclou d'aquesta correspondència."
+    },
+    {
+      "latin": "mŏllem",
+      "form": "moll",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=moll",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "MOLL adjectiu 'bla, tou', del llatí mŏlle. No confondre amb moll del port (italià molo) ni altres homònims."
+    },
+    {
+      "latin": "semper",
+      "form": "sempre",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sempre",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adverbi SEMPRE 'en tot temps', del llatí sĕmper. L'ordre er > re es revisa com a metàtesi provisional."
+    },
+    {
+      "latin": "ordinare",
+      "form": "ordenar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ordenar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Verb ORDENAR 'posar en ordre, manar', del llatí ordĭnare. El DCVB també registra formes antigues ordinar i ordonar; no aplicar obertures sense revisar variants."
+    },
+    {
+      "latin": "intrare",
+      "form": "entrar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=entrar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Verb ENTRAR 'passar dins', del llatí ĭntrare. La vocal inicial ĭ > e queda registrada editorialment, pendent de justificació normativa completa."
+    },
+    {
+      "latin": "curtum",
+      "form": "curt",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=curt",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adjectiu CURT 'de poca llargària', del llatí cŭrtum segons el DCVB. ŭ tònica > u en valencià, NO assignar falsament obertura a o."
+    },
+    {
+      "latin": "calĕntem",
+      "form": "calent",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=calent",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adjectiu CALENT, del llatí calĕnte. La grafia final -t resta en valencià; no confondre amb participis cultes."
     }
   ],
   "proposals": [
@@ -784,13 +938,6 @@
     {
       "latin": "maium",
       "form": "maig",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mensem",
-      "form": "mes",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -880,13 +1027,6 @@
       "notes": null
     },
     {
-      "latin": "aurum",
-      "form": "or",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "bŏnam",
       "form": "bona",
       "lexicalStatus": "proposta",
@@ -896,13 +1036,6 @@
     {
       "latin": "cæcare",
       "form": "cegar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "calĕntem",
-      "form": "calent",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1097,13 +1230,6 @@
       "notes": null
     },
     {
-      "latin": "semper",
-      "form": "sempre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "senatum",
       "form": "senat",
       "lexicalStatus": "proposta",
@@ -1167,13 +1293,6 @@
       "notes": null
     },
     {
-      "latin": "molam",
-      "form": "mola",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "parabolam",
       "form": "paraula",
       "lexicalStatus": "proposta",
@@ -1230,13 +1349,6 @@
       "notes": null
     },
     {
-      "latin": "cŏrnu",
-      "form": "corn",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "cŏrpus",
       "form": "cos",
       "lexicalStatus": "proposta",
@@ -1288,13 +1400,6 @@
     {
       "latin": "mataxam",
       "form": "madeixa",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "mŏllem",
-      "form": "moll",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1517,13 +1622,6 @@
       "notes": null
     },
     {
-      "latin": "uallem",
-      "form": "vall",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "hederam",
       "form": "heura",
       "lexicalStatus": "proposta",
@@ -1741,13 +1839,6 @@
       "notes": null
     },
     {
-      "latin": "uĕntrem",
-      "form": "ventre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "uirtutem",
       "form": "virtut",
       "lexicalStatus": "proposta",
@@ -1825,13 +1916,6 @@
       "notes": null
     },
     {
-      "latin": "curtum",
-      "form": "curt",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "gubernare",
       "form": "governar",
       "lexicalStatus": "proposta",
@@ -1848,13 +1932,6 @@
     {
       "latin": "inimicum",
       "form": "enemic",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "intrare",
-      "form": "entrar",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1902,20 +1979,6 @@
       "notes": null
     },
     {
-      "latin": "ordinare",
-      "form": "ordenar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "uentum",
-      "form": "vent",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "bene",
       "form": "bé",
       "lexicalStatus": "proposta",
@@ -1925,13 +1988,6 @@
     {
       "latin": "bonum",
       "form": "bo",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "ferum",
-      "form": "fer",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
