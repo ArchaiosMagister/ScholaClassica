@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
-  "date": "2026-11-16",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.",
+  "date": "2026-11-17",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -553,6 +553,182 @@
         "scope": "lema_i_etimologia"
       },
       "notes": "Jonc vegetal, del llatí IŬNCU; el DCVB registra pronúncies valencianes tant amb o com amb u. Entrada lexicogràficament documentada: no implica comprovació DNV ni certificació de totes les lleis."
+    },
+    {
+      "latin": "clamare",
+      "form": "clamar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=clamar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Verb de clamar o reclamar; el DCVB el fa derivar de clāmāre."
+    },
+    {
+      "latin": "hĕrbam",
+      "form": "herba",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=herba",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Herba com a planta no llenyosa; del llatí hĕrba. No importar la diftongació del castellà."
+    },
+    {
+      "latin": "spinam",
+      "form": "espina",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espina",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Espina vegetal o animal: del llatí spīna; pròtesi e- davant sp-."
+    },
+    {
+      "latin": "serram",
+      "form": "serra",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=serra",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Serra com a instrument de tall, del llatí sĕrra; no el topònim ni altres homònims."
+    },
+    {
+      "latin": "cæcum",
+      "form": "cec",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cec",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adjectiu cec/cega 'mancat de vista', del llatí caecu. DCVB avisa que cego és castellanisme col·loquial, no resposta escolar."
+    },
+    {
+      "latin": "turrem",
+      "form": "torre",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=torre",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Torre de construcció, del llatí tŭrre. La fonètica valenciana que recull el DCVB conserva -e final."
+    },
+    {
+      "latin": "securum",
+      "form": "segur",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=segur",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Adjectiu segur, del llatí secūru; no els topònims Segur d'etimologia discutida."
+    },
+    {
+      "latin": "formicam",
+      "form": "formiga",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=formiga",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Formiga com a insecte, del llatí formīca; sonorització de c intervocàlica en g."
+    },
+    {
+      "latin": "fossam",
+      "form": "fossa",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fossa",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Fossa com a excavació, del llatí fŏssa. Sense lleis seleccionables addicionals a la -m fixa."
+    },
+    {
+      "latin": "fumum",
+      "form": "fum",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fum",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Fum producte de combustió, del llatí fūmu; pèrdua de -u final."
+    },
+    {
+      "latin": "pŏrcum",
+      "form": "porc",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=porc",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Porc animal, del llatí pŏrcu; el resultat valencià no diftonga la ŏ tònica."
+    },
+    {
+      "latin": "truncum",
+      "form": "tronc",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronc",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Tronc d'arbre, del llatí trŭncu; distingir el vocalisme ŭ > o de la terminació final."
+    },
+    {
+      "latin": "paucum",
+      "form": "poc",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poc",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Poc quantificador, del llatí paucu; monoftongació de au en o."
+    },
+    {
+      "latin": "causam",
+      "form": "cosa",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cosa",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Nom cosa, del llatí causa amb accepció vulgar 'res, objecte', no 'causa' conceptual, que és préstec culte."
+    },
+    {
+      "latin": "spumam",
+      "form": "espuma",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espuma",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Espuma, documentada en DCVB com a del llatí spuma i pronunciació valenciana espúma; forma DNV pendent."
+    },
+    {
+      "latin": "fel",
+      "form": "fel",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fel",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Fel com a bilis o amargor, del llatí fĕl. No té cap transformació seleccionable."
     }
   ],
   "proposals": [
@@ -725,13 +901,6 @@
       "notes": null
     },
     {
-      "latin": "cæcum",
-      "form": "cec",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "calĕntem",
       "form": "calent",
       "lexicalStatus": "proposta",
@@ -753,22 +922,8 @@
       "notes": null
     },
     {
-      "latin": "causam",
-      "form": "cosa",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "chŏrdam",
       "form": "corda",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "clamare",
-      "form": "clamar",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -832,13 +987,6 @@
     {
       "latin": "grŏssum",
       "form": "gros",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "hĕrbam",
-      "form": "herba",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1019,13 +1167,6 @@
       "notes": null
     },
     {
-      "latin": "formicam",
-      "form": "formiga",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "molam",
       "form": "mola",
       "lexicalStatus": "proposta",
@@ -1112,13 +1253,6 @@
     {
       "latin": "forum",
       "form": "fur",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "fumum",
-      "form": "fum",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1348,13 +1482,6 @@
       "notes": null
     },
     {
-      "latin": "truncum",
-      "form": "tronc",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "tussem",
       "form": "tos",
       "lexicalStatus": "proposta",
@@ -1378,13 +1505,6 @@
     {
       "latin": "temptare",
       "form": "temptar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "fel",
-      "form": "fel",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1502,13 +1622,6 @@
       "notes": null
     },
     {
-      "latin": "fossam",
-      "form": "fossa",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "iacere",
       "form": "jaure",
       "lexicalStatus": "proposta",
@@ -1602,20 +1715,6 @@
     {
       "latin": "mutabĭlem",
       "form": "mutable",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "paucum",
-      "form": "poc",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pŏrcum",
-      "form": "porc",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1810,13 +1909,6 @@
       "notes": null
     },
     {
-      "latin": "turrem",
-      "form": "torre",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "uentum",
       "form": "vent",
       "lexicalStatus": "proposta",
@@ -1840,34 +1932,6 @@
     {
       "latin": "ferum",
       "form": "fer",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "serram",
-      "form": "serra",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "spinam",
-      "form": "espina",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "spumam",
-      "form": "espuma",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "securum",
-      "form": "segur",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
