@@ -5,18 +5,24 @@ Griego I), dos idiomas. **Alcance:** solo lectura y diagnóstico; esta PR
 no amplía bancos, no asigna unidades nuevas y no publica material sin
 verificación.
 
-## Estado previo confirmado
+## Estado curricular conciliado con la PR #120
+
+La primera auditoría partía de **92 paradigmas de Latín I**. La
+ampliación aprobada en la [PR #120](https://github.com/ArchaiosMagister/ScholaClassica/pull/120) anexa dos fichas
+al banco de ScholaClassica, una para UD1 y otra para UD2. Por tanto,
+en la ejecución **combinada** con #120, el censo correcto es:
 
 | Curso | Unidades de gramática | Paradigmas de práctica | Altas por unidad |
 | --- | ---: | ---: | --- |
-| Latín I | 10 | 92 | 12, 7, 13, 16, 6, 4, 21, 3, 7, 3 |
+| Latín I | 10 | **94** | **13, 8**, 13, 16, 6, 4, 21, 3, 7, 3 |
 | Latín 4.º | 8 | 76 | 2, 11, 2, 17, 6, 19, 12, 7 |
 | Griego I | 14 | 94 | 3, 2, 6, 11, 6, 2, 13, 19, 2, 6, 2, 4, 3, 15 |
 
-Estos recuentos proceden del último informe transversal sobre las
-fuentes compiladas y muestran que todas las unidades contienen al menos
-un modelo. **No prueban que todos los epígrafes flexivos dispongan de
-ejercicios específicos.**
+**Total: 264 paradigmas**, en las mismas 32 unidades y 73 epígrafes.
+Los IDs, el orden de los registros anteriores, el progreso y la
+cobertura de Latín 4.º y Griego I se preservan. La presencia de una
+familia flexiva todavía no certifica la exhaustividad filológica de
+todos sus subtipos.
 
 ## Método nuevo
 
@@ -54,16 +60,20 @@ bilingüe y la tabla de progreso del alumnado.
 
 ## Resultados y decisiones
 
-La primera ejecución completa comparó las 32 unidades y 73 epígrafes
-con los registros y cuatro modalidades de preguntas. Identificó
-**tres coincidencias incompletas por tipo técnico**, pero la revisión
-directa de las formas redujo los candidatos a **dos reservas reales
-de cobertura**, ambas en **Latín I**.
+La auditoría inicial (antes de #120) identificó dos reservas de cobertura,
+ambas en Latín I. El diagnóstico actualizado comprueba las **formas,
+su evidencia curricular y los ejercicios que pueden generarse**.
+Solo considera cerrada cada reserva si el registro conserva exactamente
+las cinco formas y el alcance didáctico autorizado.
+
+Tras ejecutar la auditoría sobre #120, **las dos reservas quedan
+resueltas**; si falta una forma o se permite producir locativos,
+la reserva reaparece como incidencia en el informe.
 
 | Curso y unidad | Tema | Diagnóstico documental | Decisión |
 | --- | --- | --- | --- |
-| Latín I UD1 | Infinitivo de presente activo | Appendix documenta literalmente las terminaciones y los ejemplos `amare`, `habere`, `ducere`, `audire`, `capere`. En la práctica no hay un paradigma `infinitivo` introducido en UD1. | Candidato claro: estudiar una ficha con **solo esas cinco formas** verificadas; no inventar nuevas conjugaciones ni anticipar infinitivos compuestos |
-| Latín I UD2 | Locativo | Appendix explica la naturaleza no productiva del caso y documenta `Corinthi`, `Romæ`, `domi`, `humi`, `ruri`. No hay casillas con `case=locativo` en los modelos acumulados hasta UD2. | Reservar para decisión docente: practicar ejemplos expresos como formas aisladas o mantener el locativo como contenido de consulta; **no generar un paradigma locativo regular** |
+| Latín I UD1 | Infinitivo de presente activo | Appendix documenta *amare, habere, ducere, audire, capere*. La ficha `latin-ud1-infinitivos-presente-ejemplos` es de UD1, contiene **solo esas cinco formas** con voz activa y tiempo presente y conserva la evidencia del epígrafe. | **Resuelta**: 5 preguntas de análisis, 5 de elección de forma y 5 escritas; sin infinitivos pasivos o compuestos anticipados |
+| Latín I UD2 | Locativo | Appendix documenta *Corinthi, Romæ, domi, humi, ruri*. La ficha `latin-ud2-locativos-ejemplos` contiene las cinco formas marcadas como locativo singular y `practiceScope=recognition-only`. | **Resuelta**: 5 preguntas de reconocimiento, **0 de elección/producción escrita y 0 tablas**; el locativo sigue siendo un caso residual no productivo |
 
 La comprobación detallada descartó un falso positivo:
 
@@ -100,14 +110,22 @@ continúa gobernada por sus pruebas especializadas.
 
 - `npm run audit:morfologia:unidades` produce la matriz y los
   hallazgos, sin cambios de contenido.
-- `tests/morphology-unit-coverage.test.mjs` comprueba las 262 fichas,
-  32 unidades y 73 epígrafes, los **dos candidatos** registrados, y
-  verifica que el infinitivo de UD8 es una forma verbal realmente
-  generable. También exige un aviso ante la desaparición artificial
-  del imperfecto de 4.º.
+- `tests/morphology-unit-coverage.test.mjs` comprueba los **264
+  paradigmas**, 32 unidades y 73 epígrafes, exige **cero reservas
+  pendientes y dos cierres acreditados** e inspecciona la generación de
+  preguntas en ambas unidades. Si desaparece un ejemplo o se permite
+  producir locativos, vuelve a abrir la reserva. También exige un aviso
+  ante la desaparición artificial del imperfecto de Latín 4.º y
+  mantiene la comprobación del infinitivo de UD8.
 - GitHub Actions conserva la matriz estructurada como artefacto JSON
   durante 30 días y ejecuta los tests completos de regresión.
 
-**No se ha añadido ni modificado ningún paradigma, ficha, unidad, ID,
-banco histórico, progreso o aplicación original.** La selección del
-siguiente cambio didáctico queda separada de esta auditoría.
+**La PR #118 continúa siendo exclusivamente una auditoría**: no
+modifica ningún paradigma, ID, progreso ni aplicación original. Las dos
+fichas académicas se incorporan únicamente mediante la **PR #120**.
+
+**Dependencia de integración:** primero fusionar #120 y confirmar sus
+pruebas; después devolver #118 a la rama base `main`, ejecutar de
+nuevo la batería combinada y fusionar #118 solo si todo es correcto.
+No fusionar ni publicar #118 contra una base que todavía tenga los
+92 paradigmas anteriores.
