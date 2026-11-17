@@ -1,5 +1,27 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Contraste individual de las 47 candidaturas con leyes editoriales (17/11/2026)
+
+Se han consultado las **47 entradas léxicas individualmente** para las que el expediente fonético contiene hipótesis de leyes (16 en el primer bloque, 31 en el segundo). Los informes son `contrastos-historics-dcvb-16-2026-11-17.json` y `contrastos-historics-dcvb-restants31-2026-11-17.json`. En conjunto: **46 referencias al DCVB** y **1 al GDLC** (comí). Todas están enlazadas por étimo y forma en `cola-fonetica-66-2026-11-17.json`.
+
+Se ha contrastado **etimología, acepción y, cuando aparece, pronunciación valenciana y variantes históricas**. Este trabajo añade trazabilidad, pero **la forma o el étimo documentados no certifican automáticamente una ley fonética**. Sigue faltando consultar el **DNV de la AVL** por palabra, documentar el encadenamiento histórico completo de los cambios y la revisión docente final. No se ha logrado acceder sistemáticamente al servicio normativo desde esta sesión; en consecuencia, **DNV comprobado = 0; leyes certificadas = 0; ejercicios habilitados = 0**.
+
+### Hallazgos que exigen cautela docente
+
+- `monstrare → mostrar`: el DCVB registra *monstrar* en la tradición histórica; existe evidencia de la variante, pero no por sí sola certificación de una ley fonética universal.
+- `tædam → tea`: el DCVB presenta las etapas *teda > tesa > tea* y la variante *teia*. La etapa histórica es una evidencia real, pero las leyes escolares sobre cada segmento requieren revisión.
+- `asĭnum → ase`: aunque etimológicamente documentado, el DCVB advierte del retroceso de *ase* como denominación habitual del animal en valenciano. Revisar pertinencia para el alumnado.
+- `legere → llegir`: la entrada documenta variedad de pronunciaciones valencianas de la consonante inicial. No declarar universal una palatalización inicial.
+- `picare → pegar` alude a adherir con pega; evitar usarlo indistintamente con *pegar* 'golpear'.
+- `consilium → consell` debe distinguirse de las variantes y significados interferidos por `concilium`; `pausare → posar` no se confunde con el homónimo relacionado con francés *poser*.
+- `ausare → gosar` presenta hipótesis distintas sobre la consonante inicial; `imperatorem → emperador` convive con pronunciación valenciana *emperaor*. No asignar automáticamente un único cambio final.
+
+**27 de las 47 fichas llevan una marca de atención filológica o docente** (7 del primer bloque y 20 del segundo). Esta marca sirve para priorizar revisiones, no equivale a una ficha incorrecta. Las restantes 20 tampoco se consideran normativamente certificadas.
+
+**Se preserva el estado de trabajo anterior:** 522 fichas e IDs, 120 análisis editoriales previos, 66 contrastes léxicos nuevos y 72 segmentos de leyes únicamente propuestos. El valenciano no se habilita, el castellano no se modifica y la PR permanece sin fusionar.
+
+**Siguiente fase:** cotejo externo del DNV, clasificación de las 27 advertencias (variantes, cultismos, bases latinas o secuencias problemáticas) y reconstrucción de los pasos fonéticos antes de que haya una primera ficha autorizada para test.
+
 ## Revisión fonética individual de las 66 fichas (17/11/2026)
 
 Se han **revisado editorialmente, una por una, las 66 correspondencias con contraste léxico**. Los resultados quedan reproducidos en `shared/academic/evolutio-valenciano/cola-fonetica-66-2026-11-17.json` (esquema `v2`) y protegidos por `tests/evolutio-valenciano-fonetica66-editorial.test.mjs`.
