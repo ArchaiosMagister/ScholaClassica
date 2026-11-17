@@ -99,6 +99,13 @@ test('No es pot suplantar una font o autoritzar una fitxa en fase lèxica',()=>{
 
 test('Cua de 66 revisions fonètiques sense dreceres ni lleis fictícies',()=>{
  assert.equal(phoneticsQueue.entries.length,66);
+ assert.equal(phoneticsQueue.schema,'schola-evolutio-va-phonetic-workqueue/v2');
+ assert.equal(phoneticsQueue.summary.editoriallyReviewed,66);
+ assert.equal(phoneticsQueue.summary.itemsWithSegmentedHypotheses,47);
+ assert.equal(phoneticsQueue.summary.itemsWithComplexOrUnassignedChain,19);
+ assert.equal(phoneticsQueue.summary.candidateSegmentsChecked,72);
+ assert.equal(phoneticsQueue.summary.certifiedPhoneticLaws,0);
+ assert.equal(phoneticsQueue.summary.fullyDocumentedHistoricalChains,0);
  assert.equal(phoneticsQueue.summary.playable,0);
  assert.equal(phoneticsQueue.summary.pendingDnv,66);
  assert.equal(phoneticsQueue.summary.pendingHistoricalChain,66);
@@ -114,6 +121,13 @@ test('Cua de 66 revisions fonètiques sense dreceres ni lleis fictícies',()=>{
   assert.equal(r.reviewSource,source.reviewSource);
   assert.equal(r.changes,null);
   assert.ok(r.nextChecks.length>=4);
+  assert.equal(r.review.editorialReviewCompleted,true);
+  assert.equal(r.review.exactCodepointSpansChecked,true);
+  assert.equal(r.review.dnvIndividualChecked,false);
+  assert.equal(r.review.documentedHistoricalChain,false);
+  assert.equal(r.review.phoneticLawsIndividuallyVerified,false);
+  assert.equal(r.review.approvedByTeacher,false);
+  assert.equal(r.review.playable,false);
   for(const key of ['dnvIndividualChecked','historicalChainIndividuallyChecked',
    'lawsVerified','unicodeSpansVerified','teacherApproved','playable'])
    assert.equal(r[key],false,r.latin+': '+key);
