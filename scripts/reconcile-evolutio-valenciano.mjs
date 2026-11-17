@@ -163,7 +163,7 @@ function run(){
  const bank=JSON.parse(readFileSync(join(target,'data/pilot.json'),'utf8'));
  const cur=read(sub+'/conciliacion-curada.json');
  const laws=read(sub+'/normas.json');
- const revision=read(sub+'/revisio-50-2026-11-16.json');
+ const revision=read(sub+'/revisio-66-2026-11-17.json');
  const expected=assembleEvolutioValenciano(bank,cur,laws,sha,revision);
  const targetPath=join(root,sub,'matriz-522.json');
  const serialized=JSON.stringify(expected,null,2)+'\n';
