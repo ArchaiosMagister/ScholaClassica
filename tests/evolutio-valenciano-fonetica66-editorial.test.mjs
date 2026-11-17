@@ -25,7 +25,10 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   complexLexicographicEntriesIndividuallyRead:19,complexSourcesDCVB:19,
   totalLexicographicEntriesIndividuallyRead:66,
   complexEntriesWithoutExplicitEtymologyLine:1,
-  complexEntriesStillWithoutLawCandidates:19
+  complexEntriesStillWithoutLawCandidates:19,
+  historicalAvlAgreementExplicitForms:3,historicalAvlAgreementRelatedPlural:1,
+  individualHistoricalEvidenceExamplePairs:4,indirectHistoricalProsodicEvidence:1,
+  currentDnvIndividualChecks:0,publishedEvidenceButNotFullCertification:9
  });
  assert.equal(queue.entries.length,66);
  assert.equal(new Set(queue.entries.map(x=>x.latin)).size,66);
@@ -49,6 +52,17 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   for(const flag of ['dnvIndividualChecked','documentedHistoricalChain',
    'phoneticLawsIndividuallyVerified','approvedByTeacher','playable'])
    assert.equal(x.review[flag],false,x.latin+': '+flag);
+  const evidence=x.review.independentSpecificEvidence;
+  if(evidence){
+   assert.equal(evidence.dossier,'contrast-normatiu-avl-i-fonetica-historica-2026-11-17.json',x.latin);
+   assert.equal(evidence.reviewCompleted,true,x.latin);
+   assert.equal(evidence.currentDnvIndividualChecked,false,x.latin);
+   assert.equal(evidence.individualSchoolLawsCertified,false,x.latin);
+   assert.equal(evidence.fullHistoricalChainCertified,false,x.latin);
+   assert.equal(evidence.teacherApproved,false,x.latin);
+   assert.equal(evidence.playable,false,x.latin);
+  }
+
   const changes=x.review.proposedChanges;
   assert.ok(Array.isArray(changes),x.latin);
   if(changes.length){
