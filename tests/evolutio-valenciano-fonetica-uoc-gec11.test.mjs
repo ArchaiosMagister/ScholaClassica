@@ -133,6 +133,11 @@ test('El DNV dona una interfície de cerca, però zero entrades accessibles en a
  });
  assert.equal(dnv.checks.length,4);
  assert.ok(dnv.checks.every(x=>x.canReadDictionaryEntry===false&&x.verifiesAbsenceOfLemma===false));
+ assert.equal(dnv.retryAfterSourcePrecision.individualEntriesRecovered,0);
+ assert.equal(dnv.retryAfterSourcePrecision.methods.length,3);
+ assert.ok(dnv.retryAfterSourcePrecision.methods.every(x=>x.actualDictionaryArticleRetrieved===false));
+ assert.match(dnv.retryAfterSourcePrecision.methods[0].result,/robots\.txt/);
+ assert.match(dnv.retryAfterSourcePrecision.conclusion,/no s'incrementa/);
  assert.match(dnv.checks[0].result,/Sessió caducada/);
  assert.match(dnv.checks[0].result,/No hi ha resultats/);
  assert.match(dnv.policy,/dnvIndividualChecked=false/);
