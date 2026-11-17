@@ -1,4 +1,4 @@
-# Evolutio valenciano — conciliación académica (actualización 16/11/2026) · segunda tanda
+# Evolutio valenciano — conciliación académica (actualización 17/11/2026) · tercera tanda
 
 ## Estado vigente y protección de la versión publicada
 
@@ -6,10 +6,10 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 
 | Estado (16/11/2026) | Entradas | Significado |
 |---|---:|---|
-| Correspondencia léxica `documentat` | **50** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
-| `proposta` | **188** | Propuesta no contrastada individualmente |
+| Correspondencia léxica `documentat` | **66** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
+| `proposta` | **172** | Propuesta no contrastada individualmente |
 | `pendent` | **284** | Sin solución habilitada; incluye tres reservas solo castellanas |
-| Análisis fonéticos editoriales | **50** | Segmentos revisados; cuatro decisiones docentes recuperadas, seis análisis nuevos |
+| Análisis fonéticos editoriales | **66** | Segmentos revisados; cuatro decisiones docentes recuperadas, seis análisis nuevos |
 | Casos reservados solo castellano | **3** | `octo`, `dictum`, `sigĭllum`: ninguna respuesta valenciana entregable |
 | Normas certificadas para evaluación | **0** | Sigue faltando contraste normativo individual y aprobación integral |
 | Fichas habilitadas para test valenciano | **0** | No publicar hasta cerrar la verificación |
@@ -24,6 +24,39 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 - `ocŭlum → ull`: **SÍNCOPE** de `ŭ` postónica, seguida de **PALATALITZACIÓ** del grupo `-cl-`, con base vulgar `ŏclu` documentada por DCVB.
 
 Las decisiones sobre el análisis de una palabra **no significan** que se hayan verificado todas sus reglas con DNV ni que la ficha quede aprobada para evaluación. Los indicadores `dnvIndividualChecked`, `teacherApproved` y `playable` permanecen en `false`.
+
+### Tercera tanda: 19 casos contrastados (17/11/2026)
+
+La tercera tanda ha revisado 19 étimos del grupo aún propuesto, **documentando léxicamente 16** en el DCVB. Su identificación (incluyendo acepciones, homonimias y cambios editoriales provisionales) se conserva en `cola-revisio-19-2026-11-17.json`. Los 16 casos se integran en `revisio-66-2026-11-17.json` y en la matriz reproducible de 522 IDs. No se han alterado las 100 fichas añadidas posteriormente solo al castellano.
+
+| Latín | Valenciano | Revisión editorial, pendiente de certificación |
+|---|---|---|
+| `clamare` | clamar | APÒCOPE de la vocal final del infinitivo |
+| `hĕrbam` | herba | Solo caída fija de `-m`; sin diptongación castellana |
+| `spinam` | espina | PRÒTESI de `e-` ante `sp-` |
+| `serram` | serra | Solo caída fija de `-m`; no inventar ley para `rr` |
+| `cæcum` | cec | MONOFTONGACIÓ, PALATALITZACIÓ inicial y APÒCOPE de `-u`; no aceptar `cego` como resultado normativo |
+| `turrem` | torre | OBERTURA de `ŭ` a `o`; se conserva la `-e` final |
+| `securum` | segur | SONORITZACIÓ de `c` intervocálica y APÒCOPE de `-u` |
+| `formicam` | formiga | SONORITZACIÓ de `-c-` a `-g-` |
+| `fossam` | fossa | Solo caída fija de `-m` |
+| `fumum` | fum | APÒCOPE de `-u`, caída fija de `-m` |
+| `pŏrcum` | porc | APÒCOPE de `-u`, sin diptongación de `ŏ` |
+| `truncum` | tronc | OBERTURA de `ŭ` y APÒCOPE de `-u` |
+| `paucum` | poc | MONOFTONGACIÓ de `au` en `o` y APÒCOPE |
+| `causam` | cosa | MONOFTONGACIÓ de `au` en `o`; seleccionar acepción latina vulgar 'cosa' y no el préstamo culto `causa` |
+| `spumam` | espuma | PRÒTESI de `e-`; forma usada en valenciano según DCVB, pendiente de DNV individual |
+| `fel` | fel | Identidad formal, sin leyes seleccionables |
+
+**Tres reservas nuevas:**
+
+1. **`fĕbrem → febre`**: el [DCVB](https://dcvb.iec.cat/results.asp?word=febre) documenta la derivación latina, pero el [acuerdo de la AVL de 20 de mayo de 2002](https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf) recoge **febra como preferente** frente a febre. El [libro de estilo de À Punt/CVMC](https://www.cvmc.es/llibre/partb.html) describe `febra` como entrada principal y `febre` como secundaria aceptada. Se reserva el resultado didáctico hasta resolver qué variantes mostrar, **sin interpretar una preferencia normativa como una ley fonética**.
+2. **`fibram → fibra`**: el [DCVB](https://dcvb.iec.cat/results.asp?word=fibra) señala expresamente *pres del llatí*, indicio de préstamo culto. No debe premiarse como evolución patrimonial sin evidencia adicional.
+3. **`nigrum → negre`**: correspondencia léxica [DCVB](https://dcvb.iec.cat/results.asp?word=negre) documentada, pero la evolución de la terminación `-u` a `-e` no está reconstruida en la matriz con evidencia suficiente. Continúa como propuesta no evaluable.
+
+En la nueva cola consta la fuente pública por cada caso, la razón de reserva y el estado distinto de *evidencia léxica*, *evaluación de las leyes* y *aprobación docente*. **El DNV no ha sido verificado entrada por entrada** por este proceso y todas las nuevas fichas conservan `dnvIndividualChecked=false`, `teacherApproved=false`, `playable=false`. Los registros `hĕrbam`, `serram`, `fossam` y `fel` ilustran por qué una coincidencia léxica documentada sin leyes seleccionables **no es necesariamente una buena pregunta de evolución fonética**.
+
+**Resumen global (17/11):** 66 documentadas, 172 propuestas, 284 sin propuesta, tres reservas históricas *solo castellano*, 66 análisis editoriales, **0 fichas autorizadas para test valenciano**. No se ha activado el cambio de lengua ni modificado Evolutio independiente.
 
 ### Segunda tanda: contraste individual de 24 candidatas (16/11/2026)
 
@@ -77,7 +110,7 @@ La cola conserva para las 24 fichas `reviewOutcome`, referencias comprobadas cua
 
 **Segunda tanda:** `shared/academic/evolutio-valenciano/cola-revisio-24.json` registra el contraste de 24 candidatas: 18 correspondencias lexicalmente documentadas en el DCVB y 6 reservas explícitas. Ninguna queda autorizada para preguntas; el DNV y la evaluación completa de leyes permanecen pendientes.
 
-Archivos activos: `conciliacion-curada.json`, `revisio-50-2026-11-16.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`. Las revisiones `revisio-26.json` y `revisio-32-2026-11-16.json` se conservan como evidencias históricas. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
+Archivos activos: `conciliacion-curada.json`, `revisio-66-2026-11-17.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json` y `cola-revisio-19-2026-11-17.json`. Las revisiones de 26, 32 y 50 se conservan como evidencias históricas. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
 
 ---
 
