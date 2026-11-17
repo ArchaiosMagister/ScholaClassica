@@ -1,5 +1,19 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Derivaciones transparentes: cinco etimologías más con control de leyes (17/11/2026)
+
+Se han revisado otras **cinco fichas sin solapamiento con los 25 expedientes específicos anteriores**, a partir de entradas individuales accesibles del [DCVB](https://dcvb.iec.cat/), del [GDLC](https://www.diccionari.cat/) y de la [síntesis de fonética histórica de la GEC](https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala). Detalles auditables: `shared/academic/evolutio-valenciano/contrast-transparents5-dcvb-gec-2026-11-17.json`. No se ha utilizado el **DNV** como fuente porque no hemos recuperado artículos individualizados.
+
+| Ficha | Evidencia léxica específica | Leyes editoriales examinadas y precaución |
+|---|---|---|
+| `uittam → veta` | DCVB y GDLC: latín `vĭtta` 'cinta', con pronunciación valenciana `béta`, forma escrita desde el siglo XIV | **SIMPL `tt`**: la GEC documenta el patrón general de simplificación de oclusivas geminadas, sin cadena individual de `vĭtta`; la `u` de `uittam` representa `v` inicial y no una vocal fonética |
+| `furcam → forca` | DCVB: latín `fŭrca` para la horca/instrumento agrícola, con datos de distintas localidades valencianas | **ABER `u`**: la correspondencia de vocalismo es plausible, sin etapa intermedia certificada. Distinguir `forca` de `força`; el timbre del fonema moderno no es siempre idéntico según localidad |
+| `putare → podar` | DCVB: `pŭtāre`, 'podar/esporgar', pronunciación valenciana `poðáɾ`; GDLC confirma documentación en 1166 | **SONOR `t`**: coherente con la regla general de sonorización de sordas intervocálicas publicada en GEC, pero sin secuencia individual. **ABER `u`** se conserva como hipótesis separada; no confundir 'podar' con todos los sentidos de `putare` |
+| `nigram → negra` | DCVB: entrada `NEGRE, NEGRA` y base etimológica `nĭgru` (masculino), con `i` breve | **ABER `i`**: queda pendiente una reconstrucción particular de acusativo femenino `NIGRAM`; no se ha demostrado mediante la etimología masculina |
+| `signa → senya` | DCVB y GDLC: `sĭgna` 'señales', plural de `sĭgnum`, incorporado como femenino singular en catalán; DCVB registra `séɲa` valenciano | **PALAT `gn`**: la grafía `-ny-` es compatible con el proceso, pero no se ha documentado cada estadio. Conservar expresamente la reanálisis del plural latino y no confundir `senya` con otra acepción remitida a `sènia` |
+
+**Resultado verificable:** **30 de 66** fichas con un contraste documental adicional específico, de las que **cinco son nuevas**. Se han examinado **seis candidaturas de ley** en estas cinco fichas, pero las seis siguen **sin certificar como evolución individual**. Las 72 hipótesis previas y los 47/19 grupos permanecen inalterados. El DNV individualizado sigue en **0 de 66**; la aprobación docente y el carácter jugable también siguen en cero. El bloque incluye pruebas `tests/evolutio-valenciano-transparents5.test.mjs` y actualización de los tres tests de regresión con recuento de expedientes.
+
 ## Fuentes de precisión: un cambio explicado por el DIEC2, testimonio medieval IEC y reservas comparativas (17/11/2026)
 
 El bloque `contrast-precis-fonetica-diec2-iec5-2026-11-17.json` aporta **cinco nuevas verificaciones** (sin solaparse con los nueve y once anteriores). Las 25 fichas con evidencia secundaria adicional siguen siendo **25 expedientes parciales**, no 25 cadenas completas certificadas.
