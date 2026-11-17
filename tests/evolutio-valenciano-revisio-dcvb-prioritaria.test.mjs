@@ -36,7 +36,13 @@ test('Revisió prioritària DCVB: fonts individualitzades i cap certificació si
     const registered=matrix.records.find(x=>x.latin===item.latin);
     assert.ok(registered,item.latin+' no existía en la matriz');
     assert.equal(registered.valenciano.resultado,item.proposta);
-    assert.equal(registered.valenciano.estadoLexico,'proposta');
+    const staged=item.reviewOutcome==='etimologia_i_acepcio_dcvb_contrastades';
+    assert.equal(registered.valenciano.estadoLexico,staged?'contrastat_lexic_sense_fonetica':'proposta');
+    if(staged){
+      assert.equal(registered.valenciano.evidencia.length,1);
+      assert.equal(registered.valenciano.revisionLexica,'revisio-dcvb-prioritaria-2026-11-17.json');
+      assert.equal(registered.valenciano.normas,null);
+    }
     assert.notEqual(registered.valenciano.dnvIndividualChecked,true); // Campo opcional en fichas aún propuestas
     assert.equal(registered.valenciano.aprobadoDocente,false);
     assert.equal(registered.valenciano.aptoParaPractica,false);
