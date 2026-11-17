@@ -1,5 +1,18 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Revisión concentrada de las 63 candidaturas restantes (17/11/2026)
+
+Se ha revisado de forma individual **la totalidad de las 63 propuestas** que quedaban de la cola original de 81 casos sin contraste. El expediente `shared/academic/evolutio-valenciano/revisio-restants-63-2026-11-17.json` identifica cada étimo, respuesta propuesta, fuente consultada, observación filológica, reserva y situación de aprobación.
+
+- **50 correspondencias con respaldo léxico/etimológico** (DCVB en la mayoría; estudio del IEC para `credere → creure` y GDLC para `cuminum → comí`). Su respaldo **no equivale** a certificación de cambios fonéticos ni de uso valenciano en el DNV.
+- **13 reservas motivadas**, entre ellas `datum → dau` (etimología discutida), `leguminem → llegum` (acusativo latino neutro incorrecto), `planctum → plany` (derivado postverbal), `sensum → seny` (origen germánico), `luxum → luxe` / `stabĭlem → estable` / `uitium → vici` (préstamos); también `pluuiam → pluja` (base vulgar), `iacere → jaure` (uso valenciano actual), `uiduam → viuda` (doblete de estratos), `acutiare → agutzar` (variante no acreditada en DCVB), `mutabĭlem → mutable` (documentación etimológica individual no recuperada) y `curtare → curtar` (verbo no acreditado).
+- **Las 81 candidaturas originales quedan examinadas y clasificadas** mediante las dos revisiones, esta tanda de 63 y la anterior de 18. **Esto no significa que las 81 hayan quedado verificadas.** Deben integrarse las correspondencias académicas respaldadas en una matriz y analizarse de forma individual sus leyes y segmentos antes de cualquier activación.
+- La matriz existente sigue expresando **120 documentadas, 118 propuestas, 284 pendientes y ninguna ficha apta para práctica**: se mantiene intacta deliberadamente hasta una promoción filológica controlada. Las 100 ampliaciones castellanas tampoco se modifican.
+
+### Siguiente bloqueo académico
+
+Comprobar DNV individualmente, decidir qué préstamos y étimos alternativos son admisibles con fines didácticos, reconstruir y verificar los pasos fonéticos de las correspondencias respaldadas, someter al docente las reservas que necesiten criterio y **solo después** promover fichas en una PR separada. No hay permiso para fusionar ni desplegar este trabajo por ahora.
+
 ## Estado vigente y protección de la versión publicada
 
 Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserva **522** étimos identificados por ID del origen fijado (Evolutio independiente); la ampliación de **100 fichas castellanas** recientemente publicada en ScholaClassica **no se traduce automáticamente ni se incorpora** a esta matriz. Por tanto, las 100 nuevas palabras siguen solo en castellano.
