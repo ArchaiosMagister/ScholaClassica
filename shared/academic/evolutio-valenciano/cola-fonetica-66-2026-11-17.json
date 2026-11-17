@@ -30,7 +30,16 @@
     "individualHistoricalEvidenceExamplePairs": 4,
     "indirectHistoricalProsodicEvidence": 1,
     "currentDnvIndividualChecks": 0,
-    "publishedEvidenceButNotFullCertification": 9
+    "publishedEvidenceButNotFullCertification": 9,
+    "uoc2009AdditionalPhoneticPairs": 7,
+    "gecAdditionalPhoneticPairs": 3,
+    "rodamotsAdditionalPhoneticPairs": 1,
+    "newPartialHistoricalEvidenceEntries": 11,
+    "totalEntriesWithIndependentSpecificEvidence": 20,
+    "morphologicalFalseSyncopeCautions": 5,
+    "dnvSearchInterfaceAssessed": true,
+    "dnvSearchResultsIndividuallyRecovered": 0,
+    "dnvAccessDossier": "acces-dnv-electronic-2026-11-17.json"
   },
   "entries": [
     {
@@ -732,6 +741,24 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "uoc2009",
+          "sourceAuthority": "Fundació Universitat Oberta de Catalunya (FUOC)",
+          "sourceUrl": "https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala",
+          "evidenceKind": "parella_amb_mecanisme_parcial",
+          "sourceLocation": 25,
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "SONOR",
+          "correspondsToExistingRuleCandidate": true,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -964,6 +991,24 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "gec",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceKind": "parella_amb_mecanisme_parcial",
+          "sourceLocation": "consonants-inicials",
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "SONOR",
+          "correspondsToExistingRuleCandidate": true,
+          "sourceIsOriginalPublisherHost": true,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -1408,6 +1453,14 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "morphologicalSyncopeCaution": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "status": "cal_distingir_sincope_i_variant_sufixal",
+          "sourceKey": "uoc2009",
+          "doesNotOverrideExistingRules": true,
+          "dnvIndividualChecked": false,
+          "schoolLawCertified": false
         }
       }
     },
@@ -1767,6 +1820,14 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "morphologicalSyncopeCaution": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "status": "cal_distingir_sincope_i_variant_sufixal",
+          "sourceKey": "uoc2009",
+          "doesNotOverrideExistingRules": true,
+          "dnvIndividualChecked": false,
+          "schoolLawCertified": false
         }
       }
     },
@@ -1819,6 +1880,24 @@
           "fullHistoricalChainCertified": false,
           "lawsHistoricallyCertified": false,
           "teacherApproved": false,
+          "playable": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "uoc2009",
+          "sourceAuthority": "Fundació Universitat Oberta de Catalunya (FUOC)",
+          "sourceUrl": "https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala",
+          "evidenceKind": "parella_amb_mecanisme_parcial",
+          "sourceLocation": 30,
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": null,
+          "correspondsToExistingRuleCandidate": false,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
           "playable": false
         }
       }
@@ -1884,6 +1963,24 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "uoc2009",
+          "sourceAuthority": "Fundació Universitat Oberta de Catalunya (FUOC)",
+          "sourceUrl": "https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala",
+          "evidenceKind": "sincope_con_intermedio",
+          "sourceLocation": 17,
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "SINC",
+          "correspondsToExistingRuleCandidate": true,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -2270,6 +2367,24 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "uoc2009",
+          "sourceAuthority": "Fundació Universitat Oberta de Catalunya (FUOC)",
+          "sourceUrl": "https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala",
+          "evidenceKind": "sincope_con_intermedio",
+          "sourceLocation": 17,
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "SINC",
+          "correspondsToExistingRuleCandidate": true,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -2387,6 +2502,24 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "gec",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceKind": "parella_amb_mecanisme_parcial",
+          "sourceLocation": "acusatiu-i-flexio",
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "PALAT",
+          "correspondsToExistingRuleCandidate": true,
+          "sourceIsOriginalPublisherHost": true,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -2554,6 +2687,14 @@
           "fullHistoricalChainCertified": false,
           "teacherApproved": false,
           "playable": false
+        },
+        "morphologicalSyncopeCaution": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "status": "cal_distingir_sincope_i_variant_sufixal",
+          "sourceKey": "uoc2009",
+          "doesNotOverrideExistingRules": true,
+          "dnvIndividualChecked": false,
+          "schoolLawCertified": false
         }
       }
     },
@@ -2890,6 +3031,24 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "uoc2009",
+          "sourceAuthority": "Fundació Universitat Oberta de Catalunya (FUOC)",
+          "sourceUrl": "https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala",
+          "evidenceKind": "sincope_con_intermedio",
+          "sourceLocation": 17,
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "SINC",
+          "correspondsToExistingRuleCandidate": true,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -3301,6 +3460,32 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "gec",
+          "sourceAuthority": "Gran Enciclopèdia Catalana",
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "evidenceKind": "forma_llatina_relacionada_pero_no_identica",
+          "sourceLocation": "sincopes-apocopes",
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": null,
+          "correspondsToExistingRuleCandidate": false,
+          "sourceIsOriginalPublisherHost": true,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
+        },
+        "morphologicalSyncopeCaution": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "status": "cal_distingir_sincope_i_variant_sufixal",
+          "sourceKey": "uoc2009",
+          "doesNotOverrideExistingRules": true,
+          "dnvIndividualChecked": false,
+          "schoolLawCertified": false
         }
       }
     },
@@ -3379,6 +3564,32 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "rodamots2014",
+          "sourceAuthority": "Núria Gómez Llauger i Enric Serra Casals (2014), citats a RodaMots",
+          "sourceUrl": "https://rodamots.cat/escreix/in-articulo-mortis/",
+          "evidenceKind": "parella_amb_mecanisme_parcial",
+          "sourceLocation": "c-l-palatal",
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "PALAT",
+          "correspondsToExistingRuleCandidate": true,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
+        },
+        "morphologicalSyncopeCaution": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "status": "cal_distingir_sincope_i_variant_sufixal",
+          "sourceKey": "uoc2009",
+          "doesNotOverrideExistingRules": true,
+          "dnvIndividualChecked": false,
+          "schoolLawCertified": false
         }
       }
     },
@@ -3784,6 +3995,24 @@
           "lawsHistoricallyCertified": false,
           "teacherApproved": false,
           "playable": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "uoc2009",
+          "sourceAuthority": "Fundació Universitat Oberta de Catalunya (FUOC)",
+          "sourceUrl": "https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala",
+          "evidenceKind": "forma_llatina_relacionada_pero_no_identica",
+          "sourceLocation": 26,
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": null,
+          "correspondsToExistingRuleCandidate": false,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -3836,6 +4065,24 @@
           "fullHistoricalChainCertified": false,
           "lawsHistoricallyCertified": false,
           "teacherApproved": false,
+          "playable": false
+        },
+        "followupHistoricalEvidence": {
+          "dossier": "contrast-fonetica-historica-uoc-gec11-2026-11-17.json",
+          "sourceKey": "uoc2009",
+          "sourceAuthority": "Fundació Universitat Oberta de Catalunya (FUOC)",
+          "sourceUrl": "https://www.scribd.com/document/800091730/El-Llati-en-El-Mon-Medieval-i-Modern-Del-Llati-Al-Catala",
+          "evidenceKind": "sincope_con_intermedio",
+          "sourceLocation": 17,
+          "reviewCompleted": true,
+          "partialSourceMechanismRule": "SINC",
+          "correspondsToExistingRuleCandidate": false,
+          "sourceIsOriginalPublisherHost": false,
+          "currentDnvIndividualChecked": false,
+          "allIntermediateFormsHistoricallyAttested": false,
+          "fullHistoricalChainCertified": false,
+          "individualSchoolLawsCertified": false,
+          "approvedByTeacher": false,
           "playable": false
         }
       }
