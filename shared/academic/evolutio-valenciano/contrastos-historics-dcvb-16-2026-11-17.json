@@ -1,0 +1,605 @@
+{
+  "schema": "schola-evolutio-va-dcvb-phonetic-audit/v1",
+  "date": "2026-11-17",
+  "policy": "Contrast puntual DIRECTE de 16 entrades del DCVB per accepció, etimologia, pronunciació valenciana o testimonis antics. La consulta DNV de la AVL no és accessible des del procés; no confondre DCVB descriptiu amb DNV normatiu ni els trams mecànics amb lleis verificades.",
+  "sourceQueue": "cola-fonetica-66-2026-11-17.json",
+  "summary": {
+    "totalCandidateWords": 47,
+    "individualDcvbEntriesRead": 16,
+    "remainingIndividualDcvbReviews": 31,
+    "examplesWithIntermediateAttestation": 3,
+    "teacherSensitiveCases": 7,
+    "directDnvChecked": 0,
+    "lawRulesCertified": 0,
+    "fullHistoricalChainsCertified": 0,
+    "playable": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "latin": "furcam",
+      "form": "forca",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "readScope": "etimologia_pronuncia_i_us_valencia"
+      },
+      "individualHistoricalAssessment": "El DCVB documenta fŭrca i l'accepció d'eina agrícola, inclòs l'ús valencià. No exposa una cadena completa de l'obertura ŭ > o.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "latin": "currere",
+      "form": "córrer",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=correr",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "El DCVB dona cŭrrĕre i la pronúncia valenciana kóreɾ; la qualitat vocàlica és compatible amb OBERTURA, però la font no certifica una llei escolar específica.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "latin": "uittam",
+      "form": "veta",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=veta",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "Veta 'cinta' deriva de vĭtta; el DCVB registra béta per a València. La reducció de la geminada és una hipòtesi escolar compatible, no una derivació descrita pas a pas.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "latin": "picare",
+      "form": "pegar",
+      "teacherSensitive": true,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pegar",
+        "readScope": "etimologia_sense_homonim_semantic"
+      },
+      "individualHistoricalAssessment": "El DCVB dona pĭcare exclusivament per a PEGAR I 'adherir amb pega'; el sentit colpejar és una altra accepció i no s'ha d'usar en esta fitxa.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "latin": "putare",
+      "form": "podar",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=podar",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "El DCVB dona pŭtāre i l'accepció agrícola de podar; la pronúncia valenciana poðáɾ reforça l'oposició vocàlica, però no acredita per si sola cada regla.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "latin": "capere",
+      "form": "cabre",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabre",
+        "readScope": "etimologia_variant_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "El DCVB indica capĕre, diu que CABRE és la forma més fidel a l'etimologia i que CABER respon a analogia; registra káβɾe en valencià general.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "latin": "specŭlum",
+      "form": "espill",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espill",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "ESPILL 'mirall' deriva de spĕcŭlu i el DCVB registra l'ús i pronunciació valencians. No explicita totes les fases de -cŭl- > -ll-.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PROT",
+          "spans": [],
+          "anchor": 0
+        },
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              3,
+              6
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "latin": "monstrare",
+      "form": "mostrar",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mostrar",
+        "readScope": "etimologia_i_forma_antiga"
+      },
+      "individualHistoricalAssessment": "El DCVB dona mŏnstrare i atesta la grafia antiga MONSTRAR davant MOSTRAR. És evidència real de la reducció gràfica -ns- > -s-, però la cronologia de la regla encara no es certifica.",
+      "historicalVariantOrChain": "monstrar",
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              8,
+              9
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "latin": "tædam",
+      "form": "tea",
+      "teacherSensitive": true,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teia",
+        "readScope": "etimologia_i_etapes_explicites"
+      },
+      "individualHistoricalAssessment": "El DCVB documenta TAEDA i les etapes romàniques T E D A > T E S A > T E A, amb TEA pronunciada a tot el País Valencià i TEIA com a variant. La grafia original del banc és TÆDAM; cal separar la monoftongació de l'evolució posterior de -d-.",
+      "historicalVariantOrChain": "teda > tesa > tea",
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "latin": "strictum",
+      "form": "estret",
+      "teacherSensitive": true,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estret",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "El DCVB deriva ESTRET de strĭctu, registra la pronunciació occidental/valenciana estɾét. La caiguda de velar -ct- no queda acreditada com a simple SIMPLIFICACIÓ escolar.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PROT",
+          "spans": [],
+          "anchor": 0
+        },
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              4,
+              6
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "latin": "ausare",
+      "form": "gosar",
+      "teacherSensitive": true,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gosar",
+        "readScope": "etimologia_variants_i_hipotesis_competidores"
+      },
+      "individualHistoricalAssessment": "El DCVB documenta llatí vulgar ausare i les antigues ausar/gausar; exposa dues hipòtesis per la g- inicial (encreuament germànic o evitació d'hiat). No atribuir una llei única a la g-.",
+      "historicalVariantOrChain": "ausar / gausar",
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "latin": "signa",
+      "form": "senya",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senya",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "SENYA en el sentit d'indici/gest procedeix de sĭgna i el DCVB registra séɲa en valencià. La correspondència gn/ny és editorial, sense demostració individual de tota la cadena.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "latin": "luctam",
+      "form": "lluita",
+      "teacherSensitive": true,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "LLUITA es relaciona amb lucta i el DCVB registra ʎúјta en valencià. El canvi de -ct- necessita una fase palatal/vocàlica abans de classificar-lo amb exactitud.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "VOC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "latin": "angustum",
+      "form": "angost",
+      "teacherSensitive": true,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=angost",
+        "readScope": "etimologia_sense_us_valencia_especific"
+      },
+      "individualHistoricalAssessment": "El DCVB dona angŭstu amb sentit 'estret', però no especifica pronúncia valenciana ni preferència normativa moderna. Mantindre reservada la utilitat didàctica fins al DNV.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "latin": "seminare",
+      "form": "sembrar",
+      "teacherSensitive": true,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sembrar",
+        "readScope": "etimologia_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "SEMBRAR deriva de semĭnāre i és viu en l'ús valencià. L'epèntesi de -b- en el grup nasal resultant no està descrita en l'entrada; la síncope aïllada no basta.",
+      "historicalVariantOrChain": null,
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "latin": "mulierem",
+      "form": "muller",
+      "teacherSensitive": false,
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=muller",
+        "readScope": "etimologia_variants_antigues_i_pronuncia_valenciana"
+      },
+      "individualHistoricalAssessment": "MULLER 'esposa' deriva de mulĭĕre. El DCVB registra variants antigues muler, muyler, muyller i muʎéɾ valencià; les formes són testimoni de variació, no seqüència única certificada.",
+      "historicalVariantOrChain": "muler / muyler / muyller",
+      "etymologicalEntryIndividuallyRead": true,
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    }
+  ]
+}
