@@ -293,7 +293,6 @@ test('Tercera cola de 19: 16 etimologías DCVB y 3 reservas motivadas sin activa
  assert.equal(newQueue.approvedForPractice,0);
  const documented=new Set(curation.documented.map(x=>x.latin));
  const proposed=new Set(curation.proposals.map(x=>x.latin));
- const staged=new Set(curation.lexicallyReviewed.map(x=>x.latin));
  let countDocumented=0,countUnresolved=0;
  for(const entry of newQueue.candidates){
   const row=record(entry.latin);
@@ -515,6 +514,7 @@ test('Las 146 propuestas originales están inventariadas sin simular comprobacio
  });
  const documented=new Set(curation.documented.map(x=>x.latin));
  const proposed=new Set(curation.proposals.map(x=>x.latin));
+ const staged=new Set(curation.lexicallyReviewed.map(x=>x.latin));
  const seen=new Set(),counts={};
  for(const item of sweep.items){
   assert.ok(!seen.has(item.latin));seen.add(item.latin);
