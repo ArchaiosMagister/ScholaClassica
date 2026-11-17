@@ -11,6 +11,7 @@ const curation=file(academic+'conciliacion-curada.json');
 const first=file(academic+'revisio-dcvb-prioritaria-2026-11-17.json');
 const second=file(academic+'revisio-restants-63-2026-11-17.json');
 const matrix=file(academic+'matriz-522.json');
+const phoneticsQueue=file(academic+'cola-fonetica-66-2026-11-17.json');
 const laws=file(academic+'normas.json');
 const revision=file(academic+'revisio-120-2026-11-17.json');
 const lock=file('config/sources.lock.json');
@@ -94,4 +95,27 @@ test('No es pot suplantar una font o autoritzar una fitxa en fase lèxica',()=>{
  const fakeReview=structuredClone(curation);
  fakeReview.lexicallyReviewed[0].reviewSource='review-inexistent.json';
  assert.throws(()=>run(fakeReview),/Correspondencia léxica pendiente sin evidencia individual segura/);
+});
+
+test('Cua de 66 revisions fonètiques sense dreceres ni lleis fictícies',()=>{
+ assert.equal(phoneticsQueue.entries.length,66);
+ assert.equal(phoneticsQueue.summary.playable,0);
+ assert.equal(phoneticsQueue.summary.pendingDnv,66);
+ assert.equal(phoneticsQueue.summary.pendingHistoricalChain,66);
+ assert.equal(phoneticsQueue.summary.pendingLawsAndSpans,66);
+ assert.equal(phoneticsQueue.summary.pendingTeacherApproval,66);
+ assert.equal(phoneticsQueue.lockedSource,lock.sources.evolutio.sha);
+ const staged=new Map(curation.lexicallyReviewed.map(x=>[x.latin,x]));
+ assert.deepEqual(new Set(phoneticsQueue.entries.map(x=>x.latin)),new Set(staged.keys()));
+ for(const r of phoneticsQueue.entries){
+  const source=staged.get(r.latin);
+  assert.equal(r.form,source.form);
+  assert.deepEqual(r.lexicalSource,source.reference);
+  assert.equal(r.reviewSource,source.reviewSource);
+  assert.equal(r.changes,null);
+  assert.ok(r.nextChecks.length>=4);
+  for(const key of ['dnvIndividualChecked','historicalChainIndividuallyChecked',
+   'lawsVerified','unicodeSpansVerified','teacherApproved','playable'])
+   assert.equal(r[key],false,r.latin+': '+key);
+ }
 });
