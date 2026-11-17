@@ -90,7 +90,7 @@ test('Control etimológico de acusativos, accepciones y homógrafos',()=>{
  assert.deepEqual(m.get('furcam').assessment.map(x=>x.rule),['ABER']);
  assert.match(m.get('putare').evidence,/poðáɾ/);
  assert.deepEqual(m.get('putare').assessment.map(x=>x.rule),['SONOR','ABER']);
- assert.match(m.get('nigram').evidence,/masculí NIGRU/);
+ assert.match(m.get('nigram').evidence,/llatí nĭgru/);
  assert.match(m.get('nigram').guard,/femení/);
  assert.match(m.get('signa').evidence,/plural de sĭgnum/);
  assert.match(m.get('signa').guard,/SENYA 2/);
