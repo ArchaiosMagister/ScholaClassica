@@ -99,6 +99,40 @@ const COURSE=Object.freeze([
  {id:'latin4',language:'latin4',grammar:'latin',total:8},
  {id:'griego1',language:'griego',grammar:'griego',total:14}
 ]);
+// Dos reservas docentes cerradas en PR #120. Verificamos la identidad,
+ // la adscripción, las formas literales y el alcance de los ejercicios:
+ // una casilla nominal de locativo no equivale a una declinación regular.
+export const EARLY_LATIN1_RESOLUTIONS=Object.freeze({
+  infinitives:{
+    id:'latin-ud1-infinitivos-presente-ejemplos',unit:1,kind:'infinitivo',
+    topic:'Infinitivo de presente activo',
+    forms:['amare','habere','ducere','audire','capere']
+  },
+  locatives:{
+    id:'latin-ud2-locativos-ejemplos',unit:2,kind:'sustantivo',
+    topic:'El locativo',
+    forms:['Corinthi','Romæ','domi','humi','ruri']
+  }
+});
+function verifiedEarlyRecord(records,definition,{locative=false}={}){
+  const matches=records.filter(r=>r.id===definition.id);
+  if(matches.length!==1)return null;
+  const r=matches[0];
+  if(r.language!=='latin'||r.unit!==definition.unit||r.kind!==definition.kind||
+     r.evidence?.topic!==definition.topic||
+     r.evidence?.status!=='paradigma-documentado'||
+     r.forms.length!==5||
+     JSON.stringify(r.forms.map(f=>f.form.normalize('NFC')))!==
+       JSON.stringify(definition.forms.map(s=>s.normalize('NFC'))))return null;
+  if(locative){
+    if(r.evidence?.practiceScope!=='recognition-only'||!r.forms.every(f=>
+      f.case==='locativo'&&f.number==='singular'&&
+      String(f.analysis).includes('valor locativo')))return null;
+  }else if(r.evidence?.practiceScope||!r.forms.every(f=>
+    f.tense==='presente'&&f.voice==='activa'&&
+    String(f.analysis).includes('infinitivo de presente activo')))return null;
+  return r;
+}
 const rng=()=>0.371;
 const tableCount=html=>(String(html).match(/<table\b/gu)||[]).length;
 const sampleModes=(bank,language,unit,kind,subset)=>{
@@ -156,7 +190,19 @@ export function auditMorphologyCurricularCoverage({bank,curricula},{sampleExerci
           const specialForms=accumulated.flatMap(r=>r.forms||[])
             .filter(f=>f.case===rule.feature);
           forms=specialForms.length;
-          status=forms?'caso-especial-presente':'caso-especial-sin-ficha';
+          const locative=spec.id==='latin1'&&number===2&&
+            rule.topic==='El locativo'?
+            verifiedEarlyRecord(records,EARLY_LATIN1_RESOLUTIONS.locatives,
+              {locative:true}):null;
+          status=locative?'caso-especial-presente':
+            (forms?'caso-especial-incompleto':'caso-especial-sin-ficha');
+          if(sampleExercises&&locative){
+            const modes=sampleModes(bank,spec.language,number,'sustantivo',[locative]);
+            exercise={sustantivo:modes};
+            if(modes.choiceAnalysis!==5||modes.choiceForm!==0||
+               modes.written!==0||modes.tables!==0)
+              status='caso-especial-politica-invalida';
+          }
         }else if(rule.mode==='introduced'||rule.mode==='reused'){
           forms=same.reduce((a,r)=>a+r.forms.length,0);
           if(rule.mode==='introduced'){
@@ -174,6 +220,18 @@ export function auditMorphologyCurricularCoverage({bank,curricula},{sampleExerci
               return [kind,sampleModes(bank,spec.language,number,kind,subset)];
             }));
           }
+          if(spec.id==='latin1'&&number===1&&
+             rule.topic==='Infinitivo de presente activo'){
+            const infinitive=verifiedEarlyRecord(records,EARLY_LATIN1_RESOLUTIONS.infinitives);
+            status=infinitive?'ejemplos-documentados-practicables':
+              'ejemplos-documentados-pendientes';
+            if(infinitive&&sampleExercises){
+              const modes=exercise?.infinitivo;
+              if(modes?.choiceAnalysis!==5||modes?.choiceForm!==5||
+                 modes?.written!==5||modes?.tables!==0)
+                status='ejemplos-documentados-no-practicables';
+            }
+          }
         }
         const result={
           topic:rule.topic,mode:rule.mode,
@@ -188,7 +246,10 @@ export function auditMorphologyCurricularCoverage({bank,curricula},{sampleExerci
           ...(rule.mode==='introduced'?{recordIds:same.map(r=>r.id)}:{})
         };
         if(['sin-modelo-nuevo-de-la-categoria','categoria-sin-rasgo-tematico',
-           'aplicacion-sin-todos-los-modelos','caso-especial-sin-ficha'].includes(status)){
+           'aplicacion-sin-todos-los-modelos','caso-especial-sin-ficha',
+           'caso-especial-incompleto','caso-especial-politica-invalida',
+           'ejemplos-documentados-pendientes',
+           'ejemplos-documentados-no-practicables'].includes(status)){
           findings.push({course:spec.id,unit:number,topic:rule.topic,
             status,affectedKinds:rule.kinds||[rule.feature],
             note:'Candidato de revisión. La ausencia de un modelo introducido en esta unidad no demuestra por sí sola falta de todas las formas; cotejar material y práctica.'});
@@ -209,12 +270,33 @@ export function auditMorphologyCurricularCoverage({bank,curricula},{sampleExerci
       'No figuran todos los paradigmas: '+spec.id);
     courses[spec.id]={grammarUnits:spec.total,records:records.length,units};
   }
+  const ud1=courses.latin1.units[0].topics.find(t=>
+    t.topic==='Infinitivo de presente activo');
+  const ud2=courses.latin1.units[1].topics.find(t=>t.topic==='El locativo');
+  const resolutions=[
+    ...(ud1.status==='ejemplos-documentados-practicables'?[{
+      course:'latin1',unit:1,topic:ud1.topic,
+      recordId:EARLY_LATIN1_RESOLUTIONS.infinitives.id,
+      forms:EARLY_LATIN1_RESOLUTIONS.infinitives.forms,
+      scope:'Análisis, elección y escritura: cinco infinitivos presentes activos',
+      sourcePR:120
+    }]:[]),
+    ...(ud2.status==='caso-especial-presente'?[{
+      course:'latin1',unit:2,topic:ud2.topic,
+      recordId:EARLY_LATIN1_RESOLUTIONS.locatives.id,
+      forms:EARLY_LATIN1_RESOLUTIONS.locatives.forms,
+      scope:'Solo reconocimiento de cinco locativos; sin producción ni tabla',
+      sourcePR:120
+    }]:[])
+  ];
   return {
     schema:'scholaclassica-cobertura-morfologia-unidades/v1',
     counts:{latin1:courses.latin1.records,latin4:courses.latin4.records,
       griego1:courses.griego1.records},
     courses,findings,
     findingsTotal:findings.length,
+    resolutions,
+    resolutionsTotal:resolutions.length,
     limitations:[
       'La presencia de modelos de una categoría no acredita todos los subtipos ni todas las formas de un epígrafe.',
       'Los epígrafes sintácticos y las preposiciones invariables no se cuentan como paradigmas faltantes.',
@@ -239,6 +321,8 @@ if(main){
   console.log('AUDITORIA_MORFOLOGIA_UNIDADES',JSON.stringify({
     counts:report.counts,findingsTotal:report.findingsTotal,
     findings:report.findings,
+    resolutionsTotal:report.resolutionsTotal,
+    resolutions:report.resolutions,
     byUnit:Object.fromEntries(Object.entries(report.courses).map(([key,c])=>[
       key,c.units.map(u=>({unit:u.unit,newRecords:u.newRecords,
         newByKind:u.newByKind,topics:u.topics.map(t=>({topic:t.topic,status:t.status,
