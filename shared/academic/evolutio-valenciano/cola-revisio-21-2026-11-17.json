@@ -1,0 +1,481 @@
+{
+  "schema": "schola-evolutio-va-review-queue/v1",
+  "date": "2026-11-17",
+  "source": "conciliacion-curada.json",
+  "targetLanguage": "ca-ES-valencia",
+  "note": "Cinquena tanda: contrast de 21 candidats. 12 documentats en el DCVB; 9 mantinguts com a propostes, amb motius i fonts individualitzats. No hi ha certificació de lleis ni comprovació normativa DNV individual.",
+  "totalProposals": 146,
+  "verifiedByThisQueue": 12,
+  "unresolvedByThisQueue": 9,
+  "approvedForPractice": 0,
+  "candidates": [
+    {
+      "order": 1,
+      "latin": "latrare",
+      "proposta": "lladrar",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Verb 'bordar' (crit del gos), de latrare. El DCVB ofereix també un homònim lladrar 'robar' derivat de lladre; no confondre els significats.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lladrar",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 2,
+      "latin": "ligare",
+      "proposta": "lligar",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Verb 'lligar amb corda', de lĭgāre; els exemples antics també presenten ligar, i el DCVB documenta la pronúncia valenciana amb -r final.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lligar",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 3,
+      "latin": "pugnum",
+      "proposta": "puny",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Puny 'mà closa', del llatí pŭgnu. No confondre amb derivats ni amb una evolució de lleis castellanes.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puny",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 4,
+      "latin": "saporem",
+      "proposta": "sabor",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Sabor 'qualitat percebuda pel gust', del llatí sapōre; manté -r final en la pronúncia valenciana, no l'homònim toponímic d'origen oriental.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sabor",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 5,
+      "latin": "stagnum",
+      "proposta": "estany",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Estany 'massa d'aigua estancada', del llatí stagnu. Estany 'metall' ve de stannu i no forma part d'aquesta equivalència.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estany",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 6,
+      "latin": "nominare",
+      "proposta": "nomenar",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Nomenar 'designar per a un càrrec' o 'donar nom', del llatí nomĭnāre. El DCVB explica que en la llengua literària moderna anomenar predomina en els altres sentits.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nomenar",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 7,
+      "latin": "siccum",
+      "proposta": "sec",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "SEC adjectiu 'sense humitat', del llatí sĭccu; no confondre amb l'homònim séc 'solc, marca' derivat de segar.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sec",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 8,
+      "latin": "sŏmnum",
+      "proposta": "son",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "SON 'acte de dormir' o 'ganes de dormir', del llatí sŏmnu; diferenciar del possessiu son (< sŭum) i dels topònims.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=son",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 9,
+      "latin": "sagitta",
+      "proposta": "sageta",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Sageta 'fletxa', del llatí sagĭtta. El DCVB documenta ús valencià i la variant satgeta; l'ètim no acaba en -m.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sageta",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 10,
+      "latin": "pullum",
+      "proposta": "poll",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "POLL 'pollet, cria d'ocell', del llatí pŭllu. Homògrafs: poll 'poll de cap' < pedŭcŭlu i poll 'àlber' < pōpŭlu; exigir el sentit precís.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poll",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 11,
+      "latin": "grunnire",
+      "proposta": "grunyir",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "GRUNYIR 'fer crits el porc' del llatí grunnire; el DCVB documenta pronúncia valenciana grunyir amb -r.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=grunyir",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 12,
+      "latin": "peccatum",
+      "proposta": "pecat",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "PECAT 'falta moral/religiosa', del llatí peccātum; no el topònim homònim. La forma antiga amb -cc- està documentada.",
+      "plannedChecks": [
+        "DNV: grafia, accepció i varietat valenciana",
+        "seqüència fonètica de cada llei",
+        "autorització docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pecat",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 13,
+      "latin": "temperare",
+      "proposta": "temperar",
+      "sourceStatus": "reserva_cultisme",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cultisme",
+      "editorialNotes": "El DCVB diu expressament 'pres del llatí tempĕrare' i registra variants temprar/trempar: préstec i reestructuracions, no patrimonial automàtic.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=temperar",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "latin": "squamam",
+      "proposta": "escama",
+      "sourceStatus": "reserva_cultisme",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cultisme",
+      "editorialNotes": "El DCVB qualifica escama (escata) de 'pres del llatí squama'; no inferir PRÒTESI o altres lleis com si el mot fos patrimonial.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=escama",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "latin": "passum",
+      "proposta": "pas",
+      "sourceStatus": "reserva_cultisme",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cultisme",
+      "editorialNotes": "Per al substantiu 'pas', el DCVB escriu 'pres del llatí passu'; evitar prendre la simplificació de -ss- com a llei fonètica automàtica.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=pas",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "latin": "serpĕntem",
+      "proposta": "serp",
+      "sourceStatus": "reserva_etim_diferent",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_etim_diferent",
+      "editorialNotes": "El DCVB deriva serp directament de sĕrpe, no del SERPĔNTEM proposat. La cadena o la base del banc no estan acreditades.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=serp",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "latin": "sponsam",
+      "proposta": "esposa",
+      "sourceStatus": "reserva_ús_literari",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_ús_literari",
+      "editorialNotes": "El DCVB deriva espòs/esposa de sponsus, sponsa, però constata ús quasi exclusivament literari; valorar si l'evolució gràfica i fonètica és apta didàcticament.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=espos",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "latin": "sponsum",
+      "proposta": "espòs",
+      "sourceStatus": "reserva_ús_literari",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_ús_literari",
+      "editorialNotes": "El DCVB deriva espòs/esposa de sponsus, sponsa, però constata ús quasi exclusivament literari; no avaluar pròtesi i pèrdua de n sense història contrastada.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=espos",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "latin": "catenatum",
+      "proposta": "cadenat",
+      "sourceStatus": "reserva_derivat_romanic",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_derivat_romanic",
+      "editorialNotes": "El DCVB defineix cadenat com a derivat de cadena, no directament del participi clàssic CATENATUM; evitar forçar una línia d'evolució llatina directa.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=cadenat",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "latin": "latronem",
+      "proposta": "lladre",
+      "sourceStatus": "reserva_cadena_morfològica",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cadena_morfològica",
+      "editorialNotes": "El DCVB dona com ètim latro; l'acusatiu LATŌNEM del banc pot ser admissible com a cas, però la reducció consonàntica i vocàlica fins a lladre no està acreditada.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=lladre",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "latin": "cunicŭlum",
+      "proposta": "conill",
+      "sourceStatus": "reserva_cadena_i_variació",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cadena_i_variació",
+      "editorialNotes": "El DCVB relaciona conill amb cunīcŭlu, però documenta vocalismes valencians diferents i les etapes de síncope/palatalització no es poden certificar com una cadena simple.",
+      "plannedChecks": [
+        "origen llatí i cadena històrica",
+        "estrat patrimonial o culte",
+        "DNV individual",
+        "autorització docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=conill",
+          "scope": "advertencia_etimologica"
+        }
+      ]
+    }
+  ]
+}
