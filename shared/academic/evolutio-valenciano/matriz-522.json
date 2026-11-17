@@ -11,13 +11,13 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 80,
-    "propuestas": 158,
+    "lexicoDocumentado": 92,
+    "propuestas": 146,
     "sinPropuesta": 284,
     "reservasSoloCastellano": 3,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 80,
+    "analisisEditoriales": 92,
     "casosConDiscrepancia": 0
   },
   "records": [
@@ -3655,15 +3655,56 @@
       },
       "valenciano": {
         "resultado": "lladrar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de l- inicial llatina en ll- valenciana."
+          },
+          {
+            "id": "va2",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de -t- intervocàlica en -d-."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "LATRARE > lladrar ('bordar'): l- > ll-, -t- > -d- i apòcope de -e; homònim 'robar' exclòs.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lladrar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Verb 'bordar' (crit del gos), de latrare. El DCVB ofereix també un homònim lladrar 'robar' derivat de lladre; no confondre els significats.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3755,15 +3796,45 @@
       },
       "valenciano": {
         "resultado": "lligar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de l- inicial en ll-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final del verb."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "LIGARE > lligar ('atar'): palatalització de l- inicial i pèrdua de -e final, amb conservació de -r en la forma valenciana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lligar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Verb 'lligar amb corda', de lĭgāre; els exemples antics també presenten ligar, i el DCVB documenta la pronúncia valenciana amb -r final.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4237,15 +4308,45 @@
       },
       "valenciano": {
         "resultado": "nomenar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Obertura editorial de ĭ àtona en e, encara no certificada com a llei independent."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "NOMINARE > nomenar ('nomenar un càrrec'): i àtona > e i apòcope de -e. El DCVB documenta altres sentits, sovint expressats modernament amb anomenar.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=nomenar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Nomenar 'designar per a un càrrec' o 'donar nom', del llatí nomĭnāre. El DCVB explica que en la llengua literària moderna anomenar predomina en els altres sentits.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4317,15 +4418,56 @@
       },
       "valenciano": {
         "resultado": "sabor",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de -p- intervocàlica en -b-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final després de desaparèixer la -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SAPOREM > sabor ('gust'): -p- > -b- entre vocals i apòcope de -e; es conserva -r final en valencià.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sabor",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Sabor 'qualitat percebuda pel gust', del llatí sapōre; manté -r final en la pronúncia valenciana, no l'homònim toponímic d'origen oriental.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4411,15 +4553,56 @@
       },
       "valenciano": {
         "resultado": "son",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació del grup consonàntic -mn- en -n-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SŎMNUM > son ('dormir, ganes de dormir'): -mn- > -n-, apòcope de -u; no el possessiu son < sŭum.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=son",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "SON 'acte de dormir' o 'ganes de dormir', del llatí sŏmnu; diferenciar del possessiu son (< sŭum) i dels topònims.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4652,15 +4835,67 @@
       },
       "valenciano": {
         "resultado": "sec",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació de la geminada -cc- en c."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de caure -m."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SICCUM > sec ('sense humitat'): ĭ > e, -cc- > -c-, apòcope de -u i caiguda fixa de -m; no confondre amb séc 'ratlla'.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sec",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "SEC adjectiu 'sense humitat', del llatí sĭccu; no confondre amb l'homònim séc 'solc, marca' derivat de segar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5990,15 +6225,45 @@
       },
       "valenciano": {
         "resultado": "grunyir",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Palatalització de -nn- llatina en -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "GRUNNIRE > grunyir ('grunyir un porc'): -nn- > -ny- i apòcope de -e; es conserva -r final valenciana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=grunyir",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "GRUNYIR 'fer crits el porc' del llatí grunnire; el DCVB documenta pronúncia valenciana grunyir amb -r.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6486,15 +6751,56 @@
       },
       "valenciano": {
         "resultado": "puny",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització del grup llatí -gn- en nasal palatal -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua de -u final després de -m acusativa fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PUGNUM > puny (mà closa): -gn- > -ny-, caiguda de -u i pèrdua fixa de -m; la u tònica es conserva.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=puny",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Puny 'mà closa', del llatí pŭgnu. No confondre amb derivats ni amb una evolució de lleis castellanes.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6511,15 +6817,67 @@
       },
       "valenciano": {
         "resultado": "poll",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de la geminada llatina -ll- en ll lateral palatal."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la -u final després de caure -m."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PULLUM > poll ('pollet'): ŭ > o, -ll- palatal, desaparició de -u i -m; la paraula poll 'paràsit' procedeix de pedŭcŭlu.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=poll",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "POLL 'pollet, cria d'ocell', del llatí pŭllu. Homògrafs: poll 'poll de cap' < pedŭcŭlu i poll 'àlber' < pōpŭlu; exigir el sentit precís.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6611,15 +6969,45 @@
       },
       "valenciano": {
         "resultado": "sageta",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Obertura editorial de ĭ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                4,
+                6
+              ]
+            ],
+            "note": "Simplificació de -tt- geminada en -t-."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SAGITTA > sageta ('fletxa'): ĭ > e i -tt- > -t-. Sense pèrdua fixa de -m, ja que l'ètim acaba en -a.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=sageta",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Sageta 'fletxa', del llatí sagĭtta. El DCVB documenta ús valencià i la variant satgeta; l'ètim no acaba en -m.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6917,15 +7305,63 @@
       },
       "valenciano": {
         "resultado": "estany",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi de e- davant st- inicial."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Palatalització del grup -gn- en -ny-."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -u final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "STAGNUM > estany ('llacuna'): e- protètica, -gn- > -ny-, apòcope de -u i pèrdua fixa de -m. No confondre amb estany metall < stannum.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=estany",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Estany 'massa d'aigua estancada', del llatí stagnu. Estany 'metall' ve de stannu i no forma part d'aquesta equivalència.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8111,15 +8547,56 @@
       },
       "valenciano": {
         "resultado": "pecat",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació de -cc- geminada en -c-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de -u final després de desaparèixer la -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PECCATUM > pecat ('falta moral o religiosa'): -cc- > -c-, pèrdua de -u i -m finals; la t final es manté.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pecat",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "PECAT 'falta moral/religiosa', del llatí peccātum; no el topònim homònim. La forma antiga amb -cc- està documentada.",
+        "dnvIndividualChecked": false
       }
     },
     {
