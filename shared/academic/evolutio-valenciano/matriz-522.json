@@ -1,6 +1,6 @@
 {
   "schema": "schola-evolutio-va-matrix/v1",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "origin": {
     "repository": "ArchaiosMagister/EvolucionFonetica",
     "sha": "901dacb125ee7894ea9d11faf7b0d0afa7e713b5",
@@ -11,13 +11,13 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 50,
-    "propuestas": 188,
+    "lexicoDocumentado": 66,
+    "propuestas": 172,
     "sinPropuesta": 284,
     "reservasSoloCastellano": 3,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 50,
+    "analisisEditoriales": 66,
     "casosConDiscrepancia": 0
   },
   "records": [
@@ -2207,15 +2207,67 @@
       },
       "valenciano": {
         "resultado": "cec",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Monoftongació de æ en e."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de la consonant inicial davant e resultant, representada c."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Apòcope de -u després de desaparèixer la -m fixa."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CÆCUM > cec ('sense vista'): æ > e, consonant inicial palatalitzada i pèrdua de -u i -m finals. No acceptar cego.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cec",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Adjectiu cec/cega 'mancat de vista', del llatí caecu. DCVB avisa que cego és castellanisme col·loquial, no resposta escolar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2387,15 +2439,45 @@
       },
       "valenciano": {
         "resultado": "cosa",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Monoftongació del diftong au de causa en o."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CAUSAM > cosa (objecte): ús nominal llatí vulgar, monoftongació au > o i caiguda fixa de -m. Diferenciar de causa ('motiu'), manllevat.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cosa",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Nom cosa, del llatí causa amb accepció vulgar 'res, objecte', no 'causa' conceptual, que és préstec culte.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2437,15 +2519,34 @@
       },
       "valenciano": {
         "resultado": "clamar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CLAMARE > clamar: desapareix la -e final. La resta de la base es manté.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=clamar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Verb de clamar o reclamar; el DCVB el fa derivar de clāmāre.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3268,15 +3369,34 @@
       },
       "valenciano": {
         "resultado": "herba",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "HĔRBAM > herba: es conserva ĕ sense diftongació; només cau la -m final fixa. Sense norma seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=herba",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Herba com a planta no llenyosa; del llatí hĕrba. No importar la diftongació del castellà.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4619,15 +4739,45 @@
       },
       "valenciano": {
         "resultado": "formiga",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Sonorització de -c- intervocàlica en -g-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "FORMICAM > formiga: -c- entre vocals > -g-; pèrdua de -m final. Evitar afegir una obertura de la primera vocal sense documentar.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=formiga",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Formiga com a insecte, del llatí formīca; sonorització de c intervocàlica en g.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5541,15 +5691,45 @@
       },
       "valenciano": {
         "resultado": "fum",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Apòcope de la vocal -u final després de desaparèixer -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "FUMUM > fum: -u final perduda; -m acusativa és una pèrdua fixa no seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=fum",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Fum producte de combustió, del llatí fūmu; pèrdua de -u final.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6727,15 +6907,56 @@
       },
       "valenciano": {
         "resultado": "tronc",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o, documentada per trŭncu > tronc."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -u final després de la desaparició fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "TRUNCUM > tronc: ŭ tònica > o; es perd la vocal final -u i la -m acusativa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=tronc",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Tronc d'arbre, del llatí trŭncu; distingir el vocalisme ŭ > o de la terminació final.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6968,15 +7189,22 @@
       },
       "valenciano": {
         "resultado": "fel",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "FEL > fel ('bilis'): forma coincident, sense normes seleccionables. És dada lèxica per a estudi, no pregunta de canvis fonètics.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=fel",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Fel com a bilis o amargor, del llatí fĕl. No té cap transformació seleccionable.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7932,15 +8160,34 @@
       },
       "valenciano": {
         "resultado": "fossa",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "FOSSAM > fossa: únicament pèrdua fixa de -m; no hi ha cap llei elegible en aquesta forma.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=fossa",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Fossa com a excavació, del llatí fŏssa. Sense lleis seleccionables addicionals a la -m fixa.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8832,15 +9079,56 @@
       },
       "valenciano": {
         "resultado": "poc",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Monoftongació de au llatina en o."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PAUCUM > poc: au > o; -u i -m finals desapareixen.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=poc",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Poc quantificador, del llatí paucu; monoftongació de au en o.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8907,15 +9195,45 @@
       },
       "valenciano": {
         "resultado": "porc",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de la vocal final -u després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PŎRCUM > porc: no es diftonga ŏ tònica; desapareixen -u i -m finals.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=porc",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Porc animal, del llatí pŏrcu; el resultat valencià no diftonga la ŏ tònica.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10258,15 +10576,45 @@
       },
       "valenciano": {
         "resultado": "torre",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica llatina en o."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "TURREM > torre: ŭ > o; es conserva la vocal final -e després de la caiguda fixa de -m. La geminada -rr- no és una nova llei puntuable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=torre",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Torre de construcció, del llatí tŭrre. La fonètica valenciana que recull el DCVB conserva -e final.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10538,15 +10886,34 @@
       },
       "valenciano": {
         "resultado": "serra",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SERRAM > serra: només la pèrdua fixa de -m; les vibrants -rr- es mantenen sense una altra norma seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=serra",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Serra com a instrument de tall, del llatí sĕrra; no el topònim ni altres homònims.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10793,15 +11160,41 @@
       },
       "valenciano": {
         "resultado": "espina",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant sp- inicial, amb ancoratge al començament de l'ètim."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SPINAM > espina: e- protètica davant sp-, amb pèrdua fixa de -m.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=espina",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Espina vegetal o animal: del llatí spīna; pròtesi e- davant sp-.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10818,15 +11211,41 @@
       },
       "valenciano": {
         "resultado": "espuma",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant s + consonant de l'ètim spuma."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SPUMAM > espuma: pròtesi e- davant sp-; -m final cau de manera fixa. Comprovar-ne encara l'estatus d'entrada principal al DNV.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=espuma",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Espuma, documentada en DCVB com a del llatí spuma i pronunciació valenciana espúma; forma DNV pendent.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10893,15 +11312,56 @@
       },
       "valenciano": {
         "resultado": "segur",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de -c- intervocàlica en -g-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de la vocal final -u, després de desaparèixer -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SECURUM > segur: -c- intervocàlica > -g-; -u final desapareix i -m es perd com a regla fixa.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=segur",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Adjectiu segur, del llatí secūru; no els topònims Segur d'etimologia discutida.",
+        "dnvIndividualChecked": false
       }
     },
     {
