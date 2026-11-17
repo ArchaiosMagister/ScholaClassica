@@ -1,0 +1,200 @@
+{
+  "schema": "schola-evolutio-valenciano-official-historical-crosscheck/v1",
+  "date": "2026-11-17",
+  "scope": "Contraste selectivo de nueve fichas: tres lemas explícitos en un acuerdo normativo AVL de 2002, un plural de la familia, cuatro parejas etimológicas presentes en síntesis de fonética histórica y una oposición prosódica indirecta. Ningún registro del DNV actual ha sido consultado individualmente.",
+  "policy": "Distinguir (A) reconeixement explícit d'una forma per l'AVL, (B) reconeixement de variants de la família lèxica, (C) parelles històriques amb mecanismes parcials, i (D) certificació de lleis escola/etapes, que continua pendent. El reconeixement normatiu de 2002 no equival a una consulta del DNV electrònic vigent.",
+  "references": {
+    "avl2002": {
+      "authority": "Acadèmia Valenciana de la Llengua",
+      "title": "Acord normatiu de 20 de maig de 2002 (resolució publicada 31 de maig de 2002)",
+      "url": "https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf",
+      "type": "acord_normatiu_historic",
+      "currentDnv": false
+    },
+    "phonetics": {
+      "authority": "Gran Enciclopèdia Catalana",
+      "title": "Català — estructura i evolució fonètica",
+      "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+      "type": "sintesi_de_fonetica_historica",
+      "currentDnv": false
+    }
+  },
+  "summary": {
+    "totalUniqueEntries": 9,
+    "avlExplicitHeadwords": 3,
+    "avlRelatedPluralOnly": 1,
+    "historicalExplicitPairs": 4,
+    "historicalIndirectContrast": 1,
+    "currentDnvIndividualChecks": 0,
+    "completePhoneticChainsCertified": 0,
+    "individualSchoolLawsCertified": 0,
+    "playable": 0
+  },
+  "normative": [
+    {
+      "latin": "continere",
+      "form": "contindre",
+      "section": "II.2.8",
+      "literalContext": "contindre, detindre, retindre; convindre, previndre, provindre",
+      "strength": "lema_explicito",
+      "finding": "L'acord normatiu reconeix explícitament contindre entre els compostos valencians de tindre. Coexisteixen les variants clàssiques tenir/venir i compostos; no s'ha d'excloure contindre per estar sota el lema contenir al DCVB.",
+      "guard": "El reconeixement lèxic i morfològic de contindre no justifica assenyalar una llei fonètica directa de continere a contindre.",
+      "sourceKey": "avl2002",
+      "officialAgreementDirectlyReviewed": true,
+      "currentDnvIndividualChecked": false,
+      "schoolLawsVerified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "specŭlum",
+      "form": "espill",
+      "section": "II.3.1",
+      "literalContext": "espill",
+      "strength": "lema_explicito",
+      "finding": "L'AVL cita espill explícitament en el repertori de paraules vives valencianes que reconeix oficialment. No presenta ni les etapes de SPECULUM a ESPILL ni les seues palatalitzacions.",
+      "guard": "Normativitat acreditada per l'acord de 2002, però el DNV electrònic actual i les tres lleis candidates queden per contrastar.",
+      "sourceKey": "avl2002",
+      "officialAgreementDirectlyReviewed": true,
+      "currentDnvIndividualChecked": false,
+      "schoolLawsVerified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "thesaurum",
+      "form": "tresor",
+      "section": "II.1.3",
+      "literalContext": "però orquestra (amb r etimològica) i tresor (amb r patrimonial)",
+      "strength": "lema_explicito",
+      "finding": "L'AVL reconeix tresor i qualifica la seua r de patrimonial. La presència de la r està admesa, però el document no declara cap seqüència única de metàtesi a partir de THESAURUM.",
+      "guard": "No etiquetar automàticament METÀTESI per la r; les formes medievals tesaur, tresaur són testimonis, no cadena completa.",
+      "sourceKey": "avl2002",
+      "officialAgreementDirectlyReviewed": true,
+      "currentDnvIndividualChecked": false,
+      "schoolLawsVerified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "homĭnem",
+      "form": "home",
+      "section": "II.2.2",
+      "literalContext": "hòmens / homes",
+      "strength": "relacio_morfologica_no_lema_singular",
+      "finding": "L'AVL cita expressament els plurals alternatius hòmens / homes en el grup de formes valencianes admeses. La forma exacta home singular no és enunciada com a entrada individual en este apartat.",
+      "guard": "Acreditació de plural i família lèxica, no comprovació normativa directa del singular home ni de la síncope ĭ de HOMINEM.",
+      "sourceKey": "avl2002",
+      "officialAgreementDirectlyReviewed": true,
+      "currentDnvIndividualChecked": false,
+      "schoolLawsVerified": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ],
+  "historical": [
+    {
+      "latin": "cadere",
+      "form": "caure",
+      "context": "Grups romànics: primer element sovint resolt en [u], amb l'exemple cadere > caure",
+      "mechanism": "Tractament vocàlic de consonant en grup romànic",
+      "evidenceKind": "parella_i_mecanisme_directe",
+      "degree": "parcial_per_processament_de_grup",
+      "guard": "La font associa explícitament cadere i caure amb un procés de resolució en [u], però no dóna totes les etapes de l'infinitiu ni valida una llei escolar concreta de VOC.",
+      "sourceKey": "phonetics",
+      "publishedEvidenceDirectlyReviewed": true,
+      "individualSchoolLawsCertified": false,
+      "completeChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "luctam",
+      "form": "lluita",
+      "context": "Grup velar + alveolar: lŭcta > lluita",
+      "mechanism": "Velar de -ct- convertida en element palatal que afecta la vocal anterior",
+      "evidenceKind": "parella_de_tema_llati_i_mecanisme_directe",
+      "degree": "parcial_i_diferencia_de_cas",
+      "guard": "La font utilitza el nominatiu lŭcta i el banc conté l'acusatiu luctam; la pèrdua final de -m és fixa. No interpreta la palatalització inicial l- en este passatge.",
+      "sourceKey": "phonetics",
+      "publishedEvidenceDirectlyReviewed": true,
+      "individualSchoolLawsCertified": false,
+      "completeChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "seminare",
+      "form": "sembrar",
+      "context": "Grup romànic m'n: sem(i)nare > sembrar",
+      "mechanism": "Síncope de i i inserció d'un segment labial en la nova seqüència m'n",
+      "evidenceKind": "parella_i_mecanisme_directe",
+      "degree": "parcial_sense_cadena_cronologica_total",
+      "guard": "La font justifica editorialment considerar l'EPÈNTESI de b després de síncope, però el banc no inclou encara cap segment EPENT verificat ni permet donar la fitxa per certificada.",
+      "sourceKey": "phonetics",
+      "publishedEvidenceDirectlyReviewed": true,
+      "individualSchoolLawsCertified": false,
+      "completeChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "laudare",
+      "form": "lloar",
+      "context": "Després de l'accent: alauda > alosa, enfront de laudare > lloar",
+      "mechanism": "Contrast en el tractament de consonants sonores segons posició prosòdica",
+      "evidenceKind": "parella_contextual_no_cadena",
+      "degree": "parcial_contextual",
+      "guard": "La font inclou la parella exacta laudare/lloar i un contrast prosòdic, no certifica ni PALAT inicial ni MONOP au > o com a canvis independents.",
+      "sourceKey": "phonetics",
+      "publishedEvidenceDirectlyReviewed": true,
+      "individualSchoolLawsCertified": false,
+      "completeChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "bene",
+      "form": "bé",
+      "context": "Formes proclítiques ben, bon, enfront de bé, bo",
+      "mechanism": "Pèrdua o conservació condicionada de nasal en formes romàniques àtones/tòniques",
+      "evidenceKind": "contrast_de_formes_romaniques",
+      "degree": "indirecta_sense_etim_llati_explicat",
+      "guard": "La font contrasta ben i bé, però en el passatge no diu BENE > BÉ. No aprovar una norma per la caiguda de n ni etiquetar automàticament SINC/ASSIMIL.",
+      "sourceKey": "phonetics",
+      "publishedEvidenceDirectlyReviewed": true,
+      "individualSchoolLawsCertified": false,
+      "completeChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ],
+  "negativeControls": [
+    {
+      "form": "tòs",
+      "sourceKey": "avl2002",
+      "section": "II.3.1",
+      "warning": "L'acord cita tòs amb accent; no serveix per a verificar l'altra fitxa tos 'acció de tossir' derivada de TUSSEM.",
+      "verifiedForLatinTussem": false
+    },
+    {
+      "form": "contindre",
+      "sourceKey": "avl2002",
+      "section": "II.2.8",
+      "warning": "L'oficialitat morfològica no demostra que -ndre siga resultat d'una sola llei fonètica escolar.",
+      "verifiedPhoneticChange": false
+    },
+    {
+      "form": "hòmens / homes",
+      "sourceKey": "avl2002",
+      "section": "II.2.2",
+      "warning": "Forma plural, no verificació de l'entrada singular home.",
+      "verifiedSingularDirectly": false
+    }
+  ]
+}
