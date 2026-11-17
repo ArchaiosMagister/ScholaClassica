@@ -35,7 +35,7 @@
     "gecAdditionalPhoneticPairs": 3,
     "rodamotsAdditionalPhoneticPairs": 1,
     "newPartialHistoricalEvidenceEntries": 11,
-    "totalEntriesWithIndependentSpecificEvidence": 25,
+    "totalEntriesWithIndependentSpecificEvidence": 30,
     "morphologicalFalseSyncopeCautions": 5,
     "dnvSearchInterfaceAssessed": true,
     "dnvSearchResultsIndividuallyRecovered": 0,
@@ -44,7 +44,11 @@
     "iecHistoricalIndividualMedievalAttestations": 1,
     "sourcePrecisionFiveReviewed": 5,
     "sourcePrecisionEntriesStillMissingDnv": 5,
-    "schoolLawsCertifiedThroughSourcePrecision": 0
+    "schoolLawsCertifiedThroughSourcePrecision": 0,
+    "transparentFiveIndividuallyReviewed": 5,
+    "transparentFiveCandidateLawsAssessed": 6,
+    "transparentFiveCertifiedLaws": 0,
+    "newPartialEtymologicalEntries": 5
   },
   "entries": [
     {
@@ -306,6 +310,35 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "transparentFiveEvidenceReview": {
+          "dossier": "contrast-transparents5-dcvb-gec-2026-11-17.json",
+          "class": "etim_identica_amb_geminada_patron_general",
+          "sourceKeys": [
+            "dcvb_veta",
+            "gdlc_veta",
+            "gec_gramatica"
+          ],
+          "individuallyReviewed": true,
+          "assessedCandidateRules": [
+            {
+              "rule": "SIMPL",
+              "fragment": "tt",
+              "spans": [
+                [
+                  2,
+                  4
+                ]
+              ],
+              "support": "patro_general_mes_etim_exacte",
+              "certified": false
+            }
+          ],
+          "dnvIndividualChecked": false,
+          "completeHistoricalChain": false,
+          "phoneticLawsIndividuallyVerified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -1704,6 +1737,47 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "transparentFiveEvidenceReview": {
+          "dossier": "contrast-transparents5-dcvb-gec-2026-11-17.json",
+          "class": "sonoritzacio_intervocalica_corresponent",
+          "sourceKeys": [
+            "dcvb_podar",
+            "gdlc_podar",
+            "gec_gramatica"
+          ],
+          "individuallyReviewed": true,
+          "assessedCandidateRules": [
+            {
+              "rule": "SONOR",
+              "fragment": "t",
+              "spans": [
+                [
+                  2,
+                  3
+                ]
+              ],
+              "support": "patro_general_i_resultat_fonetic_valencia",
+              "certified": false
+            },
+            {
+              "rule": "ABER",
+              "fragment": "u",
+              "spans": [
+                [
+                  1,
+                  2
+                ]
+              ],
+              "support": "etim_quantitat_i_resultat_correspondents",
+              "certified": false
+            }
+          ],
+          "dnvIndividualChecked": false,
+          "completeHistoricalChain": false,
+          "phoneticLawsIndividuallyVerified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -2083,6 +2157,34 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "transparentFiveEvidenceReview": {
+          "dossier": "contrast-transparents5-dcvb-gec-2026-11-17.json",
+          "class": "canvi_vocalic_corresponent_amb_etim_i_us",
+          "sourceKeys": [
+            "dcvb_forca",
+            "gec_gramatica"
+          ],
+          "individuallyReviewed": true,
+          "assessedCandidateRules": [
+            {
+              "rule": "ABER",
+              "fragment": "u",
+              "spans": [
+                [
+                  1,
+                  2
+                ]
+              ],
+              "support": "etim_quantitat_i_resultat_correspondents",
+              "certified": false
+            }
+          ],
+          "dnvIndividualChecked": false,
+          "completeHistoricalChain": false,
+          "phoneticLawsIndividuallyVerified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -2292,6 +2394,33 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "transparentFiveEvidenceReview": {
+          "dossier": "contrast-transparents5-dcvb-gec-2026-11-17.json",
+          "class": "forma_femenina_i_etim_masculi",
+          "sourceKeys": [
+            "dcvb_negre"
+          ],
+          "individuallyReviewed": true,
+          "assessedCandidateRules": [
+            {
+              "rule": "ABER",
+              "fragment": "i",
+              "spans": [
+                [
+                  1,
+                  2
+                ]
+              ],
+              "support": "base_masculina_amb_quantitat_breu",
+              "certified": false
+            }
+          ],
+          "dnvIndividualChecked": false,
+          "completeHistoricalChain": false,
+          "phoneticLawsIndividuallyVerified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
@@ -2639,6 +2768,35 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "transparentFiveEvidenceReview": {
+          "dossier": "contrast-transparents5-dcvb-gec-2026-11-17.json",
+          "class": "plural_llati_reanalitzat_com_singular",
+          "sourceKeys": [
+            "dcvb_senya",
+            "gdlc_senya",
+            "gec_gramatica"
+          ],
+          "individuallyReviewed": true,
+          "assessedCandidateRules": [
+            {
+              "rule": "PALAT",
+              "fragment": "gn",
+              "spans": [
+                [
+                  2,
+                  4
+                ]
+              ],
+              "support": "etim_exacte_i_resultat_palatal_compatible",
+              "certified": false
+            }
+          ],
+          "dnvIndividualChecked": false,
+          "completeHistoricalChain": false,
+          "phoneticLawsIndividuallyVerified": false,
+          "approvedByTeacher": false,
+          "playable": false
         }
       }
     },
