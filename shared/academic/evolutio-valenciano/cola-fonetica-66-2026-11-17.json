@@ -35,11 +35,16 @@
     "gecAdditionalPhoneticPairs": 3,
     "rodamotsAdditionalPhoneticPairs": 1,
     "newPartialHistoricalEvidenceEntries": 11,
-    "totalEntriesWithIndependentSpecificEvidence": 20,
+    "totalEntriesWithIndependentSpecificEvidence": 25,
     "morphologicalFalseSyncopeCautions": 5,
     "dnvSearchInterfaceAssessed": true,
     "dnvSearchResultsIndividuallyRecovered": 0,
-    "dnvAccessDossier": "acces-dnv-electronic-2026-11-17.json"
+    "dnvAccessDossier": "acces-dnv-electronic-2026-11-17.json",
+    "iecDIEC2DirectlyExplainedRuleCandidates": 1,
+    "iecHistoricalIndividualMedievalAttestations": 1,
+    "sourcePrecisionFiveReviewed": 5,
+    "sourcePrecisionEntriesStillMissingDnv": 5,
+    "schoolLawsCertifiedThroughSourcePrecision": 0
   },
   "entries": [
     {
@@ -427,6 +432,23 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "specificLawSourceVerification": {
+          "dossier": "contrast-precis-fonetica-diec2-iec5-2026-11-17.json",
+          "sourceKeys": [
+            "dcvb_roure",
+            "persee_clusters"
+          ],
+          "sourceReviewCompleted": true,
+          "evidenceKind": "comparacio_romanca_no_transferible",
+          "individuallySupportedRule": null,
+          "sourceExplicitlyIdentifiesMechanism": false,
+          "candidateRuleAndCodepointSpanMatch": false,
+          "currentDnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "schoolLawsIndividuallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -1375,6 +1397,23 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "specificLawSourceVerification": {
+          "dossier": "contrast-precis-fonetica-diec2-iec5-2026-11-17.json",
+          "sourceKeys": [
+            "iec_rabella",
+            "dcvb_millor"
+          ],
+          "sourceReviewCompleted": true,
+          "evidenceKind": "testimoni_medieval_individual",
+          "individuallySupportedRule": null,
+          "sourceExplicitlyIdentifiesMechanism": false,
+          "candidateRuleAndCodepointSpanMatch": false,
+          "currentDnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "schoolLawsIndividuallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -2172,6 +2211,23 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "specificLawSourceVerification": {
+          "dossier": "contrast-precis-fonetica-diec2-iec5-2026-11-17.json",
+          "sourceKeys": [
+            "dcvb_muller",
+            "viccionari_muller"
+          ],
+          "sourceReviewCompleted": true,
+          "evidenceKind": "variants_medievals_i_pronuncia_valenciana",
+          "individuallySupportedRule": null,
+          "sourceExplicitlyIdentifiesMechanism": false,
+          "candidateRuleAndCodepointSpanMatch": false,
+          "currentDnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "schoolLawsIndividuallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -4240,6 +4296,24 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "specificLawSourceVerification": {
+          "dossier": "contrast-precis-fonetica-diec2-iec5-2026-11-17.json",
+          "sourceKeys": [
+            "diec2_optimot",
+            "persee_clusters",
+            "dcvb_beure"
+          ],
+          "sourceReviewCompleted": true,
+          "evidenceKind": "llei_individual_explicita_sense_cadena_global",
+          "individuallySupportedRule": "VOC",
+          "sourceExplicitlyIdentifiesMechanism": true,
+          "candidateRuleAndCodepointSpanMatch": true,
+          "currentDnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "schoolLawsIndividuallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
@@ -4318,6 +4392,22 @@
           "dnvIndividualChecked": false,
           "lawsHistoricallyCertified": false,
           "fullHistoricalChainCertified": false
+        },
+        "specificLawSourceVerification": {
+          "dossier": "contrast-precis-fonetica-diec2-iec5-2026-11-17.json",
+          "sourceKeys": [
+            "dcvb_cometre"
+          ],
+          "sourceReviewCompleted": true,
+          "evidenceKind": "etimologia_i_morfologia_no_cadena",
+          "individuallySupportedRule": null,
+          "sourceExplicitlyIdentifiesMechanism": false,
+          "candidateRuleAndCodepointSpanMatch": false,
+          "currentDnvIndividualChecked": false,
+          "fullHistoricalChainCertified": false,
+          "schoolLawsIndividuallyCertified": false,
+          "teacherApproved": false,
+          "playable": false
         }
       }
     },
