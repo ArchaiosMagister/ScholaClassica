@@ -34,7 +34,7 @@ test('Onze contrastos històrics: quatre etapes esquemàtiques, cinc parells par
  assert.equal(old.size,9);
  assert.ok(report.entries.every(x=>!old.has(x.latin)),'La cobertura nueva no puede duplicar el expediente previo');
  assert.equal(queue.summary.newPartialHistoricalEvidenceEntries,11);
- assert.equal(queue.summary.totalEntriesWithIndependentSpecificEvidence,25);
+ assert.equal(queue.summary.totalEntriesWithIndependentSpecificEvidence,30);
  assert.equal(queue.entries.filter(x=>x.review.independentSpecificEvidence||x.review.followupHistoricalEvidence).length,20);
  for(const [i,x] of report.entries.entries()){
   assert.equal(x.order,i+1);
