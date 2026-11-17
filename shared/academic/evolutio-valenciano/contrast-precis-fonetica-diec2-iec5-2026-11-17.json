@@ -1,0 +1,201 @@
+{
+  "schema": "schola-evolutio-va-source-precision-5/v1",
+  "date": "2026-11-17",
+  "purpose": "Identificar l'únic canvi concret documentat explícitament pel DIEC2, diferenciar-lo de testimonis gràfics medievals, paral·lels occitans i etimologies sense cadena demostrada.",
+  "method": "Consulta directa de fonts accessibles amb contrast de sentit i de cas llatí. Ni el DIEC2, ni el DCVB, ni els estudis històrics són substituts de la consulta individual al DNV actual.",
+  "sources": {
+    "diec2_optimot": {
+      "authority": "Institut d'Estudis Catalans (DIEC2), exposat per Optimot/Generalitat de Catalunya",
+      "url": "https://aplicacions.llengua.gencat.cat/llc/AppJava/index.html?action=Principal&categories_avansada=&clickLink=detall&database=DIEC&databases_avansada=&idFont=36865&idHit=36865&input_cercar=%22llat%C3%AD%22&method=detall&numPagina=5&numeroResultat=44&tematica=%28Totes%29&tipusCerca=cerca.queSignifica&tipusFont=%3Ci%3EDiccionari+de+la+llengua+catalana%3C%2Fi%3E+de+l%27Institut+d%27Estudis+Catalans+%282a+edici%C3%B3%29&titol=vocalitzar+",
+      "scope": "Definició 3.2 de vocalitzar, amb exemple individual bibere/beure",
+      "primaryFor": "mechanism",
+      "isDnv": false
+    },
+    "persee_clusters": {
+      "authority": "Article acadèmic, Romania, repositori Persée",
+      "url": "https://www.persee.fr/doc/roma_0035-8029_1998_num_116_463_1478?pageId=T1_525",
+      "scope": "Pàgina impresa 525, -b'r- català i comparació occitana",
+      "primaryFor": "comparative_analysis",
+      "isDnv": false
+    },
+    "iec_rabella": {
+      "authority": "Joan Anton Rabella i Ribas, publicació de l'Institut d'Estudis Catalans",
+      "url": "https://publicacions.iec.cat/repository/pdf/00000329/00000085.pdf",
+      "scope": "Pàgina impresa 185 (pàgina del PDF 186), foli 10r línia 11, millor < MELIORE",
+      "primaryFor": "medieval_witness",
+      "isDnv": false
+    },
+    "dcvb_muller": {
+      "authority": "DCVB",
+      "url": "https://dcvb.iec.cat/results.asp?word=muller",
+      "scope": "Primer homògraf MULLER, etimologia, pronunciació valenciana i variants documentades",
+      "primaryFor": "lexicographic_attestations",
+      "isDnv": false
+    },
+    "dcvb_millor": {
+      "authority": "DCVB",
+      "url": "https://dcvb.iec.cat/results.asp?word=millor",
+      "scope": "MILLOR, etimologia, variants meylor/milor i pronunciació val.",
+      "primaryFor": "lexicographic_attestations",
+      "isDnv": false
+    },
+    "dcvb_beure": {
+      "authority": "DCVB",
+      "url": "https://dcvb.iec.cat/results.asp?word=beure",
+      "scope": "BEURE, fonètica valenciana i variants escrites antigues",
+      "primaryFor": "lexicographic_attestations",
+      "isDnv": false
+    },
+    "viccionari_muller": {
+      "authority": "Viccionari, font col·laborativa secundària",
+      "url": "https://ca.wiktionary.org/wiki/muller",
+      "scope": "Etimologia molt breu sobre muyler/MULIERE(M), NO tractar com a dictamen normatiu",
+      "primaryFor": "secondary_summary_only",
+      "isDnv": false
+    },
+    "dcvb_roure": {
+      "authority": "DCVB",
+      "url": "https://dcvb.iec.cat/results.asp?word=roure",
+      "scope": "ROURE 1 nom d'arbre, ètim i pronúncia; homògrafs 2 i 3 exclosos",
+      "primaryFor": "lexicographic_attestations",
+      "isDnv": false
+    },
+    "dcvb_cometre": {
+      "authority": "DCVB",
+      "url": "https://dcvb.iec.cat/results.asp?word=cometre",
+      "scope": "COMETRE, etimologia, tres grups d'accepcions, pronunciació valenciana",
+      "primaryFor": "lexicographic_attestations",
+      "isDnv": false
+    }
+  },
+  "summary": {
+    "entries": 5,
+    "individualRuleDirectlyStatedInAcademicDictionary": 1,
+    "medievalWitnessWithIndividualLatinEtymon": 1,
+    "medievalOrthographyAndValencianPronunciation": 1,
+    "comparativeOccitanNotTransferred": 1,
+    "etymologyWithoutSeparateGeminateEvidence": 1,
+    "currentDnvEntriesVerified": 0,
+    "fullChainsCertified": 0,
+    "schoolLawsPromoted": 0,
+    "teacherApproved": 0,
+    "playable": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "latin": "bibere",
+      "form": "beure",
+      "kind": "llei_individual_explicita_sense_cadena_global",
+      "sourceKeys": [
+        "diec2_optimot",
+        "persee_clusters",
+        "dcvb_beure"
+      ],
+      "sourceSpecificMechanism": {
+        "rule": "VOC",
+        "latinFragment": "b",
+        "latinSpan": [
+          2,
+          3
+        ],
+        "sourceTextMeaning": "El DIEC2 explica de manera explícita la vocalització de la segona b de bibere com a origen de beure.",
+        "directStatement": true,
+        "sourceKey": "diec2_optimot"
+      },
+      "evidence": "El DIEC2 a Optimot enuncia expressament el procés de VOCALITZACIÓ de la segona b de BIBERE cap a BEURE. Un article especialitzat de la revista Romania explica el resultat català wr del grup romànic -b'r- i esmenta també bibere > beure. El DCVB consigna pronunciacions valencianes de beure i el verb com a patrimonial.",
+      "limitation": "L'explicació explícita de VOCALITZACIÓ és suficient per a avalar parcialment aquesta candidata, però no certifica per separat la possible OBERTURA de ĭ ni una seqüència de totes les etapes. No equiparar norma catalana IEC amb verificació del DNV vigent.",
+      "checkLevel": "llei_concreta_directament_enunciada_en_font_diec2",
+      "individualSourceReviewCompleted": true,
+      "lawCandidateSourceSupported": "VOC",
+      "schoolLawCertified": false,
+      "fullEvolutionChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 2,
+      "latin": "meliorem",
+      "form": "millor",
+      "kind": "testimoni_medieval_individual",
+      "sourceKeys": [
+        "iec_rabella",
+        "dcvb_millor"
+      ],
+      "sourceSpecificMechanism": null,
+      "evidence": "L'estudi filològic de Joan Anton Rabella i Ribas publicat a l'IEC cita en el seu corpus medieval millor [10r, 11] de MELIORE i documenta, en una forma derivada, mellorava [5r, 16] de MELIORARE. El DCVB registra meylor i milor antics, la variant dialectal mellor i pronunciació valenciana de MILLOR.",
+      "limitation": "MELLORAVA no és el mateix lema que MELIOREM; les grafies millor/mellor no permeten certificar tota la història de -li- a -ll- ni el tancament vocàlic. El testimoni individual MILLOR sí és directe.",
+      "checkLevel": "testimoni_medieval_amb_etimologia_explicita",
+      "individualSourceReviewCompleted": true,
+      "lawCandidateSourceSupported": null,
+      "schoolLawCertified": false,
+      "fullEvolutionChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 3,
+      "latin": "mulierem",
+      "form": "muller",
+      "kind": "variants_medievals_i_pronuncia_valenciana",
+      "sourceKeys": [
+        "dcvb_muller",
+        "viccionari_muller"
+      ],
+      "sourceSpecificMechanism": null,
+      "evidence": "El DCVB fixa l'ètim MULIERE, certifica la pronúncia valenciana amb lateral palatal i registra muler en document del segle XI, muyller en document del segle XIII i les grafies muyler i muyer en altres fonts antigues. El Viccionari connecta explícitament la variant medieval muyler amb la palatalització de la iod i MULIERE(M), com a font secundària.",
+      "limitation": "Muler amb l simple és una grafia, no una transcripció que demostre manca de palatalització; muyler és resultat escrit, no cadena fonètica datada completa. Viccionari no és autoritat normativa; la grafia palatal no verifica per si sola la llei escolar.",
+      "checkLevel": "variants_lexicografiques_datades_mes_hipotesi_fonetica_secundaria",
+      "individualSourceReviewCompleted": true,
+      "lawCandidateSourceSupported": null,
+      "schoolLawCertified": false,
+      "fullEvolutionChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 4,
+      "latin": "roborem",
+      "form": "roure",
+      "kind": "comparacio_romanca_no_transferible",
+      "sourceKeys": [
+        "dcvb_roure",
+        "persee_clusters"
+      ],
+      "sourceSpecificMechanism": null,
+      "evidence": "El DCVB dona l'ètim RŌBŎRE per al nom d'arbre ROURE, el distingeix dels homònims procedents de RŌDERE i de rou i recull una pronunciació valenciana amb diftong -ou-. Un article a Romania esmenta rōbōre > roure dins de l'OCCITÀ, en el context de les alternances del grup -br-. És un paral·lel romànic, no documentació directa de cada pas català.",
+      "limitation": "No presentar el resultat occità com una cadena medieval catalana ni igualar totes les pronunciacions valencianes. La VOCALITZACIÓ de b continua pendent de justificació individual en català.",
+      "checkLevel": "lexic_catala_i_paralel_romanc_no_certificador",
+      "individualSourceReviewCompleted": true,
+      "lawCandidateSourceSupported": null,
+      "schoolLawCertified": false,
+      "fullEvolutionChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 5,
+      "latin": "committere",
+      "form": "cometre",
+      "kind": "etimologia_i_morfologia_no_cadena",
+      "sourceKeys": [
+        "dcvb_cometre"
+      ],
+      "sourceSpecificMechanism": null,
+      "evidence": "El DCVB recull COMETRE i l'ètim COMMĬTTĔRE, testimonis medievals i la pronunciació valenciana /kométɾe/. Diferencia l'accepció antiga d'acometre, el sentit de confiar o encomanar i l'ús actual de fer una acció censurable.",
+      "limitation": "La conservació ortogràfica del llatí amb mm i tt i la grafia catalana amb consonants simples no permeten datar o atribuir automàticament dues normes SIMPL independents. La correspondència semàntica ha de fixar-se abans de practicar.",
+      "checkLevel": "relacio_lexica_sense_doble_simplificacio_demostrada",
+      "individualSourceReviewCompleted": true,
+      "lawCandidateSourceSupported": null,
+      "schoolLawCertified": false,
+      "fullEvolutionChainCertified": false,
+      "currentDnvIndividualChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ]
+}
