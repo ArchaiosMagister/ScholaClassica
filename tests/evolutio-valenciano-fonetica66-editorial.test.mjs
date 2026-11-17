@@ -31,13 +31,15 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   currentDnvIndividualChecks:0,publishedEvidenceButNotFullCertification:9,
   uoc2009AdditionalPhoneticPairs:7,gecAdditionalPhoneticPairs:3,
   rodamotsAdditionalPhoneticPairs:1,newPartialHistoricalEvidenceEntries:11,
-  totalEntriesWithIndependentSpecificEvidence:25,
+  totalEntriesWithIndependentSpecificEvidence:30,
   morphologicalFalseSyncopeCautions:5,dnvSearchInterfaceAssessed:true,
   dnvSearchResultsIndividuallyRecovered:0,
   dnvAccessDossier:'acces-dnv-electronic-2026-11-17.json',
   iecDIEC2DirectlyExplainedRuleCandidates:1,
   iecHistoricalIndividualMedievalAttestations:1,sourcePrecisionFiveReviewed:5,
-  sourcePrecisionEntriesStillMissingDnv:5,schoolLawsCertifiedThroughSourcePrecision:0
+  sourcePrecisionEntriesStillMissingDnv:5,schoolLawsCertifiedThroughSourcePrecision:0,
+  transparentFiveIndividuallyReviewed:5,transparentFiveCandidateLawsAssessed:6,
+  transparentFiveCertifiedLaws:0,newPartialEtymologicalEntries:5
  });
  assert.equal(queue.entries.length,66);
  assert.equal(new Set(queue.entries.map(x=>x.latin)).size,66);
@@ -94,6 +96,14 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
    for(const key of ['currentDnvIndividualChecked','fullHistoricalChainCertified',
     'schoolLawsIndividuallyCertified','teacherApproved','playable'])
      assert.equal(sourced[key],false,x.latin+'/'+key);
+  }
+  const trans=x.review.transparentFiveEvidenceReview;
+  if(trans){
+   assert.equal(trans.dossier,'contrast-transparents5-dcvb-gec-2026-11-17.json',x.latin);
+   assert.equal(trans.individuallyReviewed,true,x.latin);
+   for(const key of ['dnvIndividualChecked','completeHistoricalChain','phoneticLawsIndividuallyVerified','approvedByTeacher','playable'])
+    assert.equal(trans[key],false,x.latin+'/'+key);
+   for(const law of trans.assessedCandidateRules)assert.equal(law.certified,false,x.latin+'/'+law.rule);
   }
   const changes=x.review.proposedChanges;
   assert.ok(Array.isArray(changes),x.latin);
