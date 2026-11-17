@@ -55,12 +55,12 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='MIN_MBR'));
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='CUL'));
 });
-test('Estados editoriales honestos: 120 documentados, 118 propuestas, 284 pendientes y 3 reservas españolas',()=>{
- assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:120,propuestas:118,
+test('Estados editoriales honestos: 120 con análisis, 66 contrastados sin leyes, 52 propuestas, 284 pendientes',()=>{
+ assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:120,contrasteLexicoPendienteFonetica:66,propuestas:52,
   sinPropuesta:284,reservasSoloCastellano:3,normasVerificadas:0,aptasParaPractica:0,
   analisisEditoriales:120,casosConDiscrepancia:0});
  for(const r of matrix.records){
-  assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
+  assert.ok(['documentat','contrastat_lexic_sense_fonetica','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
     assert.ok(['analisi_editorial_revisada','discrepancia_documentada'].includes(r.valenciano.estadoNormas));
     if(r.valenciano.estadoNormas==='analisi_editorial_revisada'){
@@ -82,6 +82,13 @@ test('Estados editoriales honestos: 120 documentados, 118 propuestas, 284 pendie
   if(r.valenciano.estadoLexico==='documentat'){
    assert.equal(r.valenciano.evidencia.length,1);
    assert.match(r.valenciano.evidencia[0].url,/^https:\/\/dcvb\.iec\.cat\/results\.asp\?word=/);
+  }else if(r.valenciano.estadoLexico==='contrastat_lexic_sense_fonetica'){
+   assert.equal(r.valenciano.evidencia.length,1);
+   assert.ok(r.valenciano.evidencia[0].authority);
+   assert.match(r.valenciano.evidencia[0].url,/^https:\/\//);
+   assert.ok(['revisio-dcvb-prioritaria-2026-11-17.json','revisio-restants-63-2026-11-17.json'].includes(r.valenciano.revisionLexica));
+   assert.equal(r.valenciano.normas,null);
+   assert.equal(r.valenciano.estadoNormas,'pendent');
   }else{
    assert.deepEqual(r.valenciano.evidencia,[]);
   }
@@ -286,6 +293,7 @@ test('Tercera cola de 19: 16 etimologías DCVB y 3 reservas motivadas sin activa
  assert.equal(newQueue.approvedForPractice,0);
  const documented=new Set(curation.documented.map(x=>x.latin));
  const proposed=new Set(curation.proposals.map(x=>x.latin));
+ const staged=new Set(curation.lexicallyReviewed.map(x=>x.latin));
  let countDocumented=0,countUnresolved=0;
  for(const entry of newQueue.candidates){
   const row=record(entry.latin);
@@ -528,8 +536,14 @@ test('Las 146 propuestas originales están inventariadas sin simular comprobacio
    assert.ok(item.evidence.url.startsWith('https://dcvb.iec.cat/results.asp?word='));
    assert.equal(w.valenciano.dnvIndividualChecked,false);
   }else{
-   assert.ok(proposed.has(item.latin));
-   assert.equal(w.valenciano.estadoLexico,'proposta');
+   if(staged.has(item.latin)){
+    assert.equal(item.outcome,'pendent_contrast_individual');
+    assert.equal(w.valenciano.estadoLexico,'contrastat_lexic_sense_fonetica');
+    assert.equal(w.valenciano.evidencia.length,1);
+   }else{
+    assert.ok(proposed.has(item.latin));
+    assert.equal(w.valenciano.estadoLexico,'proposta');
+   }
    assert.equal(w.valenciano.estadoNormas,'pendent');
    assert.equal(w.valenciano.normas,null);
    if(item.outcome==='pendent_contrast_individual'){
