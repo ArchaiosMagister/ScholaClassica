@@ -11,7 +11,8 @@ const base='shared/academic/evolutio-valenciano/';
 const lock=read('config/sources.lock.json');
 const norms=read(base+'normas.json');
 const curation=read(base+'conciliacion-curada.json');
-const revision=read(base+'revisio-50-2026-11-16.json');
+const revision=read(base+'revisio-66-2026-11-17.json');
+const newQueue=read(base+'cola-revisio-19-2026-11-17.json');
 const queue=read(base+'cola-revisio-24.json');
 const matrix=read(base+'matriz-522.json');
 const source=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
@@ -50,10 +51,10 @@ test('Las 17 normas valencianas coinciden exactamente con el repertorio docente'
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='MIN_MBR'));
  assert.ok(norms.spanishSpecialNotTransferable.some(r=>r.id==='CUL'));
 });
-test('Estados editoriales honestos: 50 documentados, 188 propuestas, 284 pendientes y 3 reservas españolas',()=>{
- assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:50,propuestas:188,
+test('Estados editoriales honestos: 66 documentados, 172 propuestas, 284 pendientes y 3 reservas españolas',()=>{
+ assert.deepEqual(matrix.summary,{total:522,lexicoDocumentado:66,propuestas:172,
   sinPropuesta:284,reservasSoloCastellano:3,normasVerificadas:0,aptasParaPractica:0,
-  analisisEditoriales:50,casosConDiscrepancia:0});
+  analisisEditoriales:66,casosConDiscrepancia:0});
  for(const r of matrix.records){
   assert.ok(['documentat','proposta','pendent'].includes(r.valenciano.estadoLexico));
   if(r.valenciano.estadoLexico==='documentat'){
@@ -113,10 +114,10 @@ test('Propuestas sin fuente no se promueven a verificadas',()=>{
  extraneous.proposals.push({latin:'ficticium',form:'fictici',lexicalStatus:'proposta',reference:null});
  assert.throws(()=>assembleEvolutioValenciano(bank,extraneous,norms,lock.sources.evolutio.sha),/sin étimo/);
 });
-test('50 análisis editoriales revisados, cuatro decisiones docentes y cero análisis jugables',()=>{
+test('66 análisis editoriales revisados, cuatro decisiones docentes y cero análisis jugables',()=>{
  const good=matrix.records.filter(w=>w.valenciano.estadoNormas==='analisi_editorial_revisada');
  const disputed=matrix.records.filter(w=>w.valenciano.estadoNormas==='discrepancia_documentada');
- assert.equal(good.length,50);
+ assert.equal(good.length,66);
  assert.equal(disputed.length,0);
  assert.deepEqual(revision.pending,[]);
  const allowed=new Set(norms.selectable.map(r=>r.id));
@@ -197,7 +198,7 @@ test('No se admiten posiciones erróneas ni aprobaciones ficticias de leyes',()=
  invalid.analyses[0].playable=true;
  assert.throws(()=>assembleEvolutioValenciano(bank,curation,norms,lock.sources.evolutio.sha,invalid),/marcada como practicable/);
 });
-test('La cola de 24 propuestas está contrastada: 18 documentadas y 6 reservadas, ninguna jugable',()=>{
+test('La cola histórica de 24 propuestas conserva 18 documentadas y 6 reservadas, ninguna jugable',()=>{
  assert.equal(queue.schema,'schola-evolutio-va-review-queue/v1');
  assert.equal(queue.candidates.length,24);
  assert.equal(queue.totalProposals,188);
@@ -271,15 +272,90 @@ test('Las 18 fichas nuevas muestran cambios editados individualmente, no traspla
  assert.ok(!record('uirtutem').valenciano.normas);
  assert.ok(!record('uitem').valenciano.normas);
 });
-test('La revisión histórica de 26 y la consolidación de 32 se conservan sin alteraciones',()=>{
+test('Tercera cola de 19: 16 etimologías DCVB y 3 reservas motivadas sin activar ejercicios',()=>{
+ assert.equal(newQueue.schema,'schola-evolutio-va-review-queue/v1');
+ assert.equal(newQueue.date,'2026-11-17');
+ assert.equal(newQueue.candidates.length,19);
+ assert.equal(newQueue.totalProposals,172);
+ assert.equal(newQueue.verifiedByThisQueue,16);
+ assert.equal(newQueue.unresolvedByThisQueue,3);
+ assert.equal(newQueue.approvedForPractice,0);
+ const documented=new Set(curation.documented.map(x=>x.latin));
+ const proposed=new Set(curation.proposals.map(x=>x.latin));
+ let countDocumented=0,countUnresolved=0;
+ for(const entry of newQueue.candidates){
+  const row=record(entry.latin);
+  assert.ok(row);
+  assert.equal(entry.approvedForPractice,false);
+  assert.equal(entry.ruleVerified,false);
+  assert.equal(row.valenciano.aptoParaPractica,false);
+  assert.equal(row.valenciano.aprobadoDocente,false);
+  if(entry.lexicalVerified){
+   countDocumented++;
+   assert.ok(documented.has(entry.latin));
+   assert.equal(entry.sourceStatus,'documentat_dcvb_sense_dnv');
+   assert.equal(row.valenciano.estadoLexico,'documentat');
+   assert.equal(row.valenciano.estadoNormas,'analisi_editorial_revisada');
+   assert.equal(row.valenciano.dnvIndividualChecked,false);
+   assert.deepEqual(row.valenciano.evidencia[0],entry.lexicalEvidence);
+  }else{
+   countUnresolved++;
+   assert.ok(proposed.has(entry.latin));
+   assert.equal(row.valenciano.estadoLexico,'proposta');
+   assert.equal(row.valenciano.estadoNormas,'pendent');
+   assert.equal(row.valenciano.normas,null);
+   assert.equal(row.valenciano.evidencia.length,0);
+   assert.ok(Array.isArray(entry.references)&&entry.references.length>0);
+  }
+ }
+ assert.equal(countDocumented,16);
+ assert.equal(countUnresolved,3);
+ const byLatin=new Map(newQueue.candidates.map(x=>[x.latin,x]));
+ assert.equal(byLatin.get('fĕbrem').sourceStatus,'reserva_preferencia_normativa');
+ assert.equal(byLatin.get('fibram').sourceStatus,'reserva_cultisme');
+ assert.equal(byLatin.get('nigrum').sourceStatus,'reserva_cadena_historica');
+ assert.match(byLatin.get('fĕbrem').editorialNotes,/febra/);
+ assert.ok(byLatin.get('fĕbrem').references.some(x=>x.authority==='AVL'));
+ assert.ok(byLatin.get('fĕbrem').references.some(x=>x.authority==='CVMC'));
+});
+test('16 evoluciones nuevas usan segmentos precisos y no atribuyen falsas leyes',()=>{
+ const changesFor=latin=>record(latin).valenciano.normas.filter(c=>c.rule!=='FIX_M');
+ const rulesFor=latin=>changesFor(latin).map(c=>c.rule);
+ assert.deepEqual(rulesFor('clamare'),['APOC']);
+ assert.deepEqual(rulesFor('spinam'),['PROT']);
+ assert.deepEqual(rulesFor('cæcum'),['MONOP','PALAT','APOC']);
+ assert.deepEqual(rulesFor('turrem'),['ABER']);
+ assert.deepEqual(rulesFor('securum'),['SONOR','APOC']);
+ assert.deepEqual(changesFor('securum')[0].spans,[[2,3]]);
+ assert.deepEqual(rulesFor('formicam'),['SONOR']);
+ assert.deepEqual(changesFor('formicam')[0].spans,[[5,6]]);
+ assert.deepEqual(rulesFor('fumum'),['APOC']);
+ assert.deepEqual(rulesFor('pŏrcum'),['APOC']);
+ assert.deepEqual(rulesFor('truncum'),['ABER','APOC']);
+ assert.deepEqual(rulesFor('paucum'),['MONOP','APOC']);
+ assert.deepEqual(rulesFor('causam'),['MONOP']);
+ assert.deepEqual(rulesFor('spumam'),['PROT']);
+ for(const latin of ['hĕrbam','serram','fossam','fel'])
+  assert.deepEqual(rulesFor(latin),[],'No inventar una ley para '+latin);
+ assert.deepEqual(record('fel').valenciano.normas,[]);
+ assert.equal(record('hĕrbam').valenciano.normas.at(-1).rule,'FIX_M');
+ assert.match(record('cæcum').valenciano.explicacion,/No acceptar cego/);
+ assert.match(record('spumam').valenciano.explicacion,/DNV/);
+ for(const latin of ['fĕbrem','fibram','nigrum'])
+  assert.equal(record(latin).valenciano.normas,null);
+});
+test('La revisión histórica de 26, 32 y 50 se conserva sin alteraciones',()=>{
  const historical=read(base+'revisio-26.json');
  const middle=read(base+'revisio-32-2026-11-16.json');
  assert.equal(historical.analyses.length,22);
  assert.equal(historical.pending.length,4);
  assert.equal(middle.analyses.length,32);
  assert.deepEqual(middle.analyses.slice(0,22),historical.analyses);
- assert.equal(revision.analyses.length,50);
- assert.deepEqual(revision.analyses.slice(0,32),middle.analyses);
+ const previous=read(base+'revisio-50-2026-11-16.json');
+ assert.equal(previous.analyses.length,50);
+ assert.deepEqual(previous.analyses.slice(0,32),middle.analyses);
+ assert.equal(revision.analyses.length,66);
+ assert.deepEqual(revision.analyses.slice(0,50),previous.analyses);
  assert.deepEqual(revision.pending,[]);
 });
 test('La matriz de trabajo no se publica ni sustituye los recursos originales',()=>{
