@@ -1,4 +1,4 @@
-# Evolutio valenciano — conciliación académica (actualización 17/11/2026) · cuarta tanda
+# Evolutio valenciano — conciliación académica (actualización 17/11/2026) · quinta tanda
 
 ## Estado vigente y protección de la versión publicada
 
@@ -6,10 +6,10 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 
 | Estado (17/11/2026) | Entradas | Significado |
 |---|---:|---|
-| Correspondencia léxica `documentat` | **80** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
-| `proposta` | **158** | Propuesta no contrastada individualmente |
+| Correspondencia léxica `documentat` | **92** | Etimología y acepción corroboradas en el DCVB; no equivale a validación normativa del DNV |
+| `proposta` | **146** | Propuesta no contrastada individualmente |
 | `pendent` | **284** | Sin solución habilitada; incluye tres reservas solo castellanas |
-| Análisis fonéticos editoriales | **80** | Análisis léxicos y fonéticos individuales acumulados; ninguno certificado para práctica |
+| Análisis fonéticos editoriales | **92** | Análisis léxicos y fonéticos individuales acumulados; ninguno certificado para práctica |
 | Casos reservados solo castellano | **3** | `octo`, `dictum`, `sigĭllum`: ninguna respuesta valenciana entregable |
 | Normas certificadas para evaluación | **0** | Sigue faltando contraste normativo individual y aprobación integral |
 | Fichas habilitadas para test valenciano | **0** | No publicar hasta cerrar la verificación |
@@ -24,6 +24,38 @@ Este trabajo **sigue siendo privado y no jugable**. La matriz valenciana conserv
 - `ocŭlum → ull`: **SÍNCOPE** de `ŭ` postónica, seguida de **PALATALITZACIÓ** del grupo `-cl-`, con base vulgar `ŏclu` documentada por DCVB.
 
 Las decisiones sobre el análisis de una palabra **no significan** que se hayan verificado todas sus reglas con DNV ni que la ficha quede aprobada para evaluación. Los indicadores `dnvIndividualChecked`, `teacherApproved` y `playable` permanecen en `false`.
+
+### Quinta tanda: 21 candidatas, 12 documentadas, 9 reservas (17/11/2026)
+
+Se han contrastado **21** candidatos con el [Diccionari català-valencià-balear (DCVB)](https://dcvb.iec.cat/): doce correspondencias (forma, sentido y etimología) pasan a `documentat`, con 12 análisis fonéticos individuales en `revisio-92-2026-11-17.json`; nueve conservan `proposta` por circunstancias etimológicas que impiden certificar automáticamente una evolución patrimonial. La cola `cola-revisio-21-2026-11-17.json` contiene la fuente y el motivo para cada una.
+
+| Étimo | Valenciano | Leyes editoriales **sin certificación** | Precaución |
+|---|---|---|---|
+| `latrare` | lladrar | PALATALITZACIÓ, SONORITZACIÓ, APÒCOPE | Verbo 'ladrar', no el homónimo 'robar' |
+| `ligare` | lligar | PALATALITZACIÓ, APÒCOPE | El DCVB atestigua *ligar* antiguo y pronunciación valenciana de -r |
+| `pugnum` | puny | PALATALITZACIÓ, APÒCOPE | `gn` → `ny`; sin atribuir OBERTURA inexistente |
+| `saporem` | sabor | SONORITZACIÓ, APÒCOPE | `p` intervocálica → `b`; se conserva -r valenciana |
+| `stagnum` | estany | PRÒTESI, PALATALITZACIÓ, APÒCOPE | *Estany* 'laguna', no metal 'estaño' de `stannum` |
+| `nominare` | nomenar | OBERTURA, APÒCOPE | **Nomenar** para designar cargo; muchos otros sentidos usan *anomenar* |
+| `siccum` | sec | OBERTURA, SIMPLIFICACIÓ, APÒCOPE | Adjetivo 'seco', no `séc` 'marca/surco' |
+| `sŏmnum` | son | SIMPLIFICACIÓ, APÒCOPE | Sustantivo 'sueño', no posesivo *son* de `suum` |
+| `sagitta` | sageta | OBERTURA, SIMPLIFICACIÓ | Forma latina en -a: **no** lleva regla fija -m |
+| `pullum` | poll | OBERTURA, PALATALITZACIÓ, APÒCOPE | 'Pollito' de `pullu`, no 'piojo' de `peduculu` ni árbol de `populu` |
+| `grunnire` | grunyir | PALATALITZACIÓ, APÒCOPE | Lateral? No: **nasal -nn- > -ny-**; se conserva -r |
+| `peccatum` | pecat | SIMPLIFICACIÓ, APÒCOPE | `-cc-` → `-c-`, -u y -m desaparecen |
+
+**Las nueve reservas de esta tanda** continúan como `proposta` y sin normas ni práctica evaluable:
+
+- `temperare → temperar`, `squamam → escama`, `passum → pas`: el DCVB usa explícitamente *pres del llatí* para estas voces; son **préstamos**, no ejemplos certificados de evolución patrimonial.
+- `serpĕntem → serp`: el DCVB señala el étimo directo **sĕrpe**, no *serpentem*; no admitir la equivalencia por parecido.
+- `sponsam → esposa` y `sponsum → espòs`: relación latina documentada, pero el DCVB señala uso casi exclusivamente literario y conviene revisar la cadena de síncopa/protesis antes de utilizarla en exámenes.
+- `catenatum → cadenat`: el DCVB explica `cadenat` como derivado de *cadena*, no como resultado directo comprobado de *catenatum*.
+- `latronem → lladre`: el DCVB cita *latro* como origen; la reconstrucción desde la forma acusativa precisa etapas consonánticas y vocálicas no justificadas todavía.
+- `cunicŭlum → conill`: correspondencia léxica atestiguada, con variación vocálica valenciana, pero la secuencia histórica entre síncopa y palatalización necesita evidencia adicional.
+
+**Criterios de integridad:** 92 análisis acumulados, con controles de fragmentos Unicode, 522 IDs del banco bloqueado, 35 nombres propios castellanos excluidos de práctica según criterio existente, y 100 fichas castellanas suplementarias sin traducción automática. *Aprobación docente*, *verificación DNV individual*, *certificación de leyes* y *apto para práctica valenciana* permanecen en **false/cero**. Se mantiene intacta la prohibición de publicar la matriz valenciana.
+
+La prioridad siguiente será el análisis de las 146 propuestas y, antes de activar ninguna ficha, un cotejo individual del [Diccionari normatiu valencià de la AVL](https://www.avl.gva.es/lexicval/) junto a pruebas escolares de las leyes concretas. No se atribuye una revisión normativa que no se ha ejecutado.
 
 ### Cuarta tanda: 18 candidatas transparentes y homónimas (17/11/2026)
 
@@ -144,7 +176,7 @@ La cola conserva para las 24 fichas `reviewOutcome`, referencias comprobadas cua
 
 **Segunda tanda:** `shared/academic/evolutio-valenciano/cola-revisio-24.json` registra el contraste de 24 candidatas: 18 correspondencias lexicalmente documentadas en el DCVB y 6 reservas explícitas. Ninguna queda autorizada para preguntas; el DNV y la evaluación completa de leyes permanecen pendientes.
 
-Archivos activos: `conciliacion-curada.json`, `revisio-80-2026-11-17.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`, `cola-revisio-19-2026-11-17.json` y `cola-revisio-18-2026-11-17.json`. Se conservan las revisiones históricas de 26, 32, 50 y 66 sin alteración. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
+Archivos activos: `conciliacion-curada.json`, `revisio-92-2026-11-17.json`, `matriz-522.json`, `normas.json`, `cola-revisio-24.json`, `cola-revisio-19-2026-11-17.json`, `cola-revisio-18-2026-11-17.json` y `cola-revisio-21-2026-11-17.json`. Se conservan las revisiones históricas de 26, 32, 50, 66 y 80 sin alteración. El generador sigue bloqueando la activación accidental de respuestas, la asignación de leyes ajenas al repertorio y la publicación de datos valencianos no revisados.
 
 ---
 
