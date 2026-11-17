@@ -76,8 +76,30 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
  const knownRules=new Set(rules.selectable.map(x=>x.id));
  if(knownRules.size!==17||knownRules.has('ASPIR')||knownRules.has('MIN_MBR')||knownRules.has('CUL'))
   throw new Error('Se han incorporado leyes castellanas no autorizadas.');
+ const reservations=curation.reserved;
+ if(!Array.isArray(reservations)||reservations.length!==3)
+  throw new Error('Las tres reservas docentes no están registradas por separado');
+ const reserveMap=new Map();
+ for(const item of reservations){
+  const key=itemKey(item.latin);
+  if(reserveMap.has(key)||item.mode!=='solo_castellano'||!item.form||!item.reason
+     ||typeof item.historicalStudy!=='boolean')
+   throw new Error('Reserva docente inválida o duplicada: '+key);
+  reserveMap.set(key,item);
+ }
+ if([...reserveMap.keys()].sort().join('|')!==['octo','dictum','sigĭllum'].sort().join('|'))
+  throw new Error('Solo se autorizan las tres reservas docentes actuales');
+ const lexicallyReviewed=curation.lexicallyReviewed;
+ if(!Array.isArray(lexicallyReviewed))throw new Error('Falta el repertorio académico de correspondencias léxicas contrastadas.');
+ const lexicalSourcePatterns=new Map([
+  ['DCVB',/^https:\/\/dcvb\.iec\.cat\/results\.asp\?word=/],
+  ['Institut d\u0027Estudis Catalans',/^https:\/\/publicacions\.iec\.cat\//],
+  ['Gran Diccionari de la Llengua Catalana',/^https:\/\/www\.diccionari\.cat\//]
+ ]);
+ const allowedReviews=new Set(['revisio-dcvb-prioritaria-2026-11-17.json',
+  'revisio-restants-63-2026-11-17.json']);
  const dict=new Map();
- for(const item of [...curation.documented,...curation.proposals]){
+ for(const item of [...curation.documented,...lexicallyReviewed,...curation.proposals]){
   const key=itemKey(item.latin);
   if(dict.has(key))throw new Error('Dos propuestas para el étimo '+key);
   if(!item.form||typeof item.form!=='string')throw new Error('Resultado vacío: '+key);
@@ -86,9 +108,20 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
       ||!item.reference.url.startsWith('https://dcvb.iec.cat/results.asp?word=')
       ||item.reference.scope!=='lema_i_etimologia')
     throw new Error('Documentación incompleta: '+key);
+  }else if(item.lexicalStatus==='contrastat_lexic_sense_fonetica'){
+   const sourcePattern=lexicalSourcePatterns.get(item.reference?.authority);
+   if(!sourcePattern||typeof item.reference?.url!=='string'
+     ||!sourcePattern.test(item.reference.url)||!item.reference.scope
+     ||!allowedReviews.has(item.reviewSource)
+     ||typeof item.notes!=='string'||!item.notes.trim()
+     ||item.dnvIndividualChecked!==false
+     ||item.teacherApproved!==false||item.playable!==false)
+    throw new Error('Correspondencia léxica pendiente sin evidencia individual segura: '+key);
   }else if(item.lexicalStatus!=='proposta'||item.reference!==null){
    throw new Error('Propuesta sin distinguir de evidencia: '+key);
   }
+  if(reserveMap.has(key))
+   throw new Error('Una reserva solo castellana no puede tener respuesta valenciana habilitada: '+key);
   dict.set(key,item);
  }
  const ids=new Set(),lemmas=new Set();
@@ -98,7 +131,7 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
   const latin=itemKey(w.latin);
   if(lemmas.has(latin))throw new Error('Étimo latino duplicado: '+latin);
   lemmas.add(latin);
-  const proposal=dict.get(latin);
+  const proposal=dict.get(latin),reserved=reserveMap.get(latin);
   return {
    id:w.id,latin,castellano:w.answers,
    provenance:{bankId:w.id,fromGenerator:Boolean(w.source?.generatorId),
@@ -109,25 +142,31 @@ export function assembleEvolutioValenciano(bank,curation,rules,lockedSha,revisio
     normas:null,estadoNormas:'pendent',explicacion:null,dificultad:null,
     aprobadoDocente:false,aptoParaPractica:false,
     evidencia:proposal?.reference?[proposal.reference]:[],
-    notas:proposal?.notes??null
+    ...(proposal?.reviewSource?{revisionLexica:proposal.reviewSource}:{}),
+    notas:proposal?.notes??(reserved?.reason??null),
+    ...(reserved?{reserva:{mode:reserved.mode,historicalStudy:reserved.historicalStudy,
+      latin:reserved.latin,formHistoricaNoJugable:reserved.form}}:{})
    }
   };
  });
- for(const latin of dict.keys())if(!lemmas.has(latin))
-  throw new Error('Candidatura sin étimo en banco fijado: '+latin);
+ for(const latin of [...dict.keys(),...reserveMap.keys()])if(!lemmas.has(latin))
+  throw new Error('Candidatura o reserva sin étimo en banco fijado: '+latin);
  const editorial=revision?applyEvolutioValencianoRevision(records,revision,knownRules)
   :{analisisEditoriales:0,casosConDiscrepancia:0};
  const documented=records.filter(w=>w.valenciano.estadoLexico==='documentat').length;
+ const lexicallySupported=records.filter(w=>w.valenciano.estadoLexico==='contrastat_lexic_sense_fonetica').length;
  const proposed=records.filter(w=>w.valenciano.estadoLexico==='proposta').length;
- const pending=records.length-documented-proposed;
+ const pending=records.length-documented-lexicallySupported-proposed;
  return {
   schema:'schola-evolutio-va-matrix/v1',date:curation.date,
   origin:{repository:'ArchaiosMagister/EvolucionFonetica',sha:lockedSha,
    path:'data/pilot.json',wordCount:bank.words.length},
   policy:'REGISTRO DOCENTE NO PUBLICABLE: no hay fichas valencianas aptas hasta verificar normas y posición de cada cambio.',
   normCatalog:'shared/academic/evolutio-valenciano/normas.json',
-  summary:{total:records.length,lexicoDocumentado:documented,propuestas:proposed,
-   sinPropuesta:pending,normasVerificadas:0,aptasParaPractica:0,
+  summary:{total:records.length,lexicoDocumentado:documented,
+   contrasteLexicoPendienteFonetica:lexicallySupported,propuestas:proposed,
+   sinPropuesta:pending,reservasSoloCastellano:reserveMap.size,
+   normasVerificadas:0,aptasParaPractica:0,
    ...(revision?editorial:{})},
   records
  };
@@ -145,7 +184,7 @@ function run(){
  const bank=JSON.parse(readFileSync(join(target,'data/pilot.json'),'utf8'));
  const cur=read(sub+'/conciliacion-curada.json');
  const laws=read(sub+'/normas.json');
- const revision=read(sub+'/revisio-26.json');
+ const revision=read(sub+'/revisio-120-2026-11-17.json');
  const expected=assembleEvolutioValenciano(bank,cur,laws,sha,revision);
  const targetPath=join(root,sub,'matriz-522.json');
  const serialized=JSON.stringify(expected,null,2)+'\n';

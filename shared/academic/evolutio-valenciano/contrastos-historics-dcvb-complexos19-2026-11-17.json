@@ -1,0 +1,532 @@
+{
+  "schema": "schola-evolutio-va-complex-19-dcvb-audit/v1",
+  "date": "2026-11-17",
+  "scope": "Consulta individual de les 19 correspondències sense lleis escolars proposades. 19 entrades DCVB consultades, amb contrast explícit de si la font dona etimologia, variant antiga, testimoni flexiu o informació dialectal. No és certificació DNV ni cadena fonològica completa.",
+  "sourceQueue": "cola-fonetica-66-2026-11-17.json",
+  "policy": "Els documents lexicogràfics poden demostrar relació ètima, accepció, variants i pronúncia; no proven cada llei ni la successió temporal completa. No promocionar automàticament cap norma ni exercici.",
+  "summary": {
+    "totalComplexEntries": 19,
+    "individuallyReadDCVB": 19,
+    "explicitEtymologyDisplayed": 18,
+    "entryWithoutExplicitEtymologyLine": 1,
+    "explicitSensitivityFlags": 15,
+    "proposedNewLaws": 0,
+    "confirmedDnvIndividualChecks": 0,
+    "certifiedHistoricalChains": 0,
+    "certifiedLaws": 0,
+    "playable": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "latin": "cadere",
+      "form": "caure",
+      "classification": "canvi_fonetic_amb_etapes_pendents",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=caure",
+        "lookup": "caure",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "caer"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta CAURE i l'antiga variant CAER a més de la pronunciació valenciana /káwɾe/. L'etimologia CADĔRE queda contrastada, però el pas intern de -d- a la seqüència -u- no es pot assignar automàticament a VOCALITZACIÓ sense verificar-ne els estadis.",
+      "teachingGuardrail": "No donar per certa una vocalització directa d > u; evitar reconstruir formes intermèdies no documentades.",
+      "teacherSensitive": false,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "canvi_fonetic_amb_etapes_pendents",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 2,
+      "latin": "germanum",
+      "form": "germà",
+      "classification": "final_an_u_i_homonimia",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=germa",
+        "lookup": "germa",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "germanu"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta GERMÀ 'germà de pare o de mare' amb ètim llatí GERMĀNU i pronunciació valenciana amb africada inicial. El mateix article inclou GERMÀ com a nom o gentilici homònim de GERMĀNUS: cal seleccionar l'accepció familiar.",
+      "teachingGuardrail": "La terminació -anu > -à i la pronunciació de la consonant inicial són qüestions diferents; no confondre l'homònim.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "final_an_u_i_homonimia",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 3,
+      "latin": "tonare",
+      "form": "tronar",
+      "classification": "analogia_lexica_no_llei",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronar",
+        "lookup": "tronar",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "tro"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB explica explícitament que la r de TRONAR és sobrevinguda per influència del substantiu TRO. No és una epèntesi regular de TONARE ni una metàtesi pròpia d'aquest verb; la metàtesi citada correspon a l'etimologia de TRO.",
+      "teachingGuardrail": "No etiquetar EPÈNTESI ni METÀTESI per la r; conservar com a cas d'analogia lèxica.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "analogia_lexica",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 4,
+      "latin": "thesaurum",
+      "form": "tresor",
+      "classification": "variants_antigues_sense_cadena_completa",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tresor",
+        "lookup": "tresor",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "tesor / tesaur / tresaur"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB acredita TRESOR amb el llatí THESAURU, registra TESOR com a variant antiga i documenta també TESAUR i TRESAUR. Això testimonia etapes gràfiques parcials, però no demostra per si sol una successió temporal ni una metàtesi escolar a partir de THESAURUM.",
+      "teachingGuardrail": "Separar la variant amb r de l'evolució de au; evitar imposar successió no documentada.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "variants_antigues_sense_cadena_completa",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 5,
+      "latin": "bŏnam",
+      "form": "bona",
+      "classification": "sense_llei_seleccionable",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=bo",
+        "lookup": "bo",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "bona"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "La mateixa entrada BO del DCVB recull BONA com a femení i dona BŎNU com a base etimològica de l'adjectiu, però no analitza específicament l'acusatiu femení BONAM. La pèrdua de -m final és fixa i no seleccionable en este corpus.",
+      "teachingGuardrail": "No inventar una norma selectable únicament per a habilitar BONA; el contrast de l'acusatiu femení requereix l'estudi flexiu.",
+      "teacherSensitive": false,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "sense_llei_seleccionable",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 6,
+      "latin": "compărāre",
+      "form": "comprar",
+      "classification": "base_llatina_vulgar_alternativa",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comprar",
+        "lookup": "comprar",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "compĕrāre"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB dona explícitament llatí vulgar COMPĔRĀRE com a variant de COMPĂRĀRE. La forma llarga del banc és vàlida com a família lèxica, però abans de marcar una SÍNCOPE sobre una vocal concreta cal establir quina base prosòdica s'avaluarà.",
+      "teachingGuardrail": "No forçar la síncope sobre el llatí clàssic quan la font cita una variant vulgar.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "base_vulgar_diferent",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 7,
+      "latin": "credere",
+      "form": "creure",
+      "classification": "cadena_vocalica_i_etimologia_no_explicita",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=creure",
+        "lookup": "creure",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": false,
+        "dialectOrHistoricalEvidence": [
+          "credeg / credegesen (formes conjugades)"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta CREURE i formes verbals antigues amb -d- (CREDEG i CREDEGESEN), i la pronunciació valenciana /kɾéwɾe/, però l'entrada consultada no conté línia etimològica explícita. Les formes conjugades no equivalen a una cadena fonètica completa de l'infinitiu llatí CREDERE.",
+      "teachingGuardrail": "Contrastar l'etimologia amb font històrica addicional i no usar formes flexives com a baula automàtica.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "cadena_vocalica_pendent",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 8,
+      "latin": "insŭlam",
+      "form": "illa",
+      "classification": "cadena_consonantica_complexa_i_interferencia",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=illa",
+        "lookup": "illa",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "ila / yla / ylla / hila"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB dona INSŬLA com a ètim d'ILLA i registra grafies antigues ILA, YLA, YLLA i HILA. Avisa també de l'ús dialectal modern de ISLA per influència castellana; esta última forma no és una fase etimològica d'ILLA.",
+      "teachingGuardrail": "No marcar SÍNCOPE o PALATALITZACIÓ sense reconstruir l'evolució del grup -nsul-; no adoptar ISLA com a etapa.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "cadena_consonantica_complexa",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 9,
+      "latin": "pilum",
+      "form": "pèl",
+      "classification": "quantitat_vocalica_aclarida_i_homografia",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pel",
+        "lookup": "pel",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "pĭlu"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB fixa l'ètim de PÈL 'filament pilós' en PĬLU (i breu), i en registra pronunciació valenciana; això resol la reserva sobre la quantitat vocàlica. La cerca PEL també retorna l'homògraf gramatical 'per + el', que no pertany a esta fitxa.",
+      "teachingGuardrail": "El banc conserva PILUM sense quantitat gràfica; l'eventual anotació PĬLUM requereix revisió del nivell d'enunciat. ABER encara no s'aprova.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "quantitat_vocalica_i_homonimia",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 10,
+      "latin": "cŏrpus",
+      "form": "cos",
+      "classification": "variant_antiga_amb_r_i_reduccio_pendent",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cos",
+        "lookup": "cos",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "cors / corsos / corses"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta COS 'cos físic', amb antiga grafia CORS i antics plurals CORSOS/CORSES, i el relaciona amb CŎRPUS. Hi ha testimoni de la vibrant en una forma antiga, no una explicació completa del tractament del grup -rp-.",
+      "teachingGuardrail": "No confondre COS del llatí CORPUS amb CÓS de CURSUS, que figura com un altre lema en la mateixa pàgina.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "cadena_consonantica_complexa",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 11,
+      "latin": "podium",
+      "form": "puig",
+      "classification": "cadena_diu_i_canvi_semantic",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puig",
+        "lookup": "puig",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "pui / puy / pug (ant.)"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB deriva PUIG de PŎDĬU amb canvi semàntic llatí vulgar gal·loromànic de 'suport/pedestal' a 'elevació'. Registra formes PUI/PUY i exemples antics PUG, a més de l'ús toponímic valencià. Això no estableix automàticament la palatalització de -di-.",
+      "teachingGuardrail": "El canvi semàntic i les variants dialectals no són lleis fonètiques; verificar una cadena específica abans d'atribuir PALAT.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "evolucio_di_u_complexa",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 12,
+      "latin": "pretium",
+      "form": "preu",
+      "classification": "transformacio_ti_i_vocal_final",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=preu",
+        "lookup": "preu",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": []
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta PREU 'preu comercial' i l'ètim PRĔTĬU; també registra la pronunciació valenciana. No s'hi descriu una cadena medieval que demostre l'evolució de -tiu fins al diftong -eu.",
+      "teachingGuardrail": "No marcar VOCALITZACIÓ ni una palatalització concreta per semblança superficial.",
+      "teacherSensitive": false,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "desenvolupament_ti_complex",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 13,
+      "latin": "texere",
+      "form": "teixir",
+      "classification": "evolucio_de_x_i_reajustament_verbal",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+        "lookup": "teixir",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "tíxer / tixir / texir"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta TEIXIR de TĔXĔRE i les formes històriques TÍXER, TIXIR i TEXIR; mostra pronunciacions valencianes teixir/teissir. La variació gràfica de x/ix i el canvi de classe verbal no s'han de simplificar com una norma de grafies gregues.",
+      "teachingGuardrail": "Distingir grafia, resultat de /ks/ i reorganització morfològica del verb, amb cadena fonològica per contrastar.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "cadena_x_i_morfologia_verbal",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 14,
+      "latin": "nostrum",
+      "form": "nostre",
+      "classification": "variant_flexiva_vocal_final",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nostre",
+        "lookup": "nostre",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "nostro"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta NOSTRE amb variant dialectal NOSTRO, deriva la forma de NŎSTRU i recull pronúncia valenciana NOSTRE. La darrera vocal posttònica i el paradigma possessiu s'han de tractar separadament de l'OBERTURA escolar de vocals tòniques.",
+      "teachingGuardrail": "No associar l'evolució de -u final a ABER ni a una apòcope sense justificació.",
+      "teacherSensitive": false,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "vocalisme_final",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 15,
+      "latin": "magistram",
+      "form": "mestra",
+      "classification": "etapes_gistr_i_vocalisme",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestra",
+        "lookup": "mestra",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "maestra"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB deriva MESTRA del llatí MAGĬSTRA i cita MAESTRA com a variant antiga. Testimonia la reducció del tram medial, però no prova una seqüència única de síncope i de tractament de g.",
+      "teachingGuardrail": "Revisar les dues vocals i el grup -gistr-; el femení no ha de copiar mecànicament els passos del masculí.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "cadena_magistr",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 16,
+      "latin": "magistrum",
+      "form": "mestre",
+      "classification": "etapes_gistr_i_ultracorreccio",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestre",
+        "lookup": "mestre",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "maestre / masestre / mesestre"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta MESTRE de MAGĬSTRU, amb MAESTRE antic, i cita MASESTRE/MESESTRE com a formes possiblement degudes a ultracorrecció rossellonesa. Estes últimes no són etapes obligades de MAGISTRUM cap a MESTRE.",
+      "teachingGuardrail": "No confondre les formes antigues amb una cadena exhaustiva ni copiar el femení sense diferenciar les vocals finals.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "cadena_magistr",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 17,
+      "latin": "sŏlĭdum",
+      "form": "sou",
+      "classification": "reduccio_amb_sòl_antic",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sou",
+        "lookup": "sou",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "sol"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta SOU 'moneda o remuneració' de SŎLĬDU i la forma antiga SOL. La variant històrica aporta un punt de contrast, però no certifica una síncope seguida de vocalització amb trams Unicode del llatí original.",
+      "teachingGuardrail": "Evitar l'homònim verbal SÓU i no aprovar una norma només perquè SOL i SOU s'assemblen.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "cadena_solidu_sou",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 18,
+      "latin": "continere",
+      "form": "contindre",
+      "classification": "variant_valenciana_de_la_conjugacio",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=contenir",
+        "lookup": "contenir",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "contindre (fonètica valenciana)"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB té el lema CONTENIR, amb etimologia CONTINĒRE, però registra explícitament pronunciació valenciana /kontíndɾe/ corresponent a CONTINDRE. Es tracta d'una variant flexiva dialectal; una segmentació fonètica directa sobre CONTINERE no queda demostrada.",
+      "teachingGuardrail": "Cal comprovar la forma normativa concreta al DNV i determinar si és adequada per a un exercici de lleis fonètiques.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "variant_valenciana_contindre",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 19,
+      "latin": "bene",
+      "form": "bé",
+      "classification": "alternancia_ben_be_i_homografs",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=be",
+        "lookup": "be",
+        "directlyRead": true,
+        "etymologyExplicitlyDisplayed": true,
+        "dialectOrHistoricalEvidence": [
+          "ben"
+        ]
+      },
+      "individuallyAssessed": true,
+      "evidenceSummary": "El DCVB documenta BÉ adverbi de BĔNE i la variant BEN, normalment proclítica, que conserva -n- etimològica. La mateixa cerca retorna homògrafs BE 'nom de la lletra' i BE 'corder', etimològicament diferents.",
+      "teachingGuardrail": "La desaparició de -n- en la forma tònica i el manteniment en BEN tenen condicions prosòdiques i morfològiques; evitar llei única no contrastada.",
+      "teacherSensitive": true,
+      "proposedChanges": [],
+      "noAutomaticLawsReason": "reduccio_bene_be",
+      "dnvIndividualChecked": false,
+      "fullHistoricalChainCertified": false,
+      "individualLawCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ]
+}

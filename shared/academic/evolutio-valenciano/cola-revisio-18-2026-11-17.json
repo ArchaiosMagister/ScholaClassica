@@ -1,0 +1,403 @@
+{
+  "schema": "schola-evolutio-va-review-queue/v1",
+  "date": "2026-11-17",
+  "source": "conciliacion-curada.json",
+  "targetLanguage": "ca-ES-valencia",
+  "note": "Quarta tanda sobre 18 candidats transparentment patrimonials o homònims: 14 ètims documentats lèxicament i 4 reserves; cap comprovació DNV individual ni llei certificada.",
+  "totalProposals": 158,
+  "verifiedByThisQueue": 14,
+  "unresolvedByThisQueue": 4,
+  "approvedForPractice": 0,
+  "candidates": [
+    {
+      "order": 1,
+      "latin": "molam",
+      "proposta": "mola",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "La mola de molí o pedra de moldre: del llatí mŏla (DCVB, accepcions del grup I). Altres sentits homògrafs es relacionen amb mōle i no són automàticament equivalents.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mola",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 2,
+      "latin": "uallem",
+      "proposta": "vall",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Vall FEMENINA, 'terreny entre muntanyes', del llatí valle. No confondre amb vall masculí 'fossat' del llatí vallum.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vall",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 3,
+      "latin": "aurum",
+      "proposta": "or",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Or metall, del llatí auru; documenta també l'antic aur. No confondre amb 'or' conjunció d'origen francès.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=or",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 4,
+      "latin": "mensem",
+      "proposta": "mes",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "MES masculí 'mes de calendari', del llatí mēnse. No confondre amb 'mes' adversatiu o 'més' comparatiu.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mes",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 5,
+      "latin": "uentum",
+      "proposta": "vent",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Vent atmosfèric del llatí vĕntu; inicial u consonàntica escrita v, no una llei independent puntuable.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vent",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 6,
+      "latin": "cŏrnu",
+      "proposta": "corn",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Corn banya o objecte corbat del llatí cŏrnu; no confondre amb l'altre corn botànic del llatí cŏrnus.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corn",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 7,
+      "latin": "uĕntrem",
+      "proposta": "ventre",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Ventre de la persona/animal del llatí vĕntre; no hi ha cap llei seleccionable més enllà de la pèrdua fixa de -m.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ventre",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 8,
+      "latin": "ferum",
+      "proposta": "fer",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Adjectiu FER 'salvatge, feréstec', del llatí fĕru; homògraf del verb FER < facere, que s'exclou d'aquesta correspondència.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fer",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 9,
+      "latin": "mŏllem",
+      "proposta": "moll",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "MOLL adjectiu 'bla, tou', del llatí mŏlle. No confondre amb moll del port (italià molo) ni altres homònims.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=moll",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 10,
+      "latin": "semper",
+      "proposta": "sempre",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Adverbi SEMPRE 'en tot temps', del llatí sĕmper. L'ordre er > re es revisa com a metàtesi provisional.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sempre",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 11,
+      "latin": "ordinare",
+      "proposta": "ordenar",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Verb ORDENAR 'posar en ordre, manar', del llatí ordĭnare. El DCVB també registra formes antigues ordinar i ordonar; no aplicar obertures sense revisar variants.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ordenar",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 12,
+      "latin": "intrare",
+      "proposta": "entrar",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Verb ENTRAR 'passar dins', del llatí ĭntrare. La vocal inicial ĭ > e queda registrada editorialment, pendent de justificació normativa completa.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=entrar",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 13,
+      "latin": "curtum",
+      "proposta": "curt",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Adjectiu CURT 'de poca llargària', del llatí cŭrtum segons el DCVB. ŭ tònica > u en valencià, NO assignar falsament obertura a o.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=curt",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 14,
+      "latin": "calĕntem",
+      "proposta": "calent",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Adjectiu CALENT, del llatí calĕnte. La grafia final -t resta en valencià; no confondre amb participis cultes.",
+      "plannedChecks": [
+        "DNV: verificar forma i accepció",
+        "etapes històriques de les lleis",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=calent",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 15,
+      "latin": "totum",
+      "proposta": "tot",
+      "sourceStatus": "reserva_base_vulgar",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_base_vulgar",
+      "editorialNotes": "El DCVB deriva tot de la forma llatina vulgar tottu, intensiva de tōtum: no autoritzar l'etim directe TOTUM > tot sense explicar el pas *tottu i la geminació.",
+      "plannedChecks": [
+        "cadena històrica completa",
+        "significat i homònims",
+        "DNV individual",
+        "aprovació docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=tot",
+          "scope": "base_vulgar_tottu"
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "latin": "bonum",
+      "proposta": "bo",
+      "sourceStatus": "reserva_cadena_nasal",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cadena_nasal",
+      "editorialNotes": "BO s'etimologa en DCVB com a bonu, però cal justificar amb evidència històrica la pèrdua de -n- en posició final i els al·lomorfs bo/bon abans d'exigir una llei.",
+      "plannedChecks": [
+        "cadena històrica completa",
+        "significat i homònims",
+        "DNV individual",
+        "aprovació docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=bo",
+          "scope": "alternanca_bo_bon"
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "latin": "nouem",
+      "proposta": "nou",
+      "sourceStatus": "reserva_homonimia_i_cadena",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_homonimia_i_cadena",
+      "editorialNotes": "NOU numeral '9' procedeix de nŏve(m); hi ha homònims (nou 'nou fruit', nou 'recent', nou 'nus') d'altres ètims. La seqüència fonètica completa de -ve > -u necessita revisió.",
+      "plannedChecks": [
+        "cadena històrica completa",
+        "significat i homònims",
+        "DNV individual",
+        "aprovació docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=nou",
+          "scope": "numeral_i_homonimia"
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "latin": "milium",
+      "proposta": "mill",
+      "sourceStatus": "reserva_palatalitat",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_palatalitat",
+      "editorialNotes": "MILL vegetal prové de mīlĭu, no de mille numeral 1000. Les etapes de li + vocal a ll palatal i la reducció final es mantindran en reserva fins a verificar la cadena.",
+      "plannedChecks": [
+        "cadena històrica completa",
+        "significat i homònims",
+        "DNV individual",
+        "aprovació docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=mill",
+          "scope": "cereal_miliu"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,450 @@
+{
+  "schema": "schola-evolutio-va-review-queue/v1",
+  "date": "2026-11-17",
+  "source": "conciliacion-curada.json",
+  "targetLanguage": "ca-ES-valencia",
+  "note": "Tercera tanda: 19 candidatures del banc proposat, 16 etimologies documentades en DCVB i 3 reserves. La informació del DNV queda pendent; la preferència febra vs febre es documenta amb referències públiques a AVL/CVMC, no és una comprovació en línia individual del DNV.",
+  "candidates": [
+    {
+      "order": 1,
+      "latin": "clamare",
+      "proposta": "clamar",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Verb de clamar o reclamar; el DCVB el fa derivar de clāmāre.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=clamar",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 2,
+      "latin": "hĕrbam",
+      "proposta": "herba",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Herba com a planta no llenyosa; del llatí hĕrba. No importar la diftongació del castellà.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=herba",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 3,
+      "latin": "spinam",
+      "proposta": "espina",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Espina vegetal o animal: del llatí spīna; pròtesi e- davant sp-.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espina",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 4,
+      "latin": "serram",
+      "proposta": "serra",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Serra com a instrument de tall, del llatí sĕrra; no el topònim ni altres homònims.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=serra",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 5,
+      "latin": "cæcum",
+      "proposta": "cec",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Adjectiu cec/cega 'mancat de vista', del llatí caecu. DCVB avisa que cego és castellanisme col·loquial, no resposta escolar.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cec",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 6,
+      "latin": "turrem",
+      "proposta": "torre",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Torre de construcció, del llatí tŭrre. La fonètica valenciana que recull el DCVB conserva -e final.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=torre",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 7,
+      "latin": "securum",
+      "proposta": "segur",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Adjectiu segur, del llatí secūru; no els topònims Segur d'etimologia discutida.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=segur",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 8,
+      "latin": "formicam",
+      "proposta": "formiga",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Formiga com a insecte, del llatí formīca; sonorització de c intervocàlica en g.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=formiga",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 9,
+      "latin": "fossam",
+      "proposta": "fossa",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Fossa com a excavació, del llatí fŏssa. Sense lleis seleccionables addicionals a la -m fixa.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fossa",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 10,
+      "latin": "fumum",
+      "proposta": "fum",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Fum producte de combustió, del llatí fūmu; pèrdua de -u final.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fum",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 11,
+      "latin": "pŏrcum",
+      "proposta": "porc",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Porc animal, del llatí pŏrcu; el resultat valencià no diftonga la ŏ tònica.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=porc",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 12,
+      "latin": "truncum",
+      "proposta": "tronc",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Tronc d'arbre, del llatí trŭncu; distingir el vocalisme ŭ > o de la terminació final.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronc",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 13,
+      "latin": "paucum",
+      "proposta": "poc",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Poc quantificador, del llatí paucu; monoftongació de au en o.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poc",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 14,
+      "latin": "causam",
+      "proposta": "cosa",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Nom cosa, del llatí causa amb accepció vulgar 'res, objecte', no 'causa' conceptual, que és préstec culte.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cosa",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 15,
+      "latin": "spumam",
+      "proposta": "espuma",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Espuma, documentada en DCVB com a del llatí spuma i pronunciació valenciana espúma; forma DNV pendent.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espuma",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 16,
+      "latin": "fel",
+      "proposta": "fel",
+      "sourceStatus": "documentat_dcvb_sense_dnv",
+      "pedagogicalPriority": "alta",
+      "lexicalVerified": true,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "editorialNotes": "Fel com a bilis o amargor, del llatí fĕl. No té cap transformació seleccionable.",
+      "plannedChecks": [
+        "DNV: grafia i ús valencià",
+        "contrast cadena fonètica",
+        "aprovació docent"
+      ],
+      "lexicalEvidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fel",
+        "scope": "lema_i_etimologia"
+      }
+    },
+    {
+      "order": 17,
+      "latin": "fĕbrem",
+      "proposta": "febre",
+      "sourceStatus": "reserva_preferencia_normativa",
+      "pedagogicalPriority": "reserva",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_preferencia_normativa",
+      "editorialNotes": "El DCVB documenta febre < fĕbre; l'AVL (acord 20/05/2002) i l'estil CVMC identifiquen febra com a variant preferent valenciana i febre com a secundària acceptable. Cal decidir si el banc mostra febra, febre o les dues, sense atribuir l'alternança a una llei històrica no verificada.",
+      "plannedChecks": [
+        "justificar prioritat lèxica",
+        "revisar evolució i variant",
+        "DNV individual",
+        "aprovació docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=febre",
+          "scope": "etimologia"
+        },
+        {
+          "authority": "AVL",
+          "url": "https://www.avl.gva.es/wp-content/uploads/2022/04/Acord-normatiu-de-20-de-maig-del-2002.pdf",
+          "scope": "preferencia_febra"
+        },
+        {
+          "authority": "CVMC",
+          "url": "https://www.cvmc.es/llibre/partb.html",
+          "scope": "entrada_principal_febra_secundaria_febre"
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "latin": "fibram",
+      "proposta": "fibra",
+      "sourceStatus": "reserva_cultisme",
+      "pedagogicalPriority": "reserva",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cultisme",
+      "editorialNotes": "El DCVB assenyala 'fibra' com a pres del llatí fĭbra, no continuació patrimonial acreditada; no generar lleis per identitat de grafia.",
+      "plannedChecks": [
+        "justificar prioritat lèxica",
+        "revisar evolució i variant",
+        "DNV individual",
+        "aprovació docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=fibra",
+          "scope": "prestec_culte"
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "latin": "nigrum",
+      "proposta": "negre",
+      "sourceStatus": "reserva_cadena_historica",
+      "pedagogicalPriority": "reserva",
+      "lexicalVerified": false,
+      "ruleVerified": false,
+      "approvedForPractice": false,
+      "reviewOutcome": "reserva_cadena_historica",
+      "editorialNotes": "El DCVB documenta negre < nĭgru però no queda fixada la cadena del final -u > -e; posposar els intervals i les lleis fins a una explicació fonètica històrica contrastada.",
+      "plannedChecks": [
+        "justificar prioritat lèxica",
+        "revisar evolució i variant",
+        "DNV individual",
+        "aprovació docent"
+      ],
+      "references": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=negre",
+          "scope": "etimologia_amb_reserva_fonetica"
+        }
+      ]
+    }
+  ],
+  "totalProposals": 172,
+  "verifiedByThisQueue": 16,
+  "approvedForPractice": 0,
+  "unresolvedByThisQueue": 3
+}
