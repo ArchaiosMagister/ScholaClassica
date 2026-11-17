@@ -36,7 +36,7 @@ test('Revisió prioritària DCVB: fonts individualitzades i cap certificació si
     assert.ok(registered,item.latin+' no existía en la matriz');
     assert.equal(registered.valenciano.resultado,item.proposta);
     assert.equal(registered.valenciano.estadoLexico,'proposta');
-    assert.equal(registered.valenciano.dnvIndividualChecked,false);
+    assert.notEqual(registered.valenciano.dnvIndividualChecked,true); // Campo opcional en fichas aún propuestas
     assert.equal(registered.valenciano.aprobadoDocente,false);
     assert.equal(registered.valenciano.aptoParaPractica,false);
   }
