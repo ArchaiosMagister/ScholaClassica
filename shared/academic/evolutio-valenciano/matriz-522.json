@@ -11,13 +11,13 @@
   "normCatalog": "shared/academic/evolutio-valenciano/normas.json",
   "summary": {
     "total": 522,
-    "lexicoDocumentado": 92,
-    "propuestas": 146,
+    "lexicoDocumentado": 120,
+    "propuestas": 118,
     "sinPropuesta": 284,
     "reservasSoloCastellano": 3,
     "normasVerificadas": 0,
     "aptasParaPractica": 0,
-    "analisisEditoriales": 92,
+    "analisisEditoriales": 120,
     "casosConDiscrepancia": 0
   },
   "records": [
@@ -35,15 +35,45 @@
       },
       "valenciano": {
         "resultado": "oca",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                0,
+                2
+              ]
+            ],
+            "note": "Monoftongació del diftong llatí au en o."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "AUCAM > oca: Oca, au palmípeda, del llatí vulgar auca; la monoftongació de au és editorial.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=oca",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Oca, au palmípeda, del llatí vulgar auca; la monoftongació de au és editorial. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -272,15 +302,45 @@
       },
       "valenciano": {
         "resultado": "comte",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SINC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Síncope de la vocal posttònica ĭ en cŏmĭte > comte."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "COMITEM > comte: Comte, dignitat nobiliària, del llatí cŏmĭte, originalment 'company'; sentit medieval derivat i pronunciació valenciana documentada.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=comte",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Comte, dignitat nobiliària, del llatí cŏmĭte, originalment 'company'; sentit medieval derivat i pronunciació valenciana documentada. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -749,15 +809,56 @@
       },
       "valenciano": {
         "resultado": "major",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "CONS",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Consonantització de i intervocàlica en j."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final després de la pèrdua fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MAIOREM > major: Major, comparatiu de grandària, del llatí maiōre; DCVB documenta grafies antigues maior/mayor/magor.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=major",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Major, comparatiu de grandària, del llatí maiōre; DCVB documenta grafies antigues maior/mayor/magor. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -865,15 +966,56 @@
       },
       "valenciano": {
         "resultado": "molt",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ tònica llatina en o."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de la desaparició fixa de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MULTUM > molt: Molt quantificador/adverbi, del llatí mŭltu; no confondre amb mòlt participi de moldre.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=molt",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Molt quantificador/adverbi, del llatí mŭltu; no confondre amb mòlt participi de moldre. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -1233,15 +1375,52 @@
       },
       "valenciano": {
         "resultado": "espart",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PROT",
+            "spans": [],
+            "anchor": 0,
+            "note": "Pròtesi d'e- davant sp- inicial."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de la vocal -u final després de -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SPARTUM > espart: Espart, planta i fibra, del llatí spartu; el DCVB registra la pronúncia valenciana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=espart",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Espart, planta i fibra, del llatí spartu; el DCVB registra la pronúncia valenciana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2264,15 +2443,67 @@
       },
       "valenciano": {
         "resultado": "cegar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Monoftongació de æ en e."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de c inicial davant e resultant, representada c."
+          },
+          {
+            "id": "va3",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de la -c- intervocàlica en -g-."
+          },
+          {
+            "id": "va4",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CÆCARE > cegar: Cegar 'privar de vista' del llatí caecare; la palatalització inicial i la sonorització medial es distingeixen.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cegar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Cegar 'privar de vista' del llatí caecare; la palatalització inicial i la sonorització medial es distingeixen. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2526,15 +2757,78 @@
       },
       "valenciano": {
         "resultado": "cabell",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització intervocàlica -p- > -b-."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va3",
+            "rule": "PALAT",
+            "spans": [
+              [
+                4,
+                6
+              ]
+            ],
+            "note": "Palatalització de -ll- geminada en lateral palatal ll."
+          },
+          {
+            "id": "va4",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de -u final després de la pèrdua de -m."
+          },
+          {
+            "id": "va5",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CAPILLUM > cabell: Cabell del cap, del llatí capĭllu; la -p- és intervocàlica i passa a -b-, no s'hi aplica sonorització de la l.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cabell",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Cabell del cap, del llatí capĭllu; la -p- és intervocàlica i passa a -b-, no s'hi aplica sonorització de la l. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2606,15 +2900,45 @@
       },
       "valenciano": {
         "resultado": "corda",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "GRIE",
+            "spans": [
+              [
+                0,
+                2
+              ]
+            ],
+            "note": "Adaptació de la grafia d'origen grec ch a c en corda."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CHŎRDAM > corda: Corda de lligar, del llatí chorda, mot grec adaptat al llatí; ch inicial es representa c; la h no indica aspiració castellana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=corda",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Corda de lligar, del llatí chorda, mot grec adaptat al llatí; ch inicial es representa c; la h no indica aspiració castellana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -2841,15 +3165,45 @@
       },
       "valenciano": {
         "resultado": "cuba",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SONOR",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Sonorització de la -p- intervocàlica en -b-."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "CUPAM > cuba: Cuba, recipient/bóta, del llatí cūpa; no el topònim Cuba ni el mot d'origen aràbic per a alcavó.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=cuba",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Cuba, recipient/bóta, del llatí cūpa; no el topònim Cuba ni el mot d'origen aràbic per a alcavó. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3456,15 +3810,56 @@
       },
       "valenciano": {
         "resultado": "gros",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Simplificació de la geminada -ss- a s."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de la -u final després de la desaparició de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "GRŎSSUM > gros: Adjectiu gros 'gran, voluminós', del llatí grŏssu; no afegir diftongació castellana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=gros",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Adjectiu gros 'gran, voluminós', del llatí grŏssu; no afegir diftongació castellana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -3876,15 +4271,78 @@
       },
       "valenciano": {
         "resultado": "lletra",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de l inicial en ll."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va3",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació de la geminada -tt-."
+          },
+          {
+            "id": "va4",
+            "rule": "SINC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Síncope de la vocal posttònica ĕ."
+          },
+          {
+            "id": "va5",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "LITTĔRAM > lletra: Lletra 'signe d'escriptura', del llatí lĭttĕra; la forma valenciana documenta ll inicial.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=lletra",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Lletra 'signe d'escriptura', del llatí lĭttĕra; la forma valenciana documenta ll inicial. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -4006,15 +4464,56 @@
       },
       "valenciano": {
         "resultado": "moro",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "MONOP",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Monoftongació del diftong au en o."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Obertura editorial de la vocal -u final en -o, a confirmar en la cadena històrica."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MAURUM > moro: Moro com a denominació històrica, del llatí mauru; el resultat final -o té valor editorial i no es considera apòcope.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=moro",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Moro com a denominació històrica, del llatí mauru; el resultat final -o té valor editorial i no es considera apòcope. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5507,15 +6006,45 @@
       },
       "valenciano": {
         "resultado": "mesura",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació del grup -ns- amb caiguda de n."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MENSURAM > mesura: Mesura 'acte o instrument de mesurar', del llatí mensūra; en valencià es conserva r i la vocal a final.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=mesura",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Mesura 'acte o instrument de mesurar', del llatí mensūra; en valencià es conserva r i la vocal a final. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -5557,15 +6086,45 @@
       },
       "valenciano": {
         "resultado": "pesar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Simplificació del grup -ns- amb pèrdua de n."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PENSARE > pesar: Pesar 'determinar el pes', del llatí pensare; el DCVB diferencia el substantiu pesar.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=pesar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Pesar 'determinar el pes', del llatí pensare; el DCVB diferencia el substantiu pesar. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6305,15 +6864,56 @@
       },
       "valenciano": {
         "resultado": "març",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                3,
+                5
+              ]
+            ],
+            "note": "Palatalització de -ti- seguida de vocal en sibilant representada ç."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -u final després de la -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MARTIUM > març: Març 'tercer mes', del llatí martĭu; el DCVB indexa març dins la consulta 'marc', amb subentrada pròpia, distinta del nom Marc.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=marc",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Març 'tercer mes', del llatí martĭu; el DCVB indexa març dins la consulta 'marc', amb subentrada pròpia, distinta del nom Marc. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6576,15 +7176,56 @@
       },
       "valenciano": {
         "resultado": "penya",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de la geminada -nn- en -ny-."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PINNAM > penya: Penya 'gran roca', del llatí pĭnna ('merlet'); no confondre amb penya 'grup d'amics' sense explicar el canvi semàntic.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=penya",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Penya 'gran roca', del llatí pĭnna ('merlet'); no confondre amb penya 'grup d'amics' sense explicar el canvi semàntic. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -6919,15 +7560,45 @@
       },
       "valenciano": {
         "resultado": "regla",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "SINC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Síncope de la vocal posttònica ŭ en rĕgŭla > regla."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "REGŬLAM > regla: Regla de mesurar o norma, del llatí rĕgŭla; síncope de la ŭ posttònica.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=regla",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Regla de mesurar o norma, del llatí rĕgŭla; síncope de la ŭ posttònica. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7528,15 +8199,45 @@
       },
       "valenciano": {
         "resultado": "selva",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "SILUAM > selva: Selva 'bosc espès' del llatí sĭlva; u gràfica consonàntica llatina es representa amb v, sense llei seleccionable.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=selva",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Selva 'bosc espès' del llatí sĭlva; u gràfica consonàntica llatina es representa amb v, sense llei seleccionable. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -7644,15 +8345,56 @@
       },
       "valenciano": {
         "resultado": "ona",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Obertura de ŭ tònica en o."
+          },
+          {
+            "id": "va2",
+            "rule": "SIMPL",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "note": "Simplificació del grup -nd- amb pèrdua de d."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "UNDAM > ona: Ona de mar, del llatí ŭnda; no confondre amb ona com a nom propi d'altres orígens.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=ona",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Ona de mar, del llatí ŭnda; no confondre amb ona com a nom propi d'altres orígens. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8115,15 +8857,56 @@
       },
       "valenciano": {
         "resultado": "peu",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "VOC",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Vocalització de d intervocàlica en u de peu, cadena pendent de confirmació històrica completa."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "note": "Apòcope de -e final després de la pèrdua de -m."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "PEDEM > peu: Peu anatòmic, del llatí pĕde; la vocalització de d es descriu editorialment, no com a pèrdua arbitrària.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=peu",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Peu anatòmic, del llatí pĕde; la vocalització de d es descriu editorialment, no com a pèrdua arbitrària. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -8372,15 +9155,56 @@
       },
       "valenciano": {
         "resultado": "dany",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "note": "Palatalització de -mn- llatí en -ny-."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "DAMNUM > dany: Dany 'perjudici', del llatí damnum; -mn- palatalitza en -ny-.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=dany",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Dany 'perjudici', del llatí damnum; -mn- palatalitza en -ny-. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10178,15 +11002,56 @@
       },
       "valenciano": {
         "resultado": "ortiga",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Obertura de u inicial llatina en o en la forma ortiga."
+          },
+          {
+            "id": "va2",
+            "rule": "SONOR",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Sonorització de c intervocàlica en g."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "URTICAM > ortiga: Ortiga (planta) del llatí urtīca; vocalisme inicial u > o i c intervocàlica > g.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=ortiga",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Ortiga (planta) del llatí urtīca; vocalisme inicial u > o i c intervocàlica > g. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10807,15 +11672,45 @@
       },
       "valenciano": {
         "resultado": "governar",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ llatina en o."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                8,
+                9
+              ]
+            ],
+            "note": "Apòcope de -e final de l'infinitiu."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "GUBERNARE > governar: Governar, del llatí gŭbernare; b intervocàlica > v és lenició explicable però no una de les 17 lleis seleccionables.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=governar",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Governar, del llatí gŭbernare; b intervocàlica > v és lenició explicable però no una de les 17 lleis seleccionables. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10907,15 +11802,67 @@
       },
       "valenciano": {
         "resultado": "enemic",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Obertura de la primera i inicial en e."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "note": "Obertura de la segona ĭ en e."
+          },
+          {
+            "id": "va3",
+            "rule": "APOC",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Apòcope de la vocal -u final després de -m fixa."
+          },
+          {
+            "id": "va4",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "INIMICUM > enemic: Enemic 'adversari', del llatí inimīcu; dues vocals i inicials breus passen a e; la tercera i de l'ètim es conserva.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=enemic",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Enemic 'adversari', del llatí inimīcu; dues vocals i inicials breus passen a e; la tercera i de l'ètim es conserva. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -10987,15 +11934,56 @@
       },
       "valenciano": {
         "resultado": "llengua",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "PALAT",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "note": "Palatalització de l inicial en ll."
+          },
+          {
+            "id": "va2",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "LINGUAM > llengua: Llengua anatòmica i idioma, del llatí lĭngŭa, amb palatalització de l- inicial, conservant qu/gu gràfic pertinent.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=llengua",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Llengua anatòmica i idioma, del llatí lĭngŭa, amb palatalització de l- inicial, conservant qu/gu gràfic pertinent. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11037,15 +12025,56 @@
       },
       "valenciano": {
         "resultado": "menor",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -e final després de -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MINOREM > menor: Menor comparatiu de petit, del llatí mĭnōre; es conserva la -r final valenciana.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=menor",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Menor comparatiu de petit, del llatí mĭnōre; es conserva la -r final valenciana. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11062,15 +12091,56 @@
       },
       "valenciano": {
         "resultado": "menut",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ĭ llatina en e."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Apòcope de -u final després de -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MINUTUM > menut: Menut 'xicotet' del llatí mĭnūtu; diferenciar de l'ús històric menut com a 'minut' de temps.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=menut",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Menut 'xicotet' del llatí mĭnūtu; diferenciar de l'ús històric menut com a 'minut' de temps. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
@@ -11142,15 +12212,56 @@
       },
       "valenciano": {
         "resultado": "most",
-        "estadoLexico": "proposta",
-        "normas": null,
-        "estadoNormas": "pendent",
-        "explicacion": null,
+        "estadoLexico": "documentat",
+        "normas": [
+          {
+            "id": "va1",
+            "rule": "ABER",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "note": "Obertura de ŭ llatina en o."
+          },
+          {
+            "id": "va2",
+            "rule": "APOC",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "note": "Apòcope de -u final després de -m fixa."
+          },
+          {
+            "id": "va3",
+            "rule": "FIX_M",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "note": "Pèrdua fixa de -m final de l’acusatiu, no seleccionable."
+          }
+        ],
+        "estadoNormas": "analisi_editorial_revisada",
+        "explicacion": "MUSTUM > most: Most, suc de raïm no fermentat, del llatí mŭstu.",
         "dificultad": null,
         "aprobadoDocente": false,
         "aptoParaPractica": false,
-        "evidencia": [],
-        "notas": null
+        "evidencia": [
+          {
+            "authority": "DCVB",
+            "url": "https://dcvb.iec.cat/results.asp?word=most",
+            "scope": "lema_i_etimologia"
+          }
+        ],
+        "notas": "Most, suc de raïm no fermentat, del llatí mŭstu. Correspondència lèxica documentada; lleis editorials, sense comprovació DNV ni aprovació per a practicar.",
+        "dnvIndividualChecked": false
       }
     },
     {
