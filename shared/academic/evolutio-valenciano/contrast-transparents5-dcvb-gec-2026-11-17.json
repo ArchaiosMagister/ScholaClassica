@@ -1,0 +1,218 @@
+{
+  "schema": "schola-evolutio-valencia-transparent-five-research/v1",
+  "date": "2026-11-17",
+  "method": "Cotejo individual de DCVB con GDLC cuando procede y de leyes generales de GEC. Diferenciar explícitamente correspondencia etimológica de ley fonética individual demostrada y de morfología flexiva; ninguna promoción docente automática.",
+  "sourceReferences": {
+    "dcvb_veta": {
+      "authority": "DCVB, Institut d'Estudis Catalans",
+      "url": "https://dcvb.iec.cat/results.asp?word=veta",
+      "focus": "VETA f., accepció I 'cinta per a lligar'; ètim vĭtta, pronúncia val. béta"
+    },
+    "gdlc_veta": {
+      "authority": "Gran Diccionari de la Llengua Catalana",
+      "url": "https://www.diccionari.cat/GDLC/veta",
+      "focus": "VETA 'cinta'; ètim vĭtta, primer testimoni s. XIV, homòfon beta"
+    },
+    "dcvb_forca": {
+      "authority": "DCVB, Institut d'Estudis Catalans",
+      "url": "https://dcvb.iec.cat/results.asp?word=forca",
+      "focus": "FORCA I 'instrument agrícola de puntes'; ètim fŭrca; pronúncies valencianes variants"
+    },
+    "dcvb_podar": {
+      "authority": "DCVB, Institut d'Estudis Catalans",
+      "url": "https://dcvb.iec.cat/results.asp?word=podar",
+      "focus": "PODAR 'esporgar'; ètim pŭtāre; fonètica valenciana poðáɾ"
+    },
+    "gdlc_podar": {
+      "authority": "Gran Diccionari de la Llengua Catalana",
+      "url": "https://www.diccionari.cat/GDLC/podar",
+      "focus": "PODAR 'netejar, esporgar'; ètim putāre, documentat des de 1166"
+    },
+    "dcvb_negre": {
+      "authority": "DCVB, Institut d'Estudis Catalans",
+      "url": "https://dcvb.iec.cat/results.asp?word=negre",
+      "focus": "NEGRE, NEGRA adj.; ètim nĭgru (masculí); forma femenina inclosa al lema"
+    },
+    "dcvb_senya": {
+      "authority": "DCVB, Institut d'Estudis Catalans",
+      "url": "https://dcvb.iec.cat/results.asp?word=senya",
+      "focus": "SENYA 1 f. 'indici, gest, insígnia'; ètim sĭgna, 'senyals', pronúncia val. séɲa; SENYA 2 remissió a sènia"
+    },
+    "gdlc_senya": {
+      "authority": "Gran Diccionari de la Llengua Catalana",
+      "url": "https://www.diccionari.cat/GDLC/senya",
+      "focus": "SENYA; ètim sĭgna, plural de sĭgnum 'senyal', primer testimoni s. XIV"
+    },
+    "gec_gramatica": {
+      "authority": "Gran Enciclopèdia Catalana",
+      "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+      "focus": "Gramàtica històrica: les oclusives sordes intervocàliques es tornen sonores (sapere>saber, vita>vida), geminades oclusives se simplifiquen (cuppa>copa); palatalització de grups nasals davant iod en exemples comparatius"
+    }
+  },
+  "summary": {
+    "individualEtymologicalComparisons": 5,
+    "additionalWordsCovered": 5,
+    "contextualRuleAssessments": 6,
+    "individualHistoricalLawDemonstrations": 0,
+    "fullHistoricalChainsCertified": 0,
+    "currentDnvArticlesVerified": 0,
+    "teacherApproved": 0,
+    "playable": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "latin": "uittam",
+      "form": "veta",
+      "class": "etim_identica_amb_geminada_patron_general",
+      "sourceKeys": [
+        "dcvb_veta",
+        "gdlc_veta",
+        "gec_gramatica"
+      ],
+      "evidence": "El DCVB identifica VETA en el sentit de cinta per a lligar amb vĭtta i registra la pronunciació valenciana béta. El GDLC concorda en l'ètim vĭtta i l'accepció tèxtil, amb primera documentació s. XIV. La GEC indica que les geminades oclusives se simplifiquen en general, amb exemples com cuppa > copa, però no exposa una cadena de VITTA a VETA.",
+      "guard": "La forma del banc uittam és l'acusatiu escrit amb u consonàntica; les dues fonts consignen la base lèxica vĭtta, no l'acusatiu VITTAM com a cadena testimoniada. La consonant inicial valenciana es pronuncia habitualment /b/; no confondre aquest fet sincrònic amb SONORITZACIÓ. La reducció tt > t és una candidatura escolar contextual, encara no una llei individual certificada.",
+      "assessment": [
+        {
+          "rule": "SIMPL",
+          "fragment": "tt",
+          "support": "patro_general_mes_etim_exacte",
+          "scope": "Geminades oclusives en GEC; DCVB no explicita la fase concreta per a VETA",
+          "certified": false
+        }
+      ],
+      "lexicographicCheckCompleted": true,
+      "contextualSoundLawEvidence": true,
+      "individuallyHistoricallyVerified": false,
+      "allIntermediateFormsHistoricallyAttested": false,
+      "allSchoolLawsCertified": false,
+      "currentDnvEntryChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 2,
+      "latin": "furcam",
+      "form": "forca",
+      "class": "canvi_vocalic_corresponent_amb_etim_i_us",
+      "sourceKeys": [
+        "dcvb_forca",
+        "gec_gramatica"
+      ],
+      "evidence": "El DCVB identifica FORCA I (instrument agrícola) amb l'ètim fŭrca i llista usos i pronunciacions valencianes, incloent Cast., Val., Vinaròs i Sueca, que mantenen grafia amb o. El tractament de ŭ tònica llatina cap a o és compatible amb el patró vocàlic del català, però l'article no ofereix una etapa històrica de canvi vocàlic per a aquesta paraula.",
+      "guard": "L'acusatiu furcam exigeix considerar la pèrdua fixa de -m; el DCVB proporciona fŭrca com a base. El nom FORÇA (amb ç) és una altra paraula d'ètim diferent que apareix a la mateixa pàgina de cerca: no confondre'ls. OBERTURA escolar u > o no acredita per si sola un timbre [ɔ] general, car hi ha variació territorial en la pronúncia.",
+      "assessment": [
+        {
+          "rule": "ABER",
+          "fragment": "u",
+          "support": "etim_quantitat_i_resultat_correspondents",
+          "scope": "Ètim fŭrca i forca al DCVB; manca cadena fonètica individual",
+          "certified": false
+        }
+      ],
+      "lexicographicCheckCompleted": true,
+      "contextualSoundLawEvidence": true,
+      "individuallyHistoricallyVerified": false,
+      "allIntermediateFormsHistoricallyAttested": false,
+      "allSchoolLawsCertified": false,
+      "currentDnvEntryChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 3,
+      "latin": "putare",
+      "form": "podar",
+      "class": "sonoritzacio_intervocalica_corresponent",
+      "sourceKeys": [
+        "dcvb_podar",
+        "gdlc_podar",
+        "gec_gramatica"
+      ],
+      "evidence": "El DCVB fixa l'etimologia PODAR < pŭtāre en l'accepció 'esporgar' i en dona pronunciació valenciana poðáɾ, amb consonant intervocàlica sonora. El GDLC verifica el sentit de poda i la presència escrita des de 1166. La GEC explica que les oclusives sordes intervocàliques esdevenen sonores, amb vita > vida com a exemple general; no cita aquí exactament putare > podar.",
+      "guard": "La sonorització -t- > -d- és fonèticament compatible amb el patró publicat i la pronúncia valenciana, però no disposa d'una cadena cronològica individual. La vocal ŭ > o de l'altra candidatura és diferent i ha de verificar-se per separat. PUTARE pot significar també 'pensar' i 'comptar'; acotar l'accepció d'esporgar.",
+      "assessment": [
+        {
+          "rule": "SONOR",
+          "fragment": "t",
+          "support": "patro_general_i_resultat_fonetic_valencia",
+          "scope": "GEC sorda>sonora intervocàlica; DCVB poðáɾ, sense cadena completa",
+          "certified": false
+        },
+        {
+          "rule": "ABER",
+          "fragment": "u",
+          "support": "etim_quantitat_i_resultat_correspondents",
+          "scope": "Etim pŭtāre a DCVB i resultat podar; no hi ha certificat de llei individual",
+          "certified": false
+        }
+      ],
+      "lexicographicCheckCompleted": true,
+      "contextualSoundLawEvidence": true,
+      "individuallyHistoricallyVerified": false,
+      "allIntermediateFormsHistoricallyAttested": false,
+      "allSchoolLawsCertified": false,
+      "currentDnvEntryChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 4,
+      "latin": "nigram",
+      "form": "negra",
+      "class": "forma_femenina_i_etim_masculi",
+      "sourceKeys": [
+        "dcvb_negre"
+      ],
+      "evidence": "El DCVB porta el lema NEGRE, NEGRA i atribueix l'etimologia al llatí nĭgru, amb ĭ breu, citant exemples de forma femenina medieval. Això proporciona documentació del femení NEGRA i del radical lèxic, però la línia etimològica dóna el masculí NIGRU i no analitza directament el llatí acusatiu femení NIGRAM.",
+      "guard": "No convertir automàticament l'ètim masculí nĭgru de l'entrada en una cadena de canvis fonètics de NIGRAM a NEGRA. L'explicació escolar sobre l'obertura de ĭ a e té plausibilitat històrica, però queda pendent la verificació de l'etapa exacta i de la prosòdia de la forma femenina.",
+      "assessment": [
+        {
+          "rule": "ABER",
+          "fragment": "i",
+          "support": "base_masculina_amb_quantitat_breu",
+          "scope": "NĭGRU masculí en DCVB; l'acusatiu femení no té demostració individual",
+          "certified": false
+        }
+      ],
+      "lexicographicCheckCompleted": true,
+      "contextualSoundLawEvidence": true,
+      "individuallyHistoricallyVerified": false,
+      "allIntermediateFormsHistoricallyAttested": false,
+      "allSchoolLawsCertified": false,
+      "currentDnvEntryChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 5,
+      "latin": "signa",
+      "form": "senya",
+      "class": "plural_llati_reanalitzat_com_singular",
+      "sourceKeys": [
+        "dcvb_senya",
+        "gdlc_senya",
+        "gec_gramatica"
+      ],
+      "evidence": "El DCVB recull SENYA 1 'indici, gest, insígnia', en documentació medieval i pronunciació valenciana /séɲa/, del llatí sĭgna 'senyals'. El GDLC aclareix que sĭgna és el plural de sĭgnum 'senyal' i situa la primera documentació al segle XIV. El resultat en -ny- és fonèticament compatible amb la palatalització de grups nasals, però GEC no hi aporta una cadena individual sĭgna > senya.",
+      "guard": "El valor del plural neutre SIGNa que esdevé nom femení singular en català implica reanàlisi morfològica i semàntica, no només un canvi -gn- > -ny-. El DCVB també recull SENYA 2 com a remissió a SÈNIA; no barrejar accepcions, ni aplicar PALAT sense verificar les etapes exactes.",
+      "assessment": [
+        {
+          "rule": "PALAT",
+          "fragment": "gn",
+          "support": "etim_exacte_i_resultat_palatal_compatible",
+          "scope": "DCVB i GDLC etim sĭgna; el procés concret -gn->-ny- no és explicat individualment",
+          "certified": false
+        }
+      ],
+      "lexicographicCheckCompleted": true,
+      "contextualSoundLawEvidence": true,
+      "individuallyHistoricallyVerified": false,
+      "allIntermediateFormsHistoricallyAttested": false,
+      "allSchoolLawsCertified": false,
+      "currentDnvEntryChecked": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ]
+}
