@@ -21,7 +21,11 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   pendingHistoricalChain:66,pendingLawsAndSpans:66,
   pendingTeacherApproval:66,playable:0,
   lexicographicEntriesIndividuallyRead:47,lexicographicSourcesDCVB:46,
-  lexicographicSourcesGDLC:1,candidateWordsPendingIndividualLexicographicRead:0
+  lexicographicSourcesGDLC:1,candidateWordsPendingIndividualLexicographicRead:0,
+  complexLexicographicEntriesIndividuallyRead:19,complexSourcesDCVB:19,
+  totalLexicographicEntriesIndividuallyRead:66,
+  complexEntriesWithoutExplicitEtymologyLine:1,
+  complexEntriesStillWithoutLawCandidates:19
  });
  assert.equal(queue.entries.length,66);
  assert.equal(new Set(queue.entries.map(x=>x.latin)).size,66);
@@ -60,6 +64,13 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   }else{
    withoutChanges++;
    assert.equal(x.review.lexicographicEvidenceReview,undefined,x.latin);
+   const complex=x.review.complexHistoricalEvidenceReview;
+   assert.equal(complex.individuallyRead,true,x.latin);
+   assert.equal(complex.dossier,'contrastos-historics-dcvb-complexos19-2026-11-17.json');
+   assert.equal(complex.sourceAuthority,'DCVB',x.latin);
+   for(const key of ['dnvIndividualChecked','fullHistoricalChainCertified','lawsHistoricallyCertified','teacherApproved','playable'])
+    assert.equal(complex[key],false,x.latin+':'+key);
+   assert.equal(complex.noLawAssigned,true,x.latin);
   }
   assert.equal(x.review.status,
    changes.length?'hipotesis_segmentades_no_certificades':
