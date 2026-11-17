@@ -1,10 +1,16 @@
 {
-  "schema": "schola-evolutio-va-phonetic-workqueue/v1",
+  "schema": "schola-evolutio-va-phonetic-workqueue/v2",
   "date": "2026-11-17",
-  "policy": "Cua de treball acadèmic, no un banc d'exercicis. El contrast lèxic no prova lleis ni canvis fonètics; mai inferir o activar canvis amb heurístiques.",
+  "policy": "Anàlisi editorial INDIVIDUAL de les 66 correspondències, amb hipòtesis de lleis i trams Unicode verificats mecànicament. No equival a acreditar una cadena fonètica, DNV ni lleis. No es modifica la matriu, ni s'activa pràctica.",
   "lockedSource": "901dacb125ee7894ea9d11faf7b0d0afa7e713b5",
   "summary": {
     "lexicallySupported": 66,
+    "editoriallyReviewed": 66,
+    "itemsWithSegmentedHypotheses": 47,
+    "candidateSegmentsChecked": 72,
+    "itemsWithComplexOrUnassignedChain": 19,
+    "certifiedPhoneticLaws": 0,
+    "fullyDocumentedHistoricalChains": 0,
     "pendingDnv": 66,
     "pendingHistoricalChain": 66,
     "pendingLawsAndSpans": 66,
@@ -35,7 +41,20 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "La caiguda de -d- i l'evolució vocàlica fins a caure necessiten estadis intermedis; no equiparar automàticament caure a un procés de vocalització de d.",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 2,
@@ -60,7 +79,20 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "La terminació -anu > -à i el tractament de les consonants finals exigeixen revisar l'estadi romànic i la base prosòdica.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 3,
@@ -85,7 +117,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "Cal justificar la síncope posttònica i la reducció posterior del grup consonàntic abans d'atribuir cap llei definitiva.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "ĭ",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Possible síncope de la vocal posttònica breu; la reducció de l'etapa consonàntica encara requereix evidència.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 4,
@@ -110,7 +170,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "VETa no és una palatalització: comprovar l'obertura vocàlica i la simplificació de la geminada en la cadena documentada.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SIMPL",
+            "fragment": "tt",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Reducció candidata de la geminada -tt- a -t-; pendent d'acreditació històrica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 5,
@@ -135,7 +223,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "MARBRE requereix explicar la dissimilació de les labials i la pèrdua de la vocal àtona; no donar per probat el canvi m>b.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "o",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "editorialReason": "Possible síncope de -o- posttònica, anterior a la reestructuració consonàntica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 6,
@@ -160,7 +276,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "ROURE: la vocalització o pèrdua de la bilabial llatina i la seqüència vocalica requereixen testimonis intermedis.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "VOC",
+            "fragment": "b",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Hipòtesi editorial de debilitament i vocalització de -b-; no certificada.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 7,
@@ -185,7 +329,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "El DCVB atribueix la -r- a la influència de TRO, no a una llei general d'epèntesi ni de metàtesi de TONARE.",
+        "unresolvedHistoricalIssue": "analogia_lexica",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 8,
@@ -210,7 +368,20 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "TRESOR té variants històriques TESAUR/TRESAUR i reestructuració de la vibrant; cal precisar els estadis abans d'atribuir metàtesi o monoftongació.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 9,
@@ -235,7 +406,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "El pas cap a ASE exigeix justificar la síncope de la vocal àtona i la reducció del grup consonàntic resultant.",
+        "usageNote": "Comprovar la vigència valenciana d'ase davant burro i ruc.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "ĭ",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Hipòtesi de síncope posttònica breu; no equival a una cadena completa.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 10,
@@ -260,7 +460,20 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "sense_llei_seleccionable_identificada",
+        "editorialAssessment": "BONA conserva l'estructura consonàntica del femení; la -m final és una pèrdua FIXA no seleccionable. No inventar una llei per omplir la fitxa.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 11,
@@ -285,7 +498,49 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "CABRE combina la síncope de la vocal interior amb sonorització de -p- intervocàlica; confirmar l'ordre històric.",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SONOR",
+            "fragment": "p",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Candidatura de sonorització de -p- intervocàlica en -b-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SINC",
+            "fragment": "e",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Candidatura de síncope vocàlica en la terminació -pere.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 12,
@@ -310,7 +565,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "COMPRAR exigeix precisar la síncope pretònica i la base vulgar compĕrāre, diferenciada del clàssic compărāre.",
+        "unresolvedHistoricalIssue": "base_vulgar_diferent",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 13,
@@ -335,7 +604,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "CONSELL requereix justificar el resultat palatal de -li- i la simplificació del final -ium, amb accepció 'consell' i no 'concili'.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "li",
+            "spans": [
+              [
+                5,
+                7
+              ]
+            ],
+            "editorialReason": "Palatalització candidata del grup -li- davant vocal; canvis vocàlics pendents.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 14,
@@ -360,7 +657,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "CREURE: la lenició de -d- i l'aparició de -u- no es poden deduir únicament de la parella moderna; reconstruir les etapes històriques.",
+        "unresolvedHistoricalIssue": "cadena_vocalica_pendent",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 15,
@@ -385,7 +696,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "DRAGÓ conserva una sonorització plausible de -c- intervocàlica, però demana explicació de la terminació -onem.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SONOR",
+            "fragment": "c",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Canvi candidat de -c- intervocàlica a -g-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 16,
@@ -410,7 +749,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "ILLA és una evolució complexa de INSULA: cal explicar la caiguda de l'element nasal, la síncope i el resultat palatal sense segmentar una fase no documentada.",
+        "unresolvedHistoricalIssue": "cadena_consonantica_complexa",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 17,
@@ -435,7 +788,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "LLOAR pressuposa palatalització de l- inicial, reestructuració del diftong i desaparició de -d-; falta certificar la cadena.",
+        "unresolvedHistoricalIssue": "cadena_intervocalica_pendent",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "l",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "editorialReason": "Possibilitat de palatalització de l- inicial.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "MONOP",
+            "fragment": "au",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "editorialReason": "Hipòtesi de monoftongació de -au- a -o-; cal documentar la seqüència.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 18,
@@ -460,7 +856,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "LLEGIR: la palatalització inicial és plausible, però la vocal tònica i la reorganització verbal necessiten verificació individual.",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "l",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "editorialReason": "Palatalització candidata de l- inicial cap a ll-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 19,
@@ -485,7 +909,49 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "LLUITA pot combinar palatalització inicial i vocalització del grup -ct-; confirmar els estadis romànics i les vocals.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "l",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "editorialReason": "Palatalització candidata de l- inicial.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "VOC",
+            "fragment": "c",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Vocalització candidata de la velar en -ct-; revisar la fase intermitja.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 20,
@@ -510,7 +976,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "MILLOR és un comparatiu amb resultat palatal de -li-; els detalls de l'evolució del grup i la tònica estan pendents.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "li",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Palatalització candidata del grup -li-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 21,
@@ -535,7 +1029,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "OVELLA exigeix la base diminutiva OVICULA, síncope i palatalització del grup que resulta de la síncope.",
+        "unresolvedHistoricalIssue": "fase_vulgar_cl_pendent",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "ŭ",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "editorialReason": "Síncope candidata de la vocal breu posttònica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "PALAT",
+            "fragment": "cŭl",
+            "spans": [
+              [
+                3,
+                6
+              ]
+            ],
+            "editorialReason": "Referència al segment llatí que donarà -cl- després de síncope i posterior ll-; NO és un grup contigu original.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 22,
@@ -560,7 +1097,46 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "ESTIL té pròtesi davant st- i pèrdua de vocal final, però cal revisar estrat culte/patrimonial abans de certificar un exercici.",
+        "unresolvedHistoricalIssue": "estrat_de_transmissio",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PROT",
+            "fragment": "",
+            "anchor": 0,
+            "spans": [],
+            "editorialReason": "Pròtesi de e- davant d'un grup inicial amb s-, ancorada abans del primer grafema.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "APOC",
+            "fragment": "u",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "editorialReason": "Apòcope candidata de la vocal final -u- després de -m fixa.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 23,
@@ -585,7 +1161,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "PÈL: verificar el valor quantitatiu del llatí PILUM/PĬLUM, la distinció d'homònims i l'obertura de la vocal abans de declarar una llei.",
+        "unresolvedHistoricalIssue": "quantitat_vocalica_i_homonimia",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 24,
@@ -610,7 +1200,49 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "PODAR té l'accepció d'esporgar: possibles obertura de ŭ i sonorització de t intervocàlica. Altres sentits de PUTARE no són equivalents.",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "u",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ŭ a o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SONOR",
+            "fragment": "t",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Sonorització candidata de -t- a -d-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 25,
@@ -635,7 +1267,49 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "PARAULA demana síncope i vocalització de la consonant bilabial en una seqüència que cal reconstruir abans de valorar-la.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "o",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "editorialReason": "Hipòtesi de pèrdua de la vocal posttònica -o-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "VOC",
+            "fragment": "b",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "editorialReason": "Hipòtesi de debilitament i vocalització de la consonant intervocàlica -b-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 26,
@@ -660,7 +1334,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "ARTELL: de ARTICULUM a una etapa amb -cl- i després -ll-, amb síncope i modificació de la vocal tònica pendents.",
+        "unresolvedHistoricalIssue": "base_intermedia_cl_pendent",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "u",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "editorialReason": "Hipòtesi de síncope de la vocal posttònica de -cul-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "PALAT",
+            "fragment": "cul",
+            "spans": [
+              [
+                4,
+                7
+              ]
+            ],
+            "editorialReason": "Segment que conté la futura seqüència -cl-; no representa un grup contigu original.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 27,
@@ -685,7 +1402,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "COS és resultat d'una reestructuració forta del grup -rp-; no assignar simplificació, síncope o assimilació a cegues.",
+        "unresolvedHistoricalIssue": "cadena_consonantica_complexa",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 28,
@@ -710,7 +1441,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "DONA: comprovar la síncope posttònica, la reducció del grup resultant -mn- i la vocal tònica.",
+        "unresolvedHistoricalIssue": "reduccio_mn_pendent",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "ĭ",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Síncope candidata de la vocal posttònica de DOMINA.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 29,
@@ -735,7 +1495,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "FORCA: l'obertura de ŭ en o és un canvi escolar plausible; comprovar quantitat, tonicitat i ús abans de certificar.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "u",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ŭ tònica cap a o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 30,
@@ -760,7 +1548,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "MADEIXA requereix sonorització de t i explicar la seqüència /ʃ/ escrita x, així com l'origen del diftong ei.",
+        "unresolvedHistoricalIssue": "tractament_x_i_diftong",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SONOR",
+            "fragment": "t",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Sonorització candidata de t intervocàlica en d.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 31,
@@ -785,7 +1602,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "MULLER: possible palatalització de -li- davant vocal i reestructuració del vocalisme, sense traslladar regles castellanes.",
+        "usageNote": "Comprovar accepció 'esposa' i registre d'ús.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "li",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Palatalització candidata de -li- en lateral palatal.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 32,
@@ -810,7 +1656,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "NEGRA és el femení de NEGRE: comprovar obertura de ĭ tònica i diferenciar la grafia llatina NIGRAM.",
+        "unresolvedHistoricalIssue": "quantitat_vocalica",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "i",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ĭ tònica en e.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 33,
@@ -835,7 +1710,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "PUIG requereix precisar el canvi de la seqüència -diu- i del vocalisme tònica; no atribuir palatalització a un fragment sense etapa avalada.",
+        "unresolvedHistoricalIssue": "evolucio_di_u_complexa",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 34,
@@ -860,7 +1749,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "POBLE: síncope posttònica, sonorització de p interna i recomposició del grup consonàntic; confirmar ordre i vocal final.",
+        "unresolvedHistoricalIssue": "grup_pl_bl_pendent",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "ŭ",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Síncope candidata de la vocal posttònica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SONOR",
+            "fragment": "p",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Sonorització candidata de la segona -p- a -b-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 35,
@@ -885,7 +1817,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "PREU: la seqüència -ti- i el resultat final -eu requereixen una cadena medieval; no assimilar-ho automàticament a una VOCALITZACIÓ simple.",
+        "unresolvedHistoricalIssue": "desenvolupament_ti_complex",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 36,
@@ -910,7 +1856,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "SENYOR conserva una possible palatalització de -ni-, però exigeix documentar vocalisme i terminació.",
+        "unresolvedHistoricalIssue": "cadena_i_vocalisme",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "ni",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Palatalització candidata de -ni- davant vocal.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 37,
@@ -935,7 +1910,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "SENYA presenta grup palatal -gn- > -ny- i vocalisme pendent; no confondre amb SENY, d'etimologia distinta.",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PALAT",
+            "fragment": "gn",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Palatalització candidata del grup -gn- cap a -ny-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 38,
@@ -960,7 +1963,60 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "ESPILL combina pròtesi inicial, síncope de ŭ i palatalització posterior del grup -cl-; l'obertura/ tancament de la vocal exigeix contrast.",
+        "unresolvedHistoricalIssue": "vocalisme_i_fase_cl",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PROT",
+            "fragment": "",
+            "anchor": 0,
+            "spans": [],
+            "editorialReason": "Pròtesi de e- davant d'un grup inicial amb s-, ancorada abans del primer grafema.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SINC",
+            "fragment": "ŭ",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "editorialReason": "Síncope candidata de ŭ posttònica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft3",
+            "rule": "PALAT",
+            "fragment": "cŭl",
+            "spans": [
+              [
+                3,
+                6
+              ]
+            ],
+            "editorialReason": "Segment amb la vocal que desapareix abans de formar-se -cl-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 39,
@@ -985,7 +2041,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "TEA: la monoftongació de æ és un canvi candidat, però la desaparició de -d- i les variants teia/tea necessiten cadena documentada.",
+        "unresolvedHistoricalIssue": "variants_teia_tea",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "MONOP",
+            "fragment": "æ",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Monoftongació candidata de æ > e.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 40,
@@ -1010,7 +2095,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "TEIXIR: es necessita explicar el pas de -x- a la grafia -ix- i el reajustament verbal; no marcar com a llei de grafies gregues.",
+        "unresolvedHistoricalIssue": "cadena_x_i_morfologia_verbal",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 41,
@@ -1035,7 +2134,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "PEGAR (amb pega): obertura de i i sonorització de c intervocàlica; no confondre amb PEGAR 'colpejar'.",
+        "unresolvedHistoricalIssue": "homonimia_semantica",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "i",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ĭ tònica en e.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SONOR",
+            "fragment": "c",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Sonorització candidata de c intervocàlica en g.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 42,
@@ -1060,7 +2202,49 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "TOS: obertura de ŭ, reducció de -ss- i pèrdua de vocal de la terminació; comprovar ordre abans de certificar.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "u",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ŭ en o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SIMPL",
+            "fragment": "ss",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Simplificació candidata de la geminada -ss-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 43,
@@ -1085,7 +2269,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "VERD: possible síncope de la i posttònica, canvi del vocalisme inicial i apòcope final; la u inicial és consonàntica, no vocalització avaluada.",
+        "unresolvedHistoricalIssue": "vocalisme_verd",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "i",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Pèrdua candidata de la segona i (posttònica).",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 44,
@@ -1110,7 +2323,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "TEMPTAR: la pèrdua final de -e és un candidat d'apòcope; examinar l'estrat i la forma TENTARE abans de certificar.",
+        "unresolvedHistoricalIssue": "variant_tentare_tempare",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "APOC",
+            "fragment": "e",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Apòcope candidata de la -e final de l'infinitiu.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 45,
@@ -1135,7 +2377,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "HEURA: la -d- intervocàlica pot relacionar-se amb la semivocal u, però la seqüència HEDERA > HEURA no es declara completa.",
+        "unresolvedHistoricalIssue": "cadena_intervocalica",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "VOC",
+            "fragment": "d",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Hipòtesi de vocalització de -d- intervocàlica; precisar els estadis.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 46,
@@ -1160,7 +2431,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "NOSTRE conserva el grup str, però el resultat -re < -ru necessita justificar el vocalisme final; no afegir obertura sense prova.",
+        "unresolvedHistoricalIssue": "vocalisme_final",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 47,
@@ -1185,7 +2470,60 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "ESTRET combina pròtesi davant str-, obertura de i i reducció del grup -ct-; documentar les fases intermedies.",
+        "unresolvedHistoricalIssue": "grup_ct",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "PROT",
+            "fragment": "",
+            "anchor": 0,
+            "spans": [],
+            "editorialReason": "Pròtesi de e- davant d'un grup inicial amb s-, ancorada abans del primer grafema.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "ABER",
+            "fragment": "i",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ĭ tònica a e.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft3",
+            "rule": "SIMPL",
+            "fragment": "ct",
+            "spans": [
+              [
+                4,
+                6
+              ]
+            ],
+            "editorialReason": "Simplificació candidata del grup -ct- en -t- (sense confondre amb VOC automàtica).",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 48,
@@ -1210,7 +2548,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "JOVENTUT: el canvi inicial i/u consonàntic es distingeix d'una llei seleccionable; apòcope d'e final en -tem i vocalisme pendents.",
+        "unresolvedHistoricalIssue": "vocalisme_i_inicial",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "APOC",
+            "fragment": "e",
+            "spans": [
+              [
+                8,
+                9
+              ]
+            ],
+            "editorialReason": "Apòcope candidata de la e final del tema -tem.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 49,
@@ -1235,7 +2602,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "ULLS: s'ha de justificar el desenvolupament de la base ŎCLU, el canvi a LL i la flexió plural; evitar donar per certificats els passos del singular.",
+        "unresolvedHistoricalIssue": "base_vulgar_i_plural",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "ŭ",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Síncope candidata de la vocal posttònica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "PALAT",
+            "fragment": "cŭl",
+            "spans": [
+              [
+                1,
+                4
+              ]
+            ],
+            "editorialReason": "Segment que donarà -cl- després de síncope, abans de ll.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 50,
@@ -1260,7 +2670,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "PERILL: síncope de ŭ i palatalització de la seqüència resultant -cl-; la vocal pretònica/final requereix contrast.",
+        "unresolvedHistoricalIssue": "base_cl",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "ŭ",
+            "spans": [
+              [
+                5,
+                6
+              ]
+            ],
+            "editorialReason": "Síncope candidata de ŭ posttònica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "PALAT",
+            "fragment": "cŭl",
+            "spans": [
+              [
+                4,
+                7
+              ]
+            ],
+            "editorialReason": "Segment amb la vocal que desapareix abans de formar-se -cl-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 51,
@@ -1285,7 +2738,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "GOSAR: de AUSARE vulgar es proposa monoftongació au>o, però la g- inicial exigeix explicació històrica específica.",
+        "unresolvedHistoricalIssue": "g_inicial",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "MONOP",
+            "fragment": "au",
+            "spans": [
+              [
+                0,
+                2
+              ]
+            ],
+            "editorialReason": "Monoftongació candidata de au en o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 52,
@@ -1310,7 +2792,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "POSAR: candidat de monoftongació au > o i pèrdua de -e infinitival; cal comprovar la distinció respecte a l'homònim semàntic.",
+        "unresolvedHistoricalIssue": "homonimia",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "MONOP",
+            "fragment": "au",
+            "spans": [
+              [
+                1,
+                3
+              ]
+            ],
+            "editorialReason": "Monoftongació candidata de au en o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "APOC",
+            "fragment": "e",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "editorialReason": "Apòcope candidata de -e final de l'infinitiu.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 53,
@@ -1335,7 +2860,49 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "MOSTRAR: pèrdua de -n- en el grup -ns- i apòcope -e final, amb verificació de seqüència requerida.",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SIMPL",
+            "fragment": "ns",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Simplificació candidata del grup -ns- per caiguda de n.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "APOC",
+            "fragment": "e",
+            "spans": [
+              [
+                8,
+                9
+              ]
+            ],
+            "editorialReason": "Apòcope candidata de -e final de l'infinitiu.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 54,
@@ -1360,7 +2927,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "SEMBRAR: síncope de i i aparició de b en el grup nasal-consonàntic, que requereix reconstrucció intermèdia documentada.",
+        "unresolvedHistoricalIssue": "epentesi_b_i_restructuracio",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SINC",
+            "fragment": "i",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Síncope candidata de la vocal interior -i-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 55,
@@ -1385,7 +2981,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "MESTRA exigeix justificar els canvis de vocalisme, consonant velar i síl·laba interior de MAGISTRA; no reduir-ho a una simple síncope.",
+        "unresolvedHistoricalIssue": "cadena_magistr",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 56,
@@ -1410,7 +3020,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "MESTRE exigeix explicar la cadena de MAGISTRUM, diferent de la flexió femenina; revisar etapa vulgar i vocal final.",
+        "unresolvedHistoricalIssue": "cadena_magistr",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 57,
@@ -1435,7 +3059,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "SOU (moneda) deriva de SOLIDUM amb canvis forts de consonant i vocal; sense testimonis intermedis no marcar VOC d ni síncope automàtica.",
+        "unresolvedHistoricalIssue": "cadena_solidu_sou",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 58,
@@ -1460,7 +3098,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "ANGOST: obertura de ŭ i pèrdua de la vocal final del nom/adjectiu; confirmar distribució dialectal.",
+        "usageNote": "Consultar distribució valenciana i ús de la forma angost.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "u",
+            "spans": [
+              [
+                3,
+                4
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ŭ tònica en o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "APOC",
+            "fragment": "u",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "editorialReason": "Apòcope candidata de la vocal final -u-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 59,
@@ -1485,7 +3166,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "BEURE: obertura de ĭ tònica i possible vocalització de -b- intervocàlica; reconstrucció de la fase amb semivocal encara pendent.",
+        "unresolvedHistoricalIssue": "fase_amb_semivocal",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "i",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ĭ tònica en e.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "VOC",
+            "fragment": "b",
+            "spans": [
+              [
+                2,
+                3
+              ]
+            ],
+            "editorialReason": "Vocalització candidata de la segona b intervocàlica.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 60,
@@ -1510,7 +3234,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "COMETRE: la reducció de les geminades llatines -mm- i -tt- ha de comprovar-se per separat; no inventar síncope no acreditada.",
+        "unresolvedHistoricalIssue": "estrat_verbal",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "SIMPL",
+            "fragment": "mm",
+            "spans": [
+              [
+                2,
+                4
+              ]
+            ],
+            "editorialReason": "Reducció candidata de geminada -mm-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SIMPL",
+            "fragment": "tt",
+            "spans": [
+              [
+                5,
+                7
+              ]
+            ],
+            "editorialReason": "Reducció candidata de geminada -tt-.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 61,
@@ -1535,7 +3302,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "CONTINDRE és variant valenciana de CONTENIR; cal reconstruir -n(d)r- i distingir evolució històrica de flexió dialectal.",
+        "unresolvedHistoricalIssue": "variant_valenciana_contindre",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 62,
@@ -1560,7 +3341,50 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "CORROMPRE: obertura de ŭ, síncope de la vocal interna posttònica i reestructuració del grup; verificar tonicitat.",
+        "unresolvedHistoricalIssue": "ordre_sincope",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "u",
+            "spans": [
+              [
+                4,
+                5
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ŭ tònica en o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SINC",
+            "fragment": "e",
+            "spans": [
+              [
+                7,
+                8
+              ]
+            ],
+            "editorialReason": "Síncope candidata de la primera e de -pere.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 63,
@@ -1585,7 +3409,36 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "COMÍ: obertura inicial de u i reestructuració de la terminació llatina; manquen etapes històriques individualitzades.",
+        "unresolvedHistoricalIssue": "cadena_cuminum_comi",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "u",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de la primera u en o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 64,
@@ -1610,7 +3463,35 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "CÓRRER: obertura de ŭ tònica en o, conservació de rr; la r final no és un cas de llei addicional.",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "u",
+            "spans": [
+              [
+                1,
+                2
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ŭ tònica en o.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 65,
@@ -1635,7 +3516,63 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "hipotesis_segmentades_no_certificades",
+        "editorialAssessment": "EMPERADOR: obertura de i inicial, sonorització intervocàlica de t i pèrdua de vocal final; confirmar l'ordre i accepció.",
+        "fixedFinalM": "pèrdua_fixa_no_seleccionable",
+        "proposedChanges": [
+          {
+            "id": "draft1",
+            "rule": "ABER",
+            "fragment": "i",
+            "spans": [
+              [
+                0,
+                1
+              ]
+            ],
+            "editorialReason": "Obertura candidata de ĭ pretònica en e.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft2",
+            "rule": "SONOR",
+            "fragment": "t",
+            "spans": [
+              [
+                6,
+                7
+              ]
+            ],
+            "editorialReason": "Sonorització candidata de t intervocàlica a d.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          },
+          {
+            "id": "draft3",
+            "rule": "APOC",
+            "fragment": "e",
+            "spans": [
+              [
+                9,
+                10
+              ]
+            ],
+            "editorialReason": "Apòcope candidata de la e de -orem.",
+            "segmentVerified": true,
+            "ruleHistoricallyCertified": false
+          }
+        ],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     },
     {
       "order": 66,
@@ -1660,7 +3597,21 @@
         "Confirmar la cadena patrimonial o base vulgar",
         "Verificar cadascuna de les 17 lleis possibles i els segments exactes",
         "Validació docent final"
-      ]
+      ],
+      "review": {
+        "status": "cadena_historica_o_normativa_pendent",
+        "editorialAssessment": "BÉ: la reducció de BENE inclou caiguda de la nasal i ajust prosòdic; cap de les 17 lleis s'imputa sense evidència d'una cadena concreta.",
+        "unresolvedHistoricalIssue": "reduccio_bene_be",
+        "fixedFinalM": "no_correspon",
+        "proposedChanges": [],
+        "editorialReviewCompleted": true,
+        "exactCodepointSpansChecked": true,
+        "dnvIndividualChecked": false,
+        "documentedHistoricalChain": false,
+        "phoneticLawsIndividuallyVerified": false,
+        "approvedByTeacher": false,
+        "playable": false
+      }
     }
   ]
 }
