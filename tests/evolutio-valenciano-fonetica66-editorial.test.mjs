@@ -31,7 +31,7 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   currentDnvIndividualChecks:0,publishedEvidenceButNotFullCertification:9,
   uoc2009AdditionalPhoneticPairs:7,gecAdditionalPhoneticPairs:3,
   rodamotsAdditionalPhoneticPairs:1,newPartialHistoricalEvidenceEntries:11,
-  totalEntriesWithIndependentSpecificEvidence:20,
+  totalEntriesWithIndependentSpecificEvidence:25,
   morphologicalFalseSyncopeCautions:5,dnvSearchInterfaceAssessed:true,
   dnvSearchResultsIndividuallyRecovered:0,
   dnvAccessDossier:'acces-dnv-electronic-2026-11-17.json',
