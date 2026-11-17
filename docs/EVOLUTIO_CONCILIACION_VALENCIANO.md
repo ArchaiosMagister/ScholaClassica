@@ -1,5 +1,40 @@
 # Evolutio valenciano — conciliación académica (actualización 17/11/2026) · sexta tanda e inventario completo
 
+## Cierre editorial de las 19 cadenas complejas y clasificación de 27 reservas (17/11/2026)
+
+La consulta directa de las **19 entradas adicionales del DCVB** está registrada, una por una, en `contrastos-historics-dcvb-complexos19-2026-11-17.json`, relacionada con la cola de 66. En **18 de las 19** la entrada del diccionario formula explícitamente el étimo; la de **`credere → creure`** documenta formas flexivas medievales y pronunciación valenciana, **pero no presenta una línea etimológica explícita** en el artículo consultado. Las formas conjugadas citadas no acreditan una derivación fonética completa del infinitivo.
+
+**Comprobación especialmente útil de la reserva sobre `pilum → pèl`:** el DCVB sí precisa el étimo latino **PĬLU**, con *i* breve. El banco mantiene `pilum` y su identificador original; cualquier anotación de cantidad en el enunciado debe revisarse separadamente. El mismo resultado de búsqueda contiene el homógrafo `pel` (contracción de *per* + *el*), ajeno a la ficha.
+
+Los testimonios documentados se han clasificado sin convertirlos en leyes:
+
+- `tonare → tronar`: la `r` se explica por analogía con **tro**; la metátesis citada por el DCVB corresponde a la historia de **tro**, **no** al verbo `tonare`.
+- `thesaurum → tresor`: antiguas `tesor`, `tesaur` y `tresaur`; no se fija por ello el orden de una cadena de metátesis y monoptongación.
+- `insŭlam → illa`: antiguas `ila`, `yla`, `ylla` y `hila`. La variante moderna `isla` que recoge el DCVB se relaciona con influencia castellana, no es un eslabón etimológico patrimonial.
+- `magistram → mestra` y `magistrum → mestre`: se documentan `maestra` y `maestre`; las formas antiguas `masestre`/`mesestre` del segundo son señaladas como posibles ultracorrecciones, no fases históricas obligadas.
+- `sŏlĭdum → sou` presenta `sol` antiguo; `cŏrpus → cos` presenta `cors` antiguo; `bene → bé` mantiene `ben` proclítico con nasal. Son testimonios históricos de formas, **no certificaciones de los segmentos escolares**.
+- `compărāre → comprar`: el étimo dado por el DCVB es la variante vulgar `compĕrāre`, por lo que la forma latina usada para señalar una eventual síncope necesita una decisión filológica previa.
+- `continere → contindre`: el artículo se titula `contenir`, pero registra la pronunciación valenciana correspondiente a `contindre`; queda por verificar su estatus normativo y la distinción entre variante verbal y cambio fonético seleccionable.
+- `podium → puig`: el artículo indica la evolución semántica de *pedestal/soporte* a *elevación del terreno*, que no debe contarse como ley fonética.
+
+**Resultado:** hay ahora **66/66 fichas con contraste lexicográfico individual registrado**: 47 con 72 propuestas de ley/segmento **no certificadas**, y 19 con cadena compleja o sin ley escolar segura, **también sin certificar**. En las 19 complejas **no se ha añadido ninguna norma seleccionable**. No se atribuye falsa validación al DNV ni a las cadenas históricas.
+
+### Priorización independiente de las 27 advertencias
+
+La segunda revisión de las 47 candidaturas se conserva en `triage-27-advertencies-2026-11-17.json`, enlazada con los dos informes de 16 y 31 entradas. Clasificación **editorial, no normativa**:
+
+| Motivo prioritario | Casos | Tratamiento pendiente |
+|---|---:|---|
+| Homonimia o acepción etimológica | 6 | Fijar la acepción correspondiente al étimo |
+| Vigencia, pronunciación o variante valenciana | 4 | Contrastar con el **DNV** y el uso docente |
+| Etimología de base, analogía o estrato léxico | 5 | Asegurar el étimo pertinente y distinguir préstamos/cultismos |
+| Cadena de cambios incompleta o variantes históricas insuficientes | 12 | Justificar pasos fonológicos y fragmentos latinos |
+| **Total** | **27** | **Sin promocionar fichas todavía** |
+
+Las otras 20 candidaturas no llevan esta advertencia especial, pero **tampoco se han certificado**. Se conservan las 522 fichas, todos sus identificadores, las decisiones docentes anteriores y la práctica existente en castellano. `DNV individual = 0`, `leyes fonéticas valencianas certificadas = 0`, `fichas habilitadas en valenciano = 0`. La PR sigue sin fusión ni despliegue.
+
+La fase siguiente exige contraste normativo del **Diccionari Normatiu Valencià (AVL)** y fuentes de fonética histórica individual suficientemente explícitas para las reglas y los segmentos, seguido de aprobación docente caso por caso. **La etimología del DCVB por sí sola no supera estos requisitos.**
+
 ## Contraste individual de las 47 candidaturas con leyes editoriales (17/11/2026)
 
 Se han consultado las **47 entradas léxicas individualmente** para las que el expediente fonético contiene hipótesis de leyes (16 en el primer bloque, 31 en el segundo). Los informes son `contrastos-historics-dcvb-16-2026-11-17.json` y `contrastos-historics-dcvb-restants31-2026-11-17.json`. En conjunto: **46 referencias al DCVB** y **1 al GDLC** (comí). Todas están enlazadas por étimo y forma en `cola-fonetica-66-2026-11-17.json`.
