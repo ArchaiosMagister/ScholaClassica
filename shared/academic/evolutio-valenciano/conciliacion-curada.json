@@ -1,7 +1,7 @@
 {
   "schema": "schola-evolutio-va-curation/v1",
   "date": "2026-11-17",
-  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.\nQuarta tanda: 18 étims prioritaris, 14 lexemes amb etimologia DCVB documentada i 4 reserves per base vulgar o homonímia/cadena; s'exclou qualsevol activació sense DNV.",
+  "note": "Las entradas documentadas tienen respaldo lexicográfico y etimológico en DCVB, NO tienen aún leyes valencianas verificadas. Las propuestas son hipótesis editoriales SIN contraste individual y NO son jugables.\nActualització 16/11: sis etimologies DCVB incorporades amb reserva de verificació normativa; octo, dictum, sigĭllum apartats del resultat valencià fins a nova ordre.\nRevisió lèxica de 24 candidats: 18 etimologies contrastades en DCVB; sis retinguts per cultisme, homonímia, base vulgar o font normativa/etimològica insuficient. Cap aprovació per a practicar.\nTercera tanda 17/11: 16 correspondències etimològiques documentades (DCVB), 3 casos reservats per preferència febra/febre, cultisme fibra i cadena nigru > negre. Cap llei aprovada per a pràctica.\nQuarta tanda: 18 étims prioritaris, 14 lexemes amb etimologia DCVB documentada i 4 reserves per base vulgar o homonímia/cadena; s'exclou qualsevol activació sense DNV.\nCinquena tanda (17/11): 12 correspondències etimològiques DCVB amb anàlisi independent i 9 casos reservats per préstec, ús literari, ètim divergent, variació o cadena complexa. No s'atribueix verificació DNV ni jugabilitat.",
   "source": "Diccionari català-valencià-balear (Alcover-Moll), https://dcvb.iec.cat/",
   "documented": [
     {
@@ -883,6 +883,138 @@
         "scope": "lema_i_etimologia"
       },
       "notes": "Adjectiu CALENT, del llatí calĕnte. La grafia final -t resta en valencià; no confondre amb participis cultes."
+    },
+    {
+      "latin": "latrare",
+      "form": "lladrar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lladrar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Verb 'bordar' (crit del gos), de latrare. El DCVB ofereix també un homònim lladrar 'robar' derivat de lladre; no confondre els significats."
+    },
+    {
+      "latin": "ligare",
+      "form": "lligar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lligar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Verb 'lligar amb corda', de lĭgāre; els exemples antics també presenten ligar, i el DCVB documenta la pronúncia valenciana amb -r final."
+    },
+    {
+      "latin": "pugnum",
+      "form": "puny",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puny",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Puny 'mà closa', del llatí pŭgnu. No confondre amb derivats ni amb una evolució de lleis castellanes."
+    },
+    {
+      "latin": "saporem",
+      "form": "sabor",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sabor",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Sabor 'qualitat percebuda pel gust', del llatí sapōre; manté -r final en la pronúncia valenciana, no l'homònim toponímic d'origen oriental."
+    },
+    {
+      "latin": "stagnum",
+      "form": "estany",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estany",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Estany 'massa d'aigua estancada', del llatí stagnu. Estany 'metall' ve de stannu i no forma part d'aquesta equivalència."
+    },
+    {
+      "latin": "nominare",
+      "form": "nomenar",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nomenar",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Nomenar 'designar per a un càrrec' o 'donar nom', del llatí nomĭnāre. El DCVB explica que en la llengua literària moderna anomenar predomina en els altres sentits."
+    },
+    {
+      "latin": "siccum",
+      "form": "sec",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sec",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "SEC adjectiu 'sense humitat', del llatí sĭccu; no confondre amb l'homònim séc 'solc, marca' derivat de segar."
+    },
+    {
+      "latin": "sŏmnum",
+      "form": "son",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=son",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "SON 'acte de dormir' o 'ganes de dormir', del llatí sŏmnu; diferenciar del possessiu son (< sŭum) i dels topònims."
+    },
+    {
+      "latin": "sagitta",
+      "form": "sageta",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sageta",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "Sageta 'fletxa', del llatí sagĭtta. El DCVB documenta ús valencià i la variant satgeta; l'ètim no acaba en -m."
+    },
+    {
+      "latin": "pullum",
+      "form": "poll",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poll",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "POLL 'pollet, cria d'ocell', del llatí pŭllu. Homògrafs: poll 'poll de cap' < pedŭcŭlu i poll 'àlber' < pōpŭlu; exigir el sentit precís."
+    },
+    {
+      "latin": "grunnire",
+      "form": "grunyir",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=grunyir",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "GRUNYIR 'fer crits el porc' del llatí grunnire; el DCVB documenta pronúncia valenciana grunyir amb -r."
+    },
+    {
+      "latin": "peccatum",
+      "form": "pecat",
+      "lexicalStatus": "documentat",
+      "reference": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pecat",
+        "scope": "lema_i_etimologia"
+      },
+      "notes": "PECAT 'falta moral/religiosa', del llatí peccātum; no el topònim homònim. La forma antiga amb -cc- està documentada."
     }
   ],
   "proposals": [
@@ -1132,13 +1264,6 @@
       "notes": null
     },
     {
-      "latin": "latrare",
-      "form": "lladrar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "latronem",
       "form": "lladre",
       "lexicalStatus": "proposta",
@@ -1155,13 +1280,6 @@
     {
       "latin": "legere",
       "form": "llegir",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "ligare",
-      "form": "lligar",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1216,29 +1334,8 @@
       "notes": null
     },
     {
-      "latin": "nominare",
-      "form": "nomenar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "saporem",
-      "form": "sabor",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "senatum",
       "form": "senat",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "sŏmnum",
-      "form": "son",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1274,13 +1371,6 @@
     {
       "latin": "putare",
       "form": "podar",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "siccum",
-      "form": "sec",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1384,13 +1474,6 @@
       "notes": null
     },
     {
-      "latin": "grunnire",
-      "form": "grunyir",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "martium",
       "form": "març",
       "lexicalStatus": "proposta",
@@ -1468,29 +1551,8 @@
       "notes": null
     },
     {
-      "latin": "pugnum",
-      "form": "puny",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "pullum",
-      "form": "poll",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
       "latin": "regŭlam",
       "form": "regla",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "sagitta",
-      "form": "sageta",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1540,13 +1602,6 @@
     {
       "latin": "stabĭlem",
       "form": "estable",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "stagnum",
-      "form": "estany",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
@@ -1687,13 +1742,6 @@
     {
       "latin": "strictum",
       "form": "estret",
-      "lexicalStatus": "proposta",
-      "reference": null,
-      "notes": null
-    },
-    {
-      "latin": "peccatum",
-      "form": "pecat",
       "lexicalStatus": "proposta",
       "reference": null,
       "notes": null
