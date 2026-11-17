@@ -34,7 +34,10 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   totalEntriesWithIndependentSpecificEvidence:20,
   morphologicalFalseSyncopeCautions:5,dnvSearchInterfaceAssessed:true,
   dnvSearchResultsIndividuallyRecovered:0,
-  dnvAccessDossier:'acces-dnv-electronic-2026-11-17.json'
+  dnvAccessDossier:'acces-dnv-electronic-2026-11-17.json',
+  iecDIEC2DirectlyExplainedRuleCandidates:1,
+  iecHistoricalIndividualMedievalAttestations:1,sourcePrecisionFiveReviewed:5,
+  sourcePrecisionEntriesStillMissingDnv:5,schoolLawsCertifiedThroughSourcePrecision:0
  });
  assert.equal(queue.entries.length,66);
  assert.equal(new Set(queue.entries.map(x=>x.latin)).size,66);
@@ -83,6 +86,14 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
    assert.equal(caution.status,'cal_distingir_sincope_i_variant_sufixal');
    assert.equal(caution.doesNotOverrideExistingRules,true);
    assert.equal(caution.schoolLawCertified,false);
+  }
+  const sourced=x.review.specificLawSourceVerification;
+  if(sourced){
+   assert.equal(sourced.dossier,'contrast-precis-fonetica-diec2-iec5-2026-11-17.json');
+   assert.equal(sourced.sourceReviewCompleted,true);
+   for(const key of ['currentDnvIndividualChecked','fullHistoricalChainCertified',
+    'schoolLawsIndividuallyCertified','teacherApproved','playable'])
+     assert.equal(sourced[key],false,x.latin+'/'+key);
   }
   const changes=x.review.proposedChanges;
   assert.ok(Array.isArray(changes),x.latin);
