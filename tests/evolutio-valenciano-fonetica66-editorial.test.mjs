@@ -19,7 +19,9 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
   itemsWithComplexOrUnassignedChain:19,certifiedPhoneticLaws:0,
   fullyDocumentedHistoricalChains:0,pendingDnv:66,
   pendingHistoricalChain:66,pendingLawsAndSpans:66,
-  pendingTeacherApproval:66,playable:0
+  pendingTeacherApproval:66,playable:0,
+  lexicographicEntriesIndividuallyRead:47,lexicographicSourcesDCVB:46,
+  lexicographicSourcesGDLC:1,candidateWordsPendingIndividualLexicographicRead:0
  });
  assert.equal(queue.entries.length,66);
  assert.equal(new Set(queue.entries.map(x=>x.latin)).size,66);
@@ -45,7 +47,20 @@ test('66 revisions fonètiques individualitzades, amb segments Unicode exactes i
    assert.equal(x.review[flag],false,x.latin+': '+flag);
   const changes=x.review.proposedChanges;
   assert.ok(Array.isArray(changes),x.latin);
-  if(changes.length)withChanges++;else withoutChanges++;
+  if(changes.length){
+   withChanges++;
+   const audit=x.review.lexicographicEvidenceReview;
+   assert.equal(audit.individuallyRead,true,x.latin);
+   assert.ok(['DCVB','Gran Diccionari de la Llengua Catalana'].includes(audit.sourceAuthority),x.latin);
+   assert.ok(['contrastos-historics-dcvb-16-2026-11-17.json',
+    'contrastos-historics-dcvb-restants31-2026-11-17.json'].includes(audit.dossier));
+   assert.equal(audit.dnvIndividualChecked,false);
+   assert.equal(audit.lawsHistoricallyCertified,false);
+   assert.equal(audit.fullHistoricalChainCertified,false);
+  }else{
+   withoutChanges++;
+   assert.equal(x.review.lexicographicEvidenceReview,undefined,x.latin);
+  }
   assert.equal(x.review.status,
    changes.length?'hipotesis_segmentades_no_certificades':
    x.latin==='bŏnam'?'sense_llei_seleccionable_identificada':
