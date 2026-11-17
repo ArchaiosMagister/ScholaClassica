@@ -41,7 +41,7 @@ Se han contrastado **21** candidatos con el [Diccionari català-valencià-balear
 | `sŏmnum` | son | SIMPLIFICACIÓ, APÒCOPE | Sustantivo 'sueño', no posesivo *son* de `suum` |
 | `sagitta` | sageta | OBERTURA, SIMPLIFICACIÓ | Forma latina en -a: **no** lleva regla fija -m |
 | `pullum` | poll | OBERTURA, PALATALITZACIÓ, APÒCOPE | 'Pollito' de `pullu`, no 'piojo' de `peduculu` ni árbol de `populu` |
-| `grunnire` | grunyir | PALATALITZACIÓ, APÒCOPE | Lateral? No: **nasal -nn- > -ny-**; se conserva -r |
+| `grunnire` | grunyir | PALATALITZACIÓ, APÒCOPE | **Nasal -nn- > -ny-**, no lateral; se conserva -r |
 | `peccatum` | pecat | SIMPLIFICACIÓ, APÒCOPE | `-cc-` → `-c-`, -u y -m desaparecen |
 
 **Las nueve reservas de esta tanda** continúan como `proposta` y sin normas ni práctica evaluable:
