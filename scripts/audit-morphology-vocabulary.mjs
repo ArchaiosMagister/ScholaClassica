@@ -143,7 +143,8 @@ export function auditPracticeCoverage(bank){
       const analysis=makeQuestions(single,{...base,activity:'analysis'}).length;
       const written=makeWrittenQuestions(single,base).length;
       const table=makeTableExercises(single,base).length;
-      return {id:r.id,unit:r.unit,kind:r.kind,form,analysis,written,table};
+      return {id:r.id,unit:r.unit,kind:r.kind,form,analysis,written,table,
+        recognitionOnly:r.evidence?.practiceScope==='recognition-only'};
     });
     result[course.morphology]={
       available:records.length,
@@ -157,9 +158,14 @@ export function auditPracticeCoverage(bank){
           written:added.filter(x=>x.written>0).length,
           table:added.filter(x=>x.table>0).length};
       }),
-      noForm:items.filter(x=>x.form===0).map(x=>({id:x.id,unit:x.unit,kind:x.kind})),
+      // Separar la prohibición docente de producción de un fallo real del motor.
+      recognitionOnly:items.filter(x=>x.recognitionOnly)
+        .map(x=>({id:x.id,unit:x.unit,kind:x.kind,analysis:x.analysis})),
+      noForm:items.filter(x=>x.form===0&&!x.recognitionOnly)
+        .map(x=>({id:x.id,unit:x.unit,kind:x.kind})),
       noAnalysis:items.filter(x=>x.analysis===0).map(x=>({id:x.id,unit:x.unit,kind:x.kind})),
-      noWritten:items.filter(x=>x.written===0).map(x=>({id:x.id,unit:x.unit,kind:x.kind})),
+      noWritten:items.filter(x=>x.written===0&&!x.recognitionOnly)
+        .map(x=>({id:x.id,unit:x.unit,kind:x.kind})),
       noTable:items.filter(x=>x.table===0).map(x=>({id:x.id,unit:x.unit,kind:x.kind}))
     };
   }

@@ -34,6 +34,7 @@ import {compileAthenae} from './nominal-athenae.mjs';
 import {compileCantus,compileLiber,compileDomus} from './nominal-latin-teacher.mjs';
 import {compileLatinCurricularFollowup} from './morphology-curricular-followup.mjs';
 import {compileCurricularGapBatch} from './morphology-curricular-gaps.mjs';
+import {compileLatin1EarlyAttested} from './morphology-latin1-early-attested.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
@@ -408,8 +409,13 @@ export async function buildMorphology({out,lock}){
     decisions});
   const domus=compileDomus({...sourceData,vocabulaSha:lock.sources.vocabula.sha,
     decisions});
+  // Mantener absolutamente todos los índices históricos: estas dos fichas
+  // se ANEXAN tras la última decisión nominal ya consolidada.
+  const earlyLatin1=compileLatin1EarlyAttested(curriculum);
+  assert.equal(earlyLatin1.length,2);
   const fullRecords=[...originalRecords,...latin2,...additions,...curricularGaps,
-    ...latinFollowup,...greekFollowup,...greekExigible,pais,athenae,cantus,liber,domus];
+    ...latinFollowup,...greekFollowup,...greekExigible,pais,athenae,cantus,liber,domus,
+    ...earlyLatin1];
   const finalBank={...data,vocabulaSha:lock.sources.vocabula.sha,
     coverage:{...data.coverage,latin4:[1,2,3,4,5,6,7,8],latin2:[0]},
     records:fullRecords};

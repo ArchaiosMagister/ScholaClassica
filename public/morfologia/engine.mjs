@@ -18,8 +18,25 @@ export function validateBank(bank){
           record.evidence?.numberScope==='plural'&&
           record.forms.length===5&&record.forms.every(f=>f.number==='plural')?5:
           ['griego-ud6-infinitivos-presentes','latin-ud5-reflexivo-sui']
-            .includes(record.id)?4:6)||
+            .includes(record.id)?4:
+          ['latin-ud1-infinitivos-presente-ejemplos','latin-ud2-locativos-ejemplos']
+            .includes(record.id)?5:6)||
        record.evidence?.status!=='paradigma-documentado')throw Error('Ficha sin documentación');
+    if(record.evidence?.practiceScope&&
+       (record.id!=='latin-ud2-locativos-ejemplos'||
+        record.evidence.practiceScope!=='recognition-only'))
+      throw Error('Alcance de ejercicios no documentado');
+    if(record.id==='latin-ud1-infinitivos-presente-ejemplos'&&
+       (record.language!=='latin'||record.unit!==1||record.kind!=='infinitivo'||
+        record.forms.length!==5||record.forms.some(x=>x.tense!=='presente'||
+          x.voice!=='activa')))
+      throw Error('Los infinitivos UD1 deben limitarse a cinco ejemplos activos');
+    if(record.id==='latin-ud2-locativos-ejemplos'&&
+       (record.language!=='latin'||record.unit!==2||record.kind!=='sustantivo'||
+        record.evidence.practiceScope!=='recognition-only'||
+        record.forms.length!==5||record.forms.some(x=>x.case!=='locativo'||
+          x.number!=='singular')))
+      throw Error('Locativo no productivo: solo reconocimiento de cinco ejemplos');
     if(ids.has(record.id))throw Error('Ficha repetida');ids.add(record.id);
     for(const f of record.forms)
       if(!fold(f.form)||!fold(f.analysis))throw Error('Forma sin análisis documentado');
@@ -256,6 +273,10 @@ export function makeQuestions(bank,{language,unit,activity='form',kind='todos',
   if(activity==='agreement')
     candidates.push(...agreementCandidates(bank,records,rng));
   for(const record of activity==='agreement'?[]:records){
+    // Los locativos de UD2 son testimonios aislados: reconocer, nunca
+    // producir formas por declinación ni fingir un paradigma regular.
+    if(record.evidence?.practiceScope==='recognition-only'&&
+       activity!=='analysis')continue;
     const grouped=groupedForms(record);
     if(activity==='form'){
       // Una misma casilla del Appendix puede documentar varias formas válidas

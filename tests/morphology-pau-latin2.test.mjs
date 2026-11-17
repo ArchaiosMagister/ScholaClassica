@@ -122,7 +122,8 @@ test('El registro nuevo no altera las 296 fichas latinas y griegas anteriores',(
     r.id.startsWith('latin2-pau-')||r.id.startsWith('latin2-cuaderno-')||
     r.id.startsWith('latin2-audit-')).length+curriculumAdditions.length+19+9+
     bank.records.filter(r=>r.id.startsWith('griego-sustantivo-decision-')||
-     r.id.startsWith('latin-sustantivo-decision-')).length);
+     r.id.startsWith('latin-sustantivo-decision-')).length+2,
+    'Dos fichas de ejemplos latinos se anexan después de todas las previas');
   assert.equal(bank.records.slice(0,220).filter(x=>x.language==='latin2').length,0);
   assert.equal(bank.records.slice(220,296).filter(x=>x.language==='latin2').length,76);
   assert.deepEqual(bank.coverage.latin2,[0]);
