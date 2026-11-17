@@ -13,14 +13,15 @@ const matrix=read('matriz-522.json');
 test('Revisió prioritària DCVB: fonts individualitzades i cap certificació simulada',()=>{
   assert.equal(review.schema,'schola-evolutio-va-dcvb-targeted-review/v1');
   assert.deepEqual(review.summary,{
-    reviewed:10,lexicalCorrespondencesSupported:9,reservedForLoanStratum:1,
+    reviewed:18,lexicalCorrespondencesSupported:16,reservedForLoanStratum:1,reservedForValencianForm:1,
     dnvIndividualChecked:0,rulesCertified:0,teacherApproved:0,playable:0,
     curationEntriesPromoted:0
   });
-  assert.equal(review.items.length,10);
-  assert.equal(new Set(review.items.map(x=>x.latin)).size,10);
-  assert.equal(review.items.filter(x=>x.reviewOutcome==='etimologia_i_acepcio_dcvb_contrastades').length,9);
+  assert.equal(review.items.length,18);
+  assert.equal(new Set(review.items.map(x=>x.latin)).size,18);
+  assert.equal(review.items.filter(x=>x.reviewOutcome==='etimologia_i_acepcio_dcvb_contrastades').length,16);
   assert.equal(review.items.filter(x=>x.reviewOutcome==='reserva_per_estrat_de_prestec').length,1);
+  assert.equal(review.items.filter(x=>x.reviewOutcome==='reserva_per_variant_valenciana').length,1);
   for(const item of review.items){
     assert.equal(item.source.authority,'DCVB');
     assert.match(item.source.url,/^https:\/\/dcvb\.iec\.cat\/results\.asp\?word=[^\s]+$/);
@@ -43,6 +44,9 @@ test('Revisió prioritària DCVB: fonts individualitzades i cap certificació si
   const membre=review.items.find(x=>x.latin==='membrum');
   assert.ok(membre.requiresLayerDecision);
   assert.equal(membre.reviewOutcome,'reserva_per_estrat_de_prestec');
+  const cuir=review.items.find(x=>x.latin==='cŏrium');
+  assert.ok(cuir.requiresLayerDecision);
+  assert.equal(cuir.reviewOutcome,'reserva_per_variant_valenciana');
   assert.equal(matrix.summary.aptasParaPractica,0);
   assert.equal(matrix.records.length,522);
 });
