@@ -112,6 +112,10 @@ jobs:
         run: npm run test:browser:vocabula
       - name: Probar Vocabula offline, caché aislada, progreso y reenvío en Chromium
         run: npm run test:browser:vocabula:offline
+      - name: Auditar las 60 combinaciones de Vocabula en castellano con Chromium
+        run: npm run test:browser:castellano:vocabula
+      - name: Auditar Evolutio castellano desde la respuesta hasta las normas
+        run: npm run test:browser:castellano:evolutio
       - name: Verificar que Supabase rechaza identidades ajenas antes de habilitar el primer factor
         run: node scripts/check-docente-login-remote.mjs
       - name: Empaquetar SDK Supabase local y preparar alta docente de dos factores
@@ -133,6 +137,13 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
+      - name: Archivar los resultados de las pruebas funcionales de castellano
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-auditoria-funcional-castellano
+          path: build/academic-audits/castellano/*.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Archivar las 184 fichas y los candidatos griegos para revisión docente
         uses: actions/upload-artifact@v4
         with:
