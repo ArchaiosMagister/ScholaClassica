@@ -76,6 +76,9 @@ jobs:
         run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
+      - name: Construir prototipo valenciano local, separado de dist (solo PR)
+        if: github.event_name == 'pull_request'
+        run: npm run build:preview:evolutio:val
       - name: Auditar filología transversal de Latín I, Latín 4.º y Griego I (solo lectura)
         run: npm run audit:filologia:transversal
       - name: Auditar fronteras de currículo y procedencia de Examen sin reclasificar bancos
@@ -100,6 +103,9 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Probar navegación, PWA offline y aislamiento de cachés en Chromium
         run: npm run test:browser
+      - name: Probar prototipo autónomo valenciano como fichero local (solo PR)
+        if: github.event_name == 'pull_request'
+        run: npm run test:browser:preview:evolutio:val
       - name: Probar despliegue en la subruta real de GitHub Pages
         run: npm run test:browser:pages
       - name: Probar morfología curricular, corrección y caché offline
@@ -165,6 +171,14 @@ jobs:
           name: etymologicon-gr1-auditoria-docente
           path: build/etymologicon/gr1-audited.json
           retention-days: 7
+      - name: Archivar HTML autónomo de prueba valenciana (solo PR, fuera de Pages)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: evolutio-val-pilot7-html-local
+          path: build/evolutio-valenciano-piloto/index.html
+          if-no-files-found: error
+          retention-days: 14
       - name: Archivar resultado de construcción como artefacto de pruebas (sin desplegar)
         uses: actions/upload-artifact@v4
         with:
