@@ -101,7 +101,7 @@ test('Los tres casos sin ley y las dos reservas quedan excluidos del examen',()=
 test('No sustituir verificación DNV por obra AVL ni activar sin aprobación docente',()=>{
  assert.equal(decision.normativeGate.currentDnvIndividualChecks,0);
  assert.match(decision.normativeGate.observed,/DNV online/);
- assert.match(decision.normativeGate.possibleAlternativeForTeacherApproval,/aprobación docente explícita/);
+ assert.match(decision.normativeGate.possibleAlternativeForTeacherApproval,/confirmación docente expresa/);
  assert.equal(decision.normativeGate.publishWithoutTeacherApproval,false);
  assert.equal(decision.normativeGate.canEnableInMain,false);
  assert.equal(decision.normativeGate.userFacingStatus,'desactivado');
