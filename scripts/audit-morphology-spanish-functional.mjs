@@ -53,7 +53,8 @@ function checkCorrect(q){
   assert.ok(q.cells?.length>=4,'Tabla sin suficientes celdas: '+q.id);
   const answers=Object.fromEntries(q.cells.map(cell=>[cell.id,cell.acceptedForms[0]]));
   const result=evaluateTable(q,answers);
-  assert.equal(result.correct,true,'Tabla correctamente completada rechazada: '+q.id);
+  assert.equal(result.complete,true,'Tabla correctamente completada rechazada: '+q.id);
+  assert.equal(result.correct,result.total,'La tabla no cuenta todas las formas: '+q.id);
   return 'table';
  }
  throw Error('Actividad no documentada: '+q.activity);
