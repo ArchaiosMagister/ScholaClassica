@@ -27,7 +27,7 @@ test('Nueve formas con ejemplo de AVL/GNV verificable por página y alcance prob
  assert.deepEqual(nine.summary,{count:9,gnvWordAttestations:9,gnvExamples:10,dcVbEtymologyChecks:9,
   onlyFinalM:3,withSelectableLaws:6,schoolLawCandidates:7,explicitHistoricalPairAndLawCases:1,
   generalHistoricalRuleCases:4,etymologicalPairsWithoutSpecificMechanism:2,individualDnvArticlesVerified:0,
-  fullHistoricalChainsVerified:0,approvedByTeacher:0,playable:0});
+  fullHistoricalChainsVerified:0,approvedByTeacher:0,playable:0,caseOriginDisputes:1,additionalGeneralAeHistoricalSources:1});
  assert.equal(new Set(nine.entries.map(e=>e.id)).size,9);
  assert.equal(nine.sources.AVL_GNV.publicationYear,2006);
  assert.match(nine.sources.AVL_GNV.url,/gramatica_normativa_valenciana\.pdf$/);
@@ -104,9 +104,15 @@ test('Precauciones: cadena homónima, fonética moderna no es ley histórica y n
  const mare=nine.entries.find(x=>x.latin==='matrem');
  assert.equal(mare.historicalSchoolLaws[0].evidenceClass,'parella_explicitada_sense_descomposicio_del_mecanisme');
  assert.match(mare.criticalNote,/SIMPLIFICACIÓ/);
+ assert.match(mare.criticalNote,/nominatiu/);
+ assert.equal(mare.latinCaseDispute.status,'recerca_filologica_amb_interpretacions_divergents');
+ assert.ok(mare.latinCaseDispute.source.url.includes('publicacions.iec.cat'));
+ assert.match(nine.criticalAcademicFindings.matrem.join(' '),/MATER/);
  const sky=nine.entries.find(x=>x.latin==='cælum');
  assert.match(sky.criticalNote,/-u/);
  assert.equal(sky.historicalSchoolLaws[0].locallySourceSupported,false);
+ assert.ok(sky.historicalSchoolLaws[0].evidence.some(e=>e.url.endsWith('/e-6')));
+ assert.match(nine.criticalAcademicFindings.caelum.join(' '),/APÒCOPE/);
  const port=nine.entries.find(x=>x.latin==='pŏrtam');
  assert.match(port.criticalNote,/\[ɔ\]/);
  const fire=nine.entries.find(x=>x.latin==='focum');
