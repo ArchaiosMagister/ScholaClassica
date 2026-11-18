@@ -23,7 +23,7 @@ function compareApp(source,target,exceptions=[],extras=[]){
   }
 }
 test('Appendix castellano y valenciano mantiene originales salvo adaptaciones visuales de dist',()=>{
-  const appendixSource=join(root,'.sources/appendix'),appendixTarget=join(out,'apps/gramatica');
+  const appendixSource=join(root,'vendor/appendix'),appendixTarget=join(out,'apps/gramatica');
   const pages=crawl(appendixSource).filter(path=>path.endsWith('.html'));
   const adapted=['assets/style.css','assets/language-colors.css','assets/theme.js',
     'assets/app.js','val/app.js',...pages];
