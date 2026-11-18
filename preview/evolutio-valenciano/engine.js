@@ -9,6 +9,7 @@ const EvolutioVaPilotEngine=(()=>{
    ||!Array.isArray(data.words)||data.words.length!==7||!Array.isArray(data.rules)
    ||data.rules.length!==5)throw Error('Estructura del pilot no vàlida.');
   if(data.limitations.dnvEntriesIndividuallyChecked!==0
+   ||data.limitations.teacherAuthorizedNormativeAlternativeOnlyForLocalPreview!==true
    ||data.limitations.studentReleaseApproved!==false
    ||data.limitations.noPersistentProgress!==true)throw Error('Pilot no aïllat.');
   if(!unique(data.words.map(w=>w.id))||!unique(data.words.map(w=>w.latin))
