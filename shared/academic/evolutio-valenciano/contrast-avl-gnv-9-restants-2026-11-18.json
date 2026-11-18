@@ -1,0 +1,674 @@
+{
+  "schema": "schola-evolutio-va-remaining-nine-review/v1",
+  "date": "2026-11-18",
+  "parent": "contrast-independent-pilot12-2026-11-18.json",
+  "sources": {
+    "AVL_GNV": {
+      "authority": "Acadèmia Valenciana de la Llengua",
+      "publicationYear": 2006,
+      "title": "Gramàtica normativa valenciana",
+      "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+      "comment": "Referencias impresas verificadas mediante página del PDF, no DNV."
+    },
+    "GEC": {
+      "authority": "Gran Enciclopèdia Catalana",
+      "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala"
+    },
+    "IEC_AU": {
+      "authority": "IEC / Estudis Romànics 39 (2017)",
+      "url": "https://publicacions.iec.cat/repository/pdf/00000243/00000036.pdf",
+      "comment": "Recensió d'una gramàtica històrica: exemple de monoftongació AUCA > OCA, pàgina 467."
+    },
+    "DECAT": {
+      "authority": "IEC / Joan Coromines",
+      "url": "https://decat.iec.cat/documents/VI/26.pdf",
+      "comment": "OCA, vol VI pàgina 26."
+    }
+  },
+  "policy": "NOU REGISTRE DOCENT, NO ACTIVABLE: AVL obra normativa 9/9, etimologia DCVB 9/9, entrada individual DNV 0/9. No es promou cap norma escolar sense aprovació ni es confon fonètica sincrònica AVL amb història diacrònica.",
+  "summary": {
+    "count": 9,
+    "gnvWordAttestations": 9,
+    "gnvExamples": 10,
+    "dcVbEtymologyChecks": 9,
+    "onlyFinalM": 3,
+    "withSelectableLaws": 6,
+    "schoolLawCandidates": 7,
+    "explicitHistoricalPairAndLawCases": 1,
+    "generalHistoricalRuleCases": 4,
+    "etymologicalPairsWithoutSpecificMechanism": 2,
+    "individualDnvArticlesVerified": 0,
+    "fullHistoricalChainsVerified": 0,
+    "approvedByTeacher": 0,
+    "playable": 0,
+    "caseOriginDisputes": 1,
+    "additionalGeneralAeHistoricalSources": 1
+  },
+  "entries": [
+    {
+      "id": "xl-320",
+      "latin": "tĕrram",
+      "form": "terra",
+      "semanticScope": "terra, sòl / planeta; no la forma verbal ni topònims",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=terra",
+        "etymologyAsRecorded": "tĕrra",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 57,
+          "pdfPageZeroBased": 56,
+          "word": "terra",
+          "context": "la Terra per al planeta; terra en usos comuns amb minúscula",
+          "evidenceScope": "ús nominal normatiu i ortografia; no fonètica històrica",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ]
+      },
+      "criticalNote": "Nom patrimonial simple i grafia comuna en minúscula; d'acusatiu a nominatiu no es computa com una evolució diferent. No hi ha norma seleccionable; només FIX_M.",
+      "classification": "intro_sense_normes",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    },
+    {
+      "id": "xl-248",
+      "latin": "pŏrtam",
+      "form": "porta",
+      "semanticScope": "porta, obertura d'entrada; no verb portar",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=porta",
+        "etymologyAsRecorded": "pŏrta",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 9,
+          "pdfPageZeroBased": 8,
+          "word": "porta",
+          "context": "[ɔ] exemple de vocal o oberta",
+          "evidenceScope": "grafia i timbre modern, no llei diacrònica",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        },
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 23,
+          "pdfPageZeroBased": 22,
+          "word": "porta",
+          "context": "-ort, -orta: porta; patró de o oberta",
+          "evidenceScope": "distribució ortoèpica de o oberta",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ]
+      },
+      "criticalNote": "Porta té [ɔ] oberta segons AVL: NO es pot deduir una norma d'obertura de la ŏ llatina, que ja correspon al timbre obert; només FIX_M.",
+      "classification": "intro_sense_normes",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    },
+    {
+      "id": "xl-111",
+      "latin": "farinam",
+      "form": "farina",
+      "semanticScope": "farina, producte de moldre cereal; no farinada",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=farina",
+        "etymologyAsRecorded": "farīna",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 159,
+          "pdfPageZeroBased": 158,
+          "word": "farina",
+          "context": "taula 20.3: gens de farina, molta farina",
+          "evidenceScope": "grafia i ús del substantiu; no atestació fonètica",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            6,
+            7
+          ]
+        ]
+      },
+      "criticalNote": "El llatí farīna té vocal llarga ī, resultat modern i; no hi ha aspiració de f inicial en català-valencià. Només FIX_M.",
+      "classification": "intro_sense_normes",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    },
+    {
+      "id": "xl-567",
+      "latin": "focum",
+      "form": "foc",
+      "semanticScope": "foc, combustió; en llatí clàssic focus significava llar, diferència semàntica ja lexicalitzada en llatí vulgar",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=foc",
+        "etymologyAsRecorded": "fŏcu",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 23,
+          "pdfPageZeroBased": 22,
+          "word": "foc",
+          "context": "-oc, -oca amb vocal tònica oberta",
+          "evidenceScope": "timbre [ɔ], no documenta apòcope històrica",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [
+        {
+          "id": "APOC",
+          "latinSpans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "evidenceClass": "regla_general_mes_etimologia",
+          "evidence": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "vocals àtones finals excepte -a desapareixen: fame > fam, oculu > ull"
+            }
+          ],
+          "criticalReserve": "GEC diu explícitament que les vocals àtones finals distintes de -a desapareixen; focum > foc n'és aplicació coherent però la GEC no dona eixe parell concret.",
+          "locallySourceSupported": false,
+          "completeHistoricalChainCertified": false,
+          "schoolRuleApproved": false
+        }
+      ],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      "criticalNote": "Latin fŏcus al clàssic 'fogó/llar' > llatí vulgar 'foc'; cal reconéixer l'evolució semàntica. No considerar -m desapareguda APÒCOPE; FIX_M és no seleccionable.",
+      "classification": "regla_general",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    },
+    {
+      "id": "xl-587",
+      "latin": "pontem",
+      "form": "pont",
+      "semanticScope": "pont, construcció per travessar un obstacle; no locució portar pont ni homònim",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=pont",
+        "etymologyAsRecorded": "pŏnte",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 44,
+          "pdfPageZeroBased": 43,
+          "word": "pont",
+          "context": "alternança ortogràfica pont ↔ pontet, d/t en final postconsonàntica",
+          "evidenceScope": "grafia final amb t derivacional, no prova apòcope",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [
+        {
+          "id": "APOC",
+          "latinSpans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "evidenceClass": "regla_general_mes_etimologia",
+          "evidence": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "les vocals àtones finals no -a es perden"
+            },
+            {
+              "authority": "DCVB",
+              "url": "https://dcvb.iec.cat/results.asp?word=pont",
+              "scope": "pŏnte > pont; fonètica val. pɔ̞́nt"
+            }
+          ],
+          "criticalReserve": "El DCVB testimonia pŏnte > pont i en valencià final -t articulada; GEC dona llei general. L'evidència no reconstrueix etapes singulars.",
+          "locallySourceSupported": false,
+          "completeHistoricalChainCertified": false,
+          "schoolRuleApproved": false
+        }
+      ],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ]
+      },
+      "criticalNote": "No reduir -nt final en la pronunciació valenciana normativa. La -e final és APOC, distincta de -m final FIX_M.",
+      "classification": "regla_general",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    },
+    {
+      "id": "xl-52",
+      "latin": "catenam",
+      "form": "cadena",
+      "semanticScope": "cadena, lligam d'anelles; no altre homònim relacionat amb carena",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=cadena",
+        "etymologyAsRecorded": "catēna",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 9,
+          "pdfPageZeroBased": 8,
+          "word": "cadena",
+          "context": "[ð] fricativa dental sonora exemplificada amb cadena",
+          "evidenceScope": "al·lòfon sonor modern intervocàlic [ð], no és demostració diacrònica de t > d",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [
+        {
+          "id": "SONOR",
+          "latinSpans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "evidenceClass": "regla_general_mes_etimologia",
+          "evidence": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "oclusives sordes intervocàliques > sonores: vita > vida, sapere > saber"
+            },
+            {
+              "authority": "DCVB",
+              "url": "https://dcvb.iec.cat/results.asp?word=cadena",
+              "scope": "CADENA 1, del llatí catēna, valencià kaðéna"
+            }
+          ],
+          "criticalReserve": "Etimologia catēna i grafia cadena documentades; la GEC estableix sonorització general de -t- intervocàlica, sense exemplificar catēna > cadena com a parella.",
+          "locallySourceSupported": false,
+          "completeHistoricalChainCertified": false,
+          "schoolRuleApproved": false
+        }
+      ],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            6,
+            7
+          ]
+        ]
+      },
+      "criticalNote": "Seleccionar exclusivament el lema CADENA 1 (lligam d'anelles); CADENA 2 és derivada de carena i no comparteix esta etimologia. Distingir sonorització històrica de realització fricativa actual.",
+      "classification": "regla_general",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    },
+    {
+      "id": "xl-198",
+      "latin": "matrem",
+      "form": "mare",
+      "semanticScope": "mare, progenitora; no usos metafòrics",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=mare",
+        "etymologyAsRecorded": "matre",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 9,
+          "pdfPageZeroBased": 8,
+          "word": "mare",
+          "context": "[ɾ] exemplificat amb mare",
+          "evidenceScope": "grafia i vibrant simple moderna, no -tr- històric",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [
+        {
+          "id": "SIMPL",
+          "latinSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "evidenceClass": "parella_explicitada_sense_descomposicio_del_mecanisme",
+          "evidence": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "matre > mare a l'apartat de conservació de consonants inicials"
+            },
+            {
+              "authority": "DCVB",
+              "url": "https://dcvb.iec.cat/results.asp?word=mare",
+              "scope": "del llatí matre; val. máɾe; variant medieval mayre"
+            }
+          ],
+          "criticalReserve": "L'etim matre > mare està explícit; la GEC NO ofereix la cadena de reducció de -tr- ni certifica SIMPL com a etiqueta escolar individual.",
+          "locallySourceSupported": false,
+          "completeHistoricalChainCertified": false,
+          "schoolRuleApproved": false
+        }
+      ],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ]
+      },
+      "criticalNote": "Mantindre SIMPLIFICACIÓ com a decisió docent anterior, però separar decisió escolar i demostració històrica completa. La forma medieval mayre del DCVB no permet inferir un estadi causal del canvi -tr-. RESERVA ETIMOLÒGICA: Joan Coromines defensa per als noms de parentiu pare/mare l'origen en nominatius PATER/MATER, no necessàriament acusatius PATREM/MATREM. Per tant, la forma del banc matrem és una base escolar convencional en debat, i no es pot certificar la cadena matrem→mare com si fos indiscutida.",
+      "classification": "parella_sense_mecanisme_individual",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV",
+      "latinCaseDispute": {
+        "status": "recerca_filologica_amb_interpretacions_divergents",
+        "source": {
+          "authority": "Joan Coromines / publicació de l'IEC",
+          "title": "Algunes lleis fonètiques catalanes no observades fins ara",
+          "url": "https://publicacions.iec.cat/repository/pdf/00000149/00000072.pdf",
+          "pagesPrinted": "202–204",
+          "scope": "Distinció -TR- llatina vs -T(E)R- i hipòtesi de nominatiu MATER per mare, comparada amb derivados madrina, madrastra i topònims amb -dr-"
+        },
+        "contrast": [
+          {
+            "source": "DCVB",
+            "position": "Etimologia general del lema mare expressada amb el llatí matre."
+          },
+          {
+            "source": "Coromines",
+            "position": "El nom de parentiu mare podria derivar del nominatiu MATER, tractat diferent de l'acusatiu MATREM; l'oposició s'analitza amb altres derivats."
+          }
+        ],
+        "conclusion": "No declarar base acusativa MATREM historicamente acreditada; conservar original per compatibilitat amb el banc, marcar reserva per a aprovació docent i no publicar fins resoldre criteri."
+      }
+    },
+    {
+      "id": "xl-26",
+      "latin": "aucam",
+      "form": "oca",
+      "semanticScope": "oca, ocell palmípede; del llatí vulgar auca, no confondre amb altres usos metafòrics",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=oca",
+        "etymologyAsRecorded": "auca",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 23,
+          "pdfPageZeroBased": 22,
+          "word": "oca",
+          "context": "-oc, -oca; o tònic obert",
+          "evidenceScope": "grafia i vocal [ɔ], sense etimologia",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [
+        {
+          "id": "MONOP",
+          "latinSpans": [
+            [
+              0,
+              2
+            ]
+          ],
+          "evidenceClass": "parella_i_mecanisme_explicit_directe",
+          "evidence": [
+            {
+              "authority": "IEC / Estudis Romànics",
+              "url": "https://publicacions.iec.cat/repository/pdf/00000243/00000036.pdf",
+              "scope": "Mar Massanell i Messalles, recensió de Gramàtica històrica de Batlle et al., p. 467: cita auca > oca en tractament de monoftongació au > [ɔ]"
+            },
+            {
+              "authority": "IEC / Diccionari etimològic i complementari de la llengua catalana",
+              "url": "https://decat.iec.cat/documents/VI/26.pdf",
+              "scope": "J. Coromines s.v. OCA, vol. VI p. 26: auca romanç, variants medievals i reemplaçament per oca"
+            },
+            {
+              "authority": "DCVB",
+              "url": "https://dcvb.iec.cat/results.asp?word=oca",
+              "scope": "etimologia llatí vulgar auca"
+            }
+          ],
+          "criticalReserve": "Cas específic: una obra acadèmica de gramàtica històrica citada en una recensió IEC identifica auca > oca en monoftongació, i Coromines aporta testimonis medievals. No confondre el llatí vulgar auca amb llatí clàssic anser.",
+          "locallySourceSupported": true,
+          "completeHistoricalChainCertified": false,
+          "schoolRuleApproved": false
+        }
+      ],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      "criticalNote": "El resultat oca és patrimonial i el canvi au→o té explicació històrica específica; la -a es conserva sense APOC. La variació medieval auca/oca és geogràfica i cronològica i no prova una successió universal ni dates absolutes.",
+      "classification": "parella_i_llei_individual_expressa",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    },
+    {
+      "id": "xl-40",
+      "latin": "cælum",
+      "form": "cel",
+      "semanticScope": "cel, firmament; no cel 'zel' ni altres homògrafs",
+      "dcVb": {
+        "url": "https://dcvb.iec.cat/results.asp?word=cel",
+        "etymologyAsRecorded": "caelum",
+        "individuallyChecked": true
+      },
+      "avlGnvExamples": [
+        {
+          "source": "AVL / Gramàtica normativa valenciana 2006",
+          "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+          "printedPage": 9,
+          "pdfPageZeroBased": 8,
+          "word": "cel",
+          "context": "[s] exemplificat amb cel",
+          "evidenceScope": "pronúncia estàndard de c davant e, no monoftongació diacrònica",
+          "wordExplicitlyPresent": true,
+          "isIndividualDnvEntry": false
+        }
+      ],
+      "historicalSchoolLaws": [
+        {
+          "id": "MONOP",
+          "latinSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "evidenceClass": "etimologia_directa_mes_regla_general_ae",
+          "evidence": [
+            {
+              "authority": "DCVB",
+              "url": "https://dcvb.iec.cat/results.asp?word=cel",
+              "scope": "cel < llatí caelum"
+            },
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "GEC dona coelu > cel en vocalisme; no prova isoladament æ > e de forma escrita cælum"
+            },
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/e-6",
+              "scope": "La vocal llatina vulgar oberta que deriva de la e i ae clàssiques dona majoritàriament e catalana; llei general, no cadena individual de caelum."
+            }
+          ],
+          "criticalReserve": "No atribuir a coelu > cel la verificació del fragment æ del lema cælum; cal prova històrica directa del diftong llatí ae i evitar barrejar variants caelum/coelum. La GEC, lletra e, explicita la correspondència general e/ae clàssiques > e catalana, sense donar cadena individual per a cælum.",
+          "locallySourceSupported": false,
+          "completeHistoricalChainCertified": false,
+          "schoolRuleApproved": false
+        },
+        {
+          "id": "PALAT",
+          "latinSpans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "evidenceClass": "regla_general_mes_exemple_fonetica_AVL",
+          "evidence": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "c /k/ inicial davant e, i > /s/, exemple civitate > ciutat"
+            },
+            {
+              "authority": "AVL",
+              "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+              "scope": "p. 9: cel [s], pronunciació contemporània"
+            }
+          ],
+          "criticalReserve": "Corrobora canvi fonètic general c davant e i resultat modern [s], però no constitueix cadena completa d'aquest acusatiu.",
+          "locallySourceSupported": false,
+          "completeHistoricalChainCertified": false,
+          "schoolRuleApproved": false
+        }
+      ],
+      "finalM": {
+        "fixedNotSelectable": true,
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      "criticalNote": "La vocal final àtona u de la base caelum/coelum no figura com a APÒCOPE en aquesta fitxa, per decisió editorial de la PR #119; cal resoldre si l'activació amb només MONOP i PALAT seria didàcticament completa. Mantindre reserva.",
+      "classification": "dues_lleis_amb_reserves",
+      "teacherApproval": false,
+      "playable": false,
+      "dnvIndividualEntryChecked": false,
+      "fullyDocumentedHistoricalChain": false,
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+    }
+  ],
+  "exceptions": {
+    "noctem": {
+      "latin": "noctem",
+      "form": "nit",
+      "excludedFromPilot": true,
+      "reason": "Divergència docent #45 vs #119: APÒCOPE provisional eliminada, no promoure sense revisió específica."
+    },
+    "cel": {
+      "latin": "cælum",
+      "form": "cel",
+      "excludedFromAutomaticPromotion": true,
+      "reason": "Dues lleis editorials i pèrdua final -u sense justificació escolar completa."
+    }
+  },
+  "criticalAcademicFindings": {
+    "matrem": [
+      "DCVB marca matre com a etimologia nominal",
+      "Coromines defensa nominatiu MATER per parentiu: contrast case-specific sense resoldre",
+      "No activar l'exercici fins aclariment docent de la base llatina i l'etiqueta SIMPL"
+    ],
+    "caelum": [
+      "GEC e-6 recolza ae/e > e en llatí vulgar i català en general",
+      "DCVB cel < caelum, GEC coelu > cel; variants no són proves de la mateixa cadena",
+      "Decisió editorial evita APÒCOPE de la vocal -u, encara que cal explicar-la abans d'activar"
+    ],
+    "aucam": [
+      "IEC Estudis Romànics recull auca > oca per monoftongació explícita",
+      "Coromines descriu variants medievals i base vulgar auca",
+      "Conservació -a no és apòcope"
+    ]
+  }
+}

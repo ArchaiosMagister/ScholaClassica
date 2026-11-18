@@ -1,0 +1,402 @@
+{
+  "schema": "schola-evolutio-va-pilot-review/v1",
+  "date": "2026-11-18",
+  "basedOn": "PR #119 (head 8ae0df591cc22d063e4d3c7e47a56d400fb34ba3)",
+  "policy": "PRESELECCIÓN DOCENTE PRIVADA, no modalidad jugable. DNV por lema, pruebas históricas individuales, revisión de spans de cada ley y aprobación docente pendientes. No cambia la matriz, el banco castellano, el alumnado ni el repositorio EvolucionFonetica.",
+  "summary": {
+    "selected": 12,
+    "recordsChanged": 0,
+    "newlyPlayable": 0,
+    "currentDnvChecks": 0,
+    "teacherApproved": 0,
+    "independentlyCertifiedCompleteChains": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "id": "xl-320",
+      "latin": "tĕrram",
+      "form": "terra",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=terra",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [],
+      "editorialNote": "Conservar la vocal tónica y la grafía; -m final es fija, no seleccionable.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 2,
+      "id": "xl-248",
+      "latin": "pŏrtam",
+      "form": "porta",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=porta",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [],
+      "editorialNote": "Correspondencia muy transparente; solo desaparición fija de -m.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 3,
+      "id": "xl-111",
+      "latin": "farinam",
+      "form": "farina",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=farina",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [],
+      "editorialNote": "Correspondencia transparente; no inventar aspiración de f inicial.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 4,
+      "id": "xl-567",
+      "latin": "focum",
+      "form": "foc",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [
+        "APOC"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=foc",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "fonetica_historica_general_perdua_vocals_finals_no_a"
+        }
+      ],
+      "editorialNote": "Apócope de la vocal final tras pérdida fija de -m; no confundir ambas operaciones.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 5,
+      "id": "xl-587",
+      "latin": "pontem",
+      "form": "pont",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [
+        "APOC"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=pont",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "fonetica_historica_general_perdua_vocals_finals_no_a"
+        }
+      ],
+      "editorialNote": "Apócope de -e postónica y pérdida fija de -m; -nt- se conserva.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 6,
+      "id": "xl-52",
+      "latin": "catenam",
+      "form": "cadena",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [
+        "SONOR"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=cadena",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/sonoritzacio",
+          "scope": "llei_general_sonoritzacio_intervocalica"
+        }
+      ],
+      "editorialNote": "Sonorización intervocálica -t- > -d-; regla general GEC no acredita toda la cadena individual.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 7,
+      "id": "ge-EVF-0338",
+      "latin": "uitam",
+      "form": "vida",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [
+        "SONOR"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=vida",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "exemple_especific_vita_vida_sonoritzacio"
+        }
+      ],
+      "editorialNote": "La u inicial es grafía de /w/ > v, no VOCALITZACIÓ seleccionable; -t- > -d-.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 8,
+      "id": "xl-198",
+      "latin": "matrem",
+      "form": "mare",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [
+        "SIMPL"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=mare",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "parella_explicita_matre_mare_sense_detall_tr"
+        }
+      ],
+      "editorialNote": "SIMPLIFICACIÓ es criterio docente ya adoptado; falta corroboración histórica individual.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 9,
+      "id": "xl-354",
+      "latin": "buccam",
+      "form": "boca",
+      "category": "facil_dos_canvis",
+      "candidateSelectableLaws": [
+        "ABER",
+        "SIMPL"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=boca",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "exemple_especific_geminada_bucca_boca"
+        },
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "scope": "exemple_especific_vocalisme_bucca_boca"
+        }
+      ],
+      "editorialNote": "Vocalismo ŭ > o y simplificación de -cc-; GEC menciona expresamente boca < bucca para la consonante.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 10,
+      "id": "xl-82",
+      "latin": "cuppam",
+      "form": "copa",
+      "category": "facil_dos_canvis",
+      "candidateSelectableLaws": [
+        "ABER",
+        "SIMPL"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=copa",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "exemple_especific_geminada_cuppa_copa"
+        },
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "scope": "llei_general_vocalisme_llati_u_breu"
+        }
+      ],
+      "editorialNote": "Vocalismo ŭ > o y simplificación de -pp-; GEC menciona expresamente copa < cuppa para la consonante.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 11,
+      "id": "xl-26",
+      "latin": "aucam",
+      "form": "oca",
+      "category": "molt_transparent",
+      "candidateSelectableLaws": [
+        "MONOP"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=oca",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "scope": "llei_general_au_a_o_sense_exemple_individual"
+        }
+      ],
+      "editorialNote": "El DCVB documenta oca < auca; monoftongación propuesta, no cadena histórica plenamente certificada.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    },
+    {
+      "order": 12,
+      "id": "xl-40",
+      "latin": "cælum",
+      "form": "cel",
+      "category": "facil_dos_canvis",
+      "candidateSelectableLaws": [
+        "MONOP",
+        "PALAT"
+      ],
+      "nonSelectableFinalM": true,
+      "lexicalSource": [
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=cel",
+          "scope": "lema_i_etimologia"
+        }
+      ],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "parella_coelu_cel_i_c_inicial_davant_e"
+        }
+      ],
+      "editorialNote": "El DCVB da cel < caelum; monoftongación y palatalización siguen propuestas sin certificado individual completo.",
+      "normativeDnvIndividualChecked": false,
+      "completeHistoricalChainCertified": false,
+      "allSchoolLawsIndividuallyCertified": false,
+      "unicodeSpansHistoricallyCertified": false,
+      "approvedByTeacher": false,
+      "playable": false,
+      "selectionStatus": "candidat_pendent_de_validacio"
+    }
+  ],
+  "independentPhoneticResearch": "contrast-independent-pilot12-2026-11-18.json"
+}
