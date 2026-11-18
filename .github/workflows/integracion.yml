@@ -1,7 +1,7 @@
 name: Validar y publicar ScholaClassica en GitHub Pages
 on:
   push:
-    branches: [main, 'integracion/**', 'feature/autonomia-appendix-*']
+    branches: [main, 'integracion/**']
   pull_request:
   workflow_dispatch:
 
@@ -27,13 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Obtener Appendix original en commit fijado (solo lectura)
-        uses: actions/checkout@v4
-        with:
-          repository: ArchaiosMagister/Appendix-grammaticae
-          ref: 6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
-          path: .sources/appendix
-          persist-credentials: false
       - name: Obtener Evolutio original en commit fijado (solo lectura)
         uses: actions/checkout@v4
         with:
@@ -67,11 +60,13 @@ jobs:
         run: npm test
       - name: Contrastar matriz valenciana de Evolutio con el origen fijado (sin publicarla)
         run: npm run evolutio:val:check
-      - name: Validar Appendix original
-        working-directory: .sources/appendix
+      - name: Comprobar que Appendix compila sin descargar el repositorio original
+        run: |
+          test ! -d .sources/appendix
+          npm run audit:appendix:vendor
+      - name: Validar Appendix autónomo desde la fuente interna
+        working-directory: vendor/appendix
         run: node scripts/validate-site.mjs
-      - name: Copiar las 111 fuentes de Appendix con SHA completo, sin publicar
-        run: npm run snapshot:appendix
       - name: Auditar esquema y candidatos de Etymologicon sin habilitar respuestas
         run: npm run etymology:audit
       - name: Conciliar el Excel docente de Etymologicon con sus comprobaciones
@@ -135,15 +130,14 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
-      - name: Archivar la fuente original de Appendix para migración segura (PR o rama de migración)
-        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/heads/feature/autonomia-appendix-')
+      - name: Archivar el manifiesto de integridad de Appendix autónomo
+        if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
-          name: appendix-fuente-original-verificada
-          path: build/academic-audits/appendix-autonomia/
+          name: appendix-autonomo-manifiesto-111
+          path: build/academic-audits/appendix-autonomia/manifiesto-vendorizado.json
           if-no-files-found: error
           retention-days: 30
-          include-hidden-files: true
       - name: Archivar las 184 fichas y los candidatos griegos para revisión docente
         uses: actions/upload-artifact@v4
         with:
