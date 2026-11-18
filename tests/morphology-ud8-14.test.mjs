@@ -7,7 +7,7 @@ import {availableRecords,makeQuestions,evaluate,validateBank} from '../public/mo
 import {makeWrittenQuestions,correctWritten,makeTableExercises,evaluateTable} from '../public/morfologia/written.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const curriculum=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
+const curriculum=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
 const added=compileMorphologyUd8to14(curriculum);
 const find=id=>bank.records.find(r=>r.id===id);
