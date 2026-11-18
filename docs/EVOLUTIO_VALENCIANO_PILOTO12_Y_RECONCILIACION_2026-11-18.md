@@ -156,3 +156,57 @@ Nuevo expediente individual: [`contrast-avl-gnv-9-restants-2026-11-18.json`](../
 **Balance global de las doce candidaturas:** 12/12 formas atestiguadas en una obra normativa AVL de 2006; 12/12 etimologías contrastadas en DCVB; **12** aplicaciones de leyes escolares propuestas en total (**5 del trío inicial + 7 de las nueve restantes**, que ya estaban incluidas en el expediente de doce). De ellas, 5 tienen mecanismos específicos explicados en fuentes históricas, 5 se apoyan en regularidades generales y 2 requieren reserva sobre su mecanismo o base de partida. **DNV individual vigente: 0/12. Fichas aprobadas y jugables: 0/12.** Tampoco cambia el corpus castellano ni los 522 IDs valencianos.
 
 La evidencia de GNV **no sustituye al DNV** como fuente de entrada lexicográfica actual, y el soporte de una ley **no equivale** a certificar todas las etapas de una evolución individual. Tras estas pruebas, el siguiente acto adecuado sería una aprobación docente **selectiva** del diseño escolar de las candidaturas prioritarias, antes de promover cualquier fichero a práctica. La PR #122 sigue siendo documental, dependiente de la #119 y sin publicación.
+
+
+## 8. Decisión académica de primer piloto (18/11/2026): siete candidatas, tres ejemplos y tres reservas
+
+**Expediente de decisión:** [`decisio-pilot-escolar-7-2026-11-18.json`](../shared/academic/evolutio-valenciano/decisio-pilot-escolar-7-2026-11-18.json). La decisión es de **selección académica recomendada**, no una suplantación de la aprobación docente que exigen las fichas. La PR sigue en borrador sobre #119.
+
+### Criterio normativo realmente acreditado
+
+Se ha intentado nuevamente recuperar entradas individuales del [Diccionari normatiu valencià](https://www.avl.gva.es/lexicval/): **0/12 accesibles** desde el recuperador (restricción de acceso, no inexistencia de palabras). La [*Gramàtica normativa valenciana* de la AVL (2006)](https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf) contiene expresamente **12/12 grafías** del piloto en contextos gramaticales/fonéticos o de ortografía; el **DCVB** aporta 12/12 registros etimológicos individualizados. **No se modifica** la condición académica existente que exige comprobar la fuente normativa y recabar aprobación docente para habilitar juegos.
+
+Se propone una decisión editorial **separada** si el DNV sigue inaccesible: aceptar, bajo autorización docente expresa, **obra normativa oficial AVL (GNV) para grafía/uso básico** y DCVB/IEC/GEC para etimología y leyes, dejando constancia de que el artículo DNV no se ha consultado. La equivalencia de fuentes **no se aplica automáticamente en el código**.
+
+### Siete candidatas para ejercicios, ordenadas por confianza didáctica
+
+| Orden | Étimo → valenciano | Normas seleccionables propuestas | Prueba de mecanismo individual | Decisión |
+|---:|---|---|---|---|
+| 1 | `uitam → vida` | SONORITZACIÓ (`t`) | GEC: `vita > vida` para `-t- > -d-` | Prioridad alta |
+| 2 | `buccam → boca` | OBERTURA (`ŭ > o`) y SIMPLIFICACIÓ (`cc`) | GEC: ambos cambios explicados individualmente | Prioridad alta |
+| 3 | `catenam → cadena` | SONORITZACIÓ (`t`) | **Nueva fuente IEC:** `CATENA > cadena` expresamente para `-T- > -d-`; confirmado también por Pere Barnils | Prioridad alta |
+| 4 | `aucam → oca` | MONOFTONGACIÓ (`au`) | IEC/gramática histórica: `auca > oca` expresamente | Prioridad alta |
+| 5 | `pontem → pont` | APÒCOPE (`e`) | **Nueva fuente IEC:** `pŏnte > pont` citado específicamente en el estudio comparativo de apócope | Prioridad alta |
+| 6 | `cuppam → copa` | OBERTURA (`ŭ > o`) y SIMPLIFICACIÓ (`pp`) | SIMPL explícita en GEC; OBERTURA por ley general y etimología DCVB | Prioridad condicionada a contraste vocal individual |
+| 7 | `focum → foc` | APÒCOPE (`u`) | Pérdida de vocal final no -a por ley general en GEC + étimo `fŏcu` DCVB | Prioridad condicionada a contraste individual |
+
+**Balance exacto:** siete candidatos, **nueve aplicaciones de normas** (siete mecanismos descritos mediante ejemplos individuales, dos respaldados por regla general más etimología). **Todas siguen `playable=false` y `teacherApproved=false`**, porque la recomendación académica no equivale a autorización para evaluación ni despliegue. Los segmentos originales Unicode, incluyendo `ŭ`, `au`, `cc`, `pp` y `-t-`, se contrastan por ID.
+
+**Precisión docente imprescindible:** en `buccam → boca` la etiqueta escolar OBERTURA para `ŭ>o` no significa que la `o` actual sea abierta [ɔ]; la AVL registra [o] tancada. En `uitam` la grafía `u` inicial es consonántica (valor `v`) y no supone VOCALITZACIÓ; la `-m` final es `FIX_M` fija, nunca norma seleccionable. `catenam → cadena` se restringe a **CADENA 1**, no al homónimo derivado de *carena*. El `-t` final de `pont` se conserva en el modelo escolar.
+
+### Tres ejemplos introductorios, sin preguntas de normas
+
+`tĕrram → terra`, `pŏrtam → porta` y `farinam → farina`: únicamente fenómeno fijo `FIX_M`, que no se evalúa. Sirven como demostración léxica y no entran en el banco de preguntas de identificación de leyes.
+
+### Reservas sin inclusión en el piloto
+
+`matrem → mare`: divergencia entre base `MATREM` acusativa (DCVB: *matre*) y la hipótesis **MATER nominativo** (Coromines); la etiqueta escolar SIMPLIFICACIÓ no resuelve la cuestión histórica.
+
+`cælum → cel`: justificar por separado las variantes `caelum/coelum`, la monoptongación `æ > e`, el cambio inicial `c > [s]` y la pérdida de la vocal `u` final que el expediente vigente no cuenta como norma seleccionable.
+
+`noctem → nit` (**externa a las doce del piloto**): desacuerdo documental entre las leyes provisionales de #45 y las editoriales de #119; no activar sin decidir el tratamiento de APÒCOPE.
+
+Las reservas explícitas de la #119 `octo`, `dictum` y `sigĭllum` siguen intactas y tampoco se incorporan.
+
+### Fuentes nuevas decisivas
+
+- **CATENA → cadena:** [Instituto de Estudios Catalanes, estudio dialectológico, explicación expresa de sonorización de `-T-` en `-d-`](https://publicacions.iec.cat/repository/pdf/00000505/00000095.pdf) (sección dedicada a la pérdida posterior de `-d-` intervocálica); testimonio anterior [Pere Barnils, «Consonants persistents i consonants evolutives», *Butlletí de Dialectologia Catalana* IX (1921)](https://publicacions.iec.cat/repository/pdf/00000500/00000039.pdf), que también ejemplifica `CATENA > cadena`. El fenómeno histórico de sonorización es distinto de la fricativización valenciana moderna [ð].
+- **PŎNTE → pont:** [Ramón Mariño Paz y Ricardo Pichel, «Apócope extrema e influencia castellanizante en la prosa gallega del siglo XIV», *Estudis Romànics* 41 (2019), p. 9](https://publicacions.iec.cat/repository/pdf/00000269/00000055.pdf). La comparación explica que el catalán llegó a `pont` mientras el gallego conservó `ponte`; se toma como ejemplo del resultado de apócope, **no como reconstrucción de todos los estadios fonéticos**.
+- **FŎCU → foc:** [DCVB, etimología de `foc`](https://dcvb.iec.cat/results.asp?word=foc) y regla general de la [GEC, gramática histórica](https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala). La cadena individual aún no está acreditada.
+- **CŬPPA → copa:** [DCVB, lema `copa`](https://dcvb.iec.cat/results.asp?word=copa) y [GEC, simplificación específica de `pp`](https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala). La aplicación individual de OBERTURA queda apoyada en ley general de vocalismo, sin cadena completa propia.
+
+### Criterio de cierre y control de publicación
+
+- Mantener **cero fichas nuevas jugables** en #119, #122, `main` y `dist/`.
+- Validar con la prueba `tests/evolutio-valenciano-decision-pilot7-20261118.test.mjs`: 522 IDs, siete candidatas, nueve leyes, tres demostrativas, dos reservas internas, `noctem` externo, todos los permisos de juego en falso.
+- Cuando se acepte expresamente un criterio suficiente de evidencia normativa, pasar las siete candidatas por aprobación docente y preparar una **PR funcional independiente**, con selector castellano/valenciano, protección de progreso y pruebas de regresión. No publicar un banco de solo siete palabras como versión general sin advertir de su escasa variedad.
