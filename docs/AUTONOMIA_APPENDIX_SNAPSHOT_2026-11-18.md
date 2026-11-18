@@ -1,44 +1,45 @@
-# Autonomía de Appendix · fase 1, fuente original íntegra (18/11/2026)
+# Autonomía de Appendix en ScholaClassica — migración interna, 18/11/2026
 
-## Finalidad
+## Estado de esta PR
 
-Preparar la futura **retirada segura** de \`ArchaiosMagister/Appendix-grammaticae\`, conservando el funcionamiento de las fichas gramaticales en castellano y los materiales originales en valenciano para una futura revisión. Este cambio **NO elimina la dependencia de compilación**, no fusiona ni publica la aplicación y no modifica el código visible de gramática.
+La rama `feature/autonomia-appendix-vendor-20261118` incorpora **el código fuente completo de Appendix dentro de ScholaClassica** y modifica sus flujos de compilación y pruebas para dejar de descargar el repositorio independiente. La migración se mantiene en **PR #125 en borrador** y no se publica hasta que todas las pruebas y la revisión de compatibilidad hayan superado la validación.
 
-La dependencia actual continúa en \`config/sources.lock.json\`:
+### Evidencia de que la fuente es idéntica
 
-- Repositorio: \`ArchaiosMagister/Appendix-grammaticae\`
-- Commit exacto: \`6e9ae22d98c10f8752329d0fa65ad8dd882dcde9\`
-- Fuente de compilación: \`.sources/appendix\`
-- Estado: **dependencia activa**, no se autoriza borrar ni archivar el original.
+- Repositorio original: `ArchaiosMagister/Appendix-grammaticae`.
+- Commit docente fijado: `6e9ae22d98c10f8752329d0fa65ad8dd882dcde9`.
+- Árbol Git original: `ac24b5b997d3a37d78ef43de36085b850b22e472`.
+- Árbol Git de `vendor/appendix` en ScholaClassica: **el mismo SHA**.
+- Total: **111 archivos y 2.160.046 bytes**, incluidas 90 páginas HTML, ambos currículos completos (castellano y valenciano), archivos ocultos y el PNG `apple-touch-icon.png` de 9.230 bytes.
 
-## Primer producto: una copia completa, incluso los activos binarios
+La importación puntual se ejecutó con GitHub Actions, verificó el SHA del árbol antes de crear el commit y solo incorporó archivos bajo `vendor/appendix/`. La automatización temporal con permiso de escritura fue retirada una vez completada la importación. Se conservan todos los archivos originales como historia y fuente versionada.
 
-El nuevo comando \`npm run snapshot:appendix\` usa el checkout original **ya fijado por CI**:
+### Compilación y dependencias
 
-1. Confirma que \`git rev-parse HEAD\` coincide con el SHA de \`sources.lock.json\`.
-2. Lee el índice Git, exige rutas relativas, únicas y archivos normales.
-3. Copia **los 111 archivos versionados**, incluidas las páginas HTML originales, ambos \`curriculum.json\`, scripts, estilos, icono \`apple-touch-icon.png\`, \`.nojekyll\` y los workflows históricos.
-4. Calcula el **SHA-1 de objeto blob de Git** de cada archivo **antes y después de copiarlo** y coteja con la entrada exacta del índice. Incluye imágenes binarias; no hay conversiones a texto ni PNG regenerados.
-5. Crea un manifiesto JSON con las 111 rutas, SHA y longitud de cada archivo.
+- `config/sources.lock.json` añade `sourceMode: "vendored"`, `path: "vendor/appendix"` y `treeSha`. Se conserva el SHA original para procedencia académica.
+- `scripts/verify-vendored-appendix.mjs` comprueba antes de compilar el árbol Git, los **111 objetos** y sus bytes reales de disco, el tamaño total, los currículos ES/VAL y el icono. Se puede ejecutar con `npm run audit:appendix:vendor`.
+- `scripts/build.mjs` copia `vendor/appendix` y aplica los mismos adaptadores y recursos de antes. Rechaza `APPENDIX_SOURCE` externa. El resultado sigue siendo `dist/apps/gramatica`.
+- `scripts/build-morphology.mjs` compila sus ejercicios desde el currículo y las páginas conservados en `vendor/appendix`, no desde `.sources/appendix`.
+- Los análisis de las 184 fichas griegas sin unidad y todas las pruebas de gramática y Morfología comparan la fuente interna con el resultado publicado en el artefacto.
+- Los workflows `integracion.yml` y `lexicografia-lemlat3.yml` **ya no tienen checkout de Appendix**. Ambos comprueban la copia interna. El test `tests/sources-workflows-lock.test.mjs` impide reintroducir la descarga accidentalmente.
 
-Los resultados se escriben **solo en** \`build/academic-audits/appendix-autonomia/\`, fuera de \`dist/\` y \`public/\`. El resultado se sube a GitHub Actions **solo en PR** como artefacto \`appendix-fuente-original-verificada\`, con todos los archivos ocultos incluidos, durante 30 días.
+Evolutio y Vocabula permanecen como checkouts externos fijados. Etymologicon, Morfología, el portal y el área docente conservan el mismo funcionamiento y su aislamiento.
 
-La prueba \`tests/appendix-source-snapshot.test.mjs\` comprueba por su cuenta que los 111 SHA de la copia coincidan con el manifiesto y que este describa exactamente la revisión docente fijada. No se cambia el motor, ni el buscador, ni las cursivas, ni las UD, ni las rutas ni el funcionamiento offline de Appendix.
+### Pruebas obligatorias de la fase de autonomía
 
-## Fases posteriores necesarias (no realizadas en esta PR)
+1. El árbol Git de la copia interna y los 111 archivos deben coincidir con el original (incluidos los binarios).
+2. `test ! -d .sources/appendix` debe cumplirse en CI **desde el checkout limpio**.
+3. Se debe ejecutar `node vendor/appendix/scripts/validate-site.mjs` usando únicamente la copia integrada.
+4. Deben construirse correctamente la gramática ES/VAL, Morfología, Vocabula, Evolutio, Etymologicon y el área docente.
+5. La batería Node debe pasar sin consultar `.sources/appendix`; los adaptadores han de preservar los contenidos y los 522 registros académicos valencianos sin publicarlos.
+6. Chromium debe comprobar navegación, las rutas de GitHub Pages, los ejercicios de Morfología, los accesos de Vocabula, las PWA offline y el aislamiento docente.
+7. El workflow independiente de LEMLAT3 debe conservar su capacidad de compilar sin el repositorio Appendix. Ese flujo requiere sus otras dependencias académicas externas, que no se han modificado.
+8. La publicación de Pages debe quedar **omitida** en la rama de PR.
 
-**Fase 2 — Incorporación estable al repositorio.** Copiar el paquete completo bajo una carpeta fuente versionada, con todos los archivos y metadatos originales. La entrega temporal como artefacto de Actions **no constituye todavía una fuente independiente**: expirará y no sustituye al repositorio original.
+Los resultados verificables se adjuntan a GitHub Actions: `appendix-autonomo-manifiesto-111` (solo manifiesto, por 30 días). Los 111 archivos ya no dependen de la caducidad de los artefactos porque están versionados en el propio repositorio.
 
-**Fase 3 — Cambiar la construcción y las pruebas.** Adaptar \`scripts/build.mjs\` para usar la fuente versionada y eliminar gradualmente las referencias a \`.sources/appendix\`. La CI deberá construir desde un checkout limpio de ScholaClassica sin descargar Appendix ni depender de rutas antiguas, y comparar los recursos integrados por SHA.
+### Lo que todavía no debe hacerse
 
-**Fase 4 — Compatibilidad y regresiones.** Verificar lectura, navegación por curso y UD, sintaxis, búsquedas, estilos, PWA offline, enlaces internos, iOS, modo oscuro/OLED y acceso a las URL antiguas. Mantener las versiones en castellano y valenciano sin publicarlas ni modificar contenidos mientras se cambia únicamente la fuente.
+**No archivar ni borrar `Appendix-grammaticae` todavía.** La autonomía técnica de la compilación no demuestra por sí sola que nadie utilice sus URLs históricas ni que las PWA ya instaladas puedan desaparecer. Antes de archivar hay que revisar enlaces, dispositivos, accesos y crear una copia de seguridad fuera de GitHub, además de obtener autorización expresa.
 
-**Fase 5 — Archivo reversible y borrado eventual.** Solo tras aprobación docente explícita, copia de seguridad y mantenimiento de enlaces, archivar el repositorio original en vez de borrarlo. El borrado definitivo requeriría revisión independiente, confirmación de su no utilización y una orden expresa: no se hace en esta fase.
-
-## Condiciones de seguridad
-
-- La fuente completa proviene exclusivamente del commit académico fijado. No se incorporan cambios posteriores de la rama principal original sin revisión.
-- El generador del snapshot **no escribe** en \`dist/\`, \`public/\` ni en los ficheros originales; no ejecuta los workflows contenidos en la copia.
-- \`main\` debe seguir compilando con el checkout original hasta que una PR posterior demuestre paridad completa.
-- La entrega del snapshot no altera el funcionamiento de Vocabula, Morfología, Evolutio, Etymologicon, el portal ni el área docente.
-- **No archivar ni eliminar** por el hecho de que el artefacto exista: todavía hay una dependencia técnica activa.
+No se fusiona esta PR, no se publica ningún cambio ni se cambia el banco del alumnado mientras la verificación esté pendiente. La versión valenciana de Evolutio sigue aparcada. La PR #124 de auditoría funcional castellana es independiente y está pendiente de revisión e integración controlada.
