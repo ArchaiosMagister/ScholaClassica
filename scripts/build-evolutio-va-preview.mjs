@@ -17,7 +17,19 @@ const evidenceTypes=new Set(['exemple_individual_del_canvi','regla_general_i_eti
 function ensure(ok,message){if(!ok)throw Error('Piloto valenciano: '+message);}
 const uniq=items=>new Set(items).size===items.length;
 const readJson=async(root,path)=>JSON.parse(await readFile(join(root,path),'utf8'));
-export function createValencianPilotData(matrix,decision,ruleCatalog){
+export function createValencianPilotData(matrix,decision,ruleCatalog,authorization){
+ ensure(authorization?.schema==='schola-evolutio-va-local-preview-normative-policy/v1'
+  &&authorization.scope==='offline_teacher_preview_only'
+  &&authorization.normativeAlternative.approvedAsSufficientForLocalPilot===true
+  &&authorization.normativeAlternative.individualDnvArticlesConsulted===0
+  &&authorization.normativeAlternative.isDnvEquivalent===false,
+  'falta autorización docente específica para uso local de GNV, sin suplantar DNV');
+ ensure(authorization.boundaries.onlyStandaloneLocalHtml===true
+  &&authorization.boundaries.allowedToPublishToStudents===false
+  &&authorization.boundaries.allowedToMergeIntoPublic===false
+  &&authorization.boundaries.allowedToChangeOriginalMatrix===false
+  &&authorization.boundaries.approvedStudentQuizCards===0,
+  'el piloto local no puede publicarse ni promover fichas');
  ensure(matrix?.schema==='schola-evolutio-va-matrix/v1','esquema de matriz no esperado');
  ensure(decision?.schema==='schola-evolutio-va-initial-pilot-decision/v1','decisión de piloto no esperada');
  ensure(ruleCatalog?.schema==='schola-evolutio-valenciano-rules/v1','catálogo normativo no esperado');
@@ -31,7 +43,10 @@ export function createValencianPilotData(matrix,decision,ruleCatalog){
   &&decision.normativeGate.publishWithoutTeacherApproval===false,'restricción normativa debilitada');
  const rows=decision.recommendedForPilot;
  ensure(rows.length===7&&uniq(rows.map(w=>w.id))
-  &&rows.every(w=>SCHOOL_ID_SET.has(w.id)),'IDs distintos de los siete pactados');
+  &&rows.every(w=>SCHOOL_ID_SET.has(w.id))
+  &&uniq(authorization.boundaries.allowedIDs)
+  &&rows.every(w=>authorization.boundaries.allowedIDs.includes(w.id))
+  &&authorization.boundaries.allowedIDs.length===7,'IDs distintos de los siete pactados');
  const bank=new Map(matrix.records.map(w=>[w.id,w]));
  const catalog=new Map(ruleCatalog.selectable.map(rule=>[rule.id,rule]));
  let direct=0,general=0;
@@ -86,6 +101,7 @@ export function createValencianPilotData(matrix,decision,ruleCatalog){
    normativeCriterion:'Gramàtica normativa valenciana (AVL 2006) + DCVB/IEC/GEC; no equival a consulta individual del DNV',
    dnvEntriesIndividuallyChecked:0,
    studentReleaseApproved:false,
+   teacherAuthorizedNormativeAlternativeOnlyForLocalPreview:true,
    historicChainsFullyDocumented:false,
    noAccount:true,
    noPersistentProgress:true,
@@ -114,16 +130,17 @@ export function renderValencianPilotHtml(template,css,engine,app,data){
  return html;
 }
 export async function buildValencianPilot(root=ROOT,outputPath=join(root,DEFAULT_OUT)){
- const [matrix,decision,rules,html,css,engine,app]=await Promise.all([
+ const [matrix,decision,rules,authorization,html,css,engine,app]=await Promise.all([
   readJson(root,ACADEMIC+'/matriz-522.json'),
   readJson(root,ACADEMIC+'/decisio-pilot-escolar-7-2026-11-18.json'),
   readJson(root,ACADEMIC+'/normas.json'),
+  readJson(root,ACADEMIC+'/autoritzacio-criteri-gnv-prototip-local-2026-11-18.json'),
   readFile(join(root,SOURCES+'/index.template.html'),'utf8'),
   readFile(join(root,SOURCES+'/style.css'),'utf8'),
   readFile(join(root,SOURCES+'/engine.js'),'utf8'),
   readFile(join(root,SOURCES+'/app.js'),'utf8')
  ]);
- const data=createValencianPilotData(matrix,decision,rules);
+ const data=createValencianPilotData(matrix,decision,rules,authorization);
  const file=renderValencianPilotHtml(html,css,engine,app,data);
  const absolute=resolve(outputPath);
  ensure(absolute!==join(root,'dist')&&!absolute.startsWith(join(root,'dist')+'/')
