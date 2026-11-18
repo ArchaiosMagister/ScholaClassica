@@ -12,15 +12,16 @@ const read=async(path)=>JSON.parse(await readFile(path,'utf8'));
 const inputs=async()=>Promise.all([
  read(join(dir,'matriz-522.json')),
  read(join(dir,'decisio-pilot-escolar-7-2026-11-18.json')),
- read(join(dir,'normas.json'))
+ read(join(dir,'normas.json')),
+ read(join(dir,'autoritzacio-criteri-gnv-prototip-local-2026-11-18.json'))
 ]);
 const getEngine=async()=>runInNewContext(
  (await readFile(join(root,'preview/evolutio-valenciano/engine.js'),'utf8'))+'\nEvolutioVaPilotEngine;',
  {Math,Set,String,Error});
 
 test('Siete IDs, nueve reglas, GNV sin suplantar DNV ni añadir fichas reservadas',async()=>{
- const [matrix,decision,rules]=await inputs();
- const data=createValencianPilotData(matrix,decision,rules);
+ const [matrix,decision,rules,authorization]=await inputs();
+ const data=createValencianPilotData(matrix,decision,rules,authorization);
  assert.equal(data.schema,'schola-evolutio-va-offline-local-pilot/v1');
  assert.equal(data.words.length,7);
  assert.deepEqual(new Set(data.words.map(x=>x.id)),new Set([
@@ -29,6 +30,9 @@ test('Siete IDs, nueve reglas, GNV sin suplantar DNV ni añadir fichas reservada
  assert.equal(data.words.reduce((n,x)=>n+x.changes.length,0),9);
  assert.equal(data.limitations.dnvEntriesIndividuallyChecked,0);
  assert.equal(data.limitations.studentReleaseApproved,false);
+ assert.equal(data.limitations.teacherAuthorizedNormativeAlternativeOnlyForLocalPreview,true);
+ assert.equal(authorization.normativeAlternative.isDnvEquivalent,false);
+ assert.equal(authorization.boundaries.allowedToPublishToStudents,false);
  assert.equal(data.limitations.noPersistentProgress,true);
  const banned=['matrem','cælum','noctem','tĕrram','pŏrtam','farinam','octo','dictum','sigĭllum'];
  assert.ok(data.words.every(x=>!banned.includes(x.latin)));
@@ -76,8 +80,8 @@ test('Motor aislado: respuesta patrimonial, normas por fragmento y tres intentos
 });
 
 test('HTML autosuficiente: sin conexión, sin almacenamiento, fuera de dist, sin informes docentes',async()=>{
- const [matrix,decision,rules]=await inputs();
- const data=createValencianPilotData(matrix,decision,rules);
+ const [matrix,decision,rules,authorization]=await inputs();
+ const data=createValencianPilotData(matrix,decision,rules,authorization);
  const location=join(root,'preview/evolutio-valenciano');
  const [template,css,engine,app]=await Promise.all([
   readFile(join(location,'index.template.html'),'utf8'),
@@ -97,9 +101,9 @@ test('HTML autosuficiente: sin conexión, sin almacenamiento, fuera de dist, sin
  assert.ok(!html.includes('matriz-522')&&!html.includes('reconciliacio-pr45'));
  assert.ok(!html.includes('src=')&&!html.includes('href='));
  assert.throws(()=>createValencianPilotData(
-  {...matrix,summary:{...matrix.summary,aptasParaPractica:1}},decision,rules));
+  {...matrix,summary:{...matrix.summary,aptasParaPractica:1}},decision,rules,authorization));
  assert.throws(()=>createValencianPilotData(matrix,
-  {...decision,normativeGate:{...decision.normativeGate,currentDnvIndividualChecks:1}},rules));
+  {...decision,normativeGate:{...decision.normativeGate,currentDnvIndividualChecks:1}},rules,authorization));
  const temp=await mkdtemp(join(tmpdir(),'schola-va-'));
  try{
   const target=join(temp,'index.html');
