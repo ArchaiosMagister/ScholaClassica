@@ -21,9 +21,9 @@ const tableKinds=new Set(['sustantivo','adjetivo','desinencia','artículo','part
 const categories=activity=>activity==='table'?tableKinds:null;
 const modes=(language,unit)=>[
   'form','analysis','written','table',
-  ...(language==='griego'&&unit>=5?['agreement']:[]),
   ...(language!=='latin2'&&unit>=(language==='latin4'?3:5)?['phrase-written','phrase-table']:[]),
-  ...(language==='griego'&&unit>=5?['noun-phrase-written','noun-phrase-table']:[])
+  ...(language==='griego'&&unit>=5?['noun-phrase-written','noun-phrase-table']:[]),
+  ...(language==='griego'&&unit>=5?['agreement']:[])
 ];
 const isPhrase=activity=>activity.startsWith('phrase-')||activity.startsWith('noun-phrase-');
 function generator(bank,language,unit,activity,kind){
