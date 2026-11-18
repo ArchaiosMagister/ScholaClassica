@@ -40,6 +40,6 @@
     "audit:curriculum:scope": "node scripts/audit-curricular-scope.mjs",
     "audit:morfologia:unidades": "node scripts/audit-morphology-curricular-coverage.mjs",
     "audit:gr1:unassigned": "node scripts/audit-greek-unassigned-individual.mjs",
-    "snapshot:appendix": "node scripts/snapshot-appendix-source.mjs"
+    "audit:appendix:vendor": "node scripts/verify-vendored-appendix.mjs"
   }
 }
