@@ -42,6 +42,7 @@
     "audit:gr1:unassigned": "node scripts/audit-greek-unassigned-individual.mjs",
     "test:browser:castellano:vocabula": "node tests/castellano-vocabula-matrix-browser.mjs",
     "test:browser:castellano:evolutio": "node tests/castellano-evolutio-browser.mjs",
-    "audit:repositorios:retirada": "node scripts/audit-original-source-retirement.mjs"
+    "audit:repositorios:retirada": "node scripts/audit-original-source-retirement.mjs",
+    "test:browser:castellano:appendix": "node tests/castellano-appendix-browser.mjs"
   }
 }
