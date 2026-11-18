@@ -76,6 +76,8 @@ jobs:
         run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
+      - name: Inventariar dependencias activas de los repositorios originales
+        run: npm run audit:repositorios:retirada
       - name: Auditar filología transversal de Latín I, Latín 4.º y Griego I (solo lectura)
         run: npm run audit:filologia:transversal
       - name: Auditar fronteras de currículo y procedencia de Examen sin reclasificar bancos
