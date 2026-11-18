@@ -93,6 +93,10 @@ test('Separar siete reglas escolares: una MONOP individual, cuatro patrones y do
  assert.equal(nine.entries.some(x=>x.latin==='noctem'),false);
  assert.equal(trio.entries.length+nine.entries.length,12);
  assert.equal(new Set([...trio.entries,...nine.entries].map(e=>e.id)).size,12);
+ assert.equal(trio.summary.selectableLaws+nine.summary.schoolLawCandidates,12);
+ assert.equal(trio.summary.directWordSpecificHistoricalMechanismReferences+nine.summary.explicitHistoricalPairAndLawCases,5);
+ assert.equal(trio.summary.generalRulesWithSourceAndSpecificEtymon+nine.summary.generalHistoricalRuleCases,5);
+ assert.equal(nine.summary.etymologicalPairsWithoutSpecificMechanism,2);
 });
 
 test('Precauciones: cadena homónima, fonética moderna no es ley histórica y no se certifica DNV',()=>{
