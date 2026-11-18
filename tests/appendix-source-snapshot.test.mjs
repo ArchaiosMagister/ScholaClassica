@@ -24,7 +24,8 @@ test('Copia completa de 111 fuentes de Appendix, incluidos icono PNG y valencian
  assert.equal(report.sha,lock.sources.appendix.sha);
  assert.equal(report.files,111);
  assert.equal(report.completeOriginal,true);
- assert.ok(report.bytes>2100000);
+ assert.equal(report.treeSha,'ac24b5b997d3a37d78ef43de36085b850b22e472');
+ assert.equal(report.bytes,2160046);
  assert.ok(report.nonText>=1);
  assert.equal(new Set(report.entries.map(x=>x.path)).size,111);
  assert.ok(report.entries.some(x=>x.path==='apple-touch-icon.png'&&x.bytes>9000));
