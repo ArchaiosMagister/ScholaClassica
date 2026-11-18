@@ -1,0 +1,473 @@
+{
+  "schema": "schola-evolutio-va-initial-pilot-decision/v1",
+  "date": "2026-11-18",
+  "parentPR": 122,
+  "parentPRBase": 119,
+  "policy": "Decisión académica propuesta para un piloto de docencia. No es aprobación personal del docente, no modifica fichas ni permite práctica sin validación normativa y docente acordada. No traslada leyes castellanas.",
+  "normativeGate": {
+    "observed": "12/12 formas en Gramàtica normativa valenciana AVL 2006; DCVB etimologías individuales; DNV online de la AVL no recuperable por el buscador; no se ha consultado un solo artículo individual",
+    "currentDnvIndividualChecks": 0,
+    "possibleAlternativeForTeacherApproval": "Aceptar testimonio de uso/ortografía de una obra normativa oficial de la AVL (GNV 2006) más DNV pendiente, con confirmación docente expresa de esta política antes de publicar. No es lectura ni equivalencia de artículos DNV.",
+    "publishWithoutTeacherApproval": false,
+    "canEnableInMain": false,
+    "userFacingStatus": "desactivado"
+  },
+  "summary": {
+    "originalRecords": 522,
+    "reviewedInPilot": 12,
+    "quizCandidates": 7,
+    "firstTierCandidates": 5,
+    "secondTierCandidates": 2,
+    "selectableLawInstancesInSeven": 9,
+    "directlyWordExemplifiedLawInstances": 7,
+    "generalRuleLawInstances": 2,
+    "introOnly": 3,
+    "philologicalHoldWithinPilot": 2,
+    "noctemExternalHold": 1,
+    "teacherApproved": 0,
+    "playable": 0,
+    "mainChanges": 0
+  },
+  "recommendedForPilot": [
+    {
+      "id": "ge-EVF-0338",
+      "latin": "uitam",
+      "form": "vida",
+      "rank": 1,
+      "priority": "primer_bloc",
+      "academicDecision": "recomanada_per_a_primer_pilot_si_validacio_docent_i_politica_normativa",
+      "requestedSelectableLaws": [
+        {
+          "rule": "SONOR",
+          "unicodeSpans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "evidenceDegree": "exemple_individual_del_canvi",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        }
+      ],
+      "finalMLoss": "fixa_no_seleccionable",
+      "normativeSpelling": {
+        "avlGnvExampleAttested": true,
+        "officialAVLSource": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+        "sourceType": "gramatica_normativa_2006_no_DNV",
+        "currentDnvIndividualEntryChecked": false,
+        "dnvUrl": "https://www.avl.gva.es/lexicval/"
+      },
+      "lexicalEtimology": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vida",
+        "individualAttestation": true
+      },
+      "independentHistoricalReferences": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "claim": "vita > vida es ejemplo expreso de sonorización intervocálica"
+        }
+      ],
+      "reason": "SONOR exacta: GEC vita > vida, segment t",
+      "criticalNote": "u inicial = grafía de v consonántica; no evaluar vocalización ni pérdida de m como regla seleccionable.",
+      "fullyCertifiedHistoricalChain": false,
+      "approvedByTeacher": false,
+      "playable": false
+    },
+    {
+      "id": "xl-354",
+      "latin": "buccam",
+      "form": "boca",
+      "rank": 2,
+      "priority": "primer_bloc",
+      "academicDecision": "recomanada_per_a_primer_pilot_si_validacio_docent_i_politica_normativa",
+      "requestedSelectableLaws": [
+        {
+          "rule": "ABER",
+          "unicodeSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "evidenceDegree": "exemple_individual_del_canvi",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        },
+        {
+          "rule": "SIMPL",
+          "unicodeSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "evidenceDegree": "exemple_individual_del_canvi",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        }
+      ],
+      "finalMLoss": "fixa_no_seleccionable",
+      "normativeSpelling": {
+        "avlGnvExampleAttested": true,
+        "officialAVLSource": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+        "sourceType": "gramatica_normativa_2006_no_DNV",
+        "currentDnvIndividualEntryChecked": false,
+        "dnvUrl": "https://www.avl.gva.es/lexicval/"
+      },
+      "lexicalEtimology": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=boca",
+        "individualAttestation": true
+      },
+      "independentHistoricalReferences": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "claim": "bucca > boca: simplificación de -cc-"
+        },
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "claim": "bŭcca > boca: timbre /o/ procedente de ŭ latina"
+        }
+      ],
+      "reason": "GEC explicita ambos mecanismos: ŭ > o y -cc- > -c-",
+      "criticalNote": "OBERTURA es etiqueta de correspondencia ŭ>o, NO indica que la o valenciana sea abierta: AVL documenta [o] cerrada.",
+      "fullyCertifiedHistoricalChain": false,
+      "approvedByTeacher": false,
+      "playable": false
+    },
+    {
+      "id": "xl-82",
+      "latin": "cuppam",
+      "form": "copa",
+      "rank": 6,
+      "priority": "segon_bloc_condicional",
+      "academicDecision": "recomanada_per_a_primer_pilot_si_validacio_docent_i_politica_normativa",
+      "requestedSelectableLaws": [
+        {
+          "rule": "ABER",
+          "unicodeSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "evidenceDegree": "regla_general_i_etimologia",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        },
+        {
+          "rule": "SIMPL",
+          "unicodeSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "evidenceDegree": "exemple_individual_del_canvi",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        }
+      ],
+      "finalMLoss": "fixa_no_seleccionable",
+      "normativeSpelling": {
+        "avlGnvExampleAttested": true,
+        "officialAVLSource": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+        "sourceType": "gramatica_normativa_2006_no_DNV",
+        "currentDnvIndividualEntryChecked": false,
+        "dnvUrl": "https://www.avl.gva.es/lexicval/"
+      },
+      "lexicalEtimology": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=copa",
+        "individualAttestation": true
+      },
+      "independentHistoricalReferences": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "claim": "cuppa > copa ejemplo expreso de simplificación de -pp-"
+        },
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "claim": "ŭ latina generalmente > o catalana; correlación aplicada al étimo cŭppa de DCVB"
+        }
+      ],
+      "reason": "SIMPL -pp- directa; ABER ŭ>o por patrón general y étimo DCVB",
+      "criticalNote": "La GNV menciona copa como ejemplo consonántico [p], no testimonio del timbre de la o en esa página.",
+      "fullyCertifiedHistoricalChain": false,
+      "approvedByTeacher": false,
+      "playable": false
+    },
+    {
+      "id": "xl-567",
+      "latin": "focum",
+      "form": "foc",
+      "rank": 7,
+      "priority": "segon_bloc_condicional",
+      "academicDecision": "recomanada_per_a_primer_pilot_si_validacio_docent_i_politica_normativa",
+      "requestedSelectableLaws": [
+        {
+          "rule": "APOC",
+          "unicodeSpans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "evidenceDegree": "regla_general_i_etimologia",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        }
+      ],
+      "finalMLoss": "fixa_no_seleccionable",
+      "normativeSpelling": {
+        "avlGnvExampleAttested": true,
+        "officialAVLSource": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+        "sourceType": "gramatica_normativa_2006_no_DNV",
+        "currentDnvIndividualEntryChecked": false,
+        "dnvUrl": "https://www.avl.gva.es/lexicval/"
+      },
+      "lexicalEtimology": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=foc",
+        "individualAttestation": true
+      },
+      "independentHistoricalReferences": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "claim": "Descripción general de pérdida catalana de vocales finales átonas diferentes de -a"
+        },
+        {
+          "authority": "DCVB",
+          "url": "https://dcvb.iec.cat/results.asp?word=foc",
+          "claim": "Étimo fŏcu y evolución semántica 'hogar' > 'fuego'"
+        }
+      ],
+      "reason": "APOC final desde latín focu explicada por ley general de desaparición de vocales finales diferentes de -a",
+      "criticalNote": "No confundir la caída de -u con la pérdida de -m: FIX_M sigue fija, no seleccionable. El étimo focu es distinto del sentido clásico de foco.",
+      "fullyCertifiedHistoricalChain": false,
+      "approvedByTeacher": false,
+      "playable": false
+    },
+    {
+      "id": "xl-587",
+      "latin": "pontem",
+      "form": "pont",
+      "rank": 5,
+      "priority": "primer_bloc",
+      "academicDecision": "recomanada_per_a_primer_pilot_si_validacio_docent_i_politica_normativa",
+      "requestedSelectableLaws": [
+        {
+          "rule": "APOC",
+          "unicodeSpans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "evidenceDegree": "exemple_individual_del_canvi",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        }
+      ],
+      "finalMLoss": "fixa_no_seleccionable",
+      "normativeSpelling": {
+        "avlGnvExampleAttested": true,
+        "officialAVLSource": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+        "sourceType": "gramatica_normativa_2006_no_DNV",
+        "currentDnvIndividualEntryChecked": false,
+        "dnvUrl": "https://www.avl.gva.es/lexicval/"
+      },
+      "lexicalEtimology": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pont",
+        "individualAttestation": true
+      },
+      "independentHistoricalReferences": [
+        {
+          "authority": "IEC / Estudis Romànics 41 (2019)",
+          "url": "https://publicacions.iec.cat/repository/pdf/00000269/00000055.pdf",
+          "claim": "Mariño Paz y Pichel, p. 9: pŏnte resulta pont en catalán, en discusión contextual de apócope vocálica"
+        }
+      ],
+      "reason": "IEC presenta pŏnte > pont como resultado catalán en discusión explícita sobre apócope",
+      "criticalNote": "La -t final se conserva en ortografía y fonética valenciana; separar la apócope de -e y pérdida fija de -m.",
+      "fullyCertifiedHistoricalChain": false,
+      "approvedByTeacher": false,
+      "playable": false
+    },
+    {
+      "id": "xl-52",
+      "latin": "catenam",
+      "form": "cadena",
+      "rank": 3,
+      "priority": "primer_bloc",
+      "academicDecision": "recomanada_per_a_primer_pilot_si_validacio_docent_i_politica_normativa",
+      "requestedSelectableLaws": [
+        {
+          "rule": "SONOR",
+          "unicodeSpans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "evidenceDegree": "exemple_individual_del_canvi",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        }
+      ],
+      "finalMLoss": "fixa_no_seleccionable",
+      "normativeSpelling": {
+        "avlGnvExampleAttested": true,
+        "officialAVLSource": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+        "sourceType": "gramatica_normativa_2006_no_DNV",
+        "currentDnvIndividualEntryChecked": false,
+        "dnvUrl": "https://www.avl.gva.es/lexicval/"
+      },
+      "lexicalEtimology": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cadena",
+        "individualAttestation": true
+      },
+      "independentHistoricalReferences": [
+        {
+          "authority": "IEC / Estudios dialectológicos",
+          "url": "https://publicacions.iec.cat/repository/pdf/00000505/00000095.pdf",
+          "claim": "Exposición textual: -T- intervocálica latina se sonoriza en -d-, como CATÉNA > cadena"
+        },
+        {
+          "authority": "IEC / Pere Barnils",
+          "url": "https://publicacions.iec.cat/repository/pdf/00000500/00000039.pdf",
+          "claim": "Ejemplo explícito CATENA > cadena para t > d"
+        }
+      ],
+      "reason": "IEC identifica CATENA > cadena como sonorización -T- > -d-",
+      "criticalNote": "Usar acepción CADENA 1, no homónimo derivado de carena; separar la lenición [ð] moderna de la sonorización histórica.",
+      "fullyCertifiedHistoricalChain": false,
+      "approvedByTeacher": false,
+      "playable": false
+    },
+    {
+      "id": "xl-26",
+      "latin": "aucam",
+      "form": "oca",
+      "rank": 4,
+      "priority": "primer_bloc",
+      "academicDecision": "recomanada_per_a_primer_pilot_si_validacio_docent_i_politica_normativa",
+      "requestedSelectableLaws": [
+        {
+          "rule": "MONOP",
+          "unicodeSpans": [
+            [
+              0,
+              2
+            ]
+          ],
+          "evidenceDegree": "exemple_individual_del_canvi",
+          "individuallyHistoricallyCertifiedAsCompleteChain": false,
+          "teacherApproved": false
+        }
+      ],
+      "finalMLoss": "fixa_no_seleccionable",
+      "normativeSpelling": {
+        "avlGnvExampleAttested": true,
+        "officialAVLSource": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+        "sourceType": "gramatica_normativa_2006_no_DNV",
+        "currentDnvIndividualEntryChecked": false,
+        "dnvUrl": "https://www.avl.gva.es/lexicval/"
+      },
+      "lexicalEtimology": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=oca",
+        "individualAttestation": true
+      },
+      "independentHistoricalReferences": [
+        {
+          "authority": "IEC / Estudis Romànics 39 (2017)",
+          "url": "https://publicacions.iec.cat/repository/pdf/00000243/00000036.pdf",
+          "claim": "Recensión de gramática histórica que da auca > oca como monoptongación de au"
+        },
+        {
+          "authority": "IEC / Joan Coromines DECat",
+          "url": "https://decat.iec.cat/documents/VI/26.pdf",
+          "claim": "OCA, documentación histórica de variante latina vulgar auca y resultado romance oca"
+        }
+      ],
+      "reason": "IEC trata AUCA > oca expresamente en el contexto de monoptongación",
+      "criticalNote": "Mantener étimo latino vulgar auca; nunca asumir derivación regular directa desde anser.",
+      "fullyCertifiedHistoricalChain": false,
+      "approvedByTeacher": false,
+      "playable": false
+    }
+  ],
+  "demonstrationOnly": [
+    {
+      "id": "xl-320",
+      "latin": "tĕrram",
+      "form": "terra",
+      "academicDecision": "exclusiu_demo_no_examen_identificacio_normes",
+      "rationale": "No hay ninguna de las 17 normas seleccionables: solo pérdida de -m final fija",
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "id": "xl-248",
+      "latin": "pŏrtam",
+      "form": "porta",
+      "academicDecision": "exclusiu_demo_no_examen_identificacio_normes",
+      "rationale": "No hay ninguna de las 17 normas seleccionables: solo pérdida de -m final fija",
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "id": "xl-111",
+      "latin": "farinam",
+      "form": "farina",
+      "academicDecision": "exclusiu_demo_no_examen_identificacio_normes",
+      "rationale": "No hay ninguna de las 17 normas seleccionables: solo pérdida de -m final fija",
+      "teacherApproved": false,
+      "playable": false
+    }
+  ],
+  "philologicalHolds": [
+    {
+      "id": "xl-198",
+      "latin": "matrem",
+      "form": "mare",
+      "academicDecision": "reserva_filologica_sense_practica",
+      "reason": "Etimología disputada MATER nominativo frente a MATREM acusativo en Coromines/DCVB; etiqueta SIMPL no acredita base histórica exacta.",
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "id": "xl-40",
+      "latin": "cælum",
+      "form": "cel",
+      "academicDecision": "reserva_filologica_sense_practica",
+      "reason": "La aplicación escolar de MONOP+PALAT requiere resolver el tratamiento de -u final, la variante coelum y la reconstrucción específica de æ.",
+      "teacherApproved": false,
+      "playable": false
+    }
+  ],
+  "externalHold": {
+    "latin": "noctem",
+    "form": "nit",
+    "reason": "Reserva de #45/#119: normas VOC/SIMPL y clasificación provisional frente a revisada; no entrar en primer piloto.",
+    "playable": false
+  },
+  "readinessChecks": [
+    "Corroboración normativa individual DNV o aprobación docente explícita de fuente GNV alternativa",
+    "Validación docente de conjunto de normas escolares y que ABER no implica [ɔ] moderna",
+    "Comprobar conservación de IDs y progreso por idioma y modo offline",
+    "Prueba de variedad y reglas enseñadas en el alumnado",
+    "Publicación controlada únicamente tras pruebas y aprobación explícita"
+  ]
+}
