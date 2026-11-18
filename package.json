@@ -41,6 +41,7 @@
     "audit:morfologia:unidades": "node scripts/audit-morphology-curricular-coverage.mjs",
     "audit:gr1:unassigned": "node scripts/audit-greek-unassigned-individual.mjs",
     "test:browser:castellano:vocabula": "node tests/castellano-vocabula-matrix-browser.mjs",
-    "test:browser:castellano:evolutio": "node tests/castellano-evolutio-browser.mjs"
+    "test:browser:castellano:evolutio": "node tests/castellano-evolutio-browser.mjs",
+    "audit:repositorios:retirada": "node scripts/audit-original-source-retirement.mjs"
   }
 }
