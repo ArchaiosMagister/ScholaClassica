@@ -113,7 +113,7 @@ test('Precauciones: cadena homónima, fonética moderna no es ley histórica y n
  assert.ok(mare.latinCaseDispute.source.url.includes('publicacions.iec.cat'));
  assert.match(nine.criticalAcademicFindings.matrem.join(' '),/MATER/);
  const sky=nine.entries.find(x=>x.latin==='cælum');
- assert.match(sky.criticalNote,/-u/);
+ assert.match(sky.criticalNote,/vocal final àtona u/);
  assert.equal(sky.historicalSchoolLaws[0].locallySourceSupported,false);
  assert.ok(sky.historicalSchoolLaws[0].evidence.some(e=>e.url.endsWith('/e-6')));
  assert.match(nine.criticalAcademicFindings.caelum.join(' '),/APÒCOPE/);
