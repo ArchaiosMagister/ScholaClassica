@@ -96,3 +96,26 @@ La aprobación que se puede solicitar con fundamento **ahora** es la de **contin
 - Tres correspondencias con `FIX_M` únicamente para demostración, sin utilizarlas en preguntas que exijan seleccionar alguna de las 17 normas.
 
 **Ninguna de estas prioridades cambia el corpus publicado, los IDs ni los registros de progreso**. Los ensayos automatizados comprobatorios son `tests/evolutio-valenciano-pilot12-reconciliacion.test.mjs` y `tests/evolutio-valenciano-pilot12-evidencia-independiente.test.mjs`.
+
+
+## 6. Primer trío prioritario: constatación normativa directa en la *Gramàtica normativa valenciana* (AVL)
+
+El **18/11/2026** se ha encontrado la versión de la obra oficial de la Acadèmia Valenciana de la Llengua, [*Gramàtica normativa valenciana*](https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf), alojada por la UPV. En la **página impresa 9 (PDF 9, índice PDF 8)**, «Símbols fonètics», aparecen literalmente: `vida` como ejemplo de **[a]**, `boca` como ejemplo de **[o]** y `copa` como ejemplo de **[p]**. Las tres grafías están por tanto **atestiguadas en una obra normativa oficial de la AVL**, si bien no se trata de la lectura del artículo correspondiente del DNV. No se atribuirá al DNV evidencia que no se ha obtenido.
+
+Documentación exacta e IDs: [`contrast-avl-gnv-vida-boca-copa-2026-11-18.json`](../shared/academic/evolutio-valenciano/contrast-avl-gnv-vida-boca-copa-2026-11-18.json). Nueva prueba automatizada: `tests/evolutio-valenciano-avl-gnv-trio-20261118.test.mjs`.
+
+| Ficha | Prueba de la AVL | Prueba independiente de GEC y DCVB | Estado |
+|---|---|---|---|
+| `ge-EVF-0338`: `uitam → vida` | GNV p. 9, `vida` bajo [a] | GEC documenta de modo explícito `vita → vida` entre las sordas intervocálicas que se sonorizan: SONOR, `t` [2,3]. DCVB: `vīta`. | Ejemplo de una norma bien respaldada, sin DNV individual ni aprobación docente |
+| `xl-354`: `buccam → boca` | GNV p. 9, `boca` bajo [o] (vocal **cerrada**) | GEC: `bǔcca → boca` al explicar ŭ > [o] (ABER `u`, [1,2]) y `bucca → boca` en simplificación de geminadas (`cc`, [2,4]). DCVB: `bŭcca`, semánticamente primero ‘galta’. | Ambas leyes escolares tienen ejemplo fonético directo; cadena completa y DNV pendientes |
+| `xl-82`: `cuppam → copa` | GNV p. 9, `copa` bajo [p] (¡**no** confirma allí el timbre de la vocal!) | GEC: `cuppa → copa` expresamente para la simplificación de `pp` [2,4]. La ŭ > o [1,2] se apoya en la norma general de la evolución vocálica y el étimo individual del DCVB `cŭppa`; **no** hay en la fuente vocálica un ejemplo específico `cuppa → copa`. | SIMPL directa; ABER con evidencia general + etimología, pendiente de corroboración individual |
+
+Referencias fonéticas exactas: [GEC, gramática histórica de «català», líneas conceptuales «Interiors simples» y «Geminades»](https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala); [GEC, entrada «o», ŭ clásica > o cerrada, ejemplo de `bǔcca`](https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7). Etimologías: [DCVB `vida`](https://dcvb.iec.cat/results.asp?word=vida), [`boca`](https://dcvb.iec.cat/results.asp?word=boca), [`copa`](https://dcvb.iec.cat/results.asp?word=copa).
+
+**Nota de nomenclatura docente:** la regla escolar OBERTURA en este proyecto abarca la evolución ŭ > o. En `bŭccam → boca`, la GNV especifica **[o] cerrada**, no [ɔ] abierta; el nombre de la ley **no permite deducir la apertura fonética moderna**. No se renombra automáticamente la norma del catálogo docente, pero debe aclararse en su futura explicación al alumnado.
+
+**Nota de grafía:** la `u` inicial de `uitam` es la grafía consonántica latina equivalente a `v`; se mantiene la forma educativa original y no se marca VOCALITZACIÓ sobre esa `u`.
+
+**Estado resultante:** 3/3 grafías en obra normativa AVL, 3/3 etimologías individuales DCVB, 5/5 mecanismos seleccionables contrastados (4 ejemplos explicados por la GEC y 1 patrón general más étimo), **0/3 artículos individuales DNV**, **0 cadenas fonéticas históricas completas certificadas**, **0 aprobaciones docentes**, **0 fichas jugables**. Los 522 registros de la matriz y el banco castellano siguen intactos.
+
+**Siguiente decisión académica necesaria:** sería razonable someter `uitam → vida` y `buccam → boca` a un criterio docente de aceptación escolar de las normas *sin fingir una reconstrucción diacrónica de etapas no atestiguadas*; `cuppam → copa` necesitaría una fuente individual para la vocal antes de equiparar su grado de evidencia. En cualquier caso la exigencia fijada de consulta individual DNV sigue pendiente para promover a práctica.
