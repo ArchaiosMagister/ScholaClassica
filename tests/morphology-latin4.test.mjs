@@ -17,7 +17,7 @@ const latin4=compileLatin4({
   teacherParadigmsJs:read('.sources/vocabula/gramatica-paradigmas.js'),
   teacherImperfectsJs:read('.sources/vocabula/gramatica-latin-imperfectos.js'),
   syllabusJs:read('.sources/vocabula/gramatica-contenidos.js'),
-  latinAdjectivesHtml:read('.sources/appendix/adjetivos.html'),
+  latinAdjectivesHtml:read('vendor/appendix/adjetivos.html'),
   vocabulaSha:lock.sources.vocabula.sha
 });
 const rng=()=>.42;
@@ -125,7 +125,7 @@ test('Fuentes cambiadas abortan la compilación y no contaminan Latín I o Grieg
     teacherParadigmsJs:read('.sources/vocabula/gramatica-paradigmas.js'),
     teacherImperfectsJs:read('.sources/vocabula/gramatica-latin-imperfectos.js'),
     syllabusJs:read('.sources/vocabula/gramatica-contenidos.js'),
-    latinAdjectivesHtml:read('.sources/appendix/adjetivos.html'),
+    latinAdjectivesHtml:read('vendor/appendix/adjetivos.html'),
     vocabulaSha:lock.sources.vocabula.sha
   };
   assert.throws(()=>compileLatin4({...args,
