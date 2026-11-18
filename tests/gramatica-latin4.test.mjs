@@ -8,7 +8,7 @@ import {makeLatin4Curriculum,adaptAppendixLatin4}
 import {adaptLatin4App} from '../scripts/adapt-appendix-latin4-ui.mjs';
 import {GRAMMAR_CORE} from '../scripts/build-gramatica-pwa.mjs';
 const root=resolve(import.meta.dirname,'..');
-const src=join(root,'.sources/appendix'),dest=join(root,'dist/apps/gramatica');
+const src=join(root,'vendor/appendix'),dest=join(root,'dist/apps/gramatica');
 const read=(dir,file)=>readFileSync(join(dir,file),'utf8');
 const es=JSON.parse(read(dest,'assets/curriculum-latin4.json'));
 const va=JSON.parse(read(dest,'val/curriculum-latin4.json'));
