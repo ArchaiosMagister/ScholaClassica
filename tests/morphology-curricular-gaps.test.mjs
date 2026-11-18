@@ -9,7 +9,7 @@ import {makeWrittenQuestions,correctWritten,makeTableExercises,evaluateTable}
   from '../public/morfologia/written.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const curriculum=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
+const curriculum=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
 const batch=compileCurricularGapBatch(curriculum);
 const get=id=>batch.find(r=>r.id===id);
