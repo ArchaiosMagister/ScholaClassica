@@ -6,11 +6,11 @@ import {compileMorphology} from '../scripts/build-morphology.mjs';
 import {validateBank,availableRecords,makeQuestions,evaluate} from '../public/morfologia/engine.mjs';
 const root=resolve(import.meta.dirname,'..');
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
-const source=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
+const source=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const compiled=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
-const latinNounsHtml=readFileSync(join(root,'.sources/appendix/sustantivos.html'),'utf8');
-const latinIndicativeHtml=readFileSync(join(root,'.sources/appendix/indicativo.html'),'utf8');
-const latinAdjectivesHtml=readFileSync(join(root,'.sources/appendix/adjetivos.html'),'utf8');
+const latinNounsHtml=readFileSync(join(root,'vendor/appendix/sustantivos.html'),'utf8');
+const latinIndicativeHtml=readFileSync(join(root,'vendor/appendix/indicativo.html'),'utf8');
+const latinAdjectivesHtml=readFileSync(join(root,'vendor/appendix/adjetivos.html'),'utf8');
 const sampleRng=()=>.37;
 test('el banco tiene SHA del Appendix fijado y se recompila exactamente desde sus tablas',()=>{
   assert.equal(compiled.appendixSha,lock.sources.appendix.sha);
