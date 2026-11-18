@@ -40,7 +40,9 @@
     "individualDnvArticlesVerified": 0,
     "fullHistoricalChainsVerified": 0,
     "approvedByTeacher": 0,
-    "playable": 0
+    "playable": 0,
+    "caseOriginDisputes": 1,
+    "additionalGeneralAeHistoricalSources": 1
   },
   "entries": [
     {
@@ -436,13 +438,34 @@
           ]
         ]
       },
-      "criticalNote": "Mantindre SIMPLIFICACIÓ com a decisió docent anterior, però separar decisió escolar i demostració històrica completa. La forma medieval mayre del DCVB no permet inferir un estadi causal del canvi -tr-.",
+      "criticalNote": "Mantindre SIMPLIFICACIÓ com a decisió docent anterior, però separar decisió escolar i demostració històrica completa. La forma medieval mayre del DCVB no permet inferir un estadi causal del canvi -tr-. RESERVA ETIMOLÒGICA: Joan Coromines defensa per als noms de parentiu pare/mare l'origen en nominatius PATER/MATER, no necessàriament acusatius PATREM/MATREM. Per tant, la forma del banc matrem és una base escolar convencional en debat, i no es pot certificar la cadena matrem→mare com si fos indiscutida.",
       "classification": "parella_sense_mecanisme_individual",
       "teacherApproval": false,
       "playable": false,
       "dnvIndividualEntryChecked": false,
       "fullyDocumentedHistoricalChain": false,
-      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV"
+      "finalPedagogicalSelection": "pendent_revisio_docent_i_DNV",
+      "latinCaseDispute": {
+        "status": "recerca_filologica_amb_interpretacions_divergents",
+        "source": {
+          "authority": "Joan Coromines / publicació de l'IEC",
+          "title": "Algunes lleis fonètiques catalanes no observades fins ara",
+          "url": "https://publicacions.iec.cat/repository/pdf/00000149/00000072.pdf",
+          "pagesPrinted": "202–204",
+          "scope": "Distinció -TR- llatina vs -T(E)R- i hipòtesi de nominatiu MATER per mare, comparada amb derivados madrina, madrastra i topònims amb -dr-"
+        },
+        "contrast": [
+          {
+            "source": "DCVB",
+            "position": "Etimologia general del lema mare expressada amb el llatí matre."
+          },
+          {
+            "source": "Coromines",
+            "position": "El nom de parentiu mare podria derivar del nominatiu MATER, tractat diferent de l'acusatiu MATREM; l'oposició s'analitza amb altres derivats."
+          }
+        ],
+        "conclusion": "No declarar base acusativa MATREM historicamente acreditada; conservar original per compatibilitat amb el banc, marcar reserva per a aprovació docent i no publicar fins resoldre criteri."
+      }
     },
     {
       "id": "xl-26",
@@ -535,7 +558,7 @@
           "pdfPageZeroBased": 8,
           "word": "cel",
           "context": "[s] exemplificat amb cel",
-          "evidenceScope": "pronúncia estàndard de c davant e, no monoфтongació diacrònica",
+          "evidenceScope": "pronúncia estàndard de c davant e, no monoftongació diacrònica",
           "wordExplicitlyPresent": true,
           "isIndividualDnvEntry": false
         }
@@ -560,9 +583,14 @@
               "authority": "GEC",
               "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
               "scope": "GEC dona coelu > cel en vocalisme; no prova isoladament æ > e de forma escrita cælum"
+            },
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/e-6",
+              "scope": "La vocal llatina vulgar oberta que deriva de la e i ae clàssiques dona majoritàriament e catalana; llei general, no cadena individual de caelum."
             }
           ],
-          "criticalReserve": "No atribuir a coelu > cel la verificació del fragment æ del lema cælum; cal prova històrica directa del diftong llatí ae i evitar barrejar variants caelum/coelum.",
+          "criticalReserve": "No atribuir a coelu > cel la verificació del fragment æ del lema cælum; cal prova històrica directa del diftong llatí ae i evitar barrejar variants caelum/coelum. La GEC, lletra e, explicita la correspondència general e/ae clàssiques > e catalana, sense donar cadena individual per a cælum.",
           "locallySourceSupported": false,
           "completeHistoricalChainCertified": false,
           "schoolRuleApproved": false
@@ -625,5 +653,22 @@
       "excludedFromAutomaticPromotion": true,
       "reason": "Dues lleis editorials i pèrdua final -u sense justificació escolar completa."
     }
+  },
+  "criticalAcademicFindings": {
+    "matrem": [
+      "DCVB marca matre com a etimologia nominal",
+      "Coromines defensa nominatiu MATER per parentiu: contrast case-specific sense resoldre",
+      "No activar l'exercici fins aclariment docent de la base llatina i l'etiqueta SIMPL"
+    ],
+    "caelum": [
+      "GEC e-6 recolza ae/e > e en llatí vulgar i català en general",
+      "DCVB cel < caelum, GEC coelu > cel; variants no són proves de la mateixa cadena",
+      "Decisió editorial evita APÒCOPE de la vocal -u, encara que cal explicar-la abans d'activar"
+    ],
+    "aucam": [
+      "IEC Estudis Romànics recull auca > oca per monoftongació explícita",
+      "Coromines descriu variants medievals i base vulgar auca",
+      "Conservació -a no és apòcope"
+    ]
   }
 }
