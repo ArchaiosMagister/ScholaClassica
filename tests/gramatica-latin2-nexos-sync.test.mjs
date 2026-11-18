@@ -6,16 +6,19 @@ import {join,resolve} from 'node:path';
 import {GRAMMAR_CORE} from '../scripts/build-gramatica-pwa.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const original=join(root,'.sources/appendix');
+const original=join(root,'vendor/appendix');
 const integrated=join(root,'dist/apps/gramatica');
 const read=(base,path)=>readFileSync(join(base,path),'utf8');
 
-test('Appendix: el SHA de compilación y el del workflow coinciden con el origen real',()=>{
+test('Appendix: el árbol interno es idéntico al original y CI no descarga Appendix',()=>{
  const lock=JSON.parse(read(root,'config/sources.lock.json'));
- const head=execFileSync('git',['-C',original,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
- assert.equal(lock.sources.appendix.sha,head);
+ const treeSha=execFileSync('git',['-C',root,'rev-parse','HEAD:vendor/appendix'],{encoding:'utf8'}).trim();
+ assert.equal(lock.sources.appendix.treeSha,treeSha);
+ assert.equal(lock.sources.appendix.sourceMode,'vendored');
+ assert.equal(lock.sources.appendix.sha,'6e9ae22d98c10f8752329d0fa65ad8dd882dcde9');
  const workflow=read(root,'.github/workflows/integracion.yml');
- assert.ok(workflow.includes('ref: '+head),'CI usa otra revisión de Appendix');
+ assert.ok(workflow.includes('working-directory: vendor/appendix'));
+ assert.ok(!workflow.includes('repository: ArchaiosMagister/Appendix-grammaticae'));
  assert.equal(lock.sources.appendix.integrated,true);
 });
 
