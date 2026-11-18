@@ -12,7 +12,7 @@ import {adaptGreek1App} from '../scripts/adapt-appendix-griego1-ui.mjs';
 import {GRAMMAR_CORE} from '../scripts/build-gramatica-pwa.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const input=join(root,'.sources/appendix');
+const input=join(root,'vendor/appendix');
 const output=join(root,'dist/apps/gramatica');
 const cfg=[
  {locale:'es',folder:'',curriculum:'assets/curriculum.json',
