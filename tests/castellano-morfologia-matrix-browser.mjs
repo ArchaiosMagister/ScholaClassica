@@ -46,7 +46,10 @@ try{
   assert.equal(units.length,configured.units,language+': número de UD distinto de matriz');
   assert.equal(await page.locator('#unit-label').isVisible(),language!=='latin2');
   for(const unit of units){
-   await page.locator('#unit').selectOption(String(unit));
+   if(language==='latin2'){
+    // Latín II no presenta unidades: el valor interno 0 se mantiene sin interactuar.
+    assert.equal(await page.locator('#unit').inputValue(),'0');
+   }else await page.locator('#unit').selectOption(String(unit));
    // Las modalidades deshabilitadas son una barrera curricular:
    // no seleccionar por script una opción escondida en pantalla.
    const activeModes=await page.locator('#activity option').evaluateAll(nodes=>
@@ -60,6 +63,10 @@ try{
     const kind=activity==='agreement'?'adjetivo':
       activity.startsWith('phrase-')||activity.startsWith('noun-phrase-')?'sintagma':'todos';
     const enabled=await page.locator('#kind option').evaluateAll(nodes=>nodes.map(n=>n.value));
+    const anticipated=matrix.matrix.filter(x=>x.language===language&&x.unit===unit&&
+     x.activity===activity&&x.exposed).map(x=>x.kind);
+    assert.deepEqual(enabled,anticipated,
+     language+'/UD'+unit+'/'+activity+': categoría de tabla sin ejercicio o categoría válida oculta');
     assert.ok(enabled.includes(kind),language+'/UD'+unit+'/'+activity+': no permite '+kind);
     await page.locator('#kind').selectOption(kind);
     const expected=positions.get([language,unit,activity,kind].join('|'));
