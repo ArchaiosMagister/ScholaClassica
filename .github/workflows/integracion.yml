@@ -1,7 +1,7 @@
 name: Validar y publicar ScholaClassica en GitHub Pages
 on:
   push:
-    branches: [main, 'integracion/**']
+    branches: [main, 'integracion/**', 'feature/autonomia-appendix-*']
   pull_request:
   workflow_dispatch:
 
@@ -135,8 +135,8 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
-      - name: Archivar la fuente original de Appendix para migración segura (solo PR)
-        if: github.event_name == 'pull_request'
+      - name: Archivar la fuente original de Appendix para migración segura (PR o rama de migración)
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/heads/feature/autonomia-appendix-')
         uses: actions/upload-artifact@v4
         with:
           name: appendix-fuente-original-verificada
