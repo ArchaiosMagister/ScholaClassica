@@ -70,6 +70,9 @@ jobs:
       - name: Validar Appendix original
         working-directory: .sources/appendix
         run: node scripts/validate-site.mjs
+      - name: Copiar las 111 fuentes de Appendix con SHA completo, sin publicar
+        if: github.event_name == 'pull_request'
+        run: npm run snapshot:appendix
       - name: Auditar esquema y candidatos de Etymologicon sin habilitar respuestas
         run: npm run etymology:audit
       - name: Conciliar el Excel docente de Etymologicon con sus comprobaciones
@@ -133,6 +136,15 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
+      - name: Archivar la fuente original de Appendix para migración segura (solo PR)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: appendix-fuente-original-verificada
+          path: build/academic-audits/appendix-autonomia/
+          if-no-files-found: error
+          retention-days: 30
+          include-hidden-files: true
       - name: Archivar las 184 fichas y los candidatos griegos para revisión docente
         uses: actions/upload-artifact@v4
         with:
