@@ -1,0 +1,47 @@
+{
+  "schema": "schola-evolutio-va-local-preview-normative-policy/v1",
+  "date": "2026-11-18",
+  "authorizationContext": "Aceptación expresa del docente de usar una obra normativa oficial de la AVL para la grafía, con DCVB/IEC/GEC para etimología y leyes, exclusivamente para un primer prototipo local aislado. No se autoriza publicar el banco al alumnado.",
+  "scope": "offline_teacher_preview_only",
+  "normativeAlternative": {
+    "authority": "Acadèmia Valenciana de la Llengua",
+    "work": "Gramàtica normativa valenciana (2006)",
+    "use": "grafía y usos atestiguados de las siete palabras del piloto",
+    "evidenceUrl": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+    "complementarySources": [
+      "DCVB / IEC",
+      "Estudis Romànics / IEC",
+      "Gran Enciclopèdia Catalana"
+    ],
+    "approvedAsSufficientForLocalPilot": true,
+    "individualDnvArticlesConsulted": 0,
+    "isDnvEquivalent": false
+  },
+  "boundaries": {
+    "allowedIDs": [
+      "ge-EVF-0338",
+      "xl-354",
+      "xl-52",
+      "xl-26",
+      "xl-587",
+      "xl-82",
+      "xl-567"
+    ],
+    "onlyStandaloneLocalHtml": true,
+    "allowedToMergeIntoPublic": false,
+    "allowedToPublishToStudents": false,
+    "allowedToChangeOriginalMatrix": false,
+    "approvedStudentQuizCards": 0,
+    "noProgressStorage": true,
+    "reservedCases": [
+      "matrem",
+      "cælum",
+      "noctem"
+    ],
+    "introOnly": [
+      "tĕrram",
+      "pŏrtam",
+      "farinam"
+    ]
+  }
+}
