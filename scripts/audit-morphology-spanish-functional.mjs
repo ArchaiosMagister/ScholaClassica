@@ -61,7 +61,7 @@ function checkCorrect(q){
 }
 export function auditMorphologyFunctionalMatrix(bank){
  validateBank(bank);
- const matrix=[],nonProducing=[],exceptions=[],perCourse={};
+ const matrix=[],nonProducing=[],suppressed=[],exceptions=[],perCourse={};
  for(const [language,course] of Object.entries(langs)){
   const covered=bank.coverage[language];
   assert.ok(Array.isArray(covered)&&covered.length>0,course+': sin UD');
@@ -76,7 +76,7 @@ export function auditMorphologyFunctionalMatrix(bank){
         .map(r=>r.kind))];
     assert.ok(availableKinds.length>0,course+'/UD'+unit+'/'+activity+': selector vacío');
     for(const kind of availableKinds){
-     const selection={language,course,unit,activity,kind,
+     const selection={language,course,unit,activity,kind,exposed:true,
        recordsAvailable:records.filter(r=>kind==='todos'||kind==='sintagma'||r.kind===kind).length};
      try{
       const questions=generator(bank,language,unit,activity,kind);
@@ -92,6 +92,11 @@ export function auditMorphologyFunctionalMatrix(bank){
         course+'/UD'+unit+'/'+activity+'/'+kind+': categoría inesperada');
        assert.ok(questions.every(q=>q.evidence),
         course+'/UD'+unit+'/'+activity+'/'+kind+': pregunta sin procedencia');
+      }else if(activity==='table'&&kind!=='todos'){
+       // Esta categoría carece de tabla completa, por lo que no se ofrece.
+       selection.exposed=false;
+       selection.status='suppressed';
+       suppressed.push({...selection,problem:'categoria_sin_tabla_completa'});
       }else{
        nonProducing.push({...selection,problem:'filtro_visible_sin_ejercicios'});
       }
@@ -107,16 +112,18 @@ export function auditMorphologyFunctionalMatrix(bank){
   perCourse[language]={label:course,units:covered.length,minimum:covered[0],
     maximum:covered.at(-1),records:bank.records.filter(r=>r.language===language).length,
     combinations:rows.length,generated:rows.filter(x=>x.status==='generated').length,
+    hiddenUnproductive:rows.filter(x=>x.status==='suppressed').length,
     empty:rows.filter(x=>x.status==='empty').length,errors:rows.filter(x=>x.status==='error').length};
  }
  const report={
   schema:'schola-morphology-spanish-functional-matrix/v1',
   source:'dist/apps/morfologia/data/paradigmas.json (source Appendix + expansion verified)',
-  language:'es',modes:'exactamente las opciones visibles por curso y UD',
+  language:'es',modes:'modalidades visibles; categorías sin tablas completas excluidas del menú',
   totals:{combinations:matrix.length,generated:matrix.filter(x=>x.status==='generated').length,
+   visible:matrix.filter(x=>x.exposed).length,hiddenUnproductive:suppressed.length,
    empty:nonProducing.length,exceptions:exceptions.length,
    correctedSamples:matrix.filter(x=>x.corrector).length},
-  perCourse,nonProducing,exceptions,matrix
+  perCourse,nonProducing,suppressed,exceptions,matrix
  };
  return report;
 }
@@ -127,13 +134,13 @@ export async function saveMorphologyFunctionalAudit(){
  await mkdir(resolve(file,'..'),{recursive:true});
  await writeFile(file,JSON.stringify(report,null,2)+'\n');
  console.log('Morfología castellana: '+JSON.stringify({totals:report.totals,
-  courses:report.perCourse,emptySamples:report.nonProducing.slice(0,16),
+  courses:report.perCourse,blockedCategories:report.suppressed.slice(0,16),
+  emptySamples:report.nonProducing.slice(0,16),
   errors:report.exceptions.slice(0,10)}));
  return report;
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
  const report=await saveMorphologyFunctionalAudit();
- if(report.totals.exceptions)process.exitCode=1;
- // Las combinaciones vacías son hallazgos de producto (no fallos del motor).
- // Se documentan antes de decidir qué bloqueos de UI se deben corregir.
+ if(report.totals.exceptions||report.totals.empty)process.exitCode=1;
+ // Las categorías que carecen de tabla completa no se anuncian en el menú.
 }
