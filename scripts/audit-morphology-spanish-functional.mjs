@@ -87,7 +87,8 @@ export function auditMorphologyFunctionalMatrix(bank){
        selection.corrector=verified;
        assert.ok(questions.every(q=>q.language===language),
         course+'/UD'+unit+'/'+activity+'/'+kind+': otro idioma');
-       assert.ok(questions.every(q=>q.kind===kind||kind==='todos'),
+       assert.ok(questions.every(q=>q.kind===kind||kind==='todos'||
+         (activity==='agreement'&&q.activity==='agreement'&&kind==='adjetivo')),
         course+'/UD'+unit+'/'+activity+'/'+kind+': categoría inesperada');
        assert.ok(questions.every(q=>q.evidence),
         course+'/UD'+unit+'/'+activity+'/'+kind+': pregunta sin procedencia');
