@@ -39,6 +39,9 @@ export async function snapshotAppendix({repoRoot=root,sourceDir=source,targetDir
   'fuente, permiso o referencia cambiaron');
  const head=git(['rev-parse','HEAD'],sourceDir);
  ensure(head===pinned.sha,'el checkout no coincide con el commit fijado');
+ const treeSha=git(['rev-parse','HEAD^{tree}'],sourceDir);
+ ensure(treeSha==='ac24b5b997d3a37d78ef43de36085b850b22e472',
+  'árbol Git original distinto del lote de 111 ficheros');
  ensure(!targetDir.startsWith(join(repoRoot,'dist')+sep)
    &&!targetDir.startsWith(join(repoRoot,'public')+sep)
    &&targetDir!==sourceDir,'prohibido escribir en Pages o en el origen');
@@ -60,6 +63,7 @@ export async function snapshotAppendix({repoRoot=root,sourceDir=source,targetDir
   if(/\.(png|jpe?g|ico|woff2?|ttf|webp)$/i.test(file.path))nonText++;
   copies.push({path:file.path,gitBlobSha:file.sha,bytes:raw.length});
  }
+ ensure(bytes===2160046,'el tamaño total original cambió: '+bytes);
  ensure(copies.some(f=>f.path==='apple-touch-icon.png'),
   'falta el icono binario original');
  ensure(copies.some(f=>f.path==='assets/curriculum.json')
@@ -68,7 +72,7 @@ export async function snapshotAppendix({repoRoot=root,sourceDir=source,targetDir
  return {
   schema:'schola-appendix-source-snapshot/v1',
   date:'2026-11-18',origin:pinned.repository,sha:pinned.sha,
-  completeOriginal:true,files:copies.length,bytes,nonText,
+  completeOriginal:true,treeSha,files:copies.length,bytes,nonText,
   releasePolicy:{
    changesPublicApp:false,changesBuildSource:false,changesDocsInStudentPortal:false,
    allowsDeleteOriginal:false,validatedOfflineMigration:false
