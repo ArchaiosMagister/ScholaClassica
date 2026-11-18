@@ -39,6 +39,8 @@
     "audit:filologia:transversal": "node scripts/audit-filologia-transversal.mjs",
     "audit:curriculum:scope": "node scripts/audit-curricular-scope.mjs",
     "audit:morfologia:unidades": "node scripts/audit-morphology-curricular-coverage.mjs",
-    "audit:gr1:unassigned": "node scripts/audit-greek-unassigned-individual.mjs"
+    "audit:gr1:unassigned": "node scripts/audit-greek-unassigned-individual.mjs",
+    "test:browser:castellano:vocabula": "node tests/castellano-vocabula-matrix-browser.mjs",
+    "test:browser:castellano:evolutio": "node tests/castellano-evolutio-browser.mjs"
   }
 }
