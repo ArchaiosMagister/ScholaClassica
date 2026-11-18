@@ -34,13 +34,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Appendix fijado (solo compilación)
-        uses: actions/checkout@v4
-        with:
-          repository: ArchaiosMagister/Appendix-grammaticae
-          ref: 6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
-          path: .sources/appendix
-          persist-credentials: false
       - name: Evolutio fijado (solo compilación)
         uses: actions/checkout@v4
         with:
@@ -69,6 +62,10 @@ jobs:
           ref: e8328948fb4b9b73b625aeda3639137c5e49a1ff
           path: .sources/lemlat3
           persist-credentials: false
+      - name: Verificar Appendix original copiado en la fuente interna (sin checkout externo)
+        run: |
+          test ! -d .sources/appendix
+          npm run audit:appendix:vendor
       - name: Construir banco de Latín II fuera de Pages
         run: npm run build
       - name: Probar convertidor y reglas de evidencia
