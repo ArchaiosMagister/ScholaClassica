@@ -8,7 +8,7 @@ import {auditLatinBilingualSemantics}
  from '../scripts/audit-latin-bilingual-semantics.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const source=join(root,'.sources/appendix'),out=join(root,'dist/apps/gramatica');
+const source=join(root,'vendor/appendix'),out=join(root,'dist/apps/gramatica');
 const read=(base,path)=>readFileSync(join(base,path),'utf8');
 const curricula=Object.fromEntries(['latin1','latin4'].map(course=>[
  course,{es:JSON.parse(read(out,'assets/curriculum-'+course+'.json')),
