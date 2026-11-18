@@ -64,7 +64,7 @@ try{
     await page.locator('#kind').selectOption(kind);
     const expected=positions.get([language,unit,activity,kind].join('|'));
     assert.ok(expected,'No hay referencia del motor para '+[language,unit,activity,kind].join('/'));
-    await page.locator('#new').click();
+    if(await page.locator('#session').isVisible())await page.locator('#new').click();
     await page.locator('#start').click();
     const visible=await page.locator('#session').isVisible();
     if(expected.questions>0){
