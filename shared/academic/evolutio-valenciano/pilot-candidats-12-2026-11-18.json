@@ -27,13 +27,7 @@
           "scope": "lema_i_etimologia"
         }
       ],
-      "independentPartialContext": [
-        {
-          "authority": "GEC",
-          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/e-6",
-          "scope": "context_general_vocalisme_tonic"
-        }
-      ],
+      "independentPartialContext": [],
       "editorialNote": "Conservar la vocal tónica y la grafía; -m final es fija, no seleccionable.",
       "normativeDnvIndividualChecked": false,
       "completeHistoricalChainCertified": false,
@@ -110,7 +104,13 @@
           "scope": "lema_i_etimologia"
         }
       ],
-      "independentPartialContext": [],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "fonetica_historica_general_perdua_vocals_finals_no_a"
+        }
+      ],
       "editorialNote": "Apócope de la vocal final tras pérdida fija de -m; no confundir ambas operaciones.",
       "normativeDnvIndividualChecked": false,
       "completeHistoricalChainCertified": false,
@@ -137,7 +137,13 @@
           "scope": "lema_i_etimologia"
         }
       ],
-      "independentPartialContext": [],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "fonetica_historica_general_perdua_vocals_finals_no_a"
+        }
+      ],
       "editorialNote": "Apócope de -e postónica y pérdida fija de -m; -nt- se conserva.",
       "normativeDnvIndividualChecked": false,
       "completeHistoricalChainCertified": false,
@@ -168,7 +174,7 @@
         {
           "authority": "GEC",
           "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/sonoritzacio",
-          "scope": "regla_general_oclusives_intervocaliques"
+          "scope": "llei_general_sonoritzacio_intervocalica"
         }
       ],
       "editorialNote": "Sonorización intervocálica -t- > -d-; regla general GEC no acredita toda la cadena individual.",
@@ -200,8 +206,8 @@
       "independentPartialContext": [
         {
           "authority": "GEC",
-          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/sonoritzacio",
-          "scope": "regla_general_oclusives_intervocaliques"
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "exemple_especific_vita_vida_sonoritzacio"
         }
       ],
       "editorialNote": "La u inicial es grafía de /w/ > v, no VOCALITZACIÓ seleccionable; -t- > -d-.",
@@ -230,7 +236,13 @@
           "scope": "lema_i_etimologia"
         }
       ],
-      "independentPartialContext": [],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "parella_explicita_matre_mare_sense_detall_tr"
+        }
+      ],
       "editorialNote": "SIMPLIFICACIÓ es criterio docente ya adoptado; falta corroboración histórica individual.",
       "normativeDnvIndividualChecked": false,
       "completeHistoricalChainCertified": false,
@@ -261,8 +273,13 @@
       "independentPartialContext": [
         {
           "authority": "GEC",
-          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/c-16",
-          "scope": "exemple_individual_boca_de_bucca_per_consonant"
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "exemple_especific_geminada_bucca_boca"
+        },
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "scope": "exemple_especific_vocalisme_bucca_boca"
         }
       ],
       "editorialNote": "Vocalismo ŭ > o y simplificación de -cc-; GEC menciona expresamente boca < bucca para la consonante.",
@@ -295,8 +312,13 @@
       "independentPartialContext": [
         {
           "authority": "GEC",
-          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/p-7",
-          "scope": "exemple_individual_copa_de_cuppa_per_consonant"
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "exemple_especific_geminada_cuppa_copa"
+        },
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "scope": "llei_general_vocalisme_llati_u_breu"
         }
       ],
       "editorialNote": "Vocalismo ŭ > o y simplificación de -pp-; GEC menciona expresamente copa < cuppa para la consonante.",
@@ -325,7 +347,13 @@
           "scope": "lema_i_etimologia"
         }
       ],
-      "independentPartialContext": [],
+      "independentPartialContext": [
+        {
+          "authority": "GEC",
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "scope": "llei_general_au_a_o_sense_exemple_individual"
+        }
+      ],
       "editorialNote": "El DCVB documenta oca < auca; monoftongación propuesta, no cadena histórica plenamente certificada.",
       "normativeDnvIndividualChecked": false,
       "completeHistoricalChainCertified": false,
@@ -356,8 +384,8 @@
       "independentPartialContext": [
         {
           "authority": "GEC",
-          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/s-9",
-          "scope": "descripcio_grafica_fonetica_cel_no_cadena_completa"
+          "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "scope": "parella_coelu_cel_i_c_inicial_davant_e"
         }
       ],
       "editorialNote": "El DCVB da cel < caelum; monoftongación y palatalización siguen propuestas sin certificado individual completo.",
@@ -369,5 +397,6 @@
       "playable": false,
       "selectionStatus": "candidat_pendent_de_validacio"
     }
-  ]
+  ],
+  "independentPhoneticResearch": "contrast-independent-pilot12-2026-11-18.json"
 }
