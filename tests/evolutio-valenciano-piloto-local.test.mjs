@@ -45,7 +45,7 @@ test('Motor aislado: respuesta patrimonial, normas por fragmento y tres intentos
  assert.equal(e.validate(data),true);
  assert.equal(e.normalize('  ViDA  '),'vida');
  const deck=e.shuffle(data.words,7,()=>0.999999);
- assert.deepEqual(deck.map(x=>x.id),data.words.map(x=>x.id));
+ assert.deepEqual(Array.from(deck,x=>x.id),data.words.map(x=>x.id));
  assert.equal(new Set(deck.map(x=>x.id)).size,7);
  const first=e.card(data.words.find(x=>x.latin==='uitam'));
  assert.equal(first.phase,'result');
