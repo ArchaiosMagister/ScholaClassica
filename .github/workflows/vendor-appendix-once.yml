@@ -1,0 +1,69 @@
+name: Migración puntual verificada de Appendix al repositorio
+
+on:
+  push:
+    branches:
+      - feature/autonomia-appendix-vendor-20261118
+    paths:
+      - .github/workflows/vendor-appendix-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  importar-fuente:
+    if: github.repository == 'ArchaiosMagister/ScholaClassica' && github.ref == 'refs/heads/feature/autonomia-appendix-vendor-20261118'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Checkout seguro de la rama de migración (única rama autorizada)
+        uses: actions/checkout@v4
+        with:
+          ref: feature/autonomia-appendix-vendor-20261118
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Obtener la fuente original de Appendix en su commit académico inmutable
+        uses: actions/checkout@v4
+        with:
+          repository: ArchaiosMagister/Appendix-grammaticae
+          ref: 6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
+          path: .sources/appendix
+          persist-credentials: false
+      - name: Preservar los 111 archivos originales y verificar el árbol Git binario
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXPECTED_COMMIT=6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
+          EXPECTED_TREE=ac24b5b997d3a37d78ef43de36085b850b22e472
+          test "$(git -C .sources/appendix rev-parse HEAD)" = "$EXPECTED_COMMIT"
+          test "$(git -C .sources/appendix rev-parse 'HEAD^{tree}')" = "$EXPECTED_TREE"
+          test ! -e vendor/appendix
+          mkdir -p vendor/appendix
+          git -C .sources/appendix archive --format=tar HEAD | tar -xf - -C vendor/appendix
+          test -f vendor/appendix/assets/curriculum.json
+          test -f vendor/appendix/val/curriculum.json
+          test -f vendor/appendix/apple-touch-icon.png
+          test -f vendor/appendix/.nojekyll
+          git add -f vendor/appendix
+          STAGED_TREE=$(git write-tree)
+          VENDOR_TREE=$(git ls-tree "$STAGED_TREE" vendor/appendix | awk '{print $3}')
+          echo "Árbol original: $EXPECTED_TREE"
+          echo "Árbol importado: $VENDOR_TREE"
+          test "$VENDOR_TREE" = "$EXPECTED_TREE"
+          COUNT=$(git ls-files vendor/appendix | wc -l | tr -d ' ')
+          echo "Archivos de origen incluidos: $COUNT"
+          test "$COUNT" = 111
+      - name: Incorporar únicamente el árbol original en la rama de la PR (sin desplegar)
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = feature/autonomia-appendix-vendor-20261118
+          test "$(git diff --cached --name-only | wc -l | tr -d ' ')" = 111
+          if git diff --cached --name-only | grep -v '^vendor/appendix/'; then
+            echo 'ERROR: fichero fuera de vendor/appendix'
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Vendor Appendix: importar 111 fuentes exactamente desde árbol Git verificado"
+          git push origin HEAD:refs/heads/feature/autonomia-appendix-vendor-20261118
