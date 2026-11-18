@@ -1,0 +1,778 @@
+{
+  "schema": "schola-evolutio-va-pr-reconciliation/v1",
+  "date": "2026-11-18",
+  "sources": {
+    "PR45": "c012d49ceaca51f6ff1679950f20cd58abf25999",
+    "PR46": "d50d10fb69a0b4dc9507062c49036287b805f488",
+    "PR119": "8ae0df591cc22d063e4d3c7e47a56d400fb34ba3"
+  },
+  "policy": "Comparativa documental de estados; no importación automática de evidencia, reglas, aprobaciones ni publicaciones.",
+  "summary": {
+    "oldPR46LexicalDocumented": 221,
+    "currentPR119EditorialDocumented": 120,
+    "currentPR119LexicalOnly": 66,
+    "currentPR119TotalLexicallySupported": 186,
+    "formerlyDocumentedNowProposals": 38,
+    "formerlyDocumentedNowPending": 3,
+    "formerRuleSetsNotTransferred": 26,
+    "allRecords": 522,
+    "playable": 0
+  },
+  "teacherDecisionsFromPR45": [
+    {
+      "latin": "noctem",
+      "stage45": "analisi_editorial_provisional_docent",
+      "stage119": "analisi_editorial_revisada",
+      "schoolRules45": [
+        "VOC",
+        "SIMPL",
+        "APOC",
+        "FIX_M"
+      ],
+      "schoolRules119": [
+        "VOC",
+        "SIMPL",
+        "FIX_M"
+      ],
+      "teacherDecisionAppliedToPractice": false
+    },
+    {
+      "latin": "matrem",
+      "stage45": "analisi_editorial_revisada",
+      "stage119": "analisi_editorial_revisada",
+      "schoolRules45": [
+        "SIMPL",
+        "FIX_M"
+      ],
+      "schoolRules119": [
+        "SIMPL",
+        "FIX_M"
+      ],
+      "teacherDecisionAppliedToPractice": false
+    },
+    {
+      "latin": "fabam",
+      "stage45": "analisi_editorial_revisada",
+      "stage119": "analisi_editorial_revisada",
+      "schoolRules45": [
+        "FIX_M"
+      ],
+      "schoolRules119": [
+        "FIX_M"
+      ],
+      "teacherDecisionAppliedToPractice": false
+    },
+    {
+      "latin": "caballum",
+      "stage45": "analisi_editorial_revisada",
+      "stage119": "analisi_editorial_revisada",
+      "schoolRules45": [
+        "PALAT",
+        "APOC",
+        "FIX_M"
+      ],
+      "schoolRules119": [
+        "PALAT",
+        "APOC",
+        "FIX_M"
+      ],
+      "teacherDecisionAppliedToPractice": false
+    }
+  ],
+  "formerlyDocumentedNotPromotedOnPR119": [
+    {
+      "id": "xl-75",
+      "latin": "crucem",
+      "form46": "creu",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "creu",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-191",
+      "latin": "maium",
+      "form46": "maig",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "maig",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-257",
+      "latin": "radium",
+      "form46": "raig",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "raig",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-300",
+      "latin": "spatium",
+      "form46": "espai",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "espai",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-842",
+      "latin": "lignum",
+      "form46": "lleny",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "lleny",
+      "assignedSchoolRules46": [
+        "PALAT",
+        "ABER",
+        "PALAT",
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-29",
+      "latin": "auricŭlam",
+      "form46": "orella",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "orella",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-80",
+      "latin": "cunicŭlum",
+      "form46": "conill",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "conill",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-113",
+      "latin": "fĕbrem",
+      "form46": "febre",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "febre",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-173",
+      "latin": "latronem",
+      "form46": "lladre",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "lladre",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-185",
+      "latin": "luxum",
+      "form46": "luxe",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "luxe",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-205",
+      "latin": "milium",
+      "form46": "mill",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "mill",
+      "assignedSchoolRules46": [
+        "PALAT",
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-218",
+      "latin": "octo",
+      "form46": "huit",
+      "status46": "documentat",
+      "status119": "pendent",
+      "form119": null,
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-282",
+      "latin": "senatum",
+      "form46": "senat",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "senat",
+      "assignedSchoolRules46": [
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-304",
+      "latin": "sponsam",
+      "form46": "esposa",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "esposa",
+      "assignedSchoolRules46": [
+        "PROT",
+        "SIMPL"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-306",
+      "latin": "squamam",
+      "form46": "escama",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "escama",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-827",
+      "latin": "dictum",
+      "form46": "dit",
+      "status46": "documentat",
+      "status119": "pendent",
+      "form119": null,
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-1033",
+      "latin": "leguminem",
+      "form46": "llegum",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "llegum",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-50",
+      "latin": "caput",
+      "form46": "cap",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "cap",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-70",
+      "latin": "cŏrium",
+      "form46": "cuir",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "cuir",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-132",
+      "latin": "forum",
+      "form46": "fur",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "fur",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-137",
+      "latin": "fundum",
+      "form46": "fons",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "fons",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-216",
+      "latin": "nomĭnem",
+      "form46": "nom",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "nom",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-289",
+      "latin": "sigĭllum",
+      "form46": "segell",
+      "status46": "documentat",
+      "status119": "pendent",
+      "form119": null,
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-305",
+      "latin": "sponsum",
+      "form46": "espòs",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "espòs",
+      "assignedSchoolRules46": [
+        "PROT",
+        "SIMPL",
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-307",
+      "latin": "stabĭlem",
+      "form46": "estable",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "estable",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-341",
+      "latin": "uitium",
+      "form46": "vici",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "vici",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-517",
+      "latin": "fibram",
+      "form46": "fibra",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "fibra",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-576",
+      "latin": "membrum",
+      "form46": "membre",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "membre",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-582",
+      "latin": "nouem",
+      "form46": "nou",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "nou",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-608",
+      "latin": "temperare",
+      "form46": "temperar",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "temperar",
+      "assignedSchoolRules46": [
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-802",
+      "latin": "alium",
+      "form46": "all",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "all",
+      "assignedSchoolRules46": [
+        "PALAT",
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-724",
+      "latin": "integrare",
+      "form46": "integrar",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "integrar",
+      "assignedSchoolRules46": [
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-736",
+      "latin": "uiduam",
+      "form46": "viuda",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "viuda",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-807",
+      "latin": "ballænam",
+      "form46": "balena",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "balena",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "xl-919",
+      "latin": "passum",
+      "form46": "pas",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "pas",
+      "assignedSchoolRules46": [
+        "SIMPL",
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "ge-EVF-0337",
+      "latin": "uirtutem",
+      "form46": "virtut",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "virtut",
+      "assignedSchoolRules46": [
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "ge-EVF-0339",
+      "latin": "uitem",
+      "form46": "vit",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "vit",
+      "assignedSchoolRules46": [
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "ge-EVF-0343",
+      "latin": "uoluntatem",
+      "form46": "voluntat",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "voluntat",
+      "assignedSchoolRules46": [
+        "APOC"
+      ],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "ge-EVF-0408",
+      "latin": "nauigare",
+      "form46": "navegar",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "navegar",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "ge-EVF-0411",
+      "latin": "nigrum",
+      "form46": "negre",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "negre",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    },
+    {
+      "id": "ge-EVF-0556",
+      "latin": "bonum",
+      "form46": "bo",
+      "status46": "documentat",
+      "status119": "proposta",
+      "form119": "bo",
+      "assignedSchoolRules46": [],
+      "assignedSchoolRules119": []
+    }
+  ],
+  "formerRuleSetsIntentionallyNotPromoted": [
+    {
+      "id": "xl-842",
+      "latin": "lignum",
+      "rules46": [
+        "PALAT",
+        "ABER",
+        "PALAT",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-34",
+      "latin": "bŏnam",
+      "rules46": [
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-113",
+      "latin": "fĕbrem",
+      "rules46": [
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-205",
+      "latin": "milium",
+      "rules46": [
+        "PALAT",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-282",
+      "latin": "senatum",
+      "rules46": [
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-304",
+      "latin": "sponsam",
+      "rules46": [
+        "PROT",
+        "SIMPL",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-422",
+      "latin": "pilum",
+      "rules46": [
+        "ABER",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-427",
+      "latin": "putare",
+      "rules46": [
+        "ABER",
+        "SONOR",
+        "APOC"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-138",
+      "latin": "furcam",
+      "rules46": [
+        "ABER",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-214",
+      "latin": "nigram",
+      "rules46": [
+        "ABER",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-290",
+      "latin": "signa",
+      "rules46": [
+        "ABER",
+        "PALAT"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-305",
+      "latin": "sponsum",
+      "rules46": [
+        "PROT",
+        "SIMPL",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-420",
+      "latin": "picare",
+      "rules46": [
+        "ABER",
+        "SONOR",
+        "APOC"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-458",
+      "latin": "uiridem",
+      "rules46": [
+        "ABER",
+        "SINC",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-509",
+      "latin": "temptare",
+      "rules46": [
+        "APOC"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-517",
+      "latin": "fibram",
+      "rules46": [
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-608",
+      "latin": "temperare",
+      "rules46": [
+        "APOC"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-802",
+      "latin": "alium",
+      "rules46": [
+        "PALAT",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-724",
+      "latin": "integrare",
+      "rules46": [
+        "APOC"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-785",
+      "latin": "pausare",
+      "rules46": [
+        "MONOP",
+        "APOC"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "xl-919",
+      "latin": "passum",
+      "rules46": [
+        "SIMPL",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "ge-EVF-0337",
+      "latin": "uirtutem",
+      "rules46": [
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "ge-EVF-0339",
+      "latin": "uitem",
+      "rules46": [
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "ge-EVF-0343",
+      "latin": "uoluntatem",
+      "rules46": [
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "ge-EVF-0345",
+      "latin": "angustum",
+      "rules46": [
+        "ABER",
+        "APOC",
+        "FIX_M"
+      ],
+      "currentState": "pendent"
+    },
+    {
+      "id": "ge-EVF-0370",
+      "latin": "currere",
+      "rules46": [
+        "ABER",
+        "APOC"
+      ],
+      "currentState": "pendent"
+    }
+  ],
+  "reservedSpanishOnly": [
+    "octo",
+    "dictum",
+    "sigĭllum"
+  ],
+  "verdict": "No fusionar PR45/PR46. Los 38 descensos a propuesta necesitan cotejo caso por caso; tres correspondencias están reservadas sin propuesta valenciana. Verificar caso de noctem: se retira APOC y cambia provisional a revisada, sin aprobación de juego."
+}
