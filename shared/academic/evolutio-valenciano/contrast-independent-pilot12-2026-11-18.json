@@ -1,0 +1,929 @@
+{
+  "schema": "schola-evolutio-va-pilot12-independent-research/v1",
+  "date": "2026-11-18",
+  "parentPilot": "pilot-candidats-12-2026-11-18.json",
+  "policy": "Individual lexical, normative and historical phonetic review of twelve existing candidates. DIEC2 is IEC, NOT DNV/AVL. Phonetic generalizations and direct word-pairs do not imply whole-chain historical certification. No changes to playable cards. These are source attestations and proposed school-law matches, not teacher sign-off.",
+  "summary": {
+    "individuallyCheckedEtymologiesDCVB": 12,
+    "officialIEC2CoincidentLemmaSearches": 12,
+    "confirmedIndividualDnvArticles": 0,
+    "individualHistoricalChainsFullyCertified": 0,
+    "individualApprovedSelectableLawSets": 0,
+    "simpleCorrespondencesOnlyFixedM": 3,
+    "candidatesWithSelectableLaws": 9,
+    "candidateSelectableLawInstances": 12,
+    "explicitContextualExampleRules": 4,
+    "teacherApproved": 0,
+    "playable": 0
+  },
+  "normativeLimits": {
+    "DIEC2": "IEC normative search confirms a lemma, not the DNV article or necessarily every regional sense",
+    "DNV": "The current AVL DNV articles were not accessed; never label them verified",
+    "DCVB": "Etymological and phonetic dictionary; not a normative substitute for DNV",
+    "GEC": "General or individual historically explained examples; do not invent unattested intermediate phonetic forms"
+  },
+  "entries": [
+    {
+      "id": "xl-320",
+      "latin": "tĕrram",
+      "form": "terra",
+      "semanticSense": "terra, sòl / planeta; no la forma verbal ni topònims",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=terra",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "tĕrra",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=terra&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "correspondencia_transparent_sense_llei",
+        "priorityOrder": 0,
+        "explanation": "Correspondència sense llei escolar seleccionable: sols FIX_M. El DCVB documenta etimologia i pronunciació valenciana; no és pregunta d'identificació de lleis.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-248",
+      "latin": "pŏrtam",
+      "form": "porta",
+      "semanticSense": "porta, obertura d'entrada; no verb portar",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=porta",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "pŏrta",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=porta&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "correspondencia_transparent_sense_llei",
+        "priorityOrder": 0,
+        "explanation": "Nominal patrimonial transparent; única pèrdua fixa de -m. No oferir com a pregunta de selecció de lleis.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-111",
+      "latin": "farinam",
+      "form": "farina",
+      "semanticSense": "farina, producte de moldre cereal; no farinada",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=farina",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "farīna",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=farina&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            6,
+            7
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "correspondencia_transparent_sense_llei",
+        "priorityOrder": 0,
+        "explanation": "Sense lleis seleccionables; FIX_M explica la grafia final del model acusatiu. No afegir aspiració f inicial.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-567",
+      "latin": "focum",
+      "form": "foc",
+      "semanticSense": "foc, combustió; en llatí clàssic focus significava llar, diferència semàntica ja lexicalitzada en llatí vulgar",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=foc",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "fŏcu",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=foc&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "APOC",
+          "originalUnicodeSpans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "evidenceClass": "llei_general_amb_resultat_etimologic",
+          "evidenceStrength": "patro_general",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Vocals àtones: els finals no -a desapareixen; ex. fame > fam, oculu > ull",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "patro_general_sense_cadena",
+        "priorityOrder": 1,
+        "explanation": "La GEC explica pèrdua normal de vocals àtones finals distintes de -a; inferència d'APOC per focum, no estadi medieval individual documentat.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-587",
+      "latin": "pontem",
+      "form": "pont",
+      "semanticSense": "pont, construcció per travessar un obstacle; no locució portar pont ni homònim",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=pont",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "pŏnte",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=pont&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "APOC",
+          "originalUnicodeSpans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "evidenceClass": "llei_general_amb_resultat_etimologic",
+          "evidenceStrength": "patro_general",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Vocal àtona final no -a desapareix; generalització per pontem",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "patro_general_sense_cadena",
+        "priorityOrder": 1,
+        "explanation": "La GEC descriu l'apòcope de vocals finals diferents de -a; el DCVB documenta pŏnte > pont i pronunciació valenciana amb -t. No reconstruir passos intermedis.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-52",
+      "latin": "catenam",
+      "form": "cadena",
+      "semanticSense": "cadena, lligam d'anelles; no altre homònim relacionat amb carena",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=cadena",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "catēna",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=cadena&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "SONOR",
+          "originalUnicodeSpans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "evidenceClass": "llei_general_amb_resultat_etimologic",
+          "evidenceStrength": "patro_general",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            },
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/sonoritzacio",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Sordes intervocàliques llatines esdevenen sonores (ripa > riba, fata > fada)",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            6,
+            7
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "patro_general_sense_cadena",
+        "priorityOrder": 2,
+        "explanation": "DCVB etimologia exacta i pronunciació valenciana /kaðéna/. GEC acredita sonorització general de sordes intervocàliques, no història de cada fase de cadena.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "ge-EVF-0338",
+      "latin": "uitam",
+      "form": "vida",
+      "semanticSense": "vida, existència; no ús onomàstic",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=vida",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "vīta",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=vida&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "SONOR",
+          "originalUnicodeSpans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "evidenceClass": "exemple_directe_explicat",
+          "evidenceStrength": "mecanisme_specific_exemplificat",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Interiors simples: vita > vida com a exemple de sonorització",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "mecanisme_especific_sense_cadena_completa",
+        "priorityOrder": 2,
+        "explanation": "La GEC cita literalment vita > vida per a la sonorització de -t-. La u inicial de la grafia del banc representa v consonàntica i no és vocalització escolar.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-198",
+      "latin": "matrem",
+      "form": "mare",
+      "semanticSense": "mare, progenitora; no usos metafòrics",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=mare",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "matre",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=mare&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "SIMPL",
+          "originalUnicodeSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "evidenceClass": "parella_explicita_sense_mecanisme_detallat",
+          "evidenceStrength": "parella_etimologica_directa",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Consonants inicials: matre > mare, no descriu per separat la reducció -tr-",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "parella_especifica_no_verifica_totes_les_lleis",
+        "priorityOrder": 2,
+        "explanation": "La GEC cita matre > mare expressament, sense descompondre l'eliminació de -t- en -tr-. El docent aprova SIMPL com a etiqueta escolar; marcar només el mecanisme com a interpretació didàctica, no com a llei particular acreditada.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-354",
+      "latin": "buccam",
+      "form": "boca",
+      "semanticSense": "boca, obertura bucal; canvi semàntic galta en llatí clàssic > boca en llatí vulgar",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=boca",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "bŭcca",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=boca&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "ABER",
+          "originalUnicodeSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "evidenceClass": "exemple_directe_explicat",
+          "evidenceStrength": "mecanisme_specific_exemplificat",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Origen de /ọ/: boca < bǔcca; ŭ clàssica correspon a /ọ/",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        },
+        {
+          "rule": "SIMPL",
+          "originalUnicodeSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "evidenceClass": "exemple_directe_explicat",
+          "evidenceStrength": "mecanisme_specific_exemplificat",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Geminades: les oclusives se simplifiquen, bucca > boca",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "dues_lleis_amb_suport_parcial_sense_cadena_completa",
+        "priorityOrder": 3,
+        "explanation": "La GEC documenta bucca > boca explícitament per simplificació de -cc-; l'entrada vocàlica de GEC explica bǔcca > boca amb ŭ > o. Dues lleis amb suport de font independent; no cadena medieval completa.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-82",
+      "latin": "cuppam",
+      "form": "copa",
+      "semanticSense": "copa, vas per a beure; no la copa d'un arbre ni altres homònims",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=copa",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "cŭppa",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=copa&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "ABER",
+          "originalUnicodeSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "evidenceClass": "llei_general_amb_resultat_etimologic",
+          "evidenceStrength": "patro_general",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Regla general ŭ > o tancada en català; el DCVB dona cŭppa > copa",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        },
+        {
+          "rule": "SIMPL",
+          "originalUnicodeSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "evidenceClass": "exemple_directe_explicat",
+          "evidenceStrength": "mecanisme_specific_exemplificat",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "Geminades: cuppa > copa com a exemple explícit de simplificació",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "una_llei_especifica_i_una_general_sense_cadena",
+        "priorityOrder": 3,
+        "explanation": "La GEC cita literalment cuppa > copa per simplificació de -pp-. L'obertura ŭ > o té suport general en la vocalització catalana però no una cadena fonètica individual desenvolupada.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-26",
+      "latin": "aucam",
+      "form": "oca",
+      "semanticSense": "oca, ocell palmípede; del llatí vulgar auca, no confondre amb altres usos metafòrics",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=oca",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "auca",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=oca&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "MONOP",
+          "originalUnicodeSpans": [
+            [
+              0,
+              2
+            ]
+          ],
+          "evidenceClass": "llei_general_amb_resultat_etimologic",
+          "evidenceStrength": "patro_general",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "El diftong au clàssic origina /ǫ/ en català (paucu > poc, causa > cosa)",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "patro_general_sense_cadena",
+        "priorityOrder": 2,
+        "explanation": "DCVB acredita auca > oca i formes medievals ocha/oqua/hoca. GEC mostra un patró de /ǫ/ < au llatí (pauc(u) > poc, causa > cosa), sense citar auca individualment.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    },
+    {
+      "id": "xl-40",
+      "latin": "cælum",
+      "form": "cel",
+      "semanticSense": "cel, firmament; no cel 'zel' ni altres homògrafs",
+      "dcVbLexicalEtymology": {
+        "authority": "DCVB / IEC",
+        "url": "https://dcvb.iec.cat/results.asp?word=cel",
+        "lemmaAndSpecificEtymologyIndividuallyRead": true,
+        "latinSourceAsPrinted": "caelum",
+        "scope": "etimologia_descriptiva_no_normativa"
+      },
+      "normative": {
+        "iec2": {
+          "authority": "IEC / DIEC2",
+          "url": "https://dlc.iec.cat/Results?EntradaText=cel&operEntrada=0",
+          "entryFoundInOfficialSearch": true,
+          "scope": "lema_coincident_no_equivale_a_DNV"
+        },
+        "dnv": {
+          "authority": "AVL / DNV",
+          "url": "https://www.avl.gva.es/lexicval/",
+          "entryIndividuallyVerified": false,
+          "blocker": "cercador AVL inaccesible per al recuperador, robots.txt i sessió; cap article individual llegit"
+        }
+      },
+      "selectableLaws": [
+        {
+          "rule": "MONOP",
+          "originalUnicodeSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "evidenceClass": "parella_explicita_sense_mecanisme_detallat",
+          "evidenceStrength": "parella_etimologica_directa",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "GEC: coelu > cel, cita la base amb o/e antiga; sense explicació pròpia del tram æ",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        },
+        {
+          "rule": "PALAT",
+          "originalUnicodeSpans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "evidenceClass": "llei_general_amb_resultat_etimologic",
+          "evidenceStrength": "patro_general",
+          "sourceReferences": [
+            {
+              "authority": "GEC",
+              "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+              "scope": "fonetica_historica_contextual"
+            }
+          ],
+          "sourceExcerptDescription": "GEC: velar inicial c seguida d'e/i passa de [k] a [s] (civitate > ciutat)",
+          "lawHistoricallyFullyCertified": false,
+          "originalSpanHistoricallyCertified": false
+        }
+      ],
+      "finalM": {
+        "applies": true,
+        "selectable": false,
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ],
+        "separateFromApocope": true
+      },
+      "review": {
+        "state": "dos_mecanismes_parcials_i_una_vocal_final_sense_etiqueta",
+        "priorityOrder": 4,
+        "explanation": "DCVB confirma caelum > cel i vocal valenciana; GEC dona coelu > cel i canvi de c inicial davant e en /s/. Manca una font independent que detalle íntegrament æ > e, palatalització i la desaparició de -u final per a aquest acusatiu. Conservar la decisió docent de dues normes i explicitar que -u no està tractada com a llei seleccionable.",
+        "individuallyReadSources": [
+          "DCVB",
+          "IEC/DIEC2",
+          "GEC"
+        ],
+        "allHistoricalStagesDocumented": false,
+        "completePhoneticChainVerified": false,
+        "teacherApproved": false,
+        "playable": false
+      }
+    }
+  ]
+}
