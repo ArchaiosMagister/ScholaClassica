@@ -13,7 +13,7 @@ import {GRAMMAR_CORE}
  from '../scripts/build-gramatica-pwa.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const from=join(root,'.sources/appendix'),out=join(root,'dist/apps/gramatica');
+const from=join(root,'vendor/appendix'),out=join(root,'dist/apps/gramatica');
 const read=(dir,name)=>readFileSync(join(dir,name),'utf8');
 const tests=[
  {locale:'es',source:'',original:'assets/curriculum.json',
