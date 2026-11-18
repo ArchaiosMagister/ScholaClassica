@@ -71,7 +71,6 @@ jobs:
         working-directory: .sources/appendix
         run: node scripts/validate-site.mjs
       - name: Copiar las 111 fuentes de Appendix con SHA completo, sin publicar
-        if: github.event_name == 'pull_request'
         run: npm run snapshot:appendix
       - name: Auditar esquema y candidatos de Etymologicon sin habilitar respuestas
         run: npm run etymology:audit
