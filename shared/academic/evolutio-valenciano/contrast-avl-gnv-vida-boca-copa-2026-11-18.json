@@ -1,0 +1,253 @@
+{
+  "schema": "schola-evolutio-va-avl-gnv-trio/v1",
+  "date": "2026-11-18",
+  "parent": "contrast-independent-pilot12-2026-11-18.json",
+  "purpose": "Anàlisi de normativitat valenciana i evidència fonètica dels tres candidats prioritaris sense atribuir-los articles del DNV ni certificar cadenes completes.",
+  "sourceReferences": {
+    "officialNormativeAVLGNV": {
+      "authority": "Acadèmia Valenciana de la Llengua",
+      "title": "Gramàtica normativa valenciana",
+      "url": "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf",
+      "location": "pàgina impresa 9, símbols fonètics (pàgina PDF indexada 8)",
+      "individualDnvArticle": false,
+      "host": "Universitat Politècnica de València"
+    },
+    "DNV": {
+      "authority": "Acadèmia Valenciana de la Llengua",
+      "title": "Diccionari normatiu valencià",
+      "url": "https://www.avl.gva.es/lexicval/",
+      "individualEntriesAvailable": false,
+      "reason": "Interfície oficial inaccessible via recuperador; no inventar article ni lemes DNV"
+    },
+    "historicalGEC": {
+      "authority": "Gran Enciclopèdia Catalana",
+      "title": "català — gramàtica històrica",
+      "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala"
+    },
+    "historicalGECo": {
+      "authority": "Gran Enciclopèdia Catalana",
+      "title": "o — fonètica històrica del vocalisme",
+      "url": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7"
+    }
+  },
+  "summary": {
+    "reviewed": 3,
+    "distinctIds": 3,
+    "normativeAVLWrittenExamplesConfirmed": 3,
+    "dnvIndividualArticlesConfirmed": 0,
+    "directWordSpecificHistoricalMechanismReferences": 4,
+    "generalRulesWithSourceAndSpecificEtymon": 1,
+    "selectableLaws": 5,
+    "completeHistoricalChainsCertified": 0,
+    "teacherApproved": 0,
+    "playable": 0
+  },
+  "entries": [
+    {
+      "id": "ge-EVF-0338",
+      "latin": "uitam",
+      "expectedValencianForm": "vida",
+      "sense": "vida, existència; no ús onomàstic",
+      "officialAVLNormativeExample": {
+        "sourceKey": "officialNormativeAVLGNV",
+        "pagePrinted": 9,
+        "pdfPageIndex": 8,
+        "phoneticSymbol": "[a]",
+        "form": "vida",
+        "role": "exemple de vocal [a] en símbols fonètics",
+        "whatItProves": "GNV p. 9: vida apareix com a exemple de [a]; no dona l'etimologia ni analitza la sonorització.",
+        "attested": true,
+        "sourceNotDnv": true
+      },
+      "lexicalDCVB": {
+        "url": "https://dcvb.iec.cat/results.asp?word=vida",
+        "etymon": "vīta",
+        "etymologyChecked": true
+      },
+      "historicalSchoolRules": [
+        {
+          "rule": "SONOR",
+          "latinFragment": "t",
+          "originalUnicodeSpans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "sourceScope": "GEC, gramàtica històrica, consonants interiors simples: vita > vida com a exemple exprés de sonorització de sorda intervocàlica.",
+          "evidenceKind": "parella_i_llei_expresses",
+          "attestedSchoolMechanism": true,
+          "completeHistoricalChain": false,
+          "approvedForEvaluation": false
+        }
+      ],
+      "nonSelectableFinalM": {
+        "present": true,
+        "fragment": "m",
+        "originalUnicodeSpans": [
+          [
+            4,
+            5
+          ]
+        ],
+        "selectable": false
+      },
+      "philologicalCaution": "La grafia llatina «uitam» conté u consonàntica /w/ inicial, normalitzada com a v en font històrica; no assignar VOCALITZACIÓ. La pèrdua de -m acusativa és una condició fixa, no una llei seleccionable.",
+      "teacherProposal": "proposar_evolucio_i_les_lleis_per_a_revisio_sense_publicar",
+      "currentDnvIndividualEntryChecked": false,
+      "fullHistoricalChainCertified": false,
+      "allLawsAuthorizedForAssessment": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "id": "xl-354",
+      "latin": "buccam",
+      "expectedValencianForm": "boca",
+      "sense": "boca, obertura bucal; canvi semàntic galta en llatí clàssic > boca en llatí vulgar",
+      "officialAVLNormativeExample": {
+        "sourceKey": "officialNormativeAVLGNV",
+        "pagePrinted": 9,
+        "pdfPageIndex": 8,
+        "phoneticSymbol": "[o]",
+        "form": "boca",
+        "role": "exemple de vocal mitjana posterior tancada [o]",
+        "whatItProves": "GNV p. 9: boca figura expressament a [o]; confirma grafia i valor vocàlic, no la cadena fonètica llatina.",
+        "attested": true,
+        "sourceNotDnv": true
+      },
+      "lexicalDCVB": {
+        "url": "https://dcvb.iec.cat/results.asp?word=boca",
+        "etymon": "bŭcca",
+        "etymologyChecked": true
+      },
+      "historicalSchoolRules": [
+        {
+          "rule": "ABER",
+          "latinFragment": "u",
+          "originalUnicodeSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "sourceScope": "GEC, entrada o, descriu explícitament boca < bǔcca com a origen del resultat català /ọ/ a partir de ŭ clàssica.",
+          "evidenceKind": "parella_i_llei_expresses",
+          "attestedSchoolMechanism": true,
+          "completeHistoricalChain": false,
+          "approvedForEvaluation": false
+        },
+        {
+          "rule": "SIMPL",
+          "latinFragment": "cc",
+          "originalUnicodeSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "sourceScope": "GEC, gramàtica històrica, geminades: bucca > boca exemplifica reducció de -cc- a -c-.",
+          "evidenceKind": "parella_i_llei_expresses",
+          "attestedSchoolMechanism": true,
+          "completeHistoricalChain": false,
+          "approvedForEvaluation": false
+        }
+      ],
+      "nonSelectableFinalM": {
+        "present": true,
+        "fragment": "m",
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "selectable": false
+      },
+      "philologicalCaution": "«OBERTURA» és una etiqueta escolar del pas ŭ > o i NO significa que la o valenciana de boca siga oberta [ɔ]. La GNV exemplifica precisament [o], tancada. Del llatí clàssic 'galta' a l'accepció romànica 'boca' hi ha extensió semàntica.",
+      "teacherProposal": "proposar_evolucio_i_les_lleis_per_a_revisio_sense_publicar",
+      "currentDnvIndividualEntryChecked": false,
+      "fullHistoricalChainCertified": false,
+      "allLawsAuthorizedForAssessment": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "id": "xl-82",
+      "latin": "cuppam",
+      "expectedValencianForm": "copa",
+      "sense": "copa, vas per a beure; no la copa d'un arbre ni altres homònims",
+      "officialAVLNormativeExample": {
+        "sourceKey": "officialNormativeAVLGNV",
+        "pagePrinted": 9,
+        "pdfPageIndex": 8,
+        "phoneticSymbol": "[p]",
+        "form": "copa",
+        "role": "exemple de consonant [p] (no és verificació directa del timbre de la o)",
+        "whatItProves": "GNV p. 9: copa figura expressament a [p]; no s'utilitzarà falsament com a exemple normatiu de [o].",
+        "attested": true,
+        "sourceNotDnv": true
+      },
+      "lexicalDCVB": {
+        "url": "https://dcvb.iec.cat/results.asp?word=copa",
+        "etymon": "cŭppa",
+        "etymologyChecked": true
+      },
+      "historicalSchoolRules": [
+        {
+          "rule": "ABER",
+          "latinFragment": "u",
+          "originalUnicodeSpans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/o-7",
+          "sourceScope": "GEC, o: regla general ŭ llatina > o tancada; per a copa, la base cŭppa està documentada al DCVB i el resultat o és una aplicació del patró, no cita individual de l'apartat o.",
+          "evidenceKind": "patro_general_mes_etimologia",
+          "attestedSchoolMechanism": false,
+          "completeHistoricalChain": false,
+          "approvedForEvaluation": false
+        },
+        {
+          "rule": "SIMPL",
+          "latinFragment": "pp",
+          "originalUnicodeSpans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "sourceUrl": "https://www.enciclopedia.cat/gran-enciclopedia-catalana/catala",
+          "sourceScope": "GEC, gramàtica històrica, geminades: cuppa > copa exemplifica expressament reducció de -pp- a -p-.",
+          "evidenceKind": "parella_i_llei_expresses",
+          "attestedSchoolMechanism": true,
+          "completeHistoricalChain": false,
+          "approvedForEvaluation": false
+        }
+      ],
+      "nonSelectableFinalM": {
+        "present": true,
+        "fragment": "m",
+        "originalUnicodeSpans": [
+          [
+            5,
+            6
+          ]
+        ],
+        "selectable": false
+      },
+      "philologicalCaution": "La GNV cita copa com a exemple de [p], no [o]. La vocal ŭ > o és regularitat general fonètica amb ètim DCVB; el resultat de la vocal de copa pot contrastar-se amb DCVB kópa (val.) però sense promocionar una cadena medieval íntegra.",
+      "teacherProposal": "proposar_evolucio_i_les_lleis_per_a_revisio_sense_publicar",
+      "currentDnvIndividualEntryChecked": false,
+      "fullHistoricalChainCertified": false,
+      "allLawsAuthorizedForAssessment": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ]
+}
