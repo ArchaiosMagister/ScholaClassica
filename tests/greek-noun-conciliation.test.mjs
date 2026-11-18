@@ -9,7 +9,7 @@ import {availableRecords} from '../public/morfologia/engine.mjs';
 import {correctWritten,evaluateTable} from '../public/morfologia/written.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'.sources/vocabula');
-const curriculum=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
+const curriculum=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 const vocabulaData=readFileSync(join(source,'data.js'),'utf8');
 const unimorphParts=Array.from({length:8},(_,i)=>
