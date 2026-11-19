@@ -14,7 +14,7 @@ import {createHash} from 'node:crypto';
 import {GREEK1_KINDYNOS_GENERAL_ID} from '../scripts/greek1-kindynos-ud5-decision.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const origin=join(root,'.sources/vocabula');
+const origin=join(root,'vendor/vocabula');
 const integrated=join(root,'dist/apps/vocabulario');
 const raw=readFileSync(join(origin,'data.js'),'utf8');
 const source=JSON.parse(raw.replace(/^window\.VOCAB\s*=/u,'').replace(/;\s*$/u,''));
