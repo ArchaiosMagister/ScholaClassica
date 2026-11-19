@@ -26,7 +26,7 @@ assert.deepEqual(JSON.parse(read('docente/auth-config.json')),{enabled:false},
 // conciliación valenciana académica no está certificada para publicación.
 const pilotPublic=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
 const pilotOrigin=JSON.parse(readFileSync(
-  join(root,'.sources/evolutio/data/pilot.json'),'utf8'));
+  join(root,'vendor/evolutio/data/pilot.json'),'utf8'));
 assert.equal(pilotOrigin.words.length,522);
 assert.equal(pilotPublic.words.length,622);
 assert.deepEqual(pilotPublic.words.slice(0,522),pilotOrigin.words,

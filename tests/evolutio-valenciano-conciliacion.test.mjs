@@ -13,14 +13,14 @@ const norms=read(base+'normas.json');
 const curation=read(base+'conciliacion-curada.json');
 const revision=read(base+'revisio-26.json');
 const matrix=read(base+'matriz-522.json');
-const source=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
+const source=join(root,'vendor/evolutio');
 const bank=JSON.parse(readFileSync(join(source,'data/pilot.json'),'utf8'));
 const record=latin=>matrix.records.find(w=>w.latin===latin);
 
 test('La matriz recoge exactamente el banco bloqueado por SHA, y no inventa entradas',()=>{
- const sha=execFileSync('git',['-C',source,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
- assert.equal(sha,lock.sources.evolutio.sha);
- assert.equal(matrix.origin.sha,sha);
+ const sourceTree=execFileSync('git',['-C',root,'rev-parse','HEAD:vendor/evolutio'],{encoding:'utf8'}).trim();
+ assert.equal(sourceTree,lock.sources.evolutio.treeSha);
+ assert.equal(matrix.origin.sha,lock.sources.evolutio.sha);
  assert.equal(matrix.origin.wordCount,522);
  assert.equal(matrix.records.length,522);
  assert.deepEqual(matrix.records.map(r=>r.id),bank.words.map(w=>w.id));

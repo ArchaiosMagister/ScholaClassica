@@ -47,6 +47,7 @@
     "test:browser:castellano:appendix": "node tests/castellano-appendix-browser.mjs",
     "audit:morfologia:funcional:es": "node scripts/audit-morphology-spanish-functional.mjs",
     "test:browser:castellano:morfologia": "node tests/castellano-morfologia-matrix-browser.mjs",
-    "audit:vocabula:vendor": "node scripts/verify-vendored-vocabula.mjs"
+    "audit:vocabula:vendor": "node scripts/verify-vendored-vocabula.mjs",
+    "audit:evolutio:vendor": "node scripts/verify-vendored-evolutio.mjs"
   }
 }

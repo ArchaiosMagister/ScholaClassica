@@ -11,7 +11,7 @@ import {
 } from '../scripts/evolutio-practice-eligibility.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const source=join(root,'.sources/evolutio');
+const source=join(root,'vendor/evolutio');
 const moduleDir=join(root,'dist/apps/evolucion-fonetica');
 const parse=p=>JSON.parse(readFileSync(p,'utf8'));
 const bank=parse(join(moduleDir,'data/pilot.json'));

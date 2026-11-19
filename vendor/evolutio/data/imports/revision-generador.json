@@ -1,0 +1,1768 @@
+{
+  "version": 1,
+  "source": "ArchaiosMagister/GeneradorExamenes",
+  "sourceFile": "data/fonetica/banco_examenes.json",
+  "sourceCommit": "ae96718559e6ce6a6f2216dced7ea47c71ec48b0",
+  "baseWordCount": 282,
+  "summary": {
+    "source": "evoluciones-latin-castellano/v1",
+    "totalSource": 655,
+    "overlap": 273,
+    "autoAligned": 240,
+    "pending": 142,
+    "conflicts": 0,
+    "resolvedConflicts": 4
+  },
+  "pending": [
+    {
+      "sourceId": "EVF-0007",
+      "latin": "advocatum",
+      "castellano": "abogado",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0015",
+      "latin": "ampullam",
+      "castellano": "ampolla",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0022",
+      "latin": "aquam",
+      "castellano": "agua",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0048",
+      "latin": "capram",
+      "castellano": "cabra",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0054",
+      "latin": "cĕntum",
+      "castellano": "ciento",
+      "normas": [
+        "N07",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0056",
+      "latin": "cĕrvum",
+      "castellano": "ciervo",
+      "normas": [
+        "N07",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0072",
+      "latin": "coturnicem",
+      "castellano": "codorniz",
+      "normas": [
+        "N01",
+        "N03",
+        "N13",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0078",
+      "latin": "cultellum",
+      "castellano": "cuchillo",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0084",
+      "latin": "dĕcem",
+      "castellano": "diez",
+      "normas": [
+        "N03",
+        "N07",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0092",
+      "latin": "directum",
+      "castellano": "derecho",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0093",
+      "latin": "dixi",
+      "castellano": "dije",
+      "normas": [
+        "N01",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0099",
+      "latin": "dubĭtare",
+      "castellano": "dudar",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0100",
+      "latin": "duplicare",
+      "castellano": "doblegar",
+      "normas": [
+        "N01",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0103",
+      "latin": "exitum",
+      "castellano": "ejido",
+      "normas": [
+        "N13",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0106",
+      "latin": "factum",
+      "castellano": "hecho",
+      "normas": [
+        "N05",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0107",
+      "latin": "facturam",
+      "castellano": "hechura",
+      "normas": [
+        "N05",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0119",
+      "latin": "filiam",
+      "castellano": "hija",
+      "normas": [
+        "N05",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0120",
+      "latin": "filictum",
+      "castellano": "helecho",
+      "normas": [
+        "N01",
+        "N05",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0134",
+      "latin": "frigĭdum",
+      "castellano": "frío",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0138",
+      "latin": "fustigare",
+      "castellano": "hostigar",
+      "normas": [
+        "N01",
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0140",
+      "latin": "gĕlum",
+      "castellano": "hielo",
+      "normas": [
+        "N07"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0141",
+      "latin": "gemmam",
+      "castellano": "yema",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0148",
+      "latin": "heredĭtātem",
+      "castellano": "heredad",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0156",
+      "latin": "integrum",
+      "castellano": "entero",
+      "normas": [
+        "N01",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0158",
+      "latin": "iudicem",
+      "castellano": "juez",
+      "normas": [
+        "N13",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0165",
+      "latin": "lacrimam",
+      "castellano": "lágrima",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0166",
+      "latin": "lactem",
+      "castellano": "leche",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0167",
+      "latin": "lactucam",
+      "castellano": "lechuga",
+      "normas": [
+        "N13",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0175",
+      "latin": "legem",
+      "castellano": "ley",
+      "normas": [
+        "N13",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0186",
+      "latin": "macrum",
+      "castellano": "magro",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0194",
+      "latin": "mascŭlum",
+      "castellano": "macho",
+      "normas": [
+        "N13",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0196",
+      "latin": "materiam",
+      "castellano": "madera",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0199",
+      "latin": "maxillam",
+      "castellano": "mejilla",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0223",
+      "latin": "pacem",
+      "castellano": "paz",
+      "normas": [
+        "N03",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0228",
+      "latin": "pariētem",
+      "castellano": "pared",
+      "normas": [
+        "N03",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0229",
+      "latin": "patrem",
+      "castellano": "padre",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0231",
+      "latin": "pectus",
+      "castellano": "pecho",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0232",
+      "latin": "perdicem",
+      "castellano": "perdiz",
+      "normas": [
+        "N03",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0235",
+      "latin": "petram",
+      "castellano": "piedra",
+      "normas": [
+        "N07",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0236",
+      "latin": "pineam",
+      "castellano": "piña",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0253",
+      "latin": "quattuor",
+      "castellano": "cuatro",
+      "normas": [
+        "N15"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0255",
+      "latin": "radicem",
+      "castellano": "raíz",
+      "normas": [
+        "N03",
+        "N13",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0259",
+      "latin": "rancidum",
+      "castellano": "rancio",
+      "normas": [
+        "N13",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0263",
+      "latin": "recipere",
+      "castellano": "recibir",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0264",
+      "latin": "regem",
+      "castellano": "rey",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0268",
+      "latin": "sacratum",
+      "castellano": "sagrado",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0275",
+      "latin": "scutarium",
+      "castellano": "escudero",
+      "normas": [
+        "N14",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0291",
+      "latin": "sitim",
+      "castellano": "sed",
+      "normas": [
+        "N01",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0294",
+      "latin": "sŏlet",
+      "castellano": "suele",
+      "normas": [
+        "N07"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0298",
+      "latin": "spathŭlam",
+      "castellano": "espalda",
+      "normas": [
+        "N11",
+        "N14",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N11"
+    },
+    {
+      "sourceId": "EVF-0309",
+      "latin": "super",
+      "castellano": "sobre",
+      "normas": [
+        "N01",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0316",
+      "latin": "tegŭlam",
+      "castellano": "teja",
+      "normas": [
+        "N13",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0317",
+      "latin": "tĕnĕrum",
+      "castellano": "tierno",
+      "normas": [
+        "N07",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0323",
+      "latin": "tingit",
+      "castellano": "tiñe",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0327",
+      "latin": "vadeam",
+      "castellano": "vaya",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0333",
+      "latin": "vexare",
+      "castellano": "vejar",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0335",
+      "latin": "vindĭcāre",
+      "castellano": "vengar",
+      "normas": [
+        "N01",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0336",
+      "latin": "vineam",
+      "castellano": "viña",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0347",
+      "latin": "augustum",
+      "castellano": "agosto",
+      "normas": [
+        "N01",
+        "N12"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0374",
+      "latin": "duplare",
+      "castellano": "doblar",
+      "normas": [
+        "N01"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0412",
+      "latin": "novitatem",
+      "castellano": "novedad",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0425",
+      "latin": "providere",
+      "castellano": "proveer",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0427",
+      "latin": "puteum",
+      "castellano": "pozo",
+      "normas": [
+        "N01",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0428",
+      "latin": "recuperare",
+      "castellano": "recobrar",
+      "normas": [
+        "N01",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0453",
+      "latin": "umbilicum",
+      "castellano": "ombligo",
+      "normas": [
+        "N01",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0489",
+      "latin": "comitatum",
+      "castellano": "condado",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0505",
+      "latin": "semitam",
+      "castellano": "senda",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0510",
+      "latin": "facere",
+      "castellano": "hacer",
+      "normas": [
+        "N05",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0511",
+      "latin": "falconem",
+      "castellano": "halcón",
+      "normas": [
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0514",
+      "latin": "ferire",
+      "castellano": "herir",
+      "normas": [
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0517",
+      "latin": "findere",
+      "castellano": "hender",
+      "normas": [
+        "N01",
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0520",
+      "latin": "fungum",
+      "castellano": "hongo",
+      "normas": [
+        "N01",
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0521",
+      "latin": "furonem",
+      "castellano": "hurón",
+      "normas": [
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0522",
+      "latin": "furtum",
+      "castellano": "hurto",
+      "normas": [
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0523",
+      "latin": "fuscum",
+      "castellano": "hosco",
+      "normas": [
+        "N01",
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0527",
+      "latin": "iactare",
+      "castellano": "echar",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0528",
+      "latin": "iam",
+      "castellano": "ya",
+      "normas": [
+        "N03",
+        "N06"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N06"
+    },
+    {
+      "sourceId": "EVF-0563",
+      "latin": "equam",
+      "castellano": "yegua",
+      "normas": [
+        "N07",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0573",
+      "latin": "leporem",
+      "castellano": "liebre",
+      "normas": [
+        "N07",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0594",
+      "latin": "socerum",
+      "castellano": "suegro",
+      "normas": [
+        "N07",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0716",
+      "latin": "animalia",
+      "castellano": "alimaña",
+      "normas": [
+        "N11",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N11"
+    },
+    {
+      "sourceId": "EVF-0718",
+      "latin": "capitulum",
+      "castellano": "cabildo",
+      "normas": [
+        "N11",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N11"
+    },
+    {
+      "sourceId": "EVF-0729",
+      "latin": "præsepem",
+      "castellano": "pesebre",
+      "normas": [
+        "N11",
+        "N12",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N11"
+    },
+    {
+      "sourceId": "EVF-0733",
+      "latin": "spatulam",
+      "castellano": "espalda",
+      "normas": [
+        "N11",
+        "N14",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N11"
+    },
+    {
+      "sourceId": "EVF-0744",
+      "latin": "æstuarium",
+      "castellano": "estero",
+      "normas": [
+        "N12",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0832",
+      "latin": "folia",
+      "castellano": "hoja",
+      "normas": [
+        "N05",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0855",
+      "latin": "rationem",
+      "castellano": "razón",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0944",
+      "latin": "amaricare",
+      "castellano": "amargar",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0948",
+      "latin": "bonitatem",
+      "castellano": "bondad",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0951",
+      "latin": "civitatem",
+      "castellano": "ciudad",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0952",
+      "latin": "collocare",
+      "castellano": "colgar",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0958",
+      "latin": "diabolum",
+      "castellano": "diablo",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0964",
+      "latin": "honorare",
+      "castellano": "honrar",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0979",
+      "latin": "manicam",
+      "castellano": "manga",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0981",
+      "latin": "nobilem",
+      "castellano": "noble",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0982",
+      "latin": "nubilum",
+      "castellano": "nublo",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0999",
+      "latin": "solidare",
+      "castellano": "soldar",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1001",
+      "latin": "stabulum",
+      "castellano": "establo",
+      "normas": [
+        "N14",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1003",
+      "latin": "tabulam",
+      "castellano": "tabla",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1006",
+      "latin": "venabulum",
+      "castellano": "venablo",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1007",
+      "latin": "veritatem",
+      "castellano": "verdad",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0094",
+      "latin": "dixit",
+      "castellano": "dijo",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0157",
+      "latin": "iŏvis",
+      "castellano": "jueves",
+      "normas": [
+        "N06",
+        "N07"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N06"
+    },
+    {
+      "sourceId": "EVF-0325",
+      "latin": "tristitiam",
+      "castellano": "tristeza",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0375",
+      "latin": "duritiam",
+      "castellano": "dureza",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0783",
+      "latin": "pauperem",
+      "castellano": "pobre",
+      "normas": [
+        "N12",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0858",
+      "latin": "relaxare",
+      "castellano": "relajar",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0945",
+      "latin": "aperire",
+      "castellano": "abrir",
+      "normas": [
+        "N03",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0950",
+      "latin": "carricare",
+      "castellano": "cargar",
+      "normas": [
+        "N15",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0998",
+      "latin": "sæcularem",
+      "castellano": "seglar",
+      "normas": [
+        "N12",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1002",
+      "latin": "sucidum",
+      "castellano": "sucio",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0102",
+      "latin": "exercere",
+      "castellano": "ejercer",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0115",
+      "latin": "fervĕntem",
+      "castellano": "hirviente",
+      "normas": [
+        "N05",
+        "N07"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0192",
+      "latin": "mancipum",
+      "castellano": "mancebo",
+      "normas": [
+        "N01",
+        "N13",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0398",
+      "latin": "lucrum",
+      "castellano": "logro",
+      "normas": [
+        "N01"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0420",
+      "latin": "pigritiam",
+      "castellano": "pereza",
+      "normas": [
+        "N01",
+        "N12",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0717",
+      "latin": "appectorare",
+      "castellano": "apretar",
+      "normas": [
+        "N11",
+        "N12",
+        "N15",
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N11"
+    },
+    {
+      "sourceId": "EVF-0769",
+      "latin": "lautiam",
+      "castellano": "loza",
+      "normas": [
+        "N12",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0954",
+      "latin": "consuturam",
+      "castellano": "costura",
+      "normas": [
+        "N15"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0960",
+      "latin": "eremitam",
+      "castellano": "ermita",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0963",
+      "latin": "follicare",
+      "castellano": "holgar",
+      "normas": [
+        "N05",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0975",
+      "latin": "litigare",
+      "castellano": "lidiar",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0976",
+      "latin": "litteratum",
+      "castellano": "letrado",
+      "normas": [
+        "N01",
+        "N15",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0984",
+      "latin": "operare",
+      "castellano": "obrar",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1004",
+      "latin": "traditorem",
+      "castellano": "traidor",
+      "normas": [
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0512",
+      "latin": "farturam",
+      "castellano": "hartura",
+      "normas": [
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0030",
+      "latin": "auscultare",
+      "castellano": "escuchar",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0089",
+      "latin": "dicere",
+      "castellano": "decir",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0123",
+      "latin": "fixum",
+      "castellano": "fijo",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0132",
+      "latin": "foveam",
+      "castellano": "hoya",
+      "normas": [
+        "N05"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "Normas sin plantilla fiable: N05"
+    },
+    {
+      "sourceId": "EVF-0318",
+      "latin": "tepidum",
+      "castellano": "tibio",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0456",
+      "latin": "virginem",
+      "castellano": "virgen",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0959",
+      "latin": "dominicum",
+      "castellano": "domingo",
+      "normas": [
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-0974",
+      "latin": "limpidum",
+      "castellano": "limpio",
+      "normas": [
+        "N16"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1062",
+      "latin": "audīte",
+      "castellano": "oíd",
+      "normas": [
+        "N03",
+        "N12",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1063",
+      "latin": "audītum",
+      "castellano": "oído",
+      "normas": [
+        "N12",
+        "N16",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1066",
+      "latin": "fluxum",
+      "castellano": "flojo",
+      "normas": [
+        "N01",
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1070",
+      "latin": "laicum",
+      "castellano": "lego",
+      "normas": [
+        "N12",
+        "N17"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1072",
+      "latin": "rixosum",
+      "castellano": "rijoso",
+      "normas": [
+        "N13"
+      ],
+      "transmission": null,
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1152",
+      "latin": "Bœotiam",
+      "castellano": "Beocia",
+      "normas": [
+        "N12"
+      ],
+      "transmission": "ADAPTACION_CULTA",
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1178",
+      "latin": "æquationem",
+      "castellano": "ecuación",
+      "normas": [
+        "N12"
+      ],
+      "transmission": "ADAPTACION_CULTA",
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    },
+    {
+      "sourceId": "EVF-1202",
+      "latin": "Chloen",
+      "castellano": "Cloe",
+      "normas": [
+        "N10"
+      ],
+      "transmission": "ADAPTACION_CULTA",
+      "status": "requires_editorial_review",
+      "reason": "No coincide la transformación completa sin introducir cambios no anotados"
+    }
+  ],
+  "conflicts": [],
+  "decisionFile": "data/imports/decisiones-docentes.json",
+  "resolvedConflicts": [
+    {
+      "sourceId": "EVF-0282",
+      "latin": "seniorem",
+      "castellano": "señor",
+      "type": "classification",
+      "existingId": "xl-283",
+      "sourceRules": [
+        "N13",
+        "N16"
+      ],
+      "existingRules": [
+        "PALAT",
+        "APOC",
+        "FIX_M"
+      ],
+      "decision": "conservar",
+      "decisionDate": "2026-11-12",
+      "criterio": "La i de -ni- pertenece a la palatalización ni → ñ; conservar apócope de -e y pérdida fija de -m, sin síncopa duplicada."
+    },
+    {
+      "sourceId": "EVF-0283",
+      "latin": "sensum",
+      "castellano": "seso",
+      "type": "classification",
+      "existingId": "xl-284",
+      "sourceRules": [
+        "N16"
+      ],
+      "existingRules": [
+        "SIMPL",
+        "ABER",
+        "FIX_M"
+      ],
+      "decision": "conservar",
+      "decisionDate": "2026-11-12",
+      "criterio": "-ns- → -s- se clasifica como simplificación, además de abertura final u → o y pérdida fija de -m."
+    },
+    {
+      "sourceId": "EVF-0303",
+      "latin": "sponsam",
+      "castellano": "esposa",
+      "type": "classification",
+      "existingId": "xl-304",
+      "sourceRules": [
+        "N14",
+        "N16"
+      ],
+      "existingRules": [
+        "PROT",
+        "SIMPL",
+        "FIX_M"
+      ],
+      "decision": "conservar",
+      "decisionDate": "2026-11-12",
+      "criterio": "Conservar prótesis e-, simplificación del grupo -ns- → -s- y pérdida fija de -m."
+    },
+    {
+      "sourceId": "EVF-0304",
+      "latin": "sponsum",
+      "castellano": "esposo",
+      "type": "classification",
+      "existingId": "xl-305",
+      "sourceRules": [
+        "N14",
+        "N16"
+      ],
+      "existingRules": [
+        "PROT",
+        "SIMPL",
+        "ABER",
+        "FIX_M"
+      ],
+      "decision": "conservar",
+      "decisionDate": "2026-11-12",
+      "criterio": "Conservar prótesis e-, simplificación -ns- → -s-, abertura final u → o y pérdida fija de -m."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "date": "2026-11-19",
-  "note": "Fuentes originales inmovilizadas: Appendix y Vocabula son copias íntegras internas; Evolutio aún se obtiene desde su checkout externo.",
+  "note": "Las fuentes de Appendix, Vocabula y Evolutio se conservan íntegramente en vendor, con árboles Git idénticos a los commits originales. GeneradorExamenes permanece independiente.",
   "sources": {
     "appendix": {
       "repository": "ArchaiosMagister/Appendix-grammaticae",
@@ -25,7 +25,10 @@
       "repository": "ArchaiosMagister/EvolucionFonetica",
       "sha": "901dacb125ee7894ea9d11faf7b0d0afa7e713b5",
       "integrated": true,
-      "target": "apps/evolucion-fonetica"
+      "target": "apps/evolucion-fonetica",
+      "sourceMode": "vendored",
+      "path": "vendor/evolutio",
+      "treeSha": "91fb41736365ab4bd4f81ca8b265ceb765907354"
     },
     "examenes": {
       "repository": "ArchaiosMagister/GeneradorExamenes",

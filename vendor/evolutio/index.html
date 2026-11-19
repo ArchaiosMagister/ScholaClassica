@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a555b">
+  <meta name="description" content="Estudia y practica la evolución fonética del latín al castellano: banco de palabras, normas oficiales y ejercicios PAU.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Evolución fonética · Latín → Castellano</title>
+</head>
+<body>
+ <div class="site-shell">
+  <header class="site-header">
+   <a href="./" class="brand" aria-label="Evolución fonética — inicio">
+    <span class="brand-symbol" aria-hidden="true">Æ</span>
+    <span><strong>EVOLVTIO</strong><small>Latín · Castellano</small></span>
+   </a>
+   <div class="header-right"><span class="header-overline">PRÁCTICA PAU</span><label class="theme-picker" for="theme-select"><span class="theme-label">Aspecto</span><select id="theme-select" aria-label="Tema de la aplicación"><option value="light">☀ Claro</option><option value="dark">☾ Oscuro</option><option value="oled">● OLED</option></select></label><div class="update-app-control"><button type="button" id="refresh-app" class="update-app-button" aria-label="Buscar actualizaciones y recargar la webapp"><span class="update-app-icon" aria-hidden="true">↻</span><span class="update-app-label">Actualizar</span></button><span id="refresh-app-status" class="update-app-status" role="status" aria-live="polite"></span></div></div>
+  </header>
+  <nav class="experience-tabs" aria-label="Secciones de Evolutio">
+   <button type="button" id="nav-practice" class="experience-tab is-current" aria-pressed="true"><span aria-hidden="true">✎</span> Practicar</button>
+   <button type="button" id="nav-study" class="experience-tab" aria-pressed="false"><span aria-hidden="true">▤</span> Estudiar</button>
+  </nav>
+  <main id="app" aria-live="polite" aria-busy="true"><div class="loading">Preparando el banco de palabras…</div></main>
+  <footer class="site-footer"><span>EVOLVTIO · Banco de 522 palabras</span><span>Basado en las normas oficiales de evolución fonética facilitadas por el docente.</span></footer>
+ </div>
+ <script type="module" src="./src/app.mjs"></script>
+</body>
+</html>

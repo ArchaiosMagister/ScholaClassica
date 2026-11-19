@@ -59,7 +59,7 @@ test('Appendix castellano y valenciano mantiene originales salvo adaptaciones vi
     assert.ok(existsSync(join(out,'apps/gramatica',file)),file);
 });
 test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y mantiene SW aislado',()=>{
-  const source=join(root,'.sources/evolutio'),target=join(out,'apps/evolucion-fonetica');
+  const source=join(root,'vendor/evolutio'),target=join(out,'apps/evolucion-fonetica');
   const adapted=['index.html','sw.js','src/app.mjs','src/difficulty.mjs','data/difficulty.json','data/pilot.json','style.css'];
   compareApp(source,target,adapted,['src/result-difficulty.mjs','src/practice-eligibility.mjs']);
   for(const file of adapted)assert.notEqual(hash(join(source,file)),hash(join(target,file)),'Adaptación no aplicada: '+file);
