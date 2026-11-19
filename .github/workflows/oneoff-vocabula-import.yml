@@ -1,0 +1,46 @@
+# One-shot snapshot import. This workflow removes itself in the import commit.
+name: Importar una vez fuente completa Vocabula (sin publicacion)
+on:
+  push:
+    branches: [feature/autonomia-vocabula-20261119]
+permissions:
+  contents: write
+jobs:
+  importar:
+    if: github.repository == 'ArchaiosMagister/ScholaClassica' && github.ref == 'refs/heads/feature/autonomia-vocabula-20261119'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Obtener rama de migracion
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Fuente original de Vocabula en revision inmutable
+        uses: actions/checkout@v4
+        with:
+          repository: ArchaiosMagister/VocabulaLatinaGraecaque
+          ref: a7be2161a2401816ede78a96981daaac6850b8d2
+          path: .source-import/vocabula
+          persist-credentials: false
+      - name: Importar exactamente una vez, verificar arbol y retirar privilegio
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e vendor/vocabula
+          test "$(git -C .source-import/vocabula rev-parse HEAD)" = "a7be2161a2401816ede78a96981daaac6850b8d2"
+          test "$(git -C .source-import/vocabula rev-parse HEAD^{tree})" = "4d801fa31917dc177ce248eff162a9ad545fae7a"
+          mkdir -p vendor/vocabula
+          cp -a .source-import/vocabula/. vendor/vocabula/
+          rm -rf vendor/vocabula/.git
+          git add -A vendor/vocabula
+          git rm .github/workflows/oneoff-vocabula-import.yml
+          staged_tree="$(git write-tree)"
+          staged_vendor="$(git rev-parse "${staged_tree}:vendor/vocabula")"
+          test "$staged_vendor" = "4d801fa31917dc177ce248eff162a9ad545fae7a"
+          count="$(git ls-tree -r --name-only "$staged_vendor" | wc -l | tr -d ' ')"
+          test "$count" = "130"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Importar 130 archivos exactos de Vocabula y retirar importador privilegiado"
+          git push origin HEAD:refs/heads/feature/autonomia-vocabula-20261119
