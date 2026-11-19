@@ -15,7 +15,7 @@ const noun=bank.records.find(r=>r.id==='latin-sustantivo-decision-liber');
 test('liber (libro) conserva nominativo con -e-, pierde e en el tema y pertenece a 2.ª',()=>{
  validateBank(bank);
  assert.ok(noun);
- assert.deepEqual(noun,compileLiber({vocabulaData:read('.sources/vocabula/data.js'),
+ assert.deepEqual(noun,compileLiber({vocabulaData:read('vendor/vocabula/data.js'),
   vocabulaSha:lock.sources.vocabula.sha,decisions}));
  assert.equal(noun.unit,1);
  assert.equal(noun.gender,'masculino');

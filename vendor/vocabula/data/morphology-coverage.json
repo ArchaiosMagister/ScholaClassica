@@ -1,0 +1,7500 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-13T20:52:21.778Z",
+  "definition": "Presencia de al menos un ejercicio escrito autocorregible; NO supone paradigma completo.",
+  "source_revisions": {
+    "lat": "050924c9f013e6aba4d7c87be243a1d79b6c5b10",
+    "grc": "7f4a58df733726c75c1355dd3a038e950d5e308f"
+  },
+  "subjects": {
+    "lat1": {
+      "entries": 856,
+      "lemmas": 663,
+      "withExercises": 283,
+      "withoutExercises": 380,
+      "importedLemmas": 262,
+      "curatedLemmas": 30,
+      "importedRows": 8461,
+      "importedQuestions": 5783,
+      "types": {
+        "nominal": {
+          "lemmas": 262,
+          "withExercises": 262
+        },
+        "verbal": {
+          "lemmas": 200,
+          "withExercises": 21
+        },
+        "nominal-probable": {
+          "lemmas": 145,
+          "withExercises": 0
+        },
+        "invariable": {
+          "lemmas": 51,
+          "withExercises": 0
+        },
+        "por-clasificar": {
+          "lemmas": 5,
+          "withExercises": 0
+        }
+      },
+      "uncovered": [
+        {
+          "lemma": "abeo",
+          "entry": "abeo, abii, abitum (irr.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "absum",
+          "entry": "absum, abfui – (irr.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ac",
+          "entry": "ac (conj.)",
+          "units": [
+            "UD 4",
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "accedo",
+          "entry": "accedo, accessi, acessum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "accido",
+          "entry": "accido, accidi, accesum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "accipio",
+          "entry": "accipio, accepi, acceptum (mx.)",
+          "units": [
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "accurro",
+          "entry": "accurro, accucurri, accursum (3ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "achilles",
+          "entry": "Achilles, −is (m.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "acriter",
+          "entry": "acriter (adv.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "adduco",
+          "entry": "adduco, adduxi, adductum (3ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "adhibeo",
+          "entry": "adhibeo, adhibui, adhibitum (2ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "adiuvo",
+          "entry": "adiuvo, adiuvi, adiutum (1ª)",
+          "units": [
+            "UD 6",
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "advenio",
+          "entry": "advenio, adveni, adventum (4ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "adversus",
+          "entry": "adversus, –a, –um",
+          "units": [
+            "UD 11–12",
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "aedifico",
+          "entry": "ædifico, ædificavi, ædificatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "aegre",
+          "entry": "ægre (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "aeneas",
+          "entry": "Æneas, –æ",
+          "units": [
+            "UD 6",
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "africanus",
+          "entry": "Africanus, –i",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ager",
+          "entry": "ager, –gri",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 7",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ago",
+          "entry": "ago, egi, actum (3ª)",
+          "units": [
+            "UD 3",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "alter",
+          "entry": "alter, altera, alterum (pron.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ambiorix",
+          "entry": "Ambiorix, Ambiorigis (m)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "antonius",
+          "entry": "Antonius, –i",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "appareo",
+          "entry": "appareo, apparui, apparitum (2ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "appello",
+          "entry": "appello (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "appropinquo",
+          "entry": "appropinquo, appropinquavi, appropinquatum (1ª)",
+          "units": [
+            "UD 2",
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ardea",
+          "entry": "Ardea, –æ",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "aristides",
+          "entry": "Aristides, –is (m.)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "arma",
+          "entry": "arma, −orum",
+          "units": [
+            "UD 5",
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ascendo",
+          "entry": "ascendo, ascendi, ascensum (3ª)",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "asia",
+          "entry": "Asia, –æ",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "atalanta",
+          "entry": "Atalanta, −æ",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "athenae",
+          "entry": "Athenæ, –arum",
+          "units": [
+            "UD 6",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "atque",
+          "entry": "atque (conj.)",
+          "units": [
+            "UD 4",
+            "UD 6"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "atuatuci",
+          "entry": "Atuatuci, –orum",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "augustus",
+          "entry": "Augustus, –i",
+          "units": [
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "autem",
+          "entry": "autem (conj.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "bello",
+          "entry": "bello, bellavi, bellatum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "bona",
+          "entry": "bona, −orum",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "brevis",
+          "entry": "brevis, –e",
+          "units": [
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "cado",
+          "entry": "cado, cecidi, casum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "caesar",
+          "entry": "Cæsar, −aris (m.)",
+          "units": [
+            "UD 11–12",
+            "UD 5",
+            "UD 6",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "callus",
+          "entry": "Callus, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "cano",
+          "entry": "cano, cecini, cantum (3ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "capitolium",
+          "entry": "Capitolium, –i",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "capua",
+          "entry": "Capua, –æ",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "careo",
+          "entry": "careo, carui – (2ª)",
+          "units": [
+            "UD 11–12",
+            "UD 6",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "carpo",
+          "entry": "carpo, carpsi, carptum (3ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "carthaginiensis",
+          "entry": "Carthaginiensis, −e",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "carthago",
+          "entry": "Carthago, −inis (m.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "castra",
+          "entry": "castra, –orum (sólo pl.)",
+          "units": [
+            "UD 11–12",
+            "UD 2",
+            "UD 4",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "catilina",
+          "entry": "Catilina, −æ (m.)",
+          "units": [
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "cato",
+          "entry": "Cato, –onis (m.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "celeriter",
+          "entry": "celeriter (adv.)",
+          "units": [
+            "UD 4",
+            "UD 6"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "celtiberia",
+          "entry": "Celtiberia, –æ",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "centurio",
+          "entry": "centurio, centurionis (m.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "cerno",
+          "entry": "cerno, crevi, cretum (3ª)",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ceterus",
+          "entry": "ceterus, –a, –um",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "cicero",
+          "entry": "Cicero, –onis (m.)",
+          "units": [
+            "UD 4",
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "civilis",
+          "entry": "civilis, –e",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "clamo",
+          "entry": "clamo, clamavi, clamatum (1ª)",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "claudia",
+          "entry": "Claudia, –æ",
+          "units": [
+            "UD 1",
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "coepi",
+          "entry": "cœpi (def.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "cognosco",
+          "entry": "cognosco, cognovi, cognitum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "colloco",
+          "entry": "colloco (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "colo",
+          "entry": "colo, colui, cultum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 5",
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "commito",
+          "entry": "commito, commisi, commissum (3ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "comperio",
+          "entry": "comperio, comperi, compertum (4ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "complector",
+          "entry": "complector, complectus sum (3ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "conclamo",
+          "entry": "conclamo (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "condo",
+          "entry": "condo, condidi, conditum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "confero",
+          "entry": "confero, contuli, collatum (irr.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "coniungo",
+          "entry": "coniungo, coniunxi, coniunctum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "conservo",
+          "entry": "conservo, conservavi, conservatum (1ª)",
+          "units": [
+            "UD 6",
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "constituo",
+          "entry": "constituo, constiti, constitutum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "contendo",
+          "entry": "contendo, contendi, contentum (3ª)",
+          "units": [
+            "UD 6",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "contineo",
+          "entry": "contineo, continui, contentum (2ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "corinthus",
+          "entry": "Corinthus, –i",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "coriolanus",
+          "entry": "Coriolanus, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "corono",
+          "entry": "corono, coronavi, coronatum (1ª)",
+          "units": [
+            "UD 6",
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "corsica",
+          "entry": "Corsica, –æ",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "cremo",
+          "entry": "cremo, cremavi, crematum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "creo",
+          "entry": "creo, creavi, creatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "creta",
+          "entry": "Creta, –æ",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "croesus",
+          "entry": "Crœsus, −i",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "cum",
+          "entry": "cum (prep. + abl.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "cupio",
+          "entry": "cupio, cupii, cupitum (mx.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "daedalus",
+          "entry": "Dædalus, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "dedo",
+          "entry": "dedo, dedidi, deditum (3ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "deduco",
+          "entry": "deduco, deduxi, deductum (3ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "defendo",
+          "entry": "defendo, defendi, defensum (3ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "deleo",
+          "entry": "deleo, delevi, deletum (2ª)",
+          "units": [
+            "UD 6",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "delibero",
+          "entry": "delibero, deliberavi, deliberatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "deligo",
+          "entry": "deligo, delegi, delectum (3ª)",
+          "units": [
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "desidero",
+          "entry": "desidero, desideravi, desideratum (1ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "diana",
+          "entry": "Diana, –æ",
+          "units": [
+            "UD 1"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "dico",
+          "entry": "dico, dixi, dictum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 3",
+            "UD 4",
+            "UD 7",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "difficilis",
+          "entry": "difficilis, –e",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "diripio",
+          "entry": "diripio, diripui, direptum (mx.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "disco",
+          "entry": "disco, didici – (3ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "dissero",
+          "entry": "dissero, disserui, dissertum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "disto",
+          "entry": "disto, distavi, distatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "diu",
+          "entry": "diu (adv.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "do",
+          "entry": "do, dedi, datum (1ª)",
+          "units": [
+            "UD 1",
+            "UD 11–12",
+            "UD 4",
+            "UD 5",
+            "UD 6",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "doceo",
+          "entry": "doceo, docui, doctum (2ª)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "doctus",
+          "entry": "doctus, –a, –um",
+          "units": [
+            "UD 2",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "doleo",
+          "entry": "doleo, dolui, dolitum (2ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "efficio",
+          "entry": "efficio, effeci, effectum (mx.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "egregie",
+          "entry": "egregie (adv.)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "elabor",
+          "entry": "elabor, elapsus sum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "eloquens",
+          "entry": "eloquens, eloquentis",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "eo",
+          "entry": "eo, ii, itum (irr.)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "eripio",
+          "entry": "eripio, eripui, eripitum (4ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "erro",
+          "entry": "erro, erravi, erratum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "etiam",
+          "entry": "etiam (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "exerceo",
+          "entry": "exerceo, exercui, exercitum (2ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "exhaustus",
+          "entry": "exhaustus, −a, −um",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "expugno",
+          "entry": "expugno, expugnavi, expugnatum (1ª)",
+          "units": [
+            "UD 3",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "expulso",
+          "entry": "expulso, expulsavi, expulsatum (1ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "exspecto",
+          "entry": "exspecto, exspectavi, exspectatum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "facilis",
+          "entry": "facilis, –e",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "factio",
+          "entry": "factio, –onis (f.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "faveo",
+          "entry": "faveo, favi, fautum (2ª)",
+          "units": [
+            "UD 5",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "felix",
+          "entry": "felix, −icis",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ferme",
+          "entry": "ferme (adv.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "fidelis",
+          "entry": "fidelis, –e",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "firmo",
+          "entry": "firmo, firmavi, firmatum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "floreo",
+          "entry": "floreo, florui, floritum (2ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "foedero",
+          "entry": "fœdero, fœderavi, fœderatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "fortiter",
+          "entry": "fortiter (adv.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "frequenter",
+          "entry": "frequenter (adv.)",
+          "units": [
+            "UD 1",
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "frumentum",
+          "entry": "frumentum, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "fugio",
+          "entry": "fugio, fugi – (mx.)",
+          "units": [
+            "UD 6",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "galli",
+          "entry": "Galli, -orum",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "gallia",
+          "entry": "Gallia, –æ",
+          "units": [
+            "UD 11–12",
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "gallus",
+          "entry": "Gallus, –a, –um",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "gaudeo",
+          "entry": "gaudeo, gavisus sum (2ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "gero",
+          "entry": "gero, gessi, gestum (3ª)",
+          "units": [
+            "UD 5",
+            "UD 6",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "graecus",
+          "entry": "Græcus, –a, –um",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "gratulor",
+          "entry": "gratulor, gratulatus sum (1ª)",
+          "units": [
+            "UD 11–12",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "gravis",
+          "entry": "gravis, −e",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "haedui",
+          "entry": "Hædui, –orum",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hannibal",
+          "entry": "Hannibal, Hannibalis (m.)",
+          "units": [
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hasdrubal",
+          "entry": "Hasdrubal, Hasdrubalis (m.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "helvetii",
+          "entry": "Helvetii, –orum",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "helvetius",
+          "entry": "Helvetius, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hispania",
+          "entry": "Hispania, –æ",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hispanus",
+          "entry": "Hispanus, –a, –um",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "homerus",
+          "entry": "Homerus, −i",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "horatius",
+          "entry": "Horatius, −i",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hortensius",
+          "entry": "Hortensius, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iam",
+          "entry": "iam (adv.)",
+          "units": [
+            "UD 11–12",
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ibi",
+          "entry": "ibi (adv.)",
+          "units": [
+            "UD 11–12",
+            "UD 4",
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "immortalis",
+          "entry": "immortalis, −e",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "impero",
+          "entry": "impero, imperavi, imperatum (1ª)",
+          "units": [
+            "UD 3",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "impetro",
+          "entry": "impetro, impetravi, impetratum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "impigre",
+          "entry": "impigre (adv.)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "imploro",
+          "entry": "imploro, imploravi, imploratum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "impono",
+          "entry": "impono, imposui, impositum (3ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "importo",
+          "entry": "importo, importavi, importatum (1ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "indico",
+          "entry": "indico (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ineo",
+          "entry": "ineo, inii, initum (irr.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "insula",
+          "entry": "insula, –æ",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "interficio",
+          "entry": "interficio, interfeci, interfectum (mx.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "intra",
+          "entry": "intra (prep.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "intueor",
+          "entry": "intueor, intuitus sum (2ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "invenio",
+          "entry": "invenio, inveni, inventum",
+          "units": [
+            "UD 2",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "invito",
+          "entry": "invito, invitavi, invitatum (1ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "irrumpo",
+          "entry": "irrumpo, irrumpsi, irrumptum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ita",
+          "entry": "ita (adv.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "italia",
+          "entry": "Italia, –æ",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "itaque",
+          "entry": "itaque (conj.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "item",
+          "entry": "item (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "iubeo",
+          "entry": "iubeo, iussi, iussum (2ª)",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "iudico",
+          "entry": "iudico, iudicavi, iudicatum (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "iulia",
+          "entry": "Iulia, –æ",
+          "units": [
+            "UD 1"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iustitia",
+          "entry": "iustitia, –æ",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iuvenis",
+          "entry": "iuvenis, −e",
+          "units": [
+            "UD 5",
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iuvo",
+          "entry": "iuvo, iuvi, iutum (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "iuxta",
+          "entry": "iuxta (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "laborans",
+          "entry": "laborans, −ntis",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "laboro",
+          "entry": "laboro, laboravi, laboratum (1ª)",
+          "units": [
+            "UD 2",
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "laetor",
+          "entry": "lætor, lætatus sum (1ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "laudo",
+          "entry": "laudo (1ª)",
+          "units": [
+            "UD 5",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "libentissime",
+          "entry": "libentissime (adv.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "liber",
+          "entry": "liber, –bri",
+          "units": [
+            "UD 1",
+            "UD 3",
+            "UD 6",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "libero",
+          "entry": "libero, liberavi, liberatum (1ª)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "longe",
+          "entry": "longe (adv.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "loquor",
+          "entry": "loquor, locutus sum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "lucius",
+          "entry": "Lucius, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "lucretia",
+          "entry": "Lucretia, –æ",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "magister",
+          "entry": "magister, –tri",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "maneo",
+          "entry": "maneo, mansi, mansum (2ª)",
+          "units": [
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "marathonius",
+          "entry": "Marathonius, –a, –um",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "marcus",
+          "entry": "Marcus, –i",
+          "units": [
+            "UD 1",
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "mare",
+          "entry": "mare, maris (n.)",
+          "units": [
+            "UD 6",
+            "UD 7",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "marius",
+          "entry": "Marius, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "mater",
+          "entry": "mater, matris (f.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "medus",
+          "entry": "Medus, –i",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "memini",
+          "entry": "memini (defect.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "memoro",
+          "entry": "memoro, memoravi, memoratum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "metellus",
+          "entry": "Metellus, –i",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "meus",
+          "entry": "meus, −a, −um",
+          "units": [
+            "UD 11–12",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "migro",
+          "entry": "migro, migravi, migratum (1ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "milia",
+          "entry": "milia, –orum",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "militaris",
+          "entry": "militaris, −e",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "minerva",
+          "entry": "Minerva, –æ",
+          "units": [
+            "UD 1"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "miror",
+          "entry": "miror, miratus sum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "misceo",
+          "entry": "misceo, miscui, mixtum (2ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "mitto",
+          "entry": "mitto, misi, missum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 3",
+            "UD 4",
+            "UD 5",
+            "UD 7",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "monstro",
+          "entry": "monstro, monstravi, monstratum (1ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "morbus",
+          "entry": "morbus, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "moror",
+          "entry": "moror, moratus sum (1ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "moveo",
+          "entry": "moveo, movi, motum (2ª)",
+          "units": [
+            "UD 1",
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "munio",
+          "entry": "munio, munii, munitum (4ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "munitio",
+          "entry": "munitio, munitionis (f.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "nam",
+          "entry": "nam (conj.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "narro",
+          "entry": "narro (1ª)",
+          "units": [
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "nascor",
+          "entry": "nascor, natus sum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "naso",
+          "entry": "Naso, −onis (m.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "navigo",
+          "entry": "navigo, navigavi, navigatum (1ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "nec",
+          "entry": "nec (conj.)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "necesse",
+          "entry": "necesse (indecl.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "neque",
+          "entry": "neque (conj.)",
+          "units": [
+            "UD 3",
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "nihil",
+          "entry": "nihil (adv.)",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "nivis",
+          "entry": "nivis, –is (f.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "nobilis",
+          "entry": "nobilis, –e",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "nocte",
+          "entry": "nocte (adv.)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "nolo",
+          "entry": "nolo, nolui – (irr.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "nomino",
+          "entry": "nomino, nominavi, nominatum (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "non",
+          "entry": "non (adv.)",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "nondum",
+          "entry": "nondum (adv.)",
+          "units": [
+            "UD 1",
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "noster",
+          "entry": "noster, nostra, nostrum",
+          "units": [
+            "UD 3",
+            "UD 4",
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "numquam",
+          "entry": "numquam (adv.)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "nunc",
+          "entry": "nunc (adv.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "nuntio",
+          "entry": "nuntio, nuntiavi, nuntiatum (1ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "obliviscor",
+          "entry": "obliviscor, oblitus sum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "oboedio",
+          "entry": "obœdio, obœdii, obœditum (4ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "occido",
+          "entry": "occido, occidi, occisum (3ª)",
+          "units": [
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "occulte",
+          "entry": "occulte (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "occultus",
+          "entry": "occultus, –a, –um",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "olim",
+          "entry": "olim (adv.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "omnis",
+          "entry": "omnis, −e",
+          "units": [
+            "UD 11–12",
+            "UD 5",
+            "UD 7",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "operio",
+          "entry": "operio, operui, opertum (4ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "oppugno",
+          "entry": "oppugno, oppugnavi, oppugnatum (1ª)",
+          "units": [
+            "UD 4",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "oraculum",
+          "entry": "oraculum, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "orgetorix",
+          "entry": "Orgetorix, –igis",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "orior",
+          "entry": "orior, ortus sum (4ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ovidius",
+          "entry": "Ovidius, −i",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "par",
+          "entry": "par, paris",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "pareo",
+          "entry": "pareo, parui, paritum (2ª)",
+          "units": [
+            "UD 7",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "paro",
+          "entry": "paro, paravi, paratum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "patior",
+          "entry": "patior, passus sum (4ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "paulatim",
+          "entry": "paulatim (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "paulo",
+          "entry": "paulo (adv.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "paulus",
+          "entry": "Paulus, –i",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "pauper",
+          "entry": "pauper, −eris",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "peragro",
+          "entry": "peragro, peragravi, peragratum (1ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "percipio",
+          "entry": "percipio, percepi, perceptum (mx.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "pereo",
+          "entry": "pereo, perii, peritum (irr.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "permaneo",
+          "entry": "permaneo, permansi, permansum (2ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "perterritus",
+          "entry": "perterritus, −a, −um",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "pervenio",
+          "entry": "pervenio, perveni, perventum (4ª)",
+          "units": [
+            "UD 4",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "peto",
+          "entry": "peto, petivi, petitum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "pietas",
+          "entry": "pietas, pietatis (f.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "polliceor",
+          "entry": "polliceor, pollicitus sum (2ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "pompeius",
+          "entry": "Pompeius, –i",
+          "units": [
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "pono",
+          "entry": "pono, posui, positum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "possum",
+          "entry": "possum, potui – (irr.)",
+          "units": [
+            "UD 11–12",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "post",
+          "entry": "post (adv.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "postea",
+          "entry": "postea (adv.)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "postquam",
+          "entry": "postquam (conj.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "postulatum",
+          "entry": "postulatum, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "postulo",
+          "entry": "postulo, postulavi, postulatum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "praesum",
+          "entry": "praesum, praefui – (irr.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "praeter",
+          "entry": "præter (prep. + ac.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "primum",
+          "entry": "primum (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "proficiscor",
+          "entry": "proficiscor, profectus sum (3ª)",
+          "units": [
+            "UD 11–12",
+            "UD 7",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "pugna",
+          "entry": "pugna, –æ",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "pugno",
+          "entry": "pugno (1ª)",
+          "units": [
+            "UD 11–12",
+            "UD 5",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "punio",
+          "entry": "punio, punivi, punitum (4ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "puto",
+          "entry": "puto, putavi, putatum (1ª)",
+          "units": [
+            "UD 5",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "quaero",
+          "entry": "quæro, quæsivi, quæsitum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "quam",
+          "entry": "quam (conj.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "quattuor",
+          "entry": "quattuor (num. indecl.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "quia",
+          "entry": "quia (conj.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "quis",
+          "entry": "quis, quid (pron. interr. / indef.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "rapio",
+          "entry": "rapio, rapui, raptum (mx.)",
+          "units": [
+            "UD 4",
+            "UD 6",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "recipio",
+          "entry": "recipio, recepi, receptum (mx.)",
+          "units": [
+            "UD 11–12",
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "recito",
+          "entry": "recito, recitavi, recitatum (1ª)",
+          "units": [
+            "UD 11–12",
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "reddo",
+          "entry": "reddo, reddidi, redditum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "redeo",
+          "entry": "redeo, redii, reditum (irr.)",
+          "units": [
+            "UD 11–12",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "reduco",
+          "entry": "reduco, reduxi, reductum (3ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "regno",
+          "entry": "regno, regnavi, regnatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "rego",
+          "entry": "rego, rexi, rectum (3ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "relinquo",
+          "entry": "relinquo, reliqui, relictum (3ª)",
+          "units": [
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "remaneo",
+          "entry": "remaneo, remansi, remansum (2ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "renuntio",
+          "entry": "renuntio, renuntiavi, renuntiatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "resono",
+          "entry": "resono, resonavi, resonatum (1ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "respondo",
+          "entry": "respondo, responsi, responsum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "revertor",
+          "entry": "revertor, reversus sum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "rideo",
+          "entry": "rideo, risi, risum (2ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "roma",
+          "entry": "Roma, –æ",
+          "units": [
+            "UD 2",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "romanus",
+          "entry": "Romanus, –a, –um",
+          "units": [
+            "UD 1",
+            "UD 2",
+            "UD 3",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "roscius",
+          "entry": "Roscius, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "rursus",
+          "entry": "rursus (adv.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "sabinus",
+          "entry": "Sabinus, –a, –um",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "saepe",
+          "entry": "sæpe (adv.)",
+          "units": [
+            "UD 3",
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "saguntum",
+          "entry": "Saguntum, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "saluto",
+          "entry": "saluto, salutavi, salutatum (1ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "sapiens",
+          "entry": "sapiens, −ntis",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "scio",
+          "entry": "scio, scivi, scitum (4ª)",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "scipio",
+          "entry": "Scipio, −onis (m.)",
+          "units": [
+            "UD 5",
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "scribo",
+          "entry": "scribo, scripsi, scriptum (3ª)",
+          "units": [
+            "UD 3",
+            "UD 4",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "sed",
+          "entry": "sed (conj.)",
+          "units": [
+            "UD 2",
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "sedeo",
+          "entry": "sedeo, sedi, sessum (2ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "semper",
+          "entry": "semper (adv.)",
+          "units": [
+            "UD 3",
+            "UD 4",
+            "UD 6",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "sepelio",
+          "entry": "sepelio, sepelii, sepultum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "septimus",
+          "entry": "septimus, –a, –um",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "sequanus",
+          "entry": "Sequanus, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "sequor",
+          "entry": "sequor, secutus sum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "serpens",
+          "entry": "serpens, serpentis (m.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "servo",
+          "entry": "servo (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "sexcenti",
+          "entry": "sexcenti, –æ, –a (num.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "similis",
+          "entry": "similis, –e",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "soleo",
+          "entry": "soleo, solitus sum (2ª)",
+          "units": [
+            "UD 7",
+            "UD 8",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "solvo",
+          "entry": "solvo, solvi, solutum (2ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "sophocles",
+          "entry": "Sophocles, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "spero",
+          "entry": "spero, speravi, speratum (1ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "statuo",
+          "entry": "statuo, statui, statutum (3ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "studeo",
+          "entry": "studeo, studui, – (2ª)",
+          "units": [
+            "UD 1"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "sum",
+          "entry": "sum, fui, – (irr.)",
+          "units": [
+            "UD 1",
+            "UD 2",
+            "UD 3",
+            "UD 4",
+            "UD 5",
+            "UD 6",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "summus",
+          "entry": "summus, –a, –um",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "supplicium",
+          "entry": "supplicium, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "supra",
+          "entry": "supra (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "sustineo",
+          "entry": "sustineo, sustinui, sustentum (2ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "suus",
+          "entry": "suus, –a, –um",
+          "units": [
+            "UD 11–12",
+            "UD 2",
+            "UD 3",
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "taceo",
+          "entry": "taceo, tacui, tacitum (2ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "tam",
+          "entry": "tam (adv.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "tamen",
+          "entry": "tamen (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "tamesis",
+          "entry": "Tamesis, –is",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tarentus",
+          "entry": "Tarentus, –i",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tarquinius",
+          "entry": "Tarquinius, –i",
+          "units": [
+            "UD 11–12",
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tenerus",
+          "entry": "tenerus, –a, –um",
+          "units": [
+            "UD 2",
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tenuis",
+          "entry": "tenuis, –e",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "terreo",
+          "entry": "terreo, terrui, territum (2ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "tertius",
+          "entry": "tertius, -a, -um",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "thales",
+          "entry": "Thales, –is (m.)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "timeo",
+          "entry": "timeo, timui – (2ª)",
+          "units": [
+            "UD 11–12",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "titus",
+          "entry": "Titus, –i",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tolero",
+          "entry": "tolero, toleravi, toleratum (1ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "trado",
+          "entry": "trado, tradidi, traditum (3ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "traho",
+          "entry": "traho, traxi, tractum (3ª)",
+          "units": [
+            "UD 6",
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "transeo",
+          "entry": "transeo, transii, transitum (irr.)",
+          "units": [
+            "UD 5",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "tres",
+          "entry": "tres, tria (num.)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tribunus",
+          "entry": "tribunus, –i",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "troia",
+          "entry": "Troia, –æ",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "troianus",
+          "entry": "Troianus, –a, –um",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tullius",
+          "entry": "Tullius, –i",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tuus",
+          "entry": "tuus, –a, –um",
+          "units": [
+            "UD 1",
+            "UD 11–12",
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "unus",
+          "entry": "unus, –a, –um",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "urgeo",
+          "entry": "urgeo, ursi – (2ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "usque",
+          "entry": "usque (adv.)",
+          "units": [
+            "UD 11–12",
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "utilis",
+          "entry": "utilis, −e",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "utor",
+          "entry": "utor, usus sum (3ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vasto",
+          "entry": "vasto, vastavi, vastatum (1ª)",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vbii",
+          "entry": "Vbii, –orum",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "vectigalis",
+          "entry": "vectigalis, –e",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "velox",
+          "entry": "velox, −ocis",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "vereor",
+          "entry": "vereor, veritus sum (2ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vestio",
+          "entry": "vestio, vestivi, vestitum (4ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vilis",
+          "entry": "vilis, –e",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "vinco",
+          "entry": "vinco, vici, victum (3ª)",
+          "units": [
+            "UD 3",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vito",
+          "entry": "vito, vitavi, vitatum (1ª)",
+          "units": [
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vivo",
+          "entry": "vivo, vixi, vivitum (4ª)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vix",
+          "entry": "vix (adv.)",
+          "units": [
+            "UD 11–12"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "vlixes",
+          "entry": "Vlixes, –ei",
+          "units": [
+            "UD 9–10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "voco",
+          "entry": "voco, vocavi, vocatum (1ª)",
+          "units": [
+            "UD 3",
+            "UD 5",
+            "UD 9–10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vulneratus",
+          "entry": "vulneratus, −a, −um",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "vulnero",
+          "entry": "vulnero, vulneravi, vulneratum (1ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        }
+      ],
+      "coveredSamples": [
+        {
+          "lemma": "acer",
+          "entry": "acer, acris, acre",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 36,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "adversarius",
+          "entry": "adversarius, –i",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "aedificium",
+          "entry": "ædificium, –i",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "aequus",
+          "entry": "æquus, –a, –um",
+          "units": [
+            "UD 6",
+            "UD 7",
+            "UD 9–10"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 36,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "aestas",
+          "entry": "æstas, æstatis (f.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "agito",
+          "entry": "agito, agitavi, agitatum (1ª)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "verbal",
+          "sources": [
+            "docente"
+          ],
+          "writeQuestions": 6,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "agricola",
+          "entry": "agricola, –æ (m.)",
+          "units": [
+            "UD 2",
+            "UD 4",
+            "UD 7"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "alacer",
+          "entry": "alacer, alacris, alacre",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 36,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "albus",
+          "entry": "albus, –a, –um",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 36,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "ambulo",
+          "entry": "ambulo, ambulavi, ambulatum (1ª)",
+          "units": [
+            "UD 1",
+            "UD 9–10"
+          ],
+          "type": "verbal",
+          "sources": [
+            "docente"
+          ],
+          "writeQuestions": 6,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "amicitia",
+          "entry": "amicitia, –æ",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "amicus",
+          "entry": "amicus, –i",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 8"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        }
+      ]
+    },
+    "lat4": {
+      "entries": 506,
+      "lemmas": 328,
+      "withExercises": 171,
+      "withoutExercises": 157,
+      "importedLemmas": 158,
+      "curatedLemmas": 19,
+      "importedRows": 4636,
+      "importedQuestions": 3435,
+      "types": {
+        "nominal": {
+          "lemmas": 160,
+          "withExercises": 160
+        },
+        "verbal": {
+          "lemmas": 76,
+          "withExercises": 11
+        },
+        "nominal-probable": {
+          "lemmas": 69,
+          "withExercises": 0
+        },
+        "invariable": {
+          "lemmas": 16,
+          "withExercises": 0
+        },
+        "por-clasificar": {
+          "lemmas": 7,
+          "withExercises": 0
+        }
+      },
+      "uncovered": [
+        {
+          "lemma": "ac",
+          "entry": "ac (conj.)",
+          "units": [
+            "UD 4",
+            "UD 8"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "achilles",
+          "entry": "Ăchīllēs, –is (m.)",
+          "units": [
+            "UD 6",
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "admiror",
+          "entry": "admīror, admīrātus sum (1ª)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "advenio",
+          "entry": "advĕnĭō, advēnī, adventum (4ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "adversus",
+          "entry": "ādvērsus (prep. + ac.)",
+          "units": [
+            "UD 6",
+            "UD 8"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "aedifico",
+          "entry": "ædĭfĭco (1ª)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "aemilia",
+          "entry": "Æmĭlĭa, –æ",
+          "units": [
+            "UD 1"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "africa",
+          "entry": "Ā̆frĭca, –æ",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ager",
+          "entry": "ăgĕr, –gri",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "agito",
+          "entry": "ăgĭto, ăgĭtavi, ăgĭtatum (1ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ago",
+          "entry": "ăgō, ēgī, āctum (3ª)",
+          "units": [
+            "UD 8",
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "appello",
+          "entry": "appellō, appellāvī, appellātum (1ª)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "apprehendo",
+          "entry": "āpprĕhēndo, āpprĕhēndī, āpprĕhēnsum (3ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "arma",
+          "entry": "ārma, –orum",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "athena",
+          "entry": "Athēna, –æ",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "athenae",
+          "entry": "Ăthēnæ, –arum",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "atque",
+          "entry": "ātquĕ (conj.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "audax",
+          "entry": "āudāx, ācis",
+          "units": [
+            "UD 8",
+            "UD 8–9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "bene",
+          "entry": "bĕnĕ (adv.)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "brevis",
+          "entry": "brĕvĭs, –e",
+          "units": [
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "caesar",
+          "entry": "Cæsăr, –aris (m.)",
+          "units": [
+            "UD 5",
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "canis",
+          "entry": "cănĭs, –is (m.)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "carthaginiensis",
+          "entry": "Carthāgĭnĭēnsis, –e",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "castra",
+          "entry": "cāstra, –orum",
+          "units": [
+            "UD 10",
+            "UD 2",
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "catilina",
+          "entry": "Cătĭlīna, –æ (m.)",
+          "units": [
+            "UD 7",
+            "UD 8",
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "celeriter",
+          "entry": "cĕlĕrĭtĕr",
+          "units": [
+            "UD 3",
+            "UD 8"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "cicero",
+          "entry": "Cĭcĕrō̆, –onis (m.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "claudia",
+          "entry": "Clāudĭa, –æ",
+          "units": [
+            "UD 1"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "colloco",
+          "entry": "collŏcō, collocāvī, collocātum (1ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "colo",
+          "entry": "cŏlo (3ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "colosseus",
+          "entry": "Cŏlossēus, –ī",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "committo",
+          "entry": "committō, commīsī, commissum (3ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "condo",
+          "entry": "condō, condĭdī, condĭtum (3ª)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "conor",
+          "entry": "cōnor, cōnātus sum (1ª)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "curro",
+          "entry": "currō (3ª)",
+          "units": [
+            "UD 5",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "deleo",
+          "entry": "dēlĕō, dēlēvī, dēlētum (2ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "deligo",
+          "entry": "dēlĭgo (3ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "disco",
+          "entry": "disco (3ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "do",
+          "entry": "dō",
+          "units": [
+            "UD 1",
+            "UD 2",
+            "UD 3",
+            "UD 5"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "dum",
+          "entry": "dŭm (conj.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "emo",
+          "entry": "ĕmō, ēmī, ēmptum (3ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "eo",
+          "entry": "ĕo (irr.)",
+          "units": [
+            "UD 10",
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "expugno",
+          "entry": "ēxpūgno (1ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "facile",
+          "entry": "făcĭlĕ (adv.)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "facio",
+          "entry": "făcĭō, fēcī, factum (mx.)",
+          "units": [
+            "UD 10",
+            "UD 6",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "faveo",
+          "entry": "făvĕō, fāvī, fautum (2ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "felix",
+          "entry": "fēlīx, –īcis",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "gallus",
+          "entry": "Gāllus, –a, um",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "germanus",
+          "entry": "Gērmānus, –a, –um",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "graecia",
+          "entry": "Græcĭa, –æ",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "graecus",
+          "entry": "Græcus, –a, –um",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "grex",
+          "entry": "grex, grĕgis (m.)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "habito",
+          "entry": "hăbĭto (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "haedui",
+          "entry": "Hædŭi, –orum",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hannibal",
+          "entry": "Hānnĭbăl, –alis",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hiberna",
+          "entry": "hībērna, –orum",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "hispania",
+          "entry": "Hīspānĭa, –æ",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ibi",
+          "entry": "ĭbĭ (adv.)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "immensus",
+          "entry": "īmmēnsus, –a, –um",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "imperium",
+          "entry": "īmpĕrĭŭm, –ī (n.)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "impero",
+          "entry": "īmpĕro (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "invenio",
+          "entry": "īnvĕnĭo (4ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "italia",
+          "entry": "Ītălĭa, –æ",
+          "units": [
+            "UD 10",
+            "UD 3",
+            "UD 5",
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iubeo",
+          "entry": "iŭbĕō, iussī, iussum",
+          "units": [
+            "UD 8",
+            "UD 8–9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iulia",
+          "entry": "Iūlĭa, –æ",
+          "units": [
+            "UD 1",
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iulius",
+          "entry": "Iūlĭus, –ī",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iuppiter",
+          "entry": "Iūppĭtĕr, Iouis (m.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "iuvo",
+          "entry": "iŭvo (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "laboro",
+          "entry": "lăbōrō, lăbōrāvī, lăbōrātum (1ª)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "laudo",
+          "entry": "laudō, laudāvī, laudātum (1ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "lavor",
+          "entry": "lavor, lavatus sum (1ª)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "liber",
+          "entry": "lĭbĕr, –bri",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "libero",
+          "entry": "lībĕrō, –āvī, –ātum (1ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "magis",
+          "entry": "măgĭs (adv.)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "magister",
+          "entry": "măgīstĕr, –tri",
+          "units": [
+            "UD 3",
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "mane",
+          "entry": "mānĕ (adv.)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "maneo",
+          "entry": "mănĕo (2ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "marcus",
+          "entry": "Mārcus, –ī",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "mare",
+          "entry": "mare, –is (n.)",
+          "units": [
+            "UD 5",
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "mediterraneus",
+          "entry": "Mediterraneus, –a, –um",
+          "units": [
+            "UD 5",
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "mercurius",
+          "entry": "Mercŭrĭus, –ī",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "meus",
+          "entry": "mĕus, –a, –um",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "monstro",
+          "entry": "mōnstro",
+          "units": [
+            "UD 1"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "moveo",
+          "entry": "mŏvĕo (2ª)",
+          "units": [
+            "UD 4",
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "myro",
+          "entry": "Myrō̆, –onis (m.)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "navigo",
+          "entry": "nāvĭgō, –āvī, –ātum (1ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "neco",
+          "entry": "nĕcō, nĕcāvī, nĕcātum (1ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "nemo",
+          "entry": "nemo, neminis",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "neque",
+          "entry": "nĕquĕ (conj.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "nomino",
+          "entry": "nōmĭnō, –āvī, –ātum (1ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "non",
+          "entry": "nōn (adv.)",
+          "units": [
+            "UD 10",
+            "UD 2",
+            "UD 3",
+            "UD 4",
+            "UD 6",
+            "UD 7",
+            "UD 8",
+            "UD 9"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "noster",
+          "entry": "nōstĕr, –tra, –trum",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 5",
+            "UD 6",
+            "UD 7",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "nullus",
+          "entry": "nūllŭs, –a, –um",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "numa",
+          "entry": "Nŭma, –æ (m.)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "obtineo",
+          "entry": "ōbtĭnĕo (2ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "omnis",
+          "entry": "ōmnĭs, –e",
+          "units": [
+            "UD 10",
+            "UD 7",
+            "UD 8",
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "oppugno",
+          "entry": "oppugnō, oppugnāvī, oppugnātum (1ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ovis",
+          "entry": "ŏvĭs, –is (f.)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "paro",
+          "entry": "păro (1ª)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "persequor",
+          "entry": "persĕquor, persĕcūtus sum (3ª)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "pervenio",
+          "entry": "pervenio (4ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "pirata",
+          "entry": "pīrāta, –æ (m.)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "polliceor",
+          "entry": "pollĭcĕor, pollĭcĭtus sum (3ª)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "porto",
+          "entry": "pōrto (1ª)",
+          "units": [
+            "UD 2"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "possum",
+          "entry": "possum, pŏtŭī – (irr.)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "praemium",
+          "entry": "præmĭŭm, –ī",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "primus",
+          "entry": "prīmus, –a, –um",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "proficiscor",
+          "entry": "prŏfĭcīscor, prŏfectus sum (3ª)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "promitto",
+          "entry": "prōmittō, prōmīsī, prōmissum (3ª)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "pugna",
+          "entry": "pūgna, –æ",
+          "units": [
+            "UD 3",
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "quia",
+          "entry": "quĭă (conj.)",
+          "units": [
+            "UD 4",
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "quiesco",
+          "entry": "quĭēsco (3ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "rapio",
+          "entry": "răpĭo (mx.)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "redeo",
+          "entry": "rĕdĕo (irr.)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "rego",
+          "entry": "rĕgō, rēxī, rēctum (3ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "relinquo",
+          "entry": "rĕlinquō, rĕlīquī, rĕlictum (3ª)",
+          "units": [
+            "UD 7",
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "resisto",
+          "entry": "resisto (3ª)",
+          "units": [
+            "UD 5",
+            "UD 6",
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "retineo",
+          "entry": "rĕtĭnĕō, retĭnŭī, retentum (3ª)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "revertor",
+          "entry": "rĕvertor, rĕversus sum (3ª)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "rogo",
+          "entry": "rŏgō, rŏgāvī, rŏgātum (1ª)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "roma",
+          "entry": "Rōma, –æ",
+          "units": [
+            "UD 1",
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "romanus",
+          "entry": "Rōmānus, –a, –um",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 4",
+            "UD 5",
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "romulus",
+          "entry": "Rōmŭlus, –ī",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "sabinus",
+          "entry": "Săbīnus, –a, –um",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "saguntum",
+          "entry": "Săgūntum, –ī",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "saturnus",
+          "entry": "Sātūrnus, –ī",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "schola",
+          "entry": "schŏla, –æ",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "sed",
+          "entry": "sĕd (conj.)",
+          "units": [
+            "UD 10",
+            "UD 3",
+            "UD 6",
+            "UD 8"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "semper",
+          "entry": "sēmpĕr (adv.)",
+          "units": [
+            "UD 3",
+            "UD 4"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "signum",
+          "entry": "sīgnŭm, –ī",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "spartanus",
+          "entry": "Spārtānus, –a, –um",
+          "units": [
+            "UD 4",
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "spero",
+          "entry": "spēro",
+          "units": [
+            "UD 1",
+            "UD 4"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "stylus",
+          "entry": "stylus, –ī",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "sum",
+          "entry": "sŭm",
+          "units": [
+            "UD 1",
+            "UD 3",
+            "UD 4",
+            "UD 6",
+            "UD 7",
+            "UD 8",
+            "UD 9"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "suppliciter",
+          "entry": "sūpplĭcĭtĕr (adv.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "supprimo",
+          "entry": "sūpprĭmo (3ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "suus",
+          "entry": "sŭus, –a, –um",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tamen",
+          "entry": "tămen (adv.)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "tarentum",
+          "entry": "Tărēntum, –ī",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "terreo",
+          "entry": "terrĕō, terrŭī, terrĭtum (2ª)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "tolero",
+          "entry": "tŏlĕro (1ª)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "transeo",
+          "entry": "trānsĕo (irr.)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "transporto",
+          "entry": "trānspōrto (1ª)",
+          "units": [
+            "UD 4",
+            "UD 5",
+            "UD 6"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "tres",
+          "entry": "trēs, trĭa",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "tristis",
+          "entry": "trīstis, –e",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ubique",
+          "entry": "ŭbīquĕ (adv.)",
+          "units": [
+            "UD 9"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "utor",
+          "entry": "ūtor, ūsus sum (3ª)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vasto",
+          "entry": "vāsto (1ª)",
+          "units": [
+            "UD 4",
+            "UD 5",
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "venio",
+          "entry": "vĕnĭō, vēnī, ventum (4ª)",
+          "units": [
+            "UD 6",
+            "UD 7",
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "venus",
+          "entry": "Vĕnŭs, –neris (f.)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "vestigium",
+          "entry": "vēstīgĭŭm, –ī",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "vinco",
+          "entry": "vīnco (3ª)",
+          "units": [
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vis",
+          "entry": "vīs (irr.)",
+          "units": [
+            "UD 7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "vivo",
+          "entry": "vivo (3ª)",
+          "units": [
+            "UD 4",
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "voco",
+          "entry": "vŏco",
+          "units": [
+            "UD 1"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "volo",
+          "entry": "vŏlo (irr.)",
+          "units": [
+            "UD 10",
+            "UD 4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "xerxes",
+          "entry": "Xērxēs, –is",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal-probable"
+        }
+      ],
+      "coveredSamples": [
+        {
+          "lemma": "acer",
+          "entry": "ācĕr, –cris, –cre",
+          "units": [
+            "UD 7"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 36,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "adventus",
+          "entry": "adventŭs, –ūs",
+          "units": [
+            "UD 8",
+            "UD 8–9"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "adversarius",
+          "entry": "ādvērsārĭus, –ī",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "aedes",
+          "entry": "ædēs, –is (f.)",
+          "units": [
+            "UD 6"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "agricola",
+          "entry": "ā̆grĭcŏla, –æ",
+          "units": [
+            "UD 1"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "albus",
+          "entry": "ālbus, –a, –um",
+          "units": [
+            "UD 2"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 36,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "altus",
+          "entry": "āltus, –a, –um",
+          "units": [
+            "UD 1",
+            "UD 3",
+            "UD 4",
+            "UD 7"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 36,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "ambulo",
+          "entry": "āmbŭlo (1ª)",
+          "units": [
+            "UD 3"
+          ],
+          "type": "verbal",
+          "sources": [
+            "docente"
+          ],
+          "writeQuestions": 6,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "amicitia",
+          "entry": "ămīcĭtĭa, –æ",
+          "units": [
+            "UD 4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "amicus",
+          "entry": "ămīcus, –ī",
+          "units": [
+            "UD 2",
+            "UD 3",
+            "UD 4",
+            "UD 8"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "amo",
+          "entry": "ămo",
+          "units": [
+            "UD 1",
+            "UD 3",
+            "UD 8"
+          ],
+          "type": "verbal",
+          "sources": [
+            "docente"
+          ],
+          "writeQuestions": 30,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "animus",
+          "entry": "ănĭmus, –ī",
+          "units": [
+            "UD 3"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 12,
+          "status": "con-ejercicios"
+        }
+      ]
+    },
+    "gr1": {
+      "entries": 503,
+      "lemmas": 348,
+      "withExercises": 54,
+      "withoutExercises": 294,
+      "importedLemmas": 50,
+      "curatedLemmas": 8,
+      "importedRows": 896,
+      "importedQuestions": 789,
+      "types": {
+        "nominal": {
+          "lemmas": 52,
+          "withExercises": 52
+        },
+        "verbal": {
+          "lemmas": 79,
+          "withExercises": 2
+        },
+        "nominal-probable": {
+          "lemmas": 166,
+          "withExercises": 0
+        },
+        "invariable": {
+          "lemmas": 29,
+          "withExercises": 0
+        },
+        "por-clasificar": {
+          "lemmas": 22,
+          "withExercises": 0
+        }
+      },
+      "uncovered": [
+        {
+          "lemma": "αγαθοσ",
+          "entry": "ἀγαθός, –η, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αγαλμα",
+          "entry": "ἄγαλμα, –ατος (τό)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αγαμεμνων",
+          "entry": "Ἀγαμέμνων, –ονος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αγγελλω",
+          "entry": "ἀγγέλλω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αγω",
+          "entry": "ἄγω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αδελφοσ",
+          "entry": "ἀδελφός, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αδικεω",
+          "entry": "ἀδικέω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αδικοσ",
+          "entry": "ἀδικός, –ον",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αδικωσ",
+          "entry": "ἀδίκως (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "αει",
+          "entry": "ἀεί (adv.)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "αθανατοσ",
+          "entry": "ἀθάνατος, −ον",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αθηνα",
+          "entry": "Ἀθηνᾶ, –ᾶς",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αθηναι",
+          "entry": "Ἀθῆναι, –ῶν",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αθηναιοσ",
+          "entry": "Ἀθηναῖος, –α, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αιγινα",
+          "entry": "Αἰγίνα, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αιθηρ",
+          "entry": "αἰθήρ, αἰθέρος",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αιμα",
+          "entry": "αἷμα, αἵματος",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αιξ",
+          "entry": "αἰξ, αἰγός",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αισχροσ",
+          "entry": "αἰσχρός, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αιτεω",
+          "entry": "αἰτέω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ακουω",
+          "entry": "ἀκούω",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ακροαμα",
+          "entry": "ἀκρόαμα, –ματος (τὸ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ακροπολισ",
+          "entry": "Ἀκροπόλις, –εως (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αλκιβιαδησ",
+          "entry": "Ἀλκιβιάδης, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αλλα",
+          "entry": "ἀλλά (conj.)",
+          "units": [
+            "Palabras básicas",
+            "UD 5"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "αλλοσ",
+          "entry": "ἄλλος, –η, –ο",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αμφι",
+          "entry": "ἀμφί + genitivo / acusativo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "ανα",
+          "entry": "ἀνά + acusativo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "αναγιγνωσκω",
+          "entry": "ἀναγιγνώσκω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ανακραζω",
+          "entry": "ἀνακράζω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ανευ",
+          "entry": "ἄνευ + genitivo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "ανηρ",
+          "entry": "ἀνήρ, ἀνδρός (ὁ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αντι",
+          "entry": "ἀντί + genitivo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "απο",
+          "entry": "ἀπό + genitivo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "αποθνηισκω",
+          "entry": "ἀποθνῄσκω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αποκτεινω",
+          "entry": "ἀποκτείνω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αποπλεω",
+          "entry": "ἀποπλέω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αρα",
+          "entry": "ἆρα (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "αραψ",
+          "entry": "Ἄραψ, Ἄραβος (M o F)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αριθμοσ",
+          "entry": "ἀριθμός, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αρμονια",
+          "entry": "ἁρμονία, –ας",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αρπαζω",
+          "entry": "ἁρπάζω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αρχω",
+          "entry": "ἄρχω",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αρχων",
+          "entry": "ἄρχων, –οντος (ὁ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ασια",
+          "entry": "Ἀσία, −ας",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ασκεπτωσ",
+          "entry": "ἀσκέπτως (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "αττικη",
+          "entry": "Ἀττική, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αυλεω",
+          "entry": "αὐλέω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αυλητρισ",
+          "entry": "αὐλητρίς, –ίδος (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "αφικνεομαι",
+          "entry": "ἀφικνέομαι",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "αχαιοσ",
+          "entry": "Ἀχαῖος, –α, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "βαλλω",
+          "entry": "βάλλω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "βαρβαροσ",
+          "entry": "βάρβαρος, –ου",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "βασιλειοσ",
+          "entry": "βασιλείος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "βασιλευσ",
+          "entry": "βασιλεύς, –έως (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "βασιλευω",
+          "entry": "βασιλεύω",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "βουλομαι",
+          "entry": "βούλομαι",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "γαρ",
+          "entry": "γάρ (part.)",
+          "units": [
+            "Palabras básicas"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "γιγνομαι",
+          "entry": "γίγνομαι",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "γιγνωσκω",
+          "entry": "γιγνώσκω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "γλαυξ",
+          "entry": "γλαῦξ, γλαυκός (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "γραφω",
+          "entry": "γράφω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "δαρειοσ",
+          "entry": "Δαρεῖος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δει",
+          "entry": "δεῖ (impers.)",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "δειπνοσ",
+          "entry": "δεῖπνος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δημοκρατια",
+          "entry": "δημοκρατία, –ας",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δημοσ",
+          "entry": "δῆμος, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δημοσθηνησ",
+          "entry": "Δημοσθήνης, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δια",
+          "entry": "διά + genitivo / acusativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "διαφερω",
+          "entry": "διαφέρω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "διαφθειρω",
+          "entry": "διαφθείρω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "διδασκω",
+          "entry": "διδάσκω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "δικαιοσ",
+          "entry": "δίκαιος, –α, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "διωκω",
+          "entry": "διώκω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "δοκεω",
+          "entry": "δοκέω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "δοξα",
+          "entry": "δόξα, −ας",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δουλευω",
+          "entry": "δουλεύω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "δουλοσ",
+          "entry": "δοῦλος, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δυναμαι",
+          "entry": "δύναμαι",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "δυναμισ",
+          "entry": "δύναμις, –εως (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "δωδεκα",
+          "entry": "δώδεκα (num. indecl.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "εθελω",
+          "entry": "ἐθέλω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "εικων",
+          "entry": "εἰκών, –όνος (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "εισ",
+          "entry": "εἰς + acusativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "εισβαλλω",
+          "entry": "εἰσβάλλω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "εκ",
+          "entry": "ἐκ/ἐξ + genitivo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "ελεφασ",
+          "entry": "ἐλέφας, –αντος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ελλασ",
+          "entry": "Ἑλλάς, Ἑλλάδος (ἡ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ελλην",
+          "entry": "Ἕλλην, Ἕλληνος (M o F)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ελληνικοσ",
+          "entry": "Ἑλληνικός, –η, ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ελπισ",
+          "entry": "ἐλπίς, ἐλπίδος",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "εν",
+          "entry": "ἐν + dativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "ενδοξοσ",
+          "entry": "ἔνδοξος, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "επει",
+          "entry": "ἐπεί (conj.)",
+          "units": [
+            "Palabras básicas"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "επι",
+          "entry": "ἐπί + genitivo / acusativo / dativo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "επιθυμεω",
+          "entry": "ἐπιθυμέω",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ερχομαι",
+          "entry": "ἔρχομαι",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ετι",
+          "entry": "ἔτι (adv.)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ευ",
+          "entry": "εὖ (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ευρισκω",
+          "entry": "εὑρίσκω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ευρωπη",
+          "entry": "Εὐρώπη, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ευφραινω",
+          "entry": "εὐφραίνω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "εχθροσ",
+          "entry": "ἐχθρός, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "εχω",
+          "entry": "ἔχω",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ζευσ",
+          "entry": "Ζεὺς, Διός (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "η",
+          "entry": "ἤ (conj.)",
+          "units": [
+            "Palabras básicas"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ηγεμων",
+          "entry": "ἡγεμών, –ονος (M)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ηγεομαι",
+          "entry": "ἡγέομαι",
+          "units": [
+            "UD 10"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ηδονη",
+          "entry": "ἡδονή, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ηκω",
+          "entry": "ἥκω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ηλιοσ",
+          "entry": "ἥλιος, –ου",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ημερα",
+          "entry": "ἡμέρα, –ας",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ημετεροσ",
+          "entry": "ἡμετέρος, –α, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θαλαττα",
+          "entry": "θάλαττα, –ης",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θανατοσ",
+          "entry": "θάνατος, –ου",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θαυμαζω",
+          "entry": "θαυμάζω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "θεα",
+          "entry": "θέα, –ας",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θεοσ",
+          "entry": "θεός, –οῦ (ὁ)",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θεραπευω",
+          "entry": "θεραπεύω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "θεραπων",
+          "entry": "θεράπων, –οντος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θηβαιοσ",
+          "entry": "Θηβαῖος, –α, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θηρ",
+          "entry": "θήρ, θηρός (ὁ o ἡ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "θυω",
+          "entry": "θύω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "θωραξ",
+          "entry": "θώραξ, –ακος (ὁ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ιδρυω",
+          "entry": "ἱδρύω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ιεραξ",
+          "entry": "Ἱέραξ, –ακος",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ιερευσ",
+          "entry": "ἱερεύς, –εως (M)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ιερον",
+          "entry": "ἱερόν, –οῦ (τὸ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ικαροσ",
+          "entry": "Ἴκαρος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ιλιον",
+          "entry": "Ἴλιον, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ιππευσ",
+          "entry": "ἱππεύς, –έως (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "και",
+          "entry": "καί (conj.)",
+          "units": [
+            "Palabras básicas"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "κακοσ",
+          "entry": "κακός, –η, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "καλοσ",
+          "entry": "καλός, –η, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κατα",
+          "entry": "κατά + genitivo / acusativo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "καταλειπω",
+          "entry": "καταλείπω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "κατεχω",
+          "entry": "κατέχω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "κελευω",
+          "entry": "κελεύω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "κηροσ",
+          "entry": "κηρός, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κηρυξ",
+          "entry": "κῆρυξ, –υκος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κιθαριζω",
+          "entry": "κιθαρίζω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "κιθαριστησ",
+          "entry": "κιθαριστής, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κοινοσ",
+          "entry": "κοινός, –η, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κομιζω",
+          "entry": "κομίζω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "κοσμοσ",
+          "entry": "κόσμος, −ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κρητη",
+          "entry": "Κρήτη, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κυριοσ",
+          "entry": "κύριος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "κωμη",
+          "entry": "κώμη, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "λακεδαιμονιοσ",
+          "entry": "Λακεδαιμόνιος, –α, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "λεγω",
+          "entry": "λέγω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "λειπω",
+          "entry": "λείπω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "λιθοσ",
+          "entry": "λίθος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "λιμην",
+          "entry": "λιμήν, λιμένος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "λυσανδροσ",
+          "entry": "Λύσανδρος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μαθητησ",
+          "entry": "μαθητής, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μαλα",
+          "entry": "μᾶλα (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "μαλιστα",
+          "entry": "μάλιστα (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "μαλλον",
+          "entry": "μᾶλλον (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "μανθανω",
+          "entry": "μανθάνω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "μαραθων",
+          "entry": "Μαραθών, –ῶνος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μαχομαι",
+          "entry": "μάχομαι",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "μεγαρα",
+          "entry": "Μέγαρα, –ων",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μεγασ",
+          "entry": "μέγας, μεγάλη, μέγα",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μενελαοσ",
+          "entry": "Μενέλαος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μενω",
+          "entry": "μένω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "μετα",
+          "entry": "μετά + genitivo / acusativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "μετεχω",
+          "entry": "μετέχω",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "μη",
+          "entry": "μή (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "μην",
+          "entry": "μήν, μηνός (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μητηρ",
+          "entry": "μήτηρ, μητρός (ἡ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μικροσ",
+          "entry": "μίκρος, –α, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "μονον",
+          "entry": "μόνον (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ναυσ",
+          "entry": "ναῦς, νεώς (ἡ)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "νεκροσ",
+          "entry": "νεκρός, –οῦ (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "νεοσ",
+          "entry": "νέος, –α, –ον",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "νησοσ",
+          "entry": "νῆσος, –ου (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "νικαω",
+          "entry": "νικάω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "νομιζω",
+          "entry": "νομίζω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "νοσοσ",
+          "entry": "νόσος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "νυν",
+          "entry": "νῦν (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ξενοσ",
+          "entry": "ξένος, –ου",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ξυλον",
+          "entry": "ξύλον, –ου",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ογκοσ",
+          "entry": "ὄγκος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "οδοσ",
+          "entry": "ὁδός, –ου (ἡ)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "οικετησ",
+          "entry": "οἰκέτης, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "οικεω",
+          "entry": "οἰκέω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ολιγοσ",
+          "entry": "ὀλιγός, –η, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ολοσ",
+          "entry": "ὅλος, –η, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ομηροσ",
+          "entry": "Ὅμηρος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ονυξ",
+          "entry": "ὄνυξ, –υχος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "οργιλοσ",
+          "entry": "ὀργίλος, –η, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ορμαομαι",
+          "entry": "ὁρμάομαι",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ου",
+          "entry": "οὐ, οὐκ, οὐχ (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ουδε",
+          "entry": "οὐδέ (conj.)",
+          "units": [
+            "Palabras básicas"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ουδεισ",
+          "entry": "οὐδεῖς, οὐδεμία, οὐδέν",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ουν",
+          "entry": "οὖν (conj.)",
+          "units": [
+            "Palabras básicas"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ουποτε",
+          "entry": "οὔποτε (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ουτω",
+          "entry": "οὕτω (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "παιδευω",
+          "entry": "παιδεύω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "πανταλεων",
+          "entry": "Πανταλέων, –οντος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "παρα",
+          "entry": "παρά + genitivo / acusativo / dativo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "παραλαμβανω",
+          "entry": "παραλαμβάνω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "παρεχω",
+          "entry": "παρέχω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "πασ",
+          "entry": "πᾶς, πᾶσα, πᾶν",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πασχω",
+          "entry": "πάσχω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "πατηρ",
+          "entry": "πατήρ, πατρός (ὁ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πεδιον",
+          "entry": "πεδίον, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πειθω",
+          "entry": "πείθω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "πελαγοσ",
+          "entry": "πέλαγος, πελάγους (τὸ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πεμπω",
+          "entry": "πέμπω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "πενησ",
+          "entry": "πένης, –ητος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πενια",
+          "entry": "πενία, –ας",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "περδιξ",
+          "entry": "πέρδιξ, ικος (ὁ o ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "περι",
+          "entry": "περί + genitivo / acusativo / dativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "περικλησ",
+          "entry": "Περικλῆς, –έους (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "περσαι",
+          "entry": "Πέρσαι, –ῶν (οἱ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πλεω",
+          "entry": "πλέω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "πλουτοσ",
+          "entry": "πλοῦτος, –ου",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ποι",
+          "entry": "ποῖ (adv.)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "πολεμιοσ",
+          "entry": "πολεμίος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πολεμοσ",
+          "entry": "πόλεμος, –ου",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πολιτεια",
+          "entry": "πολιτεία, –ας",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πολιτικοσ",
+          "entry": "πολιτικός, –η, ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πολλακισ",
+          "entry": "πολλάκις (adv.)",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "πολυσ",
+          "entry": "πολύς, πολλή, πολύ",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πονηροσ",
+          "entry": "πονηρός, –α, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ποταμοσ",
+          "entry": "ποταμός, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "που",
+          "entry": "ποῦ (adv.)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "πραττω",
+          "entry": "πράττω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "προ",
+          "entry": "πρό + genitivo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "προσ",
+          "entry": "πρός + genitivo / acusativo / dativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "προσβαλλω",
+          "entry": "προσβάλλω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "προσερχομαι",
+          "entry": "προσέρχομαι",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "πρωταγορασ",
+          "entry": "Πρωταγόρας, –ου (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πρωτον",
+          "entry": "πρῶτον (adv.)",
+          "units": [
+            "Palabras básicas"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "πρωτοσ",
+          "entry": "πρῶτος, –η, –ον",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πτερον",
+          "entry": "πτερόν, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πυθαγορειοσ",
+          "entry": "Πυθαγορείος, –α, ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "πωσ",
+          "entry": "πῶς (adv.)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "ρητωρ",
+          "entry": "ῥήτωρ, –ορος (ὁ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ριπτω",
+          "entry": "ῥίπτω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "ρισ",
+          "entry": "ῥίς, ῥινός (ἡ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "σαρξ",
+          "entry": "σάρξ, σάρκος (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "σολων",
+          "entry": "Σόλων, Σολόνος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "σοφια",
+          "entry": "σοφία, –ας",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "σοφιστησ",
+          "entry": "σοφιστής, –οῦ (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "σοφοσ",
+          "entry": "σοφός, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "σπαρτη",
+          "entry": "Σπάρτη, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "σπονδη",
+          "entry": "σπονδή, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "στρατευμα",
+          "entry": "στράτευμα, –ατος",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "στρατευω",
+          "entry": "στρατεύω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "στρατοπεδον",
+          "entry": "στρατόπεδον, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "συμμαχοσ",
+          "entry": "σύμμαχος, –ον",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "συν",
+          "entry": "σύν + dativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "σωιζω",
+          "entry": "σῴζω",
+          "units": [
+            "UD 9"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "σωκρατησ",
+          "entry": "Σωκράτης, Σωκράτους (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ταχεωσ",
+          "entry": "ταχέως (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "τελευταω",
+          "entry": "τελευτάω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "τελευτη",
+          "entry": "τελευτή, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "τεμνω",
+          "entry": "τέμνω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "τεχνη",
+          "entry": "τέχνη, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "τηκω",
+          "entry": "τήκω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "τοποσ",
+          "entry": "τόπος, –ου",
+          "units": [
+            "UD 9"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "τοτε",
+          "entry": "τότε (adv.)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "invariable"
+        },
+        {
+          "lemma": "τρεχω",
+          "entry": "τρέχω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "τριηρεσ",
+          "entry": "τριήρες, –εως (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "τυραννισ",
+          "entry": "τυραννίς, –ίδος (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "τυραννοσ",
+          "entry": "τύραννος, –ου",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "τυχη",
+          "entry": "τύχη, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "υιοσ",
+          "entry": "ὑιός, –οῦ",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "υπερ",
+          "entry": "ὑπέρ + genitivo / acusativo",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "υπο",
+          "entry": "ὑπό + genitivo / acusativo / dativo",
+          "units": [
+            "Preposiciones"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "φαλαγξ",
+          "entry": "φάλαγξ, φάλαγγος (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φερω",
+          "entry": "φέρω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "φευγω",
+          "entry": "φεύγω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "φιλεω",
+          "entry": "φιλέω",
+          "units": [
+            "UD 5"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "φιλια",
+          "entry": "φιλία, –ας",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φιλιπποσ",
+          "entry": "Φίλιππος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φιλοσ",
+          "entry": "φίλος, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φιλοσοφοσ",
+          "entry": "φιλόσοφος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φλεψ",
+          "entry": "φλέψ, φλεβός (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φονευω",
+          "entry": "φονεύω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "φρονησισ",
+          "entry": "φρόνησις, –εως (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φυλαξ",
+          "entry": "φύλαξ, –ακος (ὁ, ἡ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φυσισ",
+          "entry": "φύσις, –εως (ἡ)",
+          "units": [
+            "UD 10"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "φυω",
+          "entry": "φύω",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "verbal"
+        },
+        {
+          "lemma": "χειμων",
+          "entry": "χειμών, χειμῶνος (ὁ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "χιων",
+          "entry": "χιών, χιόνος (ἡ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "χρη",
+          "entry": "χρή (impers.)",
+          "units": [
+            "UD 6–7"
+          ],
+          "type": "por-clasificar"
+        },
+        {
+          "lemma": "χρονοσ",
+          "entry": "χρόνος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "χρυσοσ",
+          "entry": "χρύσος, –ου",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "χωρα",
+          "entry": "χώρα, –ας",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ψυχη",
+          "entry": "ψυχή, –ης",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        },
+        {
+          "lemma": "ωνιοσ",
+          "entry": "ὤνιος, –η, –ον",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal-probable"
+        }
+      ],
+      "coveredSamples": [
+        {
+          "lemma": "αγορα",
+          "entry": "ἀγορά, –ας",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph",
+            "docente"
+          ],
+          "writeQuestions": 20,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "αδικια",
+          "entry": "ἀδικία, –ας",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "αληθεια",
+          "entry": "ἀλήθεια, –ας",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "ανθρωποσ",
+          "entry": "ἄνθρωπος, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "αρετη",
+          "entry": "ἀρετή, –ης",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "αρχη",
+          "entry": "ἀρχή, –ῆς",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "ασπισ",
+          "entry": "ἀσπίς, –ίδος (ἡ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "βιβλιον",
+          "entry": "βιβλίον, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "βιοσ",
+          "entry": "βίος, –ου",
+          "units": [
+            "UD 1–4"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "γενοσ",
+          "entry": "γένος, γένους (τὸ)",
+          "units": [
+            "Sin unidad acreditada"
+          ],
+          "type": "nominal",
+          "sources": [
+            "docente"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "γερων",
+          "entry": "γέρων, –οντος (ὁ)",
+          "units": [
+            "UD 8"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 10,
+          "status": "con-ejercicios"
+        },
+        {
+          "lemma": "γη",
+          "entry": "γῆ, –ῆς (ἡ)",
+          "units": [
+            "UD 5"
+          ],
+          "type": "nominal",
+          "sources": [
+            "UniMorph"
+          ],
+          "writeQuestions": 7,
+          "status": "con-ejercicios"
+        }
+      ]
+    }
+  }
+}

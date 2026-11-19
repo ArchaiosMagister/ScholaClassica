@@ -224,7 +224,7 @@ export function loadTransversal(root){
     curricula,
     bank:readJson(join(root,'dist/apps/morfologia/data/paradigmas.json')),
     sourceVocabulary:parseVocabulaData(readFileSync(join(root,
-      '.sources/vocabula/data.js'),'utf8')),
+      'vendor/vocabula/data.js'),'utf8')),
     integratedVocabulary:parseVocabulaData(readFileSync(join(root,
       'dist/apps/vocabulario/data.js'),'utf8')),
     lock:readJson(join(root,'config/sources.lock.json'))

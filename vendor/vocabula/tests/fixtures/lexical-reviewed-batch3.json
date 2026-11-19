@@ -1,0 +1,422 @@
+{
+  "schema": 1,
+  "reviewedAt": "2026-11-12",
+  "scope": "Latín de 4.º: género, enunciado y grafía; Griego I: régimen de preposiciones y traducción",
+  "policy": "No se cambian las unidades, ni los identificadores ni las transcripciones Word: las rectificaciones documentadas quedan solo en los campos operativos",
+  "entries": [
+    {
+      "id": "175b8ee20e894e64",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 5"
+      ],
+      "category": "gender-error",
+      "form": "rĕgĭō, –onis (f.)",
+      "meaning": "‘región’",
+      "answers": [
+        "región"
+      ],
+      "original": "rĕgĭō, –onis (m.): ‘región’",
+      "reason": "Regiō es femenino; el Word de Latín 4.º UD5 indica incorrectamente (m.).",
+      "source": "https://logeion.uchicago.edu/regio"
+    },
+    {
+      "id": "0f9958c17ec34638",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 8"
+      ],
+      "category": "genitive-and-gender",
+      "form": "mŭlĭĕr, –eris (f.)",
+      "meaning": "‘mujer’",
+      "answers": [
+        "mujer"
+      ],
+      "original": "mŭlĭĕr, –ris: ‘mujer’",
+      "reason": "Mulier es femenino, genitivo mulieris; «–ris» omitía la vocal de la terminación en el enunciado abreviado de UD8.",
+      "source": "https://logeion.org/mulier"
+    },
+    {
+      "id": "d12f8675168ccf23",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 6"
+      ],
+      "category": "gender-supplied",
+      "form": "mărĕ, –is (n.)",
+      "meaning": "‘mar’",
+      "answers": [
+        "mar"
+      ],
+      "original": "mărĕ, –is: ‘mar’",
+      "reason": "Mare, maris es neutro y otra unidad del mismo Word da (n.); se completa la abreviatura de UD6.",
+      "source": "https://logeion.uchicago.edu/Mare"
+    },
+    {
+      "id": "31d2c68af2dfebc4",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 6"
+      ],
+      "category": "gender-supplied",
+      "form": "cōnsŭl, –is (m.)",
+      "meaning": "‘cónsul’",
+      "answers": [
+        "cónsul"
+      ],
+      "original": "cōnsŭl, –is: ‘cónsul’",
+      "reason": "Consul es masculino; el Word de UD5, UD8 y UD10 ya incluye (m.).",
+      "source": null
+    },
+    {
+      "id": "2f0bcb4a9625a493",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 7"
+      ],
+      "category": "gender-supplied",
+      "form": "īmpĕrātŏr, –oris (m.)",
+      "meaning": "‘general; emperador’",
+      "answers": [
+        "general",
+        "emperador"
+      ],
+      "original": "īmpĕrātŏr, –oris: ‘general; emperador’",
+      "reason": "Imperator es masculino; el Word de UD5/UD6 ya recoge (m.).",
+      "source": null
+    },
+    {
+      "id": "1fe4003daf27deff",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 7"
+      ],
+      "category": "gender-supplied",
+      "form": "hŏmō̆, –minis (m.)",
+      "meaning": "‘hombre’",
+      "answers": [
+        "hombre"
+      ],
+      "original": "hŏmō̆, –minis: ‘hombre’",
+      "reason": "Homo es masculino gramatical; su ficha de UD6 y UD9 ya indica (m.).",
+      "source": null
+    },
+    {
+      "id": "850f9bdeaa90952a",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 10"
+      ],
+      "category": "gender-supplied",
+      "form": "lĕgĭō̆, –onis (f.)",
+      "meaning": "‘legión’",
+      "answers": [
+        "legión"
+      ],
+      "original": "lĕgĭō̆, –onis: ‘legión’",
+      "reason": "Legio es femenino; consta en las otras unidades y se añade (f.) en UD10.",
+      "source": null
+    },
+    {
+      "id": "7cbc482eb4519361",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 6"
+      ],
+      "category": "gender-supplied",
+      "form": "ōppūgnātĭō̆, –onis (f.)",
+      "meaning": "‘ataque’, ‘asalto’, ‘asedio’",
+      "answers": [
+        "ataque",
+        "asalto",
+        "asedio"
+      ],
+      "original": "ōppūgnātĭō̆, –onis: ‘ataque’, ‘asalto’, ‘asedio’",
+      "reason": "Oppugnatio es femenino; consta expresamente en UD5, pero se omitía la marca en UD6.",
+      "source": null
+    },
+    {
+      "id": "377cff54f6405cbe",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 4"
+      ],
+      "category": "quantity-corrected",
+      "form": "pūgno (1ª)",
+      "meaning": "‘combatir’",
+      "answers": [
+        "combatir"
+      ],
+      "original": "pŭgno (1ª): ‘combatir’",
+      "reason": "Pūgnō tiene vocal ū larga según Logeion (Frieze/Vergil); la forma pŭgno de UD4 contradice UD2/UD3.",
+      "source": "https://logeion.uchicago.edu/pugno"
+    },
+    {
+      "id": "b1c335d769f39410",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 5"
+      ],
+      "category": "quantity-corrected",
+      "form": "currō (3ª)",
+      "meaning": "‘correr’",
+      "answers": [
+        "correr"
+      ],
+      "original": "cūrro (3ª): ‘correr’",
+      "reason": "Currō se transcribe con u sin macrón en la ficha de UD8 y en Logeion; se elimina macrón improcedente del presente de UD5.",
+      "source": "https://logeion.uchicago.edu/curro"
+    },
+    {
+      "id": "329d8c126e690d13",
+      "subject": "lat4",
+      "mode": "examen",
+      "units": [
+        "UD 5"
+      ],
+      "category": "quantity-corrected",
+      "form": "currō (3ª)",
+      "meaning": "‘correr’",
+      "answers": [
+        "correr"
+      ],
+      "original": "cūrro (3ª): ‘correr’",
+      "reason": "Misma errata de cūrro en el documento de examen UD5; se aplica la lectura currō.",
+      "source": "https://logeion.uchicago.edu/curro"
+    },
+    {
+      "id": "bc1b089fe0ab9bf7",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 10"
+      ],
+      "category": "unicode-encoding",
+      "form": "Myrō̆, –onis (m.)",
+      "meaning": "‘Mirón’",
+      "answers": [
+        "Mirón"
+      ],
+      "original": "Mўrō̆, –onis (m.): ‘Mirón’",
+      "reason": "La y del nombre latinizado Myro aparece sustituida por ў cirílica en el Word; se restaura exclusivamente el carácter latino, preservando la cantidad anotada.",
+      "source": "https://roderic.uv.es/bitstream/10550/43977/1/279.pdf"
+    },
+    {
+      "id": "40da44265e6cddef",
+      "subject": "lat4",
+      "mode": "general",
+      "units": [
+        "UD 10"
+      ],
+      "category": "unicode-encoding",
+      "form": "stylus, –ī",
+      "meaning": "‘boli’",
+      "answers": [
+        "boli"
+      ],
+      "original": "stўlus, –ī: ‘boli’",
+      "reason": "La y de stylus aparece reemplazada por ў cirílica; se restituye la grafía pretendida por el documento. Lewis–Short prefiere la variante clásica stilus, que se documenta sin imponerla.",
+      "source": "https://alatius.com/ls/index.php?l=stilus"
+    },
+    {
+      "id": "4035d2c61419e709",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "διά + genitivo / acusativo",
+      "meaning": "‘a través de’, ‘por medio de’ (gen.); ‘a causa de’, ‘por’ (ac.)",
+      "answers": [
+        "a través de",
+        "por medio de",
+        "a causa de",
+        "por"
+      ],
+      "original": "διά + genitivo / acusativo: ‘a través de, por, a causa de’",
+      "reason": "El Word general agrupa genitivo/acusativo sin asignar glosas. Smyth 1676: διά + gen. «a través de/por medio de»; + ac. «a causa de/por». Se explicita la distinción.",
+      "source": "https://services.perseids.org/sg/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "97b52ffa6430c102",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "διά + acusativo",
+      "meaning": "‘a causa de’, ‘por’ (acusativo)",
+      "answers": [
+        "a causa de",
+        "por"
+      ],
+      "original": "διά + acusativo: ‘a través de, por, a causa de’",
+      "reason": "El Word de examen atribuye «a través de» a διά + acusativo; en ático el valor ordinario con acusativo es causal, y «a través de» corresponde al genitivo (Smyth 1676). Se retira como solución de este ejercicio exclusivamente.",
+      "source": "https://services.perseids.org/sg/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "942b84cdc685e912",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "μετά + genitivo / acusativo",
+      "meaning": "‘con’, ‘entre’ (gen.); ‘después de’ (ac.)",
+      "answers": [
+        "entre",
+        "con",
+        "después de"
+      ],
+      "original": "μετά + genitivo / acusativo: ‘entre, con, después de’",
+      "reason": "Smyth 1676: μετά + genitivo «con/entre», + acusativo «después de»; conservar las glosas del Word con régimen identificado.",
+      "source": "https://services.perseids.org/sg/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "e059866e05a0ccec",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "μετά + genitivo | acusativo",
+      "meaning": "‘con’, ‘entre’ (gen.); ‘después de’ (ac.)",
+      "answers": [
+        "entre",
+        "con",
+        "después de"
+      ],
+      "original": "μετά + genitivo | acusativo: ‘entre, con’ (gen.) | después de’ (ac.)",
+      "reason": "La glosa del Word examen tenía comillas asimétricas y separación con |; se clarifica por casos sin cambiar las equivalencias.",
+      "source": "https://services.perseids.org/sg/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "e5d021ce1f858092",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "περί + genitivo / acusativo / dativo",
+      "meaning": "‘sobre’, ‘acerca de’ (gen.); ‘alrededor de’ (ac./dat.)",
+      "answers": [
+        "alrededor de",
+        "sobre",
+        "acerca de"
+      ],
+      "original": "περί + genitivo / acusativo / dativo: ‘alrededor de, sobre’",
+      "reason": "Smyth 1676: περί + genitivo «sobre/acerca de» y + acusativo «alrededor de». Se conserva el dativo que figura en el Word general sin atribuirle ejemplos no acreditados.",
+      "source": "https://services.perseids.org/sg/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "e14da738b7598fff",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "περί + genitivo",
+      "meaning": "‘sobre’, ‘acerca de’, ‘alrededor de’ (gen.)",
+      "answers": [
+        "alrededor de",
+        "sobre",
+        "acerca de"
+      ],
+      "original": "περί + genitivo: ‘alrededor de, sobre’",
+      "reason": "Se hace explícita la acepción habitual de περί + genitivo «sobre/acerca de»; se conserva «alrededor de» ya acreditada en el Word y presente en usos espaciales.",
+      "source": "https://hellenike.github.io/textbook/topics/module2/prepositions/"
+    },
+    {
+      "id": "1559ff0ad3392e4f",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "ὑπό + genitivo / acusativo / dativo",
+      "meaning": "‘por’ (gen. agente); ‘debajo de’ (gen./dat./ac.)",
+      "answers": [
+        "debajo de",
+        "por"
+      ],
+      "original": "ὐπό + genitivo / acusativo / dativo: ‘debajo de, por’",
+      "reason": "Smyth 1676–1678: ὑπό + genitivo indica normalmente agente personal, pero también admite valor espacial. Se distinguen sin eliminar glosas del Word.",
+      "source": "https://services.perseids.org/sg/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "3e313fd4f08c2847",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "ὑπό + genitivo",
+      "meaning": "‘por’ (gen. agente); ‘debajo de’ (valor local)",
+      "answers": [
+        "debajo de",
+        "por"
+      ],
+      "original": "ὐπό + genitivo: ‘debajo de, por’",
+      "reason": "La ficha examen ὑπό + genitivo especifica ahora «por» agente y «debajo de» local, ambas glosas documentadas.",
+      "source": "https://logeion.org/%E1%BD%91%CF%80%CF%8C"
+    },
+    {
+      "id": "ac253a215f0b7b92",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "category": "case-dependent-gloss",
+      "form": "ὑπέρ + genitivo / acusativo",
+      "meaning": "‘a favor de’, ‘por’ (gen.); ‘sobre’, ‘más allá de’ (ac.)",
+      "answers": [
+        "sobre",
+        "más allá de",
+        "por",
+        "a favor de"
+      ],
+      "original": "ὐπέρ + genitivo / acusativo: ‘sobre, más allá de, por’",
+      "reason": "La ficha alfabética de ὑπέρ reúne genitivo/acusativo. Smyth 1676 diferencia el valor de favor en genitivo y el espacial de «sobre/más allá» en acusativo. La acepción «a favor de» ya estaba en otra ficha del mismo Word.",
+      "source": "https://services.perseids.org/sg/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "cd5d60bfc3e67704",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "category": "spanish-orthography",
+      "form": "παρά + genitivo / acusativo / dativo",
+      "meaning": "‘junto a’, ‘al lado de’, ‘en’, ‘a lo largo de’",
+      "answers": [
+        "junto a",
+        "al lado de",
+        "en",
+        "a lo largo de"
+      ],
+      "original": "παρά + genitivo / acusativo / dativo: ‘junto a, a lado de, en, a lo largo de’",
+      "reason": "Corregida «a lado de» por «al lado de» en la traducción española de παρά, sin modificar los casos exigidos.",
+      "source": "https://dle.rae.es/lado"
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+{
+  "schema": 1,
+  "version": "2026-11-12-2",
+  "scope": "Enunciados latinos, ortografía griega y compatibilidad de sinónimos de Griego I",
+  "policy": "Mantener las transcripciones originales sin alteración y solo ampliar las respuestas al cotejar ambos documentos; no asignar nuevas unidades",
+  "entries": [
+    {
+      "id": "cdb0bb97ec06e330",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 7"
+      ],
+      "category": "latin-headword",
+      "form": "sol, solis (m.)",
+      "meaning": "‘sol’",
+      "answers": [
+        "sol"
+      ],
+      "original": "solis, –is (m.): ‘sol’",
+      "reason": "El documento de UD7 da el genitivo solis como lema; el mismo DOCX da sol, solis en UD11–12 y lo confirma Logeion.",
+      "source": "https://logeion.org/sol"
+    },
+    {
+      "id": "0827c3181a15dbd6",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 2"
+      ],
+      "category": "latin-principal-parts",
+      "form": "appropinquo, appropinquavi, appropinquatum (1ª)",
+      "meaning": "‘acercarse a’",
+      "answers": [
+        "acercarse a"
+      ],
+      "original": "appropinquo, appropinquavi, approprinquatum (1ª): ‘acercarse a’",
+      "reason": "Errata en la forma del supino: approprinquatum frente a appropinquatum de la otra unidad; no cambia su traducción.",
+      "source": null
+    },
+    {
+      "id": "0a1ed9194c81f0fa",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 7"
+      ],
+      "category": "latin-principal-parts",
+      "form": "adiuvo, adiuvi, adiutum (1ª)",
+      "meaning": "‘ayudar’",
+      "answers": [
+        "ayudar"
+      ],
+      "original": "adiuvo, adiuvavi, adiuvatum (1ª): ‘ayudar’",
+      "reason": "Adiuvo presenta perfecto adiuvi y supino adiutum, como consta en UD6 y en repertorios de conjugación.",
+      "source": "https://www.latindictionary.io/entry/adjuvo-adjuvare-adjuvi-adjutus"
+    },
+    {
+      "id": "8dae3b53c8b18e8e",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 11–12"
+      ],
+      "category": "latin-principal-parts",
+      "form": "cognosco, cognovi, cognitum (3ª)",
+      "meaning": "‘conocer’",
+      "answers": [
+        "conocer"
+      ],
+      "original": "cognosco, cognovit, cognotum (3ª): ‘conocer’",
+      "reason": "Cognosco, cognovi, cognitum: el supuesto cognovit era 3.ª persona, y cognotum no es el supino.",
+      "source": "https://cld.bbaw.de/lemma/lat/cognosco"
+    },
+    {
+      "id": "0772d85fa5ce496e",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 4"
+      ],
+      "category": "latin-principal-parts",
+      "form": "deligo, delegi, delectum (3ª)",
+      "meaning": "‘elegir’",
+      "answers": [
+        "elegir"
+      ],
+      "original": "deligo, delegi, delictum (3ª): ‘elegir’",
+      "reason": "Para deligo 'elegir', el supino es delectum, no delictum (otro lexema). Coincide con la ficha de UD5.",
+      "source": null
+    },
+    {
+      "id": "7bb1eb1ad65d345d",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 5"
+      ],
+      "category": "latin-principal-parts",
+      "form": "maneo, mansi, mansum (2ª)",
+      "meaning": "‘permanecer’",
+      "answers": [
+        "permanecer"
+      ],
+      "original": "maneo, manui, mansum (2ª): ‘permanecer’",
+      "reason": "Maneo, mansi, mansum: el perfecto manui es erróneo, corregido según UD9–10 y Lewis & Short.",
+      "source": "https://cld.bbaw.de/lemma/lat/maneo"
+    },
+    {
+      "id": "950c031680a126b1",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 1"
+      ],
+      "category": "latin-principal-parts",
+      "form": "moveo, movi, motum (2ª)",
+      "meaning": "‘mover’",
+      "answers": [
+        "mover"
+      ],
+      "original": "moveo, movi, movitum (2ª): ‘mover’",
+      "reason": "Moveo, movi, motum: supino movitum incorrecto, según UD11–12 y Lewis & Short.",
+      "source": "https://cld.bbaw.de/lemma/lat/moveo"
+    },
+    {
+      "id": "a5aa1d58f0bc9d23",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 9–10"
+      ],
+      "category": "latin-principal-parts",
+      "form": "occido, occidi, occisum (3ª)",
+      "meaning": "‘matar’",
+      "answers": [
+        "matar"
+      ],
+      "original": "occido, occidi, occissum (3ª): ‘matar’",
+      "reason": "Occido 'matar' tiene supino occisum (una sola s), no occissum.",
+      "source": "https://cld.bbaw.de/lemma/lat/occido"
+    },
+    {
+      "id": "0d87cc0f8f71d09c",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 8"
+      ],
+      "category": "latin-principal-parts",
+      "form": "peto, petivi, petitum (3ª)",
+      "meaning": "‘dirigirse a’, ‘pedir’",
+      "answers": [
+        "dirigirse a",
+        "pedir"
+      ],
+      "original": "peto, petivi, petitium (3ª): ‘dirigirse a’, ‘pedir’",
+      "reason": "Peto, petivi, petitum: petitium es errata del supino, mientras petivi/petii son perfectos válidos.",
+      "source": "https://cld.bbaw.de/lemma/lat/peto"
+    },
+    {
+      "id": "749c24f3bb1e9e46",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 6"
+      ],
+      "category": "latin-conjugation",
+      "form": "fugio, fugi – (mx.)",
+      "meaning": "‘huir’",
+      "answers": [
+        "huir"
+      ],
+      "original": "fugio, fugi – (4ª): ‘huir’",
+      "reason": "Fugio, fugere es un verbo de tercera conjugación en -io ('mixta' en esta nomenclatura), no cuarta.",
+      "source": "https://www.thelatinlibrary.com/101/Conjugation3.pdf"
+    },
+    {
+      "id": "55fed0dd65072d08",
+      "subject": "lat1",
+      "mode": "general",
+      "units": [
+        "UD 9–10"
+      ],
+      "category": "latin-conjugation",
+      "form": "fugio, fugi – (mx.)",
+      "meaning": "‘huir’",
+      "answers": [
+        "huir"
+      ],
+      "original": "fugio, fugi – (3ª): ‘huir’",
+      "reason": "Uniformar la denominación 'mixta' para fugio en las unidades donde ya aparece.",
+      "source": "https://www.thelatinlibrary.com/101/Conjugation3.pdf"
+    },
+    {
+      "id": "ac253a215f0b7b92",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "category": "greek-orthography",
+      "form": "ὑπέρ + genitivo / acusativo",
+      "meaning": "‘sobre, más allá de, por’",
+      "answers": [
+        "sobre",
+        "más allá de",
+        "por"
+      ],
+      "original": "ὐπέρ + genitivo / acusativo: ‘sobre, más allá de, por’",
+      "reason": "El original presenta upsilon con espíritu suave, forma improcedente aquí: ὑπέρ lleva espíritu áspero; se conservan regímenes distintos.",
+      "source": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n107183/"
+    },
+    {
+      "id": "1559ff0ad3392e4f",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "greek-orthography",
+      "form": "ὑπό + genitivo / acusativo / dativo",
+      "meaning": "‘debajo de, por’",
+      "answers": [
+        "debajo de",
+        "por"
+      ],
+      "original": "ὐπό + genitivo / acusativo / dativo: ‘debajo de, por’",
+      "reason": "La preposición ὑπό lleva espíritu áspero; el DOCX trae ὐπό, grafía equivocada.",
+      "source": null
+    },
+    {
+      "id": "3e313fd4f08c2847",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "Preposiciones"
+      ],
+      "category": "greek-orthography",
+      "form": "ὑπό + genitivo",
+      "meaning": "‘debajo de, por’",
+      "answers": [
+        "debajo de",
+        "por"
+      ],
+      "original": "ὐπό + genitivo: ‘debajo de, por’",
+      "reason": "En Griego examen ὑπό se corrige igual que en el corpus general.",
+      "source": null
+    },
+    {
+      "id": "8719a67ab7097599",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 8"
+      ],
+      "category": "greek-orthography",
+      "form": "πατήρ, −τρός (ὁ)",
+      "meaning": "‘padre’",
+      "answers": [
+        "padre"
+      ],
+      "original": "πάτηρ, −τρός (ὁ): ‘padre’",
+      "reason": "En el DOCX de examen πάτηρ tiene el acento desplazado; la entrada correcta es πατήρ.",
+      "source": "https://logeion.uchicago.edu/%CF%80%CE%B1%CF%84%CE%AE%CF%81"
+    },
+    {
+      "id": "d78a6d8a14c16dac",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 8"
+      ],
+      "category": "greek-orthography",
+      "form": "Ἑλλάς, Ἑλλάδος (ἡ)",
+      "meaning": "‘Grecia’",
+      "answers": [
+        "Grecia"
+      ],
+      "original": "Ἕλλας, Ἑλλάδος (ἡ): ‘Grecia’",
+      "reason": "Ἑλλάς lleva espíritu áspero y acento en la última sílaba; coincide con el documento general.",
+      "source": "https://logeion.uchicago.edu/%E1%BC%99%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1"
+    },
+    {
+      "id": "85ae34cb27858a4b",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 8"
+      ],
+      "category": "greek-orthography",
+      "form": "ὕδωρ, ὕδατος (τὸ)",
+      "meaning": "‘agua’",
+      "answers": [
+        "agua"
+      ],
+      "original": "ὕδωρ, ὑδάτος (τό): ‘agua’",
+      "reason": "El genitivo de ὕδωρ es ὕδατος, con acento en la primera sílaba; coherente con el documento de examen.",
+      "source": "https://atlas.perseus.tufts.edu/nodes/urn%3Acts%3AgreekLit%3Atlg0012.tlg002.perseus-grc2%3A5.70/"
+    },
+    {
+      "id": "20faba3de8d0d937",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 5"
+      ],
+      "category": "greek-accepted-synonym",
+      "form": "ἀρχή, –ῆς",
+      "meaning": "‘gobierno’",
+      "answers": [
+        "gobierno",
+        "origen"
+      ],
+      "original": "ἀρχή, –ῆς: ‘gobierno’",
+      "reason": "Origen es acepción válida de ἀρχή, presente en Griego examen UD5; se amplían respuestas sin modificar la traducción mostrada.",
+      "source": null
+    },
+    {
+      "id": "5adb9a870c32e48f",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 5"
+      ],
+      "category": "greek-accepted-synonym",
+      "form": "οἰκέω",
+      "meaning": "‘vivir’",
+      "answers": [
+        "vivir",
+        "habitar"
+      ],
+      "original": "οἰκέω: ‘vivir’",
+      "reason": "Vivir/habitar son equivalencias válidas de οἰκέω, ambas documentadas en general/examen.",
+      "source": null
+    },
+    {
+      "id": "ebcf1b76b4200de9",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 5"
+      ],
+      "category": "greek-accepted-synonym",
+      "form": "οἰκέω",
+      "meaning": "‘habitar’",
+      "answers": [
+        "habitar",
+        "vivir"
+      ],
+      "original": "οἰκέω: ‘habitar’",
+      "reason": "Vivir/habitar son equivalencias válidas de οἰκέω; en examen se acepta la glosa general.",
+      "source": null
+    },
+    {
+      "id": "08ff2954d678004a",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 8"
+      ],
+      "category": "greek-accepted-synonym",
+      "form": "ἄρχων, –οντος (ὁ)",
+      "meaning": "‘líder’",
+      "answers": [
+        "líder",
+        "arconte"
+      ],
+      "original": "ἄρχων, –οντος (ὁ): ‘líder’",
+      "reason": "Ἄρχων significa magistrado/arconte y también gobernante, líder; ambos documentos acreditan estas glosas.",
+      "source": null
+    },
+    {
+      "id": "2bed71f62600b56d",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 8"
+      ],
+      "category": "greek-accepted-synonym",
+      "form": "ἄρχων, −οντος (ὁ)",
+      "meaning": "‘arconte’",
+      "answers": [
+        "arconte",
+        "líder"
+      ],
+      "original": "ἄρχων, −οντος (ὁ): ‘arconte’",
+      "reason": "Para ἄρχων, admitir líder en examen además de arconte, sin cambiar lo mostrado.",
+      "source": null
+    },
+    {
+      "id": "28a2c81e1bc7fc50",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 8"
+      ],
+      "category": "greek-accepted-synonym",
+      "form": "ἡγεμών, –ονος (M)",
+      "meaning": "‘soberano’",
+      "answers": [
+        "soberano",
+        "líder"
+      ],
+      "original": "ἡγεμών, –ονος (M): ‘soberano’",
+      "reason": "Ἡγεμών: líder/soberano, ambas acepciones documentadas en UD8.",
+      "source": null
+    },
+    {
+      "id": "769e91ea4e9d284c",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 9"
+      ],
+      "category": "greek-accepted-synonym",
+      "form": "λαμβάνω",
+      "meaning": "‘coger’",
+      "answers": [
+        "coger",
+        "tomar"
+      ],
+      "original": "λαμβάνω: ‘coger’",
+      "reason": "Λαμβάνω: coger/tomar, ambas presentes entre general y examen UD9.",
+      "source": null
+    }
+  ]
+}

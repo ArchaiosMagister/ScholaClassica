@@ -16,11 +16,11 @@ const root=resolve(import.meta.dirname,'..');
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
 const vocabulary=parseVocabularySource(readFileSync(join(root,
-  '.sources/vocabula/data.js'),'utf8'));
+  'vendor/vocabula/data.js'),'utf8'));
 const curriculum=JSON.parse(readFileSync(join(root,
   'vendor/appendix/assets/curriculum.json'),'utf8'));
 const unmorph=Array.from({length:8},(_,i)=>JSON.parse(readFileSync(join(root,
-  '.sources/vocabula/data/unimorph-syllabus/grc/part-0'+i+'.json'),'utf8')));
+  'vendor/vocabula/data/unimorph-syllabus/grc/part-0'+i+'.json'),'utf8')));
 const find=id=>bank.records.find(r=>r.id===id);
 const rng=()=>.39;
 const only=r=>({...bank,records:[r]});
@@ -86,7 +86,7 @@ test('Nueve sustantivos nuevos, género y diez casillas cotejados sin formas ded
   const names=['arche','strategos','epistole','kephale','mache','petra',
     'ouranos','hoplon','phobos'];
   const records=compileGreekExigibleNounBatch({curriculum,
-    vocabulaData:readFileSync(join(root,'.sources/vocabula/data.js'),'utf8'),
+    vocabulaData:readFileSync(join(root,'vendor/vocabula/data.js'),'utf8'),
     unimorphParts:unmorph,vocabulaSha:lock.sources.vocabula.sha});
   assert.deepEqual(records.map(x=>x.id),
     names.map(id=>'griego-sustantivo-'+id));

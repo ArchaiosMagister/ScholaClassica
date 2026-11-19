@@ -19,7 +19,7 @@ test('Ἀθῆναι se limita estrictamente a cinco casos plurales áticos docu
  assert.equal(ath.gender,'femenino');
  assert.equal(ath.evidence.numberScope,'plural');
  assert.equal(ath.evidence.vocabulaEntry,'b8e417b32b6f3692');
- assert.deepEqual(ath,compileAthenae({vocabulaData:read('.sources/vocabula/data.js'),
+ assert.deepEqual(ath,compileAthenae({vocabulaData:read('vendor/vocabula/data.js'),
   vocabulaSha:lock.sources.vocabula.sha,decisions}));
  assert.deepEqual(ath.forms.map(f=>[f.case,f.form]),[
  ['nominativo','Ἀθῆναι'],['vocativo','Ἀθῆναι'],

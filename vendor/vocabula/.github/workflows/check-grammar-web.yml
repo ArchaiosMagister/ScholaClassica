@@ -1,0 +1,107 @@
+name: Comprobar ejercicios de gramática y publicación web
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - feature/repaso-morfologia
+      - feature/pestanas-navegacion-unificada
+    paths:
+      - '.github/workflows/check-grammar-web.yml'
+      - 'tests/**'
+      - 'gramatica*'
+      - 'morfologia*'
+      - 'data/unimorph-syllabus/**'
+      - 'index.html'
+      - 'teacher.js'
+      - 'app.js'
+      - 'choice.js'
+      - 'scope.js'
+      - 'config.js'
+      - 'data.js'
+      - 'style.css'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    name: Validación antes de publicar en clase
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Descargar el código de la propuesta
+        uses: actions/checkout@v4
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar sintaxis del motor
+        run: |
+          node --check gramatica-respaldo-online.js
+          node --check gramatica.js
+          node --check gramatica-importada.js
+          node --check gramatica-paradigmas.js
+          node --check gramatica-griego-ampliacion.js
+          node --check gramatica-admin.js
+          node --check teacher.js
+          node --check app.js
+          node --check choice.js
+          node --check scope.js
+          node --check tests/check-vocabulary-scope.cjs
+          node --check tests/check-vocabulary-provenance.cjs
+          node --check tests/check-lexical-corrections.cjs
+          node --check tests/check-lexical-batch2.cjs
+          node --check tests/check-lexical-batch3.cjs
+          node --check tests/check-attic-greek.cjs
+          node --check tests/check-100-classical-forms.cjs
+          node --check tests/check-vocabulary-browser.cjs
+          node --check tests/check-vocabulary-public-service.cjs
+          node --check tests/check-grammar.cjs
+          node --check tests/check-web-release.cjs
+          node --check tests/check-grammar-browser.cjs
+      - name: Verificar el alcance por curso, unidades y distractores
+        run: node tests/check-vocabulary-scope.cjs
+      - name: Contrastar el banco léxico con las fuentes docentes
+        run: node tests/check-vocabulary-provenance.cjs
+      - name: Probar correcciones filológicas de lemas y respuestas
+        run: node tests/check-lexical-corrections.cjs
+      - name: Verificar la segunda tanda de revisión filológica
+        run: node tests/check-lexical-batch2.cjs
+      - name: Verificar la tercera tanda de revisión filológica
+        run: node tests/check-lexical-batch3.cjs
+      - name: Verificar ático clásico y evitar homógrafos no acreditados
+        run: node tests/check-attic-greek.cjs
+      - name: Auditar cien formas flexionadas latinas y áticas
+        run: node tests/check-100-classical-forms.cjs
+      - name: Guardar las cien observaciones para consulta del profesor
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-cien-formas-latin-atico
+          path: |
+            reports/auditoria-100-formas.json
+            reports/auditoria-100-formas.md
+          if-no-files-found: warn
+      - name: Comprobar el respaldo online con un banco de prueba
+        run: node tests/check-online-backup.cjs
+      - name: Comprobar autocorrección y currículo
+        run: node tests/check-grammar.cjs
+      - name: Comprobar ejercicios UniMorph
+        run: node tests/check-unimorph-import.mjs
+      - name: Comprobar archivos de la web publicados
+        run: node tests/check-web-release.cjs
+      - name: Instalar navegador de prueba
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Probar la web de clase con Chromium
+        run: |
+          node tests/check-grammar-browser.cjs
+          node tests/check-vocabulary-browser.cjs
+      - name: Contrastar aportaciones docentes con consulta pública real de Supabase
+        run: node tests/check-vocabulary-public-service.cjs

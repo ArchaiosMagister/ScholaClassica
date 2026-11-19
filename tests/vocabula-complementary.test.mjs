@@ -12,7 +12,7 @@ import {GREEK1_KINDYNOS_GENERAL_ID} from '../scripts/greek1-kindynos-ud5-decisio
 const root=resolve(import.meta.dirname,'..');
 const parse=file=>JSON.parse(readFileSync(file,'utf8')
  .replace(/^window\.VOCAB\s*=\s*/u,'').replace(/;\s*$/u,''));
-const origin=parse(join(root,'.sources/vocabula/data.js'));
+const origin=parse(join(root,'vendor/vocabula/data.js'));
 const current=parse(join(root,'dist/apps/vocabulario/data.js'));
 const key=s=>String(s).split(':')[0].split(/[,+(]/u)[0]
  .toLowerCase().replaceAll('æ','ae').replaceAll('œ','oe').replaceAll('ς','σ')

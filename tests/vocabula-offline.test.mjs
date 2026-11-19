@@ -7,7 +7,7 @@ import {VOCABULA_CORE} from '../scripts/build-vocabula-pwa.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const target=join(root,'dist/apps/vocabulario');
-const source=join(root,'.sources/vocabula');
+const source=join(root,'vendor/vocabula');
 const read=(path)=>readFileSync(path,'utf8');
 const manifest=JSON.parse(read(join(target,'manifest.webmanifest')));
 

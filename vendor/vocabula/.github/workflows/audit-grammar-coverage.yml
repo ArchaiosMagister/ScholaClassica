@@ -1,0 +1,74 @@
+name: Auditar cobertura morfológica del vocabulario
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/audit_morphology.mjs'
+      - 'tests/check-morphology-coverage.mjs'
+      - 'data.js'
+      - 'gramatica*'
+      - 'data/unimorph-syllabus/**'
+      - '.github/workflows/audit-grammar-coverage.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_morphology.mjs'
+      - 'tests/check-morphology-coverage.mjs'
+      - 'data.js'
+      - 'gramatica*'
+      - 'data/unimorph-syllabus/**'
+      - '.github/workflows/audit-grammar-coverage.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-grammar-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Calcular la cobertura efectiva por lema y curso
+        run: node scripts/audit_morphology.mjs
+      - name: Comprobar integridad de los resultados
+        run: node tests/check-morphology-coverage.mjs
+      - name: Resumen visible en GitHub Actions
+        run: cat data/morphology-coverage.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar informe descargable de auditoría
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-cobertura-morfologica
+          path: |
+            data/morphology-coverage.json
+            data/morphology-coverage.md
+      - name: Publicar informe en GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/morphology-coverage.json data/morphology-coverage.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Actualizar auditoría de cobertura morfológica'
+            # UniMorph puede actualizar otro fichero al mismo tiempo.
+            # Nunca hacer force-push ni perder el commit de la otra tarea.
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              echo "La rama ha avanzado: rebase y reintento ${attempt}/5"
+              git fetch origin main
+              git rebase FETCH_HEAD
+              sleep "${attempt}"
+            done
+            echo "No se pudo publicar después de cinco intentos" >&2
+            exit 1
+          fi

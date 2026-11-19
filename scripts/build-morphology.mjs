@@ -333,7 +333,8 @@ export async function buildMorphology({out,lock}){
     {latinNounsHtml:await readFile(join(source,'sustantivos.html'),'utf8'),
      latinIndicativeHtml:await readFile(join(source,'indicativo.html'),'utf8'),
      latinAdjectivesHtml:await readFile(join(source,'adjetivos.html'),'utf8')});
-  const vocabulaSource=resolve(process.env.VOCABULA_SOURCE||join(root,'.sources/vocabula'));
+  if(process.env.VOCABULA_SOURCE)throw Error('Morfología solo admite Vocabula interno');
+  const vocabulaSource=join(root,'vendor/vocabula');
   const sourceData=await readGreekNounSource(vocabulaSource);
   const greekNouns=compileGreekNounBatch({
     curriculum:JSON.parse(await readFile(path,'utf8')),

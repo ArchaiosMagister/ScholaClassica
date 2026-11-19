@@ -1,0 +1,719 @@
+{
+  "schema": 1,
+  "date": "2026-11-12",
+  "curriculum": "Ático clásico, especialmente prosa ática; sin koiné ni licencias jónicas/dóricas/épicas como alternativa",
+  "scope": "Tanda 4, 27 fichas de Griego I; la lematización original del profesor no se sustituye en originals",
+  "entries": [
+    {
+      "id": "46b910c9848d3d41",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "semantic",
+      "sourceOriginal": "αἰτέω: 'buscar'",
+      "previous": {
+        "form": "αἰτέω",
+        "meaning": "'buscar'",
+        "answers": [
+          "buscar"
+        ]
+      },
+      "current": {
+        "form": "αἰτέω",
+        "meaning": "‘pedir’, ‘solicitar’",
+        "answers": [
+          "pedir",
+          "solicitar"
+        ]
+      },
+      "reason": "αἰτέω en ático significa pedir/solicitar, no buscar: esta última es traducción propia de ζητέω.",
+      "authority": "https://cld.bbaw.de/lemma/grc/%CE%B1%E1%BC%B0%CF%84%CE%AD%CF%89"
+    },
+    {
+      "id": "682285b7937e9009",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "semantic",
+      "sourceOriginal": "ἀκρόαμα, –ματος: ‘placentero al oído’",
+      "previous": {
+        "form": "ἀκρόαμα, –ματος",
+        "meaning": "‘placentero al oído’",
+        "answers": [
+          "placentero al oído"
+        ]
+      },
+      "current": {
+        "form": "ἀκρόαμα, –ματος (τὸ)",
+        "meaning": "‘audición’, ‘actuación musical’",
+        "answers": [
+          "audición",
+          "actuación musical"
+        ]
+      },
+      "reason": "ἀκρόαμα es un sustantivo: una audición/actuación destinada a escucharse. Está atestiguado en Jenofonte ático, no es exclusivo de koiné.",
+      "authority": "https://atticism.eu/corpus/item/view?id=dd0c1758-f5f3-4c07-8631-ee895cbfcee8"
+    },
+    {
+      "id": "889a86b5ace85ff8",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 1–4"
+      ],
+      "type": "accent",
+      "sourceOriginal": "ἀληθεία, –ας: ‘verdad’",
+      "previous": {
+        "form": "ἀληθεία, –ας",
+        "meaning": "‘verdad’",
+        "answers": [
+          "verdad"
+        ]
+      },
+      "current": {
+        "form": "ἀλήθεια, –ας",
+        "meaning": "‘verdad’",
+        "answers": [
+          "verdad"
+        ]
+      },
+      "reason": "El sustantivo de verdad se acentúa ἀλήθεια, no ἀληθεία.",
+      "authority": "https://cld.bbaw.de/lemma/grc/%E1%BC%80%CE%BB%CE%AE%CE%B8%CE%B5%CE%B9%CE%B1"
+    },
+    {
+      "id": "f4dab0ef71cb4809",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "contraction",
+      "sourceOriginal": "γένος, –εος (τὸ): ‘linaje’, ‘tipo’",
+      "previous": {
+        "form": "γένος, –εος (τὸ)",
+        "meaning": "‘linaje’, ‘tipo’",
+        "answers": [
+          "linaje",
+          "tipo"
+        ]
+      },
+      "current": {
+        "form": "γένος, γένους (τὸ)",
+        "meaning": "‘linaje’, ‘tipo’",
+        "answers": [
+          "linaje",
+          "tipo"
+        ]
+      },
+      "reason": "Se exige el genitivo ático contracto γένους, no el estadio no contraído –εος.",
+      "authority": "https://ccel.org/s/smyth/grammar/html/smyth_2f_uni.htm"
+    },
+    {
+      "id": "e9fd0183da684d6e",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 1–4"
+      ],
+      "type": "accent",
+      "sourceOriginal": "θέος, –ου: ‘dios’",
+      "previous": {
+        "form": "θέος, –ου",
+        "meaning": "‘dios’",
+        "answers": [
+          "dios"
+        ]
+      },
+      "current": {
+        "form": "θεός, –οῦ (ὁ)",
+        "meaning": "‘dios’",
+        "answers": [
+          "dios"
+        ]
+      },
+      "reason": "La forma ática de diccionario es θεός, genitivo θεοῦ, con acento en la última sílaba.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "32e6ed66d94b132f",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "accent",
+      "sourceOriginal": "ἱερὸν, –ου (τό): 'templo'",
+      "previous": {
+        "form": "ἱερὸν, –ου (τό)",
+        "meaning": "'templo'",
+        "answers": [
+          "templo"
+        ]
+      },
+      "current": {
+        "form": "ἱερόν, –οῦ (τὸ)",
+        "meaning": "'templo'",
+        "answers": [
+          "templo"
+        ]
+      },
+      "reason": "El lema aislado es ἱερόν con agudo final; ἱερὸν con grave solo en contexto continuo.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "574cba54466d9a1e",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 6–7"
+      ],
+      "type": "headword",
+      "sourceOriginal": "κεφαλῆ, –ῆς: 'cabeza'",
+      "previous": {
+        "form": "κεφαλῆ, –ῆς",
+        "meaning": "'cabeza'",
+        "answers": [
+          "cabeza"
+        ]
+      },
+      "current": {
+        "form": "κεφαλή, –ῆς (ἡ)",
+        "meaning": "'cabeza'",
+        "answers": [
+          "cabeza"
+        ]
+      },
+      "reason": "Nominativo κεφαλή, genitivo κεφαλῆς, femenino: la fuente escribió κεφαλῆ.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "4e48a20fbf2c03fb",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "spelling",
+      "sourceOriginal": "κυνδύνος, –ου: ‘peligro’",
+      "previous": {
+        "form": "κυνδύνος, –ου",
+        "meaning": "‘peligro’",
+        "answers": [
+          "peligro"
+        ]
+      },
+      "current": {
+        "form": "κίνδυνος, –ου (ὁ)",
+        "meaning": "‘peligro’",
+        "answers": [
+          "peligro"
+        ]
+      },
+      "reason": "La fuente κυνδύνος es una errata por κίνδυνος; la forma con υ no debe admitirse como variante ática.",
+      "authority": "https://www.greek-language.gr/greekLang/ancient_greek/tools/lexicon/lemma.html?id=130"
+    },
+    {
+      "id": "67413fbfe3dbeebb",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "accent",
+      "sourceOriginal": "Λακεδαιμονίος, –α, –ον: ‘espartano/a’",
+      "previous": {
+        "form": "Λακεδαιμονίος, –α, –ον",
+        "meaning": "‘espartano/a’",
+        "answers": [
+          "espartano/a"
+        ]
+      },
+      "current": {
+        "form": "Λακεδαιμόνιος, –α, –ον",
+        "meaning": "‘espartano/a’",
+        "answers": [
+          "espartano/a"
+        ]
+      },
+      "reason": "En el gentilicio Λακεδαιμόνιος se acentúa la sílaba -μόν-; no -νί-.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "a6f3a3058e67a537",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "genitive",
+      "sourceOriginal": "λιμήν, ένος (ὁ): ‘puerto’",
+      "previous": {
+        "form": "λιμήν, ένος (ὁ)",
+        "meaning": "‘puerto’",
+        "answers": [
+          "puerto"
+        ]
+      },
+      "current": {
+        "form": "λιμήν, λιμένος (ὁ)",
+        "meaning": "‘puerto’",
+        "answers": [
+          "puerto"
+        ]
+      },
+      "reason": "λιμήν es un tema en nasal; el genitivo correcto es λιμένος y no la abreviatura ένος.",
+      "authority": "https://ccel.org/s/smyth/grammar/html/smyth_2f_uni.htm"
+    },
+    {
+      "id": "a8f9a553fa6cf9e0",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "unicode",
+      "sourceOriginal": "νεκρóς, –οῦ (ὁ): 'cadáver'",
+      "previous": {
+        "form": "νεκρóς, –οῦ (ὁ)",
+        "meaning": "'cadáver'",
+        "answers": [
+          "cadáver"
+        ]
+      },
+      "current": {
+        "form": "νεκρός, –οῦ (ὁ)",
+        "meaning": "'cadáver'",
+        "answers": [
+          "cadáver"
+        ]
+      },
+      "reason": "La fuente mezcla la ó latina con el alfabeto griego. Se restituye νεκρός con ómicron griega.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "8e3605cced2a2000",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "accent",
+      "sourceOriginal": "νήσος, –ου (F): ‘isla’",
+      "previous": {
+        "form": "νήσος, –ου (F)",
+        "meaning": "‘isla’",
+        "answers": [
+          "isla"
+        ]
+      },
+      "current": {
+        "form": "νῆσος, –ου (ἡ)",
+        "meaning": "‘isla’",
+        "answers": [
+          "isla"
+        ]
+      },
+      "reason": "El nombre femenino de isla es νῆσος, con circunflejo; se conserva el género femenino.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "4e5cbe0226014e80",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 9"
+      ],
+      "type": "accent",
+      "sourceOriginal": "οὐράνος, –ου: ‘cielo’",
+      "previous": {
+        "form": "οὐράνος, –ου",
+        "meaning": "‘cielo’",
+        "answers": [
+          "cielo"
+        ]
+      },
+      "current": {
+        "form": "οὐρανός, –οῦ (ὁ)",
+        "meaning": "‘cielo’",
+        "answers": [
+          "cielo"
+        ]
+      },
+      "reason": "Se restituye el acento final del lema οὐρανός, genitivo οὐρανοῦ.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "041cd8cbe950824b",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "contraction",
+      "sourceOriginal": "πέλαγος, –εος (τό): ‘mar’",
+      "previous": {
+        "form": "πέλαγος, –εος (τό)",
+        "meaning": "‘mar’",
+        "answers": [
+          "mar"
+        ]
+      },
+      "current": {
+        "form": "πέλαγος, πελάγους (τὸ)",
+        "meaning": "‘mar’",
+        "answers": [
+          "mar"
+        ]
+      },
+      "reason": "En ático se emplea el genitivo contraído πελάγους; –εος queda en el Word histórico.",
+      "authority": "https://cld.bbaw.de/lemma/grc/%CF%80%CE%AD%CE%BB%CE%B1%CE%B3%CE%BF%CF%82"
+    },
+    {
+      "id": "45ea95299dd68425",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "genitive",
+      "sourceOriginal": "πένης, –ετος: ‘pobre’",
+      "previous": {
+        "form": "πένης, –ετος",
+        "meaning": "‘pobre’",
+        "answers": [
+          "pobre"
+        ]
+      },
+      "current": {
+        "form": "πένης, –ητος (ὁ)",
+        "meaning": "‘pobre’",
+        "answers": [
+          "pobre"
+        ]
+      },
+      "reason": "El genitivo de πένης es πένητος: –ετος es incorrecto.",
+      "authority": "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n80570/"
+    },
+    {
+      "id": "d12eba842ab212cd",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "plural",
+      "sourceOriginal": "Περσαί, –ων: ‘persa’",
+      "previous": {
+        "form": "Περσαί, –ων",
+        "meaning": "‘persa’",
+        "answers": [
+          "persa"
+        ]
+      },
+      "current": {
+        "form": "Πέρσαι, –ῶν (οἱ)",
+        "meaning": "‘persas’",
+        "answers": [
+          "persas",
+          "persa"
+        ]
+      },
+      "reason": "Πέρσαι es nominativo plural y su genitivo Περσῶν; se admite además la glosa genérica singular española como respuesta.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "75d34b179bc4b628",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "UD 8"
+      ],
+      "type": "accent",
+      "sourceOriginal": "πράγμα, πραγμάτος (N): ‘asunto’",
+      "previous": {
+        "form": "πράγμα, πραγμάτος (N)",
+        "meaning": "‘asunto’",
+        "answers": [
+          "asunto"
+        ]
+      },
+      "current": {
+        "form": "πρᾶγμα, πράγματος (τὸ)",
+        "meaning": "‘asunto’",
+        "answers": [
+          "asunto"
+        ]
+      },
+      "reason": "El neutro es πρᾶγμα, πράγματος; se corrige también el acento del genitivo.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "440c382b8761b510",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "spelling",
+      "sourceOriginal": "Προταγόρας, –ου: ‘Protágoras’",
+      "previous": {
+        "form": "Προταγόρας, –ου",
+        "meaning": "‘Protágoras’",
+        "answers": [
+          "Protágoras"
+        ]
+      },
+      "current": {
+        "form": "Πρωταγόρας, –ου (ὁ)",
+        "meaning": "‘Protágoras’",
+        "answers": [
+          "Protágoras"
+        ]
+      },
+      "reason": "El sofista de los diálogos platónicos es Πρωταγόρας (ω), no Προταγόρας; variante jónica Πρωταγόρης excluida.",
+      "authority": "https://cld.bbaw.de/lemma/grc/%CE%A0%CF%81%CF%89%CF%84%CE%B1%CE%B3%CF%8C%CF%81%CE%B1%CF%82"
+    },
+    {
+      "id": "a8a0a032ea78eb8c",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "accent",
+      "sourceOriginal": "σοφίστης, –ου: ‘sofista’",
+      "previous": {
+        "form": "σοφίστης, –ου",
+        "meaning": "‘sofista’",
+        "answers": [
+          "sofista"
+        ]
+      },
+      "current": {
+        "form": "σοφιστής, –οῦ (ὁ)",
+        "meaning": "‘sofista’",
+        "answers": [
+          "sofista"
+        ]
+      },
+      "reason": "El sofista ático es σοφιστής, con acento final; genitivo σοφιστοῦ, representado –οῦ.",
+      "authority": "https://cld.bbaw.de/lemma/grc/%CF%83%CE%BF%CF%86%CE%B9%CF%83%CF%84%CE%AE%CF%82"
+    },
+    {
+      "id": "57c00642b009bdd8",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "genitive",
+      "sourceOriginal": "Σωκράτης, –ου: ‘Sócrates’",
+      "previous": {
+        "form": "Σωκράτης, –ου",
+        "meaning": "‘Sócrates’",
+        "answers": [
+          "Sócrates"
+        ]
+      },
+      "current": {
+        "form": "Σωκράτης, Σωκράτους (ὁ)",
+        "meaning": "‘Sócrates’",
+        "answers": [
+          "Sócrates"
+        ]
+      },
+      "reason": "Σωκράτης es un tema en sigma y forma genitivo Σωκράτους, no –ου de primera declinación.",
+      "authority": "https://www.ccel.org/s/smyth/grammar/html/smyth_2f_uni.htm"
+    },
+    {
+      "id": "52e031d10d50cc04",
+      "subject": "gr1",
+      "mode": "general",
+      "units": [
+        "Sin unidad acreditada"
+      ],
+      "type": "attic-preposition",
+      "sourceOriginal": "ἀμφί + genitivo / acusativo / dativo: ‘a ambos lados, alrededor de’",
+      "previous": {
+        "form": "ἀμφί + genitivo / acusativo / dativo",
+        "meaning": "‘a ambos lados, alrededor de’",
+        "answers": [
+          "a ambos lados",
+          "alrededor de"
+        ]
+      },
+      "current": {
+        "form": "ἀμφί + genitivo / acusativo",
+        "meaning": "‘acerca de’ (gen.); ‘a ambos lados’, ‘alrededor de’ (ac.)",
+        "answers": [
+          "a ambos lados",
+          "alrededor de",
+          "acerca de"
+        ]
+      },
+      "reason": "Smyth §1675: ἀμφί lleva genitivo/acusativo en prosa ática. El dativo se documenta en poesía y Heródoto, y se excluye aquí.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.4_div2.19.html"
+    },
+    {
+      "id": "a822481bf15165d5",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 1–4"
+      ],
+      "type": "accent",
+      "sourceOriginal": "ἀληθεία, –ας: ‘verdad’",
+      "previous": {
+        "form": "ἀληθεία, –ας",
+        "meaning": "‘verdad’",
+        "answers": [
+          "verdad"
+        ]
+      },
+      "current": {
+        "form": "ἀλήθεια, –ας",
+        "meaning": "‘verdad’",
+        "answers": [
+          "verdad"
+        ]
+      },
+      "reason": "Se aplica ἀλήθεια también al documento de Examen; no se impone una forma distinta en el mismo bloque.",
+      "authority": "https://cld.bbaw.de/lemma/grc/%E1%BC%80%CE%BB%CE%AE%CE%B8%CE%B5%CE%B9%CE%B1"
+    },
+    {
+      "id": "a1d5173ca16c8495",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 1–4"
+      ],
+      "type": "accent",
+      "sourceOriginal": "θέος, –ου: ‘dios’",
+      "previous": {
+        "form": "θέος, –ου",
+        "meaning": "‘dios’",
+        "answers": [
+          "dios"
+        ]
+      },
+      "current": {
+        "form": "θεός, –οῦ (ὁ)",
+        "meaning": "‘dios’",
+        "answers": [
+          "dios"
+        ]
+      },
+      "reason": "Misma errata θέος del vocabulario para examen; se mantiene sincronizada con General.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "3c44322115c39a20",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 5"
+      ],
+      "type": "accent",
+      "sourceOriginal": "γή, –ης: ‘tierra’",
+      "previous": {
+        "form": "γή, –ης",
+        "meaning": "‘tierra’",
+        "answers": [
+          "tierra"
+        ]
+      },
+      "current": {
+        "form": "γῆ, –ῆς (ἡ)",
+        "meaning": "‘tierra’",
+        "answers": [
+          "tierra"
+        ]
+      },
+      "reason": "La forma ática es γῆ, γῆς, con circunflejo, y no γή.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "376197196d8367df",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 6–7"
+      ],
+      "type": "headword",
+      "sourceOriginal": "κεφαλῆ, –ῆς: 'cabeza'",
+      "previous": {
+        "form": "κεφαλῆ, –ῆς",
+        "meaning": "'cabeza'",
+        "answers": [
+          "cabeza"
+        ]
+      },
+      "current": {
+        "form": "κεφαλή, –ῆς (ἡ)",
+        "meaning": "'cabeza'",
+        "answers": [
+          "cabeza"
+        ]
+      },
+      "reason": "La ficha de Examen comparte el mismo nominativo equivocado: κεφαλή, no κεφαλῆ.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "6e250e8e8e754aed",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 8"
+      ],
+      "type": "accent",
+      "sourceOriginal": "πράγμα, −ματος (τὸ): ‘asunto’",
+      "previous": {
+        "form": "πράγμα, −ματος (τὸ)",
+        "meaning": "‘asunto’",
+        "answers": [
+          "asunto"
+        ]
+      },
+      "current": {
+        "form": "πρᾶγμα, –ματος (τὸ)",
+        "meaning": "‘asunto’",
+        "answers": [
+          "asunto"
+        ]
+      },
+      "reason": "La ficha de Examen debe presentar πρᾶγμα con circunflejo y no πράγμα.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    },
+    {
+      "id": "6b8448be797fdfeb",
+      "subject": "gr1",
+      "mode": "examen",
+      "units": [
+        "UD 9"
+      ],
+      "type": "accent",
+      "sourceOriginal": "οὐράνος, –ου: ‘cielo’",
+      "previous": {
+        "form": "οὐράνος, –ου",
+        "meaning": "‘cielo’",
+        "answers": [
+          "cielo"
+        ]
+      },
+      "current": {
+        "form": "οὐρανός, –οῦ (ὁ)",
+        "meaning": "‘cielo’",
+        "answers": [
+          "cielo"
+        ]
+      },
+      "reason": "La misma forma οὐρανός se corrige en Examen para no mantener dos lemas incompatibles.",
+      "authority": "https://grammars.alpheios.net/smyth/xhtml/body.1_div1.1_div2.7.html"
+    }
+  ],
+  "remainingReview": "No se consideran certificadas todas las formas de UniMorph, que carecen de etiqueta de dialecto por fila."
+}

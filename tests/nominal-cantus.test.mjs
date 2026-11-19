@@ -15,7 +15,7 @@ const cantus=bank.records.find(r=>r.id==='latin-sustantivo-decision-cantus');
 test('cantus: exclusivamente cuarta declinación; doce casos y origen fijo',()=>{
  validateBank(bank);
  assert.ok(cantus);
- assert.deepEqual(cantus,compileCantus({vocabulaData:read('.sources/vocabula/data.js'),
+ assert.deepEqual(cantus,compileCantus({vocabulaData:read('vendor/vocabula/data.js'),
   vocabulaSha:lock.sources.vocabula.sha,decisions}));
  assert.equal(cantus.unit,7);
  assert.equal(cantus.gender,'masculino');

@@ -68,7 +68,7 @@ test('Las cinco decisiones importadas mantienen IDs nuevos y origen exacto',()=>
   assert.equal(bank.records.filter(r=>r.id===id).length,1,id);
  const vocabula=load('config/sources.lock.json').sources.vocabula.sha;
  assert.equal(bank.vocabulaSha,vocabula);
- const source=readFileSync(join(root,'.sources/vocabula/data.js'),'utf8');
+ const source=readFileSync(join(root,'vendor/vocabula/data.js'),'utf8');
  const entries=JSON.parse(source.replace(/^window\.VOCAB\s*=\s*/u,'').replace(/;\s*$/u,''));
  assert.equal(entries.length,2055);
  for(const id of ['1a703effffd80925','2132b8254922c90c',

@@ -181,7 +181,7 @@ if(main){
   const bank=JSON.parse(readFileSync(join(root,
     'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
   const lex=parseVocabularySource(readFileSync(join(root,
-    '.sources/vocabula/data.js'),'utf8'));
+    'vendor/vocabula/data.js'),'utf8'));
   const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
   process.stdout.write(JSON.stringify(createTeacherAudit(bank,lex,
     lock.sources.vocabula.sha),null,2)+'\n');

@@ -12,7 +12,7 @@ import {makeTableExercises,makeWrittenQuestions,evaluateTable,correctWritten}
  from '../public/morfologia/written.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const vocab=join(root,'.sources/vocabula');
+const vocab=join(root,'vendor/vocabula');
 const lex=readFileSync(join(vocab,'data.js'),'utf8');
 const appendix=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));

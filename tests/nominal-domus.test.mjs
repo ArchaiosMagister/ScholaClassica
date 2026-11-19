@@ -17,7 +17,7 @@ const get=(cas,n)=>domus.forms.filter(f=>f.case===cas&&f.number===n).map(f=>f.fo
 test('domus: cuarto y segundo tema, 19 lecturas, locativo singular propio',()=>{
  validateBank(bank);
  assert.ok(domus);
- assert.deepEqual(domus,compileDomus({vocabulaData:read('.sources/vocabula/data.js'),
+ assert.deepEqual(domus,compileDomus({vocabulaData:read('vendor/vocabula/data.js'),
   vocabulaSha:lock.sources.vocabula.sha,decisions}));
  assert.equal(domus.unit,7);
  assert.equal(domus.gender,'femenino');
@@ -59,7 +59,7 @@ test('Variantes raras admitidas como respuesta, sin preguntas nominales originad
  assert.ok(!analysis.some(q=>q.correct==='domorum'),'La lectura poética no inicia preguntas');
 });
 test('Una mutación en la fuente antigua o la decisión detiene la compilación',()=>{
- const original=read('.sources/vocabula/data.js');
+ const original=read('vendor/vocabula/data.js');
  assert.throws(()=>compileDomus({vocabulaData:original.replace('domus, –us (o –i)','domus, –i'),
   vocabulaSha:lock.sources.vocabula.sha,decisions}),/No se corresponde|Expected values|strictly equal/i);
  const other=structuredClone(decisions);

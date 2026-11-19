@@ -180,7 +180,7 @@ export function auditGreekUnassigned({source,integrated,curriculumEs,curriculumV
 export function loadGreekUnassigned(root){
   const appendix=join(root,'vendor/appendix');
   return {
-    source:parseVocabularySource(readFileSync(join(root,'.sources/vocabula/data.js'),'utf8')),
+    source:parseVocabularySource(readFileSync(join(root,'vendor/vocabula/data.js'),'utf8')),
     integrated:parseVocabularySource(readFileSync(join(root,'dist/apps/vocabulario/data.js'),'utf8')),
     curriculumEs:JSON.parse(readFileSync(join(appendix,'assets/curriculum.json'),'utf8')),
     curriculumVal:JSON.parse(readFileSync(join(appendix,'val/curriculum.json'),'utf8')),

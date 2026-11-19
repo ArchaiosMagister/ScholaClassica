@@ -12,9 +12,9 @@ const root=resolve(import.meta.dirname,'..');
 const read=f=>readFileSync(join(root,f),'utf8');
 const bank=JSON.parse(read('dist/apps/morfologia/data/paradigmas.json'));
 const manifest=JSON.parse(read('config/nominal-teacher-decisions.json'));
-const parts=Array.from({length:8},(_,i)=>JSON.parse(read('.sources/vocabula/data/unimorph-syllabus/grc/part-0'+i+'.json')));
+const parts=Array.from({length:8},(_,i)=>JSON.parse(read('vendor/vocabula/data/unimorph-syllabus/grc/part-0'+i+'.json')));
 const lock=JSON.parse(read('config/sources.lock.json'));
-const source=read('.sources/vocabula/data.js');
+const source=read('vendor/vocabula/data.js');
 const recompile=()=>compilePais({vocabulaData:source,unimorphParts:parts,
  vocabulaSha:lock.sources.vocabula.sha,decisions:manifest});
 const entry=bank.records.find(x=>x.id==='griego-sustantivo-decision-pais');

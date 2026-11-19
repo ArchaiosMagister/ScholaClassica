@@ -1,0 +1,83 @@
+name: Importar flexiones UniMorph para gramática
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-grammar-inflections.yml'
+      - 'scripts/import_unimorph.mjs'
+      - 'data.js'
+      - 'tests/check-unimorph-import.mjs'
+  push:
+    branches:
+      - main
+      - feature/repaso-morfologia
+    paths:
+      - .github/workflows/import-grammar-inflections.yml
+      - scripts/import_unimorph.mjs
+      - data.js
+      - gramatica-importada.js
+      - gramatica-griego-ampliacion.js
+      - gramatica-paradigmas.js
+      - gramatica.html
+      - gramatica.js
+      - gramatica-contenidos.js
+      - tests/check-grammar.cjs
+      - tests/check-unimorph-import.mjs
+permissions:
+  contents: write
+concurrency:
+  group: import-unimorph-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar la integridad curricular
+        run: node tests/check-grammar.cjs
+      - name: Descargar el corpus original completo y extraer todas las flexiones de los lemas del curso
+        run: node scripts/import_unimorph.mjs
+      - name: Verificar todos los índices y los ejercicios resultantes
+        run: node tests/check-unimorph-import.mjs
+      - name: Comprobar cien formas con el corpus recién regenerado
+        run: node tests/check-100-classical-forms.cjs
+        env:
+          REGENERATED_GREEK_DATIVES: '1'
+      - name: Adjuntar cien observaciones de los índices regenerados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-cien-formas-tras-importacion
+          path: |
+            reports/auditoria-100-formas.json
+            reports/auditoria-100-formas.md
+          if-no-files-found: warn
+      - name: Publicar los índices partidos
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/unimorph-syllabus
+          if ! git diff --cached --quiet; then
+            git commit -m "Importar los paradigmas curriculares UniMorph"
+            # La auditoría de cobertura también puede escribir en main.
+            # Nunca forzar la rama: integrar la cabeza más reciente y reintentar.
+            for attempt in 1 2 3 4 5; do
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "La rama ha avanzado: rebase y reintento ${attempt}/5"
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase FETCH_HEAD
+              sleep "${attempt}"
+            done
+            echo "No se pudo publicar después de cinco intentos" >&2
+            exit 1
+          fi

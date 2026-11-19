@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Repasa la morfología latina por unidades mediante ejercicios autocorregibles.">
+<title>Repaso de morfología · Vocabulario clásico</title>
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml"><script src="theme.js"></script>
+<link rel="stylesheet" href="style.css?v=20261108-theme1">
+<link rel="stylesheet" href="morfologia.css?v=1">
+<script src="data.js?v=20261112-atico1" defer></script><script src="morfologia.js?v=1" defer></script>
+</head><body>
+<header><a href="./" class="brand" aria-label="Inicio"><span class="brand-mark" lang="grc">ἀ</span><span class="brand-dash">–</span><span class="brand-latin" lang="la">ā</span></a><a href="./" class="header-title">Vocabulario clásico</a><nav class="topnav"><a href="./">Vocabulario</a><a href="gramatica.html">Gramática</a><a href="morfologia.html" aria-current="page">Morfología verbal</a></nav></header>
+<main><div class="page-toolbar"><div class="theme-picker"><label for="theme-select">Tema</label><select id="theme-select"><option value="system">Automático</option><option value="light">Claro</option><option value="dark">Oscuro</option></select></div></div>
+<section class="intro"><p class="eyebrow">REPASO POR UNIDADES</p><h1>La forma también cuenta.</h1><p>Reconoce y escribe flexiones del vocabulario que estudias en clase.</p></section>
+<div class="layout"><aside class="panel"><h2>Tu sesión</h2>
+<label for="subject">Asignatura</label><select id="subject"><option value="lat1">Latín I · 1.º Bachillerato</option><option value="lat2">Latín II · 2.º Bachillerato</option><option value="lat4">Latín · 4.º ESO</option><option value="gr1">Griego I · Bachillerato</option></select>
+<label for="corpus">Vocabulario</label><select id="corpus"><option value="general">General</option><option value="examen">Sólo de examen</option></select>
+<div class="unithead"><label id="unit-label">Unidades</label><button id="all" type="button" class="text">Todas</button><button id="none" type="button" class="text">Ninguna</button></div><div id="units" class="units"></div>
+<label for="activity">Ejercicio</label><select id="activity"><option value="analyze">Analizar una forma</option><option value="produce">Escribir la flexión</option><option value="mixed">Mixto</option></select>
+<label for="length">Preguntas por sesión</label><select id="length"><option>10</option><option>20</option><option>50</option><option value="all">Todas las disponibles</option></select>
+<label class="check"><input id="errors" type="checkbox"> Sólo formas falladas</label>
+<button id="start" class="primary" type="button" disabled>Empezar repaso →</button><p id="available" class="small" role="status"></p></aside>
+<section><div class="stats"><div><b id="learned">0</b><span>formas practicadas</span></div><div><b id="accuracy">—</b><span>acierto histórico</span></div><div><b id="pending">0</b><span>fallos pendientes</span></div></div>
+<article id="practice" class="practice" aria-live="polite"><div class="empty-symbol">ā · ἀ</div><h2>¿Qué forma repasamos hoy?</h2><p>Selecciona una asignatura y sus unidades.</p></article>
+<details class="help"><summary>Cómo funciona y alcance de los datos</summary>
+<p>Los ejercicios se construyen sólo con formas de un banco morfológico publicado que coinciden con lemas del vocabulario seleccionado. La selección de unidades procede de esta web, no se deduce por semejanza con otras palabras.</p>
+<p>Esta versión utiliza las formas verbales latinas clasificadas del <a href="https://github.com/ArchaiosMagister/GeneradorExamenes">Generador de exámenes</a>, procedentes de UniMorph. Se limita a formas personales del presente de indicativo activo; no afirma disponer de paradigmas nominales ni griegos cuando aún faltan los índices.</p>
+<p>En la escritura se aceptan formas gráficas con o sin macrones. En el análisis se excluyen formas con rasgos contradictorios para un mismo lema. Los fallos y aciertos se guardan únicamente en este navegador.</p>
+<p><a href="https://github.com/unimorph/lat">Fuente original: UniMorph Latin</a>. Consulta la procedencia y condiciones de reutilización de estos datos antes de redistribuirlos.</p></details></section></div>
+<footer>Una forma más, un paso más.</footer></main></body></html>

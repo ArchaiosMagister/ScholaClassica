@@ -161,7 +161,7 @@ export function loadCurricularScope(root){
     val:JSON.parse(readFileSync(join(g,'val','curriculum-'+x.id+'.json'),'utf8'))
   }]));
   return {
-    source:parseVocabularySource(readFileSync(join(root,'.sources/vocabula/data.js'),'utf8')),
+    source:parseVocabularySource(readFileSync(join(root,'vendor/vocabula/data.js'),'utf8')),
     integrated:parseVocabularySource(readFileSync(join(root,'dist/apps/vocabulario/data.js'),'utf8')),
     bank:JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8')),
     curricula

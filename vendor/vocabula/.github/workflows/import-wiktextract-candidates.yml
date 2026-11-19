@@ -1,0 +1,76 @@
+name: Preparar candidatos Wiktextract sin publicar respuestas
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/import_wiktextract_candidates.mjs'
+      - 'scripts/crosscheck_wiktextract_nominals.mjs'
+      - 'scripts/check_collatinus_adjectives.mjs'
+      - 'scripts/check_greek_regular_datives.mjs'
+      - 'tests/check-greek-regular-datives.mjs'
+      - 'tests/check-collatinus-adjectives.mjs'
+      - 'tests/check-wiktextract-candidates.mjs'
+      - 'tests/check-wiktextract-crosscheck.mjs'
+      - 'tests/check-wiktextract-crosscheck-fixtures.mjs'
+      - 'tests/fixtures/wiktextract-*.jsonl'
+      - '.github/workflows/import-wiktextract-candidates.yml'
+  workflow_dispatch:
+    inputs:
+      language:
+        description: Idioma del corpus que se quiere importar como candidato
+        required: true
+        type: choice
+        options: [grc, lat]
+
+permissions:
+  contents: read
+
+jobs:
+  candidates:
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [grc, lat]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar sintaxis del importador
+        run: node --check scripts/import_wiktextract_candidates.mjs
+      - name: Verificar el importador con ejemplos conocidos
+        run: node tests/check-wiktextract-candidates.mjs
+      - name: Probar cotejo con acuerdo, discrepancia y homonimia
+        run: node tests/check-wiktextract-crosscheck-fixtures.mjs
+      - name: Descargar Wiktextract y extraer candidatos del vocabulario
+        if: github.event_name == 'pull_request' || matrix.language == inputs.language
+        run: node scripts/import_wiktextract_candidates.mjs ${{ matrix.language }}
+      - name: Cotejar paradigmas nominales y detectar contradicciones
+        if: github.event_name == 'pull_request' || matrix.language == inputs.language
+        run: |
+          node scripts/crosscheck_wiktextract_nominals.mjs ${{ matrix.language }}
+          node tests/check-wiktextract-crosscheck.mjs ${{ matrix.language }}
+      - name: Comprobar adjetivos latinos con Collatinus independiente
+        if: matrix.language == 'lat' && (github.event_name == 'pull_request' || matrix.language == inputs.language)
+        run: |
+          node scripts/check_collatinus_adjectives.mjs
+          node tests/check-collatinus-adjectives.mjs
+      - name: Contrastar dativos griegos con reglas de declinación
+        if: matrix.language == 'grc' && (github.event_name == 'pull_request' || matrix.language == inputs.language)
+        run: |
+          node scripts/check_greek_regular_datives.mjs
+          node tests/check-greek-regular-datives.mjs
+      - name: Guardar candidatos para revisión técnica
+        if: github.event_name == 'pull_request' || matrix.language == inputs.language
+        uses: actions/upload-artifact@v4
+        with:
+          name: wiktextract-candidatos-${{ matrix.language }}
+          path: |
+            data/wiktextract-candidates-*.json
+            data/wiktextract-crosscheck-*.json
+            data/collatinus-verified-adjectives.json
+            data/greek-regular-datives.json
+          retention-days: 30
