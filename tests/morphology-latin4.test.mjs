@@ -14,9 +14,9 @@ const bank=JSON.parse(read('dist/apps/morfologia/data/paradigmas.json'));
 const latin4=compileLatin4({
   baseRecords:bank.records.filter(x=>x.language==='latin'&&
     !x.id.startsWith('latin-sustantivo-decision-')),
-  teacherParadigmsJs:read('.sources/vocabula/gramatica-paradigmas.js'),
-  teacherImperfectsJs:read('.sources/vocabula/gramatica-latin-imperfectos.js'),
-  syllabusJs:read('.sources/vocabula/gramatica-contenidos.js'),
+  teacherParadigmsJs:read('vendor/vocabula/gramatica-paradigmas.js'),
+  teacherImperfectsJs:read('vendor/vocabula/gramatica-latin-imperfectos.js'),
+  syllabusJs:read('vendor/vocabula/gramatica-contenidos.js'),
   latinAdjectivesHtml:read('vendor/appendix/adjetivos.html'),
   vocabulaSha:lock.sources.vocabula.sha
 });
@@ -122,9 +122,9 @@ test('Fuentes cambiadas abortan la compilación y no contaminan Latín I o Grieg
   const args={
     baseRecords:bank.records.filter(r=>r.language==='latin'&&
     !r.id.startsWith('latin-sustantivo-decision-')),
-    teacherParadigmsJs:read('.sources/vocabula/gramatica-paradigmas.js'),
-    teacherImperfectsJs:read('.sources/vocabula/gramatica-latin-imperfectos.js'),
-    syllabusJs:read('.sources/vocabula/gramatica-contenidos.js'),
+    teacherParadigmsJs:read('vendor/vocabula/gramatica-paradigmas.js'),
+    teacherImperfectsJs:read('vendor/vocabula/gramatica-latin-imperfectos.js'),
+    syllabusJs:read('vendor/vocabula/gramatica-contenidos.js'),
     latinAdjectivesHtml:read('vendor/appendix/adjetivos.html'),
     vocabulaSha:lock.sources.vocabula.sha
   };
