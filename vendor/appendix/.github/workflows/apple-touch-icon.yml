@@ -1,0 +1,28 @@
+name: Actualizar icono de iOS
+on:
+  push:
+    branches: [main]
+    paths:
+      - assets/icon.svg
+      - .github/workflows/apple-touch-icon.yml
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Convertir SVG a PNG para iOS
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq librsvg2-bin
+          rsvg-convert -w 180 -h 180 assets/icon.svg -o apple-touch-icon.png
+      - name: Publicar icono actualizado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apple-touch-icon.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualizar icono iOS con diccionario y sigma"
+            git push
+          fi

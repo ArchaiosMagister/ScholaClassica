@@ -11,7 +11,7 @@ import {validateBank,availableRecords,makeQuestions,evaluate}
 import {makeWrittenQuestions,makeTableExercises,correctWritten,evaluateTable}
   from '../public/morfologia/written.mjs';
 const root=resolve(import.meta.dirname,'..');
-const curriculum=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
+const curriculum=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
 const source=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 const exigibleStart=bank.records.findIndex(r=>r.id==='griego-sustantivo-arche');

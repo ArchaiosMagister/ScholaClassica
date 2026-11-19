@@ -5,7 +5,7 @@ import {join,resolve} from 'node:path';
 import {compileAdditionalMorphology} from '../scripts/morphology-expansion.mjs';
 import {availableRecords,makeQuestions,evaluate} from '../public/morfologia/engine.mjs';
 import {makeWrittenQuestions,correctWritten} from '../public/morfologia/written.mjs';
-const root=resolve(import.meta.dirname,'..'),src=join(root,'.sources/appendix');
+const root=resolve(import.meta.dirname,'..'),src=join(root,'vendor/appendix');
 const curriculum=JSON.parse(readFileSync(join(src,'assets/curriculum.json'),'utf8'));
 const latinIndicativeHtml=readFileSync(join(src,'indicativo.html'),'utf8');
 const latinAdjectivesHtml=readFileSync(join(src,'adjetivos.html'),'utf8');

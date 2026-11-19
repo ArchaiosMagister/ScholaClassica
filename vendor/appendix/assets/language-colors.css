@@ -1,0 +1,17 @@
+/* A blue accent for Greek and a golden orange accent for Latin. */
+:root[data-language=latin]{--paper:#f8f4e9;--green:#895000;--accent:#a35c00;--language-soft:#fff0ca;--language-row:#fff8e8;--language-button:#eab132;--language-button-ink:#2c2004;--language-hover:#f9e6ad}
+:root[data-language=griego]{--paper:#f5f8fc;--green:#155eaa;--accent:#12559c;--language-soft:#e5effe;--language-row:#eef5ff;--language-button:#1762ad;--language-button-ink:#fff;--language-hover:#dceaff}
+:root[data-language=latin][data-theme=dark]{--paper:#1e1b15;--ink:#f0e9da;--muted:#beb5a4;--line:#51452e;--green:#f3c14c;--accent:#ffd67c;--language-soft:#342b19;--language-row:#272117;--language-button:#ebba43;--language-button-ink:#231a08;--language-hover:#3d3019}
+:root[data-language=griego][data-theme=dark]{--paper:#151e29;--ink:#e6effa;--muted:#b0bfd1;--line:#3c526b;--green:#90c2ff;--accent:#b1d4ff;--language-soft:#22364b;--language-row:#1a2a3d;--language-button:#8ec0ff;--language-button-ink:#14283f;--language-hover:#29425e}
+:root[data-language] .related,:root[data-language] .formula,:root[data-language] .source-formula{background:var(--language-soft)}
+:root[data-language] table caption,:root[data-language] thead,:root[data-language] .greek-table th{background:var(--language-soft);color:var(--ink)}
+:root[data-language] tbody tr:nth-child(even){background:var(--language-row)}
+:root[data-language] .path:hover,:root[data-language] .card:hover,:root[data-language] .bridge a:hover{background:var(--language-hover);border-color:var(--green)}
+:root[data-language] .button,:root[data-language] .course-selector button,:root[data-language] #unit-buttons button[aria-pressed=true]{background:var(--language-button);color:var(--language-button-ink);border-color:var(--green)}
+:root[data-language] .button:hover,:root[data-language] .course-selector button:hover{background:var(--green);color:var(--paper)}
+:root[data-language] #results{background:var(--paper);color:var(--ink)}
+:root[data-language] .greek-nav{border-color:var(--line)}
+/* Keep the Greek home-page introduction blue, including on the Latin-colored home page. */
+:root[data-language] .greek-note{--green:#155eaa;background:#e5effe;border-color:var(--green)}
+:root[data-language][data-theme=dark] .greek-note{--green:#90c2ff;background:#22364b;border-color:var(--green);color:#e6effa}
+@media print{:root[data-language],:root[data-language][data-theme=dark]{--paper:#fff;--ink:#000;--green:#000;--accent:#000;--muted:#444;--line:#ccc;--language-soft:#fff;--language-row:#fff;--language-button:#fff;--language-button-ink:#000;--language-hover:#fff}:root[data-language] .greek-note{background:white;color:black}}

@@ -36,7 +36,7 @@ import {compileLatinCurricularFollowup} from './morphology-curricular-followup.m
 import {compileCurricularGapBatch} from './morphology-curricular-gaps.mjs';
 import {compileLatin1EarlyAttested} from './morphology-latin1-early-attested.mjs';
 const root=resolve(import.meta.dirname,'..');
-const source=resolve(process.env.APPENDIX_SOURCE||join(root,'.sources/appendix'));
+const source=join(root,'vendor/appendix');
 const CASES={latin:['nominativo','vocativo','acusativo','genitivo','dativo','ablativo'],
   griego:['nominativo','vocativo','acusativo','genitivo','dativo']};
 const PERSONS=['1.ª singular','2.ª singular','3.ª singular','1.ª plural','2.ª plural','3.ª plural'];

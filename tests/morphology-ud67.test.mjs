@@ -7,7 +7,7 @@ import {availableRecords,makeQuestions} from '../public/morfologia/engine.mjs';
 import {makeWrittenQuestions,correctWritten,evaluateTable} from '../public/morfologia/written.mjs';
 import {phrasePairs,makePhraseQuestions,makePhraseTables} from '../public/morfologia/sintagmas.mjs';
 const root=resolve(import.meta.dirname,'..');
-const source=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
+const source=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));
 const extra=compileMorphologyUd67(source);
 const rng=()=>.38;

@@ -18,7 +18,7 @@ const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigm
 const vocabulary=parseVocabularySource(readFileSync(join(root,
   '.sources/vocabula/data.js'),'utf8'));
 const curriculum=JSON.parse(readFileSync(join(root,
-  '.sources/appendix/assets/curriculum.json'),'utf8'));
+  'vendor/appendix/assets/curriculum.json'),'utf8'));
 const unmorph=Array.from({length:8},(_,i)=>JSON.parse(readFileSync(join(root,
   '.sources/vocabula/data/unimorph-syllabus/grc/part-0'+i+'.json'),'utf8')));
 const find=id=>bank.records.find(r=>r.id===id);

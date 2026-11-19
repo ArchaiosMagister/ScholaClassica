@@ -27,13 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Obtener Appendix original en commit fijado (solo lectura)
-        uses: actions/checkout@v4
-        with:
-          repository: ArchaiosMagister/Appendix-grammaticae
-          ref: 6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
-          path: .sources/appendix
-          persist-credentials: false
       - name: Obtener Evolutio original en commit fijado (solo lectura)
         uses: actions/checkout@v4
         with:
@@ -67,8 +60,12 @@ jobs:
         run: npm test
       - name: Contrastar matriz valenciana de Evolutio con el origen fijado (sin publicarla)
         run: npm run evolutio:val:check
-      - name: Validar Appendix original
-        working-directory: .sources/appendix
+      - name: Comprobar que Appendix compila sin descargar el repositorio original
+        run: |
+          test ! -d .sources/appendix
+          npm run audit:appendix:vendor
+      - name: Validar Appendix autónomo desde la fuente interna
+        working-directory: vendor/appendix
         run: node scripts/validate-site.mjs
       - name: Auditar esquema y candidatos de Etymologicon sin habilitar respuestas
         run: npm run etymology:audit
@@ -76,12 +73,16 @@ jobs:
         run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
+      - name: Inventariar dependencias externas y fuentes internas (sin autorizar archivos)
+        run: npm run audit:repositorios:retirada
       - name: Auditar filología transversal de Latín I, Latín 4.º y Griego I (solo lectura)
         run: npm run audit:filologia:transversal
       - name: Auditar fronteras de currículo y procedencia de Examen sin reclasificar bancos
         run: npm run audit:curriculum:scope
       - name: Auditar 32 unidades y 73 epígrafes frente a los ejercicios morfológicos disponibles
         run: npm run audit:morfologia:unidades
+      - name: Auditar todas las categorías y modalidades reales de Morfología en castellano
+        run: npm run audit:morfologia:funcional:es
       - name: Auditar individualmente 184 fichas griegas sin unidad y cotejar ES/VAL
         run: npm run audit:gr1:unassigned
       - name: Cotejar lema + forma + rasgos de Latín II con UniMorph congelado
@@ -112,6 +113,14 @@ jobs:
         run: npm run test:browser:vocabula
       - name: Probar Vocabula offline, caché aislada, progreso y reenvío en Chromium
         run: npm run test:browser:vocabula:offline
+      - name: Auditar las 60 combinaciones de Vocabula en castellano con Chromium
+        run: npm run test:browser:castellano:vocabula
+      - name: Auditar Evolutio castellano desde la respuesta hasta las normas
+        run: npm run test:browser:castellano:evolutio
+      - name: Recorrer las unidades de Appendix castellano y sintaxis de Latín II
+        run: npm run test:browser:castellano:appendix
+      - name: Probar en Chromium todas las unidades y modalidades de Morfología en castellano
+        run: npm run test:browser:castellano:morfologia
       - name: Verificar que Supabase rechaza identidades ajenas antes de habilitar el primer factor
         run: node scripts/check-docente-login-remote.mjs
       - name: Empaquetar SDK Supabase local y preparar alta docente de dos factores
@@ -133,6 +142,21 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
+      - name: Archivar los resultados de las pruebas funcionales de castellano
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-auditoria-funcional-castellano
+          path: build/academic-audits/castellano/*.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Archivar el manifiesto de integridad de Appendix autónomo
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: appendix-autonomo-manifiesto-111
+          path: build/academic-audits/appendix-autonomia/manifiesto-vendorizado.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Archivar las 184 fichas y los candidatos griegos para revisión docente
         uses: actions/upload-artifact@v4
         with:

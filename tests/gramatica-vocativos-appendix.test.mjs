@@ -5,7 +5,7 @@ import {join,resolve} from 'node:path';
 
 // El build no modifica Appendix: comprueba las copias finales que ve el alumno.
 const root=resolve(import.meta.dirname,'..');
-const source=join(root,'.sources/appendix');
+const source=join(root,'vendor/appendix');
 const target=join(root,'dist/apps/gramatica');
 const read=(base,path)=>readFileSync(join(base,path),'utf8');
 function row(html,from,label){

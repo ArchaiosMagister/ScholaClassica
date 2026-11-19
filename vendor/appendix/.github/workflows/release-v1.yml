@@ -1,0 +1,32 @@
+name: Corregir descripción de la versión v1.0.0
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Actualizar texto de la release sin alterar la etiqueta
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cat > release-notes.md <<'NOTES'
+          Primera versión estable de Appendix grammaticae.
+
+          - Gramática latina y griega organizada por cursos y unidades, con apartados de morfología y sintaxis.
+          - Versiones en castellano y valenciano.
+          - Paradigmas, ejemplos y explicaciones revisados para el uso docente.
+          - Diseño adaptable a móviles y mejoras para iPhone.
+          - Comprobaciones automáticas antes de publicar en GitHub Pages.
+
+          La etiqueta señala el estado estable del 10 de noviembre de 2026. Las futuras correcciones podrán añadirse sin modificar esta versión.
+          NOTES
+          gh release edit v1.0.0 --title "Appendix grammaticae 1.0" --notes-file release-notes.md

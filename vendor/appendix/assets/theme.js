@@ -1,0 +1,6 @@
+(()=>{'use strict';const key='appendix-color-mode',root=document.documentElement,media=window.matchMedia('(prefers-color-scheme: dark)');let mode='system';if(location.pathname.endsWith('/curso.html')){let language=new URLSearchParams(location.search).get('lengua');if(!['latin','griego'].includes(language)){try{language=JSON.parse(localStorage.getItem('appendix-selection')||'null')?.language;}catch{}}if(['latin','griego'].includes(language))root.dataset.language=language;}try{const stored=localStorage.getItem(key);if(['system','light','dark'].includes(stored))mode=stored;}catch{}
+function apply(){root.dataset.theme=mode==='system'?(media.matches?'dark':'light'):mode;const picker=document.getElementById('theme-mode');if(picker)picker.value=mode;}
+apply();document.addEventListener('DOMContentLoaded',()=>{apply();const picker=document.getElementById('theme-mode');if(picker)picker.addEventListener('change',()=>{mode=picker.value;try{localStorage.setItem(key,mode);}catch{}apply();});});
+if(media.addEventListener)media.addEventListener('change',()=>{if(mode==='system')apply();});
+window.addEventListener('storage',event=>{if(event.key===key){mode=['system','light','dark'].includes(event.newValue)?event.newValue:'system';apply();}});
+})();

@@ -14,7 +14,7 @@ import {makeTableExercises,makeWrittenQuestions,evaluateTable,correctWritten}
 const root=resolve(import.meta.dirname,'..');
 const vocab=join(root,'.sources/vocabula');
 const lex=readFileSync(join(vocab,'data.js'),'utf8');
-const appendix=JSON.parse(readFileSync(join(root,'.sources/appendix/assets/curriculum.json'),'utf8'));
+const appendix=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 const parts=Array.from({length:8},(_,i)=>JSON.parse(readFileSync(join(vocab,'data/unimorph-syllabus/grc/part-0'+i+'.json'),'utf8')));
 const bank=JSON.parse(readFileSync(join(root,'dist/apps/morfologia/data/paradigmas.json'),'utf8'));

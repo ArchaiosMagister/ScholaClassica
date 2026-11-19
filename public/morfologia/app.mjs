@@ -70,7 +70,11 @@ function updateKinds(){
     input.activity.value.startsWith('noun-phrase-');
   const tableKinds=['sustantivo','adjetivo','desinencia','artículo','participio','pronombre'];
   const kinds=phrase?['sintagma']:agreement?['adjetivo']:
-    [...new Set(records.filter(r=>!table||tableKinds.includes(r.kind)).map(r=>r.kind))];
+    [...new Set(records.filter(r=>!table||tableKinds.includes(r.kind)).map(r=>r.kind))]
+      // Una categoría puede estar estudiada pero carecer de tabla completa:
+      // no ofrecerla en «Completar una declinación» si no genera ejercicio.
+      .filter(kind=>!table||makeTableExercises(bank,{language,unit,kind,limit:1,
+        reviewMode:'all'}).length>0);
   const selected=input.kind.value;
   input.kind.replaceChildren();
   if(!agreement&&!phrase)option(input.kind,'todos','Todas las categorías disponibles');
