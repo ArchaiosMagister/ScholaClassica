@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {resolve,join} from 'node:path';
 
 const root=resolve(import.meta.dirname,'..');
-const source=join(root,'.sources/vocabula');
+const source=join(root,'vendor/vocabula');
 const dist=join(root,'dist/apps/vocabulario');
 const read=(dir,file)=>readFileSync(join(dir,file));
 const gitBlobSha=buf=>createHash('sha1')
