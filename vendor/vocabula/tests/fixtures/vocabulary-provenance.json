@@ -1,0 +1,350 @@
+{
+  "schema": 1,
+  "basis": "Lemas normalizados de los seis documentos Word originales, por materia, modalidad y unidad. No reconstruir adscripciones de Griego general desde el documento alfabético.",
+  "normalization": "Minusculas, NFD sin signos combinantes, ligaduras latinas expandidas, sigma final griega unificada; lema antes de coma, parentesis o signo +; claves deduplicadas y ordenadas.",
+  "sourceFiles": {
+    "lat1/general": "Vocabulario por unidades copia2 lat1.docx",
+    "lat1/examen": "Vocabulario de examen por unidades lat1.docx",
+    "lat4/general": "Vocabulario por uds lat4.docx",
+    "lat4/examen": "vocabulario para examen por uds lat4.docx",
+    "gr1/general": "voc gr1 alfabetico.docx",
+    "gr1/examen": "Copia de Vocabulario para examen gr1.docx"
+  },
+  "checks": [
+    {
+      "key": "gr1/examen/Palabras básicas",
+      "count": 11,
+      "fnv32": "62941c2d"
+    },
+    {
+      "key": "gr1/examen/Preposiciones",
+      "count": 11,
+      "fnv32": "46f0ef98"
+    },
+    {
+      "key": "gr1/examen/UD 10",
+      "count": 10,
+      "fnv32": "9ea54082"
+    },
+    {
+      "key": "gr1/examen/UD 1–4",
+      "count": 29,
+      "fnv32": "13e301a9"
+    },
+    {
+      "key": "gr1/examen/UD 5",
+      "count": 39,
+      "fnv32": "6e9180ad"
+    },
+    {
+      "key": "gr1/examen/UD 6–7",
+      "count": 28,
+      "fnv32": "4855e9e1"
+    },
+    {
+      "key": "gr1/examen/UD 8",
+      "count": 30,
+      "fnv32": "f6b8174d"
+    },
+    {
+      "key": "gr1/examen/UD 9",
+      "count": 14,
+      "fnv32": "4413363d"
+    },
+    {
+      "key": "lat1/examen/UD 1",
+      "count": 23,
+      "fnv32": "09df6962"
+    },
+    {
+      "key": "lat1/examen/UD 2",
+      "count": 18,
+      "fnv32": "394b8695"
+    },
+    {
+      "key": "lat1/examen/UD 3",
+      "count": 12,
+      "fnv32": "77c0817b"
+    },
+    {
+      "key": "lat1/examen/UD 4",
+      "count": 21,
+      "fnv32": "6c9d82f5"
+    },
+    {
+      "key": "lat1/examen/UD 5",
+      "count": 19,
+      "fnv32": "5c1583a7"
+    },
+    {
+      "key": "lat1/examen/UD 6",
+      "count": 9,
+      "fnv32": "1f3a4589"
+    },
+    {
+      "key": "lat1/examen/UD 7",
+      "count": 15,
+      "fnv32": "2ad8a4ac"
+    },
+    {
+      "key": "lat1/general/UD 1",
+      "count": 50,
+      "fnv32": "8c6f96ff"
+    },
+    {
+      "key": "lat1/general/UD 11–12",
+      "count": 140,
+      "fnv32": "1f2df781"
+    },
+    {
+      "key": "lat1/general/UD 2",
+      "count": 79,
+      "fnv32": "af978dfb"
+    },
+    {
+      "key": "lat1/general/UD 3",
+      "count": 73,
+      "fnv32": "c3e7600b"
+    },
+    {
+      "key": "lat1/general/UD 4",
+      "count": 88,
+      "fnv32": "7bae22dc"
+    },
+    {
+      "key": "lat1/general/UD 5",
+      "count": 194,
+      "fnv32": "4572785d"
+    },
+    {
+      "key": "lat1/general/UD 6",
+      "count": 93,
+      "fnv32": "54234cd9"
+    },
+    {
+      "key": "lat1/general/UD 7",
+      "count": 112,
+      "fnv32": "a044da3b"
+    },
+    {
+      "key": "lat1/general/UD 8",
+      "count": 85,
+      "fnv32": "41f3f662"
+    },
+    {
+      "key": "lat1/general/UD 9–10",
+      "count": 194,
+      "fnv32": "f3805a2f"
+    },
+    {
+      "key": "lat4/examen/UD 1",
+      "count": 14,
+      "fnv32": "842b372e"
+    },
+    {
+      "key": "lat4/examen/UD 10",
+      "count": 6,
+      "fnv32": "65438fd9"
+    },
+    {
+      "key": "lat4/examen/UD 2",
+      "count": 19,
+      "fnv32": "13cf3033"
+    },
+    {
+      "key": "lat4/examen/UD 3",
+      "count": 17,
+      "fnv32": "f62868ab"
+    },
+    {
+      "key": "lat4/examen/UD 4",
+      "count": 17,
+      "fnv32": "c8930dde"
+    },
+    {
+      "key": "lat4/examen/UD 5",
+      "count": 17,
+      "fnv32": "8c806fed"
+    },
+    {
+      "key": "lat4/examen/UD 6",
+      "count": 7,
+      "fnv32": "6a54ac47"
+    },
+    {
+      "key": "lat4/examen/UD 7",
+      "count": 13,
+      "fnv32": "26e134a3"
+    },
+    {
+      "key": "lat4/examen/UD 8–9",
+      "count": 17,
+      "fnv32": "c7f3b39e"
+    },
+    {
+      "key": "lat4/general/UD 1",
+      "count": 29,
+      "fnv32": "9cecc5a2"
+    },
+    {
+      "key": "lat4/general/UD 10",
+      "count": 42,
+      "fnv32": "d2e7e9bf"
+    },
+    {
+      "key": "lat4/general/UD 2",
+      "count": 45,
+      "fnv32": "181c66b6"
+    },
+    {
+      "key": "lat4/general/UD 3",
+      "count": 60,
+      "fnv32": "73fa70f5"
+    },
+    {
+      "key": "lat4/general/UD 4",
+      "count": 68,
+      "fnv32": "22219360"
+    },
+    {
+      "key": "lat4/general/UD 5",
+      "count": 51,
+      "fnv32": "d2cce2d1"
+    },
+    {
+      "key": "lat4/general/UD 6",
+      "count": 54,
+      "fnv32": "398520f6"
+    },
+    {
+      "key": "lat4/general/UD 7",
+      "count": 70,
+      "fnv32": "cb829945"
+    },
+    {
+      "key": "lat4/general/UD 8",
+      "count": 79,
+      "fnv32": "1221152f"
+    },
+    {
+      "key": "lat4/general/UD 9",
+      "count": 44,
+      "fnv32": "70f4c653"
+    }
+  ],
+  "greekGeneralAlphabetical": {
+    "source": "voc gr1 alfabetico.docx",
+    "count": 330,
+    "fnv32": "c46406d4",
+    "unitsNotCertified": true
+  },
+  "knownSourceWithoutMeaning": [
+    {
+      "subject": "lat1",
+      "mode": "general",
+      "unit": "UD 3",
+      "headword": "neque",
+      "validatedMeaningIn": "UD 7"
+    },
+    {
+      "subject": "lat1",
+      "mode": "general",
+      "unit": "UD 3",
+      "headword": "non",
+      "validatedMeaningIn": "UD 2"
+    },
+    {
+      "subject": "lat1",
+      "mode": "general",
+      "unit": "UD 3",
+      "headword": "noster",
+      "validatedMeaningIn": "UD 5"
+    },
+    {
+      "subject": "lat1",
+      "mode": "general",
+      "unit": "UD 11–12",
+      "headword": "loquor",
+      "validatedMeaningIn": "UD 9–10"
+    },
+    {
+      "subject": "lat1",
+      "mode": "general",
+      "unit": "UD 11–12",
+      "headword": "pugno",
+      "validatedMeaningIn": "UD 9–10"
+    }
+  ],
+  "notVerified": [
+    "lat2: no se aportó un documento original de vocabulario por bloques; no se certifica su procedencia."
+  ],
+  "authorizedHeadwordCorrections": [
+    {
+      "id": "cdb0bb97ec06e330",
+      "subject": "lat1",
+      "mode": "general",
+      "unit": "UD 7",
+      "sourceLemma": "solis",
+      "sourceForm": "solis, –is (m.)",
+      "correctedLemma": "sol",
+      "correctedForm": "sol, solis (m.)",
+      "reason": "En UD7 el Word usa el genitivo solis como lema, pero el mismo vocabulario de UD11–12 da sol, solis, confirmado por Lewis & Short/Logeion.",
+      "source": "https://logeion.org/sol"
+    },
+    {
+      "id": "bc1b089fe0ab9bf7",
+      "subject": "lat4",
+      "mode": "general",
+      "unit": "UD 10",
+      "sourceForm": "Mўrō̆, –onis (m.)",
+      "correctedForm": "Myrō̆, –onis (m.)",
+      "reason": "La fuente Word incrusta el carácter cirílico ў en el nombre latinizado Myro; se cambia exclusivamente por la y latina sin decidir entre variantes Myro/Myron.",
+      "sourceLemma": "mуro",
+      "correctedLemma": "myro"
+    },
+    {
+      "id": "40da44265e6cddef",
+      "subject": "lat4",
+      "mode": "general",
+      "unit": "UD 10",
+      "sourceForm": "stўlus, –ī",
+      "correctedForm": "stylus, –ī",
+      "reason": "La fuente Word incrusta la letra cirílica ў en el sustantivo latino stylus; se restaura una y latina. En latín clásico también se documenta stilus, que no se impone a la lista del profesor.",
+      "sourceLemma": "stуlus",
+      "correctedLemma": "stylus"
+    },
+    {
+      "id": "4e48a20fbf2c03fb",
+      "subject": "gr1",
+      "mode": "general",
+      "unit": "Sin unidad acreditada",
+      "sourceForm": "κυνδύνος, –ου",
+      "sourceLemma": "κυνδυνοσ",
+      "correctedForm": "κίνδυνος, –ου (ὁ)",
+      "correctedLemma": "κινδυνοσ",
+      "reason": "Corrección acreditada de grafía ático-clásica y/o sustitución de caracteres no griegos; conservar la forma literal del Word original. Véase la cuarta tanda de revisión filológica."
+    },
+    {
+      "id": "a8f9a553fa6cf9e0",
+      "subject": "gr1",
+      "mode": "general",
+      "unit": "Sin unidad acreditada",
+      "sourceForm": "νεκρóς, –οῦ (ὁ)",
+      "sourceLemma": "νεκρoσ",
+      "correctedForm": "νεκρός, –οῦ (ὁ)",
+      "correctedLemma": "νεκροσ",
+      "reason": "Corrección acreditada de grafía ático-clásica y/o sustitución de caracteres no griegos; conservar la forma literal del Word original. Véase la cuarta tanda de revisión filológica."
+    },
+    {
+      "id": "440c382b8761b510",
+      "subject": "gr1",
+      "mode": "general",
+      "unit": "Sin unidad acreditada",
+      "sourceForm": "Προταγόρας, –ου",
+      "sourceLemma": "προταγορασ",
+      "correctedForm": "Πρωταγόρας, –ου (ὁ)",
+      "correctedLemma": "πρωταγορασ",
+      "reason": "Corrección acreditada de grafía ático-clásica y/o sustitución de caracteres no griegos; conservar la forma literal del Word original. Véase la cuarta tanda de revisión filológica."
+    }
+  ]
+}

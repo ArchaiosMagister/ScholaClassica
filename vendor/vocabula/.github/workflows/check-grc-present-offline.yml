@@ -1,0 +1,28 @@
+name: Comprobar lematización griega offline
+on:
+  push:
+    paths:
+      - 'data/grc-present-indicative-offline.json'
+      - 'scripts/grc_present_lookup.mjs'
+      - 'tests/check-grc-present-offline.mjs'
+      - 'data.js'
+      - '.github/workflows/check-grc-present-offline.yml'
+  pull_request:
+    paths:
+      - 'data/grc-present-indicative-offline.json'
+      - 'scripts/grc_present_lookup.mjs'
+      - 'tests/check-grc-present-offline.mjs'
+      - 'data.js'
+      - '.github/workflows/check-grc-present-offline.yml'
+jobs:
+  greek-present:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/check-grc-present-offline.mjs
+      - run: node scripts/grc_present_lookup.mjs γίγνεται

@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "updated": "2026-11-12",
+  "scope": "Primera tanda de cotejo filológico: erratas confirmadas en enunciados, traducciones y respuestas",
+  "policy": "Conservar originales sin sobrescribir; corregir solo campos operativos y registrar desviaciones respecto al DOCX",
+  "entries": [
+    {
+      "id": "1e1aafcadae82fd6",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "dux, ducis (m.)",
+      "meaning": "‘general’",
+      "answers": [
+        "general"
+      ],
+      "original": "dux, ducis (m.): ‘conducir’",
+      "reason": "El sustantivo dux no significa 'conducir'; el documento de examen y Lewis & Short acreditan 'general'.",
+      "source": "https://cld.bbaw.de/lemma/lat/dux"
+    },
+    {
+      "id": "50ca0dbd9ebcabf1",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "gens, gentis (f.)",
+      "meaning": "‘pueblo’, ‘gente’",
+      "answers": [
+        "pueblo",
+        "gente"
+      ],
+      "original": "gens, gentis (m.): ‘pueblo’, ‘gente’",
+      "reason": "Gens es femenino; errata en el indicador de género del documento original.",
+      "source": "https://cld.bbaw.de/lemma/lat/gens"
+    },
+    {
+      "id": "9d53d852dc723194",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "magister, –tri",
+      "meaning": "‘maestro’",
+      "answers": [
+        "maestro"
+      ],
+      "original": "magister, −tri: ‘mæstro’",
+      "reason": "No aceptar ligadura latina errónea como grafía castellana.",
+      "source": null
+    },
+    {
+      "id": "ba192eec24fe27c0",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "importo, importavi, importatum (1ª)",
+      "meaning": "‘traer’",
+      "answers": [
+        "traer"
+      ],
+      "original": "importo, importavi, importatum (1ª): ‘trær’",
+      "reason": "Normalización ortográfica de la traducción original 'trær'.",
+      "source": "https://www.alatius.com/ls/index.php?l=importo"
+    },
+    {
+      "id": "ae977fb87d9db517",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "reduco, reduxi, reductum (3ª)",
+      "meaning": "‘traer’",
+      "answers": [
+        "traer"
+      ],
+      "original": "reduco, reduxi, reductum (3ª): ‘trær’",
+      "reason": "Solo ortografía española; se conserva la acepción del documento, pendiente de contextualización 'traer de vuelta'.",
+      "source": null
+    },
+    {
+      "id": "fed0ee4956fe0cc2",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "impono, imposui, impositum (3ª)",
+      "meaning": "‘poner encima’, ‘imponer’",
+      "answers": [
+        "poner encima",
+        "imponer"
+      ],
+      "original": "impono, imposui, impositum (3ª): ‘trær’",
+      "reason": "Corregida falsa equivalencia semántica: impono significa colocar encima/imponer, no 'traer'.",
+      "source": "https://thrax.mpiwg-berlin.mpg.de/mpiwg-mpdl-cms-web/lt/GetDictionaryEntries?dictionary=ls&inputType=lemma&language=lat&outputFormat=html&outputType=dictFull&query=impono"
+    },
+    {
+      "id": "ab750555977be7a0",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "ferme (adv.)",
+      "meaning": "‘aproximadamente’",
+      "answers": [
+        "aproximadamente"
+      ],
+      "original": "ferme (adv.): ‘aporximadamente’",
+      "reason": "Transposición de letras en palabra española.",
+      "source": null
+    },
+    {
+      "id": "86d90dfc9e7d15c4",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "cado, cecidi, casum (3ª)",
+      "meaning": "‘caer’",
+      "answers": [
+        "caer"
+      ],
+      "original": "cado, cecidi, casum (3ª): ‘cær’",
+      "reason": "Ligadura latina errónea en castellano.",
+      "source": null
+    },
+    {
+      "id": "eb5c7e2ba1fb3ae6",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "confero, contuli, collatum (irr.)",
+      "meaning": "‘reunir’, ‘llevar juntos’",
+      "answers": [
+        "reunir",
+        "llevar juntos"
+      ],
+      "original": "confero, contuli, collatum (irr.): ‘refugiarse’",
+      "reason": "'Refugiarse' exige una construcción reflexiva con se y contexto; sin ella el lema indica reunir/llevar conjuntamente.",
+      "source": "https://alatius.com/ls/index.php?l=confero"
+    },
+    {
+      "id": "5bc15b715a36ddec",
+      "subject": "lat1",
+      "mode": "general",
+      "form": "appello, appellavi, appellatum (1ª)",
+      "meaning": "‘llamar’",
+      "answers": [
+        "llamar"
+      ],
+      "original": "appello, appellavi, appellatum (1ª): ‘’llamar’",
+      "reason": "Comilla tipográfica sobrante en la fuente.",
+      "source": null
+    },
+    {
+      "id": "75da0918d621aa92",
+      "subject": "lat1",
+      "mode": "examen",
+      "form": "appello, appellavi, appellatum (1ª)",
+      "meaning": "‘llamar’",
+      "answers": [
+        "llamar"
+      ],
+      "original": "appello, appellavi, appellatum (1ª): ‘’llamar’",
+      "reason": "Comilla tipográfica sobrante en la fuente de examen.",
+      "source": null
+    },
+    {
+      "id": "44dcc40df2aa9358",
+      "subject": "lat4",
+      "mode": "general",
+      "form": "vĕtŭs, veteris",
+      "meaning": "‘viejo/a’",
+      "answers": [
+        "viejo/a"
+      ],
+      "original": "vĕtŭs, veteris: ‘viejo",
+      "reason": "Traducción truncada; se conserva el sentido acreditado para la misma palabra en UD7.",
+      "source": null
+    },
+    {
+      "id": "cd5ec2b1a3ab1be9",
+      "subject": "lat4",
+      "mode": "examen",
+      "form": "vĕtŭs, veteris",
+      "meaning": "‘viejo/a’",
+      "answers": [
+        "viejo/a"
+      ],
+      "original": "vĕtŭs, veteris: ‘viejo",
+      "reason": "Traducción truncada en el documento de examen; sentido acreditado en el vocabulario general.",
+      "source": null
+    }
+  ]
+}
