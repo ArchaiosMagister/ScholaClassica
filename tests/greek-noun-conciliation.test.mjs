@@ -8,7 +8,7 @@ import {makeGreekNounPhraseQuestions,makeGreekNounPhraseTables,
 import {availableRecords} from '../public/morfologia/engine.mjs';
 import {correctWritten,evaluateTable} from '../public/morfologia/written.mjs';
 const root=resolve(import.meta.dirname,'..');
-const source=join(root,'.sources/vocabula');
+const source=join(root,'vendor/vocabula');
 const curriculum=JSON.parse(readFileSync(join(root,'vendor/appendix/assets/curriculum.json'),'utf8'));
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 const vocabulaData=readFileSync(join(source,'data.js'),'utf8');
