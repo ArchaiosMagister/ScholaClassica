@@ -53,7 +53,9 @@ jobs:
         run: |
           test ! -d .sources/vocabula
           npm run audit:vocabula:vendor
-          cd vendor/vocabula
+          mkdir -p "$RUNNER_TEMP/vocabula-original"
+          cp -a vendor/vocabula/. "$RUNNER_TEMP/vocabula-original/"
+          cd "$RUNNER_TEMP/vocabula-original"
           node tests/check-vocabulary-scope.cjs
           node tests/check-vocabulary-provenance.cjs
       - name: Validar Evolutio original
