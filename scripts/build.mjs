@@ -25,6 +25,7 @@ import {adaptVocabulaAll} from './adapt-vocabula-all.mjs';
 import {buildVocabulaOffline} from './adapt-vocabula-offline.mjs';
 import {buildVocabulaPwa} from './build-vocabula-pwa.mjs';
 import {verifyVendoredVocabula} from './verify-vendored-vocabula.mjs';
+import {verifyVendoredEvolutio} from './verify-vendored-evolutio.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'vendor/appendix');
 const out=join(root,'dist');
@@ -104,11 +105,12 @@ await cp(source,destination,{recursive:true,force:true,filter:path=>{
   return !relative.some(piece=>piece==='.git'||piece==='.github');
 }});
 await adaptAppendixOled(destination);
-const phonetics=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
+const phonetics=join(root,'vendor/evolutio');
 const phoneticsLock=lock.sources.evolutio;
 if(!phoneticsLock.integrated||phoneticsLock.target!=='apps/evolucion-fonetica')throw Error('Lock incompatible: Evolutio');
-const phoneticsHead=execFileSync('git',['-C',phonetics,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
-if(phoneticsHead!==phoneticsLock.sha)throw Error('Evolutio sin fijar: esperado '+phoneticsLock.sha+'; recibido '+phoneticsHead);
+if(process.env.EVOLUTIO_SOURCE)throw Error('Evolutio no admite origen externo: solo el snapshot interno verificado');
+await verifyVendoredEvolutio();
+const phoneticsHead=phoneticsLock.sha;
 await stat(join(phonetics,'data/pilot.json'));
 const phoneticsDestination=join(out,'apps/evolucion-fonetica');
 await cp(phonetics,phoneticsDestination,{recursive:true,force:true,filter:path=>{
