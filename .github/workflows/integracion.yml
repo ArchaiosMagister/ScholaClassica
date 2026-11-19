@@ -73,12 +73,16 @@ jobs:
         run: npm run etymology:compile
       - name: Construir ScholaClassica sin despliegue
         run: npm run build
+      - name: Inventariar dependencias externas y fuentes internas (sin autorizar archivos)
+        run: npm run audit:repositorios:retirada
       - name: Auditar filología transversal de Latín I, Latín 4.º y Griego I (solo lectura)
         run: npm run audit:filologia:transversal
       - name: Auditar fronteras de currículo y procedencia de Examen sin reclasificar bancos
         run: npm run audit:curriculum:scope
       - name: Auditar 32 unidades y 73 epígrafes frente a los ejercicios morfológicos disponibles
         run: npm run audit:morfologia:unidades
+      - name: Auditar todas las categorías y modalidades reales de Morfología en castellano
+        run: npm run audit:morfologia:funcional:es
       - name: Auditar individualmente 184 fichas griegas sin unidad y cotejar ES/VAL
         run: npm run audit:gr1:unassigned
       - name: Cotejar lema + forma + rasgos de Latín II con UniMorph congelado
@@ -109,6 +113,14 @@ jobs:
         run: npm run test:browser:vocabula
       - name: Probar Vocabula offline, caché aislada, progreso y reenvío en Chromium
         run: npm run test:browser:vocabula:offline
+      - name: Auditar las 60 combinaciones de Vocabula en castellano con Chromium
+        run: npm run test:browser:castellano:vocabula
+      - name: Auditar Evolutio castellano desde la respuesta hasta las normas
+        run: npm run test:browser:castellano:evolutio
+      - name: Recorrer las unidades de Appendix castellano y sintaxis de Latín II
+        run: npm run test:browser:castellano:appendix
+      - name: Probar en Chromium todas las unidades y modalidades de Morfología en castellano
+        run: npm run test:browser:castellano:morfologia
       - name: Verificar que Supabase rechaza identidades ajenas antes de habilitar el primer factor
         run: node scripts/check-docente-login-remote.mjs
       - name: Empaquetar SDK Supabase local y preparar alta docente de dos factores
@@ -130,6 +142,13 @@ jobs:
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
+      - name: Archivar los resultados de las pruebas funcionales de castellano
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-auditoria-funcional-castellano
+          path: build/academic-audits/castellano/*.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Archivar el manifiesto de integridad de Appendix autónomo
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4

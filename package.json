@@ -40,6 +40,12 @@
     "audit:curriculum:scope": "node scripts/audit-curricular-scope.mjs",
     "audit:morfologia:unidades": "node scripts/audit-morphology-curricular-coverage.mjs",
     "audit:gr1:unassigned": "node scripts/audit-greek-unassigned-individual.mjs",
-    "audit:appendix:vendor": "node scripts/verify-vendored-appendix.mjs"
+    "audit:appendix:vendor": "node scripts/verify-vendored-appendix.mjs",
+    "test:browser:castellano:vocabula": "node tests/castellano-vocabula-matrix-browser.mjs",
+    "test:browser:castellano:evolutio": "node tests/castellano-evolutio-browser.mjs",
+    "audit:repositorios:retirada": "node scripts/audit-original-source-retirement.mjs",
+    "test:browser:castellano:appendix": "node tests/castellano-appendix-browser.mjs",
+    "audit:morfologia:funcional:es": "node scripts/audit-morphology-spanish-functional.mjs",
+    "test:browser:castellano:morfologia": "node tests/castellano-morfologia-matrix-browser.mjs"
   }
 }
