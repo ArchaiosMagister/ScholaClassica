@@ -10,7 +10,7 @@ import {applyGreek1KindynosUd5,GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_I
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport} from '../scripts/adapt-vocabula-all.mjs';
 import {adaptVocabulaOfflineHtml,adaptVocabulaOfflineTeacher} from '../scripts/adapt-vocabula-offline.mjs';
 const root=resolve(import.meta.dirname,'..');
-const source=join(root,'.sources/vocabula'),target=join(root,'dist/apps/vocabulario');
+const source=join(root,'vendor/vocabula'),target=join(root,'dist/apps/vocabulario');
 const names=['choice.js','config.js','scope.js'];
 const digest=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 test('Vocabula importa vocabulario y avisos de alumnado, sin gestión docente heredada',()=>{
