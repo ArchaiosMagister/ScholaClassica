@@ -40,13 +40,15 @@ jobs:
           Contenido: tres archivos *.bundle, cada uno con historial y referencias Git
           del repositorio original. Se han validado los SHAs de main.
 
-          Antes de restaurar, verificar:
+          Para verificar las descargas y reconstruir Appendix en un directorio nuevo:
             sha256sum -c SHA256SUMS.txt
-            git bundle verify Appendix-grammaticae.bundle
-          Para reconstruir por ejemplo Appendix en una carpeta local nueva:
             git clone Appendix-grammaticae.bundle Appendix-restaurado
             cd Appendix-restaurado
+            git fsck --full
             git log --oneline -3
+
+          git bundle verify requiere un repositorio Git: el clon + fsck anterior
+          ofrece una comprobación restaurable sin ese requisito previo.
 
           Para restaurar en un remoto, crear un repositorio vacío y revisar
           manualmente las referencias antes de hacer git push --mirror.
