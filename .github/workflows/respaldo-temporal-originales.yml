@@ -66,3 +66,49 @@ jobs:
           path: backups/
           if-no-files-found: error
           retention-days: 30
+
+      - name: Verificar HTTP de rutas históricas y destinos nuevos (solo lectura)
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p backups
+          printf 'etiqueta\turl\tcodigo_http\ttipo_contenido\tbytes\n' > backups/urls-verificadas.tsv
+          fallos=0
+          while IFS='|' read -r etiqueta url; do
+            [[ -z "$etiqueta" ]] && continue
+            resultado="$(curl -sSL --retry 2 --connect-timeout 10 --max-time 35 -o /tmp/respuesta-scholaclassica -w '%{http_code}\t%{content_type}\t%{size_download}' "$url")"
+            estado=$?
+            if [[ "$estado" -ne 0 ]]; then
+              printf '%s\t%s\tERROR-CURL-%s\tN/D\t0\n' "$etiqueta" "$url" "$estado" | tee -a backups/urls-verificadas.tsv
+              fallos=$((fallos+1))
+            else
+              printf '%s\t%s\t%s\n' "$etiqueta" "$url" "$resultado" | tee -a backups/urls-verificadas.tsv
+              codigo="${resultado%%$'\t'*}"
+              [[ "$codigo" == 200 ]] || fallos=$((fallos+1))
+            fi
+          done <<'URLS'
+          appendix-home|https://archaiosmagister.github.io/Appendix-grammaticae/
+          appendix-val|https://archaiosmagister.github.io/Appendix-grammaticae/val/index.html
+          appendix-griego-vocativos|https://archaiosmagister.github.io/Appendix-grammaticae/griego-sustantivos.html
+          vocabula-home|https://archaiosmagister.github.io/VocabulaLatinaGraecaque/
+          evolutio-home|https://archaiosmagister.github.io/EvolucionFonetica/
+          evolutio-manifest|https://archaiosmagister.github.io/EvolucionFonetica/manifest.webmanifest
+          evolutio-sw|https://archaiosmagister.github.io/EvolucionFonetica/sw.js
+          schola-home|https://archaiosmagister.github.io/ScholaClassica/
+          schola-gramatica|https://archaiosmagister.github.io/ScholaClassica/apps/gramatica/index.html
+          schola-gramatica-val|https://archaiosmagister.github.io/ScholaClassica/apps/gramatica/val/index.html
+          schola-vocabula|https://archaiosmagister.github.io/ScholaClassica/apps/vocabulario/index.html
+          schola-evolutio|https://archaiosmagister.github.io/ScholaClassica/apps/evolucion-fonetica/index.html
+          schola-evolutio-manifest|https://archaiosmagister.github.io/ScholaClassica/apps/evolucion-fonetica/manifest.webmanifest
+          schola-evolutio-sw|https://archaiosmagister.github.io/ScholaClassica/apps/evolucion-fonetica/sw.js
+          URLS
+          echo "Rutas verificadas: $(($(wc -l < backups/urls-verificadas.tsv)-1)); errores HTTP/transporte: $fallos"
+          test "$fallos" -eq 0
+      - name: Guardar resultados HTTP para revisión de retirada
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-http-enlaces-legados-20261119
+          path: backups/urls-verificadas.tsv
+          if-no-files-found: warn
+          retention-days: 30
