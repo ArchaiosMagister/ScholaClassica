@@ -139,9 +139,13 @@ export function auditEvolutioValenciano(matrix,bank,curation,rules,lockedSha,rev
 }
 function run(){
  const lock=read('config/sources.lock.json');
- const target=resolve(process.env.EVOLUTIO_SOURCE||join(root,'.sources/evolutio'));
- const sha=execFileSync('git',['-C',target,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
- if(sha!==lock.sources.evolutio.sha)throw new Error('Evolutio no coincide con el SHA fijado.');
+ if(process.env.EVOLUTIO_SOURCE)throw new Error('El cotejo valenciano exige el snapshot interno inmutable');
+ const target=join(root,'vendor/evolutio');
+ const tree=execFileSync('git',['-C',root,'rev-parse','HEAD:vendor/evolutio'],{encoding:'utf8'}).trim();
+ if(tree!==lock.sources.evolutio.treeSha||
+    lock.sources.evolutio.sha!=='901dacb125ee7894ea9d11faf7b0d0afa7e713b5')
+  throw new Error('El origen castellano de Evolutio no coincide con la fuente congelada.');
+ const sha=lock.sources.evolutio.sha;
  const bank=JSON.parse(readFileSync(join(target,'data/pilot.json'),'utf8'));
  const cur=read(sub+'/conciliacion-curada.json');
  const laws=read(sub+'/normas.json');
