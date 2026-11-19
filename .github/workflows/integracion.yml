@@ -27,13 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Obtener Evolutio original en commit fijado (solo lectura)
-        uses: actions/checkout@v4
-        with:
-          repository: ArchaiosMagister/EvolucionFonetica
-          ref: 901dacb125ee7894ea9d11faf7b0d0afa7e713b5
-          path: .sources/evolutio
-          persist-credentials: false
       - name: Obtener UniMorph Latin completo en revisión fijada (solo auditoría)
         uses: actions/checkout@v4
         with:
@@ -58,8 +51,20 @@ jobs:
           cd "$RUNNER_TEMP/vocabula-original"
           node tests/check-vocabulary-scope.cjs
           node tests/check-vocabulary-provenance.cjs
-      - name: Validar Evolutio original
-        working-directory: .sources/evolutio
+      - name: Rechazar referencias obsoletas de Evolutio en scripts y tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -n -F '.sources/evolutio' -- scripts tests; then
+            echo 'Persisten rutas externas de Evolutio.'
+            exit 1
+          fi
+      - name: Verificar fuente interna exacta de Evolutio sin checkout original
+        run: |
+          test ! -d .sources/evolutio
+          npm run audit:evolutio:vendor
+      - name: Validar motor castellano Evolutio desde su fuente interna
+        working-directory: vendor/evolutio
         run: npm test
       - name: Contrastar matriz valenciana de Evolutio con el origen fijado (sin publicarla)
         run: npm run evolutio:val:check
@@ -166,6 +171,14 @@ jobs:
         with:
           name: vocabula-autonomo-manifiesto-130
           path: build/academic-audits/vocabula-autonomia/manifiesto-vendorizado.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Archivar el manifiesto de integridad de Evolutio autónomo
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: evolutio-autonomo-manifiesto-53
+          path: build/academic-audits/evolutio-autonomia/manifiesto-vendorizado.json
           if-no-files-found: error
           retention-days: 30
       - name: Archivar las 184 fichas y los candidatos griegos para revisión docente
