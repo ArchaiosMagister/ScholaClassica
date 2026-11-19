@@ -28,9 +28,9 @@ jobs:
             git --git-dir="$RUNNER_TEMP/${name}.git" bundle verify "$GITHUB_WORKSPACE/backups/${name}.bundle"
             git bundle list-heads "$GITHUB_WORKSPACE/backups/${name}.bundle" | grep -Fq "$expected refs/heads/main"
           done <<'SNAPSHOTS'
-          Appendix-grammaticae 6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
-          VocabulaLatinaGraecaque a7be2161a2401816ede78a96981daaac6850b8d2
-          EvolucionFonetica 901dacb125ee7894ea9d11faf7b0d0afa7e713b5
+          Appendix-grammaticae 40d06bff955087d81c5b3ab502422d77caf3186a
+          VocabulaLatinaGraecaque 6c51743b7b065e6afdd77468a3d61de29d48f2d4
+          EvolucionFonetica 5a464a2c67f6dbc3bd6f6a7c45e862dc6af71349
           SNAPSHOTS
           cd backups
           sha256sum *.bundle > SHA256SUMS.txt
@@ -106,6 +106,20 @@ jobs:
           URLS
           echo "Rutas verificadas: $(($(wc -l < backups/urls-verificadas.tsv)-1)); errores HTTP/transporte: $fallos"
           test "$fallos" -eq 0
+      - name: Verificar que los avisos publicados no redirigen ni anulan otras cachés
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=https://archaiosmagister.github.io
+          curl -fsSL --retry 2 "$base/Appendix-grammaticae/assets/theme.js" |
+            grep -Fq 'SCHOLA_LEGACY_NOTICE_V1'
+          curl -fsSL --retry 2 "$base/VocabulaLatinaGraecaque/theme.js" |
+            grep -Fq 'SCHOLA_LEGACY_NOTICE_V1'
+          curl -fsSL --retry 2 "$base/EvolucionFonetica/index.html" |
+            grep -Fq 'schola-legacy-notice'
+          curl -fsSL --retry 2 "$base/EvolucionFonetica/sw.js" |
+            grep -Fq 'key.startsWith(CACHE_PREFIX)'
+          echo 'Avisos antiguos HTTPS y aislamiento de caché comprobados.'
       - name: Guardar resultados HTTP para revisión de retirada
         if: always()
         uses: actions/upload-artifact@v4
