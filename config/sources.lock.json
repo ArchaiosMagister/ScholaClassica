@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "date": "2026-11-16",
-  "note": "SHA originales fijados. Appendix está conservado íntegramente en vendor/appendix; Evolutio y Vocabula siguen como checkouts externos.",
+  "date": "2026-11-19",
+  "note": "Fuentes originales inmovilizadas: Appendix y Vocabula son copias íntegras internas; Evolutio aún se obtiene desde su checkout externo.",
   "sources": {
     "appendix": {
       "repository": "ArchaiosMagister/Appendix-grammaticae",
@@ -16,7 +16,10 @@
       "repository": "ArchaiosMagister/VocabulaLatinaGraecaque",
       "sha": "a7be2161a2401816ede78a96981daaac6850b8d2",
       "integrated": true,
-      "target": "apps/vocabulario"
+      "target": "apps/vocabulario",
+      "sourceMode": "vendored",
+      "path": "vendor/vocabula",
+      "treeSha": "4d801fa31917dc177ce248eff162a9ad545fae7a"
     },
     "evolutio": {
       "repository": "ArchaiosMagister/EvolucionFonetica",
