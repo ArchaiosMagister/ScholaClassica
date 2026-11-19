@@ -10,7 +10,7 @@ import {scholaVocabularyAll,scholaVocabularyRecordProgress}
 const root=resolve(import.meta.dirname,'..');
 const parse=file=>JSON.parse(readFileSync(file,'utf8')
   .replace(/^window\.VOCAB\s*=/u,'').replace(/;\s*$/u,''));
-const original=parse(join(root,'.sources/vocabula/data.js'));
+const original=parse(join(root,'vendor/vocabula/data.js'));
 const integrated=parse(join(root,'dist/apps/vocabulario/data.js'));
 const byId=new Map(integrated.map(x=>[x.id,x]));
 
