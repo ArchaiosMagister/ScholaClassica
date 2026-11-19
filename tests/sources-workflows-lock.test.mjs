@@ -7,33 +7,40 @@ import {join,resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const read=file=>readFileSync(join(root,file),'utf8');
 const lock=JSON.parse(read('config/sources.lock.json')).sources;
-function checkoutRef(workflow,repository){
+const flows=['.github/workflows/integracion.yml','.github/workflows/lexicografia-lemlat3.yml']
+ .map(read);
+const checkoutRef=(workflow,repository)=>{
  const name=repository.split('/')[1];
  const regex=new RegExp('repository:\\s*ArchaiosMagister/'+name+'\\s+ref:\\s*([a-f0-9]{40})','g');
- const refs=[...workflow.matchAll(regex)].map(match=>match[1]);
- assert.equal(refs.length,1,'Checkout inexistente o duplicado: '+repository);
+ const refs=[...workflow.matchAll(regex)].map(x=>x[1]);
+ assert.equal(refs.length,1,'Checkout ausente o duplicado: '+repository);
  return refs[0];
-}
-test('Los dos workflows fijan los SHA externos de Evolutio y Vocabula',()=>{
- const ci=read('.github/workflows/integracion.yml');
- const lemlat=read('.github/workflows/lexicografia-lemlat3.yml');
- for(const key of ['vocabula','evolutio']){
-  assert.equal(checkoutRef(ci,lock[key].repository),lock[key].sha,'Integración desincronizada: '+key);
-  assert.equal(checkoutRef(lemlat,lock[key].repository),lock[key].sha,'LEMLAT3 desincronizado: '+key);
+};
+
+test('Solo Evolutio requiere checkout externo con el SHA inmutable en los dos workflows',()=>{
+ for(const flow of flows){
+  assert.equal(checkoutRef(flow,lock.evolutio.repository),lock.evolutio.sha);
+  assert.ok(flow.includes('path: .sources/evolutio'));
+  for(const key of ['appendix','vocabula']){
+   assert.ok(!flow.includes('repository: '+lock[key].repository),
+     key+': no debe descargarse el repositorio externo');
+   assert.ok(!flow.includes('path: .sources/'+key));
+   assert.ok(flow.includes('npm run audit:'+key+':vendor'));
+   assert.ok(flow.includes('test ! -d .sources/'+key));
+  }
  }
 });
-test('Appendix ya no precisa checkout externo y conserva todos los SHA originales',()=>{
- const ci=read('.github/workflows/integracion.yml');
- const lemlat=read('.github/workflows/lexicografia-lemlat3.yml');
- for(const workflow of [ci,lemlat]){
-  assert.ok(!workflow.includes('repository: '+lock.appendix.repository));
-  assert.ok(!workflow.includes('path: .sources/appendix'));
-  assert.ok(workflow.includes('npm run audit:appendix:vendor'));
+test('Appendix y Vocabula conservan los árboles fuente completos de Git',()=>{
+ for(const [key,path,expected] of [
+  ['appendix','vendor/appendix','ac24b5b997d3a37d78ef43de36085b850b22e472'],
+  ['vocabula','vendor/vocabula','4d801fa31917dc177ce248eff162a9ad545fae7a']
+ ]){
+  assert.equal(lock[key].sourceMode,'vendored');
+  assert.equal(lock[key].path,path);
+  assert.equal(lock[key].treeSha,expected);
+  const tree=execFileSync('git',['-C',root,'rev-parse','HEAD:'+path],{encoding:'utf8'}).trim();
+  assert.equal(tree,expected);
  }
- assert.equal(lock.appendix.sourceMode,'vendored');
- assert.equal(lock.appendix.path,'vendor/appendix');
- assert.equal(lock.appendix.treeSha,'ac24b5b997d3a37d78ef43de36085b850b22e472');
  assert.equal(lock.appendix.sha,'6e9ae22d98c10f8752329d0fa65ad8dd882dcde9');
- const tree=execFileSync('git',['-C',root,'rev-parse','HEAD:vendor/appendix'],{encoding:'utf8'}).trim();
- assert.equal(tree,lock.appendix.treeSha);
+ assert.equal(lock.vocabula.sha,'a7be2161a2401816ede78a96981daaac6850b8d2');
 });
