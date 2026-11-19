@@ -31,6 +31,11 @@ jobs:
             git --git-dir="$RUNNER_TEMP/${name}.git" bundle create "$GITHUB_WORKSPACE/backups/${name}.bundle" --all
             git --git-dir="$RUNNER_TEMP/${name}.git" bundle verify "$GITHUB_WORKSPACE/backups/${name}.bundle"
             git bundle list-heads "$GITHUB_WORKSPACE/backups/${name}.bundle" | grep -Fq "$expected refs/heads/main"
+            git clone "$GITHUB_WORKSPACE/backups/${name}.bundle" "$RUNNER_TEMP/${name}-restaurado"
+            git -C "$RUNNER_TEMP/${name}-restaurado" fsck --full
+            restored="$(git -C "$RUNNER_TEMP/${name}-restaurado" rev-parse HEAD)"
+            test "$restored" = "$expected"
+            echo "${name}: bundle verificado, clon restaurado y SHA correcto."
           done <<'SNAPSHOTS'
           Appendix-grammaticae 40d06bff955087d81c5b3ab502422d77caf3186a
           VocabulaLatinaGraecaque 6c51743b7b065e6afdd77468a3d61de29d48f2d4
@@ -61,6 +66,8 @@ jobs:
           sesiones, ni localStorage/cachés del alumnado. Tampoco los archivos
           externos de Git LFS (si existieran), wikis, issues, releases o ajustes
           de configuración y Secrets de GitHub.
+          Los tres bundles también se clonan automáticamente y se verifican con
+          git fsck --full en el workflow antes de su entrega.
           La conservación de estos bundles en Actions es temporal: DESCARGAR
           y GUARDAR en un lugar seguro ANTES de archivar originales.
           DOC
