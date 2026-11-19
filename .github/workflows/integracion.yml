@@ -41,6 +41,14 @@ jobs:
           ref: 050924c9f013e6aba4d7c87be243a1d79b6c5b10
           path: .sources/unimorph-latin
           persist-credentials: false
+      - name: Rechazar referencias obsoletas de Vocabula en scripts y tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -n -F '.sources/vocabula' -- scripts tests; then
+            echo 'Persisten accesos al checkout externo de Vocabula.'
+            exit 1
+          fi
       - name: 'Validar Vocabula interno: árbol original y núcleo léxico (sin checkout externo)'
         run: |
           test ! -d .sources/vocabula
