@@ -41,7 +41,7 @@ jobs:
           ref: 050924c9f013e6aba4d7c87be243a1d79b6c5b10
           path: .sources/unimorph-latin
           persist-credentials: false
-      - name: Validar Vocabula interno: árbol original y núcleo léxico (sin checkout externo)
+      - name: 'Validar Vocabula interno: árbol original y núcleo léxico (sin checkout externo)'
         run: |
           test ! -d .sources/vocabula
           npm run audit:vocabula:vendor
