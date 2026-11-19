@@ -32,7 +32,8 @@ export function assessOriginalDependencies(lock,build,workflow){
    const dir='vendor/'+spec.key,oldDir='.sources/'+spec.key;
    const internalBuild=build.includes(spec.vendorAnchor)&&build.includes(spec.vendorGuard);
    const internalWorkflow=workflow.includes(spec.vendorWorkflow)&&
-     (workflow.includes('working-directory: '+dir)||workflow.includes('cd '+dir))&&
+     (workflow.includes('working-directory: '+dir)||workflow.includes('cd '+dir)||
+      workflow.includes('cp -a '+dir+'/.'))&&
      workflow.includes('test ! -d '+oldDir);
    if(!internalBuild||!internalWorkflow)
     throw Error(spec.key+' sin checkout, pero falta fuente interna verificada o barrera de CI');
