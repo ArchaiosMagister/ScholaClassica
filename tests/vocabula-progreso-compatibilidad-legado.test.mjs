@@ -42,6 +42,6 @@ test('La interfaz muestra importar y exportar en ambos módulos',()=>{
   assert.match(html,/id="import"/);
   assert.match(html,/accept="application\/json"/);
   assert.match(html,/>Exportar progreso</);
-  assert.match(html,/>Importar progreso\\s*</);
+  assert.ok(html.includes('Importar progreso <input type="file"'),'Control de importación ausente');
  }
 });
