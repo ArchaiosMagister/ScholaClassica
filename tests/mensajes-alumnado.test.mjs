@@ -59,5 +59,5 @@ test('Evolutio y Vocabula presentan las actividades sin revelar el historial del
 
 test('los originales siguen intactos y conservan su trazabilidad',()=>{
   assert.match(read('.sources/evolutio/src/app.mjs'),/Ficha importada de GeneradorExamenes/);
-  assert.match(read('.sources/vocabula/app.js'),/Variantes originales/);
+  assert.match(read('vendor/vocabula/app.js'),/Variantes originales/);
 });
