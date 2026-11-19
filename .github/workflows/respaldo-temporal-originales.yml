@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
+      - name: Descargar script de auditoría de rutas
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Clonar tres orígenes enteros y comprobar SHAs docentes
         shell: bash
         run: |
@@ -120,6 +124,18 @@ jobs:
           curl -fsSL --retry 2 "$base/EvolucionFonetica/sw.js" |
             grep -F 'key.startsWith(CACHE_PREFIX)' >/dev/null
           echo 'Avisos antiguos HTTPS y aislamiento de caché comprobados.'
+      - name: Contrastar todas las 90 rutas de Appendix y los accesos antiguos
+        run: node scripts/audit-legacy-routes.mjs
+      - name: Archivar mapa exhaustivo de URL antiguas y nuevas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-exhaustiva-95-enlaces-legados
+          path: |
+            backups/conciliacion-enlaces-exhaustiva.json
+            backups/conciliacion-enlaces-exhaustiva.tsv
+          if-no-files-found: warn
+          retention-days: 30
       - name: Guardar resultados HTTP para revisión de retirada
         if: always()
         uses: actions/upload-artifact@v4
