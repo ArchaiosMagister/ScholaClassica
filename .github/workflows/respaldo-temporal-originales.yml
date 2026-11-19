@@ -1,0 +1,68 @@
+# Respaldo de historial completo de los tres orígenes públicos.
+# Solo la rama temporal de auditoría. Sin despliegue ni permisos de escritura.
+name: Auditoría puntual de respaldos de repositorios originales
+on:
+  push:
+    branches: [audit/retiro-originales-20261119]
+permissions:
+  contents: read
+jobs:
+  copias-restaurables:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Clonar tres orígenes enteros y comprobar SHAs docentes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p backups
+          while read -r name expected; do
+            [[ -z "$name" ]] && continue
+            git clone --mirror "https://github.com/ArchaiosMagister/${name}.git" "$RUNNER_TEMP/${name}.git"
+            actual="$(git --git-dir="$RUNNER_TEMP/${name}.git" rev-parse refs/heads/main)"
+            if [[ "$actual" != "$expected" ]]; then
+              echo "El origen de ${name} cambió: ${actual}; se esperaba ${expected}"
+              exit 1
+            fi
+            git --git-dir="$RUNNER_TEMP/${name}.git" bundle create "$GITHUB_WORKSPACE/backups/${name}.bundle" --all
+            git --git-dir="$RUNNER_TEMP/${name}.git" bundle verify "$GITHUB_WORKSPACE/backups/${name}.bundle"
+            git bundle list-heads "$GITHUB_WORKSPACE/backups/${name}.bundle" | grep -Fq "$expected refs/heads/main"
+          done <<'SNAPSHOTS'
+          Appendix-grammaticae 6e9ae22d98c10f8752329d0fa65ad8dd882dcde9
+          VocabulaLatinaGraecaque a7be2161a2401816ede78a96981daaac6850b8d2
+          EvolucionFonetica 901dacb125ee7894ea9d11faf7b0d0afa7e713b5
+          SNAPSHOTS
+          cd backups
+          sha256sum *.bundle > SHA256SUMS.txt
+          cat > LEEME-RESTAURACION.txt <<'DOC'
+          RESPALDOS DE GIT COMPLETOS — ScholaClassica, 2026-11-19
+
+          Contenido: tres archivos *.bundle, cada uno con historial y referencias Git
+          del repositorio original. Se han validado los SHAs de main.
+
+          Antes de restaurar, verificar:
+            sha256sum -c SHA256SUMS.txt
+            git bundle verify Appendix-grammaticae.bundle
+          Para reconstruir por ejemplo Appendix en una carpeta local nueva:
+            git clone Appendix-grammaticae.bundle Appendix-restaurado
+            cd Appendix-restaurado
+            git log --oneline -3
+
+          Para restaurar en un remoto, crear un repositorio vacío y revisar
+          manualmente las referencias antes de hacer git push --mirror.
+
+          IMPORTANTE: Los bundles NO incluyen datos de Supabase, votos,
+          sesiones, ni localStorage/cachés del alumnado. Tampoco los archivos
+          externos de Git LFS (si existieran), wikis, issues, releases o ajustes
+          de configuración y Secrets de GitHub.
+          La conservación de estos bundles en Actions es temporal: DESCARGAR
+          y GUARDAR en un lugar seguro ANTES de archivar originales.
+          DOC
+          ls -lh *.bundle SHA256SUMS.txt
+      - name: Archivar respaldos Git verificables para descarga privada de mantenimiento
+        uses: actions/upload-artifact@v4
+        with:
+          name: respaldo-integral-origenes-20261119
+          path: backups/
+          if-no-files-found: error
+          retention-days: 30
