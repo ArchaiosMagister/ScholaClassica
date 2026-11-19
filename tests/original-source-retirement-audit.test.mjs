@@ -41,7 +41,7 @@ test('Se detectan rutas internas inexistentes, falta de verificación y checkout
   assert.throws(()=>assessOriginalDependencies(lock,build.replace(buildAnchor,
     buildAnchor.replace('/'+key,"/"+key+"-incorrecto")),ci),/fuente interna verificada/);
   assert.throws(()=>assessOriginalDependencies(lock,build,
-    ci.replace(workflowAnchor,workflowAnchor+'-disabled')),/fuente interna verificada/);
+    ci.replaceAll(workflowAnchor,workflowAnchor+'-disabled')),/fuente interna verificada/);
   assert.throws(()=>assessOriginalDependencies(lock,build,
     ci+'\nrepository: '+lock.sources[key].repository+'\n'),/desacoplados/);
  }
