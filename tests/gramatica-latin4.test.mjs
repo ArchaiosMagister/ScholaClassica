@@ -161,7 +161,7 @@ test('Alterar el temario o suprimir paradigmas detiene la compilación',()=>{
 });
 
 test('El adaptador exige el temario docente exacto, no inventa UD9–10',()=>{
- const vocab=read(join(root,'.sources/vocabula'),'gramatica-contenidos.js');
+ const vocab=read(join(root,'vendor/vocabula'),'gramatica-contenidos.js');
  assert.match(vocab,/GRAMMAR_CONTENT/);
  // Debe existir un temario de exactamente ocho unidades, independientemente
  // de las etiquetas complementarias UD9/UD10 del vocabulario.
