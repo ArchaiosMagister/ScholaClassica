@@ -14,7 +14,7 @@ const headers=token=>({
   'User-Agent':'ScholaClassica-source-audit',
   ...(token?{'Authorization':'Bearer '+token}:{})
 });
-export function analyzeSources(lock,heads){
+export function analyzeSources(lock,heads,transitionHeads={}){
   if(!lock||typeof lock!=='object'||!lock.sources)throw Error('Lock de fuentes ilegible');
   return Object.entries(lock.sources)
     .filter(([,source])=>source.integrated===true)
@@ -23,24 +23,30 @@ export function analyzeSources(lock,heads){
         throw Error('Registro de fuente inválido: '+id);
       const current=heads[source.repository];
       if(!/^[a-f0-9]{40}$/.test(current||''))throw Error('Falta commit remoto: '+source.repository);
+      const approved=transitionHeads[source.repository];
+      const legacyNoticeOnly=Boolean(approved&&approved.kind==='legacy-transition'&&
+        approved.pinned===source.sha&&approved.head===current&&current!==source.sha);
       return {id,repository:source.repository,locked:source.sha,current,
-        outdated:current!==source.sha};
+        legacyNoticeOnly,outdated:current!==source.sha&&!legacyNoticeOnly};
     });
 }
 export function sourceReport(rows){
   const changes=rows.filter(r=>r.outdated);
+  const maintenance=rows.filter(r=>r.legacyNoticeOnly);
   const title=changes.length?
     'Revisión pendiente de '+changes.length+' fuente'+(changes.length!==1?'s':''):
-    'Todas las fuentes integradas están actualizadas';
+    maintenance.length?'Sin cambios académicos pendientes; '+maintenance.length+
+      ' aviso'+(maintenance.length!==1?'s':'')+' de transición auditado'+(maintenance.length!==1?'s':''):
+      'Todas las fuentes integradas están actualizadas';
   const lines=[
     '# Comprobación de fuentes de ScholaClassica','',
     '**'+title+'**. El estado no desencadena importaciones ni publicaciones.','',
     '| Fuente | Versión fijada | Última en main | Estado |',
     '| --- | --- | --- | --- |',
-    ...rows.map(r=>'| '+r.repository+' | `'+r.locked.slice(0,12)+'` | `'+r.current.slice(0,12)+'` | '+(r.outdated?'Revisar':'Coincide')+' |'),
+    ...rows.map(r=>'| '+r.repository+' | `'+r.locked.slice(0,12)+'` | `'+r.current.slice(0,12)+'` | '+(r.outdated?'Revisar':r.legacyNoticeOnly?'Solo aviso legado auditado':'Coincide')+' |'),
     '',changes.length?
       'Los cambios deben revisarse filológica y funcionalmente antes de actualizar config/sources.lock.json.':
-      'No hay nuevas versiones pendientes de las fuentes integradas.',
+      'No hay nuevas versiones académicas pendientes de las fuentes integradas.',
     '','**No** se modifica GeneradorExamenes, Palabra del día, los repositorios originales ni el portal docente.'
   ];
   return lines.join('\n')+'\n';
@@ -56,6 +62,10 @@ async function request(url,{token,method='GET',body}={}){
 export async function auditSources({token=process.env.GITHUB_TOKEN,repo=process.env.GITHUB_REPOSITORY,
   writeIssue=process.env.SCHOLA_WATCH_ISSUE==='true'}={}){
   const lock=JSON.parse(await readFile(join(root,'config/sources.lock.json'),'utf8'));
+  const allowances=JSON.parse(await readFile(join(root,'config/legacy-transition-approved-heads.json'),'utf8'));
+  if(allowances.schema!=='schola-legacy-transition-heads/v1'||
+    !allowances.approved||typeof allowances.approved!=='object')
+    throw Error('Registro de transición de originales inválido');
   const names=[...new Set(Object.values(lock.sources)
     .filter(src=>src.integrated===true).map(src=>src.repository))];
   const heads={};
@@ -64,7 +74,7 @@ export async function auditSources({token=process.env.GITHUB_TOKEN,repo=process.
     const ref=await request(API+'/repos/'+name+'/branches/main',{token});
     heads[name]=ref.commit?.sha;
   }
-  const rows=analyzeSources(lock,heads);
+  const rows=analyzeSources(lock,heads,allowances.approved);
   const markdown=sourceReport(rows);
   if(process.env.GITHUB_STEP_SUMMARY)
     await appendFile(process.env.GITHUB_STEP_SUMMARY,markdown);
