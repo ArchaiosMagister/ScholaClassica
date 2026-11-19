@@ -8,7 +8,10 @@ const sourceContracts=[
   vendorAnchor:"const source=join(root,'vendor/appendix');",
   vendorGuard:"if(process.env.APPENDIX_SOURCE)throw",
   vendorWorkflow:'npm run audit:appendix:vendor'},
- {key:'evolutio',externalAnchor:'const phonetics=resolve(process.env.EVOLUTIO_SOURCE'},
+ {key:'evolutio',externalAnchor:'const phonetics=resolve(process.env.EVOLUTIO_SOURCE',
+  vendorAnchor:"const phonetics=join(root,'vendor/evolutio');",
+  vendorGuard:"if(process.env.EVOLUTIO_SOURCE)throw",
+  vendorWorkflow:'npm run audit:evolutio:vendor'},
  {key:'vocabula',externalAnchor:'const vocabulaSource=resolve(process.env.VOCABULA_SOURCE',
   vendorAnchor:"const vocabulaSource=join(root,'vendor/vocabula');",
   vendorGuard:"if(process.env.VOCABULA_SOURCE)throw",
@@ -57,7 +60,7 @@ export function assessOriginalDependencies(lock,build,workflow){
  });
  const exams=lock.sources.examenes;
  return {
-  schema:'schola-original-source-retirement-audit/v3',
+  schema:'schola-original-source-retirement-audit/v4',
   auditScope:'Codigo y CI; no prueba compatibilidad de URLs/PWA originales ni respaldos',
   sourceReposRequiredForBuild:integrated.filter(x=>x.buildUsesOriginal).length,
   integrated,
