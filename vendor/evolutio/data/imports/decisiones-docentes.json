@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "fecha": "2026-11-12",
+  "origen": "ArchaiosMagister/GeneradorExamenes:data/fonetica/banco_examenes.json",
+  "destino": "ArchaiosMagister/EvolucionFonetica:data/pilot.json",
+  "politica": "Conservar las cuatro fichas existentes. No sustituir ni duplicar cambios a partir de etiquetas N16 discordantes. Cualquier alteración de la clasificación aprobada debe generar nuevo conflicto.",
+  "decisiones": [
+    {
+      "latin": "seniorem",
+      "castellano": "señor",
+      "decision": "conservar",
+      "sourceId": "EVF-0282",
+      "existingId": "xl-283",
+      "expectedSourceRules": [
+        "N13",
+        "N16"
+      ],
+      "expectedCurrentRules": [
+        "PALAT",
+        "APOC",
+        "FIX_M"
+      ],
+      "criterio": "La i de -ni- pertenece a la palatalización ni → ñ; conservar apócope de -e y pérdida fija de -m, sin síncopa duplicada."
+    },
+    {
+      "latin": "sensum",
+      "castellano": "seso",
+      "decision": "conservar",
+      "sourceId": "EVF-0283",
+      "existingId": "xl-284",
+      "expectedSourceRules": [
+        "N16"
+      ],
+      "expectedCurrentRules": [
+        "SIMPL",
+        "ABER",
+        "FIX_M"
+      ],
+      "criterio": "-ns- → -s- se clasifica como simplificación, además de abertura final u → o y pérdida fija de -m."
+    },
+    {
+      "latin": "sponsam",
+      "castellano": "esposa",
+      "decision": "conservar",
+      "sourceId": "EVF-0303",
+      "existingId": "xl-304",
+      "expectedSourceRules": [
+        "N14",
+        "N16"
+      ],
+      "expectedCurrentRules": [
+        "PROT",
+        "SIMPL",
+        "FIX_M"
+      ],
+      "criterio": "Conservar prótesis e-, simplificación del grupo -ns- → -s- y pérdida fija de -m."
+    },
+    {
+      "latin": "sponsum",
+      "castellano": "esposo",
+      "decision": "conservar",
+      "sourceId": "EVF-0304",
+      "existingId": "xl-305",
+      "expectedSourceRules": [
+        "N14",
+        "N16"
+      ],
+      "expectedCurrentRules": [
+        "PROT",
+        "SIMPL",
+        "ABER",
+        "FIX_M"
+      ],
+      "criterio": "Conservar prótesis e-, simplificación -ns- → -s-, abertura final u → o y pérdida fija de -m."
+    }
+  ]
+}

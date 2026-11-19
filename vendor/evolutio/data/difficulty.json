@@ -1,0 +1,2095 @@
+{
+  "version": 1,
+  "method": "criterio-didactico-v1",
+  "status": "clasificacion-provisional",
+  "assignments": {
+    "xl-26": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-35": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-40": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-52": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-61": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-64": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-75": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-82": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-105": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-111": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-114": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-122": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-143": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-150": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-161": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-184": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-190": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-191": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-203": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-210": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-215": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-220": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-245": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-248": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-257": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-274": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-277": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-298": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-300": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-302": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-320": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-342": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-354": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-359": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-502": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-533": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-567": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-592": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-605": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-606": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-614": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-616": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-633": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-722": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-726": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-727": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-794": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-804": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-842": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-851": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-915": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-1029": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-25": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-29": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-30": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-34": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-36": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-37": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-42": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-44": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-46": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-47": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-48": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-54": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-58": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-60": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-63": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-65": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-69": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-74": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-80": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-81": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-84": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-87": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-88": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-96": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-99": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-106": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-110": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-112": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-113": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-115": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-118": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-119": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-123": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-125": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-126": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-127": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-128": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-129": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-134": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-144": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-145": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-147": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-151": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-156": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-165": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-169": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-172": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-173": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-175": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-177": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-180": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-181": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-182": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-183": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-185": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-198": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-199": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-201": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-205": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-213": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-218": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-223": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-226": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-227": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-268": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-1035": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-271": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-272": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-732": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-282": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-297": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-303": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-304": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-306": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-309": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-385": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-422": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-427": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-432": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-434": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-436": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-443": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-539": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-519": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-602": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-579": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-587": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-728": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-733": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-757": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-820": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-827": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-874": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-916": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-1028": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-921": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-950": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-1033": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-1042": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-1052": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-32": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-33": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-50": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-56": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-70": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-71": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-72": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-78": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-83": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-97": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-98": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-117": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-130": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-131": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-132": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-136": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-137": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-138": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-140": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-146": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-192": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-194": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-196": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-206": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-209": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-214": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-216": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-217": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-221": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-238": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-239": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-243": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-244": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-246": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-249": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-251": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-252": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-253": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-255": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-266": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-267": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-270": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-273": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-278": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-283": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-284": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-285": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-289": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-290": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-291": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-301": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-305": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-307": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-308": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-313": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-315": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-316": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-322": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-341": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-420": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-433": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-449": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-452": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-455": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-458": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-489": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-503": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-508": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-509": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-514": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-517": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-548": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-570": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-581": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-575": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-576": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-577": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-582": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-583": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-585": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-608": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-747": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-810": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-796": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-802": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-823": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-825": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-830": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-855": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-862": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-864": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-865": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-920": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-1038": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-1039": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-1040": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-1041": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-1044": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-1048": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-1050": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-164": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-219": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-234": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-343": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-520": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-527": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-611": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-711": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-716": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-720": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "xl-724": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-731": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-736": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-748": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-750": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-785": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-807": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-812": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-912": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-917": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-919": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-922": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-927": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "xl-1027": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-1031": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-1032": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-1034": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "xl-1037": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-1053": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "xl-1055": {
+      "level": 4,
+      "origin": "automatico"
+    },
+    "ge-EVF-0001": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0008": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0009": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0016": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0187": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0188": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0201": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0203": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0211": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0221": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0230": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0234": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0240": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0246": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0258": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0261": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0285": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0295": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0310": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0320": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0322": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0324": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0326": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0328": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0331": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0332": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0334": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0337": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0338": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0339": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0343": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0345": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0350": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0351": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0359": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0360": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0362": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0363": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0365": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0366": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0367": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0370": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0371": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0372": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0380": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0382": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0383": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0385": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0390": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0391": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0395": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0400": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0403": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0404": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0405": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0406": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0408": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0411": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0413": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0416": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0441": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0443": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0449": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0450": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0452": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0545": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0548": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0555": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0556": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0562": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0565": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0572": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0589": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0592": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0596": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0757": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0812": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0814": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0823": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0840": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0860": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0869": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0882": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0884": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1009": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1010": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1022": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1024": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1025": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0311": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0800": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0818": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0834": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0868": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0278": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0352": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0364": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0379": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0393": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0423": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0437": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0503": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0550": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0813": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0817": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0837": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-0852": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-0936": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1011": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-0239": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1058": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1060": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1067": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1073": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1074": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1075": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1076": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1077": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1078": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1079": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1080": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1081": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1082": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1083": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1084": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1085": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1086": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1087": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1088": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1089": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1090": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1091": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1092": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1093": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1094": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1095": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1096": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1097": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1098": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1099": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1100": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1101": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1102": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1103": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1104": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1105": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1106": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1107": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1108": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1109": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1110": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1111": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1112": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1113": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1114": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1115": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1116": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1117": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1118": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1119": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1120": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1121": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1122": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1123": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1124": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1125": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1126": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1127": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1128": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1129": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1130": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1131": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1132": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1133": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1134": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1135": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1136": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1137": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1138": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1139": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1140": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1141": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1142": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1143": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1144": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1145": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1146": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1147": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1148": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1149": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1150": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1151": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1153": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1154": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1155": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1156": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1157": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1158": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1159": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1160": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1161": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1162": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1163": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1164": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1165": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1166": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1167": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1168": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1169": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1170": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1171": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1172": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1173": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1174": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1175": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1176": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1177": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1179": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1180": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1181": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1182": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1183": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1184": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1185": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1186": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1187": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1188": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1189": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1190": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1191": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1192": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1193": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1194": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1195": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1196": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1197": {
+      "level": 2,
+      "origin": "automatico"
+    },
+    "ge-EVF-1198": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1199": {
+      "level": 3,
+      "origin": "automatico"
+    },
+    "ge-EVF-1200": {
+      "level": 1,
+      "origin": "automatico"
+    },
+    "ge-EVF-1201": {
+      "level": 3,
+      "origin": "automatico"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+name: Validar cambios sin publicar
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - run: npm run difficulty:check
+      - name: Verificar recursos PWA
+        run: |
+          test -s data/difficulty.json
+          test -s src/difficulty.mjs
+          test -s data/pilot.json
+          grep -q "data/difficulty.json" sw.js
