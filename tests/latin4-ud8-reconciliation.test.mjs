@@ -10,7 +10,7 @@ import {applyGreek1KindynosUd5,GREEK1_KINDYNOS_GENERAL_ID}
   from '../scripts/greek1-kindynos-ud5-decision.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const fromJs=readFileSync(join(root,'.sources/vocabula/data.js'),'utf8');
+const fromJs=readFileSync(join(root,'vendor/vocabula/data.js'),'utf8');
 const toJs=readFileSync(join(root,'dist/apps/vocabulario/data.js'),'utf8');
 const parse=js=>JSON.parse(js.replace(/^window\.VOCAB\s*=\s*/u,'').replace(/;\s*$/u,''));
 const original=parse(fromJs),built=parse(toJs);
