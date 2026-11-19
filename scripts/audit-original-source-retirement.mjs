@@ -9,7 +9,10 @@ const sourceContracts=[
   vendorGuard:"if(process.env.APPENDIX_SOURCE)throw",
   vendorWorkflow:'npm run audit:appendix:vendor'},
  {key:'evolutio',externalAnchor:'const phonetics=resolve(process.env.EVOLUTIO_SOURCE'},
- {key:'vocabula',externalAnchor:'const vocabulaSource=resolve(process.env.VOCABULA_SOURCE'}
+ {key:'vocabula',externalAnchor:'const vocabulaSource=resolve(process.env.VOCABULA_SOURCE',
+  vendorAnchor:"const vocabulaSource=join(root,'vendor/vocabula');",
+  vendorGuard:"if(process.env.VOCABULA_SOURCE)throw",
+  vendorWorkflow:'npm run audit:vocabula:vendor'}
 ];
 export function assessOriginalDependencies(lock,build,workflow){
  const integrated=sourceContracts.map(spec=>{
@@ -25,13 +28,16 @@ export function assessOriginalDependencies(lock,build,workflow){
   let localVendorIncluded=false,sourceMode;
   if(buildUsesOriginal){
    sourceMode='external_checkout';
-  }else if(spec.key==='appendix'){
+  }else if(spec.vendorAnchor){
+   const dir='vendor/'+spec.key,oldDir='.sources/'+spec.key;
    const internalBuild=build.includes(spec.vendorAnchor)&&build.includes(spec.vendorGuard);
    const internalWorkflow=workflow.includes(spec.vendorWorkflow)&&
-     workflow.includes('working-directory: vendor/appendix')&&
-     workflow.includes('test ! -d .sources/appendix');
+     (workflow.includes('working-directory: '+dir)||workflow.includes('cd '+dir))&&
+     workflow.includes('test ! -d '+oldDir);
    if(!internalBuild||!internalWorkflow)
-    throw Error('Appendix sin checkout, pero falta fuente interna verificada o barrera de CI');
+    throw Error(spec.key+' sin checkout, pero falta fuente interna verificada o barrera de CI');
+   if(item.sourceMode!=='vendored'||item.path!==dir||!/^[a-f0-9]{40}$/.test(item.treeSha||''))
+    throw Error('Lock de '+spec.key+' no declara árbol interno verificable');
    localVendorIncluded=true;
    sourceMode='vendored';
   }else{
@@ -50,7 +56,7 @@ export function assessOriginalDependencies(lock,build,workflow){
  });
  const exams=lock.sources.examenes;
  return {
-  schema:'schola-original-source-retirement-audit/v2',
+  schema:'schola-original-source-retirement-audit/v3',
   auditScope:'Codigo y CI; no prueba compatibilidad de URLs/PWA originales ni respaldos',
   sourceReposRequiredForBuild:integrated.filter(x=>x.buildUsesOriginal).length,
   integrated,
