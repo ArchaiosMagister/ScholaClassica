@@ -34,7 +34,9 @@ export function assessOriginalDependencies(lock,build,workflow){
   }else if(spec.vendorAnchor){
    const dir='vendor/'+spec.key,oldDir='.sources/'+spec.key;
    const internalBuild=build.includes(spec.vendorAnchor)&&build.includes(spec.vendorGuard);
-   const internalWorkflow=workflow.includes(spec.vendorWorkflow)&&
+   const internalWorkflow=workflow.split('\n').some(line=>{const cmd=line.trim();
+    return cmd===spec.vendorWorkflow||cmd==='run: '+spec.vendorWorkflow;
+   })&&
      (workflow.includes('working-directory: '+dir)||workflow.includes('cd '+dir)||
       workflow.includes('cp -a '+dir+'/.'))&&
      workflow.includes('test ! -d '+oldDir);
