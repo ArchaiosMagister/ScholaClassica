@@ -112,13 +112,13 @@ jobs:
           set -euo pipefail
           base=https://archaiosmagister.github.io
           curl -fsSL --retry 2 "$base/Appendix-grammaticae/assets/theme.js" |
-            grep -Fq 'SCHOLA_LEGACY_NOTICE_V1'
+            grep -F 'SCHOLA_LEGACY_NOTICE_V1' >/dev/null
           curl -fsSL --retry 2 "$base/VocabulaLatinaGraecaque/theme.js" |
             grep -Fq 'SCHOLA_LEGACY_NOTICE_V1'
           curl -fsSL --retry 2 "$base/EvolucionFonetica/index.html" |
-            grep -Fq 'schola-legacy-notice'
+            grep -F 'schola-legacy-notice' >/dev/null
           curl -fsSL --retry 2 "$base/EvolucionFonetica/sw.js" |
-            grep -Fq 'key.startsWith(CACHE_PREFIX)'
+            grep -F 'key.startsWith(CACHE_PREFIX)' >/dev/null
           echo 'Avisos antiguos HTTPS y aislamiento de caché comprobados.'
       - name: Guardar resultados HTTP para revisión de retirada
         if: always()
