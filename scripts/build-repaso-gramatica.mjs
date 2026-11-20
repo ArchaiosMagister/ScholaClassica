@@ -27,6 +27,8 @@ export async function buildGrammarReview({source,destination,vocabulaDestination
  await cp(join(source,'data/unimorph-syllabus'),join(destination,'data/unimorph-syllabus'),{recursive:true});
  await cp(join(root,'scripts/grammar-progress-client.js'),join(destination,'grammar-progress.js'));
  let html=await readFile(join(source,'gramatica.html'),'utf8');
+ html=exactly(html,'<meta name="description" content="Ejercicios autocorregibles de gramática de Latín I, Griego I y Latín de 4.º ESO por unidades.">',
+  '<meta name="description" content="Repaso de sintaxis, conceptos y flexiones en ScholaClassica."><link rel="manifest" href="manifest.webmanifest">','manifest y descripción');
  html=exactly(html,'<title>Repaso de gramática · Vocabulario clásico</title>',
   '<title>Repaso gramatical · ScholaClassica</title>','título');
  const before='<header><a href="./" class="brand" aria-label="Inicio"><span class="brand-mark" lang="grc">ἀ</span><span class="brand-dash">–</span><span class="brand-latin" lang="la">ā</span></a><a href="./" class="header-title">Vocabulario clásico</a>\n<div class="header-actions"><button id="open-report" type="button">Avisar de un error</button></div>\n<nav class="topnav" aria-label="Secciones de estudio"><a class="study-tab" href="./">Vocabulario</a><a class="study-tab" href="gramatica.html" aria-current="page">Gramática</a></nav></header>';
