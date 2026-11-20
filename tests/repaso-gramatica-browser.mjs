@@ -69,6 +69,7 @@ try{
  await second.waitForFunction(()=>window.GrammarPracticeDebug&&window.GrammarProgressTransfer);
  assert.equal(await second.locator('#subject').inputValue(),'lat4');
  assert.equal(await second.locator('#category').inputValue(),'Sintaxis');
+ await second.locator('#grammar-progress-tools summary').click();
  await second.locator('#grammar-progress-import').setInputFiles({
   name:'vocabulario.json',mimeType:'application/json',
   buffer:Buffer.from(JSON.stringify({version:1,progress:exported.progress}))
