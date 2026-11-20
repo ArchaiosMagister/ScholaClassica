@@ -42,7 +42,7 @@ test('La auditoría tiene ocho pares de URLs y ocho controles de caché, aviso y
  const checks=report.checks.filter(x=>x.kind==='content-marker');
  assert.equal(checks.length,8);
  assert.ok(checks.some(x=>x.id==='vocabula-progreso-gramatical'));
- assert.ok(checks.some(x=>x.id==='evolutio-caché-integrada-aislada'));
+ assert.ok(checks.some(x=>x.id==='evolutio-cache-integrada-aislada'));
 });
 test('Caídas HTTP, falta de script de progreso y redirecciones hostiles no se certifican',async()=>{
  const paths=content();
@@ -54,8 +54,8 @@ test('Caídas HTTP, falta de script de progreso y redirecciones hostiles no se c
  paths.set('/EvolucionFonetica/sw.js','sin aislamiento de caché');
  result=await auditLegacyLiveRoutes(spec,{fetchImpl:fakeFetch(paths)});
  assert.equal(result.summary.failed,1);
- assert.deepEqual(result.checks.find(x=>x.id==='evolutio-caché-legada-aislada')
-  .resource.missingMarkers,spec.checks.find(x=>x.id==='evolutio-caché-legada-aislada').contains);
+ assert.deepEqual(result.checks.find(x=>x.id==='evolutio-cache-legada-aislada')
+  .resource.missingMarkers,spec.checks.find(x=>x.id==='evolutio-cache-legada-aislada').contains);
  result=await auditLegacyLiveRoutes(spec,{fetchImpl:fakeFetch(content(),
   {redirect:{'/Appendix-grammaticae/':'https://ejemplo.es/otro'}})});
  assert.equal(result.summary.failed,1);
@@ -83,8 +83,8 @@ test('Las URLs de migración están declaradas, sin URLs inventadas de borrado',
   'appendix-griego-sintaxis','appendix-valenciano-latin1',
   'evolutio-inicio','vocabula-inicio','vocabula-gramatica'
  ]);
- assert.equal(spec.checks.find(x=>x.id==='evolutio-caché-legada-aislada')
+ assert.equal(spec.checks.find(x=>x.id==='evolutio-cache-legada-aislada')
   .path,'/EvolucionFonetica/sw.js');
- assert.equal(spec.checks.find(x=>x.id==='evolutio-caché-integrada-aislada')
+ assert.equal(spec.checks.find(x=>x.id==='evolutio-cache-integrada-aislada')
   .path,'/ScholaClassica/apps/evolucion-fonetica/sw.js');
 });
