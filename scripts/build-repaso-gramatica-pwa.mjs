@@ -10,7 +10,7 @@ const CORE=Object.freeze([
  'gramatica-enunciados.js','gramatica-paradigmas.js',
  'gramatica-latin-imperfectos.js','gramatica-griego-ampliacion.js',
  'gramatica-importada.js','gramatica-respaldo-online.js',
- 'gramatica-admin.js','grammar-progress.js','icons/favicon.svg',
+ 'gramatica-admin.js','grammar-progress.js','grammar-review-init.js','icons/favicon.svg',
  'data/unimorph-syllabus/manifest.json','manifest.webmanifest'
 ]);
 export async function buildGrammarReviewPwa(dest){
