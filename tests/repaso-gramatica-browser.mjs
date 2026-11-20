@@ -38,7 +38,7 @@ try{
   key:GrammarProgressTransfer.KEY,
   courses:Object.keys(GrammarPracticeDebug.syllabi)
  }));
- assert.equal(counts.syntax,63,'Las 36 preguntas aprobadas deben aparecer en el módulo');
+ assert.equal(counts.syntax,87,'Las 36+24 preguntas aprobadas deben aparecer en el módulo');
  assert.equal(counts.concepts,1,'El motor original excluye de la práctica las 6 preguntas de introducción UD0');
  assert.equal(counts.key,'classics-grammar-v1');
  assert.ok(counts.courses.includes('gr1')&&counts.courses.includes('lat1'));
@@ -115,26 +115,47 @@ try{
    idA:syntax.find(q=>q.prompt.startsWith('En «Cicero, orator Romanus'))?.id,
    idB:syntax.find(q=>q.prompt.startsWith('En «Mihi liber est»'))?.id};
  });
- assert.deepEqual(approvedCoverage.bySubject,{lat4:18,lat1:20,gr1:25});
- assert.deepEqual(approvedCoverage.lat4Units,[2,2,4,2,2,2,2,2]);
+ assert.deepEqual(approvedCoverage.bySubject,{lat4:22,lat1:32,gr1:33});
+ assert.deepEqual(approvedCoverage.lat4Units,[3,2,5,2,2,3,2,3]);
  assert.equal(approvedCoverage.apposition,true);
  assert.equal(approvedCoverage.possessive,true);
- assert.equal(approvedCoverage.questionCount,63);
+ assert.equal(approvedCoverage.questionCount,87);
  assert.equal(approvedCoverage.hasOriginal,true);
  assert.equal(approvedCoverage.idA,'lat1|UD 4|concept-103');
  assert.equal(approvedCoverage.idB,'lat1|UD 7|concept-106');
- for(const [unit,expectedId] of [['UD 4','lat1|UD 4|concept-103'],['UD 7','lat1|UD 7|concept-106']]){
+ const canonicalDative='Dativo complemento adjetival (también dativo de aproximación)';
+ for(const [unit,oldId] of [['UD 4','lat1|UD 4|concept-103'],['UD 7','lat1|UD 7|concept-106']]){
   await second.locator('#subject').selectOption('lat1');
   await second.locator('#category').selectOption('Sintaxis');
   await second.locator('#none').click();
   await second.locator('#units input[value="'+unit+'"]').check();
+  await second.locator('#length').selectOption('all');
   await second.waitForFunction(()=>!document.querySelector('#start').disabled);
   await second.locator('#start').click();
-  const question=await second.evaluate(()=>GrammarPracticeDebug.currentQuestion());
-  assert.equal(question.id,expectedId);
-  await second.locator('#grammar-answer button').filter({hasText:question.answer}).first().click();
-  const recorded=await second.evaluate(id=>JSON.parse(localStorage.getItem('classics-grammar-v1'))[id],expectedId);
-  assert.equal(recorded.right,1,'El progreso de la pregunta nueva debe guardarse por su ID');
+  const played=[];
+  for(let i=0;i<4;i++){
+   const question=await second.evaluate(()=>GrammarPracticeDebug.currentQuestion());
+   assert.equal(question.subject,'lat1');
+   assert.equal(question.unit,unit);
+   assert.equal(question.category,'Sintaxis');
+   played.push(question.id);
+   if(unit==='UD 4'&&['lat1|UD 4|concept-122','lat1|UD 4|concept-123'].includes(question.id)){
+    assert.equal(question.answer,canonicalDative);
+    assert.match(question.explanation,/dativo complemento adjetival/i);
+    assert.match(question.explanation,/dativo de aproximación/i);
+    assert.ok(question.options.includes(canonicalDative));
+   }
+   await second.locator('#grammar-answer button').filter({hasText:question.answer}).first().click();
+   const recorded=await second.evaluate(id=>JSON.parse(localStorage.getItem('classics-grammar-v1'))[id],question.id);
+   assert.equal(recorded.right,1,'El progreso de la pregunta aprobada debe guardarse por su ID');
+   if(i<3)await second.locator('#grammar-next-btn').click();
+  }
+  assert.equal(new Set(played).size,4,'La unidad debe ofrecer cuatro preguntas distintas');
+  assert.ok(played.includes(oldId),'La pregunta previa debe conservar su ID '+oldId);
+  if(unit==='UD 4'){
+   assert.ok(played.includes('lat1|UD 4|concept-122'));
+   assert.ok(played.includes('lat1|UD 4|concept-123'));
+  }
  }
  assert.deepEqual(await second.evaluate(id=>JSON.parse(localStorage.getItem('classics-grammar-v1'))[id],q.id),
   original[q.id],'El historial previamente importado debe conservarse');
