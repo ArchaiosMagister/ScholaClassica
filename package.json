@@ -48,6 +48,8 @@
     "audit:morfologia:funcional:es": "node scripts/audit-morphology-spanish-functional.mjs",
     "test:browser:castellano:morfologia": "node tests/castellano-morfologia-matrix-browser.mjs",
     "audit:vocabula:vendor": "node scripts/verify-vendored-vocabula.mjs",
-    "audit:evolutio:vendor": "node scripts/verify-vendored-evolutio.mjs"
+    "audit:evolutio:vendor": "node scripts/verify-vendored-evolutio.mjs",
+    "audit:retirada:urls": "node scripts/audit-live-legacy-routes.mjs",
+    "backup:plan": "node scripts/backup-originals.mjs --plan"
   }
 }
