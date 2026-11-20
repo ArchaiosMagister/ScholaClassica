@@ -309,7 +309,7 @@ Las preguntas **SIN-LAT1-04-020 (aposición, UD4)** y **SIN-LAT1-07-023 (dativo 
 
 **Respuesta:** Sujeto del infinitivo
 
-**Distractores:** Complemento directo de «iungere» · Atributo de «dux» · Complemento agente
+**Distractores:** Complemento directo de «facere» · Atributo de «dux» · Complemento agente
 
 **Explicación:** «Milites» es el sujeto en acusativo del infinitivo «facere»; «pontem» es su complemento directo. La oración significa «el general ordena que los soldados construyan un puente».
 
