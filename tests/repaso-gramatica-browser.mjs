@@ -55,6 +55,7 @@ try{
  assert.ok(original[q.id]&&original[q.id].right===1);
  assert.equal(await page.evaluate(()=>localStorage.getItem('classics-progress-v1')),null,
   'Repaso gramatical no escribe el progreso del vocabulario');
+ await page.locator('#grammar-progress-tools summary').click();
  const pending=page.waitForEvent('download',{timeout:7000}).catch(()=>null);
  await page.locator('#grammar-progress-export').click();
  await page.waitForFunction(()=>Boolean(document.querySelector('#grammar-progress-status')?.textContent));
