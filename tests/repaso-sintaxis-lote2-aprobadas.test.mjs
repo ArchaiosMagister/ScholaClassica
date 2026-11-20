@@ -82,7 +82,7 @@ test('El guardián bloquea modificaciones no autorizadas, duplicados, fuera de c
  assert.throws(alter(x=>x.questions.pop()),/24/);
  assert.throws(alter(x=>x.questions[0].u='UD 11'),/Unidad fuera del currículo/);
  assert.throws(alter(x=>x.questions[0].candidateId=x.questions[1].candidateId),/repetido/i);
- assert.throws(alter(x=>x.questions[0].p=first.questions[0].p),/Pregunta duplicada/);
+ assert.throws(alter(x=>x.questions[0].p=first.questions.find(q=>q.s==='lat1'&&q.u==='UD 1').p),/Pregunta duplicada/);
  assert.throws(alter(x=>x.questions[0].t='Tema inexistente'),/Epígrafe/);
  assert.throws(alter(x=>x.questions[0].w[0]=x.questions[0].a),/Opciones duplicadas/);
  assert.throws(alter(x=>x.questions.find(q=>q.candidateId==='SIN2-LAT1-04-003').a='Dativo de semejanza'),/dativo adjetival/);
