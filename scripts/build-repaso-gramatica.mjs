@@ -26,6 +26,7 @@ export async function buildGrammarReview({source,destination,vocabulaDestination
  await cp(join(vocabulaDestination,'data.js'),join(destination,'data.js'));
  await cp(join(source,'data/unimorph-syllabus'),join(destination,'data/unimorph-syllabus'),{recursive:true});
  await cp(join(root,'scripts/grammar-progress-client.js'),join(destination,'grammar-progress.js'));
+ await cp(join(root,'scripts/grammar-review-init.js'),join(destination,'grammar-review-init.js'));
  let html=await readFile(join(source,'gramatica.html'),'utf8');
  html=exactly(html,'<meta name="description" content="Ejercicios autocorregibles de gramática de Latín I, Griego I y Latín de 4.º ESO por unidades.">',
   '<meta name="description" content="Repaso de sintaxis, conceptos y flexiones en ScholaClassica."><link rel="manifest" href="manifest.webmanifest">','manifest y descripción');
@@ -40,7 +41,7 @@ export async function buildGrammarReview({source,destination,vocabulaDestination
  html=exactly(html,'<option value="Sintaxis">Sintaxis</option>',
   '<option value="Sintaxis" selected>Sintaxis</option>','sintaxis por defecto');
  html=exactly(html,'<script src="gramatica.js?v=5" defer></script>',
-  '<script src="gramatica.js?v=5" defer></script><script src="grammar-progress.js" defer></script>','progreso');
+  '<script src="gramatica.js?v=5" defer></script><script src="grammar-progress.js" defer></script><script src="grammar-review-init.js" defer></script>','progreso e itinerario');
  html=exactly(html,'<h1>La gramática se aprende<br>practicándola.</h1>',
   '<h1>Repasa sintaxis y conceptos<br>de latín y griego.</h1>','presentación');
  html=exactly(html,'<p>Selecciona las unidades que has estudiado y repasa sus formas y construcciones.</p>',
