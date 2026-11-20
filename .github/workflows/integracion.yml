@@ -127,6 +127,8 @@ jobs:
         run: node tests/vocabula-traspaso-browser.mjs
       - name: Probar módulo propio de repaso gramatical, sintaxis y migración segura
         run: node tests/repaso-gramatica-browser.mjs
+      - name: Probar el traspaso bidireccional de gramática entre web antigua y ScholaClassica
+        run: node tests/repaso-legado-traspaso-browser.mjs
       - name: Preparar motor WebKit para emulación de Safari en iPad
         run: npx playwright install --with-deps webkit
       - name: Probar repaso en iPad con controles táctiles, modos y PWA offline
