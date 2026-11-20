@@ -676,21 +676,22 @@
       "u": "UD 8",
       "t": "Las oraciones de infinitivo",
       "c": "Sintaxis",
-      "p": "En «Dux milites pontem iungere iubet», ¿qué función tiene «milites» dentro del AcI?",
+      "p": "En «Dux milites pontem facere iubet», ¿qué función tiene «milites» dentro del AcI?",
       "a": "Sujeto del infinitivo",
       "w": [
         "Complemento directo de «iungere»",
         "Atributo de «dux»",
         "Complemento agente"
       ],
-      "x": "«Milites» es acusativo sujeto de la oración subordinada de infinitivo; «pontem» es el complemento directo de «iungere».",
+      "x": "«Milites» es el sujeto en acusativo del infinitivo «facere»; «pontem» es su complemento directo. La oración significa «el general ordena que los soldados construyan un puente».",
       "review": "pendiente-aprobacion-docente",
       "scope": "nuevo",
       "source": {
         "file": "vendor/appendix/assets/curriculum.json",
         "corpus": "latin",
         "unit": 8,
-        "topic": "Infinitivos y oración de infinitivo"
+        "topic": "Infinitivos y oración de infinitivo",
+        "note": "Construcción de AcI adaptada del tema de infinitivos de Appendix; se emplea «facere pontem» para mantener el sentido de «construir un puente»."
       },
       "alignment": {
         "topicMatchesLegacySyllabus": true,
