@@ -87,7 +87,7 @@
       ]
     },
     {
-      "id": "evolutio-caché-legada-aislada",
+      "id": "evolutio-cache-legada-aislada",
       "path": "/EvolucionFonetica/sw.js",
       "contains": [
         "const CACHE_PREFIX='evolutio-latin-'",
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "id": "evolutio-caché-integrada-aislada",
+      "id": "evolutio-cache-integrada-aislada",
       "path": "/ScholaClassica/apps/evolucion-fonetica/sw.js",
       "contains": [
         "const CACHE_PREFIX='schola-evolutio-'",
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "id": "repaso-caché-integrada-aislada",
+      "id": "repaso-cache-integrada-aislada",
       "path": "/ScholaClassica/apps/repaso-gramatica/sw.js",
       "contains": [
         "schola-repaso-gramatica-"
