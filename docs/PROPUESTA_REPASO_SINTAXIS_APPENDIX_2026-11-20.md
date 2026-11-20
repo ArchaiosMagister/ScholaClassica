@@ -61,8 +61,8 @@ Las alternativas erróneas y explicaciones completas figuran en [el JSON de revi
 
 | Unidad | Enunciado propuesto | Respuesta | Tratamiento |
 | --- | --- | --- | --- |
-| UD 1 | En «Puella rosas amat», ¿qué función tiene «puella»? | Sujeto | Contenido de la unidad |
-| UD 1 | En «Puella amico rosam dat», ¿qué función tiene «rosam»? | Complemento directo | Contenido de la unidad |
+| UD 1 | ¿Qué función sintáctica suele desempeñar un sustantivo latino en nominativo, como «puella»? | Sujeto | Contenido de la unidad |
+| UD 1 | En «rosa puellæ» («la rosa de la niña»), ¿qué función tiene «puellæ»? | Complemento del nombre | Contenido de la unidad |
 | UD 2 | En «Servus dominum videt», ¿qué función tiene «dominum»? | Complemento directo | Repaso acumulativo |
 | UD 2 | En «Servus domini laborat», ¿qué función tiene «domini»? | Complemento del nombre | Repaso acumulativo |
 | UD 3 | En «Puella in silva habitat», ¿qué valor tiene «in silva»? | Lugar en donde | Contenido de la unidad |
@@ -107,6 +107,8 @@ Las alternativas erróneas y explicaciones completas figuran en [el JSON de revi
 | UD 8 | En «τίς λέγει;», ¿de qué tipo es la oración? | Interrogativa directa | Contenido de la unidad |
 | UD 9 | En «ὁ ἄνθρωπος, ὃν ὁ φίλος βλέπει, λόγον λέγει», ¿qué función tiene «ὃν»? | Complemento directo de «βλέπει» | Contenido de la unidad |
 | UD 10 | En «ὁ λέγων ἀνήρ», ¿qué uso tiene el participio «λέγων»? | Participio atributivo | Contenido de la unidad |
+
+**Ajuste de secuenciación:** en Latín 4.º UD1 no se presentan todavía verbos conjugados; se utiliza nominativo y genitivo dentro de grupos nominales. Los ejercicios con verbos de presente quedan para UD2 y siguientes.
 
 ## Dos correspondencias curriculares que requieren decisión docente
 
