@@ -584,14 +584,14 @@
       "u": "UD 5",
       "t": "El complemento predicativo",
       "c": "Sintaxis",
-      "p": "En «Puer currit laetus» («el niño corre contento»), ¿qué función tiene «laetus»?",
+      "p": "En «puellæ ludunt fessæ» («las niñas juegan cansadas»), ¿qué función tiene «fessæ»?",
       "a": "Complemento predicativo del sujeto",
       "w": [
         "Complemento directo",
         "Atributo con verbo copulativo",
         "Complemento del nombre en genitivo"
       ],
-      "x": "«Laetus» concuerda con «puer» y expresa un estado asociado a la acción de correr.",
+      "x": "«Fessæ» concuerda con «puellæ» y expresa cómo se encuentran las niñas durante la acción de jugar; es el ejemplo docente de Appendix.",
       "review": "pendiente-aprobacion-docente",
       "scope": "nuevo",
       "source": {
