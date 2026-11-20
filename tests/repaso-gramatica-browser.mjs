@@ -55,9 +55,13 @@ try{
  assert.ok(original[q.id]&&original[q.id].right===1);
  assert.equal(await page.evaluate(()=>localStorage.getItem('classics-progress-v1')),null,
   'Repaso gramatical no escribe el progreso del vocabulario');
- const pending=page.waitForEvent('download');
+ const pending=page.waitForEvent('download',{timeout:7000}).catch(()=>null);
  await page.locator('#grammar-progress-export').click();
+ await page.waitForFunction(()=>Boolean(document.querySelector('#grammar-progress-status')?.textContent));
+ const exportStatus=await page.locator('#grammar-progress-status').textContent();
+ assert.match(exportStatus,/Historial exportado/,`El exportador de gramática ha fallado: ${exportStatus}; ID: ${q.id}; progreso: ${JSON.stringify(original)}`);
  const download=await pending;
+ assert.ok(download,`El navegador no ha descargado el JSON pese al estado: ${exportStatus}`);
  assert.equal(download.suggestedFilename(),'progreso-gramatica.json');
  const exported=JSON.parse((await readFile(await download.path())).toString());
  assert.equal(exported.kind,'grammar');
