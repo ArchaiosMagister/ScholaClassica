@@ -1,0 +1,50 @@
+name: Vigilar URLs antiguas y PWA de transición (sin publicar)
+on:
+  pull_request:
+    paths:
+      - 'config/retirada-rutas-publicas.json'
+      - 'scripts/audit-live-legacy-routes.mjs'
+      - 'tests/retirada-rutas-publicas.test.mjs'
+      - '.github/workflows/vigilar-rutas-legadas.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/retirada-rutas-publicas.json'
+      - 'scripts/audit-live-legacy-routes.mjs'
+      - '.github/workflows/vigilar-rutas-legadas.yml'
+  schedule:
+    - cron: '37 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: schola-rutas-legadas-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  auditar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - name: Checkout de ScholaClassica sin token persistente
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Probar el auditor con respuestas simuladas, sin tocar sitios
+        run: node --test tests/retirada-rutas-publicas.test.mjs
+      - name: Comprobar respuestas HTTP de los sitios históricos y de ScholaClassica
+        run: node scripts/audit-live-legacy-routes.mjs
+      - name: Guardar diagnóstico de URL sin publicar contenido ni historiales
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-rutas-legadas-solo-auditoria
+          path: build/academic-audits/retirada/urls-vivas.json
+          if-no-files-found: warn
+          retention-days: 30
