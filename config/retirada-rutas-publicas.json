@@ -1,0 +1,113 @@
+{
+  "schema": "schola-live-legacy-routes/v1",
+  "origin": "https://archaiosmagister.github.io",
+  "purpose": "Solo disponibilidad HTTP de URL antiguas y nuevas; no comprueba iPad real ni migración de datos de usuario.",
+  "routes": [
+    {
+      "id": "appendix-inicio",
+      "legacy": "/Appendix-grammaticae/",
+      "integrated": "/ScholaClassica/apps/gramatica/"
+    },
+    {
+      "id": "appendix-latin1-ud1",
+      "legacy": "/Appendix-grammaticae/curso.html?lengua=latin&curso=1&unidad=1",
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1"
+    },
+    {
+      "id": "appendix-sintaxis-latin",
+      "legacy": "/Appendix-grammaticae/sintaxis.html",
+      "integrated": "/ScholaClassica/apps/gramatica/sintaxis.html"
+    },
+    {
+      "id": "appendix-griego-sintaxis",
+      "legacy": "/Appendix-grammaticae/griego-sintaxis.html",
+      "integrated": "/ScholaClassica/apps/gramatica/griego-sintaxis.html"
+    },
+    {
+      "id": "appendix-valenciano-latin1",
+      "legacy": "/Appendix-grammaticae/val/curso.html?lengua=latin&curso=1&unidad=1",
+      "integrated": "/ScholaClassica/apps/gramatica/val/curso.html?lengua=latin&curso=1&unidad=1"
+    },
+    {
+      "id": "evolutio-inicio",
+      "legacy": "/EvolucionFonetica/",
+      "integrated": "/ScholaClassica/apps/evolucion-fonetica/index.html"
+    },
+    {
+      "id": "vocabula-inicio",
+      "legacy": "/VocabulaLatinaGraecaque/",
+      "integrated": "/ScholaClassica/apps/vocabulario/index.html?subject=lat1"
+    },
+    {
+      "id": "vocabula-gramatica",
+      "legacy": "/VocabulaLatinaGraecaque/gramatica.html",
+      "integrated": "/ScholaClassica/apps/repaso-gramatica/index.html?subject=lat1"
+    }
+  ],
+  "checks": [
+    {
+      "id": "appendix-aviso-legado",
+      "path": "/Appendix-grammaticae/assets/theme.js",
+      "contains": [
+        "SCHOLA_LEGACY_NOTICE_V1",
+        "/ScholaClassica/apps/gramatica/"
+      ]
+    },
+    {
+      "id": "vocabula-aviso-legado",
+      "path": "/VocabulaLatinaGraecaque/theme.js",
+      "contains": [
+        "SCHOLA_LEGACY_NOTICE_V1",
+        "/ScholaClassica/apps/vocabulario/",
+        "/ScholaClassica/apps/repaso-gramatica/"
+      ]
+    },
+    {
+      "id": "vocabula-progreso-gramatical",
+      "path": "/VocabulaLatinaGraecaque/gramatica-progreso.js",
+      "contains": [
+        "schola-grammar-progress/v1",
+        "classics-grammar-v1"
+      ]
+    },
+    {
+      "id": "repaso-progreso-integrado",
+      "path": "/ScholaClassica/apps/repaso-gramatica/grammar-progress.js",
+      "contains": [
+        "schola-grammar-progress/v1",
+        "classics-grammar-v1"
+      ]
+    },
+    {
+      "id": "evolutio-aviso-legado",
+      "path": "/EvolucionFonetica/index.html",
+      "contains": [
+        "schola-legacy-notice",
+        "/ScholaClassica/apps/evolucion-fonetica/index.html"
+      ]
+    },
+    {
+      "id": "evolutio-caché-legada-aislada",
+      "path": "/EvolucionFonetica/sw.js",
+      "contains": [
+        "const CACHE_PREFIX='evolutio-latin-'",
+        "keys.filter(key=>key.startsWith(CACHE_PREFIX)"
+      ]
+    },
+    {
+      "id": "evolutio-caché-integrada-aislada",
+      "path": "/ScholaClassica/apps/evolucion-fonetica/sw.js",
+      "contains": [
+        "const CACHE_PREFIX='schola-evolutio-'",
+        "keys.filter(key=>key.startsWith(CACHE_PREFIX)"
+      ]
+    },
+    {
+      "id": "repaso-caché-integrada-aislada",
+      "path": "/ScholaClassica/apps/repaso-gramatica/sw.js",
+      "contains": [
+        "schola-repaso-gramatica-"
+      ]
+    }
+  ]
+}
