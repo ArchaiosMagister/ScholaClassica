@@ -75,7 +75,7 @@ test('Importación rechaza registros corruptos sin aceptarlos parcial o silencio
   {'vocabula-id':{total:1,right:1,failed:false}},
   []
  ])assert.throws(()=>api.pack(invalid));
- assert.throws(()=>api.unpack('not-json'),SyntaxError);
+ assert.throws(()=>api.unpack('not-json'),{name:'SyntaxError'});
  assert.throws(()=>api.unpack('x'.repeat(8*1024*1024+1)),/grande/);
 });
 test('La PWA usa caché y ámbito propios, sin borrar los otros módulos',()=>{
