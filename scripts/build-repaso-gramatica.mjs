@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {cp,mkdir,readFile,writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {extendGrammarReview} from './extend-repaso-sintaxis.mjs';
+import {extendGrammarReviewBatchTwo} from './extend-repaso-sintaxis-lote2.mjs';
 
 // El antiguo Vocabula contiene un segundo motor de gramática que no forma parte
 // del vocabulario ni equivale al módulo moderno de morfología de ScholaClassica.
@@ -20,12 +21,15 @@ const exactly=(text,needle,replacement,label)=>{
 export async function buildGrammarReview({source,destination,vocabulaDestination,root}){
  await mkdir(destination,{recursive:true});
  for(const path of FILES)await cp(join(source,path),join(destination,path));
- // Solo el artefacto independiente de ScholaClassica incorpora las 36 candidatas aprobadas.
- // El snapshot vendorizado, sus 84 preguntas y los IDs concept-0…83 permanecen intactos.
+ // Exclusivamente ScholaClassica compila los dos lotes APROBADOS, en orden.
+ // El snapshot de Vocabula, las 84 preguntas originales, las 36 del primer
+ // lote y todos los IDs concept-0…119 quedan intactos; nunca lee candidatas.
  const approved=JSON.parse(await readFile(join(root,'data/repaso-sintaxis-aprobadas.json'),'utf8'));
+ const approvedTwo=JSON.parse(await readFile(join(root,'data/repaso-sintaxis-lote2-aprobadas.json'),'utf8'));
  const grammarFile=join(destination,'gramatica-contenidos.js');
  const legacy=await readFile(grammarFile,'utf8');
- await writeFile(grammarFile,extendGrammarReview(legacy,approved));
+ const firstBatch=extendGrammarReview(legacy,approved);
+ await writeFile(grammarFile,extendGrammarReviewBatchTwo(firstBatch,approvedTwo));
  await mkdir(join(destination,'icons'),{recursive:true});
  await cp(join(source,'icons/favicon.svg'),join(destination,'icons/favicon.svg'));
  // La copia de vocabulario corregida y verificada es única; el repaso consume
