@@ -38,7 +38,8 @@ try{
   key:GrammarProgressTransfer.KEY,
   courses:Object.keys(GrammarPracticeDebug.syllabi)
  }));
- assert.ok(counts.syntax>=27&&counts.concepts>=7);
+ assert.equal(counts.syntax,27);
+ assert.equal(counts.concepts,1,'El motor original excluye de la práctica las 6 preguntas de introducción UD0');
  assert.equal(counts.key,'classics-grammar-v1');
  assert.ok(counts.courses.includes('gr1')&&counts.courses.includes('lat1'));
  await page.locator('#all').click();
