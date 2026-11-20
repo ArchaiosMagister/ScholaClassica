@@ -1,4 +1,5 @@
 # Revisión filológica individual · segundo lote de 24 preguntas de sintaxis
+> **Actualización posterior:** el docente aprobó las 24 preguntas, con la clasificación principal «dativo complemento adjetival» y la alternativa admisible «dativo de aproximación» en los ejercicios SIN2-LAT1-04-003/004. Este documento conserva la propuesta histórica; las formulaciones definitivas están en [`data/repaso-sintaxis-lote2-aprobadas.json`](../data/repaso-sintaxis-lote2-aprobadas.json) y la [decisión docente](DECISION_REPASO_SINTAXIS_LOTE2_2026-11-20.md).
 
 **Estado:** exclusivamente propuestas pendientes de aprobación docente. **Fuentes:** contenidos curriculares existentes de Appendix, sin añadir unidades nuevas.
 
