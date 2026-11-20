@@ -29,16 +29,30 @@ test('Mantener separados el módulo de repaso y los motores de vocabulario y mor
  assert.ok(!readdirSync(join(root,'dist/apps/vocabulario')).includes('gramatica.html'),
   'La gramática no debe volver a incrustarse en Vocabula');
 });
-test('Se preservan las 84 preguntas y las 3 categorías históricas más sus fuentes morfológicas',()=>{
+test('Se conservan las 84 preguntas antiguas y se añaden 36 de sintaxis con los mismos índices históricos',()=>{
  const sandbox={window:{}};
  runInNewContext(read(dir+'gramatica-contenidos.js'),sandbox);
- const q=sandbox.window.GRAMMAR_CONTENT.questions;
- assert.equal(q.length,84);
- assert.equal(q.filter(x=>x.c==='Sintaxis').length,27);
+ const content=sandbox.window.GRAMMAR_CONTENT,q=content.questions;
+ const source=JSON.parse(read('vendor/vocabula/gramatica-contenidos.js')
+  .split('window.GRAMMAR_CONTENT=')[1].trim().replace(/;\s*$/,''));
+ const approved=JSON.parse(read('data/repaso-sintaxis-aprobadas.json'));
+ assert.equal(source.questions.length,84);
+ assert.deepEqual(nice(q.slice(0,84)),source.questions,
+  'Los índices concept-i y las preguntas antiguas no deben variar');
+ assert.deepEqual(nice(q.slice(84)),approved.questions.map(({candidateId,...question})=>question),
+  'El bloque aprobado debe agregarse al final, sin modificar sus respuestas');
+ assert.equal(q.length,120);
+ assert.equal(q.filter(x=>x.c==='Sintaxis').length,63);
  assert.equal(q.filter(x=>x.c==='Conceptos').length,7);
  assert.equal(q.filter(x=>x.c.startsWith('Morfología')).length,50);
- assert.deepEqual(nice(Object.keys(sandbox.window.GRAMMAR_CONTENT.syllabi)).sort(),
-  ['gr1','lat1','lat4']);
+ assert.deepEqual(nice(Object.keys(content.syllabi)).sort(),['gr1','lat1','lat4']);
+ for(const subject of ['gr1','lat4'])assert.deepEqual(nice(content.syllabi[subject]),source.syllabi[subject],
+  'La secuenciación no debe alterarse en '+subject);
+ for(const [unit,topic] of [['UD 4','Aposición y dativo de aproximación'],['UD 7','Dativo posesivo']]){
+  const orig=source.syllabi.lat1.find(([u])=>u===unit)[1];
+  const next=nice(content.syllabi.lat1.find(([u])=>u===unit)[1]);
+  assert.deepEqual(next,[...orig,topic],'Nuevo epígrafe de '+unit+' tras los originales');
+ }
  for(const p of ['gramatica-importada.js','gramatica-respaldo-online.js',
  'gramatica-enunciados.js','gramatica-paradigmas.js','gramatica-griego-ampliacion.js']){
   assert.equal(read(dir+p),read('vendor/vocabula/'+p),'Motor docente de '+p+' modificado');

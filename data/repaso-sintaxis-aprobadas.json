@@ -1,0 +1,561 @@
+{
+  "schema": "schola-sintaxis-aprobada/v1",
+  "approvalDate": "2026-11-20",
+  "approval": "Aprobadas las 36 candidatas por el docente, incluidos los dos epígrafes de Latín I.",
+  "originalQuestionCount": 84,
+  "approvedQuestionCount": 36,
+  "extraTopics": [
+    {
+      "subject": "lat1",
+      "unit": "UD 4",
+      "topic": "Aposición y dativo de aproximación"
+    },
+    {
+      "subject": "lat1",
+      "unit": "UD 7",
+      "topic": "Dativo posesivo"
+    }
+  ],
+  "questions": [
+    {
+      "candidateId": "SIN-LAT4-01-001",
+      "s": "lat4",
+      "u": "UD 1",
+      "t": "Primera declinación",
+      "c": "Sintaxis",
+      "p": "¿Qué función sintáctica suele desempeñar un sustantivo latino en nominativo, como «puella»?",
+      "a": "Sujeto",
+      "w": [
+        "Complemento directo",
+        "Complemento indirecto",
+        "Complemento del nombre"
+      ],
+      "x": "El nominativo desempeña normalmente la función de sujeto de una oración. También puede funcionar como atributo con un verbo copulativo."
+    },
+    {
+      "candidateId": "SIN-LAT4-01-002",
+      "s": "lat4",
+      "u": "UD 1",
+      "t": "Primera declinación",
+      "c": "Sintaxis",
+      "p": "En «rosa puellæ» («la rosa de la niña»), ¿qué función tiene «puellæ»?",
+      "a": "Complemento del nombre",
+      "w": [
+        "Sujeto",
+        "Complemento directo",
+        "Complemento indirecto"
+      ],
+      "x": "En este grupo, «puellæ» se interpreta como genitivo singular y complementa al sustantivo «rosa». La traducción aclara la lectura frente a la ambigüedad morfológica de -æ."
+    },
+    {
+      "candidateId": "SIN-LAT4-02-003",
+      "s": "lat4",
+      "u": "UD 2",
+      "t": "Segunda declinación",
+      "c": "Sintaxis",
+      "p": "En «Servus dominum videt», ¿qué función tiene «dominum»?",
+      "a": "Complemento directo",
+      "w": [
+        "Sujeto",
+        "Atributo",
+        "Complemento del nombre"
+      ],
+      "x": "«Dominum» es acusativo singular de «dominus» y funciona como complemento directo."
+    },
+    {
+      "candidateId": "SIN-LAT4-02-004",
+      "s": "lat4",
+      "u": "UD 2",
+      "t": "Segunda declinación",
+      "c": "Sintaxis",
+      "p": "En «Servus domini laborat», ¿qué función tiene «domini»?",
+      "a": "Complemento del nombre",
+      "w": [
+        "Complemento directo",
+        "Sujeto",
+        "Complemento indirecto"
+      ],
+      "x": "«Domini» es genitivo singular y complementa al sustantivo «servus»."
+    },
+    {
+      "candidateId": "SIN-LAT4-03-005",
+      "s": "lat4",
+      "u": "UD 3",
+      "t": "Preposiciones",
+      "c": "Sintaxis",
+      "p": "En «Puella in silva habitat», ¿qué valor tiene «in silva»?",
+      "a": "Lugar en donde",
+      "w": [
+        "Dirección hacia un lugar",
+        "Complemento agente",
+        "Complemento directo"
+      ],
+      "x": "«In» con ablativo («silva») expresa aquí ubicación estática."
+    },
+    {
+      "candidateId": "SIN-LAT4-03-006",
+      "s": "lat4",
+      "u": "UD 3",
+      "t": "Preposiciones",
+      "c": "Sintaxis",
+      "p": "En «Puella in silvam ambulat», ¿qué expresa «in silvam»?",
+      "a": "Dirección hacia un lugar",
+      "w": [
+        "Lugar en donde",
+        "Complemento agente",
+        "Complemento del nombre"
+      ],
+      "x": "«In» con acusativo («silvam») expresa movimiento hacia el interior de un lugar."
+    },
+    {
+      "candidateId": "SIN-LAT4-04-007",
+      "s": "lat4",
+      "u": "UD 4",
+      "t": "El imperfecto",
+      "c": "Sintaxis",
+      "p": "En «Puella rosas amabat», ¿qué función conserva «rosas»?",
+      "a": "Complemento directo",
+      "w": [
+        "Sujeto",
+        "Complemento indirecto",
+        "Atributo"
+      ],
+      "x": "El imperfecto «amabat» no altera las funciones: «rosas» sigue siendo el complemento directo."
+    },
+    {
+      "candidateId": "SIN-LAT4-04-008",
+      "s": "lat4",
+      "u": "UD 4",
+      "t": "El imperfecto",
+      "c": "Sintaxis",
+      "p": "En «Servus in villa laborabat», ¿qué función tiene «in villa»?",
+      "a": "Complemento circunstancial de lugar",
+      "w": [
+        "Complemento directo",
+        "Complemento del nombre",
+        "Complemento agente"
+      ],
+      "x": "La preposición «in» con ablativo señala el lugar donde trabajaba el esclavo; es repaso de UD3."
+    },
+    {
+      "candidateId": "SIN-LAT4-05-009",
+      "s": "lat4",
+      "u": "UD 5",
+      "t": "La tercera declinación",
+      "c": "Sintaxis",
+      "p": "En «Rex militem videt», ¿qué función tiene «militem»?",
+      "a": "Complemento directo",
+      "w": [
+        "Sujeto",
+        "Complemento del nombre",
+        "Atributo"
+      ],
+      "x": "«Militem» es acusativo singular de «miles, militis» y expresa a quién ve el rey."
+    },
+    {
+      "candidateId": "SIN-LAT4-05-010",
+      "s": "lat4",
+      "u": "UD 5",
+      "t": "La tercera declinación",
+      "c": "Sintaxis",
+      "p": "En «Servus regis laborat», ¿qué función tiene «regis»?",
+      "a": "Complemento del nombre",
+      "w": [
+        "Complemento directo",
+        "Sujeto",
+        "Complemento agente"
+      ],
+      "x": "«Regis» es genitivo singular de «rex, regis» y determina al sustantivo «servus»."
+    },
+    {
+      "candidateId": "SIN-LAT4-06-011",
+      "s": "lat4",
+      "u": "UD 6",
+      "t": "Voz pasiva",
+      "c": "Sintaxis",
+      "p": "En «Puella a magistro laudatur», ¿qué función tiene «a magistro»?",
+      "a": "Complemento agente",
+      "w": [
+        "Sujeto",
+        "Complemento directo",
+        "Complemento del nombre"
+      ],
+      "x": "En voz pasiva, «a» más ablativo puede expresar quién realiza la acción."
+    },
+    {
+      "candidateId": "SIN-LAT4-06-012",
+      "s": "lat4",
+      "u": "UD 6",
+      "t": "Voz pasiva",
+      "c": "Sintaxis",
+      "p": "En «Servus a domino vocatur», ¿cuál es el sujeto paciente?",
+      "a": "Servus",
+      "w": [
+        "Domino",
+        "A domino",
+        "No hay sujeto"
+      ],
+      "x": "«Servus» es el sujeto en nominativo y recibe la acción; «a domino» es agente."
+    },
+    {
+      "candidateId": "SIN-LAT4-07-013",
+      "s": "lat4",
+      "u": "UD 7",
+      "t": "Adjetivos de la 3ª declinación",
+      "c": "Sintaxis",
+      "p": "En «Milites fortes pugnant», ¿qué función tiene «milites fortes»?",
+      "a": "Sujeto",
+      "w": [
+        "Complemento directo",
+        "Complemento indirecto",
+        "Complemento agente"
+      ],
+      "x": "El grupo nominal en nominativo plural actúa como sujeto; «fortes» concuerda con «milites»."
+    },
+    {
+      "candidateId": "SIN-LAT4-07-014",
+      "s": "lat4",
+      "u": "UD 7",
+      "t": "Adjetivos de la 3ª declinación",
+      "c": "Sintaxis",
+      "p": "En «Rex fortis venit», ¿qué rasgos comparten «rex» y «fortis»?",
+      "a": "Masculino, singular y nominativo",
+      "w": [
+        "Masculino, plural y nominativo",
+        "Femenino, singular y acusativo",
+        "Masculino, singular y genitivo"
+      ],
+      "x": "«Fortis» modifica a «rex» y concuerda con él en género, número y caso."
+    },
+    {
+      "candidateId": "SIN-LAT4-08-015",
+      "s": "lat4",
+      "u": "UD 8",
+      "t": "Pronombres personales",
+      "c": "Sintaxis",
+      "p": "En «Magister mihi librum dat», ¿qué función tiene «mihi»?",
+      "a": "Complemento indirecto",
+      "w": [
+        "Sujeto",
+        "Complemento directo",
+        "Complemento del nombre"
+      ],
+      "x": "«Mihi» es dativo singular de «ego» e indica el destinatario de «librum»."
+    },
+    {
+      "candidateId": "SIN-LAT4-08-016",
+      "s": "lat4",
+      "u": "UD 8",
+      "t": "Pronombres personales",
+      "c": "Sintaxis",
+      "p": "En «Magister me laudat», ¿qué función tiene «me»?",
+      "a": "Complemento directo",
+      "w": [
+        "Sujeto",
+        "Complemento indirecto",
+        "Complemento del nombre"
+      ],
+      "x": "«Me» se interpreta como acusativo y es el objeto de «laudat»."
+    },
+    {
+      "candidateId": "SIN-LAT1-01-017",
+      "s": "lat1",
+      "u": "UD 1",
+      "t": "Primera y segunda declinación",
+      "c": "Sintaxis",
+      "p": "En «Puella amico rosam dat», ¿qué función tiene «amico»?",
+      "a": "Complemento indirecto",
+      "w": [
+        "Sujeto",
+        "Complemento directo",
+        "Complemento del nombre"
+      ],
+      "x": "«Amico» es dativo singular y designa al destinatario de la rosa."
+    },
+    {
+      "candidateId": "SIN-LAT1-02-018",
+      "s": "lat1",
+      "u": "UD 2",
+      "t": "Las preposiciones",
+      "c": "Sintaxis",
+      "p": "En «In horto habitat», ¿qué expresa «in horto»?",
+      "a": "Lugar en donde",
+      "w": [
+        "Dirección hacia un lugar",
+        "Complemento agente",
+        "Complemento directo"
+      ],
+      "x": "«In» con ablativo («horto») indica ubicación estática."
+    },
+    {
+      "candidateId": "SIN-LAT1-03-019",
+      "s": "lat1",
+      "u": "UD 3",
+      "t": "Voz pasiva",
+      "c": "Sintaxis",
+      "p": "En «Servus a domino laudatur», ¿qué función tiene «a domino»?",
+      "a": "Complemento agente",
+      "w": [
+        "Sujeto",
+        "Complemento indirecto",
+        "Atributo"
+      ],
+      "x": "La oración es pasiva y «a» más ablativo expresa quién realiza la acción."
+    },
+    {
+      "candidateId": "SIN-LAT1-04-020",
+      "s": "lat1",
+      "u": "UD 4",
+      "t": "Aposición y dativo de aproximación",
+      "c": "Sintaxis",
+      "p": "En «Cicero, orator Romanus, venit», ¿qué función tiene «orator Romanus»?",
+      "a": "Aposición",
+      "w": [
+        "Complemento directo",
+        "Complemento indirecto",
+        "Atributo"
+      ],
+      "x": "«Orator Romanus» explica quién es Cicerón y está en su mismo caso."
+    },
+    {
+      "candidateId": "SIN-LAT1-05-021",
+      "s": "lat1",
+      "u": "UD 5",
+      "t": "El complemento predicativo",
+      "c": "Sintaxis",
+      "p": "En «puellæ ludunt fessæ» («las niñas juegan cansadas»), ¿qué función tiene «fessæ»?",
+      "a": "Complemento predicativo del sujeto",
+      "w": [
+        "Complemento directo",
+        "Atributo con verbo copulativo",
+        "Complemento del nombre en genitivo"
+      ],
+      "x": "«Fessæ» concuerda con «puellæ» en nominativo femenino plural y expresa el estado del sujeto al jugar; es un complemento predicativo del sujeto."
+    },
+    {
+      "candidateId": "SIN-LAT1-06-022",
+      "s": "lat1",
+      "u": "UD 6",
+      "t": "Oraciones de relativo",
+      "c": "Sintaxis",
+      "p": "En «Puella quam video rosas carpit», ¿qué función tiene «quam»?",
+      "a": "Complemento directo de «video»",
+      "w": [
+        "Sujeto de «carpit»",
+        "Complemento indirecto de «video»",
+        "Atributo de «puella»"
+      ],
+      "x": "«Quam» concuerda con su antecedente femenino singular, pero su acusativo depende de su función en la subordinada."
+    },
+    {
+      "candidateId": "SIN-LAT1-07-023",
+      "s": "lat1",
+      "u": "UD 7",
+      "t": "Dativo posesivo",
+      "c": "Sintaxis",
+      "p": "En «Mihi liber est», ¿qué expresa «mihi»?",
+      "a": "El poseedor en dativo",
+      "w": [
+        "El sujeto en nominativo",
+        "El complemento agente",
+        "La dirección del movimiento"
+      ],
+      "x": "En el dativo posesivo, «liber» es el sujeto y «mihi» identifica al poseedor."
+    },
+    {
+      "candidateId": "SIN-LAT1-08-024",
+      "s": "lat1",
+      "u": "UD 8",
+      "t": "Las oraciones de infinitivo",
+      "c": "Sintaxis",
+      "p": "En «Dux milites pontem facere iubet», ¿qué función tiene «milites» dentro del AcI?",
+      "a": "Sujeto del infinitivo",
+      "w": [
+        "Complemento directo de «facere»",
+        "Atributo de «dux»",
+        "Complemento agente"
+      ],
+      "x": "«Milites» es el sujeto en acusativo del infinitivo «facere»; «pontem» es su complemento directo. La oración significa «el general ordena que los soldados construyan un puente»."
+    },
+    {
+      "candidateId": "SIN-LAT1-09-025",
+      "s": "lat1",
+      "u": "UD 9",
+      "t": "Los adjetivos comparativos y superlativos",
+      "c": "Sintaxis",
+      "p": "En «Marcus altior quam Sextus est», ¿qué expresa «quam Sextus»?",
+      "a": "Segundo término de la comparación",
+      "w": [
+        "Complemento agente",
+        "Oración causal",
+        "Complemento directo"
+      ],
+      "x": "El segundo término de comparación se introduce aquí mediante «quam»."
+    },
+    {
+      "candidateId": "SIN-LAT1-10-026",
+      "s": "lat1",
+      "u": "UD 10",
+      "t": "Los participios",
+      "c": "Sintaxis",
+      "p": "En «Urbe capta, milites discesserunt», ¿qué construcción es «urbe capta»?",
+      "a": "Ablativo absoluto",
+      "w": [
+        "Complemento directo",
+        "Atributo",
+        "Oración de relativo"
+      ],
+      "x": "El sustantivo «urbe» y el participio «capta» forman un grupo en ablativo sintácticamente independiente."
+    },
+    {
+      "candidateId": "SIN-GR1-01-027",
+      "s": "gr1",
+      "u": "UD 1",
+      "t": "Oraciones copulativas",
+      "c": "Sintaxis",
+      "p": "En «ὁ φίλος τοῦ ἀνθρώπου», ¿qué función tiene «τοῦ ἀνθρώπου»?",
+      "a": "Complemento del nombre",
+      "w": [
+        "Sujeto",
+        "Complemento directo",
+        "Atributo"
+      ],
+      "x": "El genitivo «τοῦ ἀνθρώπου» complementa al sustantivo «φίλος»."
+    },
+    {
+      "candidateId": "SIN-GR1-02-028",
+      "s": "gr1",
+      "u": "UD 2",
+      "t": "Oraciones predicativas",
+      "c": "Sintaxis",
+      "p": "En «τῷ ἀνθρώπῳ δῶρον δίδωσιν», ¿qué función tiene «τῷ ἀνθρώπῳ»?",
+      "a": "Complemento indirecto",
+      "w": [
+        "Sujeto",
+        "Complemento directo",
+        "Complemento del nombre"
+      ],
+      "x": "El dativo señala al destinatario del regalo."
+    },
+    {
+      "candidateId": "SIN-GR1-03-029",
+      "s": "gr1",
+      "u": "UD 3",
+      "t": "El artículo",
+      "c": "Sintaxis",
+      "p": "En «ἡ κόρη γράφει», ¿qué función tiene el grupo «ἡ κόρη»?",
+      "a": "Sujeto",
+      "w": [
+        "Complemento directo",
+        "Complemento indirecto",
+        "Atributo"
+      ],
+      "x": "El artículo y el sustantivo forman un grupo nominal en nominativo singular."
+    },
+    {
+      "candidateId": "SIN-GR1-04-030",
+      "s": "gr1",
+      "u": "UD 4",
+      "t": "El complemento de régimen verbal",
+      "c": "Sintaxis",
+      "p": "En «ἀκούω τοῦ ἀνθρώπου», ¿qué función tiene «τοῦ ἀνθρώπου»?",
+      "a": "Complemento de régimen verbal",
+      "w": [
+        "Complemento del nombre",
+        "Sujeto",
+        "Complemento agente"
+      ],
+      "x": "El verbo «ἀκούω» puede regir genitivo de persona; ese genitivo depende del verbo y no de un sustantivo."
+    },
+    {
+      "candidateId": "SIN-GR1-05-031",
+      "s": "gr1",
+      "u": "UD 5",
+      "t": "El adjetivo",
+      "c": "Sintaxis",
+      "p": "En «ὁ ἀγαθός», sin sustantivo expreso, ¿cómo funciona «ἀγαθός»?",
+      "a": "Adjetivo sustantivado",
+      "w": [
+        "Atributo de un verbo expreso",
+        "Participio concertado",
+        "Complemento de régimen"
+      ],
+      "x": "El artículo permite que el adjetivo actúe como núcleo de un grupo nominal sin sustantivo expreso."
+    },
+    {
+      "candidateId": "SIN-GR1-06-032",
+      "s": "gr1",
+      "u": "UD 6",
+      "t": "Infinitivo concertado",
+      "c": "Sintaxis",
+      "p": "En «ἐσθίειν ἐθέλω» («quiero comer»), ¿qué función tiene «ἐσθίειν»?",
+      "a": "Complemento directo",
+      "w": [
+        "Sujeto",
+        "Complemento agente",
+        "Atributo"
+      ],
+      "x": "El infinitivo «ἐσθίειν» completa el sentido del verbo «ἐθέλω» y es su complemento directo."
+    },
+    {
+      "candidateId": "SIN-GR1-07-033",
+      "s": "gr1",
+      "u": "UD 7",
+      "t": "Los pronombres en griego: demostrativos, anafórico, personales",
+      "c": "Sintaxis",
+      "p": "En «αὐτὸς γράφει», ¿qué función tiene «αὐτός»?",
+      "a": "Sujeto",
+      "w": [
+        "Complemento directo",
+        "Complemento indirecto",
+        "Complemento del nombre"
+      ],
+      "x": "«Αὐτός» está en nominativo singular y funciona como sujeto de «γράφει»."
+    },
+    {
+      "candidateId": "SIN-GR1-08-034",
+      "s": "gr1",
+      "u": "UD 8",
+      "t": "Oraciones interrogativas",
+      "c": "Sintaxis",
+      "p": "En «τίς λέγει;», ¿de qué tipo es la oración?",
+      "a": "Interrogativa directa",
+      "w": [
+        "Enunciativa afirmativa",
+        "Copulativa afirmativa",
+        "Imperativa"
+      ],
+      "x": "«Τίς» es interrogativo y el signo «;» marca la interrogación griega."
+    },
+    {
+      "candidateId": "SIN-GR1-09-035",
+      "s": "gr1",
+      "u": "UD 9",
+      "t": "La oración de relativo",
+      "c": "Sintaxis",
+      "p": "En «ὁ ἄνθρωπος, ὃν ὁ φίλος βλέπει, λόγον λέγει», ¿qué función tiene «ὃν»?",
+      "a": "Complemento directo de «βλέπει»",
+      "w": [
+        "Sujeto de «λέγει»",
+        "Complemento del nombre",
+        "Complemento indirecto de «βλέπει»"
+      ],
+      "x": "El relativo «ὃν» está en acusativo porque es complemento directo en su subordinada, aunque el antecedente sea nominativo."
+    },
+    {
+      "candidateId": "SIN-GR1-10-036",
+      "s": "gr1",
+      "u": "UD 10",
+      "t": "Participios: apositivo y atributivo",
+      "c": "Sintaxis",
+      "p": "En «ὁ λέγων ἀνήρ», ¿qué uso tiene el participio «λέγων»?",
+      "a": "Participio atributivo",
+      "w": [
+        "Participio apositivo",
+        "Genitivo absoluto",
+        "Verbo principal de la oración"
+      ],
+      "x": "El participio con artículo determina a «ἀνήρ» y equivale a «el hombre que habla»."
+    }
+  ]
+}
