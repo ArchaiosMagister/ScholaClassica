@@ -33,7 +33,7 @@ test('El informe docente muestra las mismas 36 preguntas y soluciones que el JSO
  }
  const first=doc.candidates.filter(q=>q.s==='lat4'&&q.u==='UD 1');
  assert.equal(first.length,2);
- assert.ok(first.every(q=>!/(?:\\bamat\\b|\\bdat\\b|\\bvidet\\b)/u.test(q.p)),
+ assert.ok(first.every(q=>!/\b(?:amat|dat|videt)\b/u.test(q.p)),
   'UD1 de 4.º no debe adelantar el presente verbal de UD2');
 });
 test('Cobertura propuesta: 16 preguntas en las ocho UD de 4.º y diez por bachillerato',()=>{
