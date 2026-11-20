@@ -89,7 +89,7 @@ Las alternativas erróneas y explicaciones completas figuran en [el JSON de revi
 | UD 5 | En «puellæ ludunt fessæ» («las niñas juegan cansadas»), ¿qué función tiene «fessæ»? | Complemento predicativo del sujeto | Contenido de la unidad |
 | UD 6 | En «Puella quam video rosas carpit», ¿qué función tiene «quam»? | Complemento directo de «video» | Contenido de la unidad |
 | UD 7 | En «Mihi liber est», ¿qué expresa «mihi»? | El poseedor en dativo | Contenido de la unidad |
-| UD 8 | En «Dux milites pontem iungere iubet», ¿qué función tiene «milites» dentro del AcI? | Sujeto del infinitivo | Contenido de la unidad |
+| UD 8 | En «Dux milites pontem facere iubet», ¿qué función tiene «milites» dentro del AcI? | Sujeto del infinitivo | Contenido de la unidad |
 | UD 9 | En «Marcus altior quam Sextus est», ¿qué expresa «quam Sextus»? | Segundo término de la comparación | Contenido de la unidad |
 | UD 10 | En «Urbe capta, milites discesserunt», ¿qué construcción es «urbe capta»? | Ablativo absoluto | Contenido de la unidad |
 
