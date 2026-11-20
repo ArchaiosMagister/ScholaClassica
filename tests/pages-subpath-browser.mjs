@@ -70,7 +70,8 @@ try{
  assert.equal(await page.locator('#study-resume').getAttribute('href'),
    'apps/etymologicon/index.html');
  await page.locator('#study-course').selectOption('gr1');
- assert.equal(await page.locator('.path-links a').count(),5);
+ assert.equal(await page.locator('.path-links a').count(),6);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Repaso de sintaxis y conceptos · Griego I'));
  await page.locator('.path-links a[data-study-tool="etymologicon"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/index\.html$/);
  await page.waitForFunction(async()=>{
