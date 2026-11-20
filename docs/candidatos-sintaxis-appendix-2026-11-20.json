@@ -12,7 +12,8 @@
     "doNotReorderLegacyQuestions": true,
     "noStudentDeployment": true,
     "existingAcademicContentImmutable": true,
-    "explanation": "No se importa ni se compila automáticamente este fichero; se conserva como propuesta para decisión docente."
+    "explanation": "No se importa ni se compila automáticamente este fichero; se conserva como propuesta para decisión docente.",
+    "sourceOfTruth": "El currículo Appendix fija la progresión; en Latín 4.º se aplica la correspondencia confirmada en docs/GRAMATICA_LATIN4_BILINGUE_2026-11-14.md."
   },
   "count": 36,
   "candidates": [
@@ -87,7 +88,7 @@
       ],
       "x": "«Dominum» es acusativo singular de «dominus» y funciona como complemento directo.",
       "review": "pendiente-aprobacion-docente",
-      "scope": "nuevo",
+      "scope": "acumulativo",
       "source": {
         "file": "vendor/appendix/assets/curriculum.json",
         "corpus": "latin",
@@ -115,7 +116,7 @@
       ],
       "x": "«Domini» es genitivo singular y complementa al sustantivo «servus».",
       "review": "pendiente-aprobacion-docente",
-      "scope": "nuevo",
+      "scope": "acumulativo",
       "source": {
         "file": "vendor/appendix/assets/curriculum.json",
         "corpus": "latin",
@@ -573,7 +574,8 @@
       "alignment": {
         "topicMatchesLegacySyllabus": false,
         "sourceUnitEqualsStudentUnit": true,
-        "latin4FromConfirmedMapping": false
+        "latin4FromConfirmedMapping": false,
+        "requiredLegacyTopicUpdate": true
       }
     },
     {
@@ -596,7 +598,9 @@
         "file": "vendor/appendix/assets/curriculum.json",
         "corpus": "latin",
         "unit": 5,
-        "topic": "Adjetivos de la tercera declinación"
+        "topic": "Adjetivos de la tercera declinación",
+        "additionalPage": "vendor/appendix/casos.html",
+        "note": "La función de predicativo procede del capítulo de casos y del currículo de aula; el tema de la quinta unidad del currículo JSON es morfológico."
       },
       "alignment": {
         "topicMatchesLegacySyllabus": true,
@@ -657,7 +661,8 @@
       "alignment": {
         "topicMatchesLegacySyllabus": false,
         "sourceUnitEqualsStudentUnit": true,
-        "latin4FromConfirmedMapping": false
+        "latin4FromConfirmedMapping": false,
+        "requiredLegacyTopicUpdate": true
       }
     },
     {
