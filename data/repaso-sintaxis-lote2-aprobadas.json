@@ -1,0 +1,379 @@
+{
+  "schema": "schola-sintaxis-lote2-aprobada/v1",
+  "approvalDate": "2026-11-20",
+  "approval": "Aprobadas por el docente las 24 candidatas del segundo lote, condicionadas a llamar dativo complemento adjetival al dativo regido por proximus o similis, admitiendo asimismo dativo de aproximación.",
+  "originalQuestionCount": 120,
+  "approvedQuestionCount": 24,
+  "sourceProposal": "docs/candidatos-sintaxis-lote2-24-2026-11-20.json",
+  "nomenclature": {
+    "primary": "Dativo complemento adjetival",
+    "alsoAccepted": "Dativo de aproximación",
+    "appliesTo": [
+      "SIN2-LAT1-04-003",
+      "SIN2-LAT1-04-004"
+    ],
+    "legacyTopicHeadingPreserved": "Aposición y dativo de aproximación"
+  },
+  "questions": [
+    {
+      "candidateId": "SIN2-LAT1-01-001",
+      "s": "lat1",
+      "u": "UD 1",
+      "t": "Primera y segunda declinación",
+      "c": "Sintaxis",
+      "p": "En «Puellæ rosas portant», ¿qué función tiene «puellæ»?",
+      "a": "Sujeto en nominativo plural",
+      "w": [
+        "Complemento del nombre en genitivo singular",
+        "Complemento indirecto en dativo singular",
+        "Complemento directo en acusativo plural"
+      ],
+      "x": "El verbo portant está en tercera persona plural; puellæ puede ser nominativo plural y es el sujeto de la oración."
+    },
+    {
+      "candidateId": "SIN2-LAT1-01-002",
+      "s": "lat1",
+      "u": "UD 1",
+      "t": "Primera y segunda declinación",
+      "c": "Sintaxis",
+      "p": "En «Pueri rosam portant», ¿qué función desempeña «rosam»?",
+      "a": "Complemento directo",
+      "w": [
+        "Sujeto",
+        "Complemento del nombre",
+        "Complemento indirecto"
+      ],
+      "x": "Rosam es acusativo singular y expresa el objeto transportado; pueri, nominativo plural, funciona como sujeto."
+    },
+    {
+      "candidateId": "SIN2-LAT1-04-003",
+      "s": "lat1",
+      "u": "UD 4",
+      "t": "Aposición y dativo de aproximación",
+      "c": "Sintaxis",
+      "p": "En «mons proximus urbi» («el monte próximo a la ciudad»), ¿qué función sintáctica desempeña «urbi»?",
+      "a": "Dativo complemento adjetival (también dativo de aproximación)",
+      "w": [
+        "Es complemento directo de «mons»",
+        "Expresa posesión mediante genitivo",
+        "Es complemento agente de una pasiva"
+      ],
+      "x": "Urbi es dativo complemento adjetival de proximus: expresa el término respecto al cual se establece la proximidad. También se admite la denominación dativo de aproximación."
+    },
+    {
+      "candidateId": "SIN2-LAT1-04-004",
+      "s": "lat1",
+      "u": "UD 4",
+      "t": "Aposición y dativo de aproximación",
+      "c": "Sintaxis",
+      "p": "En «pater filio similis est» («el padre es parecido al hijo»), ¿qué función sintáctica desempeña «filio»?",
+      "a": "Dativo complemento adjetival (también dativo de aproximación)",
+      "w": [
+        "Complemento agente",
+        "Complemento directo del verbo «est»",
+        "Ablativo de instrumento"
+      ],
+      "x": "Filio es dativo complemento adjetival de similis: expresa el término con el que se establece la semejanza. También se admite, según el criterio docente, la denominación dativo de aproximación."
+    },
+    {
+      "candidateId": "SIN2-LAT1-04-005",
+      "s": "lat1",
+      "u": "UD 4",
+      "t": "Aposición y dativo de aproximación",
+      "c": "Sintaxis",
+      "p": "En «Marcus, amicus pueri, venit», ¿qué función tiene el grupo «amicus pueri»?",
+      "a": "Aposición explicativa de «Marcus»",
+      "w": [
+        "Complemento directo de «venit»",
+        "Oración subordinada de relativo",
+        "Complemento circunstancial de lugar"
+      ],
+      "x": "Amicus pueri es un grupo nominal en nominativo que explica a Marcus; pueri es el complemento del nombre dentro de la aposición."
+    },
+    {
+      "candidateId": "SIN2-LAT1-07-006",
+      "s": "lat1",
+      "u": "UD 7",
+      "t": "Dativo posesivo",
+      "c": "Sintaxis",
+      "p": "En «Militibus arma sunt» («los soldados tienen armas»), ¿qué función tiene «militibus»?",
+      "a": "Dativo posesivo: indica quién tiene las armas",
+      "w": [
+        "Sujeto en nominativo plural",
+        "Complemento agente de voz pasiva",
+        "Complemento directo de «sunt»"
+      ],
+      "x": "Con el verbo sum, el dativo militibus puede indicar al poseedor; el sujeto gramatical es arma."
+    },
+    {
+      "candidateId": "SIN2-LAT1-07-007",
+      "s": "lat1",
+      "u": "UD 7",
+      "t": "Dativo posesivo",
+      "c": "Sintaxis",
+      "p": "En «Marco liber est» y «Marcus librum puero dat», ¿qué diferencia hay entre «Marco» y «puero»?",
+      "a": "«Marco» es dativo posesivo; «puero», complemento indirecto",
+      "w": [
+        "Ambos son sujetos en nominativo",
+        "«Marco» es complemento directo y «puero» sujeto",
+        "Ambos son complementos agentes"
+      ],
+      "x": "En Marco liber est se expresa posesión con dativo y sum; en Marcus librum puero dat el dativo señala el destinatario de la acción."
+    },
+    {
+      "candidateId": "SIN2-LAT1-07-008",
+      "s": "lat1",
+      "u": "UD 7",
+      "t": "Dativo posesivo",
+      "c": "Sintaxis",
+      "p": "En «Puero amici sunt» («el niño tiene amigos»), ¿qué elemento es el sujeto gramatical?",
+      "a": "«Amici», nominativo plural",
+      "w": [
+        "«Puero», dativo singular",
+        "El sujeto está omitido",
+        "«Sunt», por ser el verbo"
+      ],
+      "x": "La construcción posesiva con sum presenta al poseedor en dativo (puero) y lo poseído como sujeto en nominativo plural (amici)."
+    },
+    {
+      "candidateId": "SIN2-LAT1-09-009",
+      "s": "lat1",
+      "u": "UD 9",
+      "t": "Los adjetivos comparativos y superlativos",
+      "c": "Sintaxis",
+      "p": "En «Marcus altior Iulio est», ¿qué función desempeña «Iulio»?",
+      "a": "Segundo término de la comparación en ablativo",
+      "w": [
+        "Complemento indirecto de «est»",
+        "Complemento agente de una pasiva",
+        "Sujeto de «est»"
+      ],
+      "x": "Appendix explica que el comparativo de superioridad puede presentar el segundo término sin quam, en ablativo: altior Iulio."
+    },
+    {
+      "candidateId": "SIN2-LAT1-09-010",
+      "s": "lat1",
+      "u": "UD 9",
+      "t": "Los adjetivos comparativos y superlativos",
+      "c": "Sintaxis",
+      "p": "En «Marcus tam altus quam Iulius est», ¿de qué tipo es la comparación?",
+      "a": "De igualdad, introducida por «tam… quam»",
+      "w": [
+        "De inferioridad mediante «minus… quam»",
+        "De superioridad mediante un ablativo",
+        "Superlativo absoluto"
+      ],
+      "x": "La secuencia tam… quam introduce comparación de igualdad. Los dos términos de la comparación aparecen en nominativo."
+    },
+    {
+      "candidateId": "SIN2-LAT1-08-011",
+      "s": "lat1",
+      "u": "UD 8",
+      "t": "Las oraciones de infinitivo",
+      "c": "Sintaxis",
+      "p": "En «Dicit puellam rosam portare», ¿qué función tiene «rosam» dentro de la oración de infinitivo?",
+      "a": "Complemento directo del infinitivo «portare»",
+      "w": [
+        "Sujeto en acusativo del infinitivo",
+        "Complemento agente de la principal",
+        "Atributo de «puellam»"
+      ],
+      "x": "En la estructura de acusativo con infinitivo, puellam funciona como sujeto de portare; rosam es su complemento directo."
+    },
+    {
+      "candidateId": "SIN2-LAT1-10-012",
+      "s": "lat1",
+      "u": "UD 10",
+      "t": "Los participios",
+      "c": "Sintaxis",
+      "p": "En «Rege veniente, milites manserunt», ¿qué relación temporal expresa el participio «veniente» respecto a «manserunt»?",
+      "a": "Simultaneidad entre la llegada del rey y la acción principal",
+      "w": [
+        "Anterioridad necesariamente concluida",
+        "Posterioridad obligatoria",
+        "Ausencia de relación temporal entre ambas acciones"
+      ],
+      "x": "El participio de presente del ablativo absoluto presenta habitualmente la acción como simultánea a la del verbo principal, según Appendix UD10."
+    },
+    {
+      "candidateId": "SIN2-GR1-03-013",
+      "s": "gr1",
+      "u": "UD 3",
+      "t": "El artículo",
+      "c": "Sintaxis",
+      "p": "En «αἱ κόραι γράφουσιν», ¿qué función cumple «αἱ κόραι»?",
+      "a": "Sujeto en nominativo plural",
+      "w": [
+        "Complemento directo en acusativo plural",
+        "Complemento del nombre en genitivo plural",
+        "Complemento indirecto en dativo plural"
+      ],
+      "x": "El artículo αἱ concuerda con κόραι en nominativo femenino plural; el verbo γράφουσιν confirma el sujeto plural."
+    },
+    {
+      "candidateId": "SIN2-GR1-03-014",
+      "s": "gr1",
+      "u": "UD 3",
+      "t": "El artículo",
+      "c": "Sintaxis",
+      "p": "En «ὁ ἄνθρωπος τὴν οἰκίαν βλέπει», ¿qué función tiene «τὴν οἰκίαν»?",
+      "a": "Complemento directo en acusativo",
+      "w": [
+        "Sujeto en nominativo",
+        "Complemento del nombre en genitivo",
+        "Complemento indirecto en dativo"
+      ],
+      "x": "El grupo τὴν οἰκίαν está en acusativo femenino singular; funciona como complemento directo del verbo βλέπει."
+    },
+    {
+      "candidateId": "SIN2-GR1-09-015",
+      "s": "gr1",
+      "u": "UD 9",
+      "t": "La oración de relativo",
+      "c": "Sintaxis",
+      "p": "En «ὁ ἄνθρωπος, ὃς λόγον λέγει, φίλος ἐστίν», ¿qué función tiene «ὃς»?",
+      "a": "Sujeto de «λέγει»",
+      "w": [
+        "Complemento directo de «λέγει»",
+        "Complemento del nombre «λόγον»",
+        "Complemento indirecto de «ἐστίν»"
+      ],
+      "x": "Ὃς concuerda con ὁ ἄνθρωπος en género y número, pero es nominativo porque es sujeto de λέγει en la subordinada."
+    },
+    {
+      "candidateId": "SIN2-GR1-09-016",
+      "s": "gr1",
+      "u": "UD 9",
+      "t": "La oración de relativo",
+      "c": "Sintaxis",
+      "p": "En «ὁ ἄνθρωπος, ᾧ ὁ φίλος δῶρον δίδωσιν, σοφός ἐστιν», ¿qué función tiene «ᾧ»?",
+      "a": "Complemento indirecto en dativo singular",
+      "w": [
+        "Sujeto de «δίδωσιν»",
+        "Complemento directo de «δίδωσιν»",
+        "Complemento del nombre «φίλος»"
+      ],
+      "x": "El relativo ᾧ se refiere a ὁ ἄνθρωπος, pero toma el dativo por su función de destinatario del regalo dentro de la subordinada."
+    },
+    {
+      "candidateId": "SIN2-GR1-09-017",
+      "s": "gr1",
+      "u": "UD 9",
+      "t": "La oración de relativo",
+      "c": "Sintaxis",
+      "p": "En «ὁ ἄνθρωπος, οὗ τὸ δῶρον βλέπω, φίλος ἐστίν», ¿qué función tiene «οὗ»?",
+      "a": "Complemento del nombre «δῶρον», en genitivo",
+      "w": [
+        "Sujeto del verbo «βλέπω»",
+        "Complemento directo del verbo «βλέπω»",
+        "Complemento indirecto de «ἐστίν»"
+      ],
+      "x": "El genitivo οὗ depende del sustantivo δῶρον (‘el regalo de quien’); el antecedente del relativo es ὁ ἄνθρωπος."
+    },
+    {
+      "candidateId": "SIN2-GR1-10-018",
+      "s": "gr1",
+      "u": "UD 10",
+      "t": "Participios: apositivo y atributivo",
+      "c": "Sintaxis",
+      "p": "En «ὁ ἀνὴρ λέγων βαδίζει» («el hombre camina mientras habla»), ¿cómo funciona «λέγων»?",
+      "a": "Participio concertado con valor circunstancial",
+      "w": [
+        "Participio atributivo dentro de un grupo con artículo",
+        "Participio sustantivado que actúa como núcleo nominal",
+        "Genitivo absoluto independiente"
+      ],
+      "x": "El participio λέγων concuerda en nominativo masculino singular con ὁ ἀνήρ y expresa una circunstancia de la acción principal."
+    },
+    {
+      "candidateId": "SIN2-GR1-10-019",
+      "s": "gr1",
+      "u": "UD 10",
+      "t": "El genitivo absoluto",
+      "c": "Sintaxis",
+      "p": "En «τοῦ ἀνθρώπου λέγοντος, οἱ παῖδες ἀκούουσιν», ¿qué construcción forman «τοῦ ἀνθρώπου λέγοντος»?",
+      "a": "Genitivo absoluto",
+      "w": [
+        "Participio atributivo referido a «παῖδες»",
+        "Oración de relativo con antecedente expreso",
+        "Infinitivo concertado"
+      ],
+      "x": "El sustantivo τοῦ ἀνθρώπου y el participio λέγοντος concuerdan en genitivo y forman un grupo independiente de la principal."
+    },
+    {
+      "candidateId": "SIN2-GR1-10-020",
+      "s": "gr1",
+      "u": "UD 10",
+      "t": "Participios: apositivo y atributivo",
+      "c": "Sintaxis",
+      "p": "En «ὁ λέγων» («el que habla»), sin sustantivo expreso, ¿qué uso tiene el participio?",
+      "a": "Participio sustantivado",
+      "w": [
+        "Participio atributivo que modifica a «ἀνήρ»",
+        "Genitivo absoluto",
+        "Infinitivo concertado"
+      ],
+      "x": "Con artículo y sin sustantivo expreso, el participio funciona como núcleo nominal: ὁ λέγων, ‘el que habla’."
+    },
+    {
+      "candidateId": "SIN2-LAT4-01-021",
+      "s": "lat4",
+      "u": "UD 1",
+      "t": "Primera declinación",
+      "c": "Sintaxis",
+      "p": "En la llamada «O puella!» («¡Eh, muchacha!»), ¿qué función desempeña «puella»?",
+      "a": "Vocativo: apelación directa",
+      "w": [
+        "Sujeto de un verbo enunciado",
+        "Complemento directo de un verbo omitido",
+        "Complemento del nombre en genitivo"
+      ],
+      "x": "El vocativo sirve para dirigirse a alguien. Puella tiene la misma forma en nominativo y vocativo singular, pero O puella! permite identificar la apelación."
+    },
+    {
+      "candidateId": "SIN2-LAT4-03-022",
+      "s": "lat4",
+      "u": "UD 3",
+      "t": "Preposiciones",
+      "c": "Sintaxis",
+      "p": "En «Puella cum amico ambulat», ¿qué circunstancia expresa «cum amico»?",
+      "a": "Compañía",
+      "w": [
+        "Dirección hacia un lugar",
+        "Lugar de procedencia",
+        "Complemento agente de una pasiva"
+      ],
+      "x": "Cum con ablativo expresa normalmente compañía, como en el capítulo de funciones básicas y preposiciones de Appendix."
+    },
+    {
+      "candidateId": "SIN2-LAT4-06-023",
+      "s": "lat4",
+      "u": "UD 6",
+      "t": "Voz pasiva",
+      "c": "Sintaxis",
+      "p": "Al transformar «Magister puellam laudat» en «Puella a magistro laudatur», ¿qué función pasa a desempeñar «puella»?",
+      "a": "Sujeto paciente en nominativo",
+      "w": [
+        "Complemento directo en acusativo",
+        "Complemento agente en ablativo",
+        "Complemento del nombre en genitivo"
+      ],
+      "x": "En la conversión a pasiva, el complemento directo puellam se convierte en sujeto paciente puella; el agente se expresa con a magistro."
+    },
+    {
+      "candidateId": "SIN2-LAT4-08-024",
+      "s": "lat4",
+      "u": "UD 8",
+      "t": "Pronombres personales",
+      "c": "Sintaxis",
+      "p": "En «Ego te video», ¿qué relación sintáctica tienen «ego» y «te»?",
+      "a": "«Ego» es sujeto; «te», complemento directo",
+      "w": [
+        "«Ego» es complemento directo; «te», sujeto",
+        "Ambos son sujetos coordinados",
+        "«Ego» es complemento del nombre; «te», agente"
+      ],
+      "x": "Ego es nominativo y sujeto del verbo; te es acusativo del pronombre personal y complemento directo."
+    }
+  ]
+}
