@@ -25,6 +25,17 @@ test('Propuestas de sintaxis aisladas, no aprobadas ni incorporadas al módulo',
     'No se deben compilar candidaturas: '+path);
  }
 });
+test('El informe docente muestra las mismas 36 preguntas y soluciones que el JSON revisado',()=>{
+ const report=read('docs/PROPUESTA_REPASO_SINTAXIS_APPENDIX_2026-11-20.md');
+ for(const q of doc.candidates){
+  const row='| '+q.u+' | '+q.p+' | '+q.a+' |';
+  assert.ok(report.includes(row),'Informe desactualizado para '+q.candidateId);
+ }
+ const first=doc.candidates.filter(q=>q.s==='lat4'&&q.u==='UD 1');
+ assert.equal(first.length,2);
+ assert.ok(first.every(q=>!/(?:\\bamat\\b|\\bdat\\b|\\bvidet\\b)/u.test(q.p)),
+  'UD1 de 4.º no debe adelantar el presente verbal de UD2');
+});
 test('Cobertura propuesta: 16 preguntas en las ocho UD de 4.º y diez por bachillerato',()=>{
  const tally=s=>doc.candidates.filter(q=>q.s===s);
  assert.equal(tally('lat4').length,16);
