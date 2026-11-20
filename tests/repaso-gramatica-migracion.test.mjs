@@ -29,20 +29,23 @@ test('Mantener separados el módulo de repaso y los motores de vocabulario y mor
  assert.ok(!readdirSync(join(root,'dist/apps/vocabulario')).includes('gramatica.html'),
   'La gramática no debe volver a incrustarse en Vocabula');
 });
-test('Se conservan las 84 preguntas antiguas y se añaden 36 de sintaxis con los mismos índices históricos',()=>{
+test('Se conservan las 120 preguntas antiguas y se añaden 24 de sintaxis con índices históricos estables',()=>{
  const sandbox={window:{}};
  runInNewContext(read(dir+'gramatica-contenidos.js'),sandbox);
  const content=sandbox.window.GRAMMAR_CONTENT,q=content.questions;
  const source=JSON.parse(read('vendor/vocabula/gramatica-contenidos.js')
   .split('window.GRAMMAR_CONTENT=')[1].trim().replace(/;\s*$/,''));
  const approved=JSON.parse(read('data/repaso-sintaxis-aprobadas.json'));
+ const approvedTwo=JSON.parse(read('data/repaso-sintaxis-lote2-aprobadas.json'));
  assert.equal(source.questions.length,84);
  assert.deepEqual(nice(q.slice(0,84)),source.questions,
   'Los índices concept-i y las preguntas antiguas no deben variar');
- assert.deepEqual(nice(q.slice(84)),approved.questions.map(({candidateId,...question})=>question),
-  'El bloque aprobado debe agregarse al final, sin modificar sus respuestas');
- assert.equal(q.length,120);
- assert.equal(q.filter(x=>x.c==='Sintaxis').length,63);
+ assert.deepEqual(nice(q.slice(84,120)),approved.questions.map(({candidateId,...question})=>question),
+  'Las primeras 36 aprobadas conservan sus posiciones y respuestas');
+ assert.deepEqual(nice(q.slice(120)),approvedTwo.questions.map(({candidateId,...question})=>question),
+  'El segundo lote aprobado debe agregarse después de las 120 preguntas anteriores');
+ assert.equal(q.length,144);
+ assert.equal(q.filter(x=>x.c==='Sintaxis').length,87);
  assert.equal(q.filter(x=>x.c==='Conceptos').length,7);
  assert.equal(q.filter(x=>x.c.startsWith('Morfología')).length,50);
  assert.deepEqual(nice(Object.keys(content.syllabi)).sort(),['gr1','lat1','lat4']);
