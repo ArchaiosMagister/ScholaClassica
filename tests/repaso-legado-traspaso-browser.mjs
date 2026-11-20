@@ -87,10 +87,12 @@ try{
  await next.waitForFunction(()=>window.GrammarPracticeDebug&&window.GrammarProgressTransfer);
  assert.equal(await next.evaluate(key=>localStorage.getItem(key),KEY),null);
  await next.locator('#grammar-progress-tools summary').click();
+ const firstReload=next.waitForEvent('load',{timeout:15000});
  await next.locator('#grammar-progress-import').setInputFiles({
   name:'progreso-gramatica.json',mimeType:'application/json',
   buffer:Buffer.from(JSON.stringify(oldPayload))
  });
+ await firstReload;
  await next.waitForFunction(id=>{
   const raw=localStorage.getItem('classics-grammar-v1');
   return raw&&JSON.parse(raw)[id]?.right===1;
@@ -122,18 +124,22 @@ try{
  const payload=JSON.parse((await readFile(await nextDownload.path())).toString('utf8'));
  assert.deepEqual(payload.progress,both);
  // La antigua acepta IDs nuevos al importar sin inventar preguntas ni perder historial.
+ const oldReload=old.waitForEvent('load',{timeout:15000});
  await old.locator('#grammar-progress-import').setInputFiles({
   name:'progreso-gramatica.json',mimeType:'application/json',
   buffer:Buffer.from(JSON.stringify(payload))
  });
+ await oldReload;
  await old.waitForFunction(()=>JSON.parse(localStorage.getItem('classics-grammar-v1')||'{}')['lat1|UD 4|concept-122']?.right===1);
  assert.deepEqual(await old.evaluate(key=>JSON.parse(localStorage.getItem(key)),KEY),both);
  assert.deepEqual(await old.evaluate(key=>JSON.parse(localStorage.getItem(key)),VOCAB),{preservar:true});
  // Reimportar no duplica y un archivo de vocabulario no altera la gramática.
+ const repeatReload=next.waitForEvent('load',{timeout:15000});
  await next.locator('#grammar-progress-import').setInputFiles({
   name:'progreso-gramatica.json',mimeType:'application/json',
   buffer:Buffer.from(JSON.stringify(payload))
  });
+ await repeatReload;
  await next.waitForFunction(()=>document.querySelector('#grammar-progress-status')?.textContent.includes('Historial importado'));
  assert.deepEqual(await next.evaluate(key=>JSON.parse(localStorage.getItem(key)),KEY),both);
  await next.locator('#grammar-progress-import').setInputFiles({
