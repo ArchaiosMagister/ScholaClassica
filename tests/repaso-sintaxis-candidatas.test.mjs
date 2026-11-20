@@ -8,7 +8,7 @@ const read=p=>readFileSync(resolve(root,p),'utf8');
 const doc=JSON.parse(read('docs/candidatos-sintaxis-appendix-2026-11-20.json'));
 const curriculum=JSON.parse(read('vendor/appendix/assets/curriculum.json'));
 const legacy=JSON.parse(read('vendor/vocabula/gramatica-contenidos.js')
-  .split('window.GRAMMAR_CONTENT=')[1].trim().replace(/;\\s*$/,''));
+  .split('window.GRAMMAR_CONTENT=')[1].trim().replace(/;\s*$/,''));
 
 test('Propuestas de sintaxis aisladas, no aprobadas ni incorporadas al módulo',()=>{
  assert.equal(doc.schema,'schola-sintaxis-candidaturas/v1');
