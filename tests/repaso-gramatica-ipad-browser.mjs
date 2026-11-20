@@ -71,7 +71,7 @@ try{
     syntax:GrammarPracticeDebug.exercises.filter(q=>q.category==='Sintaxis').length,
     key:GrammarProgressTransfer.KEY
    }));
-   assert.deepEqual(tallies,{syntax:63,key:'classics-grammar-v1'});
+   assert.deepEqual(tallies,{syntax:87,key:'classics-grammar-v1'});
    await page.locator('#theme-select').selectOption(d.theme);
    await page.locator('#none').tap();
    await page.locator('#units label').filter({hasText:d.unit}).tap();

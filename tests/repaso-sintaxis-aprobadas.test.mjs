@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {runInNewContext} from 'node:vm';
 import {extendGrammarReview} from '../scripts/extend-repaso-sintaxis.mjs';
+import {extendGrammarReviewBatchTwo} from '../scripts/extend-repaso-sintaxis-lote2.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const read=path=>readFileSync(resolve(root,path),'utf8');
@@ -69,7 +70,8 @@ test('Errores futuros en listas, asignación, duplicados y permisos bloquean la 
 
 test('El despliegue incorpora exactamente lo aprobado y no introduce datos docentes privados',()=>{
  const dist=read('dist/apps/repaso-gramatica/gramatica-contenidos.js');
- const transformed=parse(extendGrammarReview(original,approval));
+ const second=JSON.parse(read('data/repaso-sintaxis-lote2-aprobadas.json'));
+ const transformed=parse(extendGrammarReviewBatchTwo(extendGrammarReview(original,approval),second));
  assert.deepEqual(parse(dist),transformed);
  assert.ok(!dist.includes('sourceCandidateId'));
  const v=read('dist/apps/vocabulario/index.html');
