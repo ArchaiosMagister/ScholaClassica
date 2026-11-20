@@ -13,7 +13,12 @@
     "noStudentDeployment": true,
     "existingAcademicContentImmutable": true,
     "explanation": "No se importa ni se compila automáticamente este fichero; se conserva como propuesta para decisión docente.",
-    "sourceOfTruth": "El currículo Appendix fija la progresión; en Latín 4.º se aplica la correspondencia confirmada en docs/GRAMATICA_LATIN4_BILINGUE_2026-11-14.md."
+    "sourceOfTruth": "El currículo Appendix fija la progresión; en Latín 4.º se aplica la correspondencia confirmada en docs/GRAMATICA_LATIN4_BILINGUE_2026-11-14.md.",
+    "extraReviewRequired": [
+      "SIN-LAT1-04-020",
+      "SIN-LAT1-07-023"
+    ],
+    "unit1RiskResolved": "Las candidatas de UD1 de Latín de 4.º no usan verbos conjugados, que se presentan en UD2."
   },
   "count": 36,
   "candidates": [
@@ -23,14 +28,14 @@
       "u": "UD 1",
       "t": "Primera declinación",
       "c": "Sintaxis",
-      "p": "En «Puella rosas amat», ¿qué función tiene «puella»?",
+      "p": "¿Qué función sintáctica suele desempeñar un sustantivo latino en nominativo, como «puella»?",
       "a": "Sujeto",
       "w": [
         "Complemento directo",
         "Complemento indirecto",
         "Complemento del nombre"
       ],
-      "x": "«Puella» está en nominativo y realiza la función de sujeto.",
+      "x": "El nominativo desempeña normalmente la función de sujeto de una oración. También puede funcionar como atributo con un verbo copulativo.",
       "review": "pendiente-aprobacion-docente",
       "scope": "nuevo",
       "source": {
@@ -51,14 +56,14 @@
       "u": "UD 1",
       "t": "Primera declinación",
       "c": "Sintaxis",
-      "p": "En «Puella amico rosam dat», ¿qué función tiene «rosam»?",
-      "a": "Complemento directo",
+      "p": "En «rosa puellæ» («la rosa de la niña»), ¿qué función tiene «puellæ»?",
+      "a": "Complemento del nombre",
       "w": [
         "Sujeto",
-        "Complemento indirecto",
-        "Complemento del nombre"
+        "Complemento directo",
+        "Complemento indirecto"
       ],
-      "x": "«Rosam» es el objeto entregado y aparece en acusativo.",
+      "x": "En este grupo, «puellæ» se interpreta como genitivo singular y complementa al sustantivo «rosa». La traducción aclara la lectura frente a la ambigüedad morfológica de -æ.",
       "review": "pendiente-aprobacion-docente",
       "scope": "nuevo",
       "source": {
@@ -591,7 +596,7 @@
         "Atributo con verbo copulativo",
         "Complemento del nombre en genitivo"
       ],
-      "x": "«Fessæ» concuerda con «puellæ» y expresa cómo se encuentran las niñas durante la acción de jugar; es el ejemplo docente de Appendix.",
+      "x": "«Fessæ» concuerda con «puellæ» en nominativo femenino plural y expresa el estado del sujeto al jugar; es un complemento predicativo del sujeto.",
       "review": "pendiente-aprobacion-docente",
       "scope": "nuevo",
       "source": {
@@ -600,7 +605,7 @@
         "unit": 5,
         "topic": "Adjetivos de la tercera declinación",
         "additionalPage": "vendor/appendix/casos.html",
-        "note": "La función de predicativo procede del capítulo de casos y del currículo de aula; el tema de la quinta unidad del currículo JSON es morfológico."
+        "note": "Ejemplo y función de complemento predicativo tomados de Appendix, capítulo «Los valores de los casos»; la quinta unidad del currículo incluye la tercera declinación adjetiva, pero el predicativo consta en el temario heredado."
       },
       "alignment": {
         "topicMatchesLegacySyllabus": true,
@@ -909,7 +914,9 @@
         "file": "vendor/appendix/assets/curriculum.json",
         "corpus": "griego",
         "unit": 6,
-        "topic": "Infinitivos de presente activo y medio"
+        "topic": "Infinitivos de presente activo y medio",
+        "additionalPage": "vendor/appendix/griego-infinitivo.html",
+        "note": "La función de complemento directo del infinitivo se explica en «Sintaxis · usos» de Appendix."
       },
       "alignment": {
         "topicMatchesLegacySyllabus": true,
