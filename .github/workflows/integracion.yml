@@ -83,6 +83,8 @@ jobs:
         run: npm run build
       - name: Inventariar dependencias externas y fuentes internas (sin autorizar archivos)
         run: npm run audit:repositorios:retirada
+      - name: Medir cobertura contextual y curricular de las 63 preguntas de sintaxis
+        run: node scripts/audit-repaso-sintaxis.mjs
       - name: Auditar filología transversal de Latín I, Latín 4.º y Griego I (solo lectura)
         run: npm run audit:filologia:transversal
       - name: Auditar fronteras de currículo y procedencia de Examen sin reclasificar bancos
@@ -125,6 +127,10 @@ jobs:
         run: node tests/vocabula-traspaso-browser.mjs
       - name: Probar módulo propio de repaso gramatical, sintaxis y migración segura
         run: node tests/repaso-gramatica-browser.mjs
+      - name: Preparar motor WebKit para emulación de Safari en iPad
+        run: npx playwright install --with-deps webkit
+      - name: Probar repaso en iPad con controles táctiles, modos y PWA offline
+        run: node tests/repaso-gramatica-ipad-browser.mjs
       - name: Auditar las 60 combinaciones de Vocabula en castellano con Chromium
         run: npm run test:browser:castellano:vocabula
       - name: Auditar Evolutio castellano desde la respuesta hasta las normas
@@ -204,6 +210,13 @@ jobs:
         with:
           name: scholaclassica-cobertura-morfologia-por-unidades
           path: build/academic-audits/morphology/cobertura-por-unidades-v1.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Archivar cobertura de sintaxis para revisión curricular
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-cobertura-repaso-sintaxis
+          path: build/academic-audits/sintaxis/cobertura-repaso-v1.json
           if-no-files-found: error
           retention-days: 30
       - name: Archivar matriz de auditoría transversal para revisión docente

@@ -56,6 +56,12 @@ export async function buildGrammarReview({source,destination,vocabulaDestination
  html=exactly(html,'<p class="notice">Cada unidad se repasa entera, sin dividirla por temas. Puedes elegir solo morfología nominal o verbal.</p>',
   '<p class="notice">Selecciona las unidades estudiadas y después Sintaxis, Conceptos o un repaso mixto. La práctica de morfología tiene su propio módulo.</p>','filtro');
  await writeFile(join(destination,'index.html'),html);
+ // Adaptación exclusiva de ScholaClassica para los controles táctiles del iPad.
+ // La hoja de estilo vendorizada se conserva idéntica a su origen.
+ const cssPath=join(destination,'gramatica.css');
+ const legacyCss=await readFile(cssPath,'utf8');
+ assert.ok(!legacyCss.includes('/* Accesibilidad táctil y contención'),'No duplicar adaptación táctil');
+ await writeFile(cssPath,legacyCss+'\n'+"/* Accesibilidad táctil y contención de tarjetas en ScholaClassica. */\n.layout{grid-template-columns:310px minmax(0,1fr)}\n.layout>section,.grammar-choices,.grammar-choices button{min-width:0}\n.grammar-question,.grammar-choices button{overflow-wrap:anywhere}\n@media(max-width:760px){.layout{grid-template-columns:minmax(0,1fr)}}\n@media(pointer:coarse){\n .unithead .text{min-height:44px;min-width:54px;padding:9px 7px}\n .units label{min-height:44px;display:inline-flex;align-items:center;gap:7px;padding:9px 11px}\n .grammar-help .help summary{min-height:44px;display:flex;align-items:center}\n}");
  const result=await readFile(join(destination,'index.html'),'utf8');
  assert.match(result,/grammar-progress.js/);
  assert.match(result,/href="\.\.\/morfologia\/index.html"/);
