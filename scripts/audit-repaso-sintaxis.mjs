@@ -41,7 +41,6 @@ export async function auditSyntaxReview(){
     otherPrompts:q.length-contextExamples.length,
     topics:themes,
     topicsWithSyntax:byTopic,
-    hasNewSyntaxInAppendix:!(subject==='gr1'&&unitNumber>=11),
     requiresCurricularReview:q.length<=1&&!(subject==='gr1'&&unitNumber>=11)
    });
   }
