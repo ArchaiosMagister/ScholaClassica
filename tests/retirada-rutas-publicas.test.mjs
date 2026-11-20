@@ -14,7 +14,7 @@ const content=()=>{
   for(const path of [r.legacy,r.integrated])
    pages.set(path,'<!doctype html><html lang="es"><head></head><body>Aplicación verificable</body></html>');
  }
- for(const c of spec.checks)pages.set(c.path,c.contains.join('\n'));
+ for(const c of spec.checks)pages.set(c.path,c.path.endsWith('.html')?'<html>'+c.contains.join('\n')+'</html>':c.contains.join('\n'));
  return pages;
 };
 function fakeFetch(pages,{redirect,missing}={}){
