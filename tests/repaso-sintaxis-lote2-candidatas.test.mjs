@@ -9,6 +9,7 @@ const read=p=>readFileSync(resolve(root,p),'utf8');
 const doc=JSON.parse(read('docs/candidatos-sintaxis-lote2-24-2026-11-20.json'));
 const appendix=JSON.parse(read('vendor/appendix/assets/curriculum.json'));
 const approved=JSON.parse(read('data/repaso-sintaxis-aprobadas.json'));
+const approvedTwo=JSON.parse(read('data/repaso-sintaxis-lote2-aprobadas.json'));
 const source=JSON.parse(read('vendor/vocabula/gramatica-contenidos.js')
   .split('window.GRAMMAR_CONTENT=')[1].trim().replace(/;\s*$/,''));
 const compiled=()=>{
@@ -32,11 +33,13 @@ test('24 candidatas, tres cursos, sin aprobación ni cambios en el contenido pub
  assert.equal(source.questions.length,84);
  assert.equal(approved.questions.length,36);
  const output=compiled();
- assert.equal(output.questions.length,120);
- assert.equal(output.questions.filter(q=>q.c==='Sintaxis').length,63);
+ assert.equal(output.questions.length,144);
+ assert.equal(output.questions.filter(q=>q.c==='Sintaxis').length,87);
  assert.deepEqual(output.questions.slice(0,84),source.questions);
- assert.deepEqual(output.questions.slice(84),
+ assert.deepEqual(output.questions.slice(84,120),
   approved.questions.map(({candidateId,...q})=>q));
+ assert.deepEqual(output.questions.slice(120),
+  approvedTwo.questions.map(({candidateId,...q})=>q));
  const key='candidatos-sintaxis-lote2-24-2026-11-20.json';
  for(const path of ['scripts/build.mjs','scripts/build-repaso-gramatica.mjs',
   'scripts/extend-repaso-sintaxis.mjs','public/app.js']){
