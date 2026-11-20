@@ -83,6 +83,8 @@ jobs:
         run: npm run build
       - name: Inventariar dependencias externas y fuentes internas (sin autorizar archivos)
         run: npm run audit:repositorios:retirada
+      - name: Verificar dependencias remotas antes del archivo de repositorios originales
+        run: npm run audit:servicios:externos
       - name: Medir cobertura contextual y curricular de las 87 preguntas de sintaxis
         run: node scripts/audit-repaso-sintaxis.mjs
       - name: Auditar filología transversal de Latín I, Latín 4.º y Griego I (solo lectura)
