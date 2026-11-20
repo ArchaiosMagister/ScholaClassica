@@ -1,11 +1,11 @@
 // Preparar respaldos GIT RESTAURABLES fuera de ScholaClassica, SOLO con ejecución
 // local explícita --dest. No archiva, borra ni escribe en repositorios remotos.
 // Los bundles pueden contener secretos históricos: no subirlos a GitHub/Pages.
-import {readFile,mkdir,rm,mkdtemp,stat,realpath,rename,writeFile,open} from 'node:fs/promises';
+import {readFile,mkdir,rm,mkdtemp,stat,realpath,rename,open} from 'node:fs/promises';
 import {createReadStream} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
-import {resolve,join,sep,dirname} from 'node:path';
+import {resolve,join,sep} from 'node:path';
 import {tmpdir} from 'node:os';
 import {pathToFileURL} from 'node:url';
 
@@ -112,7 +112,8 @@ export async function createLocalBackups(lock,{destination,root}){
  const data={
   schema:'schola-local-git-backup/v1',createdAt:new Date().toISOString(),
   scope:'Tres repositorios originales de código, ramas, etiquetas e historial; no incluye Pages, PWA instaladas, bases de datos, usuarios ni Git LFS externos',
-  records:rows,backupStoredOffGithub:true,restorationTested:true,
+  records:rows,createdOutsideScholaCheckout:true,restorationTested:true,
+  offDeviceCopyVerified:false,
   manualSecondaryCopyRequired:true,
   archivingAuthorized:false,deletionAuthorized:false,
   warning:'Los bundles contienen historia Git y podrían incluir secretos históricos; NO subir a un repositorio público.'
