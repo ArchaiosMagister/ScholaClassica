@@ -38,7 +38,7 @@ try{
   key:GrammarProgressTransfer.KEY,
   courses:Object.keys(GrammarPracticeDebug.syllabi)
  }));
- assert.equal(counts.syntax,27);
+ assert.equal(counts.syntax,63,'Las 36 preguntas aprobadas deben aparecer en el módulo');
  assert.equal(counts.concepts,1,'El motor original excluye de la práctica las 6 preguntas de introducción UD0');
  assert.equal(counts.key,'classics-grammar-v1');
  assert.ok(counts.courses.includes('gr1')&&counts.courses.includes('lat1'));
@@ -102,6 +102,42 @@ try{
  await second.waitForTimeout(350);
  const importedAgain=await second.evaluate(()=>JSON.parse(localStorage.getItem('classics-grammar-v1')));
  assert.deepEqual(importedAgain,original,'La reimportación no debe duplicar el progreso');
+ const approvedCoverage=await second.evaluate(()=>{
+  const syntax=GrammarPracticeDebug.exercises.filter(q=>q.category==='Sintaxis');
+  const count=subject=>syntax.filter(q=>q.subject===subject).length;
+  const lat4Units=Array.from({length:8},(_,i)=>syntax.filter(q=>q.subject==='lat4'&&q.unit==='UD '+(i+1)).length);
+  const lat1Topics=GrammarPracticeDebug.syllabi.lat1;
+  return {bySubject:{lat4:count('lat4'),lat1:count('lat1'),gr1:count('gr1')},lat4Units,
+   apposition:lat1Topics.find(([u])=>u==='UD 4')[1].includes('Aposición y dativo de aproximación'),
+   possessive:lat1Topics.find(([u])=>u==='UD 7')[1].includes('Dativo posesivo'),
+   questionCount:syntax.filter(q=>q.id.includes('|concept-')).length,
+   hasOriginal:GrammarPracticeDebug.exercises.some(q=>q.id==='gr1|UD 1|concept-5'),
+   idA:syntax.find(q=>q.prompt.startsWith('En «Cicero, orator Romanus'))?.id,
+   idB:syntax.find(q=>q.prompt.startsWith('En «Mihi liber est»'))?.id};
+ });
+ assert.deepEqual(approvedCoverage.bySubject,{lat4:18,lat1:20,gr1:25});
+ assert.deepEqual(approvedCoverage.lat4Units,[2,2,4,2,2,2,2,2]);
+ assert.equal(approvedCoverage.apposition,true);
+ assert.equal(approvedCoverage.possessive,true);
+ assert.equal(approvedCoverage.questionCount,63);
+ assert.equal(approvedCoverage.hasOriginal,true);
+ assert.equal(approvedCoverage.idA,'lat1|UD 4|concept-103');
+ assert.equal(approvedCoverage.idB,'lat1|UD 7|concept-106');
+ for(const [unit,expectedId] of [['UD 4','lat1|UD 4|concept-103'],['UD 7','lat1|UD 7|concept-106']]){
+  await second.locator('#subject').selectOption('lat1');
+  await second.locator('#category').selectOption('Sintaxis');
+  await second.locator('#none').click();
+  await second.locator('#units input[value="'+unit+'"]').check();
+  await second.waitForFunction(()=>!document.querySelector('#start').disabled);
+  await second.locator('#start').click();
+  const question=await second.evaluate(()=>GrammarPracticeDebug.currentQuestion());
+  assert.equal(question.id,expectedId);
+  await second.locator('#grammar-answer button').filter({hasText:question.answer}).first().click();
+  const recorded=await second.evaluate(id=>JSON.parse(localStorage.getItem('classics-grammar-v1'))[id],expectedId);
+  assert.equal(recorded.right,1,'El progreso de la pregunta nueva debe guardarse por su ID');
+ }
+ assert.deepEqual(await second.evaluate(id=>JSON.parse(localStorage.getItem('classics-grammar-v1'))[id],q.id),
+  original[q.id],'El historial previamente importado debe conservarse');
  await second.locator('#subject').selectOption('lat4');
  await second.locator('#category').selectOption('Conceptos');
  await second.locator('#all').click();
