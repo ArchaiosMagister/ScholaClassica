@@ -57,14 +57,16 @@ try{
   assert.equal(await coursePicker.inputValue(),'','No debe haber asignatura por defecto la primera vez');
   assert.equal(await page.locator('.path-links a').count(),0);
   await coursePicker.selectOption('gr1');
-  assert.equal(await page.locator('.path-links a').count(),5);
+  assert.equal(await page.locator('.path-links a').count(),6);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Repaso de sintaxis y conceptos · Griego I'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Etymologicon · Griego I'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Palabra del día'));
   await coursePicker.selectOption('gr2');
   assert.equal(await page.locator('.path-links a').count(),1);
   assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Griego II'));
   await coursePicker.selectOption('lat4');
-  assert.equal(await page.locator('.path-links a').count(),4);
+  assert.equal(await page.locator('.path-links a').count(),5);
+  assert.ok((await page.locator('.path-links').textContent()).includes('Repaso de sintaxis y conceptos · Latín 4.º'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
@@ -72,7 +74,7 @@ try{
   assert.equal(await page.locator('.path-links a').count(),3);
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín II'));
   await coursePicker.selectOption('lat1');
-  assert.equal(await page.locator('.path-links a').count(),5);
+  assert.equal(await page.locator('.path-links a').count(),6);
   await page.locator('.path-links a[data-study-tool="gramatica"]').click();
   await page.waitForURL(/\/apps\/gramatica\/curso\.html\?lengua=latin/);
   await page.goto(base+'/',{waitUntil:'networkidle'});

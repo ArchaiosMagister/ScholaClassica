@@ -123,6 +123,8 @@ jobs:
         run: npm run test:browser:vocabula:offline
       - name: Traspasar progreso entre Vocabula original y ScholaClassica con instalaciones independientes
         run: node tests/vocabula-traspaso-browser.mjs
+      - name: Probar módulo propio de repaso gramatical, sintaxis y migración segura
+        run: node tests/repaso-gramatica-browser.mjs
       - name: Auditar las 60 combinaciones de Vocabula en castellano con Chromium
         run: npm run test:browser:castellano:vocabula
       - name: Auditar Evolutio castellano desde la respuesta hasta las normas

@@ -24,6 +24,8 @@ import {applyGreek1KindynosUd5} from './greek1-kindynos-ud5-decision.mjs';
 import {adaptVocabulaAll} from './adapt-vocabula-all.mjs';
 import {buildVocabulaOffline} from './adapt-vocabula-offline.mjs';
 import {buildVocabulaPwa} from './build-vocabula-pwa.mjs';
+import {buildGrammarReview} from './build-repaso-gramatica.mjs';
+import {buildGrammarReviewPwa} from './build-repaso-gramatica-pwa.mjs';
 import {verifyVendoredVocabula} from './verify-vendored-vocabula.mjs';
 import {verifyVendoredEvolutio} from './verify-vendored-evolutio.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -197,6 +199,15 @@ await adaptVocabulaAll(vocabulaDestination,root);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
 await buildVocabulaOffline(vocabulaDestination,root);
 await buildVocabulaPwa(vocabulaDestination);
+
+// El antiguo generador de sintaxis, conceptos y flexiones ocupa un módulo
+// independiente. No se introduce en Vocabula ni reemplaza Morfología.
+const grammarReviewDestination=join(out,'apps/repaso-gramatica');
+await buildGrammarReview({
+ source:vocabulaSource,destination:grammarReviewDestination,
+ vocabulaDestination,root
+});
+await buildGrammarReviewPwa(grammarReviewDestination);
 
 // Nuevo módulo de práctica propio, separado del Vocabula original.
 const morphologySource=join(root,'public/morfologia');

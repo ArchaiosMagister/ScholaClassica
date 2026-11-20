@@ -28,6 +28,7 @@ const STUDY_CATALOG=Object.freeze({
   lat4:[
     {id:'gramatica',label:'Gramática · Latín de 4.º de ESO',href:'apps/gramatica/curso.html?lengua=latin&curso=4&unidad=1'},
     {id:'vocabulario',label:'Vocabulario · Latín de 4.º de ESO',href:'apps/vocabulario/index.html?subject=lat4'},
+    {id:'repaso-gramatica',label:'Repaso de sintaxis y conceptos · Latín 4.º',href:'apps/repaso-gramatica/index.html?subject=lat4'},
     {id:'morfologia',label:'Práctica de morfología · Latín de 4.º de ESO',href:'apps/morfologia/index.html?subject=lat4'},
     {id:'palabra-dia',label:'Palabra del día · 4.º ESO (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/4eso/',external:true}
   ],
@@ -35,6 +36,7 @@ const STUDY_CATALOG=Object.freeze({
     {id:'gramatica',label:'Gramática · Latín I',href:'apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1'},
     {id:'vocabulario',label:'Vocabulario · Latín I',href:'apps/vocabulario/index.html?subject=lat1'},
     {id:'evolutio',label:'Evolución fonética',href:'apps/evolucion-fonetica/index.html'},
+    {id:'repaso-gramatica',label:'Repaso de sintaxis y conceptos · Latín I',href:'apps/repaso-gramatica/index.html?subject=lat1'},
     {id:'morfologia',label:'Práctica de morfología · Latín I',href:'apps/morfologia/index.html?subject=lat1'},
     {id:'palabra-dia',label:'Palabra del día · 1.º Bachillerato (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/',external:true}
   ],
@@ -47,6 +49,7 @@ const STUDY_CATALOG=Object.freeze({
     {id:'gramatica',label:'Gramática · Griego I',href:'apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1'},
     {id:'vocabulario',label:'Vocabulario · Griego I (ático)',href:'apps/vocabulario/index.html?subject=gr1'},
     {id:'etymologicon',label:'Etymologicon · Griego I',href:'apps/etymologicon/index.html'},
+    {id:'repaso-gramatica',label:'Repaso de sintaxis y conceptos · Griego I',href:'apps/repaso-gramatica/index.html?subject=gr1'},
     {id:'morfologia',label:'Práctica de morfología · Griego I',href:'apps/morfologia/index.html?subject=gr1'},
     {id:'palabra-dia',label:'Palabra del día · 1.º Bachillerato (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/',external:true}
   ],
