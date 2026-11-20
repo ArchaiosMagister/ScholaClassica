@@ -10,10 +10,10 @@
     },
     "ArchaiosMagister/VocabulaLatinaGraecaque": {
       "pinned": "a7be2161a2401816ede78a96981daaac6850b8d2",
-      "head": "6c51743b7b065e6afdd77468a3d61de29d48f2d4",
+      "head": "8214e538e3ed242cf6aab1e06cb59e9ed5ee6174",
       "kind": "legacy-transition",
-      "pr": "https://github.com/ArchaiosMagister/VocabulaLatinaGraecaque/pull/18",
-      "note": "Aviso de transición en theme.js y pruebas; progreso y fichas originales conservados"
+      "pr": "https://github.com/ArchaiosMagister/VocabulaLatinaGraecaque/pull/19",
+      "note": "Aviso anterior PR #18 conservado; PR #19 añade exclusivamente exportación/importación JSON del historial gramatical antiguo, enlace al repaso autónomo y pruebas, más regeneración automática de fecha del informe de cobertura. Bancos, IDs, progreso de vocabulario, paradigmas y fuente fijada permanecen intactos."
     },
     "ArchaiosMagister/EvolucionFonetica": {
       "pinned": "901dacb125ee7894ea9d11faf7b0d0afa7e713b5",
