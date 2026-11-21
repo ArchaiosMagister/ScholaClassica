@@ -1,0 +1,41 @@
+{
+  "schema": "schola-source-drift-baseline/v1",
+  "purpose": "Revisiones públicas de los repositorios originales conocidas tras la copia académica. NO significa que su contenido esté sincronizado ni permite archivarlos.",
+  "sources": [
+    {
+      "id": "appendix",
+      "reviewedHead": "40d06bff955087d81c5b3ab502422d77caf3186a",
+      "aheadBy": 4,
+      "reviewedFiles": [
+        ".github/workflows/pages.yml",
+        "assets/theme.js",
+        "scripts/test-aviso-scholaclassica.mjs"
+      ]
+    },
+    {
+      "id": "evolutio",
+      "reviewedHead": "5a464a2c67f6dbc3bd6f6a7c45e862dc6af71349",
+      "aheadBy": 6,
+      "reviewedFiles": [
+        "index.html",
+        "sw.js",
+        "tests/legacy-transition.test.mjs",
+        "tests/static.test.mjs"
+      ]
+    },
+    {
+      "id": "vocabula",
+      "reviewedHead": "8214e538e3ed242cf6aab1e06cb59e9ed5ee6174",
+      "aheadBy": 12,
+      "reviewedFiles": [
+        ".github/workflows/check-grammar-web.yml",
+        "data/morphology-coverage.json",
+        "gramatica-progreso.js",
+        "gramatica.html",
+        "tests/check-grammar-progress.cjs",
+        "tests/check-transition-scholaclassica.cjs",
+        "theme.js"
+      ]
+    }
+  ]
+}

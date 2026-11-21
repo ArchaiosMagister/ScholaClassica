@@ -1,0 +1,54 @@
+name: Vigilar divergencias entre originales y ScholaClassica (solo auditoría)
+on:
+  pull_request:
+    paths:
+      - 'config/sources.lock.json'
+      - 'config/source-drift-baseline.json'
+      - 'scripts/audit-source-drift.mjs'
+      - 'tests/audit-source-drift.test.mjs'
+      - '.github/workflows/vigilar-fuentes-originales.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/sources.lock.json'
+      - 'config/source-drift-baseline.json'
+      - 'scripts/audit-source-drift.mjs'
+      - '.github/workflows/vigilar-fuentes-originales.yml'
+  schedule:
+    - cron: '13 8 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: schola-fuentes-originales-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Obtener código sin dejar credenciales persistentes
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Probar comparaciones y alertas mediante GitHub simulado
+        run: node --test tests/audit-source-drift.test.mjs
+      - name: Comprobar solo metadatos públicos de los tres originales
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/audit-source-drift.mjs
+      - name: Conservar diagnóstico fuera de GitHub Pages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-deriva-fuentes-originales
+          path: build/academic-audits/retirada/drift-fuentes.json
+          if-no-files-found: warn
+          retention-days: 30
