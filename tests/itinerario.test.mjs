@@ -11,6 +11,9 @@ test('el portal presenta selección contextual para los cursos disponibles',()=>
     assert.match(app,new RegExp('\\b'+id+':\\['));
   }
   assert.match(portal,/id="study-course"/);
+  assert.match(portal,/href="apps\/etymologicon\/estudio\.html">Etymologicon · derivados/);
+  assert.match(portal,/href="apps\/etymologicon\/practicar\.html">Practicar etimología griega/);
+  assert.match(app,/id:'etymologicon'[^\n]+href:'apps\/etymologicon\/index\.html'/);
   assert.match(portal,/id="study-resume"/);
   assert.match(app,/PATH_STORAGE_KEY='scholaclassica-itinerario-v1'/);
   assert.match(app,/localStorage/);
