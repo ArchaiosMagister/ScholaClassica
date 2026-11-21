@@ -52,6 +52,7 @@
     "audit:retirada:urls": "node scripts/audit-live-legacy-routes.mjs",
     "backup:plan": "node scripts/backup-originals.mjs --plan",
     "audit:servicios:externos": "node scripts/audit-external-service-retirement.mjs",
-    "test:browser:etymologicon": "node tests/etymologicon-integration-browser.mjs"
+    "test:browser:etymologicon": "node tests/etymologicon-integration-browser.mjs",
+    "backup:verify-copies": "node scripts/verify-backup-copies.mjs"
   }
 }

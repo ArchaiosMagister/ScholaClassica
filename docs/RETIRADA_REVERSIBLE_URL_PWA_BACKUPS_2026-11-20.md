@@ -12,7 +12,7 @@ La compilación de ScholaClassica necesita **cero checkouts** de los repositorio
 | Repaso gramatical exportación/importación | `tests/repaso-legado-traspaso-browser.mjs` con dos instalaciones aisladas | Una prueba manual real en Safari iPadOS |
 | URL antiguas y nuevas accesibles | Matriz v2: 18 pares, 10 destinos nuevos y 12 verificaciones de caché/avisos; workflow `vigilar-rutas-legadas.yml` | Revisar enlaces de materiales de clase, QR, marcadores y aplicaciones instaladas |
 | Avisos y cachés de transición | Ocho verificaciones sobre scripts de aviso, cliente de progreso y service workers | Observar actualización de una PWA instalada en un dispositivo real |
-| Copia restaurable de código con referencias | `scripts/backup-originals.mjs` (herramienta local) y prueba Git con repositorio ficticio | Ejecutar localmente para los repositorios reales; duplicar el respaldo en otro soporte y verificarlo |
+| Copia restaurable de código con referencias | `scripts/backup-originals.mjs` y `scripts/verify-backup-copies.mjs`; ensayos automatizados con Git ficticio | Ejecutar ambas herramientas en el Mac para los repositorios reales; duplicar en otro soporte y confirmar manualmente su independencia física |
 | Datos remotos de Supabase/servicios | Fuera del ámbito de los bundles Git | Inventario de proyectos, configuraciones, permisos, políticas y exportaciones de datos necesarias |
 | Archivo de repositorio | **No autorizado** | Nueva decisión expresa, individual por repositorio |
 | Borrado de repositorio | **No autorizado** | Evaluación posterior, diferente del archivo |
@@ -64,7 +64,13 @@ node --test tests/retirada-rutas-publicas.test.mjs
    ```
 4. La herramienta clona en modo espejo **únicamente** `Appendix-grammaticae`, `EvolucionFonetica` y `VocabulaLatinaGraecaque`, fijados en `config/sources.lock.json`. Para cada uno genera un `.bundle`, comprueba que contiene el commit académico original, ejecuta `git bundle verify`, restaura temporalmente un clon espejo independiente, coteja sus ramas y etiquetas y comprueba integridad con `git fsck`.
 5. En el destino se crea `respaldo-git-verificado.json` con los SHA-256, número de referencias, commit académico fijado y revisión `main` incluida. La herramienta no sobreescribe copias anteriores.
-6. **Duplicar después** la carpeta en otro soporte físico protegido; comparar sus hashes y dejar constancia de dónde está guardada. La creación de la primera carpeta no acredita la segunda copia.
+6. **Duplicar después** la carpeta en otro soporte físico protegido; no subir los archivos a GitHub, correo ni a ChatGPT. La creación de la primera carpeta no acredita la segunda copia.
+7. Comprobar automáticamente la segunda copia en el Mac o Linux (ambas carpetas deben ser accesibles, con Git y Node 22):
+   ```bash
+   npm run backup:verify-copies -- "$HOME/Documentos/RespaldosScholaClassica" "/Volumes/DiscoSeguro/RespaldosScholaClassica"
+   ```
+   Se verifican los manifiestos idénticos, tamaño y SHA-256 de **cada bundle de ambas carpetas**. La herramienta restaura los bundles de la **segunda** carpeta a repositorios Git temporales, compara el commit académico, rama principal y cantidad de referencias, ejecuta `git bundle verify` y `git fsck`, y borra los clones temporales. No borra ni modifica los originales, la segunda copia ni los repositorios de GitHub.
+8. Comprobar **manualmente** que la segunda carpeta está realmente en otro dispositivo o soporte cifrado. El programa no acredita independencia física a partir de dos rutas y no genera certificados que autoricen archivo o borrado. Si falla cualquier comprobación, conservar los originales y resolver primero la incidencia.
 
 Una restauración futura desde el bundle se podría iniciar mediante:
 
@@ -99,3 +105,11 @@ La portada incorpora «¿Qué ocurre con los enlaces a las webs antiguas?» como
 **No se ha configurado ninguna redirección** en los repositorios originales ni en GitHub Pages. Los marcadores antiguos, materiales de clase, QR y PWA ya instaladas siguen apuntando al proyecto de origen. La navegación consolidada no implica migración silenciosa de datos.
 
 Para tomar una decisión futura por cada repositorio siguen pendientes la comprobación manual en iPad, los respaldos Git verificados y duplicados y la auditoría de servicios externos. GeneradorExamenes se mantiene separado; no se autoriza retirar ningún repositorio en esta fase.
+
+## Estado de dependencia remota comprobado el 21/11/2026
+
+Consulta **solo de metadatos**, sin descargar filas, identidades ni claves: los proyectos de Supabase de **Vocabulario clásico** y **Palabra del día** siguen en estado `ACTIVE_HEALTHY`. Se identificaron como activas las cuatro funciones de vocabulario y docencia (`vocabulary`, `schola-login`, `schola-vocab-admin`, `schola-inbox`) y el puente `schola-palabra-inbox`. Las verificaciones de JWT de las funciones declaradas concuerdan con las necesidades de sus puntos de entrada: login público protegido por su propia lógica; bandejas y administración autenticadas; puente entre proyectos con comprobación de sesión en la función.
+
+Esta observación no demuestra que las funciones puedan reconstruirse a partir del repositorio, que exista un respaldo PostgreSQL restaurable, que se haya exportado el almacenamiento ni que una función responda a una sesión real. **No** se han cambiado políticas, usuarios, secretos ni configuraciones.
+
+La automatización del segundo respaldo permite cerrar una prueba **técnica**, pero no reemplaza la comprobación del soporte externo en un Mac, la migración real en iPad ni el respaldo privado de los dos proyectos Supabase. No se puede considerar apto para archivar ningún repositorio solo por pasar esta batería.
