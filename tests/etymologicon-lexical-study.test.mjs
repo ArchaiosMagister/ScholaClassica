@@ -70,6 +70,7 @@ test('componentes dobles y triples también están documentados para materias ci
   assert.equal(study.audit.explicitComponentReviews,487);
   assert.equal(study.audit.compounds+study.audit.singleStemOrFamily,487);
   assert.deepEqual(lookup('biología').components.map(c=>c.greek),['βίος','λόγος']);
+  assert.doesNotMatch(lookup('biología').connection,/no es necesariamente una traducción literal/i);
   assert.deepEqual(lookup('biblioteca').components.map(c=>c.greek),['βιβλίον','θήκη']);
   assert.equal(lookup('biblioteca').components[1].external,true);
   assert.equal(lookup('otorrinolaringología').components.length,4);
