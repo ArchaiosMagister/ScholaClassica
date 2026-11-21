@@ -33,3 +33,22 @@ test('los accesos contextuales apuntan exclusivamente a recursos integrados que 
   assert.match(catalog,/gr2:\[\s*\{id:'gramatica'/);
   assert.ok(!/gr2:[\s\S]*etymologicon/.test(catalog.split(/gr2:\[/)[1]||''));
 });
+
+test('La portada conserva accesos reversibles a las webs históricas sin mezclar módulos',()=>{
+ assert.match(portal,/id="enlaces-historicos"/);
+ for(const [oldPath,newPath] of [
+  ['/Appendix-grammaticae/','apps/gramatica/index.html'],
+  ['/EvolucionFonetica/','apps/evolucion-fonetica/index.html'],
+  ['/VocabulaLatinaGraecaque/','apps/vocabulario/index.html?subject=lat1'],
+  ['/VocabulaLatinaGraecaque/gramatica.html','apps/repaso-gramatica/index.html?subject=lat1']
+ ]){
+  assert.ok(portal.includes('https://archaiosmagister.github.io'+oldPath),
+   'Falta ruta legada '+oldPath);
+  assert.ok(portal.includes('href="'+newPath.replaceAll('&','&amp;')+'"'),
+   'Falta la ruta integrada '+newPath);
+ }
+ assert.match(portal,/no se redirigen automáticamente/);
+ assert.match(portal,/práctica de morfología/);
+ assert.match(portal,/Etymologicon/);
+ assert.match(portal,/Conservar mi progreso/);
+});
