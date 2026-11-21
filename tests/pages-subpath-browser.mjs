@@ -59,12 +59,16 @@ try{
  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
    'rgb(0, 0, 0)','El OLED debe estar disponible sin conexión en GitHub Pages');
  await page.context().setOffline(false);
- // Acceso directo desde una tarjeta: también actualiza el itinerario,
- // sin guardar ningún dato sobre respuestas, calificaciones o usuario.
- await page.locator('#tab-herramientas').click();
- await page.locator('#panel-herramientas a[href="apps/etymologicon/estudio.html"]').click();
+ // El enlace por lengua conduce al glosario, con la misma subruta Pages.
+ await page.locator('#panel-lenguas a[href="apps/etymologicon/estudio.html"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/estudio\.html$/);
  await page.waitForFunction(()=>document.querySelector('#study-loading')?.hidden===true);
+ await page.goto(base+prefix,{waitUntil:'networkidle'});
+ // La tarjeta de herramientas abre la práctica, conservando el itinerario.
+ await page.locator('#tab-herramientas').click();
+ await page.locator('#panel-herramientas a[href="apps/etymologicon/practicar.html"]').click();
+ await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/practicar\.html$/);
+ await page.waitForFunction(()=>document.querySelector('#exercise-content')?.hidden===false);
  await page.goto(base+prefix,{waitUntil:'networkidle'});
  assert.equal(await page.locator('#study-course').inputValue(),'gr1');
  assert.match(await page.locator('#study-resume').innerText(),/Etymologicon/);
