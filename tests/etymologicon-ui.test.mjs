@@ -48,6 +48,12 @@ test('la portada ofrece exactamente los dos accesos solicitados',()=>{
   assert.match(html,/Estudio del léxico/);
   assert.match(html,/type="module" src="\.\/portada\.mjs"/);
 });
+test('el glosario enlaza directamente a la práctica sin redirigir a la portada',()=>{
+  const html=readFileSync(new URL('../apps/etymologicon/estudio.html',import.meta.url),'utf8');
+  assert.match(html,/<a class="lexicon-practice-link" href="\.\/practicar\.html">Ir a practicar<\/a>/);
+  assert.doesNotMatch(html,/<a class="lexicon-practice-link" href="\.\/index\.html">/);
+});
+
 test('el primer módulo de Etymologicon utiliza imports relativos compatibles con su carpeta',()=>{
   const html=readFileSync(new URL('../apps/etymologicon/practicar.html',import.meta.url),'utf8');
   const ui=readFileSync(new URL('../apps/etymologicon/app.mjs',import.meta.url),'utf8');
