@@ -1,47 +1,169 @@
 {
-  "schema": "schola-live-legacy-routes/v1",
+  "schema": "schola-live-legacy-routes/v2",
   "origin": "https://archaiosmagister.github.io",
-  "purpose": "Solo disponibilidad HTTP de URL antiguas y nuevas; no comprueba iPad real ni migración de datos de usuario.",
+  "purpose": "Auditoría HTTP de rutas originales e integradas, con marca identificativa por módulo y controles de PWA. No demuestra equivalencia filológica ni sustituye pruebas de navegador y de dispositivos físicos.",
   "routes": [
     {
       "id": "appendix-inicio",
       "legacy": "/Appendix-grammaticae/",
-      "integrated": "/ScholaClassica/apps/gramatica/"
+      "integrated": "/ScholaClassica/apps/gramatica/",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
     },
     {
       "id": "appendix-latin1-ud1",
       "legacy": "/Appendix-grammaticae/curso.html?lengua=latin&curso=1&unidad=1",
-      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1"
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=1",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
     },
     {
       "id": "appendix-sintaxis-latin",
       "legacy": "/Appendix-grammaticae/sintaxis.html",
-      "integrated": "/ScholaClassica/apps/gramatica/sintaxis.html"
+      "integrated": "/ScholaClassica/apps/gramatica/sintaxis.html",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
     },
     {
       "id": "appendix-griego-sintaxis",
       "legacy": "/Appendix-grammaticae/griego-sintaxis.html",
-      "integrated": "/ScholaClassica/apps/gramatica/griego-sintaxis.html"
+      "integrated": "/ScholaClassica/apps/gramatica/griego-sintaxis.html",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
     },
     {
       "id": "appendix-valenciano-latin1",
       "legacy": "/Appendix-grammaticae/val/curso.html?lengua=latin&curso=1&unidad=1",
-      "integrated": "/ScholaClassica/apps/gramatica/val/curso.html?lengua=latin&curso=1&unidad=1"
+      "integrated": "/ScholaClassica/apps/gramatica/val/curso.html?lengua=latin&curso=1&unidad=1",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-latin1-ud10",
+      "legacy": "/Appendix-grammaticae/curso.html?lengua=latin&curso=1&unidad=10",
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=latin&curso=1&unidad=10",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-latin2",
+      "legacy": "/Appendix-grammaticae/curso.html?lengua=latin&curso=2",
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=latin&curso=2",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-griego1-ud5",
+      "legacy": "/Appendix-grammaticae/curso.html?lengua=griego&curso=1&unidad=5",
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=griego&curso=1&unidad=5",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-griego2",
+      "legacy": "/Appendix-grammaticae/curso.html?lengua=griego&curso=2",
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=griego&curso=2",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-morfologia-latin",
+      "legacy": "/Appendix-grammaticae/morfologia.html",
+      "integrated": "/ScholaClassica/apps/gramatica/morfologia.html",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-morfologia-griego",
+      "legacy": "/Appendix-grammaticae/griego-morfologia.html",
+      "integrated": "/ScholaClassica/apps/gramatica/griego-morfologia.html",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-subordinadas-latin",
+      "legacy": "/Appendix-grammaticae/subordinadas.html",
+      "integrated": "/ScholaClassica/apps/gramatica/subordinadas.html",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-valenciano-griego1",
+      "legacy": "/Appendix-grammaticae/val/curso.html?lengua=griego&curso=1&unidad=5",
+      "integrated": "/ScholaClassica/apps/gramatica/val/curso.html?lengua=griego&curso=1&unidad=5",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-valenciano-griego-sintaxis",
+      "legacy": "/Appendix-grammaticae/val/griego-sintaxis.html",
+      "integrated": "/ScholaClassica/apps/gramatica/val/griego-sintaxis.html",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
+    },
+    {
+      "id": "appendix-valenciano-latin2",
+      "legacy": "/Appendix-grammaticae/val/curso.html?lengua=latin&curso=2",
+      "integrated": "/ScholaClassica/apps/gramatica/val/curso.html?lengua=latin&curso=2",
+      "markers": {
+        "legacy": "Appendix grammaticæ",
+        "integrated": "Appendix grammaticæ"
+      }
     },
     {
       "id": "evolutio-inicio",
       "legacy": "/EvolucionFonetica/",
-      "integrated": "/ScholaClassica/apps/evolucion-fonetica/index.html"
+      "integrated": "/ScholaClassica/apps/evolucion-fonetica/index.html",
+      "markers": {
+        "legacy": "Evolución fonética",
+        "integrated": "Evolución fonética"
+      }
     },
     {
       "id": "vocabula-inicio",
       "legacy": "/VocabulaLatinaGraecaque/",
-      "integrated": "/ScholaClassica/apps/vocabulario/index.html?subject=lat1"
+      "integrated": "/ScholaClassica/apps/vocabulario/index.html?subject=lat1",
+      "markers": {
+        "legacy": "Vocabulario clásico",
+        "integrated": "Vocabulario clásico"
+      }
     },
     {
       "id": "vocabula-gramatica",
       "legacy": "/VocabulaLatinaGraecaque/gramatica.html",
-      "integrated": "/ScholaClassica/apps/repaso-gramatica/index.html?subject=lat1"
+      "integrated": "/ScholaClassica/apps/repaso-gramatica/index.html?subject=lat1",
+      "markers": {
+        "legacy": "Vocabulario clásico",
+        "integrated": "Repaso gramatical · ScholaClassica"
+      }
     }
   ],
   "checks": [
@@ -108,6 +230,98 @@
       "contains": [
         "schola-repaso-gramatica-"
       ]
+    },
+    {
+      "id": "gramatica-cache-integrada-aislada",
+      "path": "/ScholaClassica/apps/gramatica/sw.js",
+      "contains": [
+        "schola-gramatica-",
+        "./griego-sintaxis.html",
+        "./val/griego-sintaxis.html"
+      ]
+    },
+    {
+      "id": "morfologia-cache-integrada-aislada",
+      "path": "/ScholaClassica/apps/morfologia/sw.js",
+      "contains": [
+        "schola-morphology-"
+      ]
+    },
+    {
+      "id": "vocabula-cache-integrada-aislada",
+      "path": "/ScholaClassica/apps/vocabulario/sw.js",
+      "contains": [
+        "schola-vocabula-"
+      ]
+    },
+    {
+      "id": "etymologicon-cache-integrada-aislada",
+      "path": "/ScholaClassica/apps/etymologicon/sw.js",
+      "contains": [
+        "schola-etymologicon-"
+      ]
+    }
+  ],
+  "integratedOnly": [
+    {
+      "id": "schola-portada",
+      "integrated": "/ScholaClassica/",
+      "contains": "ScholaClassica · Latín y Griego",
+      "note": "Portal unificado, sin homólogo anterior"
+    },
+    {
+      "id": "schola-gramatica-latin4-ud1",
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=latin&curso=4&unidad=1",
+      "contains": "Appendix grammaticæ",
+      "note": "Currículo propio de 4.º integrado, ausente en la web original"
+    },
+    {
+      "id": "schola-gramatica-latin4-ud8",
+      "integrated": "/ScholaClassica/apps/gramatica/curso.html?lengua=latin&curso=4&unidad=8",
+      "contains": "Appendix grammaticæ",
+      "note": "Unidad final de 4.º, sin equivalente en el original"
+    },
+    {
+      "id": "schola-morfologia-latin2",
+      "integrated": "/ScholaClassica/apps/morfologia/index.html?subject=lat2",
+      "contains": "Práctica de morfología · ScholaClassica",
+      "note": "Módulo nativo, distinto del vocabulario"
+    },
+    {
+      "id": "schola-morfologia-griego1",
+      "integrated": "/ScholaClassica/apps/morfologia/index.html?subject=gr1",
+      "contains": "Práctica de morfología · ScholaClassica",
+      "note": "Módulo nativo, distinto del vocabulario"
+    },
+    {
+      "id": "schola-etymologicon-inicio",
+      "integrated": "/ScholaClassica/apps/etymologicon/index.html",
+      "contains": "Etymologicon · Inicio",
+      "note": "Módulo nuevo de etimología griega"
+    },
+    {
+      "id": "schola-etymologicon-estudio",
+      "integrated": "/ScholaClassica/apps/etymologicon/estudio.html",
+      "contains": "Estudio del léxico · Etymologicon",
+      "note": "Glosario etimológico nativo"
+    },
+    {
+      "id": "schola-etymologicon-practica",
+      "integrated": "/ScholaClassica/apps/etymologicon/practicar.html",
+      "contains": "Etymologicon · ScholaClassica",
+      "note": "Práctica etimológica nativa"
+    },
+    {
+      "id": "schola-vocabulario-griego1",
+      "integrated": "/ScholaClassica/apps/vocabulario/index.html?subject=gr1",
+      "contains": "Vocabulario clásico",
+      "note": "Acceso por materia; el original no tiene URL estable separada por asignatura"
+    },
+    {
+      "id": "schola-repaso-gramatica-griego1",
+      "integrated": "/ScholaClassica/apps/repaso-gramatica/index.html?subject=gr1",
+      "contains": "Repaso gramatical · ScholaClassica",
+      "note": "Repaso separado de Vocabula"
     }
   ]
 }

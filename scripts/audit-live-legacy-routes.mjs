@@ -5,14 +5,17 @@ import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve,join,dirname} from 'node:path';
 import {pathToFileURL} from 'node:url';
 
-const SOURCE='schola-live-legacy-routes/v1';
+const SOURCE='schola-live-legacy-routes/v2';
 const EXPECTED_ORIGIN='https://archaiosmagister.github.io';
 
 export function validateRouteSpec(spec){
  if(spec?.schema!==SOURCE||spec.origin!==EXPECTED_ORIGIN)
   throw Error('Origen de auditoría ajeno a los sitios públicos fijados');
- if(spec.routes?.length!==8||spec.checks?.length!==8)
-  throw Error('Se requieren 8 pares de rutas y 8 comprobaciones de contenido');
+ if(!Array.isArray(spec.routes)||spec.routes.length<8||spec.routes.length>40||
+    !Array.isArray(spec.integratedOnly)||spec.integratedOnly.length<1||
+    spec.integratedOnly.length>30||!Array.isArray(spec.checks)||
+    spec.checks.length<8||spec.checks.length>30)
+  throw Error('Inventario de rutas y comprobaciones incompleto o excesivo');
  const ids=new Set();
  const urlOf=path=>{
   if(typeof path!=='string'||!path.startsWith('/')||path.startsWith('//')||
@@ -33,8 +36,25 @@ export function validateRouteSpec(spec){
   const source=urlOf(entry.legacy),dest=urlOf(entry.integrated);
   if(!source.includes('.github.io/')||!dest.includes('/ScholaClassica/apps/'))
    throw Error('Correspondencia de web antigua y ScholaClassica inválida');
-  if(entry.legacy.startsWith('/ScholaClassica/'))
-   throw Error('La ruta antigua no puede ser la nueva');
+  if(!/^\/(?:Appendix-grammaticae|EvolucionFonetica|VocabulaLatinaGraecaque)\//.test(entry.legacy))
+   throw Error('La ruta antigua debe pertenecer a una fuente aprobada');
+  if(typeof entry.markers?.legacy!=='string'||typeof entry.markers?.integrated!=='string'||
+    Object.values(entry.markers).some(x=>!x.trim()||x.length>150))
+   throw Error('Faltan identificadores HTML del módulo antiguo y del integrado');
+ }
+ for(const entry of spec.integratedOnly){
+  if(typeof entry.id!=='string'||!entry.id.match(/^[a-z0-9-]+$/)||
+    ids.has(entry.id))throw Error('ID de módulo integrado repetido o inválido');
+  ids.add(entry.id);
+  const dest=urlOf(entry.integrated);
+  if(!dest.includes('/ScholaClassica/')||
+    (!entry.integrated.startsWith('/ScholaClassica/apps/')&&
+     entry.integrated!=='/ScholaClassica/'))
+   throw Error('Módulo integrado ajeno a ScholaClassica');
+  if(typeof entry.contains!=='string'||!entry.contains.trim()||
+    entry.contains.length>150||
+    typeof entry.note!=='string'||!entry.note.trim()||entry.note.length>250)
+   throw Error('Falta descripción o marca del módulo nativo');
  }
  for(const entry of spec.checks){
   if(typeof entry.id!=='string'||!entry.id.match(/^[a-z0-9-]+$/)||
@@ -65,6 +85,8 @@ export async function auditLegacyLiveRoutes(spec,{fetchImpl=fetch,timeoutMs=1200
      });
      const final=new URL(response.url||href);
      if(final.origin!==EXPECTED_ORIGIN)throw Error('Redirección fuera del dominio público');
+     if(final.pathname+final.search!==path)
+      throw Error('Redirección o reescritura fuera de la ruta esperada');
      if(response.status!==200)throw Error('HTTP '+response.status);
      const size=Number(response.headers?.get?.('content-length')||0);
      if(size>1_000_000)throw Error('Recurso inesperadamente grande');
@@ -80,7 +102,8 @@ export async function auditLegacyLiveRoutes(spec,{fetchImpl=fetch,timeoutMs=1200
   const resource=await visited.get(key);
   if(!resource.ok)return {path,ok:false,status:resource.status,error:resource.error};
   const missing=contains.filter(token=>!resource.content.includes(token));
-  const htmlOk=!html||/<html(?:\s|>)/i.test(resource.content);
+  const htmlOk=!html||(/<html(?:\s|>)/i.test(resource.content)&&
+    (!resource.contentType||/text\/html/i.test(resource.contentType)));
   return {path,ok:missing.length===0&&htmlOk,status:resource.status,
    ...(missing.length?{missingMarkers:missing}:{}),
    ...(!htmlOk?{error:'Documento HTML esperado'}:{})};
@@ -88,10 +111,17 @@ export async function auditLegacyLiveRoutes(spec,{fetchImpl=fetch,timeoutMs=1200
  const checks=[];
  // Se realizan secuencialmente para no sobrecargar Pages y facilitar trazas.
  for(const entry of spec.routes){
-  const legacy=await read(entry.legacy,{html:true});
-  const integrated=await read(entry.integrated,{html:true});
+  const legacy=await read(entry.legacy,{html:true,contains:[entry.markers.legacy]});
+  const integrated=await read(entry.integrated,{html:true,contains:[entry.markers.integrated]});
   checks.push({id:entry.id,kind:'redirectless-route-pair',ok:legacy.ok&&integrated.ok,
    legacy,integrated});
+ }
+ // Los módulos creados en ScholaClassica carecen de homólogo histórico:
+ // auditarlos por separado evita confundir disponibilidad con equivalencia.
+ for(const entry of spec.integratedOnly){
+  const resource=await read(entry.integrated,{html:true,contains:[entry.contains]});
+  checks.push({id:entry.id,kind:'integrated-only',ok:resource.ok,resource,
+   note:entry.note});
  }
  for(const entry of spec.checks){
   const item=await read(entry.path,{html:entry.path.endsWith('.html'),contains:entry.contains});
@@ -99,15 +129,18 @@ export async function auditLegacyLiveRoutes(spec,{fetchImpl=fetch,timeoutMs=1200
  }
  const failures=checks.filter(x=>!x.ok);
  return {
-  schema:'schola-retirement-live-report/v1',
+  schema:'schola-retirement-live-report/v2',
   origin:spec.origin,
   checkedAt:new Date().toISOString(),
-  summary:{total:checks.length,passed:checks.length-failures.length,failed:failures.length},
+  summary:{total:checks.length,passed:checks.length-failures.length,failed:failures.length,
+   paired:spec.routes.length,integratedOnly:spec.integratedOnly.length,
+   contentChecks:spec.checks.length},
   checks,
   autoPublish:false,repositoryArchived:false,repositoryDeleted:false,
   safeToArchive:false,safeToDelete:false,
   limitations:[
-   'Comprobar HTTP y marcas JS no prueba un navegador iPad real ni PWA ya instalada',
+   'Comprobar HTTP y marcas HTML/JS no demuestra equivalencia funcional o filológica, ni prueba un iPad real o PWA ya instalada',
+   'Las páginas de curso cargan el contenido dinámicamente; su equivalencia requiere pruebas específicas en navegador',
    'No revisa enlaces compartidos en documentos, QR o marcadores externos',
    'No demuestra la existencia de respaldos restaurables fuera de GitHub',
    'La autorización docente para archivar o borrar debe ser específica e independiente'
