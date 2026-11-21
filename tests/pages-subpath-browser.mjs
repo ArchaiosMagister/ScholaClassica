@@ -99,6 +99,34 @@ try{
  const keys=await page.evaluate(async()=>await caches.keys());
  for(const cache of ['schola-portal-','schola-etymologicon-','schola-evolutio-'])
    assert.ok(keys.some(k=>k.startsWith(cache)),cache+' no está aislada');
+
+ // Acceso directo desde el portal a un capítulo griego: debe registrar por sí
+ // mismo la PWA de Appendix, sin exigir haber visitado su portada antes.
+ let grammar=await page.goto(base+prefix+'apps/gramatica/griego-sintaxis.html',
+   {waitUntil:'networkidle'});
+ assert.equal(grammar.status(),200,'La sintaxis griega debe abrir directamente');
+ await page.waitForFunction(async()=>(
+   await navigator.serviceWorker.getRegistrations()).some(reg=>
+     reg.active&&reg.scope.endsWith('/ScholaClassica/apps/gramatica/')),
+   null,{timeout:35000});
+ await page.reload({waitUntil:'networkidle'});
+ await page.context().setOffline(true);
+ for(const relative of [
+  'griego-morfologia.html','griego-sustantivos.html',
+  'val/griego-sintaxis.html','morfologia.html',
+  'curso.html?lengua=latin&curso=4&unidad=1'
+ ]){
+  grammar=await page.goto(base+prefix+'apps/gramatica/'+relative,{waitUntil:'load'});
+  assert.equal(grammar.status(),200,'Consulta offline de Appendix: '+relative);
+  assert.ok((await page.locator('main').textContent()).trim().length>50,
+    'Contenido de consulta vacío sin red: '+relative);
+ }
+ const grammarKeys=await page.evaluate(()=>caches.keys());
+ for(const cache of ['schola-portal-','schola-etymologicon-',
+   'schola-evolutio-','schola-gramatica-'])
+  assert.ok(grammarKeys.some(key=>key.startsWith(cache)),
+    'No se debe borrar la caché de '+cache);
+ await page.context().setOffline(false);
  assert.deepEqual(errors,[],'Errores de navegador en la subruta Pages');
  console.log('OK: subruta /ScholaClassica/, PWA raíz y Etymologicon/Evolutio aislados');
 }finally{
