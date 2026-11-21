@@ -8,11 +8,16 @@ const PREFIX='schola-gramatica-';
 const CORE_EXTENSIONS=new Set(['.html','.js','.css','.json','.svg','.png','.webmanifest']);
 const REQUIRED_CORE=[
  './index.html','./curso.html','./morfologia.html','./sintaxis.html',
+ './conjunciones.html','./subordinadas.html',
  './griego-morfologia.html','./griego-sintaxis.html',
- './val/index.html','./val/curso.html','./val/griego-morfologia.html',
- './val/griego-sintaxis.html','./assets/app.js','./assets/search-data.json',
- './assets/curriculum.json','./val/app.js','./val/curriculum.json',
- './assets/curriculum-latin4.json','./val/curriculum-latin4.json',
+ './val/index.html','./val/curso.html','./val/morfologia.html',
+ './val/sintaxis.html','./val/conjunciones.html','./val/subordinadas.html',
+ './val/griego-morfologia.html','./val/griego-sintaxis.html',
+ './assets/app.js','./assets/search-data.json','./assets/curriculum.json',
+ './assets/curriculum-latin1.json','./assets/curriculum-latin4.json',
+ './assets/curriculum-griego1.json','./val/app.js','./val/search-data.json',
+ './val/curriculum.json','./val/curriculum-latin1.json',
+ './val/curriculum-latin4.json','./val/curriculum-griego1.json',
  './assets/gramatica-offline.js'
 ];
 // Contrato estable para las pruebas curriculares; la caché publicada se genera
