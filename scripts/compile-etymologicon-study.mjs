@@ -241,7 +241,7 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
       (components.length===1
         ?'El étimo '+components[0].greek+' aporta la idea de «'+components[0].gloss+'» a esta familia léxica; la acepción española puede haberse especializado con el tiempo.'
         :'En esta voz se relacionan '+components.map(c=>c.greek+' («'+c.gloss+'»)').join(' y ')+
-          '. El significado actual no es necesariamente una traducción literal de la composición.');
+          '.');
     return {
       id:d.id,form:d.form,definition,units:[...new Set(ids.flatMap(id=>etyma.get(id).units))],
       etymonIds:ids,components,connection,
