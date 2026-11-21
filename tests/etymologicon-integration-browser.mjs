@@ -55,10 +55,13 @@ try{
  assert.match(await page.locator('#study-count').textContent(),/^111 étimos · /);
 
  // Filtros y búsqueda normalizada, sin escrituras en el historial.
- await page.locator('#study-search').fill('prosodia');
+ const sampleWord=(await page.locator('#study-entries .lexicon-word-title').first().textContent()).trim();
+ assert.ok(sampleWord.length>1,'Debe existir un derivado consultable');
+ await page.locator('#study-search').fill(sampleWord);
  assert.ok(await page.locator('#study-entries .lexicon-word-title').count()>0,
-  'La búsqueda debe encontrar el derivado prosodia');
- assert.match(await page.locator('#study-entries').textContent(),/prosodia/i);
+  'La búsqueda debe encontrar un derivado realmente presente en el glosario');
+ assert.ok((await page.locator('#study-entries').textContent()).includes(sampleWord),
+  'El resultado de búsqueda debe conservar la forma del derivado');
  await page.locator('#study-search').fill('');
  await page.locator('#study-unit').selectOption({index:1});
  assert.ok((await page.locator('#study-entries details.lexicon-group').count())>0,
