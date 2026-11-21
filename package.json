@@ -54,6 +54,7 @@
     "audit:servicios:externos": "node scripts/audit-external-service-retirement.mjs",
     "test:browser:etymologicon": "node tests/etymologicon-integration-browser.mjs",
     "backup:verify-copies": "node scripts/verify-backup-copies.mjs",
-    "audit:fuentes:drift": "node scripts/audit-source-drift.mjs"
+    "audit:fuentes:drift": "node scripts/audit-source-drift.mjs",
+    "backup:two-copies": "node scripts/backup-two-copies.mjs"
   }
 }
