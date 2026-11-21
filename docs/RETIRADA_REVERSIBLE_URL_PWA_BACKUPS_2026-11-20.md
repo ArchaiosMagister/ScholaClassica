@@ -12,7 +12,7 @@ La compilación de ScholaClassica necesita **cero checkouts** de los repositorio
 | Repaso gramatical exportación/importación | `tests/repaso-legado-traspaso-browser.mjs` con dos instalaciones aisladas | Una prueba manual real en Safari iPadOS |
 | URL antiguas y nuevas accesibles | Matriz v2: 18 pares, 10 destinos nuevos y 12 verificaciones de caché/avisos; workflow `vigilar-rutas-legadas.yml` | Revisar enlaces de materiales de clase, QR, marcadores y aplicaciones instaladas |
 | Avisos y cachés de transición | Ocho verificaciones sobre scripts de aviso, cliente de progreso y service workers | Observar actualización de una PWA instalada en un dispositivo real |
-| Copia restaurable de código con referencias | `scripts/backup-originals.mjs` y `scripts/verify-backup-copies.mjs`; ensayos automatizados con Git ficticio | Ejecutar ambas herramientas en el Mac para los repositorios reales; duplicar en otro soporte y confirmar manualmente su independencia física |
+| Copia restaurable de código con referencias | `scripts/backup-two-copies.mjs` prepara ambas copias y verifica restauración de la segunda en dos volúmenes; se mantienen las herramientas anteriores y sus tests ficticios | Ejecutar en Mac con disco externo independiente y cifrado, confirmar físicamente el soporte y guardar ambas copias |
 | Datos remotos de Supabase/servicios | Fuera del ámbito de los bundles Git | Inventario de proyectos, configuraciones, permisos, políticas y exportaciones de datos necesarias |
 | Archivo de repositorio | **No autorizado** | Nueva decisión expresa, individual por repositorio |
 | Borrado de repositorio | **No autorizado** | Evaluación posterior, diferente del archivo |
@@ -137,3 +137,7 @@ npm run audit:fuentes:drift
 ```
 
 La inspección de nuevos cambios se hace **por repositorio**, con decisión docente posterior de conservar la modificación exclusivamente en la web original, incorporarla a una adaptación de ScholaClassica o aplazarla. **No se sincronizan commits automáticamente**. Los respaldos privados reales, la independencia física de los soportes, las pruebas en iPad y las dependencias de Supabase siguen siendo condiciones pendientes.
+
+## Comprobación física unificada (21/11/2026)
+
+Consultar **[Protocolo de Mac e iPad](PROTOCOLO_MAC_IPAD_RETIRADA_2026-11-21.md)**. Ofrece un solo comando local para crear y verificar ambas copias en volúmenes diferentes, además de un recorrido detallado por Appendix, Vocabula (léxico y repaso independientes), Evolutio y las PWA instaladas. La prueba automatizada **no puede acreditar físicamente** que el segundo volumen sea un disco separado o cifrado; el titular debe comprobarlo. Ni la preparación del protocolo ni superar sus tests demuestran una prueba real en el dispositivo.
