@@ -129,7 +129,10 @@ test('Las URLs incorporadas reflejan la organización por curso y respetan los m
   .path,'/ScholaClassica/apps/evolucion-fonetica/sw.js');
 });
 
-test('Todas las URL integradas responden a archivos reales del artefacto y al curso previsto',()=>{
+// El monitor de URL no compila la plataforma: validar rutas reales solo en la CI principal,
+// que construye dist antes de ejecutar esta batería. La auditoría HTTP sigue siendo independiente.
+test('Todas las URL integradas responden a archivos reales del artefacto y al curso previsto',
+ {skip:!existsSync(join(root,'dist/index.html'))},()=>{
  const dist=join(root,'dist');
  const pathInDist=(value)=>{
   const url=new URL(value,'https://archaiosmagister.github.io');
