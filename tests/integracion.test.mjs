@@ -41,6 +41,14 @@ test('Appendix castellano y valenciano mantiene originales salvo adaptaciones vi
     const original=readFileSync(join(appendixSource,page),'utf8');
     const expected=original.replace(/(assets\/(?:theme\.js|style\.css|language-colors\.css)\?v=[a-zA-Z0-9-]+)(?=["'])/g,'$1-oled1');
     const actual=readFileSync(join(appendixTarget,page),'utf8');
+    const script=page.startsWith('val/')
+      ?'../assets/gramatica-offline.js':'assets/gramatica-offline.js';
+    assert.ok(actual.includes('<script src="'+script+'" defer></script>'),
+      'La página no registra la PWA de Appendix: '+page);
+    // La única transformación común a todas las páginas es el registro
+    // local del SW; no se reescriben sus contenidos filológicos ni enlaces.
+    const withoutOffline=actual.replace(
+      /<script src="(?:\.\.\/)?assets\/gramatica-offline\.js" defer><\/script>/u,'');
     if(coursePages.has(page)){
       assert.ok(actual.includes('<option value="4">'),'Falta opción curricular en '+page);
       assert.ok(actual.includes('curso=4&amp;unidad=1')||page.endsWith('curso.html'),
@@ -48,12 +56,11 @@ test('Appendix castellano y valenciano mantiene originales salvo adaptaciones vi
       // La única edición HTML adicional autorizada es el selector de 4.º
       // y, en la portada, el enlace de consulta. Restaurarlos debe
       // producir los bytes esperados con el ajuste OLED preexistente.
-      const withoutOption=actual.replace(/<option value="4">[^<]*<\/option>/u,'')
-        .replace(/<script src="(?:\.\.\/)?assets\/gramatica-offline\.js" defer><\/script>/u,'');
+      const withoutOption=withoutOffline.replace(/<option value="4">[^<]*<\/option>/u,'');
       const reverted=page.endsWith('index.html')?withoutOption.replace(
         /<p class="course-note"><a href="curso.html\?lengua=latin&amp;curso=4&amp;unidad=1">[^<]*<\/a><\/p>/u,''):withoutOption;
       assert.equal(reverted,expected,'HTML de Appendix sufrió cambios inesperados: '+page);
-    }else assert.equal(actual,expected,'HTML de Appendix: '+page);
+    }else assert.equal(withoutOffline,expected,'HTML de Appendix: '+page);
   }
   for(const file of ['index.html','curso.html','val/index.html','val/curso.html','assets/curriculum.json','val/curriculum.json'])
     assert.ok(existsSync(join(out,'apps/gramatica',file)),file);
