@@ -39,7 +39,8 @@ test('Etymologicon conserva información lingüística y DLE, no auditorías o P
   assert.doesNotMatch(renderer,/Mención en los PDF docentes|Glosa didáctica: pendiente|Resultado del contraste:|No localizado por coincidencia literal/);
   assert.match(renderer,/Consultar en el DLE/);
   assert.match(renderer,/word.editorialNote/);
-  assert.match(study,/El significado actual no tiene por qué equivaler/);
+  assert.doesNotMatch(study,/El significado actual no tiene por qué equivaler/);
+  assert.match(study,/Los términos griegos se pueden pulsar/);
 });
 
 test('Evolutio y Vocabula presentan las actividades sin revelar el historial del banco',()=>{
