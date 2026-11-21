@@ -5,6 +5,8 @@ on:
       - 'config/retirada-rutas-publicas.json'
       - 'scripts/audit-live-legacy-routes.mjs'
       - 'tests/retirada-rutas-publicas.test.mjs'
+      - 'public/index.html'
+      - 'tests/itinerario.test.mjs'
       - '.github/workflows/vigilar-rutas-legadas.yml'
   push:
     branches: [main]
@@ -26,7 +28,7 @@ concurrency:
 jobs:
   auditar:
     runs-on: ubuntu-24.04
-    timeout-minutes: 6
+    timeout-minutes: 10
     steps:
       - name: Checkout de ScholaClassica sin token persistente
         uses: actions/checkout@v4
