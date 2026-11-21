@@ -63,6 +63,35 @@ try{
  assert.ok((await page.locator('#study-entries').textContent()).includes(sampleWord),
   'El resultado de búsqueda debe conservar la forma del derivado');
  await page.locator('#study-search').fill('');
+ // Navegación transversal por los componentes explícitos de los derivados.
+ await page.locator('#study-search').fill('filología');
+ const filologia=page.locator('.lexical-word').filter({
+   has:page.locator('.lexical-word-title',{hasText:'filología'})
+ }).first();
+ const initialStudyUrl=page.url();
+ await filologia.locator('.component-greek-link',{hasText:'λόγος'}).click();
+ const logos=page.locator('details[data-etymon-id="grc:λογοσ"]');
+ assert.equal(page.url(),initialStudyUrl,'Navegar por étimos no debe salir del glosario');
+ assert.equal(await page.locator('#study-search').inputValue(),'');
+ assert.equal(await page.locator('#study-unit').inputValue(),'all');
+ assert.equal(await logos.getAttribute('open'),'');
+ assert.ok(await logos.locator('.lexical-word-title').count()>0,
+   'Al pulsar un componente se muestran los derivados de ese étimo');
+ assert.ok(await logos.evaluate(el=>el.contains(document.activeElement)),
+   'El foco accesible se sitúa en la familia etimológica de destino');
+
+ // El componente complementario sin ficha conserva la página y muestra un aviso local.
+ await page.locator('#study-search').fill('antropocentrismo');
+ const antropocentrismo=page.locator('.lexical-word').filter({
+   has:page.locator('.lexical-word-title',{hasText:'antropocentrismo'})
+ }).first();
+ await antropocentrismo.locator('.component-greek-link',{hasText:'κέντρον'}).click();
+ assert.equal(page.url(),initialStudyUrl);
+ assert.equal(await page.locator('#study-search').inputValue(),'antropocentrismo');
+ assert.match(await antropocentrismo.locator('.lexical-component-feedback').textContent(),
+   /no tiene ficha de étimo disponible/);
+ assert.equal(await antropocentrismo.locator('.lexical-component-feedback').isVisible(),true);
+ await page.locator('#study-search').fill('');
  await page.locator('#study-unit').selectOption({index:1});
  assert.ok((await page.locator('#study-entries details.lexicon-group').count())>0,
   'La primera unidad debe ofrecer entradas');

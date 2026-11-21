@@ -95,7 +95,11 @@ document.addEventListener('click',event=>{
   for(const [course,modules] of Object.entries(STUDY_CATALOG)){
     for(const module of modules){
       if(module.external)continue;
-      if(new URL(module.href,window.location.href).href===anchor.href)
+      const moduleUrl=new URL(module.href,window.location.href);
+      // Tanto el acceso al glosario como a practicar pertenecen al itinerario.
+      const withinEtymologicon=module.id==='etymologicon'&&
+        anchor.pathname.startsWith(moduleUrl.pathname.replace(/index\.html$/,''));
+      if(moduleUrl.href===anchor.href||withinEtymologicon)
         matches.push({course,id:module.id});
     }
   }

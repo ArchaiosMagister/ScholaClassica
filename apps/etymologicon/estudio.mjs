@@ -6,7 +6,7 @@ const ui={search:$('study-search'),unit:$('study-unit'),sort:$('study-sort'),
   container:$('study-entries'),empty:$('study-empty')};
 const themeKey='scholaclassica-etymologicon-theme-v1';
 const themes=new Set(['auto','light','dark','oled']);
-let data=null,openGroups=new Set(),forceOpen=false;
+let data=null,openGroups=new Set(),forceOpen=false,focusedEtymon=null;
 const normalize=value=>String(value??'').normalize('NFD').toLocaleLowerCase('es')
   .replace(/\p{M}/gu,'').replace(/ς/g,'σ').replace(/\s+/gu,' ').trim();
 function element(type,text,cls){
@@ -26,19 +26,55 @@ ui.theme.addEventListener('change',()=>{
   setTheme(ui.theme.value);
   try{localStorage.setItem(themeKey,ui.theme.value);}catch{/* Modo privado */ }
 });
+function navigateToComponent(part,feedback){
+  const etymon=part.id&&data?.etymons.find(entry=>entry.id===part.id);
+  if(!etymon||!etymon.wordIds?.length){
+    feedback.textContent=etymon
+      ?'«'+part.greek+'» figura en el glosario, pero no tiene derivados disponibles.'
+      :'«'+part.greek+'» no tiene ficha de étimo disponible en Etymologicon.';
+    feedback.hidden=false;
+    return;
+  }
+  // El destino puede estar fuera de los filtros actuales.
+  ui.search.value='';
+  ui.unit.value='all';
+  forceOpen=false;
+  openGroups.clear();
+  focusedEtymon=etymon.id;
+  render();
+  const group=[...ui.container.querySelectorAll('details[data-etymon-id]')]
+    .find(entry=>entry.dataset.etymonId===etymon.id);
+  if(group){
+    group.open=true;
+    group.querySelector('summary')?.focus({preventScroll:true});
+    group.scrollIntoView({block:'start',behavior:'smooth'});
+  }
+}
 function appendComponentList(target,parts){
   const line=element('div',null,'lexical-components');
   line.setAttribute('aria-label','Componentes etimológicos');
+  const feedback=element('p',null,'lexical-component-feedback');
+  feedback.hidden=true;
+  feedback.setAttribute('role','status');
   parts.forEach((part,index)=>{
     if(index)line.append(element('span','+','component-plus'));
     const item=element('span',null,'lexical-component'+(part.external?' lexical-component--external':''));
-    const greek=element('span',part.greek,'component-greek');
+    // Los formantes de otras lenguas no enlazan al inventario griego.
+    const isGreek=(part.language===undefined||part.language==='grc')&&
+      /\p{Script=Greek}/u.test(part.greek);
+    const greek=element(isGreek?'button':'span',part.greek,
+      'component-greek'+(isGreek?' component-greek-link':''));
     greek.lang=part.language||'grc';
+    if(isGreek){
+      greek.type='button';
+      greek.setAttribute('aria-label','Consultar derivados del étimo '+part.greek);
+      greek.addEventListener('click',()=>navigateToComponent(part,feedback));
+    }
     item.append(greek,element('span','«'+part.gloss+'»','component-gloss'));
     if(part.external)item.append(element('small','complementario','component-tag'));
     line.append(item);
   });
-  target.append(line);
+  target.append(line,feedback);
 }
 function renderWord(word){
   const card=element('article',null,'lexical-word');
@@ -97,6 +133,7 @@ function render(){
   let shownWords=0;
   for(const item of matches){
     const group=element('details',null,'lexicon-group');
+    if(focusedEtymon===item.etymon.id)group.classList.add('lexicon-group--target');
     const title=element('summary',null,'lexicon-group-summary');
     const greek=element('strong',item.etymon.lemma,'lexicon-greek');
     greek.lang='grc';
@@ -113,7 +150,8 @@ function render(){
     }
     shownWords+=item.words.length;
     group.append(list);
-    if(forceOpen||openGroups.has(item.etymon.id)||(query&&item.words.length<=6))group.open=true;
+    if(forceOpen||focusedEtymon===item.etymon.id||
+       openGroups.has(item.etymon.id)||(query&&item.words.length<=6))group.open=true;
     group.addEventListener('toggle',()=>{
       if(group.open)openGroups.add(item.etymon.id);
       else openGroups.delete(item.etymon.id);
@@ -127,8 +165,8 @@ function render(){
   ui.expand.disabled=matches.length===0;
   ui.collapse.disabled=matches.length===0;
 }
-ui.search.addEventListener('input',render);
-ui.unit.addEventListener('change',render);
+ui.search.addEventListener('input',()=>{focusedEtymon=null;render();});
+ui.unit.addEventListener('change',()=>{focusedEtymon=null;render();});
 ui.sort.addEventListener('change',render);
 ui.expand.addEventListener('click',()=>{
   forceOpen=true;
