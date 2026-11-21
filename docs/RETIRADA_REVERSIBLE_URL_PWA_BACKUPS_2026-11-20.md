@@ -10,7 +10,7 @@ La compilación de ScholaClassica necesita **cero checkouts** de los repositorio
 | Independencia de compilación | `npm run audit:repositorios:retirada` y validación de fuentes internas | Ninguno, ya superado |
 | Vocabulario exportación/importación | `tests/vocabula-traspaso-browser.mjs` con dos instalaciones aisladas | Una prueba manual real en Safari iPadOS |
 | Repaso gramatical exportación/importación | `tests/repaso-legado-traspaso-browser.mjs` con dos instalaciones aisladas | Una prueba manual real en Safari iPadOS |
-| URL antiguas y nuevas accesibles | `scripts/audit-live-legacy-routes.mjs` + workflow separado `vigilar-rutas-legadas.yml` | Revisar enlaces de materiales de clase, QR, marcadores y aplicaciones instaladas |
+| URL antiguas y nuevas accesibles | Matriz v2: 18 pares, 10 destinos nuevos y 12 verificaciones de caché/avisos; workflow `vigilar-rutas-legadas.yml` | Revisar enlaces de materiales de clase, QR, marcadores y aplicaciones instaladas |
 | Avisos y cachés de transición | Ocho verificaciones sobre scripts de aviso, cliente de progreso y service workers | Observar actualización de una PWA instalada en un dispositivo real |
 | Copia restaurable de código con referencias | `scripts/backup-originals.mjs` (herramienta local) y prueba Git con repositorio ficticio | Ejecutar localmente para los repositorios reales; duplicar el respaldo en otro soporte y verificarlo |
 | Datos remotos de Supabase/servicios | Fuera del ámbito de los bundles Git | Inventario de proyectos, configuraciones, permisos, políticas y exportaciones de datos necesarias |
@@ -19,14 +19,17 @@ La compilación de ScholaClassica necesita **cero checkouts** de los repositorio
 
 ## Auditoría de URL publicada: qué comprueba
 
-La nueva especificación `config/retirada-rutas-publicas.json` fija ocho equivalencias entre páginas antiguas e integradas:
+La ampliación del 21 de noviembre usa el esquema `schola-live-legacy-routes/v2` y distingue tres ámbitos:
 
-- Appendix: portada, Latín I UD1, sintaxis latina, sintaxis griega y una ruta de gramática valenciana.
-- Evolutio: inicio antiguo frente al integrado en castellano.
-- Vocabula: entrada de léxico antiguo frente al nuevo módulo de vocabulario.
-- Repaso: antigua práctica de gramática frente al módulo separado de ScholaClassica.
+- **18 pares de rutas** de repositorios antiguos frente a ScholaClassica. Appendix cubre accesos generales y directos a Latín I (incluida UD10), Latín II, Griego I (UD5), Griego II, morfología y sintaxis en castellano y valenciano. Se mantienen Evolutio, Vocabula y el antiguo repaso gramatical.
+- **10 destinos integrados sin homólogo directo**: portada, unidades propias de Latín 4.º, Morfología nativa, Etymologicon, acceso por Griego I a Vocabula y al repaso. No se presentan como equivalentes a una página antigua que no existe.
+- **12 comprobaciones de scripts y cachés**: avisos legados, conservación del progreso del repaso y aislamiento de cachés de gramática, Morfología, Etymologicon, Evolutio, Vocabula y Repaso.
 
-El script comprueba que **ambas direcciones** siguen respondiendo con un documento HTML y que **ocho recursos adicionales** conservan los avisos, la importación de progreso gramatical y las cachés separadas de Evolutio y Repaso. No inicia sesiones, no genera respuestas, no usa datos del alumnado y no redirige a nadie. El informe se almacena exclusivamente como artefacto temporal de Actions, **no en GitHub Pages**.
+Cada par exige que ambas URL devuelvan HTML identificable del módulo esperado y que no redirijan a otra ruta, aunque permanezcan dentro de GitHub Pages. Se preserva exactamente la cadena de consulta de curso y unidad en los pares de Appendix. Un documento HTML genérico o una redirección silenciosa no se considera equivalencia comprobada.
+
+**Limitación fundamental:** la respuesta HTTP, el título y una marca de módulo no demuestran que todas las preguntas, paradigmas, filtros, conexiones Supabase o datos de cada página sean equivalentes. Las pruebas de navegador de ScholaClassica verifican aparte el currículo y los ejercicios integrados; la verificación docente en iPad físico sigue pendiente antes de cualquier archivo.
+
+El script solo lee contenidos públicos: no inicia sesiones, no genera respuestas, no usa datos del alumnado y no redirige a nadie. El informe v2 se almacena exclusivamente como artefacto temporal de Actions, **no en GitHub Pages**.
 
 La ejecución automática semanal es una alerta de disponibilidad; una respuesta 200 no demuestra por sí misma que la web funcione correctamente en un iPad, ni que Pages continúe sirviendo desde el repositorio original si se archivase o borrase.
 
@@ -88,3 +91,11 @@ La emulación Playwright Chromium/WebKit es útil, pero **no se ha probado un iP
 Tras disponer de un informe de URL satisfactorio, un respaldo real con segunda copia confirmada, inventario de servicios externos y comprobación de iPad, presentar una recomendación **por repositorio** (mantener activo / archivar reversiblemente / conservar por dependencias). No tomar decisiones de eliminación o archivo a partir de una batería verde por sí sola.
 
 La versión valenciana de Evolutio sigue aplazada. Vocabula integrado es **solo vocabulario**, Repaso gramatical y Morfología tienen sus módulos independientes. No modificar las bases académicas, IDs ni progreso.
+
+## Guía de navegación visible para el alumnado (21/11/2026)
+
+La portada incorpora «¿Qué ocurre con los enlaces a las webs antiguas?» como ayuda plegable. Relaciona los cuatro accesos académicos anteriores con sus módulos correspondientes de ScholaClassica y enlaza el apartado existente para exportar e importar progreso de Vocabula y Repaso.
+
+**No se ha configurado ninguna redirección** en los repositorios originales ni en GitHub Pages. Los marcadores antiguos, materiales de clase, QR y PWA ya instaladas siguen apuntando al proyecto de origen. La navegación consolidada no implica migración silenciosa de datos.
+
+Para tomar una decisión futura por cada repositorio siguen pendientes la comprobación manual en iPad, los respaldos Git verificados y duplicados y la auditoría de servicios externos. GeneradorExamenes se mantiene separado; no se autoriza retirar ningún repositorio en esta fase.
