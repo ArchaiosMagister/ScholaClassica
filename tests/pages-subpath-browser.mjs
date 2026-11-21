@@ -62,8 +62,9 @@ try{
  // Acceso directo desde una tarjeta: también actualiza el itinerario,
  // sin guardar ningún dato sobre respuestas, calificaciones o usuario.
  await page.locator('#tab-herramientas').click();
- await page.locator('#panel-herramientas a[href="apps/etymologicon/index.html"]').click();
- await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/index\.html$/);
+ await page.locator('#panel-herramientas a[href="apps/etymologicon/estudio.html"]').click();
+ await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/estudio\.html$/);
+ await page.waitForFunction(()=>document.querySelector('#study-loading')?.hidden===true);
  await page.goto(base+prefix,{waitUntil:'networkidle'});
  assert.equal(await page.locator('#study-course').inputValue(),'gr1');
  assert.match(await page.locator('#study-resume').innerText(),/Etymologicon/);
