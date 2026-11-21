@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-import {resolve,join} from 'node:path';
+import {readFileSync,existsSync,statSync} from 'node:fs';
+import {resolve,join,sep} from 'node:path';
 import {auditLegacyLiveRoutes,validateRouteSpec}
  from '../scripts/audit-live-legacy-routes.mjs';
 
@@ -127,4 +127,31 @@ test('Las URLs incorporadas reflejan la organización por curso y respetan los m
   .path,'/EvolucionFonetica/sw.js');
  assert.equal(spec.checks.find(x=>x.id==='evolutio-cache-integrada-aislada')
   .path,'/ScholaClassica/apps/evolucion-fonetica/sw.js');
+});
+
+test('Todas las URL integradas responden a archivos reales del artefacto y al curso previsto',()=>{
+ const dist=join(root,'dist');
+ const pathInDist=(value)=>{
+  const url=new URL(value,'https://archaiosmagister.github.io');
+  assert.ok(url.pathname.startsWith('/ScholaClassica/'));
+  const relative=url.pathname.slice('/ScholaClassica/'.length);
+  const file=resolve(dist,relative+(url.pathname.endsWith('/')?'index.html':''));
+  assert.ok(file.startsWith(dist+sep),'Ruta fuera del artefacto');
+  assert.ok(existsSync(file)&&statSync(file).isFile(),value);
+  return file;
+ };
+ for(const row of [...spec.routes,...spec.integratedOnly]){
+  const file=pathInDist(row.integrated);
+  const marker=row.markers?.integrated||row.contains;
+  assert.ok(readFileSync(file,'utf8').includes(marker),
+   'Página integrada ajena al módulo o mal identificada: '+row.id);
+ }
+ for(const row of spec.routes.filter(x=>x.id.startsWith('appendix-'))){
+  const old=new URL(row.legacy,'https://archaiosmagister.github.io');
+  const modern=new URL(row.integrated,'https://archaiosmagister.github.io');
+  assert.equal(old.search,modern.search,'No alterar unidad, curso ni lengua: '+row.id);
+  assert.equal(old.pathname.replace('/Appendix-grammaticae/',''),
+   modern.pathname.replace('/ScholaClassica/apps/gramatica/',''),
+   'La página del material de consulta debe conservar su ruta relativa');
+ }
 });
