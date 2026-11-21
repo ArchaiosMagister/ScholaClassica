@@ -71,6 +71,7 @@ export async function auditSourceDrift(lock,baseline,{
   if(!['ahead','identical','behind','diverged'].includes(compare?.status)||
      !Array.isArray(compare.files)||compare.files.length>=300||
      !Number.isSafeInteger(compare.ahead_by)||compare.ahead_by<0||
+     compare.ahead_by>250||
      !Number.isSafeInteger(compare.behind_by)||compare.behind_by<0)
    throw Error('Comparación GitHub incompleta o no reconocida para '+target.id);
   const changedFiles=compare.files.map(x=>x.filename);
