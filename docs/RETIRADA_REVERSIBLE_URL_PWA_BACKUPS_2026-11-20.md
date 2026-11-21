@@ -113,3 +113,27 @@ Consulta **solo de metadatos**, sin descargar filas, identidades ni claves: los 
 Esta observación no demuestra que las funciones puedan reconstruirse a partir del repositorio, que exista un respaldo PostgreSQL restaurable, que se haya exportado el almacenamiento ni que una función responda a una sesión real. **No** se han cambiado políticas, usuarios, secretos ni configuraciones.
 
 La automatización del segundo respaldo permite cerrar una prueba **técnica**, pero no reemplaza la comprobación del soporte externo en un Mac, la migración real en iPad ni el respaldo privado de los dos proyectos Supabase. No se puede considerar apto para archivar ningún repositorio solo por pasar esta batería.
+
+## Diferencias entre los repositorios originales y los snapshots integrados (21/11/2026)
+
+La compilación es autónoma, pero los SHA de `vendor/` son **snapshots académicos**, no copias actualizadas automáticamente desde `main`. La inspección de GitHub `compare` de las revisiones fijadas frente a los repositorios públicos actuales dio estos resultados:
+
+| Original | Commits posteriores al snapshot | Archivos modificados en la comparación | Interpretación |
+| --- | ---: | ---: | --- |
+| Appendix-grammaticae | 4 | 3 | Enlaces y avisos de transición, más sus comprobaciones |
+| EvolucionFonetica | 6 | 4 | Aviso de transición, SW antiguo con caché aislada y sus pruebas |
+| VocabulaLatinaGraecaque | 12 | 7 | Avisos, exportación de progreso gramatical, pruebas y metadatos de cobertura morfológica |
+
+Estas diferencias son **conocidas**, pero **no forman parte necesariamente de las copias académicas en `vendor/`**. Los avisos de migración y la exportación de progreso se han implantado en las **webs originales** y se prueban allí; ScholaClassica dispone de su propia navegación y puente de progreso. La coincidencia de objetivos no permite afirmar equivalencia línea a línea. Tampoco hay que sobrescribir `vendor/` con los commits nuevos sin revisar sus efectos sobre adaptadores, identificadores, unidades y progreso.
+
+El inventario `config/source-drift-baseline.json` fija, por cada fuente, el último SHA original revisado, el número de commits y el conjunto de rutas modificadas. El auditor `scripts/audit-source-drift.mjs` consulta en modo **solo lectura** los metadatos de `main` y la comparación GitHub con el snapshot académico. Si alguno de esos datos cambia, produce un informe de **revisión pendiente**, sin fusionar cambios ni modificar fuentes. Incluso con todo conocido, `safeToArchive` y `safeToDelete` permanecen a `false`.
+
+La vigilancia se ejecuta por separado de la publicación de GitHub Pages (semanal y ante cambios del auditor). Su informe se guarda solo como artefacto temporal de Actions; no contiene tokens ni datos de alumnado. Un fallo de esta vigilancia **no despliega ni cancela** ScholaClassica, pero obliga a revisar las fuentes antes de decidir cualquier archivo.
+
+Comprobación manual con Node.js 22:
+
+```bash
+npm run audit:fuentes:drift
+```
+
+La inspección de nuevos cambios se hace **por repositorio**, con decisión docente posterior de conservar la modificación exclusivamente en la web original, incorporarla a una adaptación de ScholaClassica o aplazarla. **No se sincronizan commits automáticamente**. Los respaldos privados reales, la independencia física de los soportes, las pruebas en iPad y las dependencias de Supabase siguen siendo condiciones pendientes.
