@@ -117,6 +117,8 @@ jobs:
         run: npm run test:browser
       - name: Probar despliegue en la subruta real de GitHub Pages
         run: npm run test:browser:pages
+      - name: Probar navegación real y modo offline de Etymologicon Griego I
+        run: npm run test:browser:etymologicon
       - name: Probar morfología curricular, corrección y caché offline
         run: npm run test:browser:morfologia
       - name: Probar producción escrita, teclado griego y repaso local sin conexión
