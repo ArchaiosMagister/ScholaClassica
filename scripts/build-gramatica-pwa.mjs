@@ -12,13 +12,20 @@ const REQUIRED_CORE=[
  './val/index.html','./val/curso.html','./val/griego-morfologia.html',
  './val/griego-sintaxis.html','./assets/app.js','./assets/search-data.json',
  './assets/curriculum.json','./val/app.js','./val/curriculum.json',
+ './assets/curriculum-latin4.json','./val/curriculum-latin4.json',
  './assets/gramatica-offline.js'
 ];
+// Contrato estable para las pruebas curriculares; la caché publicada se genera
+// además a partir del inventario completo en el momento de la compilación.
+export const GRAMMAR_CORE=Object.freeze([...REQUIRED_CORE]);
 export async function listGrammarCore(destination){
  const files=[];
  for(const folder of ['', 'assets', 'val']){
   for(const entry of await readdir(join(destination,folder),{withFileTypes:true})){
-   if(!entry.isFile()||!CORE_EXTENSIONS.has(extname(entry.name)))continue;
+   // sw.js se genera DESPUÉS del inventario; excluirlo al revisar dist
+   // evita una discrepancia circular entre el hash y el código SW.
+   if(entry.name==='sw.js'||!entry.isFile()||
+      !CORE_EXTENSIONS.has(extname(entry.name)))continue;
    files.push('./'+(folder?folder+'/':'')+entry.name);
   }
  }
@@ -52,9 +59,9 @@ export async function buildGrammarPwa(destination){
    await writeFile(path,html);
   }
  }
- const GRAMMAR_CORE=await listGrammarCore(destination);
+ const inventory=await listGrammarCore(destination);
  const hash=createHash('sha256');
- for(const file of GRAMMAR_CORE){
+ for(const file of inventory){
   hash.update(file);
   hash.update(await readFile(join(destination,file==='./'?'index.html':file.slice(2))));
  }
@@ -62,7 +69,7 @@ export async function buildGrammarPwa(destination){
  const sw=[
   "const PREFIX="+JSON.stringify(PREFIX)+";",
   "const VERSION="+JSON.stringify(version)+";",
-  "const CORE="+JSON.stringify(GRAMMAR_CORE)+";",
+  "const CORE="+JSON.stringify(inventory)+";",
   "const SCOPE=new URL(self.registration.scope);",
   "const OWN=new Set(CORE.map(x=>new URL(x,SCOPE).pathname));",
   "self.addEventListener('install',event=>event.waitUntil(",
@@ -88,5 +95,5 @@ export async function buildGrammarPwa(destination){
   "});"
  ].join('\n')+'\n';
  await writeFile(join(destination,'sw.js'),sw);
- console.log('Gramática ScholaClassica: PWA offline aislada '+version+' ('+GRAMMAR_CORE.length+' recursos)');
+ console.log('Gramática ScholaClassica: PWA offline aislada '+version+' ('+inventory.length+' recursos)');
 }
