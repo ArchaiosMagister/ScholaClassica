@@ -2,6 +2,8 @@
 
 **Protocolo del 21 de noviembre de 2026.** No autoriza retirar ningún repositorio. La batería de GitHub Actions NO sustituye ninguna prueba de esta hoja.
 
+> **Aviso de vigencia (22/11/2026):** este es un protocolo histórico *opcional*. Para decidir el archivo reversible ya **no es obligatorio** ejecutar Terminal, guardar dos copias físicas ni importar/exportar progresos antiguos. El procedimiento simplificado y el orden de candidaturas están en el [Dictamen de archivo reversible](DICTAMEN_ARCHIVO_REVERSIBLE_2026-11-22.md). El documento se conserva como referencia por si en otra ocasión se decide utilizar esas funciones.
+
 ## A. Mac: doble copia privada y restaurada
 
 Requisitos: Mac con **Git, Node.js 22 o posterior** y **una unidad externa segura**, preferentemente cifrada, montada en `/Volumes/`. Nunca subir los bundles a GitHub, chat, correo ni almacenamiento compartido sin cifrar. El historial Git puede contener credenciales antiguas.
