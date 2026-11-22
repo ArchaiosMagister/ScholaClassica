@@ -1,6 +1,8 @@
 # Preparación de retirada reversible · URL históricas, PWA y respaldo local
 *20 de noviembre de 2026 · exclusivamente auditoría; no implica autorización de archivo ni borrado.*
 
+> **Revisión de alcance (22/11/2026):** la decisión actual es **valorar un archivo reversible, no borrar**. Ya **no se exige conservar ni migrar el progreso de las aplicaciones antiguas**, ni crear copias físicas en el Mac para continuar la evaluación. Los procedimientos de respaldo y traspaso que aparecen más abajo **permanecen disponibles, pero son opcionales**. El informe actualizado es [Dictamen de archivo reversible](DICTAMEN_ARCHIVO_REVERSIBLE_2026-11-22.md). Los controles que siguen etiquetados como "requisito" en este documento eran criterios conservadores anteriores, no obligaciones vigentes para este usuario; la continuidad de Pages y los servicios remotos sí deben comprobarse. El archivo sigue pendiente de autorización individual.
+
 ## Estado comprobado frente a reservas pendientes
 
 La compilación de ScholaClassica necesita **cero checkouts** de los repositorios académicos originales: Appendix, Evolutio y Vocabula se conservan íntegros bajo `vendor/`, con árbol Git y SHA académico fijado. Sus repositorios de origen, webs antiguas, cachés y vínculos siguen siendo **independientes**.
