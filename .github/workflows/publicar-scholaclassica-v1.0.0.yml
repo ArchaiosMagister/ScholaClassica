@@ -1,0 +1,64 @@
+name: Publicar ScholaClassica v1.0.0 tras verificar Pages
+
+on:
+  push:
+    branches: [release/publicar-v1.0.0]
+    paths: [.github/workflows/publicar-scholaclassica-v1.0.0.yml]
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: publicar-scholaclassica-v1.0.0
+
+jobs:
+  release:
+    if: github.repository == 'ArchaiosMagister/ScholaClassica'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_SHA: 6f9e689764fde029988dfd958b6e1795be4d1fd2
+      PRODUCTION_RUN: '45210255926'
+      RELEASE_TAG: v1.0.0
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 6f9e689764fde029988dfd958b6e1795be4d1fd2
+          persist-credentials: false
+      - name: Esperar y comprobar el despliegue del commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          endpoint="repos/$GH_REPO/actions/runs/$PRODUCTION_RUN"
+          run="$(gh api "$endpoint")"
+          jq -e --arg sha "$RELEASE_SHA" '.head_sha == $sha and .head_branch == "main" and .event == "push" and .path == ".github/workflows/integracion.yml"' <<< "$run"
+          gh run watch "$PRODUCTION_RUN" --interval 15 --exit-status
+          gh api "$endpoint/jobs" | jq -e '.jobs | any(.name == "Publicar ScholaClassica (solo tras validación en main)" and .conclusion == "success")'
+      - name: Verificar la portada y publicar las notas de versión
+        shell: bash
+        run: |
+          set -euo pipefail
+          site=https://archaiosmagister.github.io/ScholaClassica/
+          for attempt in {1..12}; do
+            if curl -fsS --max-time 15 "${site}portal/epigrafia.webp?release=$RELEASE_SHA" -o "$RUNNER_TEMP/epigrafia.webp" &&
+               cmp -s "$RUNNER_TEMP/epigrafia.webp" public/portal/epigrafia.webp &&
+               curl -fsS --max-time 15 "$site?release=$RELEASE_SHA" -o "$RUNNER_TEMP/portada.html" &&
+               grep -Fq 'id="hero-title"' "$RUNNER_TEMP/portada.html"; then
+              break
+            fi
+            test "$attempt" -lt 12
+            sleep 10
+          done
+          if tagged="$(gh api "repos/$GH_REPO/commits/$RELEASE_TAG" --jq '.sha' 2>/dev/null)"; then
+            test "$tagged" = "$RELEASE_SHA"
+          fi
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --target "$RELEASE_SHA" \
+              --title "ScholaClassica 1.0.0" \
+              --notes-file docs/releases/SCHOLACLASSICA_1.0.0.md --latest
+          fi
+          test "$(gh api "repos/$GH_REPO/commits/$RELEASE_TAG" --jq '.sha')" = "$RELEASE_SHA"
+          gh release view "$RELEASE_TAG" --json url,isDraft,isPrerelease --jq 'select((.isDraft or .isPrerelease) | not) | .url' | grep -F "/releases/tag/$RELEASE_TAG"
