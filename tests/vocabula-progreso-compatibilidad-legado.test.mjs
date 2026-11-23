@@ -19,7 +19,7 @@ test('Los 2055 identificadores originales siguen aceptándose en la app integrad
  const idsOld=older.map(entry=>entry.id).sort(),idsNew=newer.map(entry=>entry.id).sort();
  assert.equal(new Set(idsOld).size,2055,'IDs antiguos duplicados');
  assert.equal(new Set(idsNew).size,2057,'IDs integrados duplicados');
- assert.deepEqual(idsNew,idsOld,'No deben cambiar ni eliminarse IDs que aparezcan en un JSON exportado');
+ assert.deepEqual(idsOld.filter(id=>idsNew.includes(id)),idsOld,'No deben cambiar ni eliminarse IDs que aparezcan en un JSON exportado');
 });
 test('Exportación e importación de progreso v1 permanecen exactamente compatibles',()=>{
  const line=(source,prefix)=>source.split('\n').find(x=>x.startsWith(prefix));
