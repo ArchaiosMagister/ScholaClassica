@@ -1,4 +1,3 @@
-import {mountVocabulaAdmin,resetVocabulaAdmin,showGrammarReports} from './admin-vocabula.mjs';
 import {mountGrammarAudit,resetGrammarAudit} from './gramatica-auditoria.mjs';
 // El HTML es público: solo la Edge Function determina si existe acceso docente.
 // Nunca se almacenan aquí contraseñas, claves privilegiadas ni datos de alumnos.
@@ -8,7 +7,7 @@ const sections=['unavailable','login','enroll','verify','ready','teacher'];
 const SCRIPT_URL='./vendor/supabase.js';
 let config,client,enrollment=null,busy=false;
 let loadedNotices=[];
-let sourceState={vocabula:'loading',palabra:'loading'};
+let sourceState={palabra:'loading'};
 const PALABRA_INBOX='https://rzjemisvaaqpnvvgfntl.supabase.co/functions/v1/schola-palabra-inbox';
 const PALABRA_KEY='sb_publishable_x4KEF3M2CmSXCPG6XhZ0jw_WSmd58YO';
 const isSixDigits=value=>/^\d{6}$/.test(value.trim());
@@ -20,8 +19,7 @@ function state(section,message=''){
     el('username').value='';
     el('password').value='';
     el('notices').replaceChildren();
-    loadedNotices=[];sourceState={vocabula:'loading',palabra:'loading'};
-    resetVocabulaAdmin();
+    loadedNotices=[];sourceState={palabra:'loading'};
     resetGrammarAudit();
   }
 }
@@ -90,14 +88,15 @@ async function checkSession(){
 async function fetchNotices(){
   state('teacher','Verificando permisos y consultando avisos…');
   el('notices').replaceChildren();
-  el('notices-state').textContent='Consultando Vocabula y Palabra del día…';
+  el('notices-state').textContent='Consultando propuestas de Palabra del día…';
   const sessionResult=await client.auth.getSession();
   const token=sessionResult.data?.session?.access_token;
   if(sessionResult.error||!token){
     state('login','Inicia sesión para consultar la bandeja');
     return;
   }
-  // Cada una de las dos funciones verifica independently: getUser, UUID docente y AAL2.
+  // Schola-inbox se conserva temporalmente SOLO como barrera de identidad (UUID+AAL2).
+  // No se exhiben incidencias de Vocabula; Palabra del día tiene su servicio independiente.
   const results=await Promise.allSettled([
     client.functions.invoke('schola-inbox',{method:'POST',body:{}}),
     fetch(PALABRA_INBOX,{
@@ -113,22 +112,16 @@ async function fetchNotices(){
     })
   ]);
   loadedNotices=[];
-  sourceState={vocabula:'unavailable',palabra:'unavailable'};
+  sourceState={palabra:'unavailable'};
   const vocab=results[0].status==='fulfilled'?results[0].value:null;
   const vocabData=vocab&&!vocab.error?vocab.data:null;
   const vocabStatus=vocab?.error?.context?.status;
-  // Solo la denegación del servidor principal invalida la sesión docente.
-  // El puente independiente de Palabra del día puede fallar por 401/403:
-  // marcar esa fuente como no disponible sin perder Vocabula ni la sesión AAL2.
+  // Las denegaciones explícitas del validador docente principal cierran la sesión.
+  // Palabra del día puede estar temporalmente no disponible sin afectar al TOTP.
   if(vocabData?.authorized===false||[401,403].includes(vocabStatus)){
     await client.auth.signOut({scope:'local'});
     state('unavailable','Acceso docente no autorizado por el servidor');
     return;
-  }
-  if(vocabData?.authorized&&vocabData?.source==='vocabula'&&Array.isArray(vocabData.items)){
-    sourceState.vocabula='ok';
-    loadedNotices.push(...vocabData.items.filter(item=>item?.source==='vocabula').slice(0,100));
-    if(vocabData.hasMore)sourceState.vocabula='limited';
   }
   const palabra=results[1].status==='fulfilled'?results[1].value:null;
   if(palabra?.authorized&&palabra?.source==='palabra'&&Array.isArray(palabra.items)){
@@ -138,46 +131,37 @@ async function fetchNotices(){
   }
   loadedNotices.sort((a,b)=>(Date.parse(b.created_at)||0)-(Date.parse(a.created_at)||0));
   renderNotices();
-  await mountVocabulaAdmin({client,refreshNotices:fetchNotices});
-  mountGrammarAudit({showGrammarReports});
+  mountGrammarAudit();
   el('status').textContent='Sesión docente protegida con TOTP';
 }
 function renderNotices(){
-  const selected=el('notice-source').value;
-  const notices=loadedNotices.filter(item=>selected==='all'||item.source===selected);
   el('notices').replaceChildren();
   const stateText=value=>value==='ok'?'conectada':
-    value==='limited'?'conectada (más avisos pendientes)':'no disponible';
-  el('sources-state').textContent='Vocabula: '+stateText(sourceState.vocabula)+
-    ' · Palabra del día: '+stateText(sourceState.palabra);
-  const unavailable=selected==='all'
-    ?Object.values(sourceState).some(value=>value==='unavailable')
-    :sourceState[selected]==='unavailable';
-  el('notices-state').textContent=unavailable
-    ?notices.length+' avisos recuperados; alguna fuente no está disponible. No se puede confirmar que no haya más avisos.'
-    :notices.length+' avisos pendientes'+(selected==='all'?'':' de esta aplicación');
-  for(const item of notices){
-    if(!['vocabula','palabra'].includes(item.source))continue;
+    value==='limited'?'conectada (más propuestas pendientes)':'no disponible';
+  el('sources-state').textContent='Palabra del día: '+stateText(sourceState.palabra);
+  el('notices-state').textContent=sourceState.palabra==='unavailable'
+    ?'No se pueden consultar las propuestas de Palabra del día. Comprueba la conexión.'
+    :loadedNotices.length+' propuestas pendientes de Palabra del día';
+  for(const item of loadedNotices){
+    if(item?.source!=='palabra')continue;
     const article=document.createElement('article');article.className='notice';
-    const heading=document.createElement('h3');heading.textContent=String(item.title||'Aviso sin título');
+    const heading=document.createElement('h3');
+    heading.textContent=String(item.title||'Propuesta sin título');
     const origin=document.createElement('small');
-    origin.textContent=(item.source==='vocabula'?'Vocabula':'Palabra del día')+
-      ' · '+String(item.course||'Sin curso')+
+    origin.textContent='Palabra del día · '+String(item.course||'Sin curso')+
       ' · '+(item.created_at&&Number.isFinite(Date.parse(item.created_at))
         ?new Date(item.created_at).toLocaleDateString('es-ES'):'Sin fecha');
-    const detail=document.createElement('p');detail.textContent=String(item.summary||'');
+    const detail=document.createElement('p');
+    detail.textContent=String(item.summary||'');
     const link=document.createElement('a');
-    link.href=item.source==='vocabula'
-      ?'https://archaiosmagister.github.io/VocabulaLatinaGraecaque/'
-      :(String(item.course||'').includes('4.º')
-        ?'https://archaiosmagister.github.io/Palabra-del-dia/4eso/'
-        :'https://archaiosmagister.github.io/Palabra-del-dia/');
+    link.href=String(item.course||'').includes('4.º')
+      ?'https://archaiosmagister.github.io/Palabra-del-dia/4eso/'
+      :'https://archaiosmagister.github.io/Palabra-del-dia/';
     link.target='_blank';link.rel='noopener noreferrer';
-    link.textContent='Abrir aplicación original';
+    link.textContent='Abrir Palabra del día';
     article.append(heading,origin,detail,link);el('notices').append(article);
   }
 }
-el('notice-source').addEventListener('change',renderNotices);
 el('notice-refresh').addEventListener('click',()=>void safely(fetchNotices));
 el('login-form').addEventListener('submit',event=>{
   event.preventDefault();
