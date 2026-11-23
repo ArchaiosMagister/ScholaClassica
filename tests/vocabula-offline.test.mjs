@@ -24,9 +24,10 @@ test('Offline: la PWA de vocabulario precarga sólo sus archivos, sin acceder al
  assert.ok(sw.includes('keys.filter(key=>key.startsWith(PREFIX)&&key!==VERSION)'));
  assert.ok(!sw.includes('supabase.co'));
  const scripts=read(join(target,'index.html'));
- assert.ok(scripts.indexOf('schola-offline.js')<scripts.indexOf('teacher.js?v='));
+ assert.ok(!scripts.includes('schola-offline.js'));
+ assert.ok(!scripts.includes('teacher.js?v='));
  assert.match(scripts,/<link rel="manifest" href="manifest.webmanifest">/);
- assert.match(scripts,/id="pending-reports"/);
+ assert.doesNotMatch(scripts,/id="pending-reports"/);
  assert.deepEqual(new Set(VOCABULA_CORE).size,VOCABULA_CORE.length);
  for(const file of VOCABULA_CORE.filter(p=>p!=='./')){
    assert.ok(readFileSync(join(target,file.slice(2))).byteLength>0,file);
