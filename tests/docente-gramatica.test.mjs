@@ -15,14 +15,14 @@ test('El área docente conserva ejercicios, soluciones y cobertura sin habilitar
   assert.match(source,/gramatica-cobertura\.json/);
   assert.match(ui,/renderCoverage/);
   assert.match(ui,/renderExercises/);
-  assert.match(ui,/openGrammarReports/);
+  assert.doesNotMatch(ui,/openGrammarReports/);
   assert.match(ui,/resetGrammarAudit/);
   assert.match(ui,/textContent/);
   assert.doesNotMatch(ui,/innerHTML|localStorage|sessionStorage/);
   assert.match(app,/mountGrammarAudit/);
   assert.match(app,/resetGrammarAudit/);
   assert.match(html,/id="grammar-audit"/);
-  assert.match(html,/id="grammar-audit-reports"/);
+  assert.doesNotMatch(html,/id="grammar-audit-reports"/);
   assert.match(html,/id="grammar-audit-subject"/);
 });
 test('La revisión de gramática se filtra en servidor sin acceso a sesiones heredadas',()=>{
