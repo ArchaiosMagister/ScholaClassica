@@ -1,43 +1,24 @@
 # ScholaClassica
 
-Plataforma modular de estudio de latín y griego en construcción **sin publicación para el alumnado**.
+Portal de latín y griego con itinerarios para Latín de 4.º de ESO, Latín I y II, y Griego I y II. El catálogo reúne Appendix grammaticæ, Vocabula, Evolutio, Etymologicon, práctica de morfología y repaso gramatical. La oferta de cada itinerario depende de la cobertura de su curso.
 
-## Estado (fase 3 · interfaz etimológica en pruebas)
+## Versión 1.0.0
 
-- **Appendix grammaticæ**: copia completa y sin alteraciones desde un commit fijado, en `dist/apps/gramatica/`.
-- **Evolutio**: copia completa en `dist/apps/evolucion-fonetica/`; su banco y motor de corrección se mantienen idénticos. **Solo en la copia integrada** se adapta el service worker para aislar la caché y se recalibran las etiquetas de dificultad, dando prioridad al resultado castellano sobre el número de leyes. El original permanece intacto.
-- **Etymologicon**: primera modalidad nativa de dos derivados castellanos, corrección determinista (1 / 0,5 / 0) e interfaz con filtros de Griego I. Preparada como **PWA independiente** para instalar y practicar sin conexión tras descargar los recursos, en `dist/apps/etymologicon/`. Su servicio offline no afecta a otras aplicaciones.
-- **Vocabula Latina Græcaque**: léxico integrado desde un commit fijado. Se mantienen los ejercicios, el progreso local y el servicio Supabase; la morfología antigua no se incorpora, en espera de un módulo académico revisado.
-- **GeneradorExamenes**: todavía no incluido en el resultado.
-- **Zona docente**: usuario, contraseña y TOTP; función de inicio de sesión con correo exclusivamente en servidor y control Turnstile, además de bandeja de avisos con autorización de segundo factor. **No activada ni desplegada**: falta aprovisionar la identidad central, secretos y un **origen HTTPS aislado** para la zona privada (no compartir el origen de las aplicaciones públicas), además de verificar el extremo a extremo.
-- Los repositorios originales siguen siendo las únicas fuentes editables de sus aplicaciones durante la migración.
+Consulta las [notas de versión y el alcance de la auditoría](docs/releases/SCHOLACLASSICA_1.0.0.md). El portal público se sirve bajo [GitHub Pages](https://archaiosmagister.github.io/ScholaClassica/). Las secciones históricas de este README documentan hitos de la integración.
 
-## Conciliación académica de Evolutio en valenciano (fase inicial)
+## Construcción local
 
-Se ha iniciado el banco bilingüe sin tocar ni publicar el corrector de Evolutio: **522 étimos identificados**, **26 correspondencias léxicas documentadas con etimología en el DCVB**, **215 propuestas explícitamente no verificadas** y **281 fichas sin propuesta**. **0 fichas valencianas habilitadas**: ninguna se activa hasta verificar las normas valencianas, su posición y la aprobación docente.
-
-El repertorio incluye las **17 normas valencianas** aportadas por el docente y la pérdida fija de **-m**, sin aplicar automáticamente las normas castellanas. La matriz y sus evidencias están en `shared/academic/evolutio-valenciano/`, fuera de `public/` y `dist/`. Su integridad se comprueba contra el SHA fijado de Evolutio mediante `npm run evolutio:val:check` y las pruebas de CI. La modalidad castellana permanece intacta.
-
-Metodología, fuentes, ejemplos contrastados y fases pendientes: [Conciliación académica de Evolutio en valenciano](docs/EVOLUTIO_CONCILIACION_VALENCIANO.md).
-
-## Construcción reproducible
-
-Se necesita Node.js 22 y tres fuentes descargadas en modo lectura, en los commits exactos de `config/sources.lock.json`:
+Se necesita Node.js 22 o posterior. Appendix, Evolutio y Vocabula se construyen desde las copias de `vendor/`, verificadas por árbol Git contra `config/sources.lock.json`. Las auditorías que comparan Latín II con el corpus completo de UniMorph utilizan por separado la revisión fijada en el workflow.
 
 ```bash
-git clone https://github.com/ArchaiosMagister/Appendix-grammaticae.git .sources/appendix
-git -C .sources/appendix checkout a3d54209b3bb8a31efd3d57d62b09d6de8d85f5c
-git clone https://github.com/ArchaiosMagister/EvolucionFonetica.git .sources/evolutio
-git -C .sources/evolutio checkout 0897aae01b6d4c905aafa1c1a6bac5af0810c812
-git clone https://github.com/ArchaiosMagister/VocabulaLatinaGraecaque.git .sources/vocabula
-git -C .sources/vocabula checkout 0e16505b7631298a0448c4160a5d258f82732bfe
 npm run build
+npm run build:docente
 npm test
+npm run audit:publicacion
+python3 -m http.server 8000 -d dist
 ```
 
-El workflow de GitHub Actions realiza automáticamente las comprobaciones originales, la construcción, los tests de copia y la navegación en Chromium (incluida la caché de Evolutio). `dist/` se guarda **solo como artefacto de pruebas** y no se activa GitHub Pages. El catálogo de Etymologicon se genera desde el inventario auditado; su versión de navegador solo contiene los campos necesarios para estudiar y corregir, no el Excel original ni las notas de revisión.
-
-Para servirlo localmente: `python3 -m http.server 8000 -d dist`.
+El artefacto local `dist/` deja el acceso docente bloqueado por defecto. GitHub Pages usa la configuración de profesorado con TOTP, habilitada expresamente en CI. `dist-docente/` corresponde al alojamiento docente separado y se genera desactivado por defecto.
 
 ## Adaptación de Vocabula
 
@@ -45,7 +26,7 @@ El artefacto incorpora solamente recursos de **vocabulario**; copia de forma id�
 
 ## Sincronización
 
-Las versiones originales están fijadas en `config/sources.lock.json`. No se copian archivos editables duplicados al repositorio: se importan durante la compilación; una actualización requiere aprobar una nueva versión auditada. La creación automática de propuestas de actualización aún está pendiente. El proceso no realiza escrituras en ningún repositorio externo.
+Las revisiones de Appendix, Evolutio y Vocabula están fijadas en `config/sources.lock.json` y se conservan en `vendor/`. La compilación verifica su integridad y aplica las adaptaciones únicamente al resultado generado. Los monitores de fuentes informan de las divergencias para revisión. Una actualización de una copia integrada requiere fijar y revisar una nueva revisión.
 
 Documentación: `docs/ARQUITECTURA.md`, `docs/SEGURIDAD.md`, `docs/DOCENTE_AUTENTICACION.md`, `docs/PLAN_INTEGRACION.md`.
 
@@ -55,7 +36,7 @@ La compilación añade `manifest.webmanifest`, iconos 192/512, icono maskable 51
 
 La primera visita requiere HTTPS (o localhost en pruebas) y conexión para guardar todos los recursos y el banco auditado; después se puede abrir directamente Etymologicon sin red. La actualización del banco y del motor se aplica de manera conjunta después de pulsar «Aplicar nueva versión». En iOS/iPadOS se usa Safari > Compartir > Añadir a pantalla de inicio; en Android/ordenadores se puede utilizar la opción de instalación del navegador cuando esté disponible. La pantalla muestra instrucciones integradas.
 
-**Todavía no se ha desplegado la web:** el artefacto de GitHub Actions sirve para pruebas técnicas, no constituye una URL HTTPS instalable para alumnado. Falta comprobar la experiencia de instalación en dispositivos físicos antes de publicarla. Detalles y pruebas: [`docs/ETIMOLOGICON_PWA.md`](docs/ETIMOLOGICON_PWA.md).
+La aplicación integrada se sirve por HTTPS en GitHub Pages. Las comprobaciones automatizadas de PWA pueden consultarse en: [`docs/ETIMOLOGICON_PWA.md`](docs/ETIMOLOGICON_PWA.md).
 
 ## Progreso local en Etymologicon
 
@@ -76,7 +57,7 @@ Etymologicon incorpora un primer banco cerrado de **16 palabras castellanas con 
 
 ## Construcción aislada de la zona docente (sin publicación)
 
-El portal general se genera en `dist/`, con el acceso docente expresamente desactivado. La zona privada se construye **por separado** con `npm run build:docente`, que genera `dist-docente/` en modo bloqueado por defecto. La activación requiere un hostname HTTPS distinto del de las herramientas del alumnado, una cuenta Supabase Auth y configuración explícita. El proyecto Supabase actual de Vocabula es el candidato provisional para albergar esta cuenta, sin afectar a su sistema de sesiones propio. **No se ha creado ningún usuario ni desplegado el sitio o las funciones; el correo docente no se incorpora al artefacto público.** Véase `docs/DOCENTE_AUTENTICACION.md`.
+La compilación local predeterminada de `dist/` bloquea el acceso docente. El paquete para un dominio aparte se construye con `npm run build:docente` y se guarda en `dist-docente/` en modo bloqueado por defecto. Para habilitarlo se requiere un hostname HTTPS separado, una cuenta Supabase Auth y configuración explícita. El correo docente se configura en servidor. Véase [Autenticación docente](docs/DOCENTE_AUTENTICACION.md).
 
 
 ## Alojamiento docente: Cloudflare Pages (sin activar)
@@ -84,14 +65,14 @@ El portal general se genera en `dist/`, con el acceso docente expresamente desac
 Se ha elegido Cloudflare Pages para un **origen separado** del portal público. Su publicación será por **Direct Upload manual**, sin integración automática con GitHub. El artefacto `dist-docente/` incluye cabeceras `_headers` verificables, `robots.txt` y `404.html`, y **permanece desactivado por defecto**. Una versión activada necesita el SDK Supabase local con huella SHA-256 revisada; no se carga desde CDN. CI ejecuta `npm run audit:docente:cloudflare` y no sube el sitio a Cloudflare. Procedimiento y bloqueos: [`docs/CLOUDFLARE_PAGES_DOCENTE.md`](docs/CLOUDFLARE_PAGES_DOCENTE.md).
 
 
-El procedimiento de aprovisionamiento sin publicación y los paneles de Cloudflare/Supabase están documentados en [`docs/ACTIVACION_GUIADA_DOCENTE.md`](docs/ACTIVACION_GUIADA_DOCENTE.md). El preflight estático de una construcción docente activa puede ejecutarse con `npm run check:docente:readiness`; por diseño falla si el acceso permanece desactivado o faltan dependencias verificadas. **No existe aún un proyecto Pages ni una cuenta docente real activada.**
+El procedimiento de aprovisionamiento sin publicación y los paneles de Cloudflare/Supabase están documentados en [`docs/ACTIVACION_GUIADA_DOCENTE.md`](docs/ACTIVACION_GUIADA_DOCENTE.md). El preflight estático de una construcción docente activa puede ejecutarse con `npm run check:docente:readiness`; por diseño falla si el acceso permanece desactivado o faltan dependencias verificadas. Este preflight corresponde al paquete de Cloudflare Pages separado.
 
 
 ## Itinerario por asignatura y curso
 
-La portada incorpora un selector contextual de **Latín de 4.º de ESO, Latín I, Latín II, Griego I y Griego II**. Muestra solo enlaces a herramientas integradas y comprobadas: gramática por curso, vocabulario cuando existe, Evolutio para Latín I y Etymologicon para Griego I. No ofrece Etymologicon para Griego II, morfología pendiente ni el generador de exámenes. No se altera ningún archivo de las tres aplicaciones originales; únicamente se actualiza el portal.
+La portada ofrece un selector de Latín de 4.º de ESO, Latín I, Latín II, Griego I y Griego II. Cada asignatura muestra sus herramientas disponibles, desde gramática y vocabulario hasta morfología, repaso, Evolutio o Etymologicon según el curso.
 
-El navegador guarda localmente solo el código del curso y el identificador de la última herramienta abierta desde el selector, para ofrecer «Continuar». No almacena vocabulario estudiado, respuestas ni datos del alumnado y funciona sin iniciar sesión. Las pruebas comprueban las rutas y el funcionamiento en Chromium antes de cualquier publicación.
+El navegador recuerda el curso y la última herramienta abierta de cada asignatura para ofrecer «Continuar». El catálogo permite entrar por herramienta o por lengua.
 
 
 ## PWA unificada y actualización de Evolutio
@@ -101,11 +82,11 @@ La portada de ScholaClassica tiene su propio manifiesto, iconos compatibles con 
 Evolutio se ha vuelto a integrar desde el commit auditado `901dacb125ee7894ea9d11faf7b0d0afa7e713b5`: 522 fichas, filtros de dificultad, tres intentos, revisión por norma, botón de actualización y grafía escolar de `u` consonántica. ScholaClassica recalcula **solo sus niveles de dificultad** con un criterio orientativo de **85 % previsibilidad del resultado castellano y 15 % carga de leyes**, preservando los registros marcados como `docente`. Los filtros existentes siguen funcionando y el módulo adicional está precargado para uso offline. Las 240 incorporaciones desde GeneradorExamenes no se presentan como certificación filológica individual. Ningún repositorio original ha sido modificado.
 
 
-## Publicación de prueba de la PWA pública
+## Publicación en GitHub Pages
 
 Se ha autorizado la publicación **del portal de alumnado** mediante GitHub Pages. El flujo `.github/workflows/integracion.yml` ejecuta la construcción fijada por SHA, la auditoría de seguridad, las pruebas estáticas y las pruebas de navegador (incluida la subruta `/ScholaClassica/`), y **solo si pasan** publica `dist/` desde `main` mediante GitHub Actions. Las solicitudes de cambio (*pull requests*) no pueden desplegar.
 
-El área docente sigue desactivada en el portal público (`docente/auth-config.json` contiene `enabled:false`). Cloudflare Pages, Supabase Auth y TOTP no se activan mediante este flujo. Tampoco se modifica ninguno de los repositorios originales ni se incluye GeneradorExamenes.
+El flujo comprueba la compilación predeterminada bloqueada y la compilación TOTP que usa GitHub Pages. La segunda auditoría se realiza sobre el mismo directorio que se empaqueta y publica. El alojamiento docente aislado tiene su propio procedimiento.
 
 **Activación inicial de GitHub Pages:** si la configuración de GitHub Pages del repositorio todavía está desactivada, el propietario debe elegir `Settings → Pages → Build and deployment → Source → GitHub Actions`. Este ajuste requiere acceso administrativo y no se realiza por el token del propio workflow. A partir de entonces, el proceso de despliegue utiliza las credenciales temporales de GitHub Actions, sin secretos personales. El estado publicado solo se confirma cuando el trabajo `publicar` aparece como `success` y la URL pública responde correctamente.
 

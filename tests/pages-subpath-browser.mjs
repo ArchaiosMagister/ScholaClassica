@@ -9,7 +9,7 @@ const prefix='/ScholaClassica/';
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8',
   '.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8',
   '.json':'application/json','.svg':'image/svg+xml','.png':'image/png',
-  '.ico':'image/x-icon','.webmanifest':'application/manifest+json'};
+  '.webp':'image/webp','.ico':'image/x-icon','.webmanifest':'application/manifest+json'};
 const server=createServer(async(req,res)=>{
  try{
   const path=new URL(req.url,'http://localhost/').pathname;
@@ -33,6 +33,15 @@ try{
  const home=await page.goto(base+prefix,{waitUntil:'networkidle'});
  assert.equal(home.status(),200);
  assert.match(await page.title(),/ScholaClassica/);
+ assert.equal(await page.locator('#panel-herramientas .card').count(),6);
+ await page.locator('.hero-image').evaluate(image=>image.decode());
+ for(const width of [320,390,768]){
+   await page.setViewportSize({width,height:900});
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),
+     'La portada desborda horizontalmente a '+width+' px');
+   assert.ok(await page.locator('#study-course').isVisible());
+ }
+ await page.setViewportSize({width:1280,height:900});
  const manifest=await page.evaluate(async()=>{
    const tag=document.querySelector('link[rel="manifest"]');
    return {href:tag?.href,data:await fetch(tag.href).then(r=>r.json())};
@@ -60,6 +69,8 @@ try{
    'rgb(0, 0, 0)','El OLED debe estar disponible sin conexión en GitHub Pages');
  await page.context().setOffline(false);
  // El enlace por lengua conduce al glosario, con la misma subruta Pages.
+ await page.locator('#tab-herramientas').press('ArrowRight');
+ assert.equal(await page.locator('#tab-lenguas').getAttribute('aria-selected'),'true');
  await page.locator('#panel-lenguas a[href="apps/etymologicon/estudio.html"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/etymologicon\/estudio\.html$/);
  await page.waitForFunction(()=>document.querySelector('#study-loading')?.hidden===true);

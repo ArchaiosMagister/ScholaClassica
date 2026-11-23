@@ -1,12 +1,11 @@
 'use strict';
 const tabs=[...document.querySelectorAll('[role="tab"]')];
-const panels=new Map([['tab-lenguas','panel-lenguas'],['tab-herramientas','panel-herramientas']]);
 function selectTab(active,focus=false){
   for(const tab of tabs){
     const selected=tab===active;
     tab.setAttribute('aria-selected',String(selected));
     tab.tabIndex=selected?0:-1;
-    document.getElementById(panels.get(tab.id)).hidden=!selected;
+    document.getElementById(tab.getAttribute('aria-controls')).hidden=!selected;
   }
   if(focus)active.focus();
 }
@@ -115,10 +114,6 @@ function renderStudyPath(){
   pathResults.replaceChildren();
   resumeArea.hidden=true;
   if(!Object.hasOwn(STUDY_CATALOG,course)){
-    const text=document.createElement('p');
-    text.className='path-empty';
-    text.textContent='Selecciona primero una asignatura.';
-    pathResults.append(text);
     return;
   }
   const list=document.createElement('nav');
@@ -228,7 +223,7 @@ async function registerPortalPwa(){
       const worker=portalRegistration.installing;
       worker?.addEventListener('statechange',()=>{
         if(worker.state==='installed'&&navigator.serviceWorker.controller){
-          setPortalStatus('Hay una actualización de la portada. Pulsa «Actualizar» para instalarla.');
+          setPortalStatus('Hay una actualización de la portada. Pulsa «Actualizar portada» para instalarla.');
         }
       });
     });

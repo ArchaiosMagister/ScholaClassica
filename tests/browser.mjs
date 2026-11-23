@@ -50,7 +50,7 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   assert.equal(await page.evaluate(()=>localStorage.getItem('scholaclassica-aspecto-v1')),'system');
   // Palabra del día: enlace externo seguro, sin compartir cuentas ni cachés.
-  const palabra=page.locator('#panel-herramientas a[href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/"]');
+  const palabra=page.locator('.linked-project a[href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/"]');
   assert.equal(await palabra.getAttribute('target'),'_blank');
   assert.equal(await palabra.getAttribute('rel'),'noopener noreferrer');
   const coursePicker=page.locator('#study-course');
@@ -101,7 +101,7 @@ try{
   assert.equal(rootOffline.status(),200,'La portada debe funcionar sin conexión');
   assert.equal(await page.locator('#study-course').count(),1);
   const shellAvailable=await page.evaluate(async()=>{
-    const resources=['./app.js','./style.css','./manifest.webmanifest','./icons/apple-touch-icon.png'];
+    const resources=['./app.js','./style.css','./manifest.webmanifest','./icons/apple-touch-icon.png','./portal/epigrafia.webp'];
     const responses=await Promise.all(resources.map(p=>fetch(p)));
     return responses.every(r=>r.ok);
   });

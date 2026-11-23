@@ -107,7 +107,7 @@ jobs:
         run: npm run audit:docente:cloudflare
       - name: Comprobar copia exacta, enlaces y aislamiento de herramientas docentes
         run: npm test
-      - name: Auditoría de seguridad antes de publicar
+      - name: Auditar la compilación pública predeterminada
         run: npm run audit:publicacion
       - name: Preparar Chromium para prueba de navegación
         run: |
@@ -162,10 +162,13 @@ jobs:
           SCHOLA_DOCENTE_SDK_FILE: build/docente/supabase.js
         run: |
           npm run build
-          node scripts/audit-docente-setup.mjs
           node tests/docente-setup-browser.mjs
       - name: Probar acceso AAL2 y avisos de ambos proyectos en Chromium
         run: npm run test:browser:docente
+      - name: Auditar el directorio final antes de empaquetar o publicar
+        env:
+          SCHOLA_DOCENTE_INBOX: confirmed
+        run: npm run audit:publicacion -- --docente-activo
       - name: Archivar los resultados de las pruebas funcionales de castellano
         uses: actions/upload-artifact@v4
         with:
@@ -245,10 +248,10 @@ jobs:
           name: etymologicon-gr1-auditoria-docente
           path: build/etymologicon/gr1-audited.json
           retention-days: 7
-      - name: Archivar resultado de construcción como artefacto de pruebas (sin desplegar)
+      - name: Archivar el directorio validado para GitHub Pages
         uses: actions/upload-artifact@v4
         with:
-          name: scholaclassica-integracion-fase2
+          name: scholaclassica-web
           path: dist/
           if-no-files-found: error
           retention-days: 7

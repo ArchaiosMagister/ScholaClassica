@@ -10,7 +10,7 @@
     if(allowed.has(stored))choice=stored;
   }catch{/* Sin almacenamiento: mantener el aspecto automático. */}
   const resolved=mode=>mode==='system'?(media?.matches?'dark':'light'):mode;
-  const background={light:'#14283f',dark:'#0a1927',oled:'#000000'};
+  const background={light:'#f8fafc',dark:'#211b1c',oled:'#000000'};
   function apply(){
     const theme=resolved(choice);
     const root=document.documentElement;

@@ -5,11 +5,14 @@ import {readFileSync,existsSync,statSync} from 'node:fs';
 import {resolve,join,sep} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const out=join(root,'dist');
+const args=process.argv.slice(2);
+const activeTeacher=args[0]==='--docente-activo';
+assert.ok(args.length===(activeTeacher?1:0),'Uso: node scripts/audit-publicacion.mjs [--docente-activo]');
 const read=(path)=>readFileSync(join(out,path),'utf8');
 assert.ok(existsSync(out),'Falta dist/: ejecutar npm run build antes de publicar');
 for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanifest','.nojekyll',
-  'icons/icon.svg','icons/icon-192.png','icons/icon-512.png',
-  'apps/gramatica/index.html','apps/vocabulario/index.html',
+  'icons/icon.svg','icons/icon-192.png','icons/icon-512.png','portal/epigrafia.webp',
+  'apps/gramatica/index.html','apps/vocabulario/index.html','apps/repaso-gramatica/index.html',
   'apps/evolucion-fonetica/index.html','apps/etymologicon/index.html',
   'apps/morfologia/index.html','apps/morfologia/sw.js',
   'apps/morfologia/engine.mjs','apps/morfologia/written.mjs',
@@ -20,8 +23,14 @@ for(const path of ['index.html','app.js','style.css','sw.js','manifest.webmanife
   'docente/auth-config.json']){
   assert.ok(existsSync(join(out,path)),'Falta recurso de publicación: '+path);
 }
-assert.deepEqual(JSON.parse(read('docente/auth-config.json')),{enabled:false},
-  'El portal público no puede contener autenticación docente activada');
+if(activeTeacher){
+  await import('./audit-docente-setup.mjs');
+}else{
+  assert.deepEqual(JSON.parse(read('docente/auth-config.json')),{enabled:false},
+    'La compilación pública predeterminada debe bloquear el acceso docente');
+  assert.ok(!existsSync(join(out,'docente/vendor/supabase.js')),
+    'El SDK docente solo se admite en la compilación explícitamente activada');
+}
 // El itinerario público usa las respuestas castellanas originales; la
 // conciliación valenciana académica no está certificada para publicación.
 const pilotPublic=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
@@ -176,4 +185,4 @@ assert.ok(vocabEndpoint.includes('wpwlguufpkfnzlbyproe.supabase.co'));
 const html=read('index.html');
 assert.ok(!html.includes('ScholaClassica/docente/auth-config.json?enabled=true'));
 assert.ok(!html.includes('<script src="https://'));
-console.log('Preflight GitHub Pages: recursos, PWAs y autenticación docente desactivada — correcto');
+console.log('Preflight GitHub Pages: recursos, PWAs y configuración docente comprobados');

@@ -18,16 +18,16 @@ test('la portada incluye 4 aspectos con persistencia segura y recursos offline',
  assert.match(js,/meta\[name="theme-color"\]/);
  assert.match(css,/html:is\(\[data-theme="dark"\],\[data-theme="oled"\]\)/);
  assert.match(css,/html\[data-theme="oled"\]/);
- assert.match(css,/html\[data-theme="oled"\]\{background:#000/);
+ assert.match(css,/html\[data-theme="oled"\]\s*\{\s*background: #000/);
  assert.doesNotMatch(css,/@media\(prefers-color-scheme:dark\)/);
  assert.match(sw,/'\.\/theme\.js'/);
  assert.ok(!sw.includes('__SCHOLA_PORTAL_CACHE_VERSION__'));
 });
 test('rótulos grecolatinos con mayúscula inicial sin transformación CSS del politónico',()=>{
  const html=read('index.html'),css=read('style.css');
- assert.match(html,/<article class="card latin">\s*<p class="overline">Lingua Latina<\/p>/);
- assert.match(html,/<article class="card greek">\s*<p class="overline">Ἑλληνικὴ γλῶττα<\/p>/);
- assert.match(css,/\.card:is\(\.latin,\.greek\) \.overline\{text-transform:none\}/);
+ assert.match(html,/<article class="card latin">\s*<p class="overline" lang="la">Lingua Latina<\/p>/);
+ assert.match(html,/<article class="card greek">\s*<p class="overline" lang="grc">Ἑλληνικὴ γλῶττα<\/p>/);
+ assert.doesNotMatch(css,/\.overline\s*\{[^}]*text-transform:/);
  assert.doesNotMatch(html,/<p class="overline">(lingua latina|ἑλληνικὴ γλῶττα)<\/p>/);
 });
 test('Palabra del día solo se enlaza, con origen y destino independientes',()=>{
