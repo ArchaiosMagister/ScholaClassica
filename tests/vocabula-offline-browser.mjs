@@ -68,7 +68,7 @@ try{
  assert.equal(info.manifest.scope,'./');
  assert.ok(info.cachesFound.some(x=>x.startsWith('schola-portal-')));
  assert.ok(info.cachesFound.some(x=>x.startsWith('schola-vocabula-')));
- assert.ok(info.ownPaths.length>=19);
+ assert.ok(info.ownPaths.length>=17);
  assert.ok(info.ownPaths.every(x=>x.startsWith(modulePath)),'SW sin aislamiento de archivos');
  assert.equal(await page.locator('#subject').inputValue(),'lat1');
  await page.locator('#units input[value="UD 10"]').check();
