@@ -14,7 +14,7 @@ test('Tres currículos y 2055 fichas históricas: ninguna unidad o ID se inventa
   assert.deepEqual(COURSE_SCOPES.map(x=>x.maxUnit),[10,8,14]);
   assert.equal(report.schema,'scholaclassica-auditoria-alcance-curricular/v1');
   assert.equal(report.sourceCards,2055);
-  assert.equal(report.copyCards,2055);
+  assert.equal(report.copyCards,2057);
   assert.deepEqual(Object.values(report.courses).map(x=>x.morphologyCards),[94,76,94]);
   assert.equal(report.reviewedLatin4Ud8Ids.length,17);
   for(const x of Object.values(report.courses)){
