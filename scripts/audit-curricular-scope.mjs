@@ -8,6 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {classifyVocabularyUnit,parseVocabularySource} from './audit-morphology-vocabulary.mjs';
 import {scholaVocabularyVisibleUnits} from './vocabula-all-model.mjs';
 import {GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_ID} from './greek1-kindynos-ud5-decision.mjs';
+import {APPROVED_TEACHER_WORDS} from './migrate-vocabula-teacher-words.mjs';
 
 export const COURSE_SCOPES=Object.freeze([
   {id:'latin1',subject:'lat1',language:'latin',grammar:'latin',maxUnit:10},
@@ -37,7 +38,9 @@ function auditSubject({spec,source,integrated,bank,curricula}){
     r.unit<=maxUnit),'Morfología fuera de las unidades impartidas: '+id);
   const original=source.filter(x=>x.subject===subject);
   const copy=integrated.filter(x=>x.subject===subject);
-  assert.equal(original.length,copy.length,'La copia ha perdido fichas de '+id);
+  assert.equal(copy.length,original.length+
+    APPROVED_TEACHER_WORDS.filter(x=>x.subject===subject).length,
+    'Fichas originales o altas docentes perdidas en '+id);
   const records=original.map(e=>({e,groups:tags(e)}));
   const onlyBeyond=records.filter(({groups})=>{
     const u=groups.filter(numeric);
@@ -91,11 +94,15 @@ function auditSubject({spec,source,integrated,bank,curricula}){
 
 export function auditCurricularScope({source,integrated,bank,curricula}){
   assert.equal(source.length,2055,'Banco Vocabula fuente cambiado');
-  assert.equal(integrated.length,source.length,'Fichas perdidas en integración');
+  assert.equal(integrated.length,source.length+APPROVED_TEACHER_WORDS.length,
+    'Fichas originales o altas docentes perdidas en integración');
   const ids=source.map(x=>x.id);
   assert.equal(new Set(ids).size,ids.length,'IDs fuente duplicados');
-  assert.deepEqual(integrated.map(x=>x.id),ids,
+  assert.deepEqual(integrated.slice(0,source.length).map(x=>x.id),ids,
     'Orden o identificadores históricos alterados');
+  for(const extra of APPROVED_TEACHER_WORDS)
+    assert.deepEqual(integrated.find(x=>x.id===extra.id),extra,
+      'Alta docente migrada modificada: '+extra.id);
   const summaries={};
   for(const spec of COURSE_SCOPES){
     summaries[spec.id]=auditSubject({spec,source,integrated,bank,curricula});
