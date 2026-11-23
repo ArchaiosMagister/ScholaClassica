@@ -1,0 +1,346 @@
+{
+  "schema": "schola-evolutio-va-dcvb-targeted-review/v1",
+  "date": "2026-11-17",
+  "basePullRequest": 119,
+  "sourceAudit": "auditoria-pendents-146-2026-11-17.json",
+  "sourceReviewCount": 81,
+  "stage": "revisio_lexica_independent_sense_promocio",
+  "scope": "18 hipòtesis que continuen com a proposta a la matriu original. 16 correspondències etimològiques contrastades, una reserva per préstec i una reserva per preferència de forma valenciana. Ni verificació DNV ni validació fonètica.",
+  "summary": {
+    "reviewed": 18,
+    "lexicalCorrespondencesSupported": 16,
+    "reservedForLoanStratum": 1,
+    "reservedForValencianForm": 1,
+    "dnvIndividualChecked": 0,
+    "rulesCertified": 0,
+    "teacherApproved": 0,
+    "playable": 0,
+    "curationEntriesPromoted": 0
+  },
+  "items": [
+    {
+      "latin": "furcam",
+      "proposta": "forca",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=forca",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "La forca agrícola procedeix de fŭrca; el sentit i l'ús valencià estan attestats. No es valida encara la seqüència fonètica.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "dŏmĭnam",
+      "proposta": "dona",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dona",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "La dona 'senyora/dona' procedeix de domĭna; evitar confondre l'ètim amb altres derivats de dominus.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "nostrum",
+      "proposta": "nostre",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nostre",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "El possessiu nostre procedeix de nŏstru; el DCVB documenta la pronúncia valenciana amb -e final.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "seminare",
+      "proposta": "sembrar",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sembrar",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "Sembrar amb el sentit de posar llavor a terra procedeix de semĭnāre; la cadena històrica completa queda pendent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "hederam",
+      "proposta": "heura",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=heura",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "L'heura botànica procedeix de hĕdĕra; el DCVB documenta també la forma eura i pronunciacions valencianes.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "uiridem",
+      "proposta": "verd",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=verd",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "L'adjectiu de color verd procedeix de vĭrĭde; mantenir l'accepció cromàtica.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "currere",
+      "proposta": "córrer",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=correr",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "El verb córrer procedeix de cŭrrĕre; el DCVB documenta pronunciació valenciana amb -r.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "bene",
+      "proposta": "bé",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=be",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "L'adverbi bé procedeix de bĕne; distingir-lo dels homònims be (lletra, animal).",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "corrumpere",
+      "proposta": "corrompre",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corrompre",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "El verb corrompre procedeix de corrŭmpĕre; documentat, sense certificar encara caràcter patrimonial ni lleis.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "membrum",
+      "proposta": "membre",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=membre",
+        "scope": "etimologia_marcada_com_a_prestec"
+      },
+      "reviewOutcome": "reserva_per_estrat_de_prestec",
+      "lexicalContrast": true,
+      "requiresLayerDecision": true,
+      "notes": "El DCVB indica «pres del llatí mĕmbrum»; no etiquetar-lo com a resultat patrimonial automatitzat. Estrat de préstec pendent de decisió docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "asĭnum",
+      "proposta": "ase",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ase",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "L'ase animal procedeix de asĭnu; DCVB indica que l'ús com a nom d'animal és menys corrent en moltes zones valencianes.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "marmorem",
+      "proposta": "marbre",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marbre",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "El marbre material petri procedeix de marmŏre; no confondre'l amb el peix homònim ni altres usos.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "homĭnem",
+      "proposta": "home",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=home",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "Home procedeix de hŏmĭne; el DCVB registra pronúncia valenciana home i plural hòmens, sense implicar cap validació de normes.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "germanum",
+      "proposta": "germà",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=germa",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "Germà de parentiu procedeix de germānu. Diferenciar-lo del nom propi Germà i de l'adjectiu 'germànic'.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "consilium",
+      "proposta": "consell",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=consell",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "Consell com a recomanació procedeix de consĭlĭum; l'homògraf antic concell pot rebre influència de concĭlĭum.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "mulierem",
+      "proposta": "muller",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=muller",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "Muller com a esposa procedeix de mulĭĕre; el DCVB recull que en la pronúncia valenciana es conserva la -r final.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "legere",
+      "proposta": "llegir",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegir",
+        "scope": "lema_acepcio_etimologia"
+      },
+      "reviewOutcome": "etimologia_i_acepcio_dcvb_contrastades",
+      "lexicalContrast": true,
+      "requiresLayerDecision": false,
+      "notes": "Llegir lletres procedeix de lĕgĕre; el DCVB diferencia pronúncies valencianes, sense certificar ací la cadena fonètica.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "latin": "cŏrium",
+      "proposta": "cuir",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cuir",
+        "scope": "etimologia_i_variant_dialectal"
+      },
+      "reviewOutcome": "reserva_per_variant_valenciana",
+      "lexicalContrast": true,
+      "requiresLayerDecision": true,
+      "notes": "El DCVB dóna cŏrĭu com a ètim de cuir/cuiro i documenta fonèticament cuiro en valencià. Abans d'acceptar cuir per a la pràctica valenciana, contrastar la preferència normativa al DNV; no canviar automàticament la resposta.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ]
+}

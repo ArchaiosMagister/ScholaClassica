@@ -1,0 +1,1129 @@
+{
+  "schema": "schola-evolutio-va-dcvb-phonetic-audit/v1",
+  "date": "2026-11-17",
+  "sourceQueue": "cola-fonetica-66-2026-11-17.json",
+  "companion": "contrastos-historics-dcvb-16-2026-11-17.json",
+  "policy": "SEGONA TANDA. Contrast real d'altres 31 entrades: 30 del DCVB i 1 del GDLC (comí). Registre per accepció, ètim i testimonis antics quan n'hi ha. El DNV de l'AVL no és accessible; no inferir lleis d'etimologies ni grafies. Les 47 lleis candidates continuen no certificades.",
+  "summary": {
+    "individualEntriesRead": 31,
+    "dcvbEntriesRead": 30,
+    "gdlcEntriesRead": 1,
+    "candidateWordsOriginally": 47,
+    "previouslyRead": 16,
+    "totalDirectLexicographicEntriesRead": 47,
+    "stillWithoutDirectLexicographicRead": 0,
+    "teacherSensitiveCases": 20,
+    "dnvChecked": 0,
+    "individualLawCertified": 0,
+    "fullHistoricalChainCertified": 0,
+    "playable": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "latin": "homĭnem",
+      "form": "home",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=home",
+        "lookup": "home",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: hŏmĭne, amb plural valencià hòmens que conserva la nasal etimològica. La forma singular no prova per si sola la cadena completa de síncope.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "latin": "marmorem",
+      "form": "marbre",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=marbre",
+        "lookup": "marbre",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: marmŏre, 'pedra'; registra marbre i una pronúncia valenciana amb grup -rbr-. Cal documentar la dissimilació i la síncope per separat.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "latin": "roborem",
+      "form": "roure",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roure",
+        "lookup": "roure",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: rōbŏre per al nom de l'arbre, però també homògrafs de rōdĕre i de rou. Cal limitar l'accepció i reconstruir el pas de -b- a la seqüència vocàlica.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "VOC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "latin": "asĭnum",
+      "form": "ase",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ase",
+        "lookup": "ase",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: asĭnu, però advertix que el nom de l'animal ha reculat en bona part del valencià en favor de ruc i burro. Revisar la prioritat didàctica i la vigència DNV.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "latin": "consilium",
+      "form": "consell",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=consell",
+        "lookup": "consell",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: consĭlĭum per a consell; concell és una variant influïda per concĭlĭum, especialment en l'accepció 'concili'. La palatalització escolar no és automàticament l'únic pas.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              5,
+              7
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "latin": "draconem",
+      "form": "dragó",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?Id=51446&Word=drag%EF%BF%BD&search=drago",
+        "lookup": "dragó",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: dracōne per a dragó 'drac fabulós'; el mateix lema té accepcions de rèptil i altres. Delimitar la primera accepció abans de formular una pregunta.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "latin": "laudare",
+      "form": "lloar",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+        "lookup": "lloar",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: laudare, amb pronunciació valenciana ll(o)ar i l'ús d'elogiar. La reducció -aud- fins a -o- no està explicada íntegrament per la monoftongació au.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              1,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "latin": "legere",
+      "form": "llegir",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegir",
+        "lookup": "llegir",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: lĕgĕre; registra pronunciacions valencianes amb inicial l- i ll- segons localitat. La PALATALITZACIÓ inicial, encara que candidata, necessita una decisió de varietat concreta.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "latin": "meliorem",
+      "form": "millor",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=millor",
+        "lookup": "millor",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: mĕliōre i el comparatiu millor, amb meylor i milor antics i -r valenciana; les variants són documentades però no certifiquen totes les fases fonètiques.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "latin": "ouicŭlam",
+      "form": "ovella",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ovella",
+        "lookup": "ovella",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: ovĭcŭla, femella d'ovis; grafies antigues oveila, ovela, oueya i altres. No convertir totes les variants en una cadena única de síncope/palatalització.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              3,
+              6
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "latin": "stylum",
+      "form": "estil",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estil",
+        "lookup": "estil",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: stilus en l'accepció I d'instrument per a escriure i amb usos posteriors d'estil. La pròtesi e- és plausible, però falta distingir l'estrat de transmissió patrimonial/culta.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PROT",
+          "spans": [],
+          "anchor": 0
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "latin": "parabolam",
+      "form": "paraula",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=paraula",
+        "lookup": "paraula",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: parabŏla, originàriament 'comparació' i 'proverbi', que passà a 'mot' en llatí vulgar. La cadena fonètica del mot continua sent més complexa que dos canvis aïllats.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "VOC",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "latin": "articulum",
+      "form": "artell",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?Id=15597&Word=artell&search=artell",
+        "lookup": "artell",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: artĭcŭlu, 'articulació dels dits'; l'entrada no acredita individualment les etapes d'articulum a artell. L'ús valencià normatiu queda pendent.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              4,
+              7
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "latin": "dŏmĭnam",
+      "form": "dona",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dona",
+        "lookup": "dona",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: domĭna 'senyora', amb usos històrics i dona en valencià; cal distingir etimologia i síncope/redacció del grup -mn- sense confondre el canvi de sentit.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "latin": "mataxam",
+      "form": "madeixa",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+        "lookup": "madeixa",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: mataxa per a madeixa de fil; pronúncia valenciana amb -d- intervocàlica i variants. La SONORITZACIÓ t > d és compatible, però falta la cadena de x/ei.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "latin": "nigram",
+      "form": "negra",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=negra",
+        "lookup": "negra",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: nĭgru per a NEGRE/NEGRA, amb flexió femenina; el banc usa NIGRAM. No confondre l'evolució de la vocal amb la simple flexió de gènere.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "latin": "pŏpŭlum",
+      "form": "poble",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poble",
+        "lookup": "poble",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: pŏpŭlu en l'accepció de comunitat de persones; grafies antigues pople/pobble. Les variants corroboren parts del resultat, no l'ordre exacte de la síncope i la sonorització.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "latin": "seniorem",
+      "form": "senyor",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senyor",
+        "lookup": "senyor",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: sĕniōre 'vell, persona d'autoritat', amb variants antigues senior, seynor, seyor. La palatalització i el vocalisme demanen seguiment separat.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "latin": "tussem",
+      "form": "tos",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?Id=140571&Word=tos&search=tos",
+        "lookup": "tos",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: tŭssi per al substantiu femení TOS 'acció de tossir', amb homògrafs de tondre, possessiu i pronom. Evitar mesclar-los i no certificar les lleis per mera semblança.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "latin": "uiridem",
+      "form": "verd",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=verd",
+        "lookup": "verd",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: vĭrĭde per a VERD en l'accepció cromàtica; la consonant inicial llatina u és gràficament consonàntica, no una VOCALITZACIÓ seleccionable.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              3,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "latin": "temptare",
+      "form": "temptar",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=temptar",
+        "lookup": "temptar",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: temptare o tentare, dos ètims lèxics atestats, i pronunciació valenciana amb -r. La pèrdua de la -e de l'infinitiu no s'aprova sense revisar la morfologia històrica.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 22,
+      "latin": "hederam",
+      "form": "heura",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=heura",
+        "lookup": "heura",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: hĕdĕra en l'accepció botànica, amb la variant eura i pronunciació valenciana. La vocalització de -d- necessita fases intermèdies verificables.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "VOC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 23,
+      "latin": "iuuentutem",
+      "form": "joventut",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=joventut",
+        "lookup": "joventut",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: iuventūte per a joventut, amb variants antigues jouentut/juventut i pronunciacions valencianes de j-. La caiguda final requereix revisar l'estrat i la flexió.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              8,
+              9
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "latin": "ocŭlos",
+      "form": "ulls",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ulls",
+        "lookup": "ulls",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: singular ULL de llatí vulgar ŏclu, contracció de ŏcŭlus; la fitxa conté el plural OCULOS. No transferir sense justificació totes les etapes del singular al plural.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              1,
+              4
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "latin": "pericŭlum",
+      "form": "perill",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=perill",
+        "lookup": "perill",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: perīcŭlu, amb grafies antigues peril, paril, parill i pronúncia valenciana. Les grafies mostren variants, però no proven tots els trams de síncope i palatalització.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              5,
+              6
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "PALAT",
+          "spans": [
+            [
+              4,
+              7
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 26,
+      "latin": "pausare",
+      "form": "posar",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=posar",
+        "lookup": "posar",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: pausare per a POSAR 'deixar en un lloc', mentre el sentit de posar com a model deriva del francès poser. No barrejar dos homònims en la fitxa.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "MONOP",
+          "spans": [
+            [
+              1,
+              3
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 27,
+      "latin": "bibere",
+      "form": "beure",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=beure",
+        "lookup": "beure",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: bĭbĕre, amb pronunciació valenciana béwɾe i antics boure/beure; la b intervocàlica candidata a vocalització necessita contrast d'etapes.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "VOC",
+          "spans": [
+            [
+              2,
+              3
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 28,
+      "latin": "committere",
+      "form": "cometre",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cometre",
+        "lookup": "cometre",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: commĭttĕre i dues accepcions històriques: confiar una tasca / cometre falta. Reduccions de mm i tt són propostes que necessiten validació fonètica, no certificades.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              2,
+              4
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SIMPL",
+          "spans": [
+            [
+              5,
+              7
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 29,
+      "latin": "corrumpere",
+      "form": "corrompre",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=corrompre",
+        "lookup": "corrompre",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": false,
+      "individualHistoricalAssessment": "DCVB: corrŭmpĕre, amb variant antiga corrumpre; el vocalisme i la síncope de la forma moderna encara necessiten justificar la seqüència.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              4,
+              5
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SINC",
+          "spans": [
+            [
+              7,
+              8
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 30,
+      "latin": "cuminum",
+      "form": "comí",
+      "source": {
+        "authority": "Gran Diccionari de la Llengua Catalana",
+        "url": "https://www.diccionari.cat/GDLC/comi",
+        "lookup": "comí",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "GDLC: del llatí cumīnum, procedent del grec kýminon, i documentació en català des de 1220. L'adaptació de la vocal i la terminació no està reconstruïda ni acreditada per a lleis escolars.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    },
+    {
+      "order": 31,
+      "latin": "imperatorem",
+      "form": "emperador",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=emperador",
+        "lookup": "emperador",
+        "readScope": "etimologia_acepcio_variants_i_pronuncia_quan_documentades"
+      },
+      "etymologicalEntryIndividuallyRead": true,
+      "teacherSensitive": true,
+      "individualHistoricalAssessment": "DCVB: imperatore, dignitat imperial; en part del valencià registra pèrdua fonètica de -d- intervocàlica (emperaor). No presentar SONORITZACIÓ t > d com a resultat final universal.",
+      "dnvIndividualChecked": false,
+      "individualLawCertified": false,
+      "fullHistoricalChainCertified": false,
+      "teacherApproved": false,
+      "playable": false,
+      "lawHypothesesRemainProvisional": [
+        {
+          "rule": "ABER",
+          "spans": [
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "SONOR",
+          "spans": [
+            [
+              6,
+              7
+            ]
+          ],
+          "anchor": null
+        },
+        {
+          "rule": "APOC",
+          "spans": [
+            [
+              9,
+              10
+            ]
+          ],
+          "anchor": null
+        }
+      ]
+    }
+  ]
+}

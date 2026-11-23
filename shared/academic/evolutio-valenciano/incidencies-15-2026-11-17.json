@@ -1,0 +1,218 @@
+{
+  "schema": "schola-evolutio-va-issues/v1",
+  "date": "2026-11-17",
+  "total": 15,
+  "issuePolicy": "Incidències noves amb suport DCVB; no canviar automàticament el llatí original, els identificadors o l'historial, ni publicar.",
+  "issues": [
+    {
+      "number": 1,
+      "latin": "alium",
+      "type": "etim_llati_no_coincident",
+      "note": "La fitxa DCVB all parteix de ALLĬUM (ll geminada), mentre el banc dóna ALIUM (l simple), forma que en llatí pot correspondre a 'alius'; cal corregir l'ètim només amb decisió docent, sense moure ID ni progrés.",
+      "dcvb": "all",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=all"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 2,
+      "latin": "cæpullam",
+      "type": "etim_llati_no_coincident",
+      "note": "El DCVB deriva CEBA de CĒPA, no de CÆPULLAM; evitar avaluar monoftongació i pèrdua de -ll- sobre una base incompatible sense testimonis intermedis.",
+      "dcvb": "ceba",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ceba"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 3,
+      "latin": "ballænam",
+      "type": "etim_llati_no_coincident",
+      "note": "El DCVB dóna BĀLAENA (una sola l) per BALENA; el banc BALLÆNAM escriu ll geminada. S'ha de verificar l'ètim original abans d'avaluar simplificació fictícia.",
+      "dcvb": "balena",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=balena"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 4,
+      "latin": "nomĭnem",
+      "type": "morfologia_llatina_a_verificar",
+      "note": "NOM és del llatí NOMEN (neutre), acusatiu NOMEN, no de l'accusatiu NOMĬNEM proposat per al banc; revisar paradigma i estadi vulgar de manera individual.",
+      "dcvb": "nom",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=nom"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 5,
+      "latin": "uoluntatem",
+      "type": "reserva_prestec_culte",
+      "note": "El DCVB descriu VOLUNTAT com a 'pres del llatí volŭntāte', no patrimonial acreditat: sense lleis seleccionables fins a verificar el grau de cultisme.",
+      "dcvb": "voluntat",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=voluntat"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 6,
+      "latin": "nauigare",
+      "type": "reserva_prestec_culte",
+      "note": "El DCVB descriu NAVEGAR com a 'pres del llatí navĭgare'; no certificar OBERTURA o APÒCOPE pròpies d'evolució patrimonial sense proves.",
+      "dcvb": "navegar",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=navegar"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 7,
+      "latin": "integrare",
+      "type": "reserva_prestec_culte",
+      "note": "El DCVB descriu INTEGRAR com a 'pres del llatí intĕgrāre'; registrar com a préstec/continuació culta, no evolució patrimonial regular.",
+      "dcvb": "integrar",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=integrar"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 8,
+      "latin": "fundum",
+      "type": "reserva_cadena_morfologica",
+      "note": "El DCVB deriva FONS de FUNDUS (nominatiu), mentre el banc fixa l'acusatiu FUNDUM; no s'han acreditat les etapes ni la -s final de la forma proposada.",
+      "dcvb": "fons",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fons"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 9,
+      "latin": "forum",
+      "type": "reserva_evolucio_semantica",
+      "note": "FUR en el sentit de 'llei, jurisdicció' s'explica per FORUM amb canvis semàntics medievals i alternança antiga FOR/FUR: cadena vocàlica i estrat pendents.",
+      "dcvb": "fur",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=fur"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 10,
+      "latin": "lignum",
+      "type": "reserva_arcaic_i_semantica",
+      "note": "LLENY és paraula arcaica per a vaixell, procedent de LIGNUM 'fusta'; l'ús modern corrent no permet mostrar-la com a equivalència sense advertiment.",
+      "dcvb": "lleny",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lleny"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 11,
+      "latin": "auricŭlam",
+      "type": "reserva_cadena_fonetica",
+      "note": "ORELLA procedeix d'AURICŬLA, però cal acreditar els estadis de monoftongació, síncope, palatalització i reducció del grup; no convertir-ne la coincidència lèxica en examen.",
+      "dcvb": "orella",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=orella"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 12,
+      "latin": "spatium",
+      "type": "reserva_cadena_fonetica",
+      "note": "ESPAI procedeix de SPATIU, però el tractament de -TIU > -I i el valor exacte de la palatalització no han quedat documentats pas a pas.",
+      "dcvb": "espai",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espai"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 13,
+      "latin": "maium",
+      "type": "reserva_cadena_fonetica",
+      "note": "MAIG 'mes de maig' procedeix de MAIU, però la grafia -ig exigeix justificar la cadena de consonantització i palatalització, no sols semblança gràfica.",
+      "dcvb": "maig",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=maig"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 14,
+      "latin": "radium",
+      "type": "reserva_cadena_fonetica",
+      "note": "RAIG procedeix de RADĬU; les etapes de -DIU > -IG requereixen testimoni històric abans de seleccionar una llei.",
+      "dcvb": "raig",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=raig"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    },
+    {
+      "number": 15,
+      "latin": "crucem",
+      "type": "reserva_cadena_fonetica",
+      "note": "CREU procedeix de CRŬCE, amb l'estadi antic CROU explicitat al DCVB; cal aclarir vocalisme i caiguda/vocalització de la velar abans d'avaluar.",
+      "dcvb": "creu",
+      "source": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=creu"
+      },
+      "correctedLatin": null,
+      "teacherDecision": null,
+      "resolveForPractice": false
+    }
+  ]
+}

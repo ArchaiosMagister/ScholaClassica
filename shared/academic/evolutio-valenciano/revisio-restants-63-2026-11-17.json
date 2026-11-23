@@ -1,0 +1,1275 @@
+{
+  "schema": "schola-evolutio-va-review-remaining63/v1",
+  "date": "2026-11-17",
+  "source": "auditoria-pendents-146-2026-11-17.json",
+  "previousReview": "revisio-dcvb-prioritaria-2026-11-17.json",
+  "policy": "Revisió individual de TOTES les 63 propostes que restaven de les 81 sense contrast inicial. Contrast lèxic/etimològic ≠ verificació normativa de lleis, ni cadena fonètica completa, ni aprovació per a pràctica. Les propostes no s'alteren a la matriu.",
+  "summary": {
+    "originalQueue": 81,
+    "previousReviewed": 18,
+    "reviewedThisBatch": 63,
+    "reviewedTotal": 81,
+    "lexicalCorrespondencesSupported": 50,
+    "individuallyReserved": 13,
+    "noIndividualEtymologyRecovered": 1,
+    "confirmedDnv": 0,
+    "certifiedRules": 0,
+    "approvedForPractice": 0,
+    "promotedToMatrix": 0
+  },
+  "entries": [
+    {
+      "order": 1,
+      "latin": "cadere",
+      "proposta": "caure",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=caure",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "caure"
+      },
+      "note": "L'entrada dona cadĕre com a ètim del verb caure.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 2,
+      "latin": "uittam",
+      "proposta": "veta",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=veta",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "veta"
+      },
+      "note": "El DCVB dona vĭtta com a ètim de veta; el banc té l'acusatiu llatí amb u consonàntica.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 3,
+      "latin": "roborem",
+      "proposta": "roure",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=roure",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "roure"
+      },
+      "note": "Arbre roure procedent de rōbŏre; escollir l'accepció botànica, no el verb homònim.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 4,
+      "latin": "tonare",
+      "proposta": "tronar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tronar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "tronar"
+      },
+      "note": "Dona tŏnāre, però la -r- es considera afegida per influència del nom tro.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 5,
+      "latin": "thesaurum",
+      "proposta": "tresor",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tresor",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "tresor"
+      },
+      "note": "El DCVB dona thesauru i documenta les variants antigues tesaur i tresaur.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 6,
+      "latin": "bŏnam",
+      "proposta": "bona",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=bo",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "bo"
+      },
+      "note": "L'entrada BO inclou el femení bona; etimologia del llatí bŏnu i flexió femenina regular.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 7,
+      "latin": "capere",
+      "proposta": "cabre",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cabre",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "cabre"
+      },
+      "note": "Etimologia capĕre i pronunciació valenciana documentades; evitar la variant caber en l'exercici.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 8,
+      "latin": "compărāre",
+      "proposta": "comprar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=comprar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "comprar"
+      },
+      "note": "Font: compĕrāre vulgar, variant de compărāre; cal acreditar la fase vulgar abans de certificar normes.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 9,
+      "latin": "credere",
+      "proposta": "creure",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "Institut d'Estudis Catalans",
+        "url": "https://publicacions.iec.cat/repository/pdf/00000531/00000025.pdf",
+        "scope": "correspondencia_historica_externa_al_dcvb"
+      },
+      "note": "La correspondència credere/creure apareix en estudis de fonètica de l'IEC; l'article DCVB consultat no ofereix etimologia explícita.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 10,
+      "latin": "datum",
+      "proposta": "dau",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=dau",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "dau"
+      },
+      "note": "Etimologia datum qualificada d'incerta al DCVB; no donar per segura una cadena fonètica patrimonial.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 11,
+      "latin": "draconem",
+      "proposta": "dragó",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=drago",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "drago"
+      },
+      "note": "El DCVB dona dracōne per a dragó; significat de l'animal fabulós, no el vegetal.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 12,
+      "latin": "insŭlam",
+      "proposta": "illa",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=illa",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "illa"
+      },
+      "note": "Correspondència directa insŭla > illa; l'ús valencià també queda documentat.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 13,
+      "latin": "laudare",
+      "proposta": "lloar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lloar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "lloar"
+      },
+      "note": "Correspondència laudāre > lloar, en l'accepció d'elogiar; no el topònim homònim.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 14,
+      "latin": "luctam",
+      "proposta": "lluita",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=lluita",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "lluita"
+      },
+      "note": "DCVB: lucta, mateixa accepció.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 15,
+      "latin": "luxum",
+      "proposta": "luxe",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=luxe",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "luxe"
+      },
+      "note": "L'entrada diu explícitament 'pres del llatí luxus': préstec, no evolució patrimonial directa.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 16,
+      "latin": "meliorem",
+      "proposta": "millor",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=millor",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "millor"
+      },
+      "note": "DCVB: mĕliōre, comparatiu; conserva la -r de millor en valencià.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 17,
+      "latin": "ouicŭlam",
+      "proposta": "ovella",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ovella",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "ovella"
+      },
+      "note": "DCVB: ovĭcŭla, diminutiu de ovis; pronunciació valenciana documentada.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 18,
+      "latin": "stylum",
+      "proposta": "estil",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estil",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "estil"
+      },
+      "note": "DCVB: stilus. Cuidar la grafia escolar i la possible estratificació del significat.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 19,
+      "latin": "pilum",
+      "proposta": "pèl",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pel",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "pel"
+      },
+      "note": "En la mateixa consulta PEL figura l'homògraf PÈL, del llatí pĭlu. La resposta porta accent: pèl.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 20,
+      "latin": "putare",
+      "proposta": "podar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=podar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "podar"
+      },
+      "note": "DCVB: pŭtāre en l'accepció d'esporgar; no generalitzar a qualsevol sentit clàssic de putare.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 21,
+      "latin": "parabolam",
+      "proposta": "paraula",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=paraula",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "paraula"
+      },
+      "note": "DCVB: parabŏla, amb l'accepció vulgar evolucionada 'mot, vocable'.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 22,
+      "latin": "leguminem",
+      "proposta": "llegum",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=llegum",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "llegum"
+      },
+      "note": "La correspondència lèxica és legūmen > llegum, però LEGŪMEN és neutre i l'acusatiu és legūmen, no leguminem.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 23,
+      "latin": "articulum",
+      "proposta": "artell",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=artell",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "artell"
+      },
+      "note": "Artell com a articulació dels dits, del llatí artĭcŭlu.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 24,
+      "latin": "cŏrpus",
+      "proposta": "cos",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cos",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "cos"
+      },
+      "note": "Cos anatòmic procedeix de cŏrpus. Distingir cos de cós, que té una altra etimologia.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 25,
+      "latin": "mataxam",
+      "proposta": "madeixa",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=madeixa",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "madeixa"
+      },
+      "note": "DCVB: mataxa > madeixa; accepció de conjunt de fil embolicat.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 26,
+      "latin": "nigram",
+      "proposta": "negra",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=negre",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "negre"
+      },
+      "note": "NEGRE, NEGRA és un sol article; procedència de nĭgru amb flexió femenina negra.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 27,
+      "latin": "planctum",
+      "proposta": "plany",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=plany",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "plany"
+      },
+      "note": "El DCVB deriva plany postverbalment de plànyer. Planctum es relaciona amb plant, no amb plany com a derivació directa.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 28,
+      "latin": "pluuiam",
+      "proposta": "pluja",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pluja",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "pluja"
+      },
+      "note": "El DCVB situa la base immediata en el llatí vulgar plŏia, variant del clàssic plŭvĭa; no certificar la cadena des de pluuiam sense estudi.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 29,
+      "latin": "podium",
+      "proposta": "puig",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=puig",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "puig"
+      },
+      "note": "DCVB: pŏdĭu > puig, amb especialització a 'elevació de terreny' en llatí vulgar.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 30,
+      "latin": "pŏpŭlum",
+      "proposta": "poble",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=poble",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "poble"
+      },
+      "note": "Poble procedeix de pŏpŭlu; significat col·lectiu de població.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 31,
+      "latin": "pretium",
+      "proposta": "preu",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=preu",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "preu"
+      },
+      "note": "El DCVB fa derivar el preu monetari del llatí prĕtĭu; correspondència lèxica avalada, no lleis certificades.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 32,
+      "latin": "seniorem",
+      "proposta": "senyor",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senyor",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "senyor"
+      },
+      "note": "DCVB: sĕniōre 'vell/persona d'autoritat' > senyor, amb canvi de sentit.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 33,
+      "latin": "sensum",
+      "proposta": "seny",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=seny",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "seny"
+      },
+      "note": "Seny 'judici' procedeix principalment del germànic sinn amb possible encreuament amb sensus; no és evolució patrimonial directa de sensum.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 34,
+      "latin": "signa",
+      "proposta": "senya",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=senya",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "senya"
+      },
+      "note": "DCVB: sĭgna, 'senyals'; diferenciar de seny 'judici'.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 35,
+      "latin": "specŭlum",
+      "proposta": "espill",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=espill",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "espill"
+      },
+      "note": "Espill 'mirall', de spĕcŭlu, amb pronunciació valenciana documentada.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 36,
+      "latin": "stabĭlem",
+      "proposta": "estable",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estable",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "estable"
+      },
+      "note": "ESTABLE adjectiu, pres del llatí stabĭle; es tracta d'un préstec explícit al DCVB.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 37,
+      "latin": "tædam",
+      "proposta": "tea",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teia",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "teia"
+      },
+      "note": "L'entrada TEIA/TEA remunta a taeda; documenta la cadena antiga teda > tesa > tea i la distribució valenciana.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 38,
+      "latin": "texere",
+      "proposta": "teixir",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=teixir",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "teixir"
+      },
+      "note": "DCVB: tĕxĕre > teixir i formes valencianes amb -r final.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 39,
+      "latin": "uitium",
+      "proposta": "vici",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=vici",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "vici"
+      },
+      "note": "El DCVB indica expressament que vici és pres del llatí vĭtĭum.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 40,
+      "latin": "picare",
+      "proposta": "pegar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=pegar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "pegar"
+      },
+      "note": "El llatí pĭcare justifica pegar en el sentit d'adherir amb pega (accepció I), no de colpejar.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 41,
+      "latin": "tussem",
+      "proposta": "tos",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=tos",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "tos"
+      },
+      "note": "Tos 'acció de tossir' prové del llatí tŭssi; distingir-lo dels altres homònims de TOS.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 42,
+      "latin": "temptare",
+      "proposta": "temptar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=temptar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "temptar"
+      },
+      "note": "DCVB: temptare/tentare; pronunciació valenciana amb -r documentada.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 43,
+      "latin": "acutiare",
+      "proposta": "agutzar",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=agusar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "agusar"
+      },
+      "note": "El DCVB documenta agusar de acūtiāre en el nord català; la proposta exacta agutzar no està acreditada en la consulta ni com a forma valenciana.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 44,
+      "latin": "strictum",
+      "proposta": "estret",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=estret",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "estret"
+      },
+      "note": "DCVB: strĭctu, participi de stringĕre; adjectiu estret.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 45,
+      "latin": "iuuentutem",
+      "proposta": "joventut",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=joventut",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "joventut"
+      },
+      "note": "DCVB: iuventūte > joventut, en l'accepció d'edat juvenil.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 46,
+      "latin": "ocŭlos",
+      "proposta": "ulls",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=ull",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "ull"
+      },
+      "note": "El plural ulls correspon a ull; DCVB el deriva de la base vulgar ŏclu (contracció de ŏcŭlus). No certificar la cadena del plural sense detallar-la.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 47,
+      "latin": "pericŭlum",
+      "proposta": "perill",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=perill",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "perill"
+      },
+      "note": "El DCVB fa derivar perill del llatí perīcŭlu en el sentit de risc o perill; lleis pendents.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 48,
+      "latin": "iacere",
+      "proposta": "jaure",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=jeure",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "jeure"
+      },
+      "note": "El DCVB inclou jeure/jaure de iacere, però indica que el verb ha desaparegut del valencià modern habitual; ús regional pendent.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 49,
+      "latin": "uiduam",
+      "proposta": "viuda",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=viuda",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "viuda"
+      },
+      "note": "El DCVB explica viuda com a combinació de viuva patrimonial i vídua culta; no és cadena fonètica directa.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 50,
+      "latin": "ausare",
+      "proposta": "gosar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=gosar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "gosar"
+      },
+      "note": "Etimologia de llatí vulgar ausare; la g- inicial de gosar té explicacions etimològiques alternatives no resoltes.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 51,
+      "latin": "pausare",
+      "proposta": "posar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=posar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "posar"
+      },
+      "note": "DCVB: pausare > posar en l'accepció de situar; no confondre amb posar com a model, d'origen francès.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 52,
+      "latin": "monstrare",
+      "proposta": "mostrar",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mostrar",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "mostrar"
+      },
+      "note": "DCVB: mŏnstrare > mostrar.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 53,
+      "latin": "magistram",
+      "proposta": "mestra",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestra",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "mestra"
+      },
+      "note": "DCVB: magĭstra > mestra en l'accepció d'ensenyant.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 54,
+      "latin": "magistrum",
+      "proposta": "mestre",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=mestre",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "mestre"
+      },
+      "note": "DCVB: magĭstru > mestre en l'accepció d'ensenyant.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 55,
+      "latin": "mutabĭlem",
+      "proposta": "mutable",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "documentacio_etimologica_no_recuperada",
+      "evidence": null,
+      "note": "No s'ha recuperat una entrada etimològica individual verificable; la correspondència és aparentment culta i no pot certificar-se com patrimonial.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 56,
+      "latin": "sŏlĭdum",
+      "proposta": "sou",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=sou",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "sou"
+      },
+      "note": "DCVB: sŏlĭdu > sou en el sentit de moneda; el sentit monetari ja pertany al llatí.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 57,
+      "latin": "angustum",
+      "proposta": "angost",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=angost",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "angost"
+      },
+      "note": "DCVB: angŭstu > angost, però falta comprovar abast dialectal valencià i utilitat pedagògica.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 58,
+      "latin": "bibere",
+      "proposta": "beure",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=beure",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "beure"
+      },
+      "note": "El DCVB dona bĭbĕre com a ètim de beure; cal revisar individualment els canvis abans d'autoritzar pràctica.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 59,
+      "latin": "committere",
+      "proposta": "cometre",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=cometre",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "cometre"
+      },
+      "note": "DCVB: commĭttĕre > cometre, en l'accepció de realitzar una acció o confiar una tasca.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 60,
+      "latin": "continere",
+      "proposta": "contindre",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=contenir",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "contenir"
+      },
+      "note": "DCVB: continēre > contenir; el mateix article registra la pronúncia valenciana contindre.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 61,
+      "latin": "cuminum",
+      "proposta": "comí",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "Gran Diccionari de la Llengua Catalana",
+        "url": "https://www.diccionari.cat/cerca/gran-diccionari-de-la-llengua-catalana?search_api_fulltext_cust=com%C3%AD",
+        "scope": "forma_significat_etimologia"
+      },
+      "note": "GDLC d'Enciclopèdia Catalana: ll. cumīnum > comí (espècia Cuminum cyminum), procedent al seu torn del grec.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 62,
+      "latin": "curtare",
+      "proposta": "curtar",
+      "lexicalReview": "reserva_filologica",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=curt",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "curt"
+      },
+      "note": "El DCVB només acredita curt/curta com adjectiu; no s'ha acreditat el derivat verbal curtar ni la cadena directa desde curtare.",
+      "reasonToWithholdPractice": "Incompatibilitat, dubte etimològic, préstec, dialectalisme o evidència insuficient: no es pot promocionar.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    },
+    {
+      "order": 63,
+      "latin": "imperatorem",
+      "proposta": "emperador",
+      "lexicalReview": "relacio_lexica_etimologica_documentada",
+      "individualContrast": "font_lexicografica_consultada",
+      "evidence": {
+        "authority": "DCVB",
+        "url": "https://dcvb.iec.cat/results.asp?word=emperador",
+        "scope": "etimologia_i_acepcio_o_variant_contrastades",
+        "lookup": "emperador"
+      },
+      "note": "DCVB: imperatore > emperador en la dignitat imperial; no l'accepció de peix ni el topònim.",
+      "reasonToWithholdPractice": "Evidència lèxica, però sense validació DNV individual ni certificació de lleis/segments ni autorització docent.",
+      "stillProposalInMatrix": true,
+      "dnvIndividualChecked": false,
+      "rulesCertified": false,
+      "teacherApproved": false,
+      "playable": false
+    }
+  ]
+}

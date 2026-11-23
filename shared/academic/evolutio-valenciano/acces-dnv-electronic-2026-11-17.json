@@ -1,0 +1,78 @@
+{
+  "schema": "schola-evolutio-va-dnv-access-audit/v1",
+  "date": "2026-11-17",
+  "authority": "Acadèmia Valenciana de la Llengua",
+  "resource": "Diccionari normatiu valencià (DNV)",
+  "officialIndexUrl": "https://www.avl.gva.es/lexicval/",
+  "scope": "Prova d'accessibilitat de la interfície pública, NO revisió de cap lema concret. Un 'No hi ha resultats' a l'índex sense consulta no demostra absència d'un mot.",
+  "checks": [
+    {
+      "order": 1,
+      "target": "https://www.avl.gva.es/lexicval/",
+      "method": "Lectura de pàgina pública sense formulari interactiu",
+      "result": "La portada mostra 'Sessió caducada', formulari de 'Consulta simple' i 'No hi ha resultats' amb recompte 0 abans de buscar.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    },
+    {
+      "order": 2,
+      "target": "https://diccionari.avl.gva.es/",
+      "method": "Intent de lectura d'origen alternatiu",
+      "result": "El servidor d'extracció de contingut no retorna una pàgina llegible; error d'accés a aquest URL des de l'entorn.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    },
+    {
+      "order": 3,
+      "target": "https://www.avl.gva.es/dnv",
+      "method": "Intent de ruta antiga des de l'entorn de lectura",
+      "result": "Accés restringit/URL no recuperat en l'entorn. Cap article individual disponible.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    },
+    {
+      "order": 4,
+      "target": "https://www.avl.gva.es/lexicval/",
+      "method": "Proves no confirmades de petició directa amb paràmetres (sense executar la cerca del formulari)",
+      "result": "Les URL amb paràmetres d'assaig no van donar respostes consultables. No hi ha evidència que aquests paràmetres siguen l'API real del lloc.",
+      "canReadDictionaryEntry": false,
+      "verifiesAbsenceOfLemma": false
+    }
+  ],
+  "summary": {
+    "dnvEntriesIndividuallyRead": 0,
+    "officialSearchSiteShellReadable": true,
+    "officialInteractiveSearchPerformed": false,
+    "doNotInferMissingWords": true,
+    "candidateEntriesInQueue": 66,
+    "pendingDnv": 66
+  },
+  "policy": "Si el diccionari electrònic està temporalment inaccessible per al procés de consulta, mantenir dnvIndividualChecked=false i no escriure 'no existeix al DNV'. La normativa històrica expressa de l'AVL de 2002 és un expedient separat, amb valor diferent.",
+  "nextStep": "Verificar cada entrada a través d'una consulta real i reproduïble de l'article del DNV amb context de definició, categoria i variant, quan l'accés interactiu permeti recuperar una pàgina individual. No confondre amb DCVB ni amb els acords històrics.",
+  "retryAfterSourcePrecision": {
+    "date": "2026-11-17",
+    "methods": [
+      {
+        "method": "Nova consulta pública de l'URL indexada com a DNV, amb cerca de fonts per paraula",
+        "url": "https://www.avl.gva.es/lexicval/",
+        "result": "La recuperació web retorna un bloqueig robots.txt per al domini oficial; no ofereix article lexicogràfic individual.",
+        "actualDictionaryArticleRetrieved": false
+      },
+      {
+        "method": "Cerca de testimonis oficials/tercers d'articles d'espill, contindre i altres lemes",
+        "url": "https://www.avl.gva.es/lexicval/",
+        "result": "Les fonts alternatives troben l'acord normatiu AVL 2002 i referències a l'aplicació DNV, però no contingut directe de fitxa normativa actual amb definició, flexió o pronúncia validable.",
+        "actualDictionaryArticleRetrieved": false
+      },
+      {
+        "method": "Contrast independent de l'exemple bibere > beure al DIEC2 per Optimot",
+        "url": "https://aplicacions.llengua.gencat.cat/llc/AppJava/index.html",
+        "result": "S'ha recuperat un exemple fonètic acadèmic al DIEC2/Optimot sobre la vocalització de la segona b de bibere. És una altra autoritat lingüística, NO una consulta del DNV.",
+        "actualDictionaryArticleRetrieved": false
+      }
+    ],
+    "conclusion": "L'accés directe i verificable al DNV continua inaccessible; no s'infereix absència de lemes, no s'incrementa el nombre de DNV consultades i no es trasllada a l'AVL l'autoria del DIEC2.",
+    "subsequentPracticalRoute": "Quan es dispose d'accés interactiu oficial amb articles individuals, registrar per a cada forma el lema, categoria gramatical, accepció, forma preferida/variant, URL o identificador d'article i data de consulta. Exigir evidència en la fitxa mateixa; no acceptar resultats genèrics 'no hi ha resultats' sense cerca.",
+    "individualEntriesRecovered": 0
+  }
+}
