@@ -201,54 +201,13 @@ try{
   assert.equal(await page.locator('#open-teacher').count(),0,
     'La administración antigua no debe aparecer en la copia del alumnado');
   assert.equal(await page.locator('#teacher-dialog').count(),0);
-  // Aviso genérico desde Todo: la API recibe modo válido, pero el mensaje
-  // conserva de forma explícita el corpus conjunto y la unidad elegida.
+  // La retirada autorizada del formulario impide nuevos avisos huérfanos.
   await page.locator('#corpus').selectOption('all');
-  await page.getByRole('button',{name:'Avisar de un error'}).click();
-  assert.match(await page.locator('#report-dialog').textContent(),/Todo el vocabulario/);
-  await page.locator('#report-message').fill('Una acepción alternativa debe revisarse.');
-  await page.locator('#send-report').click();
-  await page.getByText('Aviso enviado. Gracias por ayudar a mejorar el vocabulario.').waitFor();
-  assert.equal(reports.length,1);
-  assert.equal(reports[0].mode,'general');
-  assert.equal(reports[0].entry_id,'');
-  assert.match(reports[0].message,/Selección: Todo el vocabulario \(General y Examen\)/);
-  assert.match(reports[0].message,/Unidades marcadas: Sin unidad acreditada/);
-  assert.equal('scholaNote' in reports[0],false,'No ampliar el contrato del backend');
-  await page.locator('#report-dialog [data-close="report-dialog"]').first().click();
-  // El diccionario de Todo debe enviar la ficha combinada real, no la forma
-  // recuperada por un único ID original.
-  await page.locator('#subject').selectOption('lat1');
-  await page.locator('#units input[value="UD 4"]').check();
-  await page.locator('#search').fill('flumen');
-  assert.equal(await page.locator('#dictionary .dictrow').count(),1);
-  const origins=await page.evaluate(()=>{
-    const card=scholaVocabularyAll(VOCAB,'lat1',['UD 4']).find(x=>
-      x.form==='flumen, fluminis (n.)');
-    return card.scholaSources.map(x=>({id:x.id,mode:x.mode,units:x.units}));
-  });
-  await page.locator('#dictionary .dictrow button[data-report-id]').first().click();
-  assert.match(await page.locator('#report-dialog').textContent(),/Todo el vocabulario/);
-  await page.locator('#report-message').fill('Revisar la acepción de flumen.');
-  await page.locator('#send-report').click();
-  await page.getByText('Aviso enviado. Gracias por ayudar a mejorar el vocabulario.').waitFor();
-  assert.equal(reports.length,2);
-  assert.equal(reports[1].mode,'examen','En UD4 la ficha representativa procede de Examen');
-  assert.match(reports[1].message,/General \(UD 5 · UD 8\)/);
-  assert.match(reports[1].message,/Examen \(UD 4\)/);
-  for(const source of origins)assert.ok(reports[1].message.includes(source.id));
-  assert.equal('scholaNote' in reports[1],false);
-  await page.locator('#report-dialog [data-close="report-dialog"]').first().click();
-  // En General y Examen el contenido del aviso del alumno sigue intacto.
-  await page.locator('#corpus').selectOption('general');
-  await page.getByRole('button',{name:'Avisar de un error'}).click();
-  await page.locator('#report-message').fill('Aviso de General sin contexto añadido.');
-  await page.locator('#send-report').click();
-  await page.getByText('Aviso enviado. Gracias por ayudar a mejorar el vocabulario.').waitFor();
-  assert.equal(reports[2].message,'Aviso de General sin contexto añadido.');
-  assert.equal(reports[2].mode,'general');
-  assert.ok(requests.includes('public_words'));
-  assert.ok(requests.includes('report'),'El alumnado debe poder seguir enviando avisos');
+  assert.equal(await page.locator('#open-report').count(),0);
+  assert.equal(await page.locator('#report-dialog').count(),0);
+  assert.equal(await page.locator('[data-report-id],[data-report-current]').count(),0);
+  assert.equal(reports.length,0,'La interfaz ya no envía incidencias');
+  assert.deepEqual(requests,[],'El vocabulario estático no debe llamar al backend');
   assert.deepEqual(errors,[]);
   response=await page.goto(base+'/apps/vocabulario/gramatica.html');
   assert.equal(response.status(),404);
@@ -259,7 +218,7 @@ try{
   assert.equal(await page.locator('#subject').inputValue(),'lat2');
   response=await page.goto(base+'/apps/gramatica/index.html',{waitUntil:'load'});
   assert.equal(response.status(),200);
-  console.log('Vocabula integrado: vocabulario, cursos, filtros, sin panel docente antiguo, con avisos y sin morfología antigua');
+  console.log('Vocabula integrado: vocabulario local, cursos y filtros; sin avisos ni backend público');
 }finally{
   if(browser)await browser.close();
   await new Promise(done=>server.close(done));
