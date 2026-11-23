@@ -40,8 +40,11 @@ test('Solo la interfaz pública de alumnado llega al paquete integrado',()=>{
  assert.ok(!html.includes('id="open-teacher"'));
  assert.ok(!html.includes('id="teacher-dialog"'));
  assert.ok(html.includes('schola-bridge.js'));
- assert.ok(html.includes('schola-offline.js'));
- assert.ok(html.includes('teacher.js?v=20261116-schola1'));
+ assert.ok(!html.includes('schola-offline.js'));
+ assert.ok(!html.includes('teacher.js?v=20261116-schola1'));
+ assert.ok(!html.includes('config.js'));
+ assert.ok(!html.includes('id="open-report"'));
+ assert.ok(!html.includes('id="report-dialog"'));
  const service=read(dist,'config.js').toString('utf8');
  assert.ok(service.includes('.supabase.co/functions/v1/vocabulary'));
  assert.ok(!service.includes('service_role'));

@@ -36,12 +36,9 @@ try{
  const context=await browser.newContext({acceptDownloads:true});
  const page=await context.newPage(),errors=[],requests=[];
  page.on('pageerror',e=>errors.push(e.message));
- await page.route('**/functions/v1/vocabulary',async route=>{
-  const payload=JSON.parse(route.request().postData()||'{}');
-  requests.push(payload);
-  assert.ok(['public_words','report'].includes(payload.action));
-  await route.fulfill({status:200,contentType:'application/json',
-   body:JSON.stringify(payload.action==='public_words'?{words:[entry]}:{ok:true})});
+ await page.route('**/functions/v1/vocabulary',route=>{
+  requests.push(route.request().url());
+  throw Error('No debe solicitarse el endpoint de vocabulario');
  });
  const portal=await page.goto(base+prefix,{waitUntil:'load'});
  assert.equal(portal.status(),200);
@@ -71,26 +68,26 @@ try{
  assert.equal(info.manifest.scope,'./');
  assert.ok(info.cachesFound.some(x=>x.startsWith('schola-portal-')));
  assert.ok(info.cachesFound.some(x=>x.startsWith('schola-vocabula-')));
- assert.ok(info.ownPaths.length>=19);
+ assert.ok(info.ownPaths.length>=17);
  assert.ok(info.ownPaths.every(x=>x.startsWith(modulePath)),'SW sin aislamiento de archivos');
  assert.equal(await page.locator('#subject').inputValue(),'lat1');
  await page.locator('#units input[value="UD 10"]').check();
  await page.locator('details.help').last().locator('summary').click();
  await page.locator('#search').fill('Ephesius');
  assert.equal(await page.locator('#dictionary .dictrow').count(),1,
-  'La palabra añadida por el profesor debe ser visible tras sincronizar');
- assert.equal(await page.evaluate(()=>scholaVocabulaOffline.loadWords()?.length),1);
+  'La ficha migrada debe existir sin consultar Supabase');
+ assert.equal(requests.length,0,'No consultar palabras remotas');
  const beforeOffline=requests.length;
  await context.setOffline(true);
  const response=await page.goto(base+modulePath+'index.html?subject=lat1',{waitUntil:'load'});
  assert.equal(response.status(),200,'El vocabulario no se abre sin Internet');
- assert.match(await page.locator('#cloud-status').textContent(),/Sin conexión/);
+ assert.match(await page.locator('#cloud-status').textContent(),/Banco integrado/);
  assert.equal(await page.locator('#corpus option').count(),3);
  await page.locator('#units input[value="UD 10"]').check();
  await page.locator('details.help').last().locator('summary').click();
  await page.locator('#search').fill('Ephesius');
  assert.equal(await page.locator('#dictionary .dictrow').count(),1,
-  'La palabra docente descargada se pierde sin conexión');
+  'La palabra fijada en el banco debe funcionar sin conexión');
  await page.locator('#activity').selectOption('cards');
  await page.locator('#start').click();
  await page.locator('#reveal').click();
@@ -108,23 +105,13 @@ try{
  const exported=await page.evaluate(async()=>JSON.parse(await window.__vocabExportBlob.text()));
  assert.equal(exported.version,1);
  assert.deepEqual(exported.progress,JSON.parse(progress));
- await page.getByRole('button',{name:'Avisar de un error'}).click();
- await page.locator('#report-message').fill('Revisar esta traducción cuando vuelva Internet.');
- await page.locator('#send-report').click();
- await page.getByText('Aviso guardado en este dispositivo.',{exact:false}).waitFor();
- assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),1);
- await page.locator('#report-dialog [data-close="report-dialog"]').first().click();
- await page.locator('#corpus').selectOption('all');
- await page.getByRole('button',{name:'Avisar de un error'}).click();
- await page.locator('#report-message').fill('Aviso genérico desde Todo, enviado más tarde.');
- await page.locator('#send-report').click();
- await page.getByText('Aviso guardado en este dispositivo.',{exact:false}).waitFor();
- assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),2);
- assert.equal(requests.length,beforeOffline,'No debe haber envíos al backend sin red');
+ assert.equal(await page.locator('#open-report').count(),0);
+ assert.equal(await page.locator('#report-dialog').count(),0);
+ assert.equal(await page.locator('[data-report-current],[data-report-id]').count(),0);
+ assert.equal(requests.length,beforeOffline,'No llamar al backend sin conexión');
  await page.reload({waitUntil:'load'});
  assert.equal(await page.evaluate(()=>localStorage.getItem('classics-progress-v1')),progress,
   'El progreso debe sobrevivir a la recarga offline');
- assert.equal(await page.evaluate(()=>scholaVocabulaOffline.pendingCount()),2);
  // Progreso exportable/importable incluso sin conexión.
  await page.evaluate(()=>localStorage.setItem('classics-progress-v1','{}'));
  await page.reload({waitUntil:'load'});
@@ -134,21 +121,18 @@ try{
  await page.waitForFunction(()=>document.querySelector('#storage')?.textContent==='Progreso importado.');
  assert.equal(await page.evaluate(()=>localStorage.getItem('classics-progress-v1')),progress);
  await context.setOffline(false);
- await page.waitForFunction(()=>scholaVocabulaOffline.pendingCount()===0,null,{timeout:15000});
- assert.ok(requests.some(r=>r.action==='report'&&r.message==='Revisar esta traducción cuando vuelva Internet.'),
-  'Debe enviarse el aviso pendiente al recuperar Internet');
- assert.ok(requests.some(r=>r.action==='report'&&
-   r.message.includes('Aviso genérico desde Todo, enviado más tarde.')&&
-   r.message.includes('Selección: Todo el vocabulario (General y Examen)')&&
-   r.mode==='general'),
-   'El aviso combinado pendiente debe conservar su contexto tras la reconexión');
- assert.ok(requests.filter(r=>r.action==='public_words').length>=2,
-  'Debe reanudarse la sincronización docente');
+ assert.equal(requests.length,0,'La versión estática no transmite datos a Supabase');
+ await page.locator('#subject').selectOption('lat2');
+ await page.locator('#units input[value="Adjetivos"]').check();
+ await page.locator('details.help').last().locator('summary').click();
+ await page.locator('#search').fill('Ephesius');
+ assert.equal(await page.locator('#dictionary .dictrow').count(),1,
+  'Debe conservar Ephesius de Latín II como ficha distinta de la de Latín I');
  const remaining=await page.evaluate(async()=>await caches.keys());
  assert.ok(remaining.some(x=>x.startsWith('schola-portal-')));
  assert.ok(remaining.some(x=>x.startsWith('schola-vocabula-')));
  assert.deepEqual(errors,[],'Excepciones JavaScript durante la desconexión');
- console.log('OK: Vocabula offline real, altas docentes, progreso, exportación, avisos, SW de ámbito aislado y reconexión');
+ console.log('OK: Vocabula estático offline, dos Ephesius, progreso y cachés aisladas sin API');
 }finally{
  if(browser)await browser.close();
  await new Promise(done=>server.close(done));

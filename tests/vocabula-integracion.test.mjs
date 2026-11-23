@@ -10,11 +10,12 @@ import {applyGreek1KindynosUd5,GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_I
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport} from '../scripts/adapt-vocabula-all.mjs';
 import {integrateReviewedTeacherWords} from '../scripts/migrate-vocabula-teacher-words.mjs';
 import {adaptVocabulaOfflineHtml,adaptVocabulaOfflineTeacher} from '../scripts/adapt-vocabula-offline.mjs';
+import {retirePublicVocabulaHtml,retirePublicVocabulaApp} from '../scripts/retire-vocabula-public-remote.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'vendor/vocabula'),target=join(root,'dist/apps/vocabulario');
 const names=['choice.js','config.js','scope.js'];
 const digest=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
-test('Vocabula importa vocabulario y avisos de alumnado, sin gestión docente heredada',()=>{
+test('Vocabula conserva el vocabulario estático sin conectar avisos del alumnado',()=>{
   for(const file of names)assert.equal(digest(join(target,file)),digest(join(source,file)),'Se modificó '+file);
   assert.deepEqual(readdirSync(join(target,'icons')).sort(),readdirSync(join(source,'icons')).sort());
   for(const name of readdirSync(join(source,'icons')))assert.equal(digest(join(target,'icons',name)),digest(join(source,'icons',name)));
@@ -44,7 +45,7 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
     .replace('teacher.js?v=20261113-alumnos','teacher.js?v=20261116-schola1')
     .replace('app.js?v=20261112','app.js?v=20261113-alumnos1');
   assert.notEqual(from,to);
-  assert.equal(to,adaptVocabulaOfflineHtml(adaptVocabulaAllHtml(expected)));
+  assert.equal(to,retirePublicVocabulaHtml(adaptVocabulaOfflineHtml(adaptVocabulaAllHtml(expected))));
   assert.ok(!to.includes('id="open-teacher"'));
   assert.ok(!to.includes('id="teacher-dialog"'));
   const nativeTeacher=readFileSync(join(source,'teacher.js'),'utf8');
@@ -66,6 +67,8 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
   assert.ok(!studentJs.includes('teacher-dialog'));
   assert.equal(readFileSync(join(target,'schola-all.js'),'utf8').includes('function scholaVocabularyAll'),true);
   assert.ok(readFileSync(join(target,'app.js'),'utf8').includes("$('corpus').value==='all'"));
+  assert.doesNotMatch(to,/id="open-report"|id="report-dialog"|src="teacher\.js|src="config\.js/);
+  assert.doesNotMatch(readFileSync(join(target,'app.js'),'utf8'),/data-report-(?:id|current)/);
   const bridge=readFileSync(join(target,'schola-bridge.js'),'utf8');
   assert.match(bridge,/URLSearchParams/);
   assert.match(bridge,/dispatchEvent/);
@@ -73,7 +76,7 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
 test('no se publica la morfología anterior ni backend o datos internos',()=>{
   for(const file of ['gramatica.html','morfologia.html','gramatica.js','morfologia.js','gramatica-importada.js','backend','data','scripts','tests','docs'])
     assert.equal(existsSync(join(target,file)),false,'Se copió inesperadamente '+file);
-  assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','schola-all.js','schola-offline.js','sw.js','manifest.webmanifest','icons'].sort());
+  assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','schola-all.js','schola-offline.js','schola-register.js','sw.js','manifest.webmanifest','icons'].sort());
 });
 
 test('Cuatro enmiendas de 4.º se corrigen en la copia, preservando el origen completo',()=>{
