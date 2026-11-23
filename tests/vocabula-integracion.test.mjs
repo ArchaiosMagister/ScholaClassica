@@ -84,8 +84,8 @@ test('Cuatro enmiendas de 4.º se corrigen en la copia, preservando el origen co
  assert.equal(from.length,2055);
  assert.equal(to.length,from.length+2);
  assert.deepEqual(to,integrateReviewedTeacherWords(applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(from)))));
- const changes=to.filter((e,i)=>e.form!==from[i].form);
- const allUnitChanges=to.filter((e,i)=>e.units.join('|')!==from[i].units.join('|'));
+ const changes=to.slice(0,from.length).filter((e,i)=>e.form!==from[i].form);
+ const allUnitChanges=to.slice(0,from.length).filter((e,i)=>e.units.join('|')!==from[i].units.join('|'));
  assert.equal(allUnitChanges.length,18,'17 Latín 4.º y una Griego I');
  const curriculumChanges=allUnitChanges.filter(e=>e.subject==='lat4');
  assert.equal(curriculumChanges.length,17);
