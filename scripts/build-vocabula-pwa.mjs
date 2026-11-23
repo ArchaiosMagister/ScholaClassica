@@ -4,9 +4,9 @@ import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 
 export const VOCABULA_CORE=Object.freeze([
- './','./index.html','./app.js','./choice.js','./config.js',
- './data.js','./scope.js','./style.css','./teacher.js','./theme.js',
- './schola-all.js','./schola-bridge.js','./schola-offline.js',
+ './','./index.html','./app.js','./choice.js',
+ './data.js','./scope.js','./style.css','./theme.js',
+ './schola-all.js','./schola-bridge.js','./schola-register.js',
  './manifest.webmanifest',
  './icons/favicon.ico','./icons/favicon.svg','./icons/apple-touch-icon.png',
  './icons/icon-192.png','./icons/icon-512.png'
