@@ -21,7 +21,8 @@ export function retirePublicVocabulaHtml(html){
   'script del backend público');
  html=once(html,
   '<script src="schola-offline.js" defer></script><script src="teacher.js?v=20261116-schola1" defer></script>',
-  '', 'scripts de sincronización/avisos');
+  '<script src="schola-register.js" defer></script>',
+  'scripts de sincronización/avisos');
  html=once(html,
   '<div><p id="cloud-status" class="small" role="status">Cargando las últimas palabras…</p><p id="pending-reports" class="small" role="status" aria-live="polite"></p></div>',
   '<p id="cloud-status" class="small" role="status">Vocabulario actualizado · Banco integrado disponible sin conexión.</p>',
@@ -48,5 +49,9 @@ export async function retirePublicVocabulaRemote(destination){
   const path=join(destination,name);
   await writeFile(path,transform(await readFile(path,'utf8')));
  }
+ // Registro PWA aislado: no consultar Supabase ni reintentar avisos pendientes.
+ await writeFile(join(destination,'schola-register.js'),
+  "if('serviceWorker' in navigator){window.addEventListener('load',()=>"+
+  "navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{}));}\\n".replace('\\n','\n'));
  console.log('Vocabula del alumnado: banco local con altas auditadas; sin editor ni avisos remotos en la interfaz.');
 }
