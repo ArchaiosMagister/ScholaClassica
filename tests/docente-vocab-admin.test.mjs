@@ -83,11 +83,11 @@ test('La interfaz nunca interpreta HTML del alumnado y reinicia los datos al cer
   assert.match(client,/admin-search-form/);
   assert.match(client,/showGrammarReports/);
   assert.match(client,/admin-report-area/);
-  assert.match(page,/mountVocabulaAdmin/);
+  assert.doesNotMatch(page,/mountVocabulaAdmin|resetVocabulaAdmin|admin-vocabula\.mjs/);
   assert.match(page,/resetVocabulaAdmin/);
-  assert.match(html,/id="admin-word-form"/);
-  assert.match(html,/id="admin-report-list"/);
-  assert.match(html,/id="notice-source"/);
+  assert.doesNotMatch(html,/id="admin-word-form"/);
+  assert.doesNotMatch(html,/id="admin-report-list"/);
+  assert.doesNotMatch(html,/id="notice-source"/);
 });
 
 test('Área docente: la etiqueta Todo reconoce la procedencia sin reinterpretar modos antiguos',()=>{
