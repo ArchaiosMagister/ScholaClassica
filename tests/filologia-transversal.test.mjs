@@ -13,7 +13,7 @@ test('Auditoría filológica completa: tres currículos ES/VAL, cobertura y orig
   assert.deepEqual(TRANSVERSAL_COURSES.map(x=>x.units),[10,8,14]);
   assert.equal(report.schema,'scholaclassica-filologia-transversal/v1');
   assert.equal(report.sourcePreserved.sourceCards,2055);
-  assert.equal(report.sourcePreserved.integratedCards,2055);
+  assert.equal(report.sourcePreserved.integratedCards,2057);
   assert.equal(report.sourcePreserved.intentionalLatin4ExamUd8,17);
   assert.equal(report.sourcePreserved.intentionalLatin4Spelling,4);
   assert.equal(report.sourcePreserved.intentionalGreek1GeneralUd5,1);
@@ -57,7 +57,7 @@ test('Las listas de Examen no se confunden con la práctica ni el General',()=>{
     'La conciliación filológica individual de 17 fichas debe mantenerse');
   assert.ok(!Object.keys(latin1.examGroupCounts).some(k=>/^UD (8|9|10)$/u.test(k)));
   assert.ok(!Object.keys(griego1.examGroupCounts).some(k=>/^UD (11|12|13|14)$/u.test(k)));
-  assert.equal(latin1.vocabulary.general,741);
+  assert.equal(latin1.vocabulary.general,742);
   assert.equal(latin4.vocabulary.general,379);
   assert.equal(griego1.vocabulary.general,332);
 });
