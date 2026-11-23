@@ -12,13 +12,13 @@ const rule=(css,selector)=>{
 
 test('portal y zona de profesor heredan los acentos del modo oscuro en OLED',()=>{
   const css=read('style.css');
-  assert.match(css,/html:is\(\[data-theme="dark"\],\[data-theme="oled"\]\) \.linkgroup a\{/);
-  assert.match(css,/html:is\(\[data-theme="dark"\],\[data-theme="oled"\]\) \.path-links a\{/);
-  assert.match(css,/html:is\(\[data-theme="dark"\],\[data-theme="oled"\]\) \.portal-update\{/);
-  assert.match(css,/html\[data-theme="oled"\]\{background:#000/);
-  for(const selector of ['.linkgroup a','.path-links a','.portal-update','.tabs button[aria-selected="true"]']){
-    assert.ok(!css.includes('html[data-theme="oled"] '+selector+'{'),
-      'OLED no debe neutralizar '+selector);
+  const dark=rule(css,'html:is([data-theme="dark"],[data-theme="oled"])');
+  const oled=rule(css,'html[data-theme="oled"]');
+  assert.match(dark,/--accent:/);
+  assert.match(oled,/background: #000/);
+  assert.doesNotMatch(oled,/--accent:/);
+  for(const selector of ['.path-links a, .linkgroup a','.tabs button, .portal-update']){
+    assert.match(rule(css,selector),/color: var\(--accent\)/);
   }
   const html=read('docente/index.html');
   const docente=read('docente/style.css');

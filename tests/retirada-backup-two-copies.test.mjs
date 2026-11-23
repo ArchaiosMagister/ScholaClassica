@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {mkdtemp,mkdir,writeFile,readFile,lstat,rm,symlink} from 'node:fs/promises';
+import {mkdtemp,mkdir,writeFile,readFile,lstat,rm,symlink,realpath} from 'node:fs/promises';
 import {join,resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 import {getBackupPlan} from '../scripts/backup-originals.mjs';
@@ -11,7 +11,7 @@ import {checkTwoDestinations,makeTwoLocalBackups}
 const root=resolve(import.meta.dirname,'..');
 const lock=JSON.parse(readFileSync(join(root,'config/sources.lock.json'),'utf8'));
 async function fixture(){
- const base=await mkdtemp(join(tmpdir(),'schola-dual-safe-'));
+ const base=await realpath(await mkdtemp(join(tmpdir(),'schola-dual-safe-')));
  const repo=join(base,'repo'),home=join(base,'home'),disk=join(base,'disk');
  await Promise.all([mkdir(repo),mkdir(home),mkdir(disk)]);
  const primary=join(home,'copia-git'),secondary=join(disk,'copia-git');

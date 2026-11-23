@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="ScholaClassica: gramática, vocabulario y ejercicios de latín y griego organizados por lengua y por herramienta.">
-  <meta name="theme-color" content="#14283f">
+  <meta name="theme-color" content="#f8fafc">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
@@ -15,21 +15,141 @@
   <script src="app.js" defer></script>
   <title>ScholaClassica · Latín y Griego</title>
 </head>
-<body>
+<body class="portal">
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <header class="site-head">
   <div class="head-inner">
-    <a class="brand" href="./" aria-label="ScholaClassica, inicio"><span class="brand-symbol" aria-hidden="true">Σ</span> Schola<span>Classica</span></a>
-    <nav aria-label="Navegación principal"><a href="#itinerario">Mi itinerario</a><a href="#modulos">Herramientas</a><a href="#profesorado">Profesorado</a><label class="theme-choice" for="portal-theme">Aspecto <select id="portal-theme" aria-label="Aspecto de la portada"><option value="system">Automático</option><option value="light">Claro</option><option value="dark">Oscuro</option><option value="oled">OLED</option></select></label><button type="button" id="portal-update" class="portal-update">Actualizar</button></nav>
+    <a class="brand" href="./" aria-label="ScholaClassica, inicio"><span class="brand-symbol" aria-hidden="true">Σ</span><span>ScholaClassica</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#itinerario">Itinerario</a>
+      <a href="#modulos">Herramientas</a>
+      <a href="#ayuda">Ayuda</a>
+    </nav>
+    <label class="theme-choice" for="portal-theme"><span>Aspecto</span>
+      <select id="portal-theme" aria-label="Aspecto de la portada">
+        <option value="system">Automático</option>
+        <option value="light">Claro</option>
+        <option value="dark">Oscuro</option>
+        <option value="oled">OLED</option>
+      </select>
+    </label>
   </div>
 </header>
 <main id="contenido" class="container">
-  <section class="hero">
-    <p class="eyebrow">Un espacio común para las lenguas clásicas</p>
-    <h1>ScholaClassica</h1>
-    <p>Gramática, vocabulario latino y griego, evolución fonética y ejercicios de etimología. Consulta y practica desde un mismo espacio.</p>
-    <p class="status"><span aria-hidden="true">●</span> Consulta, estudia y practica a tu ritmo.</p>
-    <div class="portal-pwa-status" id="portal-pwa-status" role="status" aria-live="polite">Preparando el acceso sin conexión.</div>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">Latín y griego,<br>en un solo lugar.</h1>
+      <p>Consulta la gramática, amplía tu vocabulario y practica con ejercicios de morfología, sintaxis, evolución fonética y etimología.</p>
+      <a class="cta" href="#itinerario">Elegir mi curso</a>
+    </div>
+    <img class="hero-image" src="./portal/epigrafia.webp" width="1050" height="700" alt="" fetchpriority="high">
+  </section>
+  <section id="itinerario" class="study-path" aria-labelledby="path-title">
+    <h2 id="path-title">Mi itinerario</h2>
+    <p class="path-intro">Elige tu asignatura para ver las herramientas disponibles y retomar tu último acceso.</p>
+    <div class="path-select-row">
+      <label for="study-course">Asignatura y curso</label>
+      <div class="course-control">
+        <select id="study-course" autocomplete="off">
+          <option value="">Elige una asignatura</option>
+          <option value="lat4">Latín · 4.º de ESO</option>
+          <option value="lat1">Latín I · 1.º de Bachillerato</option>
+          <option value="lat2">Latín II · 2.º de Bachillerato</option>
+          <option value="gr1">Griego I · 1.º de Bachillerato</option>
+          <option value="gr2">Griego II · 2.º de Bachillerato</option>
+        </select>
+      </div>
+    </div>
+    <div id="study-path-results" aria-live="polite">
+      <noscript><p>Activa JavaScript para usar el itinerario o abre una herramienta del catálogo.</p></noscript>
+    </div>
+    <div id="study-resume-area" class="path-resume" hidden>
+      <p>Último acceso de este curso</p>
+      <a id="study-resume" href="./">Retomar la herramienta anterior</a>
+    </div>
+    <p class="path-note">Tu selección y el último acceso se guardan en este navegador.</p>
+  </section>
+  <section id="modulos" aria-labelledby="explorar">
+    <div class="section-heading"><h2 id="explorar">Herramientas de estudio</h2></div>
+    <div class="tabs" role="tablist" aria-label="Forma de explorar">
+      <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="true">Por herramienta</button>
+      <button type="button" id="tab-lenguas" role="tab" aria-controls="panel-lenguas" aria-selected="false" tabindex="-1">Por lengua</button>
+    </div>
+    <div id="panel-lenguas" role="tabpanel" aria-labelledby="tab-lenguas" hidden>
+      <div class="columns">
+        <article class="card latin">
+          <p class="overline" lang="la">Lingua Latina</p><h3>Latín</h3><p>Gramática y sintaxis con acceso por curso y por unidad.</p>
+          <div class="linkgroup">
+            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=4&amp;unidad=1">Latín · 4.º de ESO</a>
+            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=1&amp;unidad=1">Latín I</a>
+            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=2">Latín II</a>
+            <a href="apps/gramatica/morfologia.html">Consultar morfología latina</a>
+            <a href="apps/morfologia/index.html?subject=lat1">Practicar morfología · Latín I</a>
+            <a href="apps/gramatica/sintaxis.html">Sintaxis latina</a>
+            <a href="apps/evolucion-fonetica/index.html">Evolución fonética · castellano</a>
+            <a href="apps/vocabulario/index.html?subject=lat1">Vocabulario latino</a>
+          </div>
+        </article>
+        <article class="card greek">
+          <p class="overline" lang="grc">Ἑλληνικὴ γλῶττα</p><h3>Griego</h3><p>Gramática y sintaxis con acceso por curso y por unidad.</p>
+          <div class="linkgroup">
+            <a href="apps/gramatica/curso.html?lengua=griego&amp;curso=1&amp;unidad=1">Griego I</a>
+            <a href="apps/gramatica/curso.html?lengua=griego&amp;curso=2">Griego II</a>
+            <a href="apps/gramatica/griego-morfologia.html">Consultar morfología griega</a>
+            <a href="apps/morfologia/index.html?subject=gr1">Practicar morfología · Griego I</a>
+            <a href="apps/gramatica/griego-sintaxis.html">Sintaxis griega</a>
+            <a href="apps/etymologicon/estudio.html">Etymologicon · derivados</a>
+            <a href="apps/vocabulario/index.html?subject=gr1">Vocabulario griego</a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas">
+      <div class="columns">
+        <article class="card neutral">
+          <p class="overline">Consulta</p><h3>Appendix grammaticæ</h3>
+          <p>Gramática, sintaxis y paradigmas por unidad, en castellano y valenciano.</p>
+          <div class="linkgroup"><a href="apps/gramatica/index.html">Abrir gramática</a><a href="apps/gramatica/val/index.html" lang="ca-valencia">Obrir en valencià</a></div>
+        </article>
+        <article class="card neutral">
+          <p class="overline">Léxico latino y griego</p><h3>Vocabula Latina Græcaque</h3>
+          <p>Tarjetas, test, traducciones, repaso de errores y vocabulario por unidades.</p>
+          <div class="linkgroup"><a href="apps/vocabulario/index.html?subject=lat1">Practicar vocabulario</a></div>
+        </article>
+        <article class="card neutral">
+          <p class="overline">Latín y griego</p><h3>Morfología</h3>
+          <p>Practica el reconocimiento, el análisis y la declinación de formas y sintagmas. Completa tablas y repasa tus errores.</p>
+          <div class="linkgroup">
+            <a href="apps/morfologia/index.html?subject=lat1">Practicar morfología · Latín I</a>
+            <a href="apps/morfologia/index.html?subject=gr1">Practicar morfología · Griego I</a>
+            <a href="apps/morfologia/index.html?subject=lat4">Practicar morfología · Latín 4.º</a>
+            <a href="apps/morfologia/index.html?subject=lat2">Practicar morfología · Latín II</a>
+          </div>
+        </article>
+        <article class="card neutral">
+          <p class="overline">Latín I, Latín 4.º y Griego I</p><h3>Repaso gramatical</h3>
+          <p>Repasa sintaxis y conceptos gramaticales con preguntas autocorregibles por unidad.</p>
+          <div class="linkgroup">
+            <a href="apps/repaso-gramatica/index.html?subject=lat1">Repasar sintaxis · Latín I</a>
+            <a href="apps/repaso-gramatica/index.html?subject=gr1">Repasar sintaxis · Griego I</a>
+            <a href="apps/repaso-gramatica/index.html?subject=lat4">Repasar sintaxis · Latín 4.º</a>
+          </div>
+        </article>
+        <article class="card neutral">
+          <p class="overline">Evolución fonética</p><h3>Evolutio</h3>
+          <p>Aplica las leyes de evolución del latín al castellano con ejercicios guiados o a ciegas.</p>
+          <div class="linkgroup"><a href="apps/evolucion-fonetica/index.html">Abrir Evolutio</a></div>
+        </article>
+        <article class="card neutral">
+          <p class="overline">Etimología · Griego I</p><h3>Etymologicon</h3>
+          <p>Explora el glosario griego y practica los derivados castellanos con ejercicios autocorregibles.</p>
+          <div class="linkgroup"><a href="apps/etymologicon/practicar.html">Practicar etimología griega</a><a href="apps/etymologicon/estudio.html">Consultar el glosario</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="ayuda" class="support" aria-labelledby="help-title">
+    <div class="section-heading"><h2 id="help-title">Instalación y progreso</h2></div>
     <details class="install-help">
       <summary>Instalar ScholaClassica en el móvil o la tableta</summary>
       <p><strong>iPhone y iPad:</strong> en Safari, abre Compartir y elige «Añadir a pantalla de inicio». Activa «Abrir como app» cuando aparezca.</p>
@@ -54,127 +174,25 @@
       </ul>
       <p>La <a href="apps/morfologia/index.html?subject=lat1">práctica de morfología</a> y <a href="apps/etymologicon/index.html">Etymologicon</a> tienen sus propios módulos: no sustituyen una página idéntica de las webs anteriores. Para conservar resultados, utiliza las instrucciones de «Conservar mi progreso» antes de desinstalar una PWA antigua.</p>
     </details>
+    <div class="pwa-controls">
+      <p class="portal-pwa-status" id="portal-pwa-status" role="status" aria-live="polite">Preparando el acceso sin conexión.</p>
+      <button type="button" id="portal-update" class="portal-update">Actualizar portada</button>
+    </div>
   </section>
-  <section id="itinerario" class="study-path" aria-labelledby="path-title">
-    <div class="section-heading">
-      <div><p class="eyebrow">Acceso por curso</p><h2 id="path-title">Mi itinerario de estudio</h2></div>
-      <span class="phase">Herramientas para cada asignatura</span>
-    </div>
-    <p class="path-intro">Elige una asignatura para abrir directamente sus herramientas. Conservaremos únicamente la última herramienta utilizada en este navegador.</p>
-    <div class="path-select-row">
-      <label for="study-course">Asignatura y curso</label>
-      <select id="study-course" autocomplete="off">
-        <option value="">Elige una asignatura</option>
-        <option value="lat4">Latín · 4.º de ESO</option>
-        <option value="lat1">Latín I · 1.º de Bachillerato</option>
-        <option value="lat2">Latín II · 2.º de Bachillerato</option>
-        <option value="gr1">Griego I · 1.º de Bachillerato</option>
-        <option value="gr2">Griego II · 2.º de Bachillerato</option>
-      </select>
-    </div>
-    <div id="study-path-results" aria-live="polite">
-      <p class="path-empty">Selecciona primero una asignatura.</p>
-    </div>
-    <div id="study-resume-area" class="path-resume" hidden>
-      <p>Último acceso de este curso</p>
-      <a id="study-resume" href="./">Retomar la herramienta anterior</a>
-    </div>
-    <p class="path-note">La selección se recuerda solo en este navegador; no guarda respuestas, calificaciones ni datos personales.</p>
-  </section>
-  <section id="modulos" aria-labelledby="explorar">
-    <div class="section-heading"><div><p class="eyebrow">Estudia como prefieras</p><h2 id="explorar">Explorar los contenidos</h2></div><span class="phase">Gramática, vocabulario, fonética, etimología y proyectos vinculados</span></div>
-    <div class="tabs" role="tablist" aria-label="Forma de explorar">
-      <button type="button" id="tab-lenguas" role="tab" aria-controls="panel-lenguas" aria-selected="true">Por lengua</button>
-      <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Por herramienta</button>
-    </div>
-    <div id="panel-lenguas" role="tabpanel" aria-labelledby="tab-lenguas">
-      <div class="columns">
-        <article class="card latin">
-          <p class="overline">Lingua Latina</p><h3>Latín</h3><p>Gramática y sintaxis con acceso por curso y por unidad.</p>
-          <div class="linkgroup">
-            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=4&amp;unidad=1">Latín · 4.º de ESO <span aria-hidden="true">↗</span></a>
-            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=1&amp;unidad=1">Latín I <span aria-hidden="true">↗</span></a>
-            <a href="apps/gramatica/curso.html?lengua=latin&amp;curso=2">Latín II <span aria-hidden="true">↗</span></a>
-            <a href="apps/gramatica/morfologia.html">Consultar morfología latina <span aria-hidden="true">↗</span></a>
-            <a href="apps/morfologia/index.html?subject=lat1">Practicar morfología · Latín I <span aria-hidden="true">↗</span></a>
-            <a href="apps/gramatica/sintaxis.html">Sintaxis latina <span aria-hidden="true">↗</span></a>
-            <a href="apps/evolucion-fonetica/index.html">Evolución fonética · castellano <span aria-hidden="true">↗</span></a>
-            <a href="apps/vocabulario/index.html?subject=lat1">Vocabulario latino <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="card greek">
-          <p class="overline">Ἑλληνικὴ γλῶττα</p><h3>Griego</h3><p>Gramática y sintaxis con acceso por curso y por unidad.</p>
-          <div class="linkgroup">
-            <a href="apps/gramatica/curso.html?lengua=griego&amp;curso=1&amp;unidad=1">Griego I <span aria-hidden="true">↗</span></a>
-            <a href="apps/gramatica/curso.html?lengua=griego&amp;curso=2">Griego II <span aria-hidden="true">↗</span></a>
-            <a href="apps/gramatica/griego-morfologia.html">Consultar morfología griega <span aria-hidden="true">↗</span></a>
-            <a href="apps/morfologia/index.html?subject=gr1">Practicar morfología · Griego I <span aria-hidden="true">↗</span></a>
-            <a href="apps/gramatica/griego-sintaxis.html">Sintaxis griega <span aria-hidden="true">↗</span></a>
-            <a href="apps/etymologicon/estudio.html">Etymologicon · derivados <span aria-hidden="true">↗</span></a>
-            <a href="apps/vocabulario/index.html?subject=gr1">Vocabulario griego <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
+  <section aria-labelledby="linked-title" class="related">
+    <article class="card neutral linked-project">
+      <p class="overline">Proyecto externo</p><h2 id="linked-title">Palabra del día</h2>
+      <p>Participación y votaciones de palabras en 1.º de Bachillerato y 4.º de ESO.</p>
+      <div class="linkgroup">
+        <a href="https://archaiosmagister.github.io/Palabra-del-dia/" target="_blank" rel="noopener noreferrer">1.º de Bachillerato · Abrir sitio externo</a>
+        <a href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/" target="_blank" rel="noopener noreferrer">4.º de ESO · Abrir sitio externo</a>
       </div>
-    </div>
-    <div id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" hidden>
-      <div class="columns">
-        <article class="card neutral">
-          <p class="overline">Disponible en esta fase</p><h3>Biblioteca de gramática</h3>
-          <p>Appendix grammaticæ: morfología, sintaxis, paradigmas y contenidos por unidad, en castellano y valenciano.</p>
-          <div class="linkgroup"><a href="apps/gramatica/index.html">Abrir gramática <span aria-hidden="true">↗</span></a><a href="apps/gramatica/val/index.html" lang="ca-valencia">Obrir en valencià <span aria-hidden="true">↗</span></a></div>
-        </article>
-        <article class="card neutral">
-          <p class="overline">Disponible en esta fase</p><h3>Laboratorio de evolución fonética</h3>
-          <p>Evolutio: practica la evolución fonética del latín al castellano, con ejercicios guiados y a ciegas, también sin conexión.</p>
-          <div class="linkgroup"><a href="apps/evolucion-fonetica/index.html">Abrir Evolutio <span aria-hidden="true">↗</span></a></div>
-        </article>
-        <article class="card neutral">
-          <p class="overline">Nueva actividad · Griego I</p><h3>Etymologicon</h3>
-          <p>Dos derivados castellanos por étimo griego: autocorrección con 1, 0,5 o 0 puntos y explicación de las faltas.</p>
-          <div class="linkgroup"><a href="apps/etymologicon/practicar.html">Practicar etimología griega <span aria-hidden="true">↗</span></a></div>
-        </article>
-        <article class="card neutral">
-          <p class="overline">Léxico latino y griego</p><h3>Vocabula Latina Græcaque</h3>
-          <p>Tarjetas, test, traducciones, repaso de errores y vocabulario por unidades.</p>
-          <div class="linkgroup"><a href="apps/vocabulario/index.html?subject=lat1">Practicar vocabulario <span aria-hidden="true">↗</span></a></div>
-        </article>
-        <article class="card neutral">
-          <p class="overline">Latín I, Latín 4.º y Griego I</p><h3>Repaso de sintaxis y conceptos</h3>
-          <p>Preguntas autocorregibles sobre construcciones, fundamentos gramaticales y repaso mixto por unidades. Es independiente del vocabulario y de la práctica de morfología.</p>
-          <div class="linkgroup">
-            <a href="apps/repaso-gramatica/index.html?subject=lat1">Repasar sintaxis · Latín I <span aria-hidden="true">↗</span></a>
-            <a href="apps/repaso-gramatica/index.html?subject=gr1">Repasar sintaxis · Griego I <span aria-hidden="true">↗</span></a>
-            <a href="apps/repaso-gramatica/index.html?subject=lat4">Repasar sintaxis · Latín 4.º <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="card neutral linked-project">
-          <p class="overline">Aplicación vinculada · Acceso externo</p><h3>Palabra del día</h3>
-          <p>Participación y votaciones de palabras en 1.º de Bachillerato y 4.º de ESO. Conserva sus propias cuentas, progresos y aplicaciones instaladas; no compartimos sesiones.</p>
-          <div class="linkgroup">
-            <a href="https://archaiosmagister.github.io/Palabra-del-dia/" target="_blank" rel="noopener noreferrer">1.º de Bachillerato · Abrir sitio externo <span aria-hidden="true">↗</span></a>
-            <a href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/" target="_blank" rel="noopener noreferrer">4.º de ESO · Abrir sitio externo <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="card neutral">
-          <p class="overline">Latín I y Griego I</p><h3>Práctica de morfología</h3>
-          <p>Practica el reconocimiento, el análisis y la declinación de formas y sintagmas de Latín I y Griego I. Incluye repaso inteligente y funcionamiento sin conexión.</p>
-          <div class="linkgroup">
-            <a href="apps/morfologia/index.html?subject=lat1">Practicar morfología · Latín I <span aria-hidden="true">↗</span></a>
-            <a href="apps/morfologia/index.html?subject=gr1">Practicar morfología · Griego I <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section id="profesorado" class="teacher" aria-labelledby="teacher-title">
-    <div><p class="eyebrow">Acceso docente</p><h2 id="teacher-title">Herramientas del profesorado</h2><p>Espacio de acceso exclusivo para el profesorado, independiente de las herramientas del alumnado.</p><div class="linkgroup"><a href="docente/index.html">Abrir área de profesor <span aria-hidden="true">↗</span></a></div></div>
-    <span class="teacher-status">Acceso protegido</span>
-  </section>
-  <section class="future" aria-labelledby="future-title">
-    <h2 id="future-title">Próximamente</h2>
-    <p>Próximamente se incorporarán más actividades de etimología, modificación preverbial y latinismos.</p>
+    </article>
   </section>
 </main>
-<footer class="footer"><div class="container"><span>ScholaClassica · Lenguas clásicas</span><span>Castellano y valenciano en Appendix grammaticæ</span></div></footer>
+<footer class="footer"><div class="container">
+  <span>ScholaClassica · Latín y griego</span>
+  <a id="profesorado" href="docente/index.html">Profesorado</a>
+</div></footer>
 </body>
 </html>

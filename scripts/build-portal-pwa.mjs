@@ -5,6 +5,7 @@ import {join} from 'node:path';
 import {generatePortalIcons} from './generate-portal-icons.mjs';
 const CORE=[
   'index.html','app.js','theme.js','style.css','manifest.webmanifest',
+  'portal/epigrafia.webp',
   'icons/icon.svg','icons/icon-192.png','icons/icon-512.png',
   'icons/icon-maskable-512.png','icons/apple-touch-icon.png'
 ];
