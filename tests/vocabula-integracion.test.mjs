@@ -76,7 +76,7 @@ test('la copia estudiantil adapta la navegación y los textos técnicos sin toca
 test('no se publica la morfología anterior ni backend o datos internos',()=>{
   for(const file of ['gramatica.html','morfologia.html','gramatica.js','morfologia.js','gramatica-importada.js','backend','data','scripts','tests','docs'])
     assert.equal(existsSync(join(target,file)),false,'Se copió inesperadamente '+file);
-  assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','schola-all.js','schola-offline.js','sw.js','manifest.webmanifest','icons'].sort());
+  assert.deepEqual(readdirSync(target).sort(),['index.html','app.js','choice.js','config.js','data.js','scope.js','style.css','teacher.js','theme.js','schola-bridge.js','schola-all.js','schola-offline.js','schola-register.js','sw.js','manifest.webmanifest','icons'].sort());
 });
 
 test('Cuatro enmiendas de 4.º se corrigen en la copia, preservando el origen completo',()=>{
