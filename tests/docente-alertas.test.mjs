@@ -29,6 +29,8 @@ test('Los avisos no se guardan sin conexión ni usan HTML de alumnado',()=>{
  assert.match(js,/source==='palabra'/);
  assert.match(js,/detail\.textContent=/);
  assert.doesNotMatch(js,/innerHTML|localStorage|sessionStorage/);
- assert.match(html,/id="notice-source"/);
+ assert.doesNotMatch(html,/id="notice-source"/);
  assert.match(html,/id="sources-state"/);
+ assert.doesNotMatch(html,/id="vocab-admin"|id="admin-word-form"/);
+ assert.doesNotMatch(js,/mountVocabulaAdmin|resetVocabulaAdmin/);
 });
