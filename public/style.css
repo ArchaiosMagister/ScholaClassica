@@ -99,7 +99,7 @@ button, select { font: inherit; }
   color: var(--muted);
   font-size: .875rem;
 }
-select {
+.portal select {
   appearance: none;
   background: var(--surface);
   border: 1px solid var(--line);
