@@ -28,7 +28,7 @@ const install=async(page,allow=true,setupOnly=false,palabraAllow=allow)=>{
         'access-control-allow-headers':'authorization, apikey, content-type'},
       body:JSON.stringify(palabraAllow
         ?{authorized:true,source:'palabra',items:[{source:'palabra',title:'etimología',
-          course:'1.º Bachillerato',summary:'Definición propuesta',
+          course:'1.º Bachillerato',summary:'<img src=x onerror=alert(1)> Definición propuesta',
           created_at:'2026-11-12T11:00:00Z'}]}
         :{error:'Acceso no autorizado'})
     })
@@ -141,89 +141,20 @@ try{
   await good.locator('#enroll-form button').click();
   await good.locator('#teacher').waitFor({state:'visible'});
   assert.equal(await good.evaluate(()=>window.__teacherMock.inboxCalls),1);
-  try{
-    await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
-  }catch{
-    const diagnosis=await good.evaluate(()=>({
-      notices:document.querySelectorAll('#notices .notice').length,
-      state:document.getElementById('notices-state')?.textContent,
-      sources:document.getElementById('sources-state')?.textContent
-    }));
-    throw Error('La bandeja simulada no tiene las dos fuentes: '+JSON.stringify(diagnosis));
-  }
-  assert.equal(await good.locator('#notices .notice').count(),2);
-  assert.ok((await good.locator('#notices .notice').first().locator('p').textContent()).includes('<img'));
-  assert.equal(await good.locator('.notice img').count(),0,'No se interpreta HTML en avisos');
-  await good.locator('#notice-source').selectOption('palabra');
+  await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===1,
+    null,{timeout:10000});
   assert.equal(await good.locator('#notices .notice').count(),1);
-  assert.ok((await good.locator('.notice h3').textContent()).includes('etimología'));
-  await good.locator('#notice-source').selectOption('vocabula');
-  assert.equal(await good.locator('#notices .notice').count(),1);
-  await good.locator('#notice-source').selectOption('all');
+  assert.ok((await good.locator('#notices .notice p').textContent()).includes('<img'));
+  assert.equal(await good.locator('.notice img').count(),0,
+    'No se interpreta HTML enviado en las propuestas');
+  assert.match(await good.locator('#sources-state').textContent(),/Palabra del día: conectada/);
+  assert.equal(await good.locator('#notice-source').count(),0);
+  assert.equal(await good.locator('#vocab-admin').count(),0);
+  assert.equal(await good.locator('#admin-new').count(),0);
+  assert.equal(await good.evaluate(()=>window.__teacherMock.vocabCalls||0),0,
+    'El frontend ya no debe consultar schola-vocab-admin');
   await good.locator('#notice-refresh').click();
-  await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===2,null,{timeout:10000});
-  assert.equal(await good.locator('#notices .notice').count(),2);
-  // El editor no interpreta HTML de formularios ni avisos y exige sesión AAL2.
-  await good.locator('#admin-word-list .notice').first().waitFor({state:'visible'});
-  assert.equal(await good.locator('#admin-word-list img').count(),0);
-  await good.locator('#admin-subject-filter').selectOption('lat1');
-  await good.locator('#admin-search').fill('magnus');
-  await good.locator('#admin-search-form button[type="submit"]').click();
-  await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('magnus'));
-  assert.equal(await good.locator('#admin-word-list .notice').count(),1);
-  assert.ok((await good.locator('#admin-word-list').textContent()).includes('Banco original'));
-  // Caso de colisión real: no ocultar acepciones ni permitir editar una sola
-  // ficha como si la sobreescritura no afectara también a Examen.
-  await good.locator('#admin-search').fill('silva');
-  await good.locator('#admin-search-form button[type="submit"]').click();
-  const silvaCard=good.locator('#admin-word-list .notice').filter({
-    has:good.locator('h4',{hasText:'silva, –æ'})
-  });
-  await silvaCard.first().waitFor({state:'visible'});
-  const silva=await silvaCard.first().textContent();
-  assert.ok(silva.includes('selva')&&silva.includes('bosque'),silva);
-  assert.ok(silva.includes('General')&&silva.includes('Examen'),silva);
-  assert.ok(silva.includes('UD 3')&&silva.includes('UD 6'),silva);
-  assert.equal(await silvaCard.first().locator('button').count(),0);
-  assert.equal(await silvaCard.first().locator('.admin-word-variant').count(),2,
-    'Cada ficha histórica de silva debe tener su propia subficha');
-  const sourceIds=[...silva.matchAll(/ID ([a-f0-9]{16})/g)].map(match=>match[1]);
-  assert.equal(sourceIds.length,2,'General y Examen conservan IDs visibles distintos');
-  assert.equal(new Set(sourceIds).size,2);
-  await good.locator('#admin-search').fill(sourceIds[0]);
-  await good.locator('#admin-search-form button[type="submit"]').click();
-  await good.waitForFunction(id=>document.querySelector('#admin-word-list h4')?.textContent==='silva, –æ'
-    &&document.querySelector('#admin-word-list')?.textContent?.includes(id),sourceIds[0]);
-  assert.equal(await good.locator('#admin-word-list .notice').count(),1,
-    'El ID histórico debe permitir recuperar la forma y todas sus acepciones');
-  await good.locator('#admin-search').fill('Ephesius');
-  await good.locator('#admin-search-form button[type="submit"]').click();
-  await good.waitForFunction(()=>document.querySelector('#admin-word-list h4')?.textContent?.includes('Ephesius'));
-  assert.equal(await good.locator('#admin-word-list .notice').count(),1);
-  assert.ok((await good.locator('#admin-word-list').textContent()).includes('UD 10'));
-  await good.locator('#admin-new').click();
-  await good.locator('#admin-word-subject').selectOption('lat2');
-  assert.equal(await good.locator('#admin-word-units-wrap').isVisible(),false,
-    'Latín II no muestra un campo de unidades');
-  assert.equal(await good.locator('#admin-word-category-wrap').isVisible(),true);
-  await good.locator('#admin-word-category').selectOption('Adjetivos');
-  await good.locator('#admin-cancel-word').click();
-
-  await good.locator('#admin-new').click();
-  await good.locator('#admin-word-subject').selectOption('lat1');
-  await good.locator('#admin-word-form-text').fill('bellum, -i');
-  await good.locator('#admin-word-meaning').fill('guerra');
-  await good.locator('#admin-word-answers').fill('guerra');
-  await good.locator('#admin-word-units').fill('UD1');
-  await good.locator('#admin-save-word').click();
-  await good.waitForFunction(()=>window.__teacherMock.savedWords===1);
-  await good.locator('#admin-tab-reports').click();
-  await good.locator('#admin-report-list .notice').first().waitFor({state:'visible'});
-  await good.locator('#admin-report-list .notice').first().locator('select').selectOption('resolved');
-  await good.locator('#admin-report-list .notice').first().locator('textarea').fill('Corregido');
-  await good.locator('#admin-report-list .notice button').first().click();
-  await good.waitForFunction(()=>window.__teacherMock.savedReports===1);
-  assert.equal(await good.locator('#admin-report-list img').count(),0);
+  await good.waitForFunction(()=>document.querySelectorAll('#notices .notice').length===1);
   await good.locator('#grammar-audit-load').click();
   await good.waitForFunction(()=>document.querySelector('#grammar-coverage-list .notice')!==null);
   assert.ok((await good.locator('#grammar-coverage-list').textContent()).includes('Latín I'));
@@ -232,18 +163,14 @@ try{
   await good.locator('#grammar-audit-form button[type=submit]').click();
   await good.waitForFunction(()=>document.querySelectorAll('#grammar-audit-results .notice').length>0);
   assert.ok((await good.locator('#grammar-audit-results').textContent()).includes('Solución:'));
-  await good.locator('#grammar-audit-reports').click();
-  await good.waitForFunction(()=>document.querySelector('#admin-report-area')?.value==='grammar');
-  await good.waitForFunction(()=>document.querySelector('#admin-report-list .notice')?.textContent?.includes('Gramática'));
-  assert.equal(await good.locator('#admin-report-list .notice').count(),1);
+  assert.equal(await good.locator('#grammar-audit-reports').count(),0);
   assert.equal(await good.locator('#totp-secret').inputValue(),'','El secreto se limpia tras el registro');
   await good.locator('#logout').click();
   await good.locator('#login').waitFor({state:'visible'});
   assert.equal(await good.locator('#username').inputValue(),'','Cerrar sesión debe limpiar el usuario');
   assert.equal(await good.locator('#teacher').isVisible(),false);
   assert.equal(errorsGood.length,0,errorsGood.join(';'));
-  // Fallo parcial reproducible: Palabra del día rechaza con 403, pero
-  // ScholaClassica verifica correctamente la sesión docente y mantiene Vocabula.
+  // La denegación parcial de Palabra del día no autoriza mostrar datos de Vocabula.
   const partial=await browser.newPage();
   const errorsPartial=[];partial.on('pageerror',error=>errorsPartial.push(error.message));
   await install(partial,true,false,false);
@@ -257,12 +184,10 @@ try{
   await partial.locator('#enroll-form button').click();
   await partial.locator('#teacher').waitFor({state:'visible'});
   await partial.waitForFunction(()=>document.querySelector('#sources-state')?.textContent?.includes('Palabra del día: no disponible'));
-  assert.equal(await partial.locator('#notices .notice').count(),1,
-    'La bandeja debe conservar los avisos del origen que sigue autorizado');
-  assert.ok((await partial.locator('#sources-state').textContent()).includes('Vocabula: conectada'));
-  await partial.locator('#admin-word-list .notice').first().waitFor({state:'visible'});
-  assert.equal(await partial.locator('#admin-new').isVisible(),true,
-    'El administrador de Vocabula sigue operativo con AAL2');
+  assert.equal(await partial.locator('#notices .notice').count(),0,
+    'Si Palabra del día falla, no se deben mostrar los avisos Vocabula retirados');
+  assert.equal(await partial.locator('#vocab-admin').count(),0);
+  assert.equal(await partial.evaluate(()=>window.__teacherMock.vocabCalls||0),0);
   assert.equal(await partial.evaluate(()=>window.__teacherMock.session),true,
     'Un 403 de una fuente secundaria nunca debe cerrar la sesión principal');
   assert.equal(await partial.locator('#unavailable').isVisible(),false);
