@@ -1,6 +1,6 @@
 // Consulta académica de cobertura y ejercicios del banco antiguo de Vocabula.
 // Información ya pública en la web original; nunca incluye sesiones ni datos de alumnos.
-// Las acciones de revisión siguen protegidas por Supabase Auth y TOTP.
+// La consulta histórica permanece de solo lectura y requiere sesión TOTP.
 const $=id=>document.getElementById(id);
 const names={lat1:'Latín I',lat4:'Latín · 4.º ESO',gr1:'Griego I'};
 const text=(tag,value,cls='')=>{
@@ -9,7 +9,7 @@ const text=(tag,value,cls='')=>{
   if(cls)el.className=cls;
   return el;
 };
-let exercises=[],syllabi={},loaded=false,attached=false,openGrammarReports=null;
+let exercises=[],syllabi={},loaded=false,attached=false;
 const PAGE=25;
 let offset=0;
 
@@ -88,8 +88,7 @@ async function load(){
   updateUnits();
   $('grammar-audit-state').textContent='Banco de gramática y cobertura consultados';
 }
-export function mountGrammarAudit({showGrammarReports}){
-  openGrammarReports=showGrammarReports;
+export function mountGrammarAudit(){
   if(attached)return;
   attached=true;
   $('grammar-audit-load').addEventListener('click',()=>load().catch(e=>{
@@ -102,10 +101,9 @@ export function mountGrammarAudit({showGrammarReports}){
   $('grammar-audit-unit').addEventListener('change',()=>{offset=0;renderExercises()});
   $('grammar-audit-prev').addEventListener('click',()=>{offset=Math.max(0,offset-PAGE);renderExercises()});
   $('grammar-audit-next').addEventListener('click',()=>{offset+=PAGE;renderExercises()});
-  $('grammar-audit-reports').addEventListener('click',()=>openGrammarReports?.());
 }
 export function resetGrammarAudit(){
-  exercises=[];syllabi={};loaded=false;offset=0;openGrammarReports=null;
+  exercises=[];syllabi={};loaded=false;offset=0;
   $('grammar-coverage-list')?.replaceChildren();
   $('grammar-audit-results')?.replaceChildren();
   if($('grammar-audit-state'))$('grammar-audit-state').textContent='Consulta disponible tras iniciar sesión';
