@@ -25,6 +25,10 @@ export function assessExternalServices({lock,build,vocabConfig,teacherApp,teache
    throw Error('Falta función de acceso o bandeja docente: '+fn);
  if(!teacherVocabAdmin.includes("functions.invoke('schola-vocab-admin'"))
   throw Error('Falta la función administrativa de vocabulario');
+ // El backend se conserva transitoriamente por compatibilidad, pero el portal
+ // ya no debe ofrecer ni cargar la administración de palabras ni sus avisos.
+ if(/mountVocabulaAdmin|resetVocabulaAdmin|admin-vocabula\\.mjs/.test(teacherApp))
+  throw Error('La zona docente sigue acoplada al editor de Vocabula');
  const inbox=teacherApp.match(/const PALABRA_INBOX=['"](https:\/\/[a-z]{20}\.supabase\.co\/functions\/v1\/schola-palabra-inbox)['"]/);
  if(!inbox)throw Error('Falta vínculo de la bandeja de Palabra del día');
  const palabraService=sourceDomain(inbox[1]);
