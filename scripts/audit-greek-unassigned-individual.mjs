@@ -44,8 +44,8 @@ function units(hits){
 }
 export function auditGreekUnassigned({source,integrated,curriculumEs,curriculumVal,bank}){
   assert.equal(source.length,2055,'Vocabula fuente: número histórico inesperado');
-  assert.equal(integrated.length,2055,'Vocabula integrado: número histórico inesperado');
-  assert.deepEqual(integrated.map(x=>x.id),source.map(x=>x.id),
+  assert.equal(integrated.length,2057,'Vocabula integrado debe conservar 2055 fichas y dos altas docentes');
+  assert.deepEqual(integrated.slice(0,source.length).map(x=>x.id),source.map(x=>x.id),
     'No se conservan los 2055 IDs o su secuencia en la integración');
   for(const curriculum of [curriculumEs,curriculumVal]){
     assert.deepEqual(curriculum.griego.units.map(x=>x.number),
