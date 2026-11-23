@@ -44,6 +44,7 @@ test('La auditoría bloquea inconsistencias de endpoints, acceso docente y lími
   x=>{x.teacherApp=x.teacherApp.replace("functions.invoke('schola-inbox'","functions.invoke('no-existe'");},
   x=>{x.teacherApp=x.teacherApp.replace('functions/v1/schola-palabra-inbox','functions/v1/no-inbox');},
   x=>{x.teacherVocabAdmin=x.teacherVocabAdmin.replace("functions.invoke('schola-vocab-admin'","functions.invoke('otra-funcion'");},
+  x=>{x.teacherApp="import {mountVocabulaAdmin} from './admin-vocabula.mjs';\\n"+x.teacherApp;},
   x=>{x.lock.sources.examenes.integrated=true;},
   x=>{x.lock.sources.vocabula.sourceMode='external_checkout';}
  ];
