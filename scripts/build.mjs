@@ -24,6 +24,7 @@ import {applyGreek1KindynosUd5} from './greek1-kindynos-ud5-decision.mjs';
 import {adaptVocabulaAll} from './adapt-vocabula-all.mjs';
 import {buildVocabulaOffline} from './adapt-vocabula-offline.mjs';
 import {buildVocabulaPwa} from './build-vocabula-pwa.mjs';
+import {retirePublicVocabulaRemote} from './retire-vocabula-public-remote.mjs';
 import {buildGrammarReview} from './build-repaso-gramatica.mjs';
 import {buildGrammarReviewPwa} from './build-repaso-gramatica-pwa.mjs';
 import {verifyVendoredVocabula} from './verify-vendored-vocabula.mjs';
@@ -202,6 +203,7 @@ await adaptVocabulaStudentCopy(vocabulaDestination);
 await adaptVocabulaAll(vocabulaDestination,root);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
 await buildVocabulaOffline(vocabulaDestination,root);
+await retirePublicVocabulaRemote(vocabulaDestination);
 await buildVocabulaPwa(vocabulaDestination);
 
 // El antiguo generador de sintaxis, conceptos y flexiones ocupa un módulo
