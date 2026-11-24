@@ -357,3 +357,8 @@ h2 { margin: 0; font-size: clamp(1.75rem, 3.3vw, 2.55rem); letter-spacing: -.035
   .resource-links a { column-gap: .3rem; padding-inline: .55rem; font-size: .9rem; overflow-wrap: anywhere; }
   .columns, #panel-herramientas .columns, .path-links, .linked-project .linkgroup { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 24rem) {
+  .hero-copy { padding-block: 1rem; }
+  .hero-image { height: 4rem; }
+}

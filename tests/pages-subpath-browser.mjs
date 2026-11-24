@@ -39,8 +39,8 @@ try{
  const portalUpdate=page.getByRole('button',{name:'Actualizar portada',exact:true});
  assert.equal(await quickLinks.getByRole('link').count(),8);
  await page.locator('.hero-image').evaluate(image=>image.decode());
- for(const width of [320,390,768]){
-   await page.setViewportSize({width,height:900});
+ for(const [width,height] of [[320,760],[390,844],[768,900]]){
+   await page.setViewportSize({width,height});
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),
      'La portada desborda horizontalmente a '+width+' px');
    assert.ok(await page.locator('#study-course').isVisible());
@@ -49,7 +49,7 @@ try{
    assert.ok(update&&hero&&update.y+update.height<=hero.y,
      'Actualizar portada debe aparecer antes de la cabecera a '+width+' px');
    const shortcut=await quickPreverbial.boundingBox();
-   assert.ok(shortcut&&shortcut.y+shortcut.height<=900,
+   assert.ok(shortcut&&shortcut.y+shortcut.height<=height,
      'El acceso a modificación preverbial queda fuera de la primera pantalla a '+width+' px');
  }
  await page.setViewportSize({width:1280,height:900});
