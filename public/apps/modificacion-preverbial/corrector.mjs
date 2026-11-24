@@ -11,6 +11,21 @@ function normalizeLatin(value) {
     .replaceAll('v', 'u').replaceAll('j', 'i');
 }
 
+export function checkBase(prompt, answer) {
+  const key = normalizeLatin(answer);
+  if (!key) return 'empty';
+  if (key === normalizeLatin(prompt.base)) return 'correct';
+
+  const family = families[prompt.base];
+  const infinitive = family.entry.split(', ')[1];
+  if (key === normalizeLatin(infinitive)) return 'infinitive';
+  const isCompound = family.compounds.some(([lemma, infinitive]) =>
+    key === normalizeLatin(lemma) || key === normalizeLatin(infinitive));
+  if (isCompound) return 'compound';
+  if (key === normalizeLatin(prompt.form)) return prompt.lemma === prompt.base ? 'inflected' : 'compound';
+  return 'unknown';
+}
+
 export function correctRound(round, compoundAnswers, wordAnswers) {
   const proposed = new Set();
   const compounds = round.prompts.map(({ base }, index) => {
