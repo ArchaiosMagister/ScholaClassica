@@ -63,7 +63,7 @@
 
         <section id="words-stage" aria-labelledby="words-title" hidden>
           <h2 id="words-title" tabindex="-1">Escribe cinco derivados</h2>
-          <p id="word-instructions" class="prompt">Puedes usar castellano o valenciano. Alterna las clases de palabra dentro de cada familia y evita los dobletes entre lenguas.</p>
+          <p id="word-instructions" class="prompt">Parte de las bases simples o de los compuestos que has escrito. Puedes usar castellano o valenciano. Dentro de cada familia, usa como máximo un sustantivo, un verbo y un adjetivo. Evita los dobletes entre lenguas.</p>
           <div id="word-context" class="word-context" aria-label="Bases y compuestos propuestos"></div>
           <div id="derivatives" class="word-grid"></div>
         </section>
@@ -77,9 +77,14 @@
 
       <section id="solution" aria-labelledby="result" hidden>
         <h2 id="result" tabindex="-1"></h2>
+        <dl class="result-breakdown" aria-label="Aciertos que cuentan para la nota">
+          <div><dt>Compuestos</dt><dd id="compound-score"></dd></div>
+          <div><dt>Derivados</dt><dd id="word-score"></dd></div>
+        </dl>
         <p id="result-summary" class="prompt"></p>
         <div class="actions">
           <button type="button" class="primary" id="next">Siguiente ejercicio</button>
+          <button type="button" class="secondary" id="edit">Editar respuestas</button>
           <button type="button" class="secondary" id="retry">Reintentar</button>
         </div>
         <div id="solution-content" class="solution-content"></div>

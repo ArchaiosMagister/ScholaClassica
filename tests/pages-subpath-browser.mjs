@@ -94,7 +94,7 @@ try{
  assert.equal(await page.locator('#compounds-stage').isVisible(),true);
  assert.equal(await page.locator('#practice input:visible').count(),5);
  await checkPreverbialWidths();
- const compounds=['conferre','differo','praefero','attraho','extraho'];
+ const compounds=['conferre','differo','praefero','attraho',''];
  for(const [index,answer] of compounds.entries()){
    await page.locator('#compounds input').nth(index).fill(answer);
  }
@@ -111,10 +111,24 @@ try{
  await page.getByRole('button',{name:'Ir a derivados',exact:true}).click();
  assert.equal(await page.locator('#word-0').inputValue(),'conferir');
  await page.getByRole('button',{name:'Corregir ejercicio',exact:true}).click();
- assert.match(await page.locator('#result').textContent(),/1,0 \/ 1/);
+ assert.match(await page.locator('#result').textContent(),/0,8 \/ 1/);
+ assert.equal(await page.locator('#compound-score').textContent(),'4 de 5');
+ assert.equal(await page.locator('#word-score').textContent(),'4 de 5');
  assert.match(await page.locator('#result-summary').textContent(),/2 de 2/);
  assert.equal(await page.locator('#solution').isVisible(),true);
+ assert.equal(await page.getByText('Requiere el compuesto extraho',{exact:true}).isVisible(),true);
  await checkPreverbialWidths();
+ await page.getByRole('button',{name:'Editar respuestas',exact:true}).click();
+ assert.equal(await page.locator(':focus').getAttribute('id'),'compounds-title');
+ assert.equal(await page.locator('#compound-0-1').inputValue(),'conferre');
+ await page.locator('#compound-1-2').fill('extraho');
+ await page.getByRole('button',{name:'Ir a derivados',exact:true}).click();
+ assert.equal(await page.locator('#word-4').inputValue(),'extracció');
+ await page.getByRole('button',{name:'Corregir ejercicio',exact:true}).click();
+ assert.match(await page.locator('#result').textContent(),/1,0 \/ 1/);
+ assert.equal(await page.locator('#compound-score').textContent(),'5 de 5');
+ assert.equal(await page.locator('#word-score').textContent(),'5 de 5');
+ assert.equal(await page.locator('#solution-content details').first().getAttribute('open'),null);
  await page.getByRole('button',{name:'Reintentar',exact:true}).click();
  assert.equal(await page.locator('#solution').isVisible(),false);
  assert.equal(await page.locator('#base-0').inputValue(),'');
@@ -127,8 +141,12 @@ try{
  await page.getByRole('button',{name:'Ir a derivados',exact:true}).click();
  await page.getByRole('button',{name:'Corregir ejercicio',exact:true}).click();
  assert.match(await page.locator('#result-summary').textContent(),/1 de 2/);
+ const baseReview=page.locator('#solution-content details').first();
+ assert.equal(await baseReview.getByText('profugerunt → profugio → fugio',{exact:true}).isVisible(),true);
+ assert.match(await baseReview.textContent(),/Base consultada\. Escribiste profugio\./);
  await page.getByText('Una solución posible',{exact:true}).click();
- assert.equal(await page.getByText('profugerunt → profugio → fugio',{exact:true}).isVisible(),true);
+ assert.equal(await page.locator('#solution-content details').nth(1)
+   .getByText('profugerunt → profugio → fugio',{exact:true}).isVisible(),true);
  await page.getByRole('button',{name:'Siguiente ejercicio',exact:true}).click();
  assert.match(await page.locator('#round option:checked').textContent(),/Junio 2025/);
  await page.setViewportSize({width:1280,height:900});

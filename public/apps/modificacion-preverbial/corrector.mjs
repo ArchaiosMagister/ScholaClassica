@@ -21,7 +21,8 @@ export function checkBase(prompt, answer) {
   if (key === normalizeLatin(infinitive)) return 'infinitive';
   const isCompound = family.compounds.some(([lemma, infinitive]) =>
     key === normalizeLatin(lemma) || key === normalizeLatin(infinitive));
-  if (isCompound || key === normalizeLatin(prompt.form)) return 'compound';
+  if (isCompound) return 'compound';
+  if (key === normalizeLatin(prompt.form)) return prompt.lemma === prompt.base ? 'inflected' : 'compound';
   return 'unknown';
 }
 

@@ -159,6 +159,16 @@ html[data-theme="oled"].preverbial-theme {
 .preverbial .secondary:hover, .preverbial .text-button:hover { background: var(--wash); }
 .preverbial .text-button { border-color: transparent; color: var(--accent-strong); }
 
+.preverbial .result-breakdown {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .55rem;
+  margin: .65rem 0;
+}
+.preverbial .result-breakdown div { padding: .4rem .65rem; border-radius: .5rem; background: var(--wash); }
+.preverbial .result-breakdown dt { color: var(--muted); font-size: .86rem; }
+.preverbial .result-breakdown dd { margin: 0; color: var(--accent-strong); font-weight: 700; }
+
 .preverbial .guide, .preverbial .solution-content { margin-top: .65rem; }
 .preverbial details { border-top: 1px solid var(--line); }
 .preverbial summary { cursor: pointer; padding: .55rem .15rem; font-size: .9rem; font-weight: 700; }

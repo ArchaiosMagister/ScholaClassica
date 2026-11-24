@@ -63,4 +63,7 @@ test('la forma prefijada y conjugada exige el verbo simple en primera persona', 
   assert.equal(checkBase(prompt, 'fugere'), 'infinitive');
   assert.equal(checkBase(prompt, 'fugi'), 'unknown');
   assert.equal(checkBase(prompt, '  '), 'empty');
+  const unprefixed = rounds.flatMap(round => round.prompts).find(item => item.form === 'pugnatum');
+  assert.equal(checkBase(unprefixed, 'pugnatum'), 'inflected');
+  assert.equal(checkBase(unprefixed, 'pugno'), 'correct');
 });

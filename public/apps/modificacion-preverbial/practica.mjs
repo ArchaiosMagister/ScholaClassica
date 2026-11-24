@@ -122,6 +122,7 @@ const baseMessages = {
   correct: '✓ Base correcta',
   empty: 'Escribe la base simple.',
   infinitive: 'Pásalo a la 1.ª persona del singular.',
+  inflected: 'Es el verbo simple. Escríbelo en la 1.ª persona del singular del presente.',
   compound: 'Quita el preverbio y escribe la base en 1.ª persona.',
   unknown: 'Revisa la base del verbo.',
 };
@@ -196,14 +197,44 @@ function reviewList(title, answers, checks, latin = false) {
   return group;
 }
 
+function baseAnalysis({ form, lemma, base }) {
+  const forms = lemma === base ? [form, base] : [form, lemma, base];
+  return element('strong', forms.join(' → '), 'la');
+}
+
+function reviewBases() {
+  const group = element('div');
+  group.append(element('h3', 'Bases simples'));
+  const list = element('ul');
+  list.className = 'answer-review';
+  round.prompts.forEach((prompt, i) => {
+    const { answer } = baseChecks[i];
+    const row = element('li');
+    const feedback = element('span');
+    if (consulted.has(i)) {
+      feedback.className = 'needs-review';
+      feedback.append('Base consultada.');
+      if (answer.trim()) feedback.append(' Escribiste ', element('i', answer.trim(), 'la'), '.');
+      else feedback.append(' Sin respuesta.');
+    } else {
+      feedback.className = 'correct';
+      feedback.textContent = '✓ Identificada sin ayuda';
+    }
+    row.append(baseAnalysis(prompt), feedback);
+    list.append(row);
+  });
+  group.append(list);
+  return group;
+}
+
 function renderModel() {
   const model = element('details');
   model.append(element('summary', 'Una solución posible'));
   const examples = element('ul');
-  for (const { form, lemma, base, model: examplesForBase } of round.prompts) {
+  for (const prompt of round.prompts) {
+    const { base, model: examplesForBase } = prompt;
     const row = element('li');
-    const analysis = lemma === base ? form + ' → ' + base : form + ' → ' + lemma + ' → ' + base;
-    row.append(element('strong', analysis, 'la'), ' («' + families[base].meaning + '»). ',
+    row.append(baseAnalysis(prompt), ' («' + families[base].meaning + '»). ',
       'Compuestos como ', element('i', examplesForBase.join(', '), 'la'), '.');
     examples.append(row);
   }
@@ -254,12 +285,17 @@ function showResult() {
   const wordAnswers = Array.from(derivatives.querySelectorAll('input'), input => input.value);
   const correction = correctRound(round, compoundAnswers, wordAnswers);
   const identified = baseChecks.filter(({ status }, i) => status === 'correct' && !consulted.has(i)).length;
+  const compoundChecks = correction.compounds.flat();
+  const wordPoints = correction.words.filter(({ status }) => status === 'correct').length;
   result.textContent = 'Puntuación orientativa · ' + numberFormat.format(correction.points / 10) + ' / 1';
+  byId('compound-score').textContent = (correction.points - wordPoints) + ' de ' + compoundChecks.length;
+  byId('word-score').textContent = wordPoints + ' de ' + correction.words.length;
   resultSummary.textContent = identified + ' de ' + round.prompts.length + ' bases identificadas sin ayuda. ' +
-    'La nota suma los aciertos en compuestos y derivados.';
+    'Cada compuesto o derivado acertado suma 0,1 puntos.';
 
   const review = element('details');
-  review.append(element('summary', 'Revisar mis respuestas'));
+  review.open = correction.points < compoundChecks.length + correction.words.length || identified < round.prompts.length;
+  review.append(element('summary', 'Revisar mis respuestas'), reviewBases());
   for (const [i, { base }] of round.prompts.entries()) {
     review.append(reviewList('Compuestos de ' + base, compoundAnswers[i], correction.compounds[i], true));
   }
@@ -270,6 +306,7 @@ function showResult() {
 
 for (const { label } of rounds) roundPicker.append(element('option', label));
 roundPicker.addEventListener('change', () => renderRound());
+byId('edit').addEventListener('click', () => setPhase(1));
 byId('retry').addEventListener('click', () => renderRound(true));
 byId('next').addEventListener('click', () => {
   roundPicker.selectedIndex = (roundPicker.selectedIndex + 1) % rounds.length;
