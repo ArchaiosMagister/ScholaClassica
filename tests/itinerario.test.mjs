@@ -21,7 +21,8 @@ test('el portal presenta selección contextual para los cursos disponibles',()=>
 });
 test('los accesos contextuales apuntan exclusivamente a recursos integrados que existen',()=>{
   const links=[...app.matchAll(/href:'(apps\/[^']+)'/g)].map(([,url])=>url);
-  assert.equal(links.length,18,'El repaso de sintaxis y conceptos añade tres accesos contextuales independientes');
+  assert.equal(links.length,19);
+  assert.ok(links.includes('apps/modificacion-preverbial/index.html'));
   for(const href of links){
     assert.ok(!/GeneradorExamenes|apps\/examenes/i.test(href));
     const parsed=new URL(href,'https://local.test/');
