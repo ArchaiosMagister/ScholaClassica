@@ -22,6 +22,7 @@ const panels = [...form.querySelectorAll(':scope > section')];
 const steps = [...practice.querySelectorAll('.stages li')];
 const actions = ['Comprobar bases', 'Ir a derivados', 'Corregir ejercicio'];
 const numberFormat = new Intl.NumberFormat('es-ES', { minimumFractionDigits: 1 });
+const isLatinI = new URLSearchParams(location.search).get('subject') === 'lat1';
 
 let round;
 let phase;
@@ -305,6 +306,10 @@ function showResult() {
 }
 
 for (const { label } of rounds) roundPicker.append(element('option', label));
+if (isLatinI) {
+  byId('module-context').textContent = 'Latín I · Formación de palabras';
+  roundPicker.selectedIndex = rounds.findIndex(({ source }) => !source);
+}
 roundPicker.addEventListener('change', () => renderRound());
 byId('edit').addEventListener('click', () => setPhase(1));
 byId('retry').addEventListener('click', () => renderRound(true));

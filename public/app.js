@@ -37,6 +37,7 @@ const STUDY_CATALOG=Object.freeze({
     {id:'evolutio',label:'Evolución fonética',href:'apps/evolucion-fonetica/index.html'},
     {id:'repaso-gramatica',label:'Repaso de sintaxis y conceptos · Latín I',href:'apps/repaso-gramatica/index.html?subject=lat1'},
     {id:'morfologia',label:'Práctica de morfología · Latín I',href:'apps/morfologia/index.html?subject=lat1'},
+    {id:'modificacion-preverbial',label:'Modificación preverbial · Latín I',href:'apps/modificacion-preverbial/index.html?subject=lat1'},
     {id:'palabra-dia',label:'Palabra del día · 1.º Bachillerato (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/',external:true}
   ],
   lat2:[
@@ -59,6 +60,9 @@ const STUDY_CATALOG=Object.freeze({
 });
 const PATH_STORAGE_KEY='scholaclassica-itinerario-v1';
 const subjectChoice=document.getElementById('study-course');
+const quickLinks=[...document.querySelectorAll('[data-quick-tool]')].map(link=>({
+  link, defaultHref:link.getAttribute('href')
+}));
 const pathResults=document.getElementById('study-path-results');
 const resumeArea=document.getElementById('study-resume-area');
 const resumeLink=document.getElementById('study-resume');
@@ -89,7 +93,7 @@ function rememberStudyAccess(course,id){
 // Compartir la memoria local entre enlaces de tarjetas y del itinerario.
 // Registrar solo el curso y el identificador de la herramienta, nunca respuestas.
 document.addEventListener('click',event=>{
-  const anchor=event.target?.closest?.('#panel-lenguas a[href], #panel-herramientas a[href]');
+  const anchor=event.target?.closest?.('#accesos a[href], #panel-lenguas a[href], #panel-herramientas a[href]');
   if(!anchor||anchor.origin!==window.location.origin)return;
   const matches=[];
   for(const [course,modules] of Object.entries(STUDY_CATALOG)){
@@ -114,13 +118,16 @@ function renderStudyPath(){
   storeStudyState();
   pathResults.replaceChildren();
   resumeArea.hidden=true;
-  if(!Object.hasOwn(STUDY_CATALOG,course)){
-    return;
+  const entries=Object.hasOwn(STUDY_CATALOG,course)?STUDY_CATALOG[course]:[];
+  for(const {link,defaultHref} of quickLinks){
+    const entry=entries.find(item=>item.id===link.dataset.quickTool);
+    link.href=entry?.href??defaultHref;
   }
+  if(!entries.length)return;
   const list=document.createElement('nav');
   list.className='path-links';
   list.setAttribute('aria-label','Herramientas disponibles para '+subjectChoice.selectedOptions[0].textContent);
-  for(const item of STUDY_CATALOG[course]){
+  for(const item of entries){
     const link=document.createElement('a');
     link.href=item.href;
     link.textContent=item.label;
@@ -130,7 +137,7 @@ function renderStudyPath(){
     list.append(link);
   }
   pathResults.append(list);
-  const previous=STUDY_CATALOG[course].find(item=>item.id===studyState.last[course]);
+  const previous=entries.find(item=>item.id===studyState.last[course]);
   if(previous){
     resumeLink.href=previous.href;
     resumeLink.textContent='Continuar en '+previous.label;
@@ -154,8 +161,8 @@ const portalPwaStatus=document.getElementById('portal-pwa-status');
 let portalRegistration=null;
 const setPortalStatus=value=>{if(portalPwaStatus)portalPwaStatus.textContent=value};
 function portalConnectivity(){
-  if(!navigator.onLine)setPortalStatus('Sin conexión: la portada permanece disponible; los módulos conservan su caché propia.');
-  else if(portalRegistration)setPortalStatus('Portada disponible sin conexión tras esta primera carga.');
+  if(!navigator.onLine)setPortalStatus('Sin conexión. La portada sigue disponible.');
+  else if(portalRegistration)setPortalStatus('Portada disponible sin conexión.');
   else setPortalStatus('Conexión disponible. La instalación requiere HTTPS o localhost.');
 }
 window.addEventListener('online',portalConnectivity);
@@ -224,7 +231,7 @@ async function registerPortalPwa(){
       const worker=portalRegistration.installing;
       worker?.addEventListener('statechange',()=>{
         if(worker.state==='installed'&&navigator.serviceWorker.controller){
-          setPortalStatus('Hay una actualización de la portada. Pulsa «Actualizar portada» para instalarla.');
+          setPortalStatus('Hay una actualización de la portada lista para instalar.');
         }
       });
     });

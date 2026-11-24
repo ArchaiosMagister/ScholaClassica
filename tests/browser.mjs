@@ -58,11 +58,14 @@ try{
   assert.equal(await page.locator('.path-links a').count(),0);
   await coursePicker.selectOption('gr1');
   assert.equal(await page.locator('.path-links a').count(),6);
+  const quickVocab=page.locator('[data-quick-tool="vocabulario"]');
+  assert.match(await quickVocab.getAttribute('href'),/subject=gr1$/);
   assert.ok((await page.locator('.path-links').textContent()).includes('Repaso de sintaxis y conceptos · Griego I'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Etymologicon · Griego I'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Palabra del día'));
   await coursePicker.selectOption('gr2');
   assert.equal(await page.locator('.path-links a').count(),1);
+  assert.match(await quickVocab.getAttribute('href'),/vocabulario\/index\.html$/);
   assert.ok((await page.locator('.path-links').textContent()).includes('Gramática · Griego II'));
   await coursePicker.selectOption('lat4');
   assert.equal(await page.locator('.path-links a').count(),5);
@@ -75,7 +78,7 @@ try{
   assert.equal(await page.locator('[data-study-tool="modificacion-preverbial"]').count(),1);
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín II'));
   await coursePicker.selectOption('lat1');
-  assert.equal(await page.locator('.path-links a').count(),6);
+  assert.equal(await page.locator('.path-links a').count(),7);
   await page.locator('.path-links a[data-study-tool="gramatica"]').click();
   await page.waitForURL(/\/apps\/gramatica\/curso\.html\?lengua=latin/);
   await page.goto(base+'/',{waitUntil:'networkidle'});
