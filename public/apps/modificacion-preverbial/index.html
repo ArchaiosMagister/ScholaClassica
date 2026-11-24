@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Practica la cuestión de modificación preverbial de Latín II de la PAU valenciana.">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+  <script src="../../theme.js"></script>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="practica.css">
+  <script type="module" src="practica.mjs"></script>
+  <title>Modificación preverbial · ScholaClassica</title>
+</head>
+<body class="preverbial">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-head">
+  <div class="head-inner">
+    <a class="brand" href="../../#itinerario"><span class="brand-symbol" aria-hidden="true">Σ</span>ScholaClassica</a>
+    <label class="theme-choice" for="portal-theme"><span>Aspecto</span>
+      <select id="portal-theme" aria-label="Aspecto">
+        <option value="system">Automático</option>
+        <option value="light">Claro</option>
+        <option value="dark">Oscuro</option>
+        <option value="oled">OLED</option>
+      </select>
+    </label>
+  </div>
+</header>
+<main id="contenido" class="container">
+  <p class="eyebrow">Latín II · PAU de la Comunitat Valenciana</p>
+  <h1>Modificación preverbial</h1>
+  <p class="intro">Compón tres verbos latinos a partir de la primera base y dos a partir de la segunda. Escribe cinco derivados en castellano o valenciano de esas bases o de los compuestos que hayas escrito.</p>
+
+  <details class="guide">
+    <summary>Cómo se resuelve · ejemplo</summary>
+    <p>Busca el lema de la forma dada y, si ya es un compuesto, identifica su base. De <i lang="la">recessit</i> llegamos a <i lang="la">recedo</i> y de ahí a <i lang="la">cedo</i>, «ir, retirarse».</p>
+    <p>Añade preverbios a esa base. Por ejemplo, <i lang="la">sub- + cedo → succedo</i> (con asimilación de <i lang="la">b</i> a <i lang="la">c</i>) y <i lang="la">prae- + cedo → praecedo</i>. De estos compuestos puedes obtener <strong>sucesión</strong> (sustantivo) y <strong>preceder</strong> (verbo).</p>
+    <p>En la práctica puedes escribir los compuestos en primera persona del singular del presente o en infinitivo. Usa clases gramaticales distintas dentro de cada familia. Los equivalentes castellano-valenciano cuentan una sola vez.</p>
+  </details>
+
+  <noscript><p>Activa JavaScript para hacer y corregir los ejercicios.</p></noscript>
+  <section id="practice" aria-label="Ejercicio" hidden>
+    <div class="round-bar">
+      <label for="round">Ejercicio <select id="round"></select></label>
+      <a id="round-source" href="#" hidden>Consultar el enunciado</a>
+    </div>
+    <form id="exercise" autocomplete="off">
+      <div class="compound-grid" id="compounds"></div>
+      <fieldset>
+        <legend>Cinco derivados</legend>
+        <p id="word-instructions" class="muted">Usa clases de palabra distintas para una misma base. Escribe una palabra por campo con su acentuación.</p>
+        <div id="derivatives" class="word-grid"></div>
+      </fieldset>
+      <div class="actions">
+        <button class="cta" type="submit">Corregir</button>
+        <button type="button" id="retry">Reintentar</button>
+        <button type="button" id="next">Otro ejercicio</button>
+      </div>
+      <p id="form-status" role="status"></p>
+    </form>
+
+    <section class="solution" id="solution" aria-labelledby="result" hidden>
+      <h2 id="result" tabindex="-1"></h2>
+      <p>El banco recoge una selección de respuestas. Si una palabra queda pendiente de revisar, confirma su formación y significado en el diccionario.</p>
+      <div id="solution-content"></div>
+    </section>
+  </section>
+</main>
+</body>
+</html>

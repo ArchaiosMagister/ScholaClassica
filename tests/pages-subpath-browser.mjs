@@ -33,7 +33,7 @@ try{
  const home=await page.goto(base+prefix,{waitUntil:'networkidle'});
  assert.equal(home.status(),200);
  assert.match(await page.title(),/ScholaClassica/);
- assert.equal(await page.locator('#panel-herramientas .card').count(),6);
+ assert.equal(await page.locator('#panel-herramientas .card').count(),7);
  await page.locator('.hero-image').evaluate(image=>image.decode());
  for(const width of [320,390,768]){
    await page.setViewportSize({width,height:900});
@@ -68,6 +68,32 @@ try{
  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
    'rgb(0, 0, 0)','El OLED debe estar disponible sin conexión en GitHub Pages');
  await page.context().setOffline(false);
+ // La práctica de Latín II funciona en la subruta de Pages y queda como último acceso.
+ await page.locator('#study-course').selectOption('lat2');
+ await page.locator('[data-study-tool="modificacion-preverbial"]').click();
+ await page.waitForURL(/\/ScholaClassica\/apps\/modificacion-preverbial\/index\.html$/);
+ assert.equal(await page.locator('#practice input').count(),10);
+ for(const width of [320,390,768]){
+   await page.setViewportSize({width,height:900});
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),
+     'La práctica preverbial desborda horizontalmente a '+width+' px');
+ }
+ await page.setViewportSize({width:1280,height:900});
+ const answers=['conferre','differo','praefero','attraho','extraho',
+   'conferir','diferencia','preferente','atraure','extracció'];
+ for(const [index,answer] of answers.entries()){
+   await page.locator('#practice input').nth(index).fill(answer);
+ }
+ await page.getByRole('button',{name:'Corregir',exact:true}).click();
+ assert.match(await page.locator('#result').textContent(),/1,0 \/ 1/);
+ assert.equal(await page.locator('#solution').isVisible(),true);
+ await page.getByRole('button',{name:'Reintentar',exact:true}).click();
+ assert.equal(await page.locator('#solution').isVisible(),false);
+ assert.equal(await page.locator('#compound-0-1').inputValue(),'');
+ await page.getByRole('button',{name:'Otro ejercicio',exact:true}).click();
+ assert.match(await page.locator('#round option:checked').textContent(),/Julio 2025/);
+ await page.getByRole('link',{name:'ScholaClassica',exact:true}).click();
+ assert.match(await page.locator('#study-resume').textContent(),/Modificación preverbial/);
  // El enlace por lengua conduce al glosario, con la misma subruta Pages.
  await page.locator('#tab-herramientas').press('ArrowRight');
  assert.equal(await page.locator('#tab-lenguas').getAttribute('aria-selected'),'true');
