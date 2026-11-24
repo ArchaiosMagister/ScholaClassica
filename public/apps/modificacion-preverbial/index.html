@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="preverbial-theme">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -28,43 +28,70 @@
   </div>
 </header>
 <main id="contenido" class="container">
-  <p class="eyebrow">Latín II · PAU de la Comunitat Valenciana</p>
-  <h1>Modificación preverbial</h1>
-  <p class="intro">Compón tres verbos latinos a partir de la primera base y dos a partir de la segunda. Escribe cinco derivados en castellano o valenciano de esas bases o de los compuestos que hayas escrito.</p>
-
-  <details class="guide">
-    <summary>Cómo se resuelve · ejemplo</summary>
-    <p>Busca el lema de la forma dada y, si ya es un compuesto, identifica su base. De <i lang="la">recessit</i> llegamos a <i lang="la">recedo</i> y de ahí a <i lang="la">cedo</i>, «ir, retirarse».</p>
-    <p>Añade preverbios a esa base. Por ejemplo, <i lang="la">sub- + cedo → succedo</i> (con asimilación de <i lang="la">b</i> a <i lang="la">c</i>) y <i lang="la">prae- + cedo → praecedo</i>. De estos compuestos puedes obtener <strong>sucesión</strong> (sustantivo) y <strong>preceder</strong> (verbo).</p>
-    <p>En la práctica puedes escribir los compuestos en primera persona del singular del presente o en infinitivo. Usa clases gramaticales distintas dentro de cada familia. Los equivalentes castellano-valenciano cuentan una sola vez.</p>
-  </details>
+  <div class="module-heading">
+    <p class="context">Latín II · PAU valenciana</p>
+    <h1>Modificación preverbial</h1>
+  </div>
 
   <noscript><p>Activa JavaScript para hacer y corregir los ejercicios.</p></noscript>
-  <section id="practice" aria-label="Ejercicio" hidden>
+  <section id="practice" aria-label="Práctica PAU" hidden>
     <div class="round-bar">
-      <label for="round">Ejercicio <select id="round"></select></label>
-      <a id="round-source" href="#" hidden>Consultar el enunciado</a>
+      <label class="round-picker" for="round"><span>Ejercicio</span> <select id="round"></select></label>
+      <a id="round-source" href="#" target="_blank" rel="noopener" aria-label="Enunciado PAU (se abre en otra pestaña)" hidden>Enunciado PAU</a>
     </div>
-    <form id="exercise" autocomplete="off">
-      <div class="compound-grid" id="compounds"></div>
-      <fieldset>
-        <legend>Cinco derivados</legend>
-        <p id="word-instructions" class="muted">Usa clases de palabra distintas para una misma base. Escribe una palabra por campo con su acentuación.</p>
-        <div id="derivatives" class="word-grid"></div>
-      </fieldset>
-      <div class="actions">
-        <button class="cta" type="submit">Corregir</button>
-        <button type="button" id="retry">Reintentar</button>
-        <button type="button" id="next">Otro ejercicio</button>
-      </div>
-      <p id="form-status" role="status"></p>
-    </form>
 
-    <section class="solution" id="solution" aria-labelledby="result" hidden>
-      <h2 id="result" tabindex="-1"></h2>
-      <p>El banco recoge una selección de respuestas. Si una palabra queda pendiente de revisar, confirma su formación y significado en el diccionario.</p>
-      <div id="solution-content"></div>
-    </section>
+    <ol class="stages" aria-label="Pasos de la práctica">
+      <li aria-current="step"><span class="step-number">1</span> Bases</li>
+      <li><span class="step-number">2</span> Compuestos</li>
+      <li><span class="step-number">3</span> Derivados</li>
+    </ol>
+
+    <div class="practice-card">
+      <form id="exercise" autocomplete="off">
+        <section id="bases-stage" aria-labelledby="bases-title">
+          <h2 id="bases-title" tabindex="-1">Identifica las bases simples</h2>
+          <p id="base-instructions" class="prompt">Escribe la <strong>1.ª persona del singular del presente de indicativo</strong> de cada verbo simple.</p>
+          <div id="bases" class="base-grid"></div>
+          <p id="base-status" role="status" class="base-status"></p>
+        </section>
+
+        <section id="compounds-stage" aria-labelledby="compounds-title" hidden>
+          <h2 id="compounds-title" tabindex="-1">Forma cinco compuestos</h2>
+          <p id="compound-instructions" class="prompt">Añade preverbios a las bases. Escribe cada compuesto en 1.ª persona del presente o en infinitivo.</p>
+          <div id="compounds" class="compound-grid"></div>
+        </section>
+
+        <section id="words-stage" aria-labelledby="words-title" hidden>
+          <h2 id="words-title" tabindex="-1">Escribe cinco derivados</h2>
+          <p id="word-instructions" class="prompt">Puedes usar castellano o valenciano. Alterna las clases de palabra dentro de cada familia y evita los dobletes entre lenguas.</p>
+          <div id="word-context" class="word-context" aria-label="Bases y compuestos propuestos"></div>
+          <div id="derivatives" class="word-grid"></div>
+        </section>
+
+        <div class="actions">
+          <button class="primary" id="submit-stage" type="submit">Comprobar bases</button>
+          <button type="button" class="secondary" id="previous" hidden>Volver</button>
+          <button type="button" class="text-button" id="show-bases" hidden>Consultar bases y seguir</button>
+        </div>
+      </form>
+
+      <section id="solution" aria-labelledby="result" hidden>
+        <h2 id="result" tabindex="-1"></h2>
+        <p id="result-summary" class="prompt"></p>
+        <div class="actions">
+          <button type="button" class="primary" id="next">Siguiente ejercicio</button>
+          <button type="button" class="secondary" id="retry">Reintentar</button>
+        </div>
+        <div id="solution-content" class="solution-content"></div>
+      </section>
+    </div>
+
+    <details class="guide">
+      <summary>Cómo se resuelve</summary>
+      <p>Identifica la base simple de la forma dada. De <i lang="la">recessit</i> llegamos a <i lang="la">recedo</i> y de ahí a <i lang="la">cedo</i>, «ir, retirarse». Escribe <i lang="la">cedo</i> como primera respuesta.</p>
+      <p>Forma nuevos verbos. <i lang="la">sub- + cedo → succedo</i> muestra la asimilación de <i lang="la">b</i> a <i lang="la">c</i>. Con <i lang="la">prae- + cedo</i> obtienes <i lang="la">praecedo</i>.</p>
+      <p>De esos compuestos puedes obtener <strong>sucesión</strong>, un sustantivo, y <strong>preceder</strong>, un verbo. La nota orientativa suma un décimo por cada compuesto o derivado acertado.</p>
+    </details>
   </section>
 </main>
 </body>

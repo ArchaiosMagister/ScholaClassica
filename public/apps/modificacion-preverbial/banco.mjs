@@ -247,6 +247,29 @@ export const families = {
       ['suppono', 'verbo', 'suponer', ''],
     ],
   },
+  fugio: {
+    entry: 'fugio, fugere, fugi, fugitum', meaning: 'huir',
+    compounds: [
+      ['profugio', 'profugere', 'pro', 'huir, escapar'],
+      ['refugio', 'refugere', 're', 'retroceder, buscar refugio'],
+      ['confugio', 'confugere', 'cum', 'acogerse, buscar amparo'],
+      ['effugio', 'effugere', 'ex', 'escapar de, evitar'],
+      ['aufugio', 'aufugere', 'ab', 'escaparse, huir'],
+      ['diffugio', 'diffugere', 'dis', 'dispersarse huyendo'],
+      ['perfugio', 'perfugere', 'per', 'huir hacia, refugiarse'],
+      ['subterfugio', 'subterfugere', 'subter', 'escabullirse, eludir'],
+      ['transfugio', 'transfugere', 'trans', 'pasarse al otro bando'],
+    ],
+    derivatives: [
+      ['fugio', 'verbo', 'huir', 'fugir'],
+      ['fugio', 'adjetivo', 'fugitivo', 'fugitiu'],
+      ['refugio', 'sustantivo', 'refugio', 'refugi'],
+      ['refugio', 'verbo', 'refugiar', 'refugiar'],
+      ['profugio', 'adjetivo', 'prófugo', 'pròfug'],
+      ['subterfugio', 'sustantivo', 'subterfugio', 'subterfugi'],
+      ['transfugio', 'sustantivo', 'tránsfuga', 'trànsfuga'],
+    ],
+  },
 };
 
 export const rounds = [
@@ -300,5 +323,13 @@ export const rounds = [
       { form: 'pertulit', lemma: 'perfero', base: 'fero', model: ['offero', 'transfero'] },
     ],
     words: ['disponible', 'exponer', 'composició', 'oferir', 'transferencia'],
+  },
+  {
+    label: 'Práctica · profugerunt y acceptis',
+    prompts: [
+      { form: 'profugerunt', lemma: 'profugio', base: 'fugio', model: ['profugio', 'refugio', 'confugio'] },
+      { form: 'acceptis', lemma: 'accipio', base: 'capio', model: ['accipio', 'recipio'] },
+    ],
+    words: ['huir', 'refugi', 'prófugo', 'acceptar', 'recepción'],
   },
 ];

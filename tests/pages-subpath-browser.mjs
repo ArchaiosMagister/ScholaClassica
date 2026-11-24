@@ -72,26 +72,66 @@ try{
  await page.locator('#study-course').selectOption('lat2');
  await page.locator('[data-study-tool="modificacion-preverbial"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/modificacion-preverbial\/index\.html$/);
- assert.equal(await page.locator('#practice input').count(),10);
- for(const width of [320,390,768]){
-   await page.setViewportSize({width,height:900});
-   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),
-     'La práctica preverbial desborda horizontalmente a '+width+' px');
+ assert.equal(await page.locator('#practice input:visible').count(),2);
+ async function checkPreverbialWidths(){
+   for(const width of [320,390,768]){
+     await page.setViewportSize({width,height:900});
+     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),
+       'La práctica preverbial desborda horizontalmente a '+width+' px');
+   }
  }
- await page.setViewportSize({width:1280,height:900});
- const answers=['conferre','differo','praefero','attraho','extraho',
-   'conferir','diferencia','preferente','atraure','extracció'];
- for(const [index,answer] of answers.entries()){
-   await page.locator('#practice input').nth(index).fill(answer);
+ await checkPreverbialWidths();
+ await page.locator('#base-0').fill('profero');
+ await page.locator('#base-1').fill('trahere');
+ await page.locator('#base-1').press('Enter');
+ assert.match(await page.locator('#base-feedback-0').textContent(),/preverbio/);
+ assert.match(await page.locator('#base-feedback-1').textContent(),/1.ª persona/);
+ assert.equal(await page.locator('#bases-stage').isVisible(),true);
+ assert.equal(await page.locator('#compounds-stage').isVisible(),false);
+ await page.locator('#base-0').fill('fero');
+ await page.locator('#base-1').fill('traho');
+ await page.getByRole('button',{name:'Comprobar bases',exact:true}).click();
+ assert.equal(await page.locator('#compounds-stage').isVisible(),true);
+ assert.equal(await page.locator('#practice input:visible').count(),5);
+ await checkPreverbialWidths();
+ const compounds=['conferre','differo','praefero','attraho','extraho'];
+ for(const [index,answer] of compounds.entries()){
+   await page.locator('#compounds input').nth(index).fill(answer);
  }
- await page.getByRole('button',{name:'Corregir',exact:true}).click();
+ await page.getByRole('button',{name:'Ir a derivados',exact:true}).click();
+ assert.equal(await page.locator('#words-stage').isVisible(),true);
+ assert.match(await page.locator('#word-context').textContent(),/fero · conferre/);
+ await checkPreverbialWidths();
+ const derivatives=['conferir','diferencia','preferente','atraure','extracció'];
+ for(const [index,answer] of derivatives.entries()){
+   await page.locator('#derivatives input').nth(index).fill(answer);
+ }
+ await page.getByRole('button',{name:'Volver',exact:true}).click();
+ assert.equal(await page.locator('#compound-0-1').inputValue(),'conferre');
+ await page.getByRole('button',{name:'Ir a derivados',exact:true}).click();
+ assert.equal(await page.locator('#word-0').inputValue(),'conferir');
+ await page.getByRole('button',{name:'Corregir ejercicio',exact:true}).click();
  assert.match(await page.locator('#result').textContent(),/1,0 \/ 1/);
+ assert.match(await page.locator('#result-summary').textContent(),/2 de 2/);
  assert.equal(await page.locator('#solution').isVisible(),true);
+ await checkPreverbialWidths();
  await page.getByRole('button',{name:'Reintentar',exact:true}).click();
  assert.equal(await page.locator('#solution').isVisible(),false);
- assert.equal(await page.locator('#compound-0-1').inputValue(),'');
- await page.getByRole('button',{name:'Otro ejercicio',exact:true}).click();
- assert.match(await page.locator('#round option:checked').textContent(),/Julio 2025/);
+ assert.equal(await page.locator('#base-0').inputValue(),'');
+ await page.locator('#round').selectOption({label:'Práctica · profugerunt y acceptis'});
+ await page.getByRole('textbox',{name:'Base simple de profugerunt'}).fill('profugio');
+ await page.locator('#base-1').fill('capio');
+ await page.getByRole('button',{name:'Comprobar bases',exact:true}).click();
+ await page.getByRole('button',{name:'Consultar bases y seguir',exact:true}).click();
+ assert.match(await page.locator('#compounds').textContent(),/fugio/);
+ await page.getByRole('button',{name:'Ir a derivados',exact:true}).click();
+ await page.getByRole('button',{name:'Corregir ejercicio',exact:true}).click();
+ assert.match(await page.locator('#result-summary').textContent(),/1 de 2/);
+ await page.getByText('Una solución posible',{exact:true}).click();
+ assert.equal(await page.getByText('profugerunt → profugio → fugio',{exact:true}).isVisible(),true);
+ await page.getByRole('button',{name:'Siguiente ejercicio',exact:true}).click();
+ assert.match(await page.locator('#round option:checked').textContent(),/Junio 2025/);
+ await page.setViewportSize({width:1280,height:900});
  await page.getByRole('link',{name:'ScholaClassica',exact:true}).click();
  assert.match(await page.locator('#study-resume').textContent(),/Modificación preverbial/);
  // El enlace por lengua conduce al glosario, con la misma subruta Pages.

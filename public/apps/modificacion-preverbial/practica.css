@@ -1,86 +1,196 @@
-.preverbial main {
-  width: min(100% - 2rem, 66rem);
-  padding-block: clamp(1.5rem, 5vw, 4rem);
+:root.preverbial-theme {
+  --page: #f4f5f1;
+  --surface: #fffefb;
+  --wash: #eaf2ee;
+  --ink: #192d30;
+  --muted: #52686c;
+  --line: #cedbd5;
+  --accent: #0a5a62;
+  --accent-strong: #084b52;
+  --on-accent: #fff;
+  --focus: #0a6872;
+  --good: #17634f;
+  --review: #8b4729;
+  --shadow: 0 12px 34px #1634380c;
 }
 
-.preverbial .eyebrow {
-  color: var(--accent-strong);
-  font-weight: 700;
-  margin: 0;
+html:is([data-theme="dark"], [data-theme="oled"]).preverbial-theme {
+  --page: #101b1d;
+  --surface: #182628;
+  --wash: #203639;
+  --ink: #eaf4f1;
+  --muted: #afc5c1;
+  --line: #435b5c;
+  --accent: #9cddd1;
+  --accent-strong: #b0e9dd;
+  --on-accent: #102c2d;
+  --focus: #a9eeeb;
+  --good: #a0e1be;
+  --review: #ffc397;
+  --shadow: none;
 }
 
-.preverbial h1 {
-  font: 700 clamp(2.1rem, 5vw, 3.6rem)/1.08 var(--serif);
-  margin: .45rem 0 .75rem;
+html[data-theme="oled"].preverbial-theme {
+  --page: #000;
+  --surface: #0c1416;
+  --wash: #15282a;
 }
 
-.preverbial .intro { max-width: 70ch; }
-.preverbial .muted, .preverbial .intro { color: var(--muted); }
-.preverbial .guide { border-block: 1px solid var(--line); padding: .65rem 0; }
-.preverbial summary { cursor: pointer; font-weight: 700; }
-.preverbial .round-bar, .preverbial .actions {
+.preverbial { background: var(--page); line-height: 1.45; }
+.preverbial .head-inner, .preverbial main { width: min(100% - 1.75rem, 48rem); }
+.preverbial .head-inner { min-height: 3.7rem; gap: .5rem; }
+.preverbial .brand { font-size: 1.15rem; }
+.preverbial .brand-symbol { width: 1.85rem; height: 1.85rem; }
+
+.preverbial main { padding-block: clamp(1rem, 3.5vw, 2rem) 2rem; }
+.preverbial .module-heading { margin-bottom: 1rem; }
+.preverbial .context { margin: 0 0 .25rem; color: var(--accent-strong); font-size: .85rem; font-weight: 750; }
+.preverbial h1 { font-size: clamp(1.9rem, 5vw, 3.05rem); font-weight: 650; }
+
+.preverbial .round-bar {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: .75rem 1rem;
-  margin-block: 1.35rem;
-}
-.preverbial .round-bar label {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: .25rem;
-  font-weight: 700;
-  max-width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .35rem .75rem;
+  margin-bottom: .7rem;
 }
 
-.preverbial fieldset {
+.preverbial .round-picker {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
   min-width: 0;
-  min-inline-size: 0;
-  margin: 0 0 1rem;
-  padding: .65rem 1rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: .8rem;
-  background: var(--surface);
+  font-size: .9rem;
+  font-weight: 700;
 }
 
-.preverbial legend { padding-inline: .4rem; font-weight: 700; }
-.preverbial legend i { margin-inline-start: .3rem; color: var(--accent-strong); font-size: 1.25em; }
-.preverbial fieldset p { margin: 0 0 .65rem; }
-.preverbial .compound-grid, .preverbial .word-grid { display: grid; gap: .7rem 1rem; }
-.preverbial .compound-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; }
-.preverbial .word-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
-.preverbial .answer label { display: block; margin-top: .5rem; }
-.preverbial .answer input { width: 100%; margin-block: .2rem; }
-.preverbial .answer .feedback { margin: 0 0 .4rem; overflow-wrap: anywhere; }
-
-.preverbial :is(input, select, button:not(.cta)) {
-  max-width: 100%;
-  color: var(--ink);
-  padding: .55rem .75rem;
-  border-radius: .55rem;
+.preverbial :is(input, select, button) {
   border: 1px solid var(--line);
-  background: var(--page);
+  border-radius: .55rem;
+  background: var(--surface);
+  color: var(--ink);
   font: inherit;
 }
-.preverbial button { cursor: pointer; font: inherit; }
-.preverbial .cta { border: 1px solid transparent; font-weight: 700; }
-.preverbial .actions button { margin: 0; }
-.preverbial .solution {
-  padding: 1rem;
-  border-radius: .8rem;
+
+.preverbial select { min-width: 0; padding: .42rem .6rem; min-height: 2.5rem; }
+.preverbial .theme-choice select { appearance: none; padding-inline-end: 1.8rem; font-size: .85rem; }
+.preverbial .round-bar a { color: var(--accent-strong); font-size: .86rem; }
+
+.preverbial .stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .35rem;
+  padding: 0;
+  margin: 0 0 .6rem;
+  list-style: none;
+}
+
+.preverbial .stages li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  padding: .38rem .15rem;
+  border-radius: .5rem;
   background: var(--wash);
+  color: var(--muted);
+  font-size: clamp(.74rem, 2.8vw, .9rem);
+  font-weight: 700;
+}
+
+.preverbial .stages .is-complete { color: var(--accent-strong); box-shadow: inset 0 -2px var(--accent); }
+.preverbial .stages [aria-current="step"] { background: var(--accent); color: var(--on-accent); }
+.preverbial .step-number { font-variant-numeric: tabular-nums; }
+
+.preverbial .practice-card {
+  padding: clamp(.9rem, 3.5vw, 1.55rem);
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.preverbial h2 { font-size: clamp(1.42rem, 3.7vw, 2rem); letter-spacing: -.02em; }
+.preverbial .prompt { margin: .4rem 0 .85rem; max-width: 66ch; color: var(--muted); }
+.preverbial .base-grid, .preverbial .compound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .6rem;
+}
+
+.preverbial .base-field, .preverbial fieldset {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: .65rem;
+  padding: .55rem .65rem .65rem;
+}
+
+.preverbial .base-field { background: var(--wash); }
+.preverbial .base-field label, .preverbial .answer label { display: block; font-size: .8rem; font-weight: 700; }
+.preverbial .latin-form { display: block; color: var(--accent-strong); font: 700 clamp(1.2rem, 4vw, 1.65rem)/1.15 var(--serif); }
+.preverbial .base-field .latin-form { margin-bottom: .4rem; overflow-wrap: anywhere; }
+.preverbial legend { padding-inline: .3rem; }
+.preverbial legend .latin-form + span { color: var(--muted); font-size: .78rem; }
+.preverbial .field-grid, .preverbial .word-grid { display: grid; gap: .4rem .55rem; }
+.preverbial .word-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.preverbial input { width: 100%; margin-top: .17rem; min-height: 2.65rem; padding: .4rem .55rem; font-size: 1rem; }
+.preverbial input[aria-invalid="true"] { border-color: var(--review); }
+.preverbial .field-feedback, .preverbial .base-status { margin: .35rem 0 0; color: var(--review); font-size: .82rem; }
+.preverbial .base-status:empty { display: none; }
+
+.preverbial .word-context {
+  display: grid;
+  gap: .3rem;
+  margin: 0 0 .7rem;
+  font-size: .9rem;
   overflow-wrap: anywhere;
 }
-.preverbial .solution h2 { margin: 0; font-family: var(--serif); }
-.preverbial .solution h3 { margin-bottom: .3rem; }
-.preverbial .solution :is(ul, ol) { padding-inline-start: 1.25rem; }
-.preverbial .solution li + li { margin-top: .2rem; }
 
-@media (max-width: 39rem) {
-  .preverbial .compound-grid { grid-template-columns: 1fr; }
+.preverbial .word-context p { margin: 0; padding: .35rem .55rem; border-radius: .4rem; background: var(--wash); }
+.preverbial .word-context strong { color: var(--accent-strong); }
+
+.preverbial .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; margin-top: .85rem; }
+.preverbial button { cursor: pointer; min-height: 2.65rem; padding: .4rem .75rem; font-weight: 700; }
+.preverbial .primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.preverbial .primary:hover { background: var(--accent-strong); }
+.preverbial .secondary:hover, .preverbial .text-button:hover { background: var(--wash); }
+.preverbial .text-button { border-color: transparent; color: var(--accent-strong); }
+
+.preverbial .guide, .preverbial .solution-content { margin-top: .65rem; }
+.preverbial details { border-top: 1px solid var(--line); }
+.preverbial summary { cursor: pointer; padding: .55rem .15rem; font-size: .9rem; font-weight: 700; }
+.preverbial summary::marker { color: var(--accent); }
+.preverbial details p { margin: .25rem 0 .65rem; color: var(--muted); }
+.preverbial .solution-content { overflow-wrap: anywhere; }
+.preverbial .solution-content ul { margin: .25rem 0 .7rem; padding-inline-start: 1.2rem; }
+.preverbial .solution-content h3 { font-size: 1rem; margin: .75rem 0 .35rem; }
+.preverbial .solution-content li + li { margin-top: .25rem; }
+.preverbial .solution-content .answer-review { padding-inline-start: 0; list-style: none; }
+.preverbial .answer-review li { display: grid; grid-template-columns: minmax(0, 1fr) 2fr; gap: .6rem; padding: .3rem .55rem; border-radius: .4rem; background: var(--wash); font-size: .88rem; }
+.preverbial .answer-review .correct { color: var(--good); }
+.preverbial .answer-review .needs-review { color: var(--review); }
+
+@media (max-width: 34rem) {
+  .preverbial .theme-choice span { display: none; }
+  .preverbial .compound-grid, .preverbial .word-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .preverbial .primary { width: 100%; }
 }
 
-.preverbial .theme-choice select {
-  appearance: none;
-  padding-inline-end: 2rem;
+@media (max-width: 25rem) {
+  .preverbial .round-bar { align-items: flex-start; }
+  .preverbial .round-picker { width: 100%; }
+  .preverbial .round-picker select { flex: 1; }
 }
+
+.preverbial .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.preverbial .field-feedback.correct { color: var(--good); }

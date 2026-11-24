@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { families, rounds } from '../public/apps/modificacion-preverbial/banco.mjs';
-import { correctRound } from '../public/apps/modificacion-preverbial/corrector.mjs';
+import { checkBase, correctRound } from '../public/apps/modificacion-preverbial/corrector.mjs';
 
 test('cada ronda ofrece una solución válida de 3 + 2 compuestos y cinco derivados', () => {
   for (const round of rounds) {
@@ -52,4 +52,15 @@ test('explica el vínculo pendiente, la clase repetida y las grafías que no rec
   ]);
   assert.equal(result.compounds[1][1].status, 'unknown');
   assert.equal(result.points, 4);
+});
+
+test('la forma prefijada y conjugada exige el verbo simple en primera persona', () => {
+  const prompt = rounds.flatMap(round => round.prompts).find(item => item.form === 'profugerunt');
+  assert.equal(checkBase(prompt, ' FŬGIO '), 'correct');
+  assert.equal(checkBase(prompt, 'profugerunt'), 'compound');
+  assert.equal(checkBase(prompt, 'profugio'), 'compound');
+  assert.equal(checkBase(prompt, 'refugere'), 'compound');
+  assert.equal(checkBase(prompt, 'fugere'), 'infinitive');
+  assert.equal(checkBase(prompt, 'fugi'), 'unknown');
+  assert.equal(checkBase(prompt, '  '), 'empty');
 });
