@@ -34,12 +34,23 @@ try{
  assert.equal(home.status(),200);
  assert.match(await page.title(),/ScholaClassica/);
  assert.equal(await page.locator('#panel-herramientas .card').count(),7);
+ const quickLinks=page.getByRole('navigation',{name:'Recursos de estudio'});
+ const quickPreverbial=quickLinks.getByRole('link',{name:/Modificación preverbial/});
+ const portalUpdate=page.getByRole('button',{name:'Actualizar portada',exact:true});
+ assert.equal(await quickLinks.getByRole('link').count(),8);
  await page.locator('.hero-image').evaluate(image=>image.decode());
- for(const width of [320,390,768]){
-   await page.setViewportSize({width,height:900});
+ for(const [width,height] of [[320,760],[390,844],[768,900]]){
+   await page.setViewportSize({width,height});
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),
      'La portada desborda horizontalmente a '+width+' px');
    assert.ok(await page.locator('#study-course').isVisible());
+   const update=await portalUpdate.boundingBox();
+   const hero=await page.locator('.hero').boundingBox();
+   assert.ok(update&&hero&&update.y+update.height<=hero.y,
+     'Actualizar portada debe aparecer antes de la cabecera a '+width+' px');
+   const shortcut=await quickPreverbial.boundingBox();
+   assert.ok(shortcut&&shortcut.y+shortcut.height<=height,
+     'El acceso a modificación preverbial queda fuera de la primera pantalla a '+width+' px');
  }
  await page.setViewportSize({width:1280,height:900});
  const manifest=await page.evaluate(async()=>{
@@ -55,6 +66,9 @@ try{
  assert.equal(await registration.jsonValue(),base+prefix,
    'El SW del portal no debe controlarse desde la raíz de github.io');
  await page.reload({waitUntil:'networkidle'});
+ await portalUpdate.click();
+ await page.waitForFunction(()=>document.querySelector('#portal-pwa-status').textContent
+   .includes('última versión disponible'));
  const cached=await page.evaluate(async()=>await caches.keys());
  assert.ok(cached.some(name=>name.startsWith('schola-portal-')));
  const teacher=await page.evaluate(async()=>await fetch('docente/auth-config.json').then(r=>r.json()));
@@ -63,13 +77,26 @@ try{
  const offline=await page.goto(base+prefix,{waitUntil:'load'});
  assert.equal(offline.status(),200,'Portada inaccesible sin red en subruta Pages');
  assert.equal(await page.locator('#study-course').count(),1);
+ assert.equal(await quickLinks.getByRole('link').count(),8);
  const modes=page.locator('#portal-theme');
  await modes.selectOption('oled');
  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
    'rgb(0, 0, 0)','El OLED debe estar disponible sin conexión en GitHub Pages');
  await page.context().setOffline(false);
+ // Latín I abre una ronda de práctica y conserva su propio último acceso.
+ await page.locator('#study-course').selectOption('lat1');
+ assert.match(await quickPreverbial.getAttribute('href'),/modificacion-preverbial\/index\.html\?subject=lat1$/);
+ await page.locator('[data-study-tool="modificacion-preverbial"]').click();
+ await page.waitForURL(/\/ScholaClassica\/apps\/modificacion-preverbial\/index\.html\?subject=lat1$/);
+ assert.match(await page.locator('#module-context').textContent(),/Latín I · Formación de palabras/);
+ assert.match(await page.locator('#round option:checked').textContent(),/^Práctica ·/);
+ assert.equal(await page.getByRole('link',{name:/Enunciado PAU/}).isVisible(),false);
+ await page.getByRole('link',{name:'ScholaClassica',exact:true}).click();
+ assert.equal(await page.locator('#study-course').inputValue(),'lat1');
+ assert.match(await page.locator('#study-resume').getAttribute('href'),/subject=lat1$/);
  // La práctica de Latín II funciona en la subruta de Pages y queda como último acceso.
  await page.locator('#study-course').selectOption('lat2');
+ assert.match(await quickPreverbial.getAttribute('href'),/modificacion-preverbial\/index\.html$/);
  await page.locator('[data-study-tool="modificacion-preverbial"]').click();
  await page.waitForURL(/\/ScholaClassica\/apps\/modificacion-preverbial\/index\.html$/);
  assert.equal(await page.locator('#practice input:visible').count(),2);

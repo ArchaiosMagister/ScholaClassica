@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="ScholaClassica: gramática, vocabulario y ejercicios de latín y griego organizados por lengua y por herramienta.">
+  <meta name="description" content="ScholaClassica: consulta y práctica de latín y griego, con recursos organizados por asignatura y curso.">
   <meta name="theme-color" content="#f8fafc">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
@@ -22,7 +22,7 @@
     <a class="brand" href="./" aria-label="ScholaClassica, inicio"><span class="brand-symbol" aria-hidden="true">Σ</span><span>ScholaClassica</span></a>
     <nav aria-label="Navegación principal">
       <a href="#itinerario">Itinerario</a>
-      <a href="#modulos">Herramientas</a>
+      <a href="#accesos">Recursos</a>
       <a href="#ayuda">Ayuda</a>
     </nav>
     <label class="theme-choice" for="portal-theme"><span>Aspecto</span>
@@ -36,13 +36,33 @@
   </div>
 </header>
 <main id="contenido" class="container">
+  <div class="pwa-controls">
+    <button type="button" id="portal-update" class="portal-update">Actualizar portada</button>
+    <p class="portal-pwa-status" id="portal-pwa-status" role="status" aria-live="polite">Preparando el acceso sin conexión.</p>
+  </div>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <h1 id="hero-title">Latín y griego,<br>en un solo lugar.</h1>
-      <p>Consulta la gramática, amplía tu vocabulario y practica con ejercicios de morfología, sintaxis, evolución fonética y etimología.</p>
+      <h1 id="hero-title">Latín y griego</h1>
+      <p>Gramática, vocabulario y ejercicios para ESO y Bachillerato.</p>
       <a class="cta" href="#itinerario">Elegir mi curso</a>
     </div>
     <img class="hero-image" src="./portal/epigrafia.webp" width="1050" height="700" alt="" fetchpriority="high">
+  </section>
+  <section id="accesos" class="resource-access" aria-labelledby="resource-title">
+    <div class="resource-heading">
+      <h2 id="resource-title">Recursos de estudio</h2>
+      <a href="#modulos">Ver catálogo completo</a>
+    </div>
+    <nav class="resource-links" aria-labelledby="resource-title">
+      <a href="apps/gramatica/index.html"><strong>Gramática</strong><span>Consulta en Appendix</span></a>
+      <a href="apps/vocabulario/index.html" data-quick-tool="vocabulario"><strong>Vocabulario</strong><span>Tarjetas y traducción</span></a>
+      <a href="apps/morfologia/index.html" data-quick-tool="morfologia"><strong>Morfología</strong><span>Análisis y flexión</span></a>
+      <a href="apps/modificacion-preverbial/index.html" data-quick-tool="modificacion-preverbial"><strong>Modificación preverbial</strong><span>Latín I y II</span></a>
+      <a href="apps/repaso-gramatica/index.html" data-quick-tool="repaso-gramatica"><strong>Sintaxis y conceptos</strong><span>Repaso con ejercicios</span></a>
+      <a href="apps/evolucion-fonetica/index.html"><strong>Evolución fonética</strong><span>Práctica en Evolutio</span></a>
+      <a href="apps/etymologicon/index.html"><strong>Etimología griega</strong><span>Glosario y práctica</span></a>
+      <a href="#palabra-del-dia"><strong>Palabra del día</strong><span>Participación y votaciones</span></a>
+    </nav>
   </section>
   <section id="itinerario" class="study-path" aria-labelledby="path-title">
     <h2 id="path-title">Mi itinerario</h2>
@@ -88,7 +108,8 @@
             <a href="apps/gramatica/sintaxis.html">Sintaxis latina</a>
             <a href="apps/evolucion-fonetica/index.html">Evolución fonética · castellano</a>
             <a href="apps/vocabulario/index.html?subject=lat1">Vocabulario latino</a>
-            <a href="apps/modificacion-preverbial/index.html">Modificación preverbial · PAU</a>
+            <a href="apps/modificacion-preverbial/index.html?subject=lat1">Modificación preverbial · Latín I</a>
+            <a href="apps/modificacion-preverbial/index.html">Modificación preverbial · Latín II (PAU)</a>
           </div>
         </article>
         <article class="card greek">
@@ -128,9 +149,12 @@
           </div>
         </article>
         <article class="card latin">
-          <p class="overline">Latín II · PAU</p><h3>Modificación preverbial</h3>
+          <p class="overline">Latín I y II</p><h3>Modificación preverbial</h3>
           <p>Compón verbos latinos y escribe sus derivados en castellano o valenciano.</p>
-          <div class="linkgroup"><a href="apps/modificacion-preverbial/index.html">Practicar modificación preverbial</a></div>
+          <div class="linkgroup">
+            <a href="apps/modificacion-preverbial/index.html?subject=lat1">Practicar en Latín I</a>
+            <a href="apps/modificacion-preverbial/index.html">Practicar en Latín II · PAU</a>
+          </div>
         </article>
         <article class="card neutral">
           <p class="overline">Latín I, Latín 4.º y Griego I</p><h3>Repaso gramatical</h3>
@@ -153,6 +177,16 @@
         </article>
       </div>
     </div>
+  </section>
+  <section id="palabra-del-dia" aria-labelledby="linked-title" class="related">
+    <article class="card neutral linked-project">
+      <p class="overline">Proyecto externo</p><h2 id="linked-title">Palabra del día</h2>
+      <p>Participación y votaciones de palabras en 1.º de Bachillerato y 4.º de ESO.</p>
+      <div class="linkgroup">
+        <a href="https://archaiosmagister.github.io/Palabra-del-dia/" target="_blank" rel="noopener noreferrer">1.º de Bachillerato · Abrir sitio externo</a>
+        <a href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/" target="_blank" rel="noopener noreferrer">4.º de ESO · Abrir sitio externo</a>
+      </div>
+    </article>
   </section>
   <section id="ayuda" class="support" aria-labelledby="help-title">
     <div class="section-heading"><h2 id="help-title">Instalación y progreso</h2></div>
@@ -180,20 +214,6 @@
       </ul>
       <p>La <a href="apps/morfologia/index.html?subject=lat1">práctica de morfología</a> y <a href="apps/etymologicon/index.html">Etymologicon</a> tienen sus propios módulos: no sustituyen una página idéntica de las webs anteriores. Para conservar resultados, utiliza las instrucciones de «Conservar mi progreso» antes de desinstalar una PWA antigua.</p>
     </details>
-    <div class="pwa-controls">
-      <p class="portal-pwa-status" id="portal-pwa-status" role="status" aria-live="polite">Preparando el acceso sin conexión.</p>
-      <button type="button" id="portal-update" class="portal-update">Actualizar portada</button>
-    </div>
-  </section>
-  <section aria-labelledby="linked-title" class="related">
-    <article class="card neutral linked-project">
-      <p class="overline">Proyecto externo</p><h2 id="linked-title">Palabra del día</h2>
-      <p>Participación y votaciones de palabras en 1.º de Bachillerato y 4.º de ESO.</p>
-      <div class="linkgroup">
-        <a href="https://archaiosmagister.github.io/Palabra-del-dia/" target="_blank" rel="noopener noreferrer">1.º de Bachillerato · Abrir sitio externo</a>
-        <a href="https://archaiosmagister.github.io/Palabra-del-dia/4eso/" target="_blank" rel="noopener noreferrer">4.º de ESO · Abrir sitio externo</a>
-      </div>
-    </article>
   </section>
 </main>
 <footer class="footer"><div class="container">
