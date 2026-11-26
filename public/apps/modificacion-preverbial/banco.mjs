@@ -1,3 +1,4 @@
+import { latin2Block3, latin2Block3Models } from './ampliacion-lat2-bloque3.mjs';
 import { homographFamilies } from './homografos.mjs';
 import { latin2Block2, latin2Block2Models } from './ampliacion-lat2-bloque2.mjs';
 import { latin2Families, latin2Models } from './ampliacion-lat2.mjs';
@@ -10,6 +11,7 @@ export const families = {
   ...additionalFamilies,
   ...latin2Families,
   ...latin2Block2,
+  ...latin2Block3,
   ...homographFamilies,
   fero: {
     entry: 'fero, ferre, tuli, latum', meaning: 'llevar',
@@ -410,7 +412,7 @@ rounds.push(
   },
 );
 
-for (const [index,[base,form,lemma,model,words]] of [...latin2Models,...latin2Block2Models].entries()) {
+for (const [index,[base,form,lemma,model,words]] of [...latin2Models,...latin2Block2Models,...latin2Block3Models].entries()) {
   const first = introductoryModels[index % introductoryModels.length];
   rounds.push({
     label:'Práctica · Latín II · '+first.prompt.form+' y '+form,
