@@ -12,16 +12,23 @@ const batch=JSON.parse(readFileSync(new URL('../shared/academic/greek-etymology/
 const pilot=createDecompositionCatalog(learners);
 const result=createExpandedDecompositionCatalog(learners,expanded,study);
 const engine=createDecompositionBank(result);
-test('35 ejercicios; se conservan los 16 originales exactamente y se incorporan 19 revisados',()=>{
-  assert.equal(result.entries.length,35);
-  assert.deepEqual(result.entries.slice(0,16),pilot.entries);
+test('55 ejercicios con definición y sentido etimológico, conservando las 16 fichas originales',()=>{
+  assert.equal(result.entries.length,55);
+  assert.deepEqual(result.entries.slice(0,16).map(({etymologicalSense,definitionType,...entry})=>entry),pilot.entries);
   assert.equal(result.audit.catalogDerivatives,487);
-  assert.equal(result.audit.awaitingIndividualDecompositionReview,452);
-  assert.equal(engine.size,35);
+  assert.equal(result.audit.awaitingIndividualDecompositionReview,432);
+  assert.equal(engine.size,55);
   assert.equal(result.publicationAllowed,false);
   const expected={teocracia:'UD1','biografía':'UD2','cronología':'UD2','xilófono':'UD3','prólogo':'UD4','caligrafía':'UD5','polifonía':'UD5','geología':'UD6','dermatología':'UD8','monólogo':'UD12'};
-  assert.deepEqual(Object.fromEntries(result.entries.slice(25).map(e=>[e.form,e.introducedAtUnit])),expected);
+  assert.deepEqual(Object.fromEntries(result.entries.slice(25,35).map(e=>[e.form,e.introducedAtUnit])),expected);
+  const latest={"fonología":"UD3","diálogo":"UD4","politeísmo":"UD5","demagogo":"UD6","hidrografía":"UD6","autodidacta":"UD7","iconografía":"UD8","hipodérmico":"UD8","plutocracia":"UD8","cosmopolita":"UD12","xilografía":"UD2","paradoja":"UD4","megafonía":"UD5","anáfora":"UD6","hipogeo":"UD6","hidrofobia":"UD6","bibliófilo":"UD6","andrógino":"UD8","encéfalo":"UD9","cefalópodo":"UD9"};
+  assert.deepEqual(Object.fromEntries(result.entries.slice(35).map(e=>[e.form,e.introducedAtUnit])),latest);
   for(const item of result.entries){
+    assert.equal(item.definitionType,'glosa_didactica_contrastada',item.form);
+    assert.ok(item.etymologicalSense.length>20,item.form);
+    const word=study.words.find(w=>w.form===item.form);
+    assert.equal(word.dleDefinition,item.meaning,item.form);
+    assert.equal(word.connection,item.etymologicalSense,item.form);
     assert.equal(item.enabledForExams,false);
     assert.equal(engine.grade(item.id,item.parts.map(p=>p.greek)).total,2,item.form);
     assert.equal(engine.grade(item.id,item.parts.map(p=>p.latinAccepted[0])).total,2,item.form);
@@ -29,6 +36,9 @@ test('35 ejercicios; se conservan los 16 originales exactamente y se incorporan 
     for(let n=1;n<=12;n++)assert.equal(engine.available({mode:'unit',unit:'UD'+n}).some(x=>x.id===item.id),n>=Number(item.introducedAtUnit.slice(2)),item.form+' UD'+n);
   }
   assert.equal(engine.grade('decomp:gr1:talasocracia',['θάλασσα','κράτος']).total,2);
+  assert.equal(engine.grade('decomp:gr1:politeismo',['polis','theos']).total,1);
+  assert.equal(engine.grade('decomp:gr1:politeismo',['polys','theos']).total,2);
+  assert.equal(engine.grade('decomp:gr1:cosmopolita',['kosmos','polis']).total,2);
   assert.equal(engine.grade('decomp:gr1:talasocracia',['thalassa','kratos']).total,2);
 });
 test('el compilador rechaza candidatos sin autorización, duplicados o con unidades/componente incorrectos',()=>{

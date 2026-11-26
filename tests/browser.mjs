@@ -543,7 +543,7 @@ try{
   assert.equal(await page.locator('#etymon-field').isHidden(),true);
   const decompositionCatalog=JSON.parse(await readFile(join(root,'apps/etymologicon/data/gr1-decomposition.json'),'utf8'));
   assert.equal(decompositionCatalog.entries.length,decompositionCatalog.audit.approvedForPractice);
-  assert.ok(decompositionCatalog.entries.length>=25,'El banco ampliado no debe perder ejercicios');
+  assert.ok(decompositionCatalog.entries.length>=55,'El banco ampliado no debe perder ejercicios');
   assert.equal((await page.locator('#pool-size').textContent()).trim(),
     decompositionCatalog.entries.length+' palabras descomponibles en esta selección');
   const firstCompound=await page.evaluate(async()=>{
@@ -560,6 +560,7 @@ try{
   assert.ok((await page.locator('#decomposition-meaning').textContent()).trim().length>10);
   assert.equal((await page.locator('#stats-decomposition').textContent()).trim(),'1');
   assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
+  assert.equal((await page.locator('#decomposition-etymological-sense').textContent()),firstCompound.etymologicalSense);
   assert.ok((await page.locator('#decomposition-route').textContent()).length>20);
   assert.ok((await page.locator('#decomposition-source').getAttribute('href')).startsWith('https://dle.rae.es/'));
   await page.getByRole('button',{name:'Otra palabra'}).click();

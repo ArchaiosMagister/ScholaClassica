@@ -276,6 +276,146 @@
       "sourceUrl": "https://dle.rae.es/mon%C3%B3logo",
       "checkedAt": "2026-11-26",
       "note": "El DLE registra la mediación del francés monologue, compuesto mediante mono- y -logue."
+    },
+    "fonología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/fonolog%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "fono- + -logía, composición culta."
+    },
+    "diálogo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/di%C3%A1logo",
+      "checkedAt": "2026-11-26",
+      "note": "Latín dialogus, del griego διάλογος."
+    },
+    "politeísmo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/polite%C3%ADsmo",
+      "checkedAt": "2026-11-26",
+      "note": "poli-¹ + teísmo; formación indirecta a través de teo-."
+    },
+    "demagogo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/demagogo",
+      "checkedAt": "2026-11-26",
+      "note": "Griego δημαγωγός."
+    },
+    "hidrografía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/hidrograf%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "Deriva de hidrógrafo; hidro- y familia de -grafía."
+    },
+    "autodidacta": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/autodidacta",
+      "checkedAt": "2026-11-26",
+      "note": "Francés autodidacte, del griego αὐτοδίδακτος."
+    },
+    "iconografía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/iconograf%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "Latín medieval iconographia, del griego εἰκονογραφία."
+    },
+    "hipodérmico": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/hipod%C3%A9rmico",
+      "checkedAt": "2026-11-26",
+      "note": "Deriva de hipodermis con el sufijo -ico; bases últimas griegas."
+    },
+    "plutocracia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/plutocracia",
+      "checkedAt": "2026-11-26",
+      "note": "Posible vía francesa desde πλουτοκρατία, según el DLE."
+    },
+    "cosmopolita": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cosmopolita",
+      "checkedAt": "2026-11-26",
+      "note": "Francés cosmopolite, del griego κοσμοπολίτης; πολίτης pertenece a la familia de πόλις."
+    },
+    "xilografía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/xilograf%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "xilo- + -grafía."
+    },
+    "paradoja": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/paradoja",
+      "checkedAt": "2026-11-26",
+      "note": "Latín paradoxa, del plural neutro griego παράδοξα; artículo paradojo, paradoja."
+    },
+    "megafonía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/megafon%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "mega- + griego -φωνία."
+    },
+    "anáfora": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/an%C3%A1fora",
+      "checkedAt": "2026-11-26",
+      "note": "Latín anaphora, del griego ἀναφορά, derivado de ἀναφέρω."
+    },
+    "hipogeo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/hipogeo",
+      "checkedAt": "2026-11-26",
+      "note": "Latín hypogaeum, del griego ὑπόγαιον; acepción nominal hipogeo¹."
+    },
+    "hidrofobia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/hidrofobia",
+      "checkedAt": "2026-11-26",
+      "note": "Latín tardío hydrophobia, del griego ὑδροφοβία."
+    },
+    "bibliófilo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/bibli%C3%B3filo",
+      "checkedAt": "2026-11-26",
+      "note": "biblio- + -filo; el DLE remite a bibliofilia."
+    },
+    "andrógino": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/andr%C3%B3gino",
+      "checkedAt": "2026-11-26",
+      "note": "Latín androgynus, del griego ἀνδρόγυνος."
+    },
+    "encéfalo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/enc%C3%A9falo",
+      "checkedAt": "2026-11-26",
+      "note": "Latín científico encephalos, del griego ἐγκέφαλος."
+    },
+    "cefalópodo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cefal%C3%B3podo",
+      "checkedAt": "2026-11-26",
+      "note": "Latín científico Cephalopoda, de κεφαλή y -ποδος."
     }
   },
   "lastSupplementAt": "2026-11-26"

@@ -15,6 +15,7 @@ export function createDecompositionController({data,etymons,commitProgress}){
     results:$('decomposition-results'),score:$('decomposition-score'),
     answers:$('decomposition-answers'),meaning:$('decomposition-meaning'),
     meaningCard:$('decomposition-meaning-card'),
+    sense:$('decomposition-etymological-sense'),
     route:$('decomposition-route'),source:$('decomposition-source'),
     empty:$('decomposition-empty')
   };
@@ -73,6 +74,7 @@ export function createDecompositionController({data,etymons,commitProgress}){
     els.score.textContent='Descomposición: '+response.total+' / 2 puntos.';
     els.meaning.textContent=item.meaning;
     els.meaningCard.hidden=response.total!==2;
+    els.sense.textContent=item.etymologicalSense||item.evidence.editorialNote;
     els.route.textContent=item.evidence.editorialNote;
     els.source.href=item.evidence.url;
     els.results.hidden=false;

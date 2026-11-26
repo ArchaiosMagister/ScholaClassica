@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
+import {readDecompositionTeachingNotes} from './compile-etymologicon-decomposition.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const file=join(root,'shared/academic/greek-etymology/review/study-glosses-gr1-20261113.json');
@@ -165,7 +166,7 @@ export function readLexicographicChecks(){
   const data=JSON.parse(readFileSync(checksFile,'utf8'));
   assert.equal(data.schema,'etymologicon-lexicographic-checks/v1');
   assert.equal(data.course,'gr1');
-  assert.equal(Object.keys(data.records).length,42);
+  assert.equal(Object.keys(data.records).length,62);
   return data;
 }
 export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
@@ -200,6 +201,7 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
     if(!relations.has(rel.derivativeId))relations.set(rel.derivativeId,new Set());
     relations.get(rel.derivativeId).add(rel.etymonId);
   }
+  const teachingNotes=readDecompositionTeachingNotes();
   const words=learners.derivatives.map(d=>{
     const prior=original.get(d.id);
     const definition=definitionCorrections[d.form]||
@@ -237,13 +239,14 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
       title:pdfIndex.sources[i].title,
       page
     }]);
-    const connection=specialConnections[d.form]||
+    const teachingNote=teachingNotes[d.form];
+    const connection=teachingNote?.etymologicalSense||specialConnections[d.form]||
       (components.length===1
         ?'El étimo '+components[0].greek+' aporta la idea de «'+components[0].gloss+'» a esta familia léxica; la acepción española puede haberse especializado con el tiempo.'
         :'En esta voz se relacionan '+components.map(c=>c.greek+' («'+c.gloss+'»)').join(' y ')+
           '.');
     return {
-      id:d.id,form:d.form,definition,units:[...new Set(ids.flatMap(id=>etyma.get(id).units))],
+      id:d.id,form:d.form,definition,...(teachingNote?{dleDefinition:teachingNote.definition,definitionType:teachingNote.definitionType}:{}),units:[...new Set(ids.flatMap(id=>etyma.get(id).units))],
       etymonIds:ids,components,connection,
       source:prior?'auditoria_docente':'ampliacion_documental',
       lexicographicStatus:direct?'dle_consultado_individualmente':'glosa_docente_no_cotejada_individualmente_dle',

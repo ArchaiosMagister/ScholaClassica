@@ -79,7 +79,7 @@ function appendComponentList(target,parts){
 function renderWord(word){
   const card=element('article',null,'lexical-word');
   const heading=element('h3',word.form,'lexical-word-title');
-  const meaning=element('p',word.definition,'lexical-definition');
+  const meaning=element('p',word.dleDefinition||word.definition,'lexical-definition');
   const componentsTitle=element('p',word.components.length>1?'Componentes etimológicos':'Étimo relacionado','lexical-small-label');
   const explanation=element('p',word.connection,'lexical-connection');
   const meta=element('div',null,'lexical-word-meta');
@@ -89,8 +89,11 @@ function renderWord(word){
   link.target='_blank';link.rel='noopener noreferrer';
   link.setAttribute('aria-label','Consultar '+word.form+' en el Diccionario de la lengua española');
   meta.append(link);
-  card.append(heading,meaning,componentsTitle);
+  card.append(heading);
+  if(word.dleDefinition)card.append(element('p','Definición · glosa del DLE (RAE-ASALE)','lexical-small-label'));
+  card.append(meaning,componentsTitle);
   appendComponentList(card,word.components);
+  if(word.dleDefinition)card.append(element('p','Sentido etimológico','lexical-small-label'));
   card.append(explanation,meta);
   if(check?.sourceUrl&&check.status!=='dle_individual_contrastado'&&
      check.status!=='dle_no_incluye_entrada_independiente'){

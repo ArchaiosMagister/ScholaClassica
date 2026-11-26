@@ -151,9 +151,31 @@ export function createExpandedDecompositionCatalog(base,catalog,study,
       evidence:{...row.evidence,editorialNote:row.evidence.note,route:'documented_didactic_components'},
       verificationStatus:'approved_for_guided_decomposition',enabledForExams:false};
   });
-  const entries=[...pilot.entries,...newEntries];
+  const notes=readDecompositionTeachingNotes();
+  const entries=[...pilot.entries,...newEntries].map(entry=>{
+    const note=notes[entry.form];
+    assert.ok(note,entry.form+' sin explicación semántica');
+    assert.equal(note.definition,entry.meaning,entry.form);
+    assert.equal(note.sourceUrl,entry.evidence.url,entry.form);
+    return {...entry,etymologicalSense:note.etymologicalSense,definitionType:note.definitionType};
+  });
+  assert.equal(Object.keys(notes).length,entries.length,'Notas semánticas sin ejercicio');
   const other=catalog.derivatives.filter(d=>!seen.has(d.id)).map(d=>d.id);
   return {...pilot,status:'expanded_guided_practice_not_exam',entries,
     audit:{catalogDerivatives:catalog.derivatives.length,approvedForPractice:entries.length,
       awaitingIndividualDecompositionReview:other.length,unreviewedDerivativeIds:other}};
+}
+
+/** Notas propias, vinculadas al artículo del DLE, no transcripciones. */
+export function readDecompositionTeachingNotes(){
+  const data=JSON.parse(readFileSync(join(root,'shared/academic/greek-etymology/decomposition/gr1-teaching-notes-20261126.json'),'utf8'));
+  assert.equal(data.schema,'etymologicon-decomposition-teaching-notes/v1');
+  assert.equal(data.course,'gr1');
+  for(const [word,note] of Object.entries(data.words)){
+    assert.equal(note.definitionType,'glosa_didactica_contrastada',word);
+    assert.ok(note.definition.length>20&&note.etymologicalSense.length>20,word);
+    assert.ok(note.sourceUrl.startsWith('https://dle.rae.es/'),word);
+    assert.match(note.evidenceDate,/^\d{4}-\d{2}-\d{2}$/);
+  }
+  return data.words;
 }
