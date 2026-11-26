@@ -42,7 +42,7 @@ test('la navegación enlaza estudio y práctica y conserva Latín I', async () =
 
 test('el estudio de Latín I respeta la programación acumulativa y no incorpora fligo sin ficha', () => {
   assert.equal(Object.keys(latin1Units).length, 27);
-  assert.equal(Object.keys(families).length, 75);
+  assert.equal(Object.keys(families).length, 120);
   assert.equal(studyFamilies('', 'all', { latinI:true }).length, 27);
   for (const [unit, count] of [[2,4],[3,8],[4,12],[5,16],[6,20],[7,24],[8,24],[9,27],[10,27]]) {
     const entries = studyFamilies('', 'all', { latinI:true, unit });
@@ -61,9 +61,9 @@ test('el estudio de Latín I respeta la programación acumulativa y no incorpora
 test('cada familia añadida dispone de significado, compuestos y derivados sin duplicidades internas', () => {
   for (const [base, family] of Object.entries(families)) {
     assert.ok(family.entry && family.meaning, base);
-    assert.ok(family.compounds.length >= 2, base);
+    assert.ok(family.compounds.length >= (family.studyOnly ? 1 : 2), base);
     assert.equal(new Set(family.compounds.map(([lemma])=>lemma)).size, family.compounds.length);
-    assert.ok(family.derivatives.length >= 2, base);
+    if (!family.studyOnly) assert.ok(family.derivatives.length >= 2, base);
     assert.ok(family.compounds.every(row=>row.length===4 && row.every(Boolean)), base);
   }
 });
@@ -75,7 +75,7 @@ test('Latín II ofrece las nueve familias nuevas sin adelantar contenidos de Lat
     assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)),base);
   }
   assert.equal(studyFamilies('occidere').filter(([key])=>['caedo','cado'].includes(key)).length,2);
-  assert.equal(rounds.length,72);
+  assert.equal(rounds.length,97);
 });
 
 test('el segundo bloque de Latín II tiene cobertura de estudio y práctica y no se adelanta a Latín I', () => {
@@ -112,4 +112,18 @@ test('el tercer bloque de Latín II respeta las unidades de Latín I y permite p
   assert.ok(studyFamilies('redención').some(([base])=>base==='emo'));
   assert.ok(studyFamilies('conjunción').some(([base])=>base==='iungo'));
   assert.ok(studyFamilies('revolución').some(([base])=>base==='volvo'));
+});
+
+test('las 120 familias corresponden exactamente al inventario docente fijado, incluidos homógrafos', () => {
+  const expected = ["ago","arceo","cado","caedo","cano","capio","carpo","cedo","cerno","cieo","clamo","claudo","colo","creo","cubo","curo","curro","dico","disco","do","doceo","duco","emo","eo","facio","fero","figo","fingo","flecto","for","frango","fugio","fundo","gero","gigno","gradior","habeo","haereo","iacio","iungo","labor","lego","levo","ligo","maneo","misceo","mitto","moneo","moror","moveo","muto","nosco","nuntio","orior","oro","paro","pello","pendo","peto","plecto","pleo","pono","porto","precor","prehendo","premo","pugno","puto","quaero","quatio","rapio","rego","rogo","rumpo","salio","sapio","scando","scio","scribo","seco","sedeo","sentio","sequor","sero-entrelazar","sero-sembrar","sino","sisto","solvo","specio","spiro","statuo","sterno","sto","stringo","struo","sum","sumo","tango","tego","tendo","teneo","tollo","torqueo","traho","tueor","tundo","turbo","vado","vagor","vasto","veho","vello","venio","verto","video","vivo","voco","volo-querer","volo-volar","volvo"];
+  assert.deepEqual(Object.keys(families).sort(),expected);
+  const consulted = Object.entries(families).filter(([,family])=>family.studyOnly);
+  assert.equal(consulted.length,24);
+  for (const [key,family] of Object.entries(families)) {
+    assert.equal(rounds.some(round=>round.prompts.some(prompt=>prompt.base===key)),!family.studyOnly,key);
+  }
+  assert.equal(families.sino.compounds.length,1);
+  assert.equal(studyFamilies('desinencia')[0][0],'sino');
+  assert.ok(studyFamilies('praefigere').some(([key])=>key==='figo'));
+  assert.ok(studyFamilies('constitución').some(([key])=>key==='statuo'));
 });
