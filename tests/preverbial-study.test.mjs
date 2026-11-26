@@ -54,7 +54,7 @@ test('el estudio de Latín I respeta la programación acumulativa y no incorpora
   assert.equal(studyFamilies('','traho',{latinI:true}).length, 0);
   assert.equal(studyFamilies('','traho').length, 1);
   for (const base of Object.keys(latin1Units)) {
-    assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)), base);
+    assert.ok(rounds.some(round=>!round.source && round.prompts.every(prompt=>latin1Units[prompt.base]) && round.prompts.some(prompt=>prompt.base===base)), base);
   }
 });
 
