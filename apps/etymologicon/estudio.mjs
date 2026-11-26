@@ -4,6 +4,11 @@ const ui={search:$('study-search'),unit:$('study-unit'),sort:$('study-sort'),
   theme:$('study-theme'),expand:$('study-expand'),collapse:$('study-collapse'),
   count:$('study-count'),loading:$('study-loading'),error:$('study-error'),
   container:$('study-entries'),empty:$('study-empty')};
+const inverse={toggle:$('study-inverse-toggle'),panel:$('study-inverse'),
+  results:$('lista-etimos'),count:$('inverse-count'),card:$('inverse-card'),
+  word:$('inverse-word'),definition:$('inverse-definition'),answer:$('inverse-answer'),
+  empty:$('inverse-empty'),reveal:$('inverse-reveal'),next:$('inverse-next'),restart:$('inverse-restart')};
+let inverseActive=false,deck=[],deckIndex=0;
 const themeKey='scholaclassica-etymologicon-theme-v1';
 const themes=new Set(['auto','light','dark','oled']);
 let data=null,openGroups=new Set(),forceOpen=false,focusedEtymon=null;
@@ -184,8 +189,89 @@ function render(){
   ui.expand.disabled=matches.length===0;
   ui.collapse.disabled=matches.length===0;
 }
+// Estudio inverso de recuperación activa. Solo voces admitidas y una ficha por ID.
+function prepareInverse(){
+  deck=data.words.filter(w=>w.admission?.practiceEligible&&
+    w.components.some(c=>(!c.language||c.language==='grc')&&/\p{Script=Greek}/u.test(c.greek))&&
+    (ui.unit.value==='all'||w.units.includes(ui.unit.value)));
+  for(let i=deck.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [deck[i],deck[j]]=[deck[j],deck[i]];
+  }
+  deckIndex=0;
+  renderInverse();
+}
+function renderInverse(){
+  const word=deck[deckIndex];
+  inverse.answer.replaceChildren();
+  inverse.answer.hidden=true;
+  inverse.reveal.setAttribute('aria-expanded','false');
+  inverse.card.hidden=!word;
+  inverse.empty.hidden=!!word;
+  inverse.reveal.hidden=!word;
+  inverse.next.hidden=!word;
+  inverse.reveal.disabled=!word;
+  inverse.next.disabled=true;
+  inverse.restart.disabled=!deck.length;
+  inverse.count.textContent=word?(deckIndex+1)+' de '+deck.length+' palabras':
+    deck.length?deck.length+' de '+deck.length+' palabras':'0 palabras';
+  inverse.empty.textContent=deck.length?'Has terminado esta ronda. Puedes volver a barajar.':
+    'No hay palabras aptas en esta unidad. Selecciona otra unidad.';
+  if(!word)return;
+  inverse.word.textContent=word.form;
+  inverse.definition.textContent=word.reviewedDefinition||word.definition;
+}
+function revealInverse(){
+  const word=deck[deckIndex];
+  if(!word||!inverse.answer.hidden)return;
+  inverse.answer.append(element('p','Raíces griegas','lexical-small-label'));
+  const parts=element('div',null,'lexical-components');
+  const other=[];
+  for(const part of word.components){
+    if((part.language&&part.language!=='grc')||!/\p{Script=Greek}/u.test(part.greek)){
+      other.push(part);continue;
+    }
+    const chip=element('span',null,'lexical-component');
+    const greek=element('strong',part.greek,'component-greek');
+    greek.lang='grc';
+    chip.append(greek,element('span','«'+part.gloss+'»','component-gloss'));
+    parts.append(chip);
+  }
+  inverse.answer.append(parts);
+  if(other.length)inverse.answer.append(element('p','Otros componentes: '+other.map(p=>p.greek+' («'+p.gloss+'»)').join(' · '),'lexical-note'));
+  inverse.answer.append(element('p',word.connection,'lexical-connection'));
+  if(word.editorialNote)inverse.answer.append(element('p',word.editorialNote,'lexical-alert'));
+  inverse.answer.hidden=false;
+  inverse.reveal.setAttribute('aria-expanded','true');
+  inverse.reveal.disabled=true;
+  inverse.next.disabled=false;
+}
+function setInverse(active){
+  if(!data)return;
+  inverseActive=active;
+  inverse.panel.hidden=!active;
+  inverse.results.hidden=active;
+  ui.search.closest('.field').hidden=active;
+  ui.sort.closest('.field').hidden=active;
+  ui.expand.hidden=active;
+  ui.collapse.hidden=active;
+  ui.count.hidden=active;
+  inverse.toggle.setAttribute('aria-pressed',String(active));
+  inverse.toggle.textContent=active?'Volver al glosario':'Tarjetas inversas';
+  if(active)prepareInverse();else render();
+}
+inverse.toggle.addEventListener('click',()=>setInverse(!inverseActive));
+inverse.reveal.addEventListener('click',revealInverse);
+inverse.next.addEventListener('click',()=>{
+  if(inverse.answer.hidden||deckIndex>=deck.length)return;
+  deckIndex++;
+  renderInverse();
+  if(deckIndex<deck.length)inverse.reveal.focus();else inverse.restart.focus();
+});
+inverse.restart.addEventListener('click',()=>{prepareInverse();inverse.reveal.focus();});
+
 ui.search.addEventListener('input',()=>{focusedEtymon=null;render();});
-ui.unit.addEventListener('change',()=>{focusedEtymon=null;render();});
+ui.unit.addEventListener('change',()=>{focusedEtymon=null;if(inverseActive)prepareInverse();else render();});
 ui.sort.addEventListener('change',render);
 ui.expand.addEventListener('click',()=>{
   forceOpen=true;
@@ -211,6 +297,7 @@ async function load(){
       option.value=unit;return option;
     }));
     data=candidate;
+    inverse.toggle.disabled=false;
     ui.loading.hidden=true;
     const initial=new URLSearchParams(location.search).get('buscar');
     if(initial&&initial.length<=80)ui.search.value=initial;
