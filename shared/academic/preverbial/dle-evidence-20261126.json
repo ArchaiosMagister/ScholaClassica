@@ -130,6 +130,56 @@
       "source": "DLE",
       "url": "https://dle.rae.es/consumo",
       "date": "2026-11-26"
+    },
+    {
+      "family": "lego",
+      "origin": "diligo",
+      "word": "diligente",
+      "etymon": "diligens, -entis",
+      "note": "Conservar: participio de diligo.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/diligente",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "sequor",
+      "origin": "consequor",
+      "word": "consecuencia",
+      "etymon": "consequentia",
+      "note": "Conservar: sustantivo de la familia de consequor.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/consecuencia",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "specio",
+      "origin": "conspicio",
+      "word": "conspicuo",
+      "etymon": "conspicuus",
+      "note": "Conservar como adjetivo.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/conspicuo",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "capio",
+      "origin": "accipio",
+      "word": "aceptar",
+      "etymon": "acceptare",
+      "note": "Conservar: frecuentativo de accipio.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/aceptar",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "video",
+      "origin": "invideo",
+      "word": "envidia",
+      "etymon": "invidia",
+      "note": "Conservar: sustantivo de la familia de invideo.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/envidia",
+      "date": "2026-11-26"
     }
   ]
 }
