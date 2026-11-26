@@ -32,7 +32,7 @@ function originCard(origin) {
   card.append(heading);
   if (origin.prefix) {
     const formation = el('p');
-    formation.append('Preverbio: ', el('i', origin.prefix + '-', 'la'));
+    formation.append(origin.compositionLabel + ': ', el('i', origin.prefix + (origin.compositionLabel === 'Preverbio' ? '-' : ''), 'la'));
     card.append(formation);
   }
   card.append(el('p', origin.meaning));
@@ -57,6 +57,7 @@ function familyCard(base, family) {
   details.className = 'practice-card study-family';
   const summary = el('summary');
   summary.append(el('i', family.entry, 'la'), el('span', ' — ' + family.meaning));
+  if (family.studyOnly) summary.append(el('span', ' · Solo estudio'));
   if (latinI) summary.append(el('span', ' · UD' + latin1Units[base]));
   const origins = el('ul');
   origins.className = 'study-origins';
@@ -69,7 +70,7 @@ function populateFamilies() {
   const current = filter.value;
   filter.replaceChildren(new Option('Todas las familias', 'all'));
   for (const [base, family] of studyFamilies('', 'all', { latinI, unit: unit.value })) {
-  const option = el('option', base + ' · ' + family.meaning);
+  const option = el('option', (family.lemma ?? base) + ' · ' + family.meaning);
   option.value = base;
   filter.append(option);
   }
