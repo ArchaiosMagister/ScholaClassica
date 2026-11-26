@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { families } from '../public/apps/modificacion-preverbial/banco.mjs';
+import { families, rounds, latin1Units } from '../public/apps/modificacion-preverbial/banco.mjs';
 import { studyFamilies, familyOrigins } from '../public/apps/modificacion-preverbial/study.mjs';
 
 test('el estudio consulta todas las familias del mismo banco de práctica, en orden alfabético', () => {
@@ -38,4 +38,32 @@ test('la navegación enlaza estudio y práctica y conserva Latín I', async () =
   assert.ok(practiceJs.includes('./estudio.html?subject=lat1'));
   assert.ok(studyJs.includes('./index.html?subject=lat1'));
   assert.match(study,/aria-current="page">Estudiar/);
+});
+
+test('el estudio de Latín I respeta la programación acumulativa y no incorpora fligo sin ficha', () => {
+  assert.equal(Object.keys(latin1Units).length, 27);
+  assert.equal(Object.keys(families).length, 29);
+  assert.equal(studyFamilies('', 'all', { latinI:true }).length, 27);
+  for (const [unit, count] of [[2,4],[3,8],[4,12],[5,16],[6,20],[7,24],[8,24],[9,27],[10,27]]) {
+    const entries = studyFamilies('', 'all', { latinI:true, unit });
+    assert.equal(entries.length, count, 'UD'+unit);
+    assert.ok(entries.every(([base])=>latin1Units[base]<=unit));
+    assert.ok(rounds.some(round=>!round.source && round.prompts.every(({base})=>latin1Units[base] && latin1Units[base]<=unit)));
+  }
+  assert.deepEqual(studyFamilies('','fligo',{latinI:true}), []);
+  assert.equal(studyFamilies('','traho',{latinI:true}).length, 0);
+  assert.equal(studyFamilies('','traho').length, 1);
+  for (const base of Object.keys(latin1Units)) {
+    assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)), base);
+  }
+});
+
+test('cada familia añadida dispone de significado, compuestos y derivados sin duplicidades internas', () => {
+  for (const [base, family] of Object.entries(families)) {
+    assert.ok(family.entry && family.meaning, base);
+    assert.ok(family.compounds.length >= 3, base);
+    assert.equal(new Set(family.compounds.map(([lemma])=>lemma)).size, family.compounds.length);
+    assert.ok(family.derivatives.length >= 2, base);
+    assert.ok(family.compounds.every(row=>row.length===4 && row.every(Boolean)), base);
+  }
 });
