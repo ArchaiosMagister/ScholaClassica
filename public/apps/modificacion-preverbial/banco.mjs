@@ -337,3 +337,50 @@ export const rounds = [
     words: ['huir', 'refugi', 'prófugo', 'acceptar', 'recepción'],
   },
 ];
+
+// Rondas didácticas propias, no atribuidas a convocatorias de PAU.
+// Se alterna una familia inicial de UD2 con cada nueva familia de la programación.
+const introductoryModels = [
+  { prompt: { form:'attulerunt', lemma:'affero', base:'fero', model:['confero','differo','praefero'] },
+    words:['conferir','diferencia','preferente'] },
+  { prompt: { form:'deduxit', lemma:'deduco', base:'duco', model:['deduco','conduco','traduco'] },
+    words:['deducir','deducción','deductivo'] },
+];
+const newModels = [
+  ['clamo','exclamavit','exclamo',['acclamo','exclamo'],['aclamar','exclamación']],
+  ['tendo','extendit','extendo',['attendo','extendo'],['atender','extensión']],
+  ['porto','exportavit','exporto',['exporto','deporto'],['exportar','deportación']],
+  ['habeo','prohibuit','prohibeo',['exhibeo','prohibeo'],['exhibir','prohibición']],
+  ['iacio','proiecit','proicio',['abicio','proicio'],['abyecto','proyecto']],
+  ['cado','accidit','accido',['accido','incido'],['caer','accidente']],
+  ['curro','recurrit','recurro',['concurro','excurro'],['concurrir','excursión']],
+  ['dico','edixit','edico',['contradico','edico'],['contradecir','edicto']],
+  ['gero','gessit','gero',['digero','suggero'],['digerir','sugestión']],
+  ['peto','repetivit','repeto',['competo','repeto'],['competente','repetir']],
+  ['sedeo','praesidet','praesideo',['praesideo','resideo'],['presidir','residencia']],
+  ['sentio','consensit','consentio',['consentio','dissentio'],['disentir','consenso']],
+  ['specio','conspexit','conspicio',['conspicio','inspicio'],['conspicuo','inspección']],
+  ['gradior','ingressus est','ingredior',['aggredior','ingredior'],['agredir','ingreso']],
+  ['sequor','secutus est','sequor',['persequor','prosequor'],['perseguir','persecución']],
+  ['verto','convertit','converto',['converto','inverto'],['invertir','conversión']],
+  ['video','providit','provideo',['praevideo','provideo'],['prever','provisión']],
+  ['cerno','decrevit','decerno',['decerno','discerno'],['decreto','discernir']],
+  ['do','tradidit','trado',['perdo','trado'],['perder','tradición']],
+  ['eo','exiit','exeo',['exeo','subeo'],['subir','éxito']],
+];
+for (const [index, [base, form, lemma, model, words]] of newModels.entries()) {
+  const first = introductoryModels[index % introductoryModels.length];
+  rounds.push({
+    label: 'Práctica · UD' + latin1Units[base] + ' · ' + first.prompt.form + ' y ' + form,
+    prompts: [first.prompt, { base, form, lemma, model }],
+    words: [...first.words, ...words],
+  });
+}
+rounds.push({
+  label:'Práctica · UD2 · deduxit y emisit',
+  prompts:[
+    {form:'deduxit',lemma:'deduco',base:'duco',model:['deduco','conduco','traduco']},
+    {form:'emisit',lemma:'emitto',base:'mitto',model:['emitto','permitto']},
+  ],
+  words:['deducir','deducción','deductivo','emitir','permiso'],
+});
