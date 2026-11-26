@@ -2779,7 +2779,7 @@ export const latin2FinalModels = [
   ],
   [
     "vello",
-    "convulsit",
+    "convellit",
     "convello",
     [
       "convello",
