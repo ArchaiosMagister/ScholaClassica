@@ -536,12 +536,16 @@ try{
   await page.locator('#activity-type').selectOption('writing');
   assert.equal(await page.locator('#answer-form').isVisible(),true);
 
-  // Piloto de composición con evidencias DLE, no todos los 201 derivados.
+  // Banco cerrado de descomposición: comprobar la cantidad aprobada, no todo el glosario.
   await page.locator('#activity-type').selectOption('decomposition');
   assert.equal(await page.locator('#decomposition-section').isVisible(),true);
   assert.equal(await page.locator('#answer-form').isHidden(),true);
   assert.equal(await page.locator('#etymon-field').isHidden(),true);
-  assert.ok((await page.locator('#pool-size').textContent()).includes('16 palabras'));
+  const decompositionCatalog=JSON.parse(await readFile(join(root,'apps/etymologicon/data/gr1-decomposition.json'),'utf8'));
+  assert.equal(decompositionCatalog.entries.length,decompositionCatalog.audit.approvedForPractice);
+  assert.ok(decompositionCatalog.entries.length>=25,'El banco ampliado no debe perder ejercicios');
+  assert.equal((await page.locator('#pool-size').textContent()).trim(),
+    decompositionCatalog.entries.length+' palabras descomponibles en esta selección');
   const firstCompound=await page.evaluate(async()=>{
     const audit=await fetch('./data/gr1-decomposition.json').then(r=>r.json());
     const selected=document.querySelector('#decomposition-word').textContent;
@@ -574,7 +578,10 @@ try{
   assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
   await page.locator('#practice-mode').selectOption('unit');
   await page.locator('#unit-select').selectOption('UD12');
-  assert.ok((await page.locator('#pool-size').textContent()).includes('16 palabras'));
+  const finalUnitCount=decompositionCatalog.entries.filter(e=>Number(e.introducedAtUnit.slice(2))<=12).length;
+  assert.equal(finalUnitCount,decompositionCatalog.entries.length);
+  assert.equal((await page.locator('#pool-size').textContent()).trim(),
+    finalUnitCount+' palabras descomponibles en esta selección');
   await page.locator('#practice-mode').selectOption('general');
   await page.locator('details.virtual-keyboard').last().locator('summary').click();
   await page.locator('#decomposition-first').focus();
