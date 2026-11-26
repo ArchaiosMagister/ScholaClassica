@@ -34,7 +34,7 @@ export function correctRound(round, compoundAnswers, wordAnswers) {
     return compoundAnswers[index].map(answer => {
       const key = normalizeLatin(answer);
       if (!key) return { status: 'empty' };
-      if (key === base || key === family.entry.split(', ')[1]) return { status: 'base' };
+      if (key === normalizeLatin(base) || key === normalizeLatin(family.entry.split(', ')[1])) return { status: 'base' };
       const entry = family.compounds.find(([lemma, infinitive]) =>
         key === normalizeLatin(lemma) || key === normalizeLatin(infinitive));
       if (!entry) return { status: 'unknown' };
