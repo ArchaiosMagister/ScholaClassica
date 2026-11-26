@@ -1,3 +1,4 @@
+import { homographFamilies } from './homografos.mjs';
 import { latin2Block2, latin2Block2Models } from './ampliacion-lat2-bloque2.mjs';
 import { latin2Families, latin2Models } from './ampliacion-lat2.mjs';
 import { additionalFamilies, latin1Units } from './ampliacion-lat1.mjs';
@@ -9,6 +10,7 @@ export const families = {
   ...additionalFamilies,
   ...latin2Families,
   ...latin2Block2,
+  ...homographFamilies,
   fero: {
     entry: 'fero, ferre, tuli, latum', meaning: 'llevar',
     compounds: [
