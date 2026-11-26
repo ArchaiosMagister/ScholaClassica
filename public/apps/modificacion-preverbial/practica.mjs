@@ -1,4 +1,4 @@
-import { families, rounds } from './banco.mjs';
+import { families, rounds, latin1Units } from './banco.mjs';
 import { checkBase, correctRound } from './corrector.mjs';
 
 const byId = id => document.getElementById(id);
@@ -24,6 +24,7 @@ const actions = ['Comprobar bases', 'Ir a derivados', 'Corregir ejercicio'];
 const numberFormat = new Intl.NumberFormat('es-ES', { minimumFractionDigits: 1 });
 const isLatinI = new URLSearchParams(location.search).get('subject') === 'lat1';
 
+let activeRounds = rounds;
 let round;
 let phase;
 let baseChecks;
@@ -105,7 +106,7 @@ function setPhase(next, focus = true) {
 }
 
 function renderRound(focus = false) {
-  round = rounds[roundPicker.selectedIndex];
+  round = activeRounds[roundPicker.selectedIndex];
   consulted.clear();
   baseChecks = [];
   baseStatus.textContent = '';
@@ -305,18 +306,31 @@ function showResult() {
   setPhase(3);
 }
 
-for (const { label } of rounds) roundPicker.append(element('option', label));
+const unitPicker = byId('practice-unit');
+function populateRounds() {
+  activeRounds = isLatinI ? rounds.filter(candidate => !candidate.source &&
+    candidate.prompts.every(({base}) => latin1Units[base] &&
+      (unitPicker.value === 'all' || latin1Units[base] <= Number(unitPicker.value)))) : rounds;
+  roundPicker.replaceChildren(...activeRounds.map(({label}) => element('option', label)));
+  renderRound();
+}
 if (isLatinI) {
   byId('study-link').href = './estudio.html?subject=lat1';
   byId('practice-mode-link').href = './index.html?subject=lat1';
   byId('module-context').textContent = 'Latín I · Formación de palabras';
-  roundPicker.selectedIndex = rounds.findIndex(({ source }) => !source);
+  byId('practice-unit-wrap').hidden = false;
+  for (let unit = 2; unit <= 10; unit++) {
+    const option = element('option', 'UD' + unit);
+    option.value = String(unit);
+    unitPicker.append(option);
+  }
+  unitPicker.addEventListener('change', populateRounds);
 }
 roundPicker.addEventListener('change', () => renderRound());
 byId('edit').addEventListener('click', () => setPhase(1));
 byId('retry').addEventListener('click', () => renderRound(true));
 byId('next').addEventListener('click', () => {
-  roundPicker.selectedIndex = (roundPicker.selectedIndex + 1) % rounds.length;
+  roundPicker.selectedIndex = (roundPicker.selectedIndex + 1) % activeRounds.length;
   renderRound(true);
 });
 previous.addEventListener('click', () => setPhase(phase - 1));
@@ -352,5 +366,5 @@ form.addEventListener('submit', event => {
   }
 });
 
-renderRound();
+populateRounds();
 practice.hidden = false;
