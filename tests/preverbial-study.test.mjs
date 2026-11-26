@@ -76,7 +76,7 @@ test('Latín II ofrece las nueve familias nuevas sin adelantar contenidos de Lat
     assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)),base);
   }
   assert.equal(studyFamilies('occidere').filter(([key])=>['caedo','cado'].includes(key)).length,2);
-  assert.equal(rounds.length,106);
+  assert.equal(rounds.length,113);
 });
 
 test('el segundo bloque de Latín II tiene cobertura de estudio y práctica y no se adelanta a Latín I', () => {
@@ -119,7 +119,7 @@ test('las 120 familias corresponden exactamente al inventario docente fijado, in
   const expected = ["ago","arceo","cado","caedo","cano","capio","carpo","cedo","cerno","cieo","clamo","claudo","colo","creo","cubo","curo","curro","dico","disco","do","doceo","duco","emo","eo","facio","fero","figo","fingo","flecto","for","frango","fugio","fundo","gero","gigno","gradior","habeo","haereo","iacio","iungo","labor","lego","levo","ligo","maneo","misceo","mitto","moneo","moror","moveo","muto","nosco","nuntio","orior","oro","paro","pello","pendo","peto","plecto","pleo","pono","porto","precor","prehendo","premo","pugno","puto","quaero","quatio","rapio","rego","rogo","rumpo","salio","sapio","scando","scio","scribo","seco","sedeo","sentio","sequor","sero-entrelazar","sero-sembrar","sino","sisto","solvo","specio","spiro","statuo","sterno","sto","stringo","struo","sum","sumo","tango","tego","tendo","teneo","tollo","torqueo","traho","tueor","tundo","turbo","vado","vagor","vasto","veho","vello","venio","verto","video","vivo","voco","volo-querer","volo-volar","volvo"];
   assert.deepEqual(Object.keys(families).sort(),expected);
   const consulted = Object.entries(families).filter(([,family])=>family.studyOnly);
-  assert.equal(consulted.length,15);
+  assert.equal(consulted.length,8);
   for (const [key,family] of Object.entries(families)) {
     assert.equal(rounds.some(round=>round.prompts.some(prompt=>prompt.base===key)),!family.studyOnly,key);
   }
@@ -164,6 +164,18 @@ test('el segundo cotejo DLE habilita siete familias y conserva los casos especia
     assert.ok(rounds.some(r=>r.prompts.some(p=>p.base===base)&&words.every(w=>r.words.includes(w))),base);
     assert.equal(studyFamilies('',base,{latinI:true}).length,0);
   }
-  assert.ok(families.for.studyOnly);
+  assert.ok(!families.for.studyOnly);
   assert.ok(families.for.derivatives.some(([origin,,es])=>origin==='praefor'&&es==='prefacio'));
+});
+
+test('el tercer cotejo habilita siete familias más sin introducir homógrafos en el sorteo', () => {
+  const expected = {cieo:['citar','cita'],for:['fatal','prefacio'],gigno:['genitor','genital'],moror:['demorar','demora'],plecto:['complejo','complexión'],vagor:['vagar','vagabundo'],veho:['vehicular','vector']};
+  for (const [base,words] of Object.entries(expected)) {
+    assert.ok(!families[base].studyOnly,base);
+    assert.ok(rounds.some(r=>r.prompts.some(p=>p.base===base)&&words.every(w=>r.words.includes(w))),base);
+    assert.equal(studyFamilies('',base,{latinI:true}).length,0);
+  }
+  assert.ok(families.carpo.derivatives.some(([origin,,es])=>origin==='excerpo'&&es==='excerpta'));
+  assert.ok(families.sterno.derivatives.some(([origin,,es])=>origin==='sterno'&&es==='estrado'));
+  assert.deepEqual(Object.keys(families).filter(k=>families[k].studyOnly).sort(),['carpo','sero-entrelazar','sero-sembrar','sino','sterno','tollo','volo-querer','volo-volar'].sort());
 });
