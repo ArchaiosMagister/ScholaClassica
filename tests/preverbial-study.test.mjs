@@ -9,7 +9,7 @@ test('el estudio consulta todas las familias del mismo banco de práctica, en or
   assert.deepEqual(keys, Object.keys(families).sort((a,b) => a.localeCompare(b,'la')));
   for (const [base, family] of studyFamilies()) {
     const origins = familyOrigins(base, family);
-    assert.equal(origins[0].lemma, base);
+    assert.equal(origins[0].lemma, family.lemma ?? base);
     assert.equal(origins.length, family.compounds.length + 1);
     assert.equal(origins.flatMap(origin => origin.derivatives).length, family.derivatives.length);
     for (const origin of origins) {
@@ -42,7 +42,7 @@ test('la navegación enlaza estudio y práctica y conserva Latín I', async () =
 
 test('el estudio de Latín I respeta la programación acumulativa y no incorpora fligo sin ficha', () => {
   assert.equal(Object.keys(latin1Units).length, 27);
-  assert.equal(Object.keys(families).length, 51);
+  assert.equal(Object.keys(families).length, 55);
   assert.equal(studyFamilies('', 'all', { latinI:true }).length, 27);
   for (const [unit, count] of [[2,4],[3,8],[4,12],[5,16],[6,20],[7,24],[8,24],[9,27],[10,27]]) {
     const entries = studyFamilies('', 'all', { latinI:true, unit });
@@ -61,7 +61,7 @@ test('el estudio de Latín I respeta la programación acumulativa y no incorpora
 test('cada familia añadida dispone de significado, compuestos y derivados sin duplicidades internas', () => {
   for (const [base, family] of Object.entries(families)) {
     assert.ok(family.entry && family.meaning, base);
-    assert.ok(family.compounds.length >= 3, base);
+    assert.ok(family.compounds.length >= (family.studyOnly ? 2 : 3), base);
     assert.equal(new Set(family.compounds.map(([lemma])=>lemma)).size, family.compounds.length);
     assert.ok(family.derivatives.length >= 2, base);
     assert.ok(family.compounds.every(row=>row.length===4 && row.every(Boolean)), base);
@@ -86,4 +86,18 @@ test('el segundo bloque de Latín II tiene cobertura de estudio y práctica y no
   }
   assert.ok(studyFamilies('compresion').some(([base])=>base==='premo'));
   assert.ok(studyFamilies('transfundere').some(([base])=>base==='fundo'));
+});
+
+test('los homógrafos tienen fichas y significados independientes y no se sortean sin contexto', () => {
+  for (const lemma of ['sero','volo']) {
+    const matches=studyFamilies(lemma).filter(([,f])=>f.lemma===lemma);
+    assert.equal(matches.length,2);
+    assert.notEqual(matches[0][1].entry,matches[1][1].entry);
+    for (const [id,family] of matches) {
+      assert.equal(family.studyOnly,true);
+      assert.equal(familyOrigins(id,family)[0].lemma,lemma);
+      assert.ok(!rounds.some(round=>round.prompts.some(prompt=>prompt.base===id)));
+    }
+  }
+  assert.equal(familyOrigins('volo-querer',families['volo-querer'])[1].compositionLabel,'Componente');
 });
