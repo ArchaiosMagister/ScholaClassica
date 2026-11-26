@@ -131,6 +131,7 @@ function updateEtymonChoices({preserve=true}={}){
   pool=filteredEtyma(eligible,progress,{
     mode,unit:mode==='unit'?ui.unit.value:'all'
   });
+  if(ui.activity.value==='writing')pool=pool.filter(e=>engine.isEligible(e.id));
   if(ui.activity.value==='inverse'&&quizController){
     const available=new Set(quizController.inverseEligibleIds);
     pool=pool.filter(e=>available.has(e.id));
@@ -311,9 +312,9 @@ async function loadCatalog(){
     if(lexicon.schema!=='etymologicon-study-catalog/v1'||lexicon.course!=='gr1'||
        !Array.isArray(lexicon.words)||lexicon.words.length!==487)
       throw new Error('Glosario de significados no verificado');
-    const meaningByDerivative=new Map(lexicon.words.map(w=>[w.id,w.definition]));
+    const meaningByDerivative=new Map(lexicon.words.map(w=>[w.id,w.reviewedDefinition||w.definition]));
     const corrector=createWriteTwoCorrector(data);
-    const accepted=data.etymons.filter(e=>corrector.isEligible(e.id));
+    const accepted=data.etymons.filter(e=>e.editorialStatus==='approved_for_documented_derivatives');
     if(accepted.length!==108)throw new Error('Se esperaba el banco auditado de 108 étimos elegibles');
     catalog=data;
     engine=corrector;

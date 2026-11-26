@@ -114,7 +114,7 @@ export function createExpandedDecompositionCatalog(base,catalog,study,
     assert.equal(row.enabledForPractice,true,row.form);
     assert.equal(row.enabledForExams,false,row.form);
     const word=words.get(row.form);
-    assert.ok(word&&word.lexicographicStatus==='dle_consultado_individualmente',row.form);
+    assert.ok(word?.admission.practiceEligible,row.form);
     const derivative=derivatives.get(word.id);
     assert.ok(derivative?.editorialStatus==='teacher_audit_approved',row.form);
     assert.equal(derivative.form,row.form);
@@ -144,7 +144,16 @@ export function createExpandedDecompositionCatalog(base,catalog,study,
     assert.equal(row.introducedAtUnit,'UD'+earliest,row.form);
     assert.ok(earliest>=1&&earliest<=12,row.form);
     assert.ok(row.meaning.length>20&&row.evidence.note.length>20,row.form);
-    assert.equal(row.evidence.url,'https://dle.rae.es/'+encodeURIComponent(row.form));
+    assert.ok(row.evidence.authority,row.form);
+    if(word.admission.status==='excepcion_cientifica'){
+      assert.ok(word.lexicographicCheck.scientificSources.some(source=>
+        source.url===row.evidence.url&&source.authority===row.evidence.authority),row.form);
+    }else{
+      assert.equal(word.lexicographicStatus,'dle_consultado_individualmente',row.form);
+      assert.equal(row.evidence.url,'https://dle.rae.es/'+encodeURIComponent(row.form));
+    }
+    for(const source of row.evidence.additionalSources||[])
+      assert.ok(source.authority&&source.url.startsWith('https://'),row.form);
     assert.match(row.evidence.checkedAt,/^\d{4}-\d{2}-\d{2}$/);
     return {id,derivativeId:word.id,form:row.form,meaning:row.meaning,parts,
       introducedAtUnit:row.introducedAtUnit,
@@ -153,6 +162,8 @@ export function createExpandedDecompositionCatalog(base,catalog,study,
   });
   const notes=readDecompositionTeachingNotes();
   const entries=[...pilot.entries,...newEntries].map(entry=>{
+    assert.ok(words.get(entry.form)?.admission.practiceEligible&&derivatives.has(entry.derivativeId),
+      entry.form+' no está admitida en el banco de práctica');
     const note=notes[entry.form];
     assert.ok(note,entry.form+' sin explicación semántica');
     assert.equal(note.definition,entry.meaning,entry.form);
@@ -162,11 +173,12 @@ export function createExpandedDecompositionCatalog(base,catalog,study,
   assert.equal(Object.keys(notes).length,entries.length,'Notas semánticas sin ejercicio');
   const other=catalog.derivatives.filter(d=>!seen.has(d.id)).map(d=>d.id);
   return {...pilot,status:'expanded_guided_practice_not_exam',entries,
-    audit:{catalogDerivatives:catalog.derivatives.length,approvedForPractice:entries.length,
+    audit:{catalogDerivatives:study.words.length,eligibleDerivatives:catalog.derivatives.length,
+      approvedForPractice:entries.length,
       awaitingIndividualDecompositionReview:other.length,unreviewedDerivativeIds:other}};
 }
 
-/** Notas propias, vinculadas al artículo del DLE, no transcripciones. */
+/** Glosas y explicaciones propias, contrastadas con la fuente de cada ejercicio. */
 export function readDecompositionTeachingNotes(){
   const data=JSON.parse(readFileSync(join(root,'shared/academic/greek-etymology/decomposition/gr1-teaching-notes-20261126.json'),'utf8'));
   assert.equal(data.schema,'etymologicon-decomposition-teaching-notes/v1');
@@ -174,7 +186,7 @@ export function readDecompositionTeachingNotes(){
   for(const [word,note] of Object.entries(data.words)){
     assert.equal(note.definitionType,'glosa_didactica_contrastada',word);
     assert.ok(note.definition.length>20&&note.etymologicalSense.length>20,word);
-    assert.ok(note.sourceUrl.startsWith('https://dle.rae.es/'),word);
+    assert.ok(note.sourceUrl.startsWith('https://'),word);
     assert.match(note.evidenceDate,/^\d{4}-\d{2}-\d{2}$/);
   }
   return data.words;

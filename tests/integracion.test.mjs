@@ -103,14 +103,18 @@ test('Etymologicon se construye con su pantalla, corrector y banco ampliado y ce
   assert.equal(learner.course,'gr1');
   assert.equal(learner.etymons.length,111);
   assert.ok(learner.extension&&learner.extension.newDerivatives>=100);
-  assert.equal(learner.derivatives.length,201+learner.extension.newDerivatives);
-  assert.equal(learner.relations.length,217+learner.extension.newRelations);
   assert.equal(learner.etymons.filter(x=>x.editorialStatus==='approved_for_documented_derivatives').length,108);
   assert.ok(!('editorialDecisions' in learner));
   assert.ok(!('definitions' in learner.derivatives[0]));
   const study=JSON.parse(readFileSync(join(dir,'data/gr1-study.json'),'utf8'));
   assert.equal(study.schema,'etymologicon-study-catalog/v1');
   assert.equal(study.words.length,487);
+  assert.equal(study.words.length,201+learner.extension.newDerivatives);
+  assert.equal(learner.derivatives.length,482);
+  assert.deepEqual(learner.derivatives.map(d=>d.id),
+    study.words.filter(w=>w.admission.practiceEligible).map(w=>w.id));
+  assert.equal(learner.relations.length,study.words.filter(w=>w.admission.practiceEligible)
+    .reduce((total,word)=>total+word.etymonIds.length,0));
   assert.equal(study.etymons.length,111);
   assert.ok(study.words.every(w=>w.definition&&w.components?.length&&w.dleUrl));
   assert.ok(study.words.find(w=>w.form==='filosofía').components.length>=2);

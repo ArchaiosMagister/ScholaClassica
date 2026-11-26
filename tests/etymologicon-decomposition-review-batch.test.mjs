@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {compileTeacherAudit} from '../scripts/compile-etymologicon-gr1.mjs';
-import {createLearnerCatalog} from '../scripts/build-etymologicon.mjs';
+import {createLearnerCatalog,createPracticeCatalog} from '../scripts/build-etymologicon.mjs';
 import {expandGreekI} from '../scripts/expand-etymologicon-gr1.mjs';
 import {createStudyCatalog} from '../scripts/compile-etymologicon-study.mjs';
 import {createDecompositionCatalog,createExpandedDecompositionCatalog} from '../scripts/compile-etymologicon-decomposition.mjs';
@@ -10,14 +10,16 @@ import {createDecompositionBank} from '../apps/etymologicon/decomposition.mjs';
 const base=compileTeacherAudit(),learners=createLearnerCatalog(base),expanded=expandGreekI(learners),study=createStudyCatalog(base,expanded);
 const batch=JSON.parse(readFileSync(new URL('../shared/academic/greek-etymology/decomposition/gr1-review-batch-20261126.json',import.meta.url),'utf8'));
 const pilot=createDecompositionCatalog(learners);
-const result=createExpandedDecompositionCatalog(learners,expanded,study);
+const practice=createPracticeCatalog(expanded,study);
+const result=createExpandedDecompositionCatalog(learners,practice,study);
 const engine=createDecompositionBank(result);
-test('74 ejercicios con definición y sentido etimológico, conservando las 16 fichas originales',()=>{
-  assert.equal(result.entries.length,74);
+test('106 ejercicios con definición y sentido etimológico, conservando las 16 fichas originales',()=>{
+  assert.equal(result.entries.length,106);
   assert.deepEqual(result.entries.slice(0,16).map(({etymologicalSense,definitionType,...entry})=>entry),pilot.entries);
   assert.equal(result.audit.catalogDerivatives,487);
-  assert.equal(result.audit.awaitingIndividualDecompositionReview,413);
-  assert.equal(engine.size,74);
+  assert.equal(result.audit.eligibleDerivatives,482);
+  assert.equal(result.audit.awaitingIndividualDecompositionReview,376);
+  assert.equal(engine.size,106);
   assert.equal(result.publicationAllowed,false);
   const expected={teocracia:'UD1','biografía':'UD2','cronología':'UD2','xilófono':'UD3','prólogo':'UD4','caligrafía':'UD5','polifonía':'UD5','geología':'UD6','dermatología':'UD8','monólogo':'UD12'};
   assert.deepEqual(Object.fromEntries(result.entries.slice(25,35).map(e=>[e.form,e.introducedAtUnit])),expected);
@@ -25,14 +27,18 @@ test('74 ejercicios con definición y sentido etimológico, conservando las 16 f
   assert.deepEqual(Object.fromEntries(result.entries.slice(35,55).map(e=>[e.form,e.introducedAtUnit])),latest);
   const fifth={"fonógrafo":"UD3","ergonomía":"UD3","doxología":"UD3","anacronismo":"UD4","autónomo":"UD7","ginecología":"UD8","oftalmología":"UD9","podología":"UD9","cefalalgia":"UD12","otalgia":"UD12"};
   assert.deepEqual(Object.fromEntries(result.entries.slice(55,65).map(e=>[e.form,e.introducedAtUnit])),fifth);
-  assert.deepEqual(Object.fromEntries(result.entries.slice(65).map(e=>[e.form,e.introducedAtUnit])),{"monoteísmo":"UD12","macrocéfalo":"UD9","microcosmos":"UD12","macrocosmos":"UD12","monografía":"UD12","polícromo":"UD12","bibliomanía":"UD11","gastralgia":"UD12","laringología":"UD9"});
-  assert.ok(!result.entries.some(e=>e.form==='neumología'||e.form==='hemofobia'));
+  assert.deepEqual(Object.fromEntries(result.entries.slice(65,74).map(e=>[e.form,e.introducedAtUnit])),{"monoteísmo":"UD12","macrocéfalo":"UD9","microcosmos":"UD12","macrocosmos":"UD12","monografía":"UD12","polícromo":"UD12","bibliomanía":"UD11","gastralgia":"UD12","laringología":"UD9"});
+  assert.ok(!result.entries.some(e=>!practice.derivatives.some(d=>d.id===e.derivativeId)));
+  const dendrology=engine.get('decomp:gr1:dendrologia');
+  assert.equal(dendrology.introducedAtUnit,'UD7');
+  assert.match(dendrology.evidence.url,/^https:\/\/www\.uhu\.es\//);
+  assert.equal(engine.get('decomp:gr1:periodo').form,'período');
   assert.match(study.words.find(w=>w.form==='doxología').connection,/gloria o alabanza/);
   for(const item of result.entries){
     assert.equal(item.definitionType,'glosa_didactica_contrastada',item.form);
     assert.ok(item.etymologicalSense.length>20,item.form);
     const word=study.words.find(w=>w.form===item.form);
-    assert.equal(word.dleDefinition,item.meaning,item.form);
+    assert.equal(word.reviewedDefinition,item.meaning,item.form);
     assert.equal(word.connection,item.etymologicalSense,item.form);
     assert.equal(item.enabledForExams,false);
     assert.equal(engine.grade(item.id,item.parts.map(p=>p.greek)).total,2,item.form);
@@ -53,10 +59,12 @@ test('el compilador rechaza candidatos sin autorización, duplicados o con unida
     x=>x.items[0].introducedAtUnit='UD1',
     x=>x.items[0].components[0].etymonId='grc:θεοσ',
     x=>x.items[0].enabledForExams=true,
-    x=>x.items[0].form='no_catalogada'
+    x=>x.items[0].form='no_catalogada',
+    x=>x.items[0].form='hemofobia',
+    x=>x.items.find(i=>i.form==='dendrología').evidence.url='https://dle.rae.es/dendrolog%C3%ADa'
   ]){
     const copy=structuredClone(batch);change(copy);
-    assert.throws(()=>createExpandedDecompositionCatalog(learners,expanded,study,copy));
+    assert.throws(()=>createExpandedDecompositionCatalog(learners,practice,study,copy));
   }
   const invalid=structuredClone(result);invalid.audit.approvedForPractice=16;
   assert.throws(()=>createDecompositionBank(invalid));
