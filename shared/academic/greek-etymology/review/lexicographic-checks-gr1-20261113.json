@@ -303,7 +303,7 @@
       "edition": "dle2026",
       "sourceUrl": "https://dle.rae.es/demagogo",
       "checkedAt": "2026-11-26",
-      "note": "Griego δημαγωγός."
+      "note": "Del griego δημαγωγός; el segundo elemento está emparentado con ἄγω, conducir."
     },
     "hidrografía": {
       "status": "dle_individual_contrastado",
@@ -352,7 +352,7 @@
       "edition": "dle2026",
       "sourceUrl": "https://dle.rae.es/xilograf%C3%ADa",
       "checkedAt": "2026-11-26",
-      "note": "xilo- + -grafía."
+      "note": "Composición culta de xilo- y -grafía, elementos de origen griego."
     },
     "paradoja": {
       "status": "dle_individual_contrastado",
@@ -416,6 +416,76 @@
       "sourceUrl": "https://dle.rae.es/cefal%C3%B3podo",
       "checkedAt": "2026-11-26",
       "note": "Latín científico Cephalopoda, de κεφαλή y -ποδος."
+    },
+    "fonógrafo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/fon%C3%B3grafo",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE identifica fono- y -grafo; el segundo formante se vincula a la familia de γράφω."
+    },
+    "ergonomía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/ergonom%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE identifica ἔργον y -nomía, formante relacionado con νόμος."
+    },
+    "doxología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/doxolog%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE registra latín medieval doxologia, procedente del griego δοξολογία."
+    },
+    "anacronismo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/anacronismo",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE remite al griego ἀναχρονισμός; se explica mediante ἀνά y χρόνος, con formación nominal ulterior."
+    },
+    "autónomo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/aut%C3%B3nomo",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE documenta el griego αὐτόνομος; la base νόμος expresa ley o norma."
+    },
+    "ginecología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/ginecolog%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE identifica gineco- y -logía, elementos compositivos de origen griego."
+    },
+    "oftalmología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/oftalmolog%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE identifica el griego ὀφθαλμός y el elemento compositivo -logía."
+    },
+    "podología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/podolog%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE identifica podo- y -logía; podo- refleja el tema ποδ- de πούς, ποδός."
+    },
+    "cefalalgia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cefalalgia",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE registra latín cephalalgia, del griego κεφαλαλγία; remite a cefalea."
+    },
+    "otalgia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/otalgia",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE registra latín científico otalgia, del griego ὠταλγία, de οὖς, ὠτός y -αλγία."
     }
   },
   "lastSupplementAt": "2026-11-26"

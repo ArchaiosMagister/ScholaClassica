@@ -543,7 +543,7 @@ try{
   assert.equal(await page.locator('#etymon-field').isHidden(),true);
   const decompositionCatalog=JSON.parse(await readFile(join(root,'apps/etymologicon/data/gr1-decomposition.json'),'utf8'));
   assert.equal(decompositionCatalog.entries.length,decompositionCatalog.audit.approvedForPractice);
-  assert.ok(decompositionCatalog.entries.length>=55,'El banco ampliado no debe perder ejercicios');
+  assert.ok(decompositionCatalog.entries.length>=65,'El banco ampliado no debe perder ejercicios');
   assert.equal((await page.locator('#pool-size').textContent()).trim(),
     decompositionCatalog.entries.length+' palabras descomponibles en esta selección');
   const firstCompound=await page.evaluate(async()=>{

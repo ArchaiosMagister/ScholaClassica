@@ -748,7 +748,7 @@
         "authority": "RAE-ASALE · DLE 24.ª",
         "url": "https://dle.rae.es/demagogo",
         "checkedAt": "2026-11-26",
-        "note": "Griego δημαγωγός."
+        "note": "Del griego δημαγωγός; el segundo elemento está emparentado con ἄγω, conducir."
       },
       "enabledForPractice": true,
       "enabledForExams": false
@@ -979,7 +979,7 @@
         "authority": "RAE-ASALE · DLE 24.ª",
         "url": "https://dle.rae.es/xilograf%C3%ADa",
         "checkedAt": "2026-11-26",
-        "note": "xilo- + -grafía."
+        "note": "Composición culta de xilo- y -grafía, elementos de origen griego."
       },
       "enabledForPractice": true,
       "enabledForExams": false
@@ -1276,6 +1276,328 @@
         "url": "https://dle.rae.es/cefal%C3%B3podo",
         "checkedAt": "2026-11-26",
         "note": "Latín científico Cephalopoda, de κεφαλή y -ποδος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "fonógrafo",
+      "components": [
+        {
+          "greek": "φωνή",
+          "combiningForm": "fono-",
+          "etymonId": "grc:φωνη",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafo",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Aparato que registra o reproduce sonidos mediante las vibraciones grabadas en un disco o cilindro.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/fon%C3%B3grafo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica fono- y -grafo; el segundo formante se vincula a la familia de γράφω."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "ergonomía",
+      "components": [
+        {
+          "greek": "ἔργον",
+          "combiningForm": "ergo-",
+          "etymonId": "grc:εργον",
+          "latinAccepted": [
+            "ergon"
+          ]
+        },
+        {
+          "greek": "νόμος",
+          "combiningForm": "-nomía",
+          "etymonId": "grc:νομοσ",
+          "latinAccepted": [
+            "nomos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Disciplina que adapta equipos y utensilios a quienes los utilizan para mejorar la comodidad y la eficacia; también esa cualidad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/ergonom%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica ἔργον y -nomía, formante relacionado con νόμος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "doxología",
+      "components": [
+        {
+          "greek": "δόξα",
+          "combiningForm": "doxo-",
+          "etymonId": "grc:δοξα",
+          "latinAccepted": [
+            "doxa"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Expresión litúrgica o bíblica de alabanza a Dios, en particular a la Trinidad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/doxolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra latín medieval doxologia, procedente del griego δοξολογία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "anacronismo",
+      "components": [
+        {
+          "greek": "ἀνά",
+          "combiningForm": "ana-",
+          "etymonId": "grc:ανα",
+          "latinAccepted": [
+            "ana"
+          ]
+        },
+        {
+          "greek": "χρόνος",
+          "combiningForm": "cron-",
+          "etymonId": "grc:χρονοσ",
+          "latinAccepted": [
+            "chronos",
+            "khronos",
+            "cronos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Confusión de épocas o atribución a un período de algo que no le corresponde; también una persona o cosa fuera de su tiempo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/anacronismo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego ἀναχρονισμός; se explica mediante ἀνά y χρόνος, con formación nominal ulterior."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "autónomo",
+      "components": [
+        {
+          "greek": "αὐτός",
+          "combiningForm": "auto-",
+          "etymonId": "grc:αυτοσ",
+          "latinAccepted": [
+            "autos"
+          ]
+        },
+        {
+          "greek": "νόμος",
+          "combiningForm": "-nomo",
+          "etymonId": "grc:νομοσ",
+          "latinAccepted": [
+            "nomos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Que puede regirse o desenvolverse por sí mismo, sin dependencia ajena; también quien trabaja por cuenta propia.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/aut%C3%B3nomo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE documenta el griego αὐτόνομος; la base νόμος expresa ley o norma."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "ginecología",
+      "components": [
+        {
+          "greek": "γυνή",
+          "combiningForm": "gineco-",
+          "etymonId": "grc:γυνη",
+          "latinAccepted": [
+            "gyne",
+            "gune",
+            "gine"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Especialidad médica dedicada al aparato reproductor femenino y a sus trastornos.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/ginecolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica gineco- y -logía, elementos compositivos de origen griego."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "oftalmología",
+      "components": [
+        {
+          "greek": "ὀφθαλμός",
+          "combiningForm": "oftalmo-",
+          "etymonId": "grc:οφθαλμοσ",
+          "latinAccepted": [
+            "ophthalmos",
+            "oftalmos"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Especialidad médica dedicada a las afecciones oculares.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/oftalmolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica el griego ὀφθαλμός y el elemento compositivo -logía."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "podología",
+      "components": [
+        {
+          "greek": "πούς",
+          "combiningForm": "podo-",
+          "etymonId": "grc:πουσ",
+          "latinAccepted": [
+            "pous",
+            "pus"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Profesión sanitaria centrada en el conocimiento y la atención de los pies.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/podolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica podo- y -logía; podo- refleja el tema ποδ- de πούς, ποδός."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cefalalgia",
+      "components": [
+        {
+          "greek": "κεφαλή",
+          "combiningForm": "cefal-",
+          "etymonId": "grc:κεφαλη",
+          "latinAccepted": [
+            "kephale",
+            "cephale",
+            "kefale",
+            "cefale"
+          ]
+        },
+        {
+          "greek": "ἄλγος",
+          "combiningForm": "-algia",
+          "etymonId": "grc:αλγοσ",
+          "latinAccepted": [
+            "algos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Dolor localizado en la cabeza, denominado también cefalea.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cefalalgia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra latín cephalalgia, del griego κεφαλαλγία; remite a cefalea."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "otalgia",
+      "components": [
+        {
+          "greek": "οὖς",
+          "combiningForm": "ot-",
+          "etymonId": "grc:ουσ",
+          "latinAccepted": [
+            "ous",
+            "us"
+          ]
+        },
+        {
+          "greek": "ἄλγος",
+          "combiningForm": "-algia",
+          "etymonId": "grc:αλγοσ",
+          "latinAccepted": [
+            "algos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Sensación dolorosa localizada en el oído.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/otalgia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra latín científico otalgia, del griego ὠταλγία, de οὖς, ὠτός y -αλγία."
       },
       "enabledForPractice": true,
       "enabledForExams": false

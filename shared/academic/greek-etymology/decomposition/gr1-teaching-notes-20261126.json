@@ -442,6 +442,86 @@
       "source": "DLE RAE-ASALE",
       "evidenceDate": "2026-11-26",
       "definitionType": "glosa_didactica_contrastada"
+    },
+    "fonógrafo": {
+      "definition": "Aparato que registra o reproduce sonidos mediante las vibraciones grabadas en un disco o cilindro.",
+      "etymologicalSense": "El registro de la voz o el sonido se concreta en la inscripción mecánica de sus vibraciones para reproducirlas después.",
+      "sourceUrl": "https://dle.rae.es/fon%C3%B3grafo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "ergonomía": {
+      "definition": "Disciplina que adapta equipos y utensilios a quienes los utilizan para mejorar la comodidad y la eficacia; también esa cualidad.",
+      "etymologicalSense": "La organización del trabajo se concreta en el diseño de herramientas y entornos adaptados a las capacidades de las personas.",
+      "sourceUrl": "https://dle.rae.es/ergonom%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "doxología": {
+      "definition": "Expresión litúrgica o bíblica de alabanza a Dios, en particular a la Trinidad.",
+      "etymologicalSense": "Aquí δόξα tiene el valor de gloria o alabanza, no el de opinión: designa una expresión verbal de glorificación de Dios.",
+      "sourceUrl": "https://dle.rae.es/doxolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "anacronismo": {
+      "definition": "Confusión de épocas o atribución a un período de algo que no le corresponde; también una persona o cosa fuera de su tiempo.",
+      "etymologicalSense": "El desplazamiento respecto al tiempo correspondiente explica el error de situar algo en otra época o considerarlo desfasado.",
+      "sourceUrl": "https://dle.rae.es/anacronismo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "autónomo": {
+      "definition": "Que puede regirse o desenvolverse por sí mismo, sin dependencia ajena; también quien trabaja por cuenta propia.",
+      "etymologicalSense": "La idea de regirse por las propias leyes se amplía a la independencia personal, institucional o laboral.",
+      "sourceUrl": "https://dle.rae.es/aut%C3%B3nomo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "ginecología": {
+      "definition": "Especialidad médica dedicada al aparato reproductor femenino y a sus trastornos.",
+      "etymologicalSense": "La referencia a la mujer se especializa en la atención médica de su aparato reproductor. El tema γυναικ- explica gineco-.",
+      "sourceUrl": "https://dle.rae.es/ginecolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "oftalmología": {
+      "definition": "Especialidad médica dedicada a las afecciones oculares.",
+      "etymologicalSense": "La idea de estudio del ojo se concreta en la disciplina médica que aborda sus enfermedades.",
+      "sourceUrl": "https://dle.rae.es/oftalmolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "podología": {
+      "definition": "Profesión sanitaria centrada en el conocimiento y la atención de los pies.",
+      "etymologicalSense": "El estudio del pie se especializa en el cuidado sanitario de esta parte del cuerpo; el genitivo ποδός explica podo-.",
+      "sourceUrl": "https://dle.rae.es/podolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cefalalgia": {
+      "definition": "Dolor localizado en la cabeza, denominado también cefalea.",
+      "etymologicalSense": "La asociación de cabeza y dolor nombra directamente la localización de la molestia.",
+      "sourceUrl": "https://dle.rae.es/cefalalgia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "otalgia": {
+      "definition": "Sensación dolorosa localizada en el oído.",
+      "etymologicalSense": "La unión de oído y dolor da nombre al síntoma. El tema ὠτ- del genitivo ὠτός explica ot-.",
+      "sourceUrl": "https://dle.rae.es/otalgia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
     }
   }
 }

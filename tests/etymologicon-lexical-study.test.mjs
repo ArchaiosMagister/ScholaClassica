@@ -116,10 +116,10 @@ test('cotejo por los tres PDF preserva trazabilidad real y no equivale al DLE',(
   const sources=readSourceConcordance();
   const checks=readLexicographicChecks();
   assert.equal(Object.keys(sources.firstPageByTerm).length,487);
-  assert.equal(Object.keys(checks.records).length,62);
+  assert.equal(Object.keys(checks.records).length,72);
   assert.equal(study.audit.pdfAttested,475);
   assert.equal(study.audit.pdfNoExactMatch,12);
-  assert.equal(study.audit.individuallyCheckedDleThisReview,58);
+  assert.equal(study.audit.individuallyCheckedDleThisReview,68);
   assert.equal(study.audit.individuallyCheckedSpecialistThisReview,2);
   assert.equal(study.audit.confirmedNotIndependentDleThisReview,2);
   assert.ok(study.audit.individualDleChecks<487,
