@@ -1,13 +1,16 @@
+import { latin1Units } from './banco.mjs';
 import { studyFamilies, familyOrigins } from './study.mjs';
 
 const byId = id => document.getElementById(id);
 const search = byId('study-search');
 const filter = byId('study-family');
+const unit = byId('study-unit');
 const entries = byId('study-entries');
 const count = byId('study-count');
 const empty = byId('study-empty');
 const latinI = new URLSearchParams(location.search).get('subject') === 'lat1';
 if (latinI) {
+  byId('study-unit-wrap').hidden = false;
   byId('module-context').textContent = 'Latín I · Formación de palabras';
   byId('practice-link').href = './index.html?subject=lat1';
   document.querySelector('.preverbial-modes [aria-current="page"]').href = './estudio.html?subject=lat1';
@@ -54,6 +57,7 @@ function familyCard(base, family) {
   details.className = 'practice-card study-family';
   const summary = el('summary');
   summary.append(el('i', family.entry, 'la'), el('span', ' — ' + family.meaning));
+  if (latinI) summary.append(el('span', ' · UD' + latin1Units[base]));
   const origins = el('ul');
   origins.className = 'study-origins';
   origins.append(...familyOrigins(base, family).map(originCard));
@@ -61,14 +65,20 @@ function familyCard(base, family) {
   return details;
 }
 
-for (const [base, family] of studyFamilies()) {
+function populateFamilies() {
+  const current = filter.value;
+  filter.replaceChildren(new Option('Todas las familias', 'all'));
+  for (const [base, family] of studyFamilies('', 'all', { latinI, unit: unit.value })) {
   const option = el('option', base + ' · ' + family.meaning);
   option.value = base;
   filter.append(option);
+  }
+  if ([...filter.options].some(option => option.value === current)) filter.value = current;
 }
+populateFamilies();
 
 function render() {
-  const matches = studyFamilies(search.value, filter.value);
+  const matches = studyFamilies(search.value, filter.value, { latinI, unit: unit.value });
   const reveal = Boolean(search.value.trim()) || filter.value !== 'all';
   entries.replaceChildren(...matches.map(([base, family]) => {
     const card = familyCard(base, family);
@@ -80,6 +90,7 @@ function render() {
 }
 search.addEventListener('input', render);
 filter.addEventListener('change', render);
+unit.addEventListener('change', () => { populateFamilies(); render(); });
 byId('study-expand').addEventListener('click', () => {
   for (const card of entries.children) card.open = true;
 });
