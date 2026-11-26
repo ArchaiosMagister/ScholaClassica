@@ -79,7 +79,7 @@ function appendComponentList(target,parts){
 function renderWord(word){
   const card=element('article',null,'lexical-word');
   const heading=element('h3',word.form,'lexical-word-title');
-  const meaning=element('p',word.definition,'lexical-definition');
+  const meaning=element('p',word.reviewedDefinition||word.definition,'lexical-definition');
   const componentsTitle=element('p',word.components.length>1?'Componentes etimológicos':'Étimo relacionado','lexical-small-label');
   const explanation=element('p',word.connection,'lexical-connection');
   const meta=element('div',null,'lexical-word-meta');
@@ -89,17 +89,27 @@ function renderWord(word){
   link.target='_blank';link.rel='noopener noreferrer';
   link.setAttribute('aria-label','Consultar '+word.form+' en el Diccionario de la lengua española');
   meta.append(link);
-  card.append(heading,meaning,componentsTitle);
+  card.append(heading);
+  if(word.reviewedDefinition)card.append(element('p','Definición contrastada','lexical-small-label'));
+  card.append(meaning,componentsTitle);
   appendComponentList(card,word.components);
+  if(word.reviewedDefinition)card.append(element('p','Sentido etimológico','lexical-small-label'));
   card.append(explanation,meta);
-  if(check?.sourceUrl&&check.status!=='dle_individual_contrastado'&&
-     check.status!=='dle_no_incluye_entrada_independiente'){
-    const sourceLink=element('a','Consultar la fuente especializada');
-    sourceLink.href=check.sourceUrl;
+  const references=check?.scientificSources||[];
+  for(const {authority,url} of references){
+    const sourceLink=element('a',authority,'lexical-evidence-link');
+    sourceLink.href=url;
     sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';
-    sourceLink.className='lexical-evidence-link';
-    card.append(sourceLink);
+    meta.append(sourceLink);
   }
+  if(check?.secondarySource){
+    const sourceLink=element('a','Referencia complementaria','lexical-evidence-link');
+    sourceLink.href=check.secondarySource;
+    sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';
+    meta.append(sourceLink);
+  }
+  if(word.admission&&!word.admission.practiceEligible)
+    card.append(element('p','Solo consulta','lexical-small-label'));
   if(word.editorialNote)
     card.append(element('p',word.editorialNote,'lexical-alert'));
   return card;
@@ -114,13 +124,14 @@ function render(){
   const unit=ui.unit.value;
   const byId=new Map(data.words.map(w=>[w.id,w]));
   const matches=[];
+  const matchesWord=word=>normalize(word.form+' '+(word.reviewedDefinition||word.definition)+' '+
+    word.components.map(c=>c.greek+' '+c.gloss).join(' ')).includes(query);
   for(const etymon of data.etymons){
     if(unit!=='all'&&!etymon.units.includes(unit))continue;
     const headerMatch=normalize(etymon.lemma+' '+etymon.meaning).includes(query);
     const words=etymon.wordIds.map(id=>byId.get(id)).filter(Boolean);
     const visible=query&&!headerMatch
-      ?words.filter(word=>normalize(word.form+' '+word.definition+' '+
-        word.components.map(c=>c.greek+' '+c.gloss).join(' ')).includes(query))
+      ?words.filter(matchesWord)
       :words;
     if(query&&!headerMatch&&!visible.length)continue;
     matches.push({etymon,words:visible});
@@ -159,8 +170,16 @@ function render(){
     group.dataset.etymonId=item.etymon.id;
     fragment.append(group);
   }
+  const standalone=unit==='all'?data.words.filter(w=>!w.etymonIds.length&&matchesWord(w)):[];
+  if(standalone.length){
+    const section=element('section',null,'lexicon-word-list');
+    section.append(element('h2','Fichas sin étimo curricular'));
+    for(const word of standalone)section.append(renderWord(word));
+    fragment.append(section);
+    shownWords+=standalone.length;
+  }
   ui.container.replaceChildren(fragment);
-  ui.empty.hidden=matches.length>0;
+  ui.empty.hidden=matches.length>0||standalone.length>0;
   ui.count.textContent=matches.length+' étimos · '+shownWords+' derivados mostrados';
   ui.expand.disabled=matches.length===0;
   ui.collapse.disabled=matches.length===0;

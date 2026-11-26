@@ -1,0 +1,2966 @@
+{
+  "schema": "etymologicon-decomposition-review-batch/v1",
+  "course": "gr1",
+  "reviewDate": "2026-11-26",
+  "status": "approved_for_guided_practice_not_exam",
+  "publicationAllowed": false,
+  "policy": "Cotejo individual del artículo español y segmentación didáctica. Incorporación explícita únicamente a práctica guiada; no habilita exámenes ni autoriza automáticamente otros derivados. Unidad de introducción: primera en que se han estudiado ambos componentes.",
+  "items": [
+    {
+      "form": "cacofonía",
+      "components": [
+        {
+          "greek": "κακός",
+          "combiningForm": "caco-",
+          "etymonId": "grc:κακοσ",
+          "latinAccepted": [
+            "kakos",
+            "cacos"
+          ]
+        },
+        {
+          "greek": "φωνή",
+          "combiningForm": "-fonía",
+          "etymonId": "grc:φωνη",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Disonancia en la combinación de sonidos del habla.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cacofon%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego κακοφωνία; las dos bases explican la acepción."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "anfibio",
+      "components": [
+        {
+          "greek": "ἀμφί",
+          "combiningForm": "anfi-",
+          "etymonId": "grc:αμφι",
+          "latinAccepted": [
+            "amphi",
+            "amfi"
+          ]
+        },
+        {
+          "greek": "βίος",
+          "combiningForm": "-bio",
+          "etymonId": "grc:βιοσ",
+          "latinAccepted": [
+            "bios"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Vertebrado que, típicamente, pasa de una fase larvaria acuática a la adulta terrestre o semiacuática.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/anfibio",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín amphibion, procedente de ἀμφίβιος; el significado zoológico se ha especializado."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "apogeo",
+      "components": [
+        {
+          "greek": "ἀπό",
+          "combiningForm": "apo-",
+          "etymonId": "grc:απο",
+          "latinAccepted": [
+            "apo"
+          ]
+        },
+        {
+          "greek": "γῆ",
+          "combiningForm": "-geo",
+          "etymonId": "grc:γη",
+          "latinAccepted": [
+            "ge"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Punto de una órbita terrestre más alejado del centro de la Tierra; figuradamente, culminación.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/apogeo",
+        "checkedAt": "2026-11-26",
+        "note": "Vía latín apogeum, del griego ἀπόγειον; distinguir la acepción astronómica de la figurada."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "autocracia",
+      "components": [
+        {
+          "greek": "αὐτός",
+          "combiningForm": "auto-",
+          "etymonId": "grc:αυτοσ",
+          "latinAccepted": [
+            "autos"
+          ]
+        },
+        {
+          "greek": "κράτος",
+          "combiningForm": "-cracia",
+          "etymonId": "grc:κρατοσ",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Régimen en que una persona concentra el poder supremo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/autocracia",
+        "checkedAt": "2026-11-26",
+        "note": "Vía francés autocratie, del griego αὐτοκράτεια; -cracia se vincula a κράτος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "anatomía",
+      "components": [
+        {
+          "greek": "ἀνά",
+          "combiningForm": "ana-",
+          "etymonId": "grc:ανα",
+          "latinAccepted": [
+            "ana"
+          ]
+        },
+        {
+          "greek": "τομή",
+          "combiningForm": "-tomía",
+          "etymonId": "grc:τομη",
+          "latinAccepted": [
+            "tome"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD10",
+      "meaning": "Disciplina que estudia la estructura de los seres vivos.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/anatom%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Vía latín tardío anatomia, del griego ἀνατομία, disección; el prefijo se interpreta en el compuesto histórico."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cardiología",
+      "components": [
+        {
+          "greek": "καρδία",
+          "combiningForm": "cardio-",
+          "etymonId": "grc:καρδια",
+          "latinAccepted": [
+            "kardia",
+            "cardia"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Estudio médico del corazón, su funcionamiento y sus enfermedades.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cardiolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica cardio- y -logía; ambos elementos tienen artículos propios. λόγος es la base léxica escolar de -logía.",
+        "additionalUrls": [
+          "https://dle.rae.es/cardio-",
+          "https://dle.rae.es/-log%C3%ADa"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cacografía",
+      "components": [
+        {
+          "greek": "κακός",
+          "combiningForm": "caco-",
+          "etymonId": "grc:κακοσ",
+          "latinAccepted": [
+            "kakos",
+            "cacos"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafía",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Escritura que infringe las convenciones ortográficas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cacograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE señala κακός y -grafía; γράφω es la base escolar, no el segundo étimo inmediato del sustantivo."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "autógrafo",
+      "components": [
+        {
+          "greek": "αὐτός",
+          "combiningForm": "auto-",
+          "etymonId": "grc:αυτοσ",
+          "latinAccepted": [
+            "autos"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafo",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Firma de una persona conocida; también, escrito realizado de propia mano por su autor.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/aut%C3%B3grafo",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín autographus, procedente de αὐτόγραφος; distinguir las dos acepciones."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "talasocracia",
+      "components": [
+        {
+          "greek": "θάλαττα",
+          "combiningForm": "talaso-",
+          "etymonId": "grc:θαλαττα",
+          "latinAccepted": [
+            "thalatta",
+            "talatta",
+            "thalassa",
+            "talassa"
+          ],
+          "greekAccepted": [
+            "θάλασσα"
+          ]
+        },
+        {
+          "greek": "κράτος",
+          "combiningForm": "-cracia",
+          "etymonId": "grc:κρατοσ",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Predominio político basado en el control marítimo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/talasocracia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra θάλασσα y -cracia; θάλαττα es la variante ática curricular."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "teocracia",
+      "components": [
+        {
+          "greek": "θεός",
+          "etymonId": "grc:θεοσ",
+          "combiningForm": "teo-",
+          "latinAccepted": [
+            "theos",
+            "teos"
+          ]
+        },
+        {
+          "greek": "κράτος",
+          "etymonId": "grc:κρατοσ",
+          "combiningForm": "-cracia",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD1",
+      "meaning": "Sistema de gobierno que fundamenta la autoridad política en un poder divino o religioso.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/teocracia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE señala una posible mediación francesa (théocratie), a partir de θεοκρατία. No se afirma como segura esa vía."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "biografía",
+      "components": [
+        {
+          "greek": "βίος",
+          "etymonId": "grc:βιοσ",
+          "combiningForm": "bio-",
+          "latinAccepted": [
+            "bios"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "etymonId": "grc:γραφω",
+          "combiningForm": "-grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD2",
+      "meaning": "Relato de la trayectoria vital de una persona.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/biograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra el griego bizantino βιογραφία; γράφω se utiliza como base léxica escolar de -grafía."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cronología",
+      "components": [
+        {
+          "greek": "χρόνος",
+          "etymonId": "grc:χρονοσ",
+          "combiningForm": "crono-",
+          "latinAccepted": [
+            "chronos",
+            "khronos",
+            "cronos"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD2",
+      "meaning": "Ordenación temporal de acontecimientos y disciplina que determina sus fechas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cronolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego χρονολογία. Se explica el compuesto mediante χρόνος y la familia de λόγος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "xilófono",
+      "components": [
+        {
+          "greek": "ξύλον",
+          "etymonId": "grc:ξυλον",
+          "combiningForm": "xilo-",
+          "latinAccepted": [
+            "xylon",
+            "xulon",
+            "xilon"
+          ]
+        },
+        {
+          "greek": "φωνή",
+          "etymonId": "grc:φωνη",
+          "combiningForm": "-fono",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Instrumento de percusión con láminas de distinto tono que se golpean con baquetas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/xil%C3%B3fono",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE lo analiza como xilo- y -fono; las bases griegas son ξύλον y φωνή."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "prólogo",
+      "components": [
+        {
+          "greek": "πρό",
+          "etymonId": "grc:προ",
+          "combiningForm": "pro-",
+          "latinAccepted": [
+            "pro"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logo",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Texto que precede a una obra y sirve de introducción a su lectura.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/pr%C3%B3logo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego πρόλογος, compuesto histórico de πρό y λόγος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "caligrafía",
+      "components": [
+        {
+          "greek": "καλός",
+          "etymonId": "grc:καλοσ",
+          "combiningForm": "cali-",
+          "latinAccepted": [
+            "kalos",
+            "calos"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "etymonId": "grc:γραφω",
+          "combiningForm": "-grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Arte de escribir con letra cuidada; también los rasgos particulares de una escritura.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/caligraf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra la mediación francesa calligraphie desde καλλιγραφία, derivado de καλλιγράφος. El primer formante refleja καλλι-."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "polifonía",
+      "components": [
+        {
+          "greek": "πολύς",
+          "etymonId": "grc:πολυσ",
+          "combiningForm": "poli-",
+          "latinAccepted": [
+            "polys",
+            "polus"
+          ]
+        },
+        {
+          "greek": "φωνή",
+          "etymonId": "grc:φωνη",
+          "combiningForm": "-fonía",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Organización musical que combina simultáneamente varias líneas sonoras con identidad propia.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/polifon%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego πολυφωνία; las bases escolares explican la pluralidad de voces."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "geología",
+      "components": [
+        {
+          "greek": "γῆ",
+          "etymonId": "grc:γη",
+          "combiningForm": "geo-",
+          "latinAccepted": [
+            "ge"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Ciencia que estudia la composición, la estructura y la historia de la Tierra.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/geolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica geo- y -logía. Se distinguen estos formantes modernos de sus bases griegas."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "dermatología",
+      "components": [
+        {
+          "greek": "δέρμα",
+          "etymonId": "grc:δερμα",
+          "combiningForm": "dermato-",
+          "latinAccepted": [
+            "derma"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Especialidad médica dedicada a la piel y sus enfermedades.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/dermatolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica dermato- y -logía. δέρμα, δέρματος explica el tema dermat-."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "monólogo",
+      "components": [
+        {
+          "greek": "μόνος",
+          "etymonId": "grc:μονοσ",
+          "combiningForm": "mono-",
+          "latinAccepted": [
+            "monos"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logo",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Discurso de una persona sin intervención verbal de un interlocutor.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/mon%C3%B3logo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra la mediación del francés monologue, compuesto mediante mono- y -logue."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "fonología",
+      "components": [
+        {
+          "greek": "φωνή",
+          "combiningForm": "fono-",
+          "etymonId": "grc:φωνη",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Rama de la lingüística que estudia la organización de los sonidos y los rasgos suprasegmentales según su función distintiva.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/fonolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "fono- + -logía, composición culta."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "diálogo",
+      "components": [
+        {
+          "greek": "διά",
+          "combiningForm": "dia-",
+          "etymonId": "grc:δια",
+          "latinAccepted": [
+            "dia"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logo",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Conversación en la que varias personas intercambian ideas o sentimientos; también conversación orientada al acuerdo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/di%C3%A1logo",
+        "checkedAt": "2026-11-26",
+        "note": "Latín dialogus, del griego διάλογος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "politeísmo",
+      "components": [
+        {
+          "greek": "πολύς",
+          "combiningForm": "poli-",
+          "etymonId": "grc:πολυσ",
+          "latinAccepted": [
+            "polys",
+            "polus"
+          ]
+        },
+        {
+          "greek": "θεός",
+          "combiningForm": "teo-",
+          "etymonId": "grc:θεοσ",
+          "latinAccepted": [
+            "theos",
+            "teos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Creencia religiosa que admite la existencia de más de una divinidad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/polite%C3%ADsmo",
+        "checkedAt": "2026-11-26",
+        "note": "poli-¹ + teísmo; formación indirecta a través de teo-."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "demagogo",
+      "components": [
+        {
+          "greek": "δῆμος",
+          "combiningForm": "dem(o)-",
+          "etymonId": "grc:δημοσ",
+          "latinAccepted": [
+            "demos"
+          ]
+        },
+        {
+          "greek": "ἄγω",
+          "combiningForm": "-agogo",
+          "etymonId": "grc:αγω",
+          "latinAccepted": [
+            "ago"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Persona que recurre a la demagogia; también dirigente popular u orador que busca influencia agitando a la población.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/demagogo",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego δημαγωγός; el segundo elemento está emparentado con ἄγω, conducir."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "hidrografía",
+      "components": [
+        {
+          "greek": "ὕδωρ",
+          "combiningForm": "hidro-",
+          "etymonId": "grc:υδωρ",
+          "latinAccepted": [
+            "hydor",
+            "hudor",
+            "hidor"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafía",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Disciplina de la geografía física dedicada a describir las aguas terrestres; también las aguas de una región.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/hidrograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Deriva de hidrógrafo; hidro- y familia de -grafía."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "autodidacta",
+      "components": [
+        {
+          "greek": "αὐτός",
+          "combiningForm": "auto-",
+          "etymonId": "grc:αυτοσ",
+          "latinAccepted": [
+            "autos"
+          ]
+        },
+        {
+          "greek": "διδάσκω",
+          "combiningForm": "-didacta",
+          "etymonId": "grc:διδασκω",
+          "latinAccepted": [
+            "didasko",
+            "didasco"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Persona que adquiere conocimientos por su cuenta; también lo que caracteriza ese modo de aprendizaje.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/autodidacta",
+        "checkedAt": "2026-11-26",
+        "note": "Francés autodidacte, del griego αὐτοδίδακτος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "iconografía",
+      "components": [
+        {
+          "greek": "εἰκών",
+          "combiningForm": "icono-",
+          "etymonId": "grc:εικων",
+          "latinAccepted": [
+            "eikon",
+            "eicon"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafía",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Repertorio o sistema de imágenes sobre un tema, así como el arte y estudio de sus representaciones.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/iconograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Latín medieval iconographia, del griego εἰκονογραφία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "hipodérmico",
+      "components": [
+        {
+          "greek": "ὑπό",
+          "combiningForm": "hipo-",
+          "etymonId": "grc:υπο",
+          "latinAccepted": [
+            "hypo",
+            "hupo",
+            "hipo"
+          ]
+        },
+        {
+          "greek": "δέρμα",
+          "combiningForm": "derm-",
+          "etymonId": "grc:δερμα",
+          "latinAccepted": [
+            "derma"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Situado o introducido por debajo de la piel.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/hipod%C3%A9rmico",
+        "checkedAt": "2026-11-26",
+        "note": "Deriva de hipodermis con el sufijo -ico; bases últimas griegas."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "plutocracia",
+      "components": [
+        {
+          "greek": "πλοῦτος",
+          "combiningForm": "pluto-",
+          "etymonId": "grc:πλουτοσ",
+          "latinAccepted": [
+            "ploutos",
+            "plutos"
+          ]
+        },
+        {
+          "greek": "κράτος",
+          "combiningForm": "-cracia",
+          "etymonId": "grc:κρατοσ",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Situación política en que quienes poseen grandes riquezas ejercen una influencia predominante en el gobierno.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/plutocracia",
+        "checkedAt": "2026-11-26",
+        "note": "Posible vía francesa desde πλουτοκρατία, según el DLE."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cosmopolita",
+      "components": [
+        {
+          "greek": "κόσμος",
+          "combiningForm": "cosmo-",
+          "etymonId": "grc:κοσμοσ",
+          "latinAccepted": [
+            "kosmos",
+            "cosmos"
+          ]
+        },
+        {
+          "greek": "πόλις",
+          "combiningForm": "-polita",
+          "etymonId": "grc:πολισ",
+          "latinAccepted": [
+            "polis"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Persona familiarizada con culturas de distintos países y abierta a ellas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cosmopolita",
+        "checkedAt": "2026-11-26",
+        "note": "Francés cosmopolite, del griego κοσμοπολίτης; πολίτης pertenece a la familia de πόλις."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "xilografía",
+      "components": [
+        {
+          "greek": "ξύλον",
+          "combiningForm": "xilo-",
+          "etymonId": "grc:ξυλον",
+          "latinAccepted": [
+            "xylon",
+            "xulon",
+            "xilon"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafía",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD2",
+      "meaning": "Técnica de grabado sobre madera y las impresiones obtenidas de planchas talladas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/xilograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Composición culta de xilo- y -grafía, elementos de origen griego."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "paradoja",
+      "components": [
+        {
+          "greek": "παρά",
+          "combiningForm": "para-",
+          "etymonId": "grc:παρα",
+          "latinAccepted": [
+            "para"
+          ]
+        },
+        {
+          "greek": "δόξα",
+          "combiningForm": "-doja",
+          "etymonId": "grc:δοξα",
+          "latinAccepted": [
+            "doxa"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Hecho o afirmación que parece contradecir la lógica.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/paradoja",
+        "checkedAt": "2026-11-26",
+        "note": "Latín paradoxa, del plural neutro griego παράδοξα; artículo paradojo, paradoja."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "megafonía",
+      "components": [
+        {
+          "greek": "μέγας",
+          "combiningForm": "mega-",
+          "etymonId": "grc:μεγασ",
+          "latinAccepted": [
+            "megas"
+          ]
+        },
+        {
+          "greek": "φωνή",
+          "combiningForm": "-fonía",
+          "etymonId": "grc:φωνη",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Técnica de amplificación sonora y conjunto de equipos que permiten aumentar el volumen del sonido.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/megafon%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "mega- + griego -φωνία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "anáfora",
+      "components": [
+        {
+          "greek": "ἀνά",
+          "combiningForm": "ana-",
+          "etymonId": "grc:ανα",
+          "latinAccepted": [
+            "ana"
+          ]
+        },
+        {
+          "greek": "φέρω",
+          "combiningForm": "-fora",
+          "etymonId": "grc:φερω",
+          "latinAccepted": [
+            "phero",
+            "fero"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Referencia gramatical a un elemento mencionado antes; en retórica, repetición expresiva de palabras o ideas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/an%C3%A1fora",
+        "checkedAt": "2026-11-26",
+        "note": "Latín anaphora, del griego ἀναφορά, derivado de ἀναφέρω."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "hipogeo",
+      "components": [
+        {
+          "greek": "ὑπό",
+          "combiningForm": "hipo-",
+          "etymonId": "grc:υπο",
+          "latinAccepted": [
+            "hypo",
+            "hupo",
+            "hipo"
+          ]
+        },
+        {
+          "greek": "γῆ",
+          "combiningForm": "-geo",
+          "etymonId": "grc:γη",
+          "latinAccepted": [
+            "ge"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Construcción bajo tierra, especialmente cámara funeraria antigua destinada a depositar cadáveres sin incinerar.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/hipogeo",
+        "checkedAt": "2026-11-26",
+        "note": "Latín hypogaeum, del griego ὑπόγαιον; acepción nominal hipogeo¹."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "hidrofobia",
+      "components": [
+        {
+          "greek": "ὕδωρ",
+          "combiningForm": "hidro-",
+          "etymonId": "grc:υδωρ",
+          "latinAccepted": [
+            "hydor",
+            "hudor",
+            "hidor"
+          ]
+        },
+        {
+          "greek": "φόβος",
+          "combiningForm": "-fobia",
+          "etymonId": "grc:φοβοσ",
+          "latinAccepted": [
+            "phobos",
+            "fobos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Miedo patológico al agua; en medicina, denominación de la rabia.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/hidrofobia",
+        "checkedAt": "2026-11-26",
+        "note": "Latín tardío hydrophobia, del griego ὑδροφοβία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "bibliófilo",
+      "components": [
+        {
+          "greek": "βιβλίον",
+          "combiningForm": "biblio-",
+          "etymonId": "grc:βιβλιον",
+          "latinAccepted": [
+            "biblion"
+          ]
+        },
+        {
+          "greek": "φίλος",
+          "combiningForm": "-filo",
+          "etymonId": "grc:φιλοσ",
+          "latinAccepted": [
+            "philos",
+            "filos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Persona aficionada a los libros, especialmente a su colección y aprecio.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/bibli%C3%B3filo",
+        "checkedAt": "2026-11-26",
+        "note": "biblio- + -filo; el DLE remite a bibliofilia."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "andrógino",
+      "components": [
+        {
+          "greek": "ἀνήρ",
+          "combiningForm": "andro-",
+          "etymonId": "grc:ανηρ",
+          "latinAccepted": [
+            "aner"
+          ]
+        },
+        {
+          "greek": "γυνή",
+          "combiningForm": "-gino",
+          "etymonId": "grc:γυνη",
+          "latinAccepted": [
+            "gyne",
+            "gune",
+            "gine"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Persona cuyos rasgos externos no se identifican claramente con los asociados a su sexo; también tiene usos biológicos y botánicos.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/andr%C3%B3gino",
+        "checkedAt": "2026-11-26",
+        "note": "Latín androgynus, del griego ἀνδρόγυνος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "encéfalo",
+      "components": [
+        {
+          "greek": "ἐν",
+          "combiningForm": "en-",
+          "etymonId": "grc:εν",
+          "latinAccepted": [
+            "en"
+          ]
+        },
+        {
+          "greek": "κεφαλή",
+          "combiningForm": "-céfalo",
+          "etymonId": "grc:κεφαλη",
+          "latinAccepted": [
+            "kephale",
+            "cephale",
+            "kefale",
+            "cefale"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Parte del sistema nervioso de los vertebrados situada dentro de la cavidad craneal.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/enc%C3%A9falo",
+        "checkedAt": "2026-11-26",
+        "note": "Latín científico encephalos, del griego ἐγκέφαλος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cefalópodo",
+      "components": [
+        {
+          "greek": "κεφαλή",
+          "combiningForm": "cefalo-",
+          "etymonId": "grc:κεφαλη",
+          "latinAccepted": [
+            "kephale",
+            "cephale",
+            "kefale",
+            "cefale"
+          ]
+        },
+        {
+          "greek": "πούς",
+          "combiningForm": "-podo",
+          "etymonId": "grc:πουσ",
+          "latinAccepted": [
+            "pous",
+            "pus"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Molusco marino de cabeza diferenciada, rodeada de apéndices con ventosas, como el pulpo o el calamar.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cefal%C3%B3podo",
+        "checkedAt": "2026-11-26",
+        "note": "Latín científico Cephalopoda, de κεφαλή y -ποδος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "fonógrafo",
+      "components": [
+        {
+          "greek": "φωνή",
+          "combiningForm": "fono-",
+          "etymonId": "grc:φωνη",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafo",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Aparato que registra o reproduce sonidos mediante las vibraciones grabadas en un disco o cilindro.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/fon%C3%B3grafo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica fono- y -grafo; el segundo formante se vincula a la familia de γράφω."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "ergonomía",
+      "components": [
+        {
+          "greek": "ἔργον",
+          "combiningForm": "ergo-",
+          "etymonId": "grc:εργον",
+          "latinAccepted": [
+            "ergon"
+          ]
+        },
+        {
+          "greek": "νόμος",
+          "combiningForm": "-nomía",
+          "etymonId": "grc:νομοσ",
+          "latinAccepted": [
+            "nomos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Disciplina que adapta equipos y utensilios a quienes los utilizan para mejorar la comodidad y la eficacia; también esa cualidad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/ergonom%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica ἔργον y -nomía, formante relacionado con νόμος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "doxología",
+      "components": [
+        {
+          "greek": "δόξα",
+          "combiningForm": "doxo-",
+          "etymonId": "grc:δοξα",
+          "latinAccepted": [
+            "doxa"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Expresión litúrgica o bíblica de alabanza a Dios, en particular a la Trinidad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/doxolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra latín medieval doxologia, procedente del griego δοξολογία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "anacronismo",
+      "components": [
+        {
+          "greek": "ἀνά",
+          "combiningForm": "ana-",
+          "etymonId": "grc:ανα",
+          "latinAccepted": [
+            "ana"
+          ]
+        },
+        {
+          "greek": "χρόνος",
+          "combiningForm": "cron-",
+          "etymonId": "grc:χρονοσ",
+          "latinAccepted": [
+            "chronos",
+            "khronos",
+            "cronos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Confusión de épocas o atribución a un período de algo que no le corresponde; también una persona o cosa fuera de su tiempo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/anacronismo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego ἀναχρονισμός; se explica mediante ἀνά y χρόνος, con formación nominal ulterior."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "autónomo",
+      "components": [
+        {
+          "greek": "αὐτός",
+          "combiningForm": "auto-",
+          "etymonId": "grc:αυτοσ",
+          "latinAccepted": [
+            "autos"
+          ]
+        },
+        {
+          "greek": "νόμος",
+          "combiningForm": "-nomo",
+          "etymonId": "grc:νομοσ",
+          "latinAccepted": [
+            "nomos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Que puede regirse o desenvolverse por sí mismo, sin dependencia ajena; también quien trabaja por cuenta propia.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/aut%C3%B3nomo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE documenta el griego αὐτόνομος; la base νόμος expresa ley o norma."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "ginecología",
+      "components": [
+        {
+          "greek": "γυνή",
+          "combiningForm": "gineco-",
+          "etymonId": "grc:γυνη",
+          "latinAccepted": [
+            "gyne",
+            "gune",
+            "gine"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Especialidad médica dedicada al aparato reproductor femenino y a sus trastornos.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/ginecolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica gineco- y -logía, elementos compositivos de origen griego."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "oftalmología",
+      "components": [
+        {
+          "greek": "ὀφθαλμός",
+          "combiningForm": "oftalmo-",
+          "etymonId": "grc:οφθαλμοσ",
+          "latinAccepted": [
+            "ophthalmos",
+            "oftalmos"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Especialidad médica dedicada a las afecciones oculares.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/oftalmolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica el griego ὀφθαλμός y el elemento compositivo -logía."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "podología",
+      "components": [
+        {
+          "greek": "πούς",
+          "combiningForm": "podo-",
+          "etymonId": "grc:πουσ",
+          "latinAccepted": [
+            "pous",
+            "pus"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Profesión sanitaria centrada en el conocimiento y la atención de los pies.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/podolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica podo- y -logía; podo- refleja el tema ποδ- de πούς, ποδός."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cefalalgia",
+      "components": [
+        {
+          "greek": "κεφαλή",
+          "combiningForm": "cefal-",
+          "etymonId": "grc:κεφαλη",
+          "latinAccepted": [
+            "kephale",
+            "cephale",
+            "kefale",
+            "cefale"
+          ]
+        },
+        {
+          "greek": "ἄλγος",
+          "combiningForm": "-algia",
+          "etymonId": "grc:αλγοσ",
+          "latinAccepted": [
+            "algos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Dolor localizado en la cabeza, denominado también cefalea.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cefalalgia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra latín cephalalgia, del griego κεφαλαλγία; remite a cefalea."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "otalgia",
+      "components": [
+        {
+          "greek": "οὖς",
+          "combiningForm": "ot-",
+          "etymonId": "grc:ουσ",
+          "latinAccepted": [
+            "ous",
+            "us"
+          ]
+        },
+        {
+          "greek": "ἄλγος",
+          "combiningForm": "-algia",
+          "etymonId": "grc:αλγοσ",
+          "latinAccepted": [
+            "algos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Sensación dolorosa localizada en el oído.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/otalgia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra latín científico otalgia, del griego ὠταλγία, de οὖς, ὠτός y -αλγία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "monoteísmo",
+      "components": [
+        {
+          "greek": "μόνος",
+          "etymonId": "grc:μονοσ",
+          "combiningForm": "mono-",
+          "latinAccepted": [
+            "monos"
+          ]
+        },
+        {
+          "greek": "θεός",
+          "etymonId": "grc:θεοσ",
+          "combiningForm": "teo-",
+          "latinAccepted": [
+            "theos",
+            "teos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Creencia religiosa que reconoce la existencia de un único dios.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/monote%C3%ADsmo",
+        "checkedAt": "2026-11-26",
+        "note": "Formado por mono- y teísmo; teísmo contiene teo- e -ismo.",
+        "additionalUrls": [
+          "https://dle.rae.es/mono-",
+          "https://dle.rae.es/te%C3%ADsmo"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "macrocéfalo",
+      "components": [
+        {
+          "greek": "μακρός",
+          "etymonId": "grc:μακροσ",
+          "combiningForm": "macro-",
+          "latinAccepted": [
+            "makros",
+            "macros"
+          ]
+        },
+        {
+          "greek": "κεφαλή",
+          "etymonId": "grc:κεφαλη",
+          "combiningForm": "-céfalo",
+          "latinAccepted": [
+            "kephale",
+            "cephale",
+            "kefale",
+            "cefale"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Que presenta una cabeza de tamaño excesivo en relación con el cuerpo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/macroc%C3%A9falo",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego μακροκέφαλος; el segundo componente remite a κεφαλή."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "microcosmos",
+      "components": [
+        {
+          "greek": "μικρός",
+          "etymonId": "grc:μικροσ",
+          "combiningForm": "micro-",
+          "latinAccepted": [
+            "mikros",
+            "micros"
+          ]
+        },
+        {
+          "greek": "κόσμος",
+          "etymonId": "grc:κοσμοσ",
+          "combiningForm": "-cosmos",
+          "latinAccepted": [
+            "kosmos",
+            "cosmos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Mundo reducido o entidad que reproduce a pequeña escala la organización del universo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/microcosmos",
+        "checkedAt": "2026-11-26",
+        "note": "Del bajo latín microcosmos, del griego bizantino μικρόκοσμος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "macrocosmos",
+      "components": [
+        {
+          "greek": "μακρός",
+          "etymonId": "grc:μακροσ",
+          "combiningForm": "macro-",
+          "latinAccepted": [
+            "makros",
+            "macros"
+          ]
+        },
+        {
+          "greek": "κόσμος",
+          "etymonId": "grc:κοσμοσ",
+          "combiningForm": "-cosmos",
+          "latinAccepted": [
+            "kosmos",
+            "cosmos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Universo concebido como un conjunto ordenado y armónico.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/macrocosmos",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín medieval macrocosmus, formación opuesta a microcosmos."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "monografía",
+      "components": [
+        {
+          "greek": "μόνος",
+          "etymonId": "grc:μονοσ",
+          "combiningForm": "mono-",
+          "latinAccepted": [
+            "monos"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "etymonId": "grc:γραφω",
+          "combiningForm": "-grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Trabajo escrito especializado que desarrolla un tema concreto.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/monograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Formado por mono- y -grafía, de la raíz de γράφειν.",
+        "additionalUrls": [
+          "https://dle.rae.es/mono-",
+          "https://dle.rae.es/-graf%C3%ADa"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "polícromo",
+      "components": [
+        {
+          "greek": "πολύς",
+          "etymonId": "grc:πολυσ",
+          "combiningForm": "poli-",
+          "latinAccepted": [
+            "polys",
+            "polus"
+          ]
+        },
+        {
+          "greek": "χρῶμα",
+          "etymonId": "grc:χρωμα",
+          "combiningForm": "-cromo",
+          "latinAccepted": [
+            "chroma",
+            "croma"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Que presenta una diversidad de colores en su superficie o composición.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/pol%C3%ADcromo",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego πολύχρωμος. El DLE registra policromo como lema y polícromo como variante."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "bibliomanía",
+      "components": [
+        {
+          "greek": "βιβλίον",
+          "etymonId": "grc:βιβλιον",
+          "combiningForm": "biblio-",
+          "latinAccepted": [
+            "biblion"
+          ]
+        },
+        {
+          "greek": "μανία",
+          "etymonId": "grc:μανια",
+          "combiningForm": "-manía",
+          "latinAccepted": [
+            "mania"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD11",
+      "meaning": "Afición desmedida por reunir y coleccionar libros.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/biblioman%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Formado por biblio- y -manía; no equivale necesariamente a una afición por la lectura.",
+        "additionalUrls": [
+          "https://dle.rae.es/biblio-",
+          "https://dle.rae.es/-man%C3%ADa"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "gastralgia",
+      "components": [
+        {
+          "greek": "γαστήρ",
+          "etymonId": "grc:γαστηρ",
+          "combiningForm": "gastr-",
+          "latinAccepted": [
+            "gaster"
+          ]
+        },
+        {
+          "greek": "ἄλγος",
+          "etymonId": "grc:αλγοσ",
+          "combiningForm": "-algia",
+          "latinAccepted": [
+            "algos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Dolor localizado en la zona del estómago.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/gastralgia",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín científico gastralgia, de γαστρο- y -αλγία. El genitivo γαστρός explica gastr-.",
+        "additionalUrls": [
+          "https://dle.rae.es/gastro-",
+          "https://dle.rae.es/-algia"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "laringología",
+      "components": [
+        {
+          "greek": "λάρυγξ",
+          "etymonId": "grc:λαρυγξ",
+          "combiningForm": "laringo-",
+          "latinAccepted": [
+            "larynx",
+            "larunx",
+            "larinx"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Rama médica especializada en el estudio de las afecciones de la laringe.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/laringolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del francés laryngologie, con λάρυγξ, -υγγος y -logie.",
+        "additionalUrls": [
+          "https://dle.rae.es/-log%C3%ADa"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "filantropía",
+      "components": [
+        {
+          "greek": "φίλος",
+          "combiningForm": "fil-",
+          "etymonId": "grc:φιλοσ",
+          "latinAccepted": [
+            "philos",
+            "filos"
+          ]
+        },
+        {
+          "greek": "ἄνθρωπος",
+          "combiningForm": "-antropía",
+          "etymonId": "grc:ανθρωποσ",
+          "latinAccepted": [
+            "anthropos",
+            "antropos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Afecto y preocupación por la humanidad, manifestados en acciones de ayuda a otras personas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/filantrop%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego φιλανθρωπία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "tanatofobia",
+      "components": [
+        {
+          "greek": "θάνατος",
+          "combiningForm": "tanato-",
+          "etymonId": "grc:θανατοσ",
+          "latinAccepted": [
+            "thanatos",
+            "tanatos"
+          ]
+        },
+        {
+          "greek": "φόβος",
+          "combiningForm": "-fobia",
+          "etymonId": "grc:φοβοσ",
+          "latinAccepted": [
+            "phobos",
+            "fobos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Temor patológico a morir o a la muerte.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/tanatofobia",
+        "checkedAt": "2026-11-26",
+        "note": "Composición de tanato- y -fobia."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "megalópolis",
+      "components": [
+        {
+          "greek": "μέγας",
+          "combiningForm": "megalo-",
+          "etymonId": "grc:μεγασ",
+          "latinAccepted": [
+            "megas"
+          ]
+        },
+        {
+          "greek": "πόλις",
+          "combiningForm": "-polis",
+          "etymonId": "grc:πολισ",
+          "latinAccepted": [
+            "polis"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Ciudad de dimensiones extraordinariamente grandes.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/megal%C3%B3polis",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego μεγαλόπολις."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "psicosomático",
+      "components": [
+        {
+          "greek": "ψυχή",
+          "combiningForm": "psico-",
+          "etymonId": "grc:ψυχη",
+          "latinAccepted": [
+            "psyche",
+            "psique",
+            "psykhe"
+          ]
+        },
+        {
+          "greek": "σῶμα",
+          "combiningForm": "somático",
+          "etymonId": "grc:σωμα",
+          "latinAccepted": [
+            "soma"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Relativo a la interacción de los procesos psíquicos y corporales, incluida su influencia recíproca.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/psicosom%C3%A1tico",
+        "checkedAt": "2026-11-26",
+        "note": "De psico- y somático; el segundo se vincula a σῶμα."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "ginecocracia",
+      "components": [
+        {
+          "greek": "γυνή",
+          "combiningForm": "gineco-",
+          "etymonId": "grc:γυνη",
+          "latinAccepted": [
+            "gyne",
+            "gune"
+          ]
+        },
+        {
+          "greek": "κράτος",
+          "combiningForm": "-cracia",
+          "etymonId": "grc:κρατοσ",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Sistema de gobierno ejercido por mujeres (voz poco usada).",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/ginecocracia",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego γυναικοκρατία, de γυναικο- y -κρατία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "hepatomegalia",
+      "components": [
+        {
+          "greek": "ἧπαρ",
+          "combiningForm": "hepato-",
+          "etymonId": "grc:ηπαρ",
+          "latinAccepted": [
+            "hepar"
+          ]
+        },
+        {
+          "greek": "μέγας",
+          "combiningForm": "-megalia",
+          "etymonId": "grc:μεγασ",
+          "latinAccepted": [
+            "megas"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Agrandamiento patológico del hígado.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/hepatomegalia",
+        "checkedAt": "2026-11-26",
+        "note": "De hepato- y el latín científico -megalia, que expresa tamaño excesivo."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "taquígrafo",
+      "components": [
+        {
+          "greek": "ταχύς",
+          "combiningForm": "taqui-",
+          "etymonId": "grc:ταχυσ",
+          "latinAccepted": [
+            "tachys",
+            "takhys",
+            "tachus",
+            "takys",
+            "taquis"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafo",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Persona que domina la escritura abreviada y rápida; también instrumento que registra la velocidad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/taqu%C3%ADgrafo",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego bizantino ταχυγράφος, de ταχυ- y -γράφος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cosmología",
+      "components": [
+        {
+          "greek": "κόσμος",
+          "combiningForm": "cosmo-",
+          "etymonId": "grc:κοσμοσ",
+          "latinAccepted": [
+            "kosmos",
+            "cosmos"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Rama astronómica dedicada al origen, la evolución y las leyes del universo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cosmolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín moderno cosmologia, formado sobre κόσμος y -logia."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "criptografía",
+      "components": [
+        {
+          "greek": "κρύπτω",
+          "combiningForm": "cripto-",
+          "etymonId": "grc:κρυπτω",
+          "latinAccepted": [
+            "krypto",
+            "kripto",
+            "crypto",
+            "cripto"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafía",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Técnica de escritura mediante claves que dificultan la comprensión del mensaje.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/criptograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "De cripto- y -grafía; cripto- pertenece a la familia de κρύπτω."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "dermalgia",
+      "components": [
+        {
+          "greek": "δέρμα",
+          "combiningForm": "derm-",
+          "etymonId": "grc:δερμα",
+          "latinAccepted": [
+            "derma"
+          ]
+        },
+        {
+          "greek": "ἄλγος",
+          "combiningForm": "-algia",
+          "etymonId": "grc:αλγοσ",
+          "latinAccepted": [
+            "algos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Dolor de origen nervioso que afecta a la piel.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/dermalgia",
+        "checkedAt": "2026-11-26",
+        "note": "Compuesto de derm-, vinculado a δέρμα, y -algia, de ἄλγος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "grafología",
+      "components": [
+        {
+          "greek": "γράφω",
+          "combiningForm": "grafo-",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD1",
+      "meaning": "Estudio de los rasgos de la escritura individual para identificar a su autor o intentar inferir su personalidad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/grafolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Francés graphologie, formado con grapho- y -logie."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "diacronía",
+      "components": [
+        {
+          "greek": "διά",
+          "combiningForm": "dia-",
+          "etymonId": "grc:δια",
+          "latinAccepted": [
+            "dia"
+          ]
+        },
+        {
+          "greek": "χρόνος",
+          "combiningForm": "-cronía",
+          "etymonId": "grc:χρονοσ",
+          "latinAccepted": [
+            "chronos",
+            "khronos",
+            "cronos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Evolución o sucesión de fenómenos en el tiempo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/diacron%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Francés diachronie, a partir de διά, χρόνος e -ie."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "energía",
+      "components": [
+        {
+          "greek": "ἐν",
+          "combiningForm": "en-",
+          "etymonId": "grc:εν",
+          "latinAccepted": [
+            "en"
+          ]
+        },
+        {
+          "greek": "ἔργον",
+          "combiningForm": "erg-",
+          "etymonId": "grc:εργον",
+          "latinAccepted": [
+            "ergon"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Capacidad de actuar o producir efectos; en física, capacidad de realizar trabajo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/energ%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Latín tardío energia, del griego ἐνέργεια."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "entusiasmo",
+      "components": [
+        {
+          "greek": "ἐν",
+          "combiningForm": "en-",
+          "etymonId": "grc:εν",
+          "latinAccepted": [
+            "en"
+          ]
+        },
+        {
+          "greek": "θεός",
+          "combiningForm": "-tusi- (de la familia de θεός)",
+          "etymonId": "grc:θεοσ",
+          "latinAccepted": [
+            "theos",
+            "teos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Emoción intensa ante algo que fascina o adhesión apasionada a una causa.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/entusiasmo",
+        "checkedAt": "2026-11-26",
+        "note": "Latín moderno enthusiasmus, del griego ἐνθουσιασμός, relacionado con ἔνθεος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "microbio",
+      "components": [
+        {
+          "greek": "μικρός",
+          "combiningForm": "micro-",
+          "etymonId": "grc:μικροσ",
+          "latinAccepted": [
+            "mikros",
+            "micros"
+          ]
+        },
+        {
+          "greek": "βίος",
+          "combiningForm": "-bio",
+          "etymonId": "grc:βιοσ",
+          "latinAccepted": [
+            "bios"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Organismo de una sola célula que requiere un microscopio para observarse.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/microbio",
+        "checkedAt": "2026-11-26",
+        "note": "Adaptación del francés microbe, formado con μικρός y βίος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "micrófono",
+      "components": [
+        {
+          "greek": "μικρός",
+          "combiningForm": "micro-",
+          "etymonId": "grc:μικροσ",
+          "latinAccepted": [
+            "mikros",
+            "micros"
+          ]
+        },
+        {
+          "greek": "φωνή",
+          "combiningForm": "-fono",
+          "etymonId": "grc:φωνη",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Dispositivo que convierte las ondas acústicas en señales eléctricas para amplificar el sonido.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/micr%C3%B3fono",
+        "checkedAt": "2026-11-26",
+        "note": "micro- y -fono, de bases griegas."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "geografía",
+      "components": [
+        {
+          "greek": "γῆ",
+          "combiningForm": "geo-",
+          "etymonId": "grc:γη",
+          "latinAccepted": [
+            "ge"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafía",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Disciplina que describe la Tierra; también territorio o paisaje.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/geograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Latín geographia, del griego γεωγραφία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "hidrología",
+      "components": [
+        {
+          "greek": "ὕδωρ",
+          "combiningForm": "hidro-",
+          "etymonId": "grc:υδωρ",
+          "latinAccepted": [
+            "hydor",
+            "hidor",
+            "udor"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Disciplina dedicada al estudio de las aguas terrestres.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/hidrolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Compuesto de hidro-, del griego ὕδωρ, y -logía, de la familia de λόγος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "ánfora",
+      "components": [
+        {
+          "greek": "ἀμφί",
+          "combiningForm": "an- (del latín am-)",
+          "etymonId": "grc:αμφι",
+          "latinAccepted": [
+            "amphi",
+            "anfi",
+            "amfi"
+          ]
+        },
+        {
+          "greek": "φέρω",
+          "combiningForm": "-for-",
+          "etymonId": "grc:φερω",
+          "latinAccepted": [
+            "phero",
+            "fero"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Vasija antigua de dos asas, cuello alargado y cuerpo generalmente acabado en punta.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/%C3%A1nfora",
+        "checkedAt": "2026-11-26",
+        "note": "Latín amphora, del griego ἀμφορεύς, forma relacionada con ἀμφιφορεύς."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "metáfora",
+      "components": [
+        {
+          "greek": "μετά",
+          "combiningForm": "meta-",
+          "etymonId": "grc:μετα",
+          "latinAccepted": [
+            "meta"
+          ]
+        },
+        {
+          "greek": "φέρω",
+          "combiningForm": "-for-",
+          "etymonId": "grc:φερω",
+          "latinAccepted": [
+            "phero",
+            "fero"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Empleo de una palabra con significado figurado a partir de una semejanza implícita.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/met%C3%A1fora",
+        "checkedAt": "2026-11-26",
+        "note": "Latín metaphora, del griego μεταφορά."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "periferia",
+      "components": [
+        {
+          "greek": "περί",
+          "combiningForm": "peri-",
+          "etymonId": "grc:περι",
+          "latinAccepted": [
+            "peri"
+          ]
+        },
+        {
+          "greek": "φέρω",
+          "combiningForm": "-fer-",
+          "etymonId": "grc:φερω",
+          "latinAccepted": [
+            "phero",
+            "fero"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Zona de un conjunto que queda lejos de su centro, especialmente en una ciudad.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/periferia",
+        "checkedAt": "2026-11-26",
+        "note": "Latín tardío peripheria, del griego περιφέρεια."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "método",
+      "components": [
+        {
+          "greek": "μετά",
+          "combiningForm": "met-",
+          "etymonId": "grc:μετα",
+          "latinAccepted": [
+            "meta"
+          ]
+        },
+        {
+          "greek": "ὁδός",
+          "combiningForm": "-odo",
+          "etymonId": "grc:οδοσ",
+          "latinAccepted": [
+            "hodos",
+            "odos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Manera ordenada de proceder para realizar una tarea o alcanzar un objetivo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/m%C3%A9todo",
+        "checkedAt": "2026-11-26",
+        "note": "Latín methodus, del griego μέθοδος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "período",
+      "components": [
+        {
+          "greek": "περί",
+          "combiningForm": "peri-",
+          "etymonId": "grc:περι",
+          "latinAccepted": [
+            "peri"
+          ]
+        },
+        {
+          "greek": "ὁδός",
+          "combiningForm": "-odo",
+          "etymonId": "grc:οδοσ",
+          "latinAccepted": [
+            "hodos",
+            "odos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Intervalo que comprende la duración de un fenómeno o ciclo temporal; se admite también periodo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/per%C3%ADodo",
+        "checkedAt": "2026-11-26",
+        "note": "Latín periodus, del griego περίοδος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "ánodo",
+      "components": [
+        {
+          "greek": "ἀνά",
+          "combiningForm": "an-",
+          "etymonId": "grc:ανα",
+          "latinAccepted": [
+            "ana"
+          ]
+        },
+        {
+          "greek": "ὁδός",
+          "combiningForm": "-odo",
+          "etymonId": "grc:οδοσ",
+          "latinAccepted": [
+            "hodos",
+            "odos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Electrodo en el que tiene lugar la oxidación.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/%C3%A1nodo",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego ἄνοδος, camino ascendente. La IUPAC define ánodo por la oxidación.",
+        "additionalSources": [
+          {
+            "authority": "IUPAC · Gold Book",
+            "url": "https://goldbook.iupac.org/terms/view/A00370"
+          }
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "pedagogía",
+      "components": [
+        {
+          "greek": "παῖς",
+          "combiningForm": "ped- (del tema griego παιδ-)",
+          "etymonId": "grc:παισ",
+          "latinAccepted": [
+            "pais"
+          ]
+        },
+        {
+          "greek": "ἄγω",
+          "combiningForm": "-agogía",
+          "etymonId": "grc:αγω",
+          "latinAccepted": [
+            "ago"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Disciplina que estudia la educación y la enseñanza, especialmente la infantil; también la práctica educativa en un ámbito.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/pedagog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Griego παιδαγωγία, relacionado con παιδαγωγός."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "gastronomía",
+      "components": [
+        {
+          "greek": "γαστήρ",
+          "combiningForm": "gastro-",
+          "etymonId": "grc:γαστηρ",
+          "latinAccepted": [
+            "gaster"
+          ]
+        },
+        {
+          "greek": "νόμος",
+          "combiningForm": "-nomía",
+          "etymonId": "grc:νομοσ",
+          "latinAccepted": [
+            "nomos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Arte culinario, afición a comer bien o conjunto de tradiciones culinarias de un lugar.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/gastronom%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego γαστρονομία, con el tema γαστρ- y un formante de la familia de νόμος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "misantropía",
+      "components": [
+        {
+          "greek": "μισέω",
+          "combiningForm": "mis-",
+          "etymonId": "grc:μισεω",
+          "latinAccepted": [
+            "miseo"
+          ]
+        },
+        {
+          "greek": "ἄνθρωπος",
+          "combiningForm": "-antropía",
+          "etymonId": "grc:ανθρωποσ",
+          "latinAccepted": [
+            "anthropos",
+            "antropos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD11",
+      "meaning": "Rechazo o aversión a relacionarse con otras personas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/misantrop%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego μισανθρωπία, de la familia de μισέω y ἄνθρωπος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "misoginia",
+      "components": [
+        {
+          "greek": "μισέω",
+          "combiningForm": "miso-",
+          "etymonId": "grc:μισεω",
+          "latinAccepted": [
+            "miseo"
+          ]
+        },
+        {
+          "greek": "γυνή",
+          "combiningForm": "-ginia",
+          "etymonId": "grc:γυνη",
+          "latinAccepted": [
+            "gyne",
+            "gune"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD11",
+      "meaning": "Actitud de rechazo u hostilidad hacia las mujeres.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/misoginia",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego μισογυνία, de la familia de μισέω y γυνή."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "monarquía",
+      "components": [
+        {
+          "greek": "μόνος",
+          "combiningForm": "mon-",
+          "etymonId": "grc:μονοσ",
+          "latinAccepted": [
+            "monos"
+          ]
+        },
+        {
+          "greek": "ἀρχή",
+          "combiningForm": "-arquía",
+          "etymonId": "grc:αρχη",
+          "latinAccepted": [
+            "arche",
+            "arkhe",
+            "arke"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Organización estatal cuya jefatura suprema corresponde a un rey o una reina; también el Estado así organizado.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/monarqu%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Latín tardío monarchia, del griego μοναρχία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "periscopio",
+      "components": [
+        {
+          "greek": "περί",
+          "combiningForm": "peri-",
+          "etymonId": "grc:περι",
+          "latinAccepted": [
+            "peri"
+          ]
+        },
+        {
+          "greek": "σκοπέω",
+          "combiningForm": "-scopio",
+          "etymonId": "grc:σκοπεω",
+          "latinAccepted": [
+            "skopeo",
+            "scopeo",
+            "escopeo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Instrumento óptico que permite mirar una zona fuera del campo de visión directo mediante espejos o prismas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/periscopio",
+        "checkedAt": "2026-11-26",
+        "note": "peri- y -scopio; comparar περισκοπεῖν."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "piromanía",
+      "components": [
+        {
+          "greek": "πῦρ",
+          "combiningForm": "piro-",
+          "etymonId": "grc:πυρ",
+          "latinAccepted": [
+            "pyr",
+            "pur",
+            "pir"
+          ]
+        },
+        {
+          "greek": "μανία",
+          "combiningForm": "-manía",
+          "etymonId": "grc:μανια",
+          "latinAccepted": [
+            "mania"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Tendencia patológica a provocar incendios.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/piroman%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Compuesto de piro-, de πῦρ, y -manía, del griego μανία."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "dendrología",
+      "components": [
+        {
+          "greek": "δένδρον",
+          "etymonId": "grc:δενδρον",
+          "combiningForm": "dendro-",
+          "latinAccepted": [
+            "dendron"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Rama de la botánica forestal dedicada al estudio de los árboles y otras plantas leñosas.",
+      "evidence": {
+        "authority": "Universidad de Huelva · Botánica Forestal. Dendrología",
+        "url": "https://www.uhu.es/etsi/guias/get-guia.php?codigo=606510202&curso=2024",
+        "checkedAt": "2026-11-26",
+        "note": "Compuesto de dendro-, del griego δένδρον, y -logía, de la familia de λόγος. Ambas fuentes documentan su uso forestal.",
+        "additionalSources": [
+          {
+            "authority": "Universidad Nacional de La Plata · Dendrología aplicada",
+            "url": "https://sedici.unlp.edu.ar/handle/10915/169903"
+          }
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    }
+  ]
+}

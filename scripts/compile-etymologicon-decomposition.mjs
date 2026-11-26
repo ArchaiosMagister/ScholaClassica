@@ -86,3 +86,108 @@ export function createDecompositionCatalog(catalog){
     publicationAllowed:false
   };
 }
+
+/**
+ * Ampliación explícita: la lista histórica de 16 permanece inmutable.
+ * Las voces nuevas se cruzan con el catálogo de escritura y el de consulta.
+ * No se infieren ejercicios a partir de una coincidencia textual o de un PDF.
+ */
+export function createExpandedDecompositionCatalog(base,catalog,study,
+  batch=JSON.parse(readFileSync(join(root,'shared/academic/greek-etymology/decomposition/gr1-review-batch-20261126.json'),'utf8'))){
+  const pilot=createDecompositionCatalog(base);
+  assert.equal(catalog.schema,base.schema);
+  assert.equal(catalog.course,'gr1');
+  assert.equal(study.schema,'etymologicon-study-catalog/v1');
+  assert.equal(study.course,'gr1');
+  assert.equal(batch.schema,'etymologicon-decomposition-review-batch/v1');
+  assert.equal(batch.course,'gr1');
+  assert.equal(batch.status,'approved_for_guided_practice_not_exam');
+  assert.equal(batch.publicationAllowed,false);
+  const etyma=new Map(catalog.etymons.map(e=>[e.id,e]));
+  const words=new Map(study.words.map(w=>[w.form,w]));
+  const derivatives=new Map(catalog.derivatives.map(d=>[d.id,d]));
+  const relations=new Set(catalog.relations.filter(r=>r.editorialStatus==='teacher_audit_approved').map(r=>r.etymonId+'|'+r.derivativeId));
+  const seen=new Set(pilot.entries.map(e=>e.derivativeId));
+  const ids=new Set(pilot.entries.map(e=>e.id));
+  const key=s=>s.normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ').toLowerCase();
+  const newEntries=batch.items.map(row=>{
+    assert.equal(row.enabledForPractice,true,row.form);
+    assert.equal(row.enabledForExams,false,row.form);
+    const word=words.get(row.form);
+    assert.ok(word?.admission.practiceEligible,row.form);
+    const derivative=derivatives.get(word.id);
+    assert.ok(derivative?.editorialStatus==='teacher_audit_approved',row.form);
+    assert.equal(derivative.form,row.form);
+    assert.ok(!seen.has(word.id),row.form+' duplicado');
+    seen.add(word.id);
+    const id='decomp:gr1:'+row.form.normalize('NFD').replace(/\p{M}/gu,'').replace(/[^a-z]/gi,'');
+    assert.ok(!ids.has(id),id+' duplicado');
+    ids.add(id);
+    assert.equal(row.components.length,2,row.form);
+    assert.equal(word.components.length,2,row.form);
+    assert.equal(new Set(row.components.map(p=>p.etymonId)).size,2,row.form);
+    let earliest=0;
+    const parts=row.components.map((part,i)=>{
+      const etymon=etyma.get(part.etymonId),gloss=word.components[i];
+      assert.ok(etymon?.editorialStatus==='approved_for_documented_derivatives',row.form);
+      assert.equal(gloss.id,part.etymonId,row.form+' vínculo');
+      assert.equal(key(gloss.greek),key(part.greek),row.form+' componente');
+      assert.ok(!gloss.external&&!gloss.language,row.form);
+      assert.ok(part.combiningForm.trim()&&gloss.gloss.trim(),row.form);
+      assert.ok(part.latinAccepted.length>0&&part.latinAccepted.every(v=>/^[a-z]+$/.test(v)),row.form);
+      assert.equal(new Set(part.latinAccepted).size,part.latinAccepted.length,row.form);
+      if(part.greekAccepted)assert.ok(part.greekAccepted.every(v=>/^[\p{Script=Greek}\p{M}]+$/u.test(v)),row.form);
+      earliest=Math.max(earliest,Math.min(...etymon.units.map(u=>Number(u.slice(2)))));
+      return {...part,gloss:gloss.gloss};
+    });
+    assert.ok(parts.some(p=>relations.has(p.etymonId+'|'+word.id)),row.form);
+    assert.equal(row.introducedAtUnit,'UD'+earliest,row.form);
+    assert.ok(earliest>=1&&earliest<=12,row.form);
+    assert.ok(row.meaning.length>20&&row.evidence.note.length>20,row.form);
+    assert.ok(row.evidence.authority,row.form);
+    if(word.admission.status==='excepcion_cientifica'){
+      assert.ok(word.lexicographicCheck.scientificSources.some(source=>
+        source.url===row.evidence.url&&source.authority===row.evidence.authority),row.form);
+    }else{
+      assert.equal(word.lexicographicStatus,'dle_consultado_individualmente',row.form);
+      assert.equal(row.evidence.url,'https://dle.rae.es/'+encodeURIComponent(row.form));
+    }
+    for(const source of row.evidence.additionalSources||[])
+      assert.ok(source.authority&&source.url.startsWith('https://'),row.form);
+    assert.match(row.evidence.checkedAt,/^\d{4}-\d{2}-\d{2}$/);
+    return {id,derivativeId:word.id,form:row.form,meaning:row.meaning,parts,
+      introducedAtUnit:row.introducedAtUnit,
+      evidence:{...row.evidence,editorialNote:row.evidence.note,route:'documented_didactic_components'},
+      verificationStatus:'approved_for_guided_decomposition',enabledForExams:false};
+  });
+  const notes=readDecompositionTeachingNotes();
+  const entries=[...pilot.entries,...newEntries].map(entry=>{
+    assert.ok(words.get(entry.form)?.admission.practiceEligible&&derivatives.has(entry.derivativeId),
+      entry.form+' no está admitida en el banco de práctica');
+    const note=notes[entry.form];
+    assert.ok(note,entry.form+' sin explicación semántica');
+    assert.equal(note.definition,entry.meaning,entry.form);
+    assert.equal(note.sourceUrl,entry.evidence.url,entry.form);
+    return {...entry,etymologicalSense:note.etymologicalSense,definitionType:note.definitionType};
+  });
+  assert.equal(Object.keys(notes).length,entries.length,'Notas semánticas sin ejercicio');
+  const other=catalog.derivatives.filter(d=>!seen.has(d.id)).map(d=>d.id);
+  return {...pilot,status:'expanded_guided_practice_not_exam',entries,
+    audit:{catalogDerivatives:study.words.length,eligibleDerivatives:catalog.derivatives.length,
+      approvedForPractice:entries.length,
+      awaitingIndividualDecompositionReview:other.length,unreviewedDerivativeIds:other}};
+}
+
+/** Glosas y explicaciones propias, contrastadas con la fuente de cada ejercicio. */
+export function readDecompositionTeachingNotes(){
+  const data=JSON.parse(readFileSync(join(root,'shared/academic/greek-etymology/decomposition/gr1-teaching-notes-20261126.json'),'utf8'));
+  assert.equal(data.schema,'etymologicon-decomposition-teaching-notes/v1');
+  assert.equal(data.course,'gr1');
+  for(const [word,note] of Object.entries(data.words)){
+    assert.equal(note.definitionType,'glosa_didactica_contrastada',word);
+    assert.ok(note.definition.length>20&&note.etymologicalSense.length>20,word);
+    assert.ok(note.sourceUrl.startsWith('https://'),word);
+    assert.match(note.evidenceDate,/^\d{4}-\d{2}-\d{2}$/);
+  }
+  return data.words;
+}

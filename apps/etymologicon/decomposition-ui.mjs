@@ -15,7 +15,9 @@ export function createDecompositionController({data,etymons,commitProgress}){
     results:$('decomposition-results'),score:$('decomposition-score'),
     answers:$('decomposition-answers'),meaning:$('decomposition-meaning'),
     meaningCard:$('decomposition-meaning-card'),
+    sense:$('decomposition-etymological-sense'),
     route:$('decomposition-route'),source:$('decomposition-source'),
+    additionalSources:$('decomposition-additional-sources'),
     empty:$('decomposition-empty')
   };
   let item=null,previousId=null,graded=false,active=false,focused=els.first;
@@ -73,8 +75,20 @@ export function createDecompositionController({data,etymons,commitProgress}){
     els.score.textContent='Descomposición: '+response.total+' / 2 puntos.';
     els.meaning.textContent=item.meaning;
     els.meaningCard.hidden=response.total!==2;
+    els.sense.textContent=item.etymologicalSense||item.evidence.editorialNote;
     els.route.textContent=item.evidence.editorialNote;
     els.source.href=item.evidence.url;
+    els.source.textContent=item.evidence.authority;
+    els.additionalSources.replaceChildren(...(item.evidence.additionalSources||[]).map(source=>{
+      const li=document.createElement('li'),link=document.createElement('a');
+      link.href=source.url;
+      link.textContent=source.authority;
+      link.target='_blank';
+      link.rel='noopener noreferrer';
+      li.append(link);
+      return li;
+    }));
+    els.additionalSources.hidden=els.additionalSources.childElementCount===0;
     els.results.hidden=false;
     if(response.total===2)els.meaningCard.focus();
     else els.score.focus();

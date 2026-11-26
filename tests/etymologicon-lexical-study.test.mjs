@@ -2,16 +2,18 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {compileTeacherAudit} from '../scripts/compile-etymologicon-gr1.mjs';
-import {createLearnerCatalog} from '../scripts/build-etymologicon.mjs';
+import {createLearnerCatalog,createPracticeCatalog} from '../scripts/build-etymologicon.mjs';
 import {expandGreekI,readExpansion} from '../scripts/expand-etymologicon-gr1.mjs';
 import {createStudyCatalog,readStudyGlosses,readStudyComponents,readSourceConcordance,readLexicographicChecks} from '../scripts/compile-etymologicon-study.mjs';
 import {createWriteTwoCorrector} from '../shared/academic/greek-etymology/corrector/write-two.mjs';
+import {createStudyBank} from '../apps/etymologicon/study.mjs';
 
 const base=compileTeacherAudit();
 const learner=createLearnerCatalog(base);
 const extended=expandGreekI(learner);
 const lexicon=readStudyGlosses();
 const study=createStudyCatalog(base,extended,lexicon);
+const practice=createPracticeCatalog(extended,study);
 const lookup=name=>study.words.find(w=>w.form===name);
 
 test('cobertura completa: las 487 entradas tienen definición propia sin alterar las 201 aprobadas',()=>{
@@ -54,7 +56,9 @@ test('antropocentrismo, misoginia y misantropía explican ambos elementos sin ge
 });
 test('no confundir una URL del diccionario con una comprobación individual',()=>{
   assert.ok(study.audit.individualDleChecks>0);
-  assert.ok(study.audit.remainingDleChecks>0);
+  assert.ok(study.audit.dleHeadwordChecks>study.audit.individualDleChecks);
+  assert.equal(study.audit.pendingLexicalAdmission,0);
+  assert.equal(study.audit.pendingDleWithSpecialistEvidence,4);
   for(const w of study.words){
     assert.ok(w.dleUrl.startsWith('https://dle.rae.es/'));
     assert.ok(['dle_consultado_individualmente','glosa_docente_no_cotejada_individualmente_dle']
@@ -83,7 +87,7 @@ test('revisión exhaustiva: 487 fichas, componentes documentados y distinción e
   assert.equal(Object.keys(curated).length,487);
   assert.equal(study.words.length,487);
   for(const w of study.words){
-    assert.ok(curated[w.form],'No aparece en el repertorio explícito: '+w.form);
+    assert.ok(curated[w.documentedForm||w.form],'No aparece en el repertorio explícito: '+w.form);
     assert.equal(w.componentReview,'analisis_explicito_del_banco_docente');
     assert.ok(w.components.every(c=>c.greek&&c.gloss));
     assert.ok(['varias_bases','base_o_familia'].includes(w.formation));
@@ -116,12 +120,12 @@ test('cotejo por los tres PDF preserva trazabilidad real y no equivale al DLE',(
   const sources=readSourceConcordance();
   const checks=readLexicographicChecks();
   assert.equal(Object.keys(sources.firstPageByTerm).length,487);
-  assert.equal(Object.keys(checks.records).length,24);
+  assert.equal(Object.keys(checks.records).length,121);
   assert.equal(study.audit.pdfAttested,475);
   assert.equal(study.audit.pdfNoExactMatch,12);
-  assert.equal(study.audit.individuallyCheckedDleThisReview,20);
-  assert.equal(study.audit.individuallyCheckedSpecialistThisReview,2);
-  assert.equal(study.audit.confirmedNotIndependentDleThisReview,2);
+  assert.equal(study.audit.individuallyCheckedDleThisReview,112);
+  assert.equal(study.audit.individuallyCheckedSpecialistThisReview,6);
+  assert.equal(study.audit.confirmedNotIndependentDleThisReview,5);
   assert.ok(study.audit.individualDleChecks<487,
     'Una mención en PDF no certifica un artículo del DLE');
   assert.equal(study.words.filter(w=>w.pdfAttestations.length>0).length,475);
@@ -136,7 +140,7 @@ test('cotejo por los tres PDF preserva trazabilidad real y no equivale al DLE',(
   assert.equal(lookup('proctitis').lexicographicCheck.status,
     'fuente_especializada_contrastada');
 });
-test('las diferencias lexicográficas se explican sin alterar el corrector ni las aprobaciones',()=>{
+test('las diferencias lexicográficas se explican en las fichas documentales',()=>{
   assert.match(lookup('autarquía').definition,/autosuficiencia/i);
   assert.doesNotMatch(lookup('autarquía').definition,/poder independiente/i);
   assert.match(lookup('autarquía').editorialNote,/autarquía¹/);
@@ -151,8 +155,8 @@ test('las diferencias lexicográficas se explican sin alterar el corrector ni la
   assert.equal(study.words.length,487);
   assert.equal(extended.derivatives.length,487);
 });
-test('relaciones múltiples solo afectan al glosario; corrector y progreso siguen iguales',()=>{
-  const corrector=createWriteTwoCorrector(extended);
+test('la práctica conserva las aprobaciones aplicables y los 108 IDs de progreso',()=>{
+  const corrector=createWriteTwoCorrector(practice);
   assert.equal(corrector.grade('grc:μισεω',['misoginia','misantropía']).total,2);
   assert.equal(corrector.grade('grc:ανθρωποσ',['antropocentrismo','antropología']).total,2);
   assert.equal(study.etymons.filter(e=>e.eligible).length,108);
@@ -160,4 +164,53 @@ test('relaciones múltiples solo afectan al glosario; corrector y progreso sigue
   assert.ok(!('editorialDecisions' in study));
   assert.ok(!('originalWorkbook' in study));
   assert.ok(!('definitions' in extended.derivatives[0]));
+  assert.deepEqual(practice.etymons.map(e=>e.id),extended.etymons.map(e=>e.id));
+  assert.equal(practice.etymons.filter(e=>corrector.isEligible(e.id)).length,107);
+  assert.equal(corrector.isEligible('grc:ψευδησ'),false);
+  assert.deepEqual(createStudyBank(practice).getCard('grc:ψευδησ').derivatives.map(d=>d.form),['seudónimo']);
+});
+test('la admisión DLE rige las fichas, las relaciones y la puntuación',()=>{
+  const corrector=createWriteTwoCorrector(practice);
+  const allowed=new Set(practice.derivatives.map(d=>d.id));
+  assert.equal(allowed.size,482);
+  for(const etymon of practice.etymons){
+    assert.ok(etymon.teacherApprovedDerivatives.every(id=>allowed.has(id)),etymon.id);
+    assert.deepEqual(new Set(etymon.teacherApprovedDerivatives),
+      new Set(practice.relations.filter(r=>r.etymonId===etymon.id).map(r=>r.derivativeId)));
+  }
+  for(const word of study.words)
+    assert.equal(allowed.has(word.id),word.admission.practiceEligible,word.form);
+  for(const form of ['seudociencia','hemofobia','teocentrismo']){
+    const word=lookup(form);
+    assert.equal(word.admission.status,'solo_consulta',form);
+    assert.ok(word.admission.reason&&word.admission.sourceUrl,form);
+    assert.ok(extended.derivatives.some(d=>d.id===word.id),form);
+  }
+  for(const form of ['seudociencia','pseudociencia','hemofobia','teocentrismo','neumología','neumonía'])
+    assert.equal(corrector.grade('grc:φοβοσ',[form,'']).answers[0].status,'excluded',form);
+  for(const form of ['geniogloso','genioplastia','proctitis','dendrología','atelocardia','hemoterapia']){
+    const word=lookup(form);
+    assert.equal(word.admission.status,'excepcion_cientifica',form);
+    assert.ok(word.lexicographicCheck.scientificSources.length,form);
+    assert.ok(practice.relations.filter(r=>r.derivativeId===word.id).every(r=>!r.eligibleFor.includes('exam')),form);
+  }
+  assert.equal(corrector.grade('grc:γενειον',['geniogloso','genioplastia']).total,2);
+  assert.equal(corrector.grade('grc:περι',['periodo','']).total,1);
+  const biotopo=lookup('biotopo');
+  assert.equal(biotopo.id,'es:biótopo');
+  assert.equal(biotopo.documentedForm,'biótopo');
+  assert.equal(corrector.grade(biotopo.etymonIds[0],['biotopo','']).total,1);
+  assert.equal(corrector.grade(biotopo.etymonIds[0],['biótopo','']).total,0.5);
+});
+test('πνεύμων se conserva como componente de consulta sin introducir un étimo curricular',()=>{
+  assert.deepEqual(lookup('neumología').components.map(c=>c.greek),['πνεύμων','λόγος']);
+  for(const form of ['neumología','neumonía']){
+    const word=lookup(form);
+    assert.equal(word.components[0].external,true);
+    assert.deepEqual(word.etymonIds,[]);
+    assert.ok(extended.etymons.find(e=>e.id==='grc:πνευμα').teacherApprovedDerivatives.includes(word.id));
+    assert.ok(study.etymons.every(e=>!e.wordIds.includes(word.id)));
+  }
+  assert.ok(practice.etymons.every(e=>!e.lemma.includes('πνεύμων')));
+  assert.equal(createWriteTwoCorrector(practice).grade('grc:πνευμα',['neumático','neumotórax']).total,2);
 });

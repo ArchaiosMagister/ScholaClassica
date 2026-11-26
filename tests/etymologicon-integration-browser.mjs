@@ -113,8 +113,8 @@ try{
  assert.equal(await page.locator('#load-error').isHidden(),true);
  assert.equal(await page.locator('#theme-select').inputValue(),'oled',
   'El tema común debe persistir entre Estudio y Práctica');
- assert.equal(await page.locator('#etymon-select option').count(),108,
-  'Práctica debe respetar los 108 étimos elegibles');
+ assert.equal(await page.locator('#etymon-select option').count(),107,
+  'Escritura debe ofrecer solo étimos con dos respuestas aptas');
 
  // Correspondencia docente fijada: proselito (falta) + prosodia (correcta) = 1,5.
  await page.locator('#etymon-select').selectOption('grc:προσ');
@@ -176,7 +176,7 @@ try{
  response=await page.goto(base+modulePath+'practicar.html',{waitUntil:'domcontentloaded'});
  assert.equal(response.status(),200,'La práctica debe abrir sin conexión');
  await page.waitForFunction(()=>document.querySelector('#exercise-content')?.hidden===false);
- assert.equal(await page.locator('#etymon-select option').count(),108);
+ assert.equal(await page.locator('#etymon-select option').count(),107);
  assert.equal(await page.locator('#stats-exercises').textContent(),'1');
  assert.deepEqual(pageErrors,[],'No debe haber excepciones JavaScript');
 

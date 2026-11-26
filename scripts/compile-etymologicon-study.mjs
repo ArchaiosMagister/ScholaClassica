@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
+import {readDecompositionTeachingNotes} from './compile-etymologicon-decomposition.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const file=join(root,'shared/academic/greek-etymology/review/study-glosses-gr1-20261113.json');
@@ -165,7 +166,24 @@ export function readLexicographicChecks(){
   const data=JSON.parse(readFileSync(checksFile,'utf8'));
   assert.equal(data.schema,'etymologicon-lexicographic-checks/v1');
   assert.equal(data.course,'gr1');
-  assert.equal(Object.keys(data.records).length,24);
+  const {forms,checkedAt,articleRedirects}=data.dleHeadwords;
+  assert.equal(new Set(forms).size,forms.length);
+  assert.match(checkedAt,/^\d{4}-\d{2}-\d{2}$/);
+  for(const [term,url] of Object.entries(articleRedirects)){
+    assert.ok(forms.includes(term),term);
+    assert.ok(url.startsWith('https://dle.rae.es/'),term);
+  }
+  for(const [term,check] of Object.entries(data.records)){
+    assert.ok(check.sourceUrl.startsWith('https://'),term);
+    for(const source of check.scientificSources||[]){
+      assert.ok(source.authority&&source.url.startsWith('https://'),term);
+    }
+    if(check.status==='fuente_especializada_contrastada'){
+      assert.ok(check.scientificSources?.length,term);
+      assert.equal(check.dleQuery?.status,'consulta_pendiente',term);
+      assert.ok(check.dleQuery.url.startsWith('https://dle.rae.es/'),term);
+    }
+  }
   return data;
 }
 export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
@@ -178,9 +196,10 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
   assert.equal(learners.course,'gr1');
   assert.equal(lexicon.schema,'etymologicon-study-glosses/v1');
   const allNames=new Set(learners.derivatives.map(w=>w.form));
+  const headwords=new Set(checks.dleHeadwords.forms);
   for(const name of Object.keys(pdfIndex.firstPageByTerm))
     assert.ok(allNames.has(name),'Fuente PDF para término desconocido: '+name);
-  for(const name of Object.keys(checks.records))
+  for(const name of [...Object.keys(checks.records),...headwords])
     assert.ok(allNames.has(name),'Cotejo lexicográfico para término desconocido: '+name);
   const original=new Map(source.derivatives.map(d=>[d.id,d]));
   const etyma=new Map(learners.etymons.map(e=>[e.id,e]));
@@ -200,13 +219,17 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
     if(!relations.has(rel.derivativeId))relations.set(rel.derivativeId,new Set());
     relations.get(rel.derivativeId).add(rel.etymonId);
   }
+  const teachingNotes=readDecompositionTeachingNotes();
   const words=learners.derivatives.map(d=>{
     const prior=original.get(d.id);
     const definition=definitionCorrections[d.form]||
       prior?.definitions?.[0]?.text||lexicon.definitions[d.form];
     assert.ok(typeof definition==='string'&&definition.length>=8,'Falta glosa propia: '+d.form);
-    const ids=[...(relations.get(d.id)||[])];
-    assert.ok(ids.length>0,'Derivado sin étimo: '+d.form);
+    const checked=checks.records[d.form]||null;
+    const originalIds=relations.get(d.id);
+    assert.ok(originalIds?.size,'Derivado sin asociación docente: '+d.form);
+    for(const id of checked?.excludedEtymonIds||[])assert.ok(originalIds.has(id),d.form+' / '+id);
+    const ids=[...originalIds].filter(id=>!checked?.excludedEtymonIds?.includes(id));
     const additional=componentGlosses[d.form];
     assert.ok(Array.isArray(additional)&&additional.length>0,
       'Falta revisión explícita de los componentes: '+d.form);
@@ -226,9 +249,20 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
       'Componentes incompletos: '+d.form);
     for(const component of components)if(component.id)
       assert.ok(etyma.has(component.id),'Componente fuera del inventario: '+d.form+' '+component.id);
-    const checked=checks.records[d.form]||null;
     const direct=confirmedDle.has(d.form)||
       checked?.status==='dle_individual_contrastado';
+    const inDle=direct||headwords.has(d.form);
+    const scientific=!!checked?.scientificSources?.length;
+    const absent=checked?.status==='dle_no_incluye_entrada_independiente';
+    assert.ok(!(inDle&&absent),d.form+' tiene cotejos contradictorios');
+    const lexicalAdmission=inDle?'dle':scientific?'excepcion_cientifica':
+      absent?'solo_consulta':'pendiente';
+    const dleUrl='https://dle.rae.es/'+encodeURIComponent(d.form);
+    const admissionSource=inDle
+      ?checked?.sourceUrl||checks.dleHeadwords.articleRedirects[d.form]||dleUrl
+      :scientific?checked.scientificSources[0].url:checked?.sourceUrl||dleUrl;
+    const admissionReason=checked?.note|| (direct?'Artículo del DLE cotejado individualmente.':
+      inDle?checks.dleHeadwords.note:'Pendiente de confirmar en el DLE o en bibliografía especializada.');
     const pages=pdfIndex.firstPageByTerm[d.form];
     assert.ok(Array.isArray(pages)&&pages.length===3,
       'No consta la ficha de concordancia documental: '+d.form);
@@ -237,19 +271,27 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
       title:pdfIndex.sources[i].title,
       page
     }]);
-    const connection=specialConnections[d.form]||
+    const teachingNote=teachingNotes[d.form];
+    const reviewedDefinition=teachingNote?.definition;
+    const connection=teachingNote?.etymologicalSense||specialConnections[d.form]||
       (components.length===1
         ?'El étimo '+components[0].greek+' aporta la idea de «'+components[0].gloss+'» a esta familia léxica; la acepción española puede haberse especializado con el tiempo.'
         :'En esta voz se relacionan '+components.map(c=>c.greek+' («'+c.gloss+'»)').join(' y ')+
           '.');
     return {
-      id:d.id,form:d.form,definition,units:[...new Set(ids.flatMap(id=>etyma.get(id).units))],
+      id:d.id,form:checked?.practiceForm||d.form,definition,
+      ...(checked?.practiceForm?{documentedForm:d.form}:{}),
+      ...(reviewedDefinition?{reviewedDefinition,definitionType:teachingNote.definitionType}:{}),
+      units:[...new Set(ids.flatMap(id=>etyma.get(id).units))],
       etymonIds:ids,components,connection,
       source:prior?'auditoria_docente':'ampliacion_documental',
       lexicographicStatus:direct?'dle_consultado_individualmente':'glosa_docente_no_cotejada_individualmente_dle',
-      dleUrl:'https://dle.rae.es/'+encodeURIComponent(d.form),
+      dleUrl:inDle?admissionSource:checked?.dleQuery?.url||dleUrl,
+      admission:{status:lexicalAdmission,sourceUrl:admissionSource,reason:admissionReason,
+        practiceEligible:(inDle||scientific)&&ids.length>0,
+        ...(headwords.has(d.form)?{checkedAt:checks.dleHeadwords.checkedAt}:{})},
       note:prior?.notes||null,
-      editorialNote:editorialNotes[d.form]||null,
+      editorialNote:editorialNotes[d.form]||(checked&&(scientific||absent||checked.secondarySource)?checked.note:null),
       lexicographicCheck:checked,
       pdfAttestations,
       pdfAttested:pdfAttestations.length>0,
@@ -259,7 +301,7 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
       explicitMultiple:components.length>1
     };
   });
-  const approvedWords=new Set(words.map(w=>w.form));
+  const approvedWords=new Set(words.map(w=>w.documentedForm||w.form));
   assert.equal(Object.keys(componentGlosses).length,487,
     'La revisión exige una ficha de componentes para cada derivado');
   for(const term of Object.keys(componentGlosses))
@@ -268,16 +310,17 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
   const allId=new Set(words.map(x=>x.id));
   for(const e of learners.etymons)for(const id of e.teacherApprovedDerivatives)
     assert.ok(allId.has(id),'Étimo con respuesta sin ficha: '+e.id+' / '+id);
+  const wordById=new Map(words.map(w=>[w.id,w]));
   const etymons=learners.etymons.map(e=>({
     id:e.id,lemma:e.lemma,meaning:e.meaning,units:e.units,
     eligible:e.editorialStatus==='approved_for_documented_derivatives',
-    wordIds:e.teacherApprovedDerivatives
+    wordIds:e.teacherApprovedDerivatives.filter(id=>wordById.get(id).etymonIds.includes(e.id))
   }));
   assert.equal(etymons.filter(e=>e.eligible).length,108);
   const confirmed=words.filter(w=>w.lexicographicStatus==='dle_consultado_individualmente').length;
   const pdfAttested=words.filter(w=>w.pdfAttested).length;
   const individualChecks=words.filter(w=>w.lexicographicCheck?.status==='dle_individual_contrastado').length;
-  const specialistChecks=words.filter(w=>w.lexicographicCheck?.status==='fuente_especializada_contrastada').length;
+  const specialistChecks=words.filter(w=>w.admission.status==='excepcion_cientifica').length;
   const dleNotListed=words.filter(w=>w.lexicographicCheck?.status==='dle_no_incluye_entrada_independiente').length;
   assert.equal(pdfAttested,475,'Concordancia documental inesperada');
   return {schema:'etymologicon-study-catalog/v1',course:'gr1',etymons,words,
@@ -285,7 +328,10 @@ export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),
       explicitComponentReviews:words.filter(w=>w.componentReview==='analisis_explicito_del_banco_docente').length,
       compounds:words.filter(w=>w.components.length>1).length,
       singleStemOrFamily:words.filter(w=>w.components.length===1).length,
-      individualDleChecks:confirmed,remainingDleChecks:words.length-confirmed,
+      individualDleChecks:confirmed,
+      dleHeadwordChecks:words.filter(w=>w.admission.status==='dle').length,
+      pendingLexicalAdmission:words.filter(w=>w.admission.status==='pendiente').length,
+      pendingDleWithSpecialistEvidence:words.filter(w=>w.lexicographicCheck?.dleQuery?.status==='consulta_pendiente').length,
       pdfAttested,pdfNoExactMatch:words.length-pdfAttested,
       individuallyCheckedDleThisReview:individualChecks,
       individuallyCheckedSpecialistThisReview:specialistChecks,

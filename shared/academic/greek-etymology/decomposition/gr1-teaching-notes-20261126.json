@@ -1,0 +1,823 @@
+{
+  "schema": "etymologicon-decomposition-teaching-notes/v1",
+  "course": "gr1",
+  "policy": "Glosas didácticas redactadas con palabras propias a partir de los artículos DLE documentados en el piloto y los lotes; explicación semántica independiente, no cita literal ni reconstrucción histórica automática.",
+  "words": {
+    "filosofía": {
+      "definition": "Conjunto de saberes que examina racionalmente la realidad y el conocimiento.",
+      "etymologicalSense": "El amor a la sabiduría explica la búsqueda racional de conocimiento y de respuestas a cuestiones fundamentales.",
+      "sourceUrl": "https://dle.rae.es/filosof%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "antropología": {
+      "definition": "Conjunto de ciencias dedicadas al estudio del ser humano.",
+      "etymologicalSense": "El estudio del ser humano se convierte en una disciplina que investiga sus dimensiones biológicas y culturales.",
+      "sourceUrl": "https://dle.rae.es/antropolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "democracia": {
+      "definition": "Sistema político en el que el pueblo ejerce la soberanía.",
+      "etymologicalSense": "El poder del pueblo se concreta en la soberanía popular como principio político.",
+      "sourceUrl": "https://dle.rae.es/democracia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "biología": {
+      "definition": "Ciencia que estudia los seres vivos.",
+      "etymologicalSense": "La idea de vida se combina con el valor de estudio de -logía para nombrar la ciencia de los seres vivos.",
+      "sourceUrl": "https://dle.rae.es/biolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "zoología": {
+      "definition": "Ciencia que se ocupa del estudio de los animales.",
+      "etymologicalSense": "El estudio de los animales se expresa con ζῷον y el elemento especializado -logía.",
+      "sourceUrl": "https://dle.rae.es/zoolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "psicología": {
+      "definition": "Ciencia que estudia la mente y la conducta.",
+      "etymologicalSense": "La idea antigua de alma se especializa en el estudio de la mente, la conducta y los procesos mentales.",
+      "sourceUrl": "https://dle.rae.es/psicolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "bibliografía": {
+      "definition": "Relación de libros y escritos sobre una materia o utilizados como fuentes.",
+      "etymologicalSense": "La descripción de libros se especializa en su repertorio, identificación y estudio.",
+      "sourceUrl": "https://dle.rae.es/bibliograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "demografía": {
+      "definition": "Estudio estadístico de una población humana.",
+      "etymologicalSense": "La descripción de la población se concreta en el análisis estadístico de sus características.",
+      "sourceUrl": "https://dle.rae.es/demograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "megáfono": {
+      "definition": "Dispositivo utilizado para amplificar la voz a distancia.",
+      "etymologicalSense": "La idea de aumentar la voz da nombre al aparato que permite amplificarla.",
+      "sourceUrl": "https://dle.rae.es/meg%C3%A1fono",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cromosoma": {
+      "definition": "Estructura celular formada por ADN y proteínas que porta información genética.",
+      "etymologicalSense": "El nombre de cuerpo coloreado alude a que estas estructuras celulares pueden distinguirse mediante técnicas de tinción.",
+      "sourceUrl": "https://dle.rae.es/cromosoma",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "microscopio": {
+      "definition": "Instrumento para observar objetos demasiado pequeños a simple vista.",
+      "etymologicalSense": "La observación de lo pequeño se concreta en el instrumento que hace visibles estructuras diminutas.",
+      "sourceUrl": "https://dle.rae.es/microscopio",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "taquicardia": {
+      "definition": "Frecuencia excesivamente rápida de las contracciones cardíacas.",
+      "etymologicalSense": "La unión de rapidez y corazón designa una aceleración de la frecuencia cardíaca.",
+      "sourceUrl": "https://dle.rae.es/taquicardia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "gerontología": {
+      "definition": "Ciencia que estudia la vejez y los fenómenos que la caracterizan.",
+      "etymologicalSense": "La idea de estudio de la vejez procede de γέρων, cuyo tema γεροντ- explica geronto-.",
+      "sourceUrl": "https://dle.rae.es/gerontolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "hematología": {
+      "definition": "Especialidad que estudia la sangre y sus alteraciones.",
+      "etymologicalSense": "El estudio de la sangre se expresa con el tema αἱματ- de αἷμα, αἵματος y el elemento -logía.",
+      "sourceUrl": "https://dle.rae.es/hematolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "filología": {
+      "definition": "Estudio de las lenguas, las literaturas y los textos escritos.",
+      "etymologicalSense": "El interés por las palabras y los discursos se especializa en la investigación de lenguas, literaturas y textos.",
+      "sourceUrl": "https://dle.rae.es/filolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "teología": {
+      "definition": "Estudio o doctrina acerca de la divinidad.",
+      "etymologicalSense": "El discurso o estudio sobre la divinidad explica el nombre de esta disciplina.",
+      "sourceUrl": "https://dle.rae.es/teolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-12",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cacofonía": {
+      "definition": "Disonancia en la combinación de sonidos del habla.",
+      "etymologicalSense": "La idea de sonido desagradable se aplica a la combinación de sonidos que resulta disonante.",
+      "sourceUrl": "https://dle.rae.es/cacofon%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "anfibio": {
+      "definition": "Vertebrado que, típicamente, pasa de una fase larvaria acuática a la adulta terrestre o semiacuática.",
+      "etymologicalSense": "El sentido de vida en dos ámbitos se aplica a animales cuya vida se desarrolla en medios acuáticos y terrestres.",
+      "sourceUrl": "https://dle.rae.es/anfibio",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "apogeo": {
+      "definition": "Punto de una órbita terrestre más alejado del centro de la Tierra; figuradamente, culminación.",
+      "etymologicalSense": "El alejamiento de la Tierra designa un punto orbital distante; por extensión, el momento de máxima culminación.",
+      "sourceUrl": "https://dle.rae.es/apogeo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "autocracia": {
+      "definition": "Régimen en que una persona concentra el poder supremo.",
+      "etymologicalSense": "La unión de uno mismo y poder explica la concentración de la autoridad en una persona.",
+      "sourceUrl": "https://dle.rae.es/autocracia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "anatomía": {
+      "definition": "Disciplina que estudia la estructura de los seres vivos.",
+      "etymologicalSense": "La idea histórica de disección, separar mediante cortes, explica el estudio de la estructura de los organismos.",
+      "sourceUrl": "https://dle.rae.es/anatom%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cardiología": {
+      "definition": "Estudio médico del corazón, su funcionamiento y sus enfermedades.",
+      "etymologicalSense": "El estudio del corazón se especializa en la disciplina médica dedicada a ese órgano.",
+      "sourceUrl": "https://dle.rae.es/cardiolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cacografía": {
+      "definition": "Escritura que infringe las convenciones ortográficas.",
+      "etymologicalSense": "La idea de escritura incorrecta explica el sentido de escritura contraria a las reglas ortográficas.",
+      "sourceUrl": "https://dle.rae.es/cacograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "autógrafo": {
+      "definition": "Firma de una persona conocida; también, escrito realizado de propia mano por su autor.",
+      "etymologicalSense": "La escritura de propia mano explica el uso de la palabra para un escrito o una firma del propio autor.",
+      "sourceUrl": "https://dle.rae.es/aut%C3%B3grafo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "talasocracia": {
+      "definition": "Predominio político basado en el control marítimo.",
+      "etymologicalSense": "El poder vinculado al mar designa el predominio basado en su control.",
+      "sourceUrl": "https://dle.rae.es/talasocracia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "teocracia": {
+      "definition": "Sistema de gobierno que fundamenta la autoridad política en un poder divino o religioso.",
+      "etymologicalSense": "El poder asociado a lo divino explica un sistema de gobierno fundamentado en autoridad religiosa.",
+      "sourceUrl": "https://dle.rae.es/teocracia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "biografía": {
+      "definition": "Relato de la trayectoria vital de una persona.",
+      "etymologicalSense": "La escritura sobre la vida se concreta en el relato de la trayectoria de una persona.",
+      "sourceUrl": "https://dle.rae.es/biograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cronología": {
+      "definition": "Ordenación temporal de acontecimientos y disciplina que determina sus fechas.",
+      "etymologicalSense": "El estudio del tiempo se aplica a situar y ordenar los acontecimientos según sus fechas.",
+      "sourceUrl": "https://dle.rae.es/cronolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "xilófono": {
+      "definition": "Instrumento de percusión con láminas de distinto tono que se golpean con baquetas.",
+      "etymologicalSense": "La unión de madera y sonido explica el nombre del instrumento de láminas tradicionalmente de madera.",
+      "sourceUrl": "https://dle.rae.es/xil%C3%B3fono",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "prólogo": {
+      "definition": "Texto que precede a una obra y sirve de introducción a su lectura.",
+      "etymologicalSense": "El discurso anterior a la obra designa el texto que la introduce.",
+      "sourceUrl": "https://dle.rae.es/pr%C3%B3logo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "caligrafía": {
+      "definition": "Arte de escribir con letra cuidada; también los rasgos particulares de una escritura.",
+      "etymologicalSense": "La idea de escritura bella o cuidada da nombre al arte de escribir con letra de calidad.",
+      "sourceUrl": "https://dle.rae.es/caligraf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "polifonía": {
+      "definition": "Organización musical que combina simultáneamente varias líneas sonoras con identidad propia.",
+      "etymologicalSense": "La pluralidad de voces explica la combinación simultánea de líneas musicales.",
+      "sourceUrl": "https://dle.rae.es/polifon%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "geología": {
+      "definition": "Ciencia que estudia la composición, la estructura y la historia de la Tierra.",
+      "etymologicalSense": "El estudio de la Tierra se especializa en sus materiales, estructura e historia.",
+      "sourceUrl": "https://dle.rae.es/geolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "dermatología": {
+      "definition": "Especialidad médica dedicada a la piel y sus enfermedades.",
+      "etymologicalSense": "El estudio de la piel se concreta en la especialidad médica; el genitivo δέρματος explica dermat-.",
+      "sourceUrl": "https://dle.rae.es/dermatolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "monólogo": {
+      "definition": "Discurso de una persona sin intervención verbal de un interlocutor.",
+      "etymologicalSense": "El discurso de una sola persona explica el parlamento sin intervención verbal de otra.",
+      "sourceUrl": "https://dle.rae.es/mon%C3%B3logo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "fonología": {
+      "definition": "Rama de la lingüística que estudia la organización de los sonidos y los rasgos suprasegmentales según su función distintiva.",
+      "etymologicalSense": "El estudio de la voz y los sonidos se especializa en su función dentro del sistema de una lengua, no en sus propiedades físicas.",
+      "sourceUrl": "https://dle.rae.es/fonolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "diálogo": {
+      "definition": "Conversación en la que varias personas intercambian ideas o sentimientos; también conversación orientada al acuerdo.",
+      "etymologicalSense": "La conversación se desarrolla mediante la palabra compartida. διά expresa mediación o intercambio, no el numeral «dos».",
+      "sourceUrl": "https://dle.rae.es/di%C3%A1logo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "politeísmo": {
+      "definition": "Creencia religiosa que admite la existencia de más de una divinidad.",
+      "etymologicalSense": "La idea de multiplicidad aplicada a los dioses caracteriza esta creencia. No confundir πολύς con πόλις.",
+      "sourceUrl": "https://dle.rae.es/polite%C3%ADsmo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "demagogo": {
+      "definition": "Persona que recurre a la demagogia; también dirigente popular u orador que busca influencia agitando a la población.",
+      "etymologicalSense": "El sentido de conducir al pueblo se especializa en el liderazgo popular y, en el uso peyorativo, en la manipulación de sus emociones.",
+      "sourceUrl": "https://dle.rae.es/demagogo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "hidrografía": {
+      "definition": "Disciplina de la geografía física dedicada a describir las aguas terrestres; también las aguas de una región.",
+      "etymologicalSense": "La descripción de las aguas explica tanto el nombre de la disciplina como el de las aguas descritas.",
+      "sourceUrl": "https://dle.rae.es/hidrograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "autodidacta": {
+      "definition": "Persona que adquiere conocimientos por su cuenta; también lo que caracteriza ese modo de aprendizaje.",
+      "etymologicalSense": "La enseñanza dirigida a uno mismo explica que se aprenda sin depender de un maestro.",
+      "sourceUrl": "https://dle.rae.es/autodidacta",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "iconografía": {
+      "definition": "Repertorio o sistema de imágenes sobre un tema, así como el arte y estudio de sus representaciones.",
+      "etymologicalSense": "La representación o descripción de imágenes da nombre a la actividad y al conjunto de imágenes resultante.",
+      "sourceUrl": "https://dle.rae.es/iconograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "hipodérmico": {
+      "definition": "Situado o introducido por debajo de la piel.",
+      "etymologicalSense": "ὑπό indica posición inferior y δέρμα piel: expresa una localización subcutánea.",
+      "sourceUrl": "https://dle.rae.es/hipod%C3%A9rmico",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "plutocracia": {
+      "definition": "Situación política en que quienes poseen grandes riquezas ejercen una influencia predominante en el gobierno.",
+      "etymologicalSense": "La riqueza se convierte en fundamento del poder político: de ahí el sentido de predominio de los ricos.",
+      "sourceUrl": "https://dle.rae.es/plutocracia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cosmopolita": {
+      "definition": "Persona familiarizada con culturas de distintos países y abierta a ellas.",
+      "etymologicalSense": "El ciudadano del mundo no limita su pertenencia a una sola ciudad; de ahí la apertura a otras culturas.",
+      "sourceUrl": "https://dle.rae.es/cosmopolita",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "xilografía": {
+      "definition": "Técnica de grabado sobre madera y las impresiones obtenidas de planchas talladas.",
+      "etymologicalSense": "La escritura o incisión sobre madera explica tanto la técnica de grabado como su resultado impreso.",
+      "sourceUrl": "https://dle.rae.es/xilograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "paradoja": {
+      "definition": "Hecho o afirmación que parece contradecir la lógica.",
+      "etymologicalSense": "παρά señala oposición respecto de una opinión: lo contrario a lo esperado adquiere el sentido de aparente contradicción lógica.",
+      "sourceUrl": "https://dle.rae.es/paradoja",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "megafonía": {
+      "definition": "Técnica de amplificación sonora y conjunto de equipos que permiten aumentar el volumen del sonido.",
+      "etymologicalSense": "La idea de hacer grande la voz o el sonido se aplica a la amplificación acústica y sus instalaciones.",
+      "sourceUrl": "https://dle.rae.es/megafon%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "anáfora": {
+      "definition": "Referencia gramatical a un elemento mencionado antes; en retórica, repetición expresiva de palabras o ideas.",
+      "etymologicalSense": "El valor de volver atrás explica tanto la remisión a una expresión anterior como la repetición retórica.",
+      "sourceUrl": "https://dle.rae.es/an%C3%A1fora",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "hipogeo": {
+      "definition": "Construcción bajo tierra, especialmente cámara funeraria antigua destinada a depositar cadáveres sin incinerar.",
+      "etymologicalSense": "ὑπό señala posición inferior y γῆ tierra: literalmente se refiere a lo que está bajo el suelo.",
+      "sourceUrl": "https://dle.rae.es/hipogeo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "hidrofobia": {
+      "definition": "Miedo patológico al agua; en medicina, denominación de la rabia.",
+      "etymologicalSense": "La unión de agua y miedo explica el sentido psicológico; la rabia recibió también ese nombre por la dificultad y el temor a beber.",
+      "sourceUrl": "https://dle.rae.es/hidrofobia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "bibliófilo": {
+      "definition": "Persona aficionada a los libros, especialmente a su colección y aprecio.",
+      "etymologicalSense": "El afecto o afición por los libros se concreta en el interés por conservarlos, apreciarlos y coleccionarlos.",
+      "sourceUrl": "https://dle.rae.es/bibli%C3%B3filo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "andrógino": {
+      "definition": "Persona cuyos rasgos externos no se identifican claramente con los asociados a su sexo; también tiene usos biológicos y botánicos.",
+      "etymologicalSense": "Las bases varón y mujer explican la asociación de características masculinas y femeninas; el sentido actual depende del ámbito.",
+      "sourceUrl": "https://dle.rae.es/andr%C3%B3gino",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "encéfalo": {
+      "definition": "Parte del sistema nervioso de los vertebrados situada dentro de la cavidad craneal.",
+      "etymologicalSense": "La expresión dentro de la cabeza explica la localización anatómica; en griego se produce asimilación nasal ante κ.",
+      "sourceUrl": "https://dle.rae.es/enc%C3%A9falo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cefalópodo": {
+      "definition": "Molusco marino de cabeza diferenciada, rodeada de apéndices con ventosas, como el pulpo o el calamar.",
+      "etymologicalSense": "Los apéndices derivados del pie rodean la cabeza: el nombre alude a esa disposición anatómica. ποδ- procede de πούς, ποδός.",
+      "sourceUrl": "https://dle.rae.es/cefal%C3%B3podo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "fonógrafo": {
+      "definition": "Aparato que registra o reproduce sonidos mediante las vibraciones grabadas en un disco o cilindro.",
+      "etymologicalSense": "El registro de la voz o el sonido se concreta en la inscripción mecánica de sus vibraciones para reproducirlas después.",
+      "sourceUrl": "https://dle.rae.es/fon%C3%B3grafo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "ergonomía": {
+      "definition": "Disciplina que adapta equipos y utensilios a quienes los utilizan para mejorar la comodidad y la eficacia; también esa cualidad.",
+      "etymologicalSense": "La organización del trabajo se concreta en el diseño de herramientas y entornos adaptados a las capacidades de las personas.",
+      "sourceUrl": "https://dle.rae.es/ergonom%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "doxología": {
+      "definition": "Expresión litúrgica o bíblica de alabanza a Dios, en particular a la Trinidad.",
+      "etymologicalSense": "Aquí δόξα tiene el valor de gloria o alabanza, no el de opinión: designa una expresión verbal de glorificación de Dios.",
+      "sourceUrl": "https://dle.rae.es/doxolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "anacronismo": {
+      "definition": "Confusión de épocas o atribución a un período de algo que no le corresponde; también una persona o cosa fuera de su tiempo.",
+      "etymologicalSense": "El desplazamiento respecto al tiempo correspondiente explica el error de situar algo en otra época o considerarlo desfasado.",
+      "sourceUrl": "https://dle.rae.es/anacronismo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "autónomo": {
+      "definition": "Que puede regirse o desenvolverse por sí mismo, sin dependencia ajena; también quien trabaja por cuenta propia.",
+      "etymologicalSense": "La idea de regirse por las propias leyes se amplía a la independencia personal, institucional o laboral.",
+      "sourceUrl": "https://dle.rae.es/aut%C3%B3nomo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "ginecología": {
+      "definition": "Especialidad médica dedicada al aparato reproductor femenino y a sus trastornos.",
+      "etymologicalSense": "La referencia a la mujer se especializa en la atención médica de su aparato reproductor. El tema γυναικ- explica gineco-.",
+      "sourceUrl": "https://dle.rae.es/ginecolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "oftalmología": {
+      "definition": "Especialidad médica dedicada a las afecciones oculares.",
+      "etymologicalSense": "La idea de estudio del ojo se concreta en la disciplina médica que aborda sus enfermedades.",
+      "sourceUrl": "https://dle.rae.es/oftalmolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "podología": {
+      "definition": "Profesión sanitaria centrada en el conocimiento y la atención de los pies.",
+      "etymologicalSense": "El estudio del pie se especializa en el cuidado sanitario de esta parte del cuerpo; el genitivo ποδός explica podo-.",
+      "sourceUrl": "https://dle.rae.es/podolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "cefalalgia": {
+      "definition": "Dolor localizado en la cabeza, denominado también cefalea.",
+      "etymologicalSense": "La asociación de cabeza y dolor nombra directamente la localización de la molestia.",
+      "sourceUrl": "https://dle.rae.es/cefalalgia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "otalgia": {
+      "definition": "Sensación dolorosa localizada en el oído.",
+      "etymologicalSense": "La unión de oído y dolor da nombre al síntoma. El tema ὠτ- del genitivo ὠτός explica ot-.",
+      "sourceUrl": "https://dle.rae.es/otalgia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "monoteísmo": {
+      "definition": "Creencia religiosa que reconoce la existencia de un único dios.",
+      "etymologicalSense": "μόνος aporta la idea de unicidad y θεός la referencia a la divinidad. La palabra se forma sobre teísmo.",
+      "sourceUrl": "https://dle.rae.es/monote%C3%ADsmo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "macrocéfalo": {
+      "definition": "Que presenta una cabeza de tamaño excesivo en relación con el cuerpo.",
+      "etymologicalSense": "La idea de tamaño grande o largo se aplica a la cabeza; el adjetivo describe una proporción corporal.",
+      "sourceUrl": "https://dle.rae.es/macroc%C3%A9falo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "microcosmos": {
+      "definition": "Mundo reducido o entidad que reproduce a pequeña escala la organización del universo.",
+      "etymologicalSense": "La oposición entre pequeño y universo permite representar una totalidad organizada a escala reducida.",
+      "sourceUrl": "https://dle.rae.es/microcosmos",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "macrocosmos": {
+      "definition": "Universo concebido como un conjunto ordenado y armónico.",
+      "etymologicalSense": "El formante macro- contrapone el universo en su conjunto al mundo reducido del microcosmos.",
+      "sourceUrl": "https://dle.rae.es/macrocosmos",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "monografía": {
+      "definition": "Trabajo escrito especializado que desarrolla un tema concreto.",
+      "etymologicalSense": "La idea de unidad se aplica al asunto de un estudio escrito; no significa que el trabajo tenga un único autor.",
+      "sourceUrl": "https://dle.rae.es/monograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "polícromo": {
+      "definition": "Que presenta una diversidad de colores en su superficie o composición.",
+      "etymologicalSense": "πολύς indica multiplicidad y χρῶμα aporta la noción de color: se aplica a objetos con varios colores.",
+      "sourceUrl": "https://dle.rae.es/pol%C3%ADcromo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "bibliomanía": {
+      "definition": "Afición desmedida por reunir y coleccionar libros.",
+      "etymologicalSense": "La inclinación excesiva expresada por -manía se dirige hacia los libros y su acumulación.",
+      "sourceUrl": "https://dle.rae.es/biblioman%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "gastralgia": {
+      "definition": "Dolor localizado en la zona del estómago.",
+      "etymologicalSense": "El tema de γαστήρ identifica la parte del cuerpo afectada; ἄλγος expresa la sensación dolorosa.",
+      "sourceUrl": "https://dle.rae.es/gastralgia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "laringología": {
+      "definition": "Rama médica especializada en el estudio de las afecciones de la laringe.",
+      "etymologicalSense": "El tema λαρυγγ- identifica la laringe y -logía indica una disciplina dedicada a su estudio.",
+      "sourceUrl": "https://dle.rae.es/laringolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "filantropía": {
+      "definition": "Afecto y preocupación por la humanidad, manifestados en acciones de ayuda a otras personas.",
+      "etymologicalSense": "Amor a los seres humanos: la composición se conserva en el sentido de solidaridad y beneficencia.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/filantrop%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "tanatofobia": {
+      "definition": "Temor patológico a morir o a la muerte.",
+      "etymologicalSense": "La unión de muerte y miedo nombra el objeto de la fobia.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/tanatofobia",
+      "evidenceDate": "2026-11-26"
+    },
+    "megalópolis": {
+      "definition": "Ciudad de dimensiones extraordinariamente grandes.",
+      "etymologicalSense": "La idea de una gran ciudad se conserva; megal(o)- refleja el tema μεγάλ- de μέγας.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/megal%C3%B3polis",
+      "evidenceDate": "2026-11-26"
+    },
+    "psicosomático": {
+      "definition": "Relativo a la interacción de los procesos psíquicos y corporales, incluida su influencia recíproca.",
+      "etymologicalSense": "La combinación de mente y cuerpo expresa su interacción; no equivale exclusivamente a un trastorno imaginario.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/psicosom%C3%A1tico",
+      "evidenceDate": "2026-11-26"
+    },
+    "ginecocracia": {
+      "definition": "Sistema de gobierno ejercido por mujeres (voz poco usada).",
+      "etymologicalSense": "La idea de poder asociado a las mujeres explica el sentido político del compuesto.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/ginecocracia",
+      "evidenceDate": "2026-11-26"
+    },
+    "hepatomegalia": {
+      "definition": "Agrandamiento patológico del hígado.",
+      "etymologicalSense": "El tema ἡπατ- de ἧπαρ, ἥπατος aporta la referencia al hígado; el segundo formante indica agrandamiento.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/hepatomegalia",
+      "evidenceDate": "2026-11-26"
+    },
+    "taquígrafo": {
+      "definition": "Persona que domina la escritura abreviada y rápida; también instrumento que registra la velocidad.",
+      "etymologicalSense": "La escritura rápida da nombre al profesional; el registro de la rapidez explica la segunda acepción.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/taqu%C3%ADgrafo",
+      "evidenceDate": "2026-11-26"
+    },
+    "cosmología": {
+      "definition": "Rama astronómica dedicada al origen, la evolución y las leyes del universo.",
+      "etymologicalSense": "El estudio del universo se concreta en la disciplina astronómica que explica su estructura y evolución.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/cosmolog%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "criptografía": {
+      "definition": "Técnica de escritura mediante claves que dificultan la comprensión del mensaje.",
+      "etymologicalSense": "La idea de ocultar lo escrito explica el cifrado de mensajes.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/criptograf%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "dermalgia": {
+      "definition": "Dolor de origen nervioso que afecta a la piel.",
+      "etymologicalSense": "La unión de piel y dolor designa la localización del síntoma, con la precisión médica de su origen nervioso.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/dermalgia",
+      "evidenceDate": "2026-11-26"
+    },
+    "grafología": {
+      "definition": "Estudio de los rasgos de la escritura individual para identificar a su autor o intentar inferir su personalidad.",
+      "etymologicalSense": "El estudio de lo escrito se especializa en la escritura individual. No presentar la inferencia de personalidad como científicamente validada.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/grafolog%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "diacronía": {
+      "definition": "Evolución o sucesión de fenómenos en el tiempo.",
+      "etymologicalSense": "A través del tiempo: permite explicar la perspectiva histórica frente a la sincrónica.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/diacron%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "energía": {
+      "definition": "Capacidad de actuar o producir efectos; en física, capacidad de realizar trabajo.",
+      "etymologicalSense": "La idea griega de actividad efectiva, vinculada a ἐνεργός y ἔργον, explica los sentidos de eficacia y capacidad de acción.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/energ%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "entusiasmo": {
+      "definition": "Emoción intensa ante algo que fascina o adhesión apasionada a una causa.",
+      "etymologicalSense": "La idea de estar inspirado por una divinidad dio lugar a los sentidos de exaltación y fervor.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/entusiasmo",
+      "evidenceDate": "2026-11-26"
+    },
+    "microbio": {
+      "definition": "Organismo de una sola célula que requiere un microscopio para observarse.",
+      "etymologicalSense": "La vida de tamaño diminuto explica la denominación de los microorganismos.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/microbio",
+      "evidenceDate": "2026-11-26"
+    },
+    "micrófono": {
+      "definition": "Dispositivo que convierte las ondas acústicas en señales eléctricas para amplificar el sonido.",
+      "etymologicalSense": "La referencia a sonidos pequeños o débiles explica la idea de captarlos y amplificarlos; no significa que el aparato tenga que ser pequeño.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/micr%C3%B3fono",
+      "evidenceDate": "2026-11-26"
+    },
+    "geografía": {
+      "definition": "Disciplina que describe la Tierra; también territorio o paisaje.",
+      "etymologicalSense": "La descripción de la Tierra da nombre a la disciplina y, por extensión, a los territorios que describe.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/geograf%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "hidrología": {
+      "definition": "Disciplina dedicada al estudio de las aguas terrestres.",
+      "etymologicalSense": "El estudio de las aguas explica la denominación. Diferenciarlo de hidrografía, centrada en su descripción geográfica.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/hidrolog%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "ánfora": {
+      "definition": "Vasija antigua de dos asas, cuello alargado y cuerpo generalmente acabado en punta.",
+      "etymologicalSense": "Las bases evocan llevar por ambos lados: las dos asas permiten asir y transportar el recipiente.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/%C3%A1nfora",
+      "evidenceDate": "2026-11-26"
+    },
+    "metáfora": {
+      "definition": "Empleo de una palabra con significado figurado a partir de una semejanza implícita.",
+      "etymologicalSense": "El traslado de un sentido a otro explica la figura retórica: se transporta el significado a un nuevo referente.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/met%C3%A1fora",
+      "evidenceDate": "2026-11-26"
+    },
+    "periferia": {
+      "definition": "Zona de un conjunto que queda lejos de su centro, especialmente en una ciudad.",
+      "etymologicalSense": "La noción de recorrido o extensión alrededor de algo pasa a designar su contorno o zona exterior.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/periferia",
+      "evidenceDate": "2026-11-26"
+    },
+    "método": {
+      "definition": "Manera ordenada de proceder para realizar una tarea o alcanzar un objetivo.",
+      "etymologicalSense": "La idea de seguir un camino hacia un fin se especializa en un procedimiento ordenado; no traducir mecánicamente μετά como 'después'.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/m%C3%A9todo",
+      "evidenceDate": "2026-11-26"
+    },
+    "período": {
+      "definition": "Intervalo que comprende la duración de un fenómeno o ciclo temporal; se admite también periodo.",
+      "etymologicalSense": "El recorrido circular da lugar al sentido de ciclo y, por extensión, de intervalo temporal.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/per%C3%ADodo",
+      "evidenceDate": "2026-11-26"
+    },
+    "ánodo": {
+      "definition": "Electrodo en el que tiene lugar la oxidación.",
+      "etymologicalSense": "La expresión griega «camino ascendente» dio nombre al electrodo. Su polaridad depende del tipo de celda.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/%C3%A1nodo",
+      "evidenceDate": "2026-11-26"
+    },
+    "pedagogía": {
+      "definition": "Disciplina que estudia la educación y la enseñanza, especialmente la infantil; también la práctica educativa en un ámbito.",
+      "etymologicalSense": "Guiar a los niños explica el paso al sentido de educar. παιδ- procede del genitivo παιδός.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/pedagog%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "gastronomía": {
+      "definition": "Arte culinario, afición a comer bien o conjunto de tradiciones culinarias de un lugar.",
+      "etymologicalSense": "La idea de ordenar o regular lo relativo al estómago se especializa en el arte y la cultura de la buena mesa. γαστρ- explica gastro-.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/gastronom%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "misantropía": {
+      "definition": "Rechazo o aversión a relacionarse con otras personas.",
+      "etymologicalSense": "La aversión al ser humano se concreta en el rechazo del trato social. Contrastar con filantropía.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/misantrop%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "misoginia": {
+      "definition": "Actitud de rechazo u hostilidad hacia las mujeres.",
+      "etymologicalSense": "El primer elemento expresa aversión y el segundo identifica su objeto: las mujeres.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/misoginia",
+      "evidenceDate": "2026-11-26"
+    },
+    "monarquía": {
+      "definition": "Organización estatal cuya jefatura suprema corresponde a un rey o una reina; también el Estado así organizado.",
+      "etymologicalSense": "El mando de una sola persona explica el sentido histórico. La monarquía contemporánea no implica necesariamente poder absoluto.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/monarqu%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "periscopio": {
+      "definition": "Instrumento óptico que permite mirar una zona fuera del campo de visión directo mediante espejos o prismas.",
+      "etymologicalSense": "La idea de observar alrededor explica que el dispositivo permita ver por encima o alrededor de obstáculos.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/periscopio",
+      "evidenceDate": "2026-11-26"
+    },
+    "piromanía": {
+      "definition": "Tendencia patológica a provocar incendios.",
+      "etymologicalSense": "La combinación de fuego y impulso obsesivo da nombre a la tendencia; no equivale al interés normal por el fuego.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://dle.rae.es/piroman%C3%ADa",
+      "evidenceDate": "2026-11-26"
+    },
+    "dendrología": {
+      "definition": "Rama de la botánica forestal dedicada al estudio de los árboles y otras plantas leñosas.",
+      "etymologicalSense": "La combinación de árbol y estudio da nombre a la disciplina que describe e identifica las plantas leñosas.",
+      "definitionType": "glosa_didactica_contrastada",
+      "sourceUrl": "https://www.uhu.es/etsi/guias/get-guia.php?codigo=606510202&curso=2024",
+      "evidenceDate": "2026-11-26"
+    }
+  }
+}

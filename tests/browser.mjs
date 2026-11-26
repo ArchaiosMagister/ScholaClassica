@@ -294,6 +294,12 @@ try{
   await page.locator('#study-search').fill('seudociencia');
   assert.ok((await page.locator('.lexical-alert').first().textContent())
     .includes('No figura como entrada independiente en el DLE'));
+  assert.ok((await page.locator('.lexical-word').first().textContent()).includes('Solo consulta'));
+  await page.locator('#study-search').fill('neumología');
+  assert.match(await page.locator('.lexical-components').first().textContent(),/πνεύμων/);
+  assert.ok(await page.getByRole('heading',{name:'Fichas sin étimo curricular'}).isVisible());
+  await page.locator('#study-search').fill('dendrología');
+  assert.ok(await page.getByRole('link',{name:/Universidad de Huelva/}).isVisible());
   await page.locator('#study-search').fill('biología');
   assert.equal(await page.locator('.lexical-evidence, .lexical-source').count(),0);
   await page.locator('#study-search').fill('filosofía');
@@ -312,17 +318,17 @@ try{
   const etymologicon=await page.goto(base+'/apps/etymologicon/practicar.html',{waitUntil:'networkidle'});
   assert.equal(etymologicon.status(),200);
   await page.locator('#exercise-content').waitFor({state:'visible',timeout:12000});
-  assert.equal(await page.locator('#etymon-select option').count(),108);
+  assert.equal(await page.locator('#etymon-select option').count(),107);
   assert.equal(await page.locator('#unit-select').isDisabled(),false,'La unidad no debe estar en gris tras cargar');
   assert.equal(await page.locator('#unit-select').inputValue(),'all');
   await page.locator('#unit-select').selectOption('UD4');
   assert.equal(await page.locator('#practice-mode').inputValue(),'unit',
     'Elegir una UD activa automáticamente el modo de unidad');
-  assert.ok(await page.locator('#etymon-select option').count()<108);
+  assert.ok(await page.locator('#etymon-select option').count()<107);
   await page.locator('#unit-select').selectOption('all');
   assert.equal(await page.locator('#practice-mode').inputValue(),'general',
     'Todas las unidades devuelve al repaso general');
-  assert.equal(await page.locator('#etymon-select option').count(),108);
+  assert.equal(await page.locator('#etymon-select option').count(),107);
   assert.equal(await page.locator('#course-select option[value="gr2"]').isDisabled(),true);
   await page.locator('#etymon-select').selectOption('grc:προσ');
   assert.ok((await page.locator('#exercise-title').textContent()).includes('πρός'));
@@ -373,7 +379,7 @@ try{
   assert.equal(await page.locator('#practice-empty').isVisible(),true);
   assert.equal(await page.locator('#answer-form').isHidden(),true);
   await page.locator('#practice-mode').selectOption('general');
-  assert.equal(await page.locator('#etymon-select option').count(),108);
+  assert.equal(await page.locator('#etymon-select option').count(),107);
   // Exportación sin datos personales ni respuestas, borrado voluntario e importación.
   const pendingDownload=page.waitForEvent('download');
   await page.getByRole('button',{name:'Exportar progreso'}).click();
@@ -410,12 +416,13 @@ try{
   await page.locator('#unit-select').selectOption('UD1');
   assert.ok(await page.locator('#etymon-select option').count()>0,'Filtro por unidad vacío');
   await page.locator('#practice-mode').selectOption('general');
-  assert.equal(await page.locator('#etymon-select option').count(),108);
+  assert.equal(await page.locator('#etymon-select option').count(),107);
   await page.getByRole('button',{name:'Otro étimo'}).click();
   assert.equal(await page.locator('#results').isHidden(),true,'El siguiente étimo debe limpiar el resultado anterior');
   // Las tarjetas se mantienen ocultas hasta revelar la solución y su
   // autoevaluación NO altera las notas objetivas del corrector.
   await page.locator('#activity-type').selectOption('cards');
+  assert.equal(await page.locator('#etymon-select option').count(),108);
   await page.locator('#etymon-select').selectOption('grc:προσ');
   assert.equal(await page.locator('#flashcard-section').isVisible(),true);
   assert.equal(await page.locator('#flashcard-back').isHidden(),true);
@@ -536,12 +543,16 @@ try{
   await page.locator('#activity-type').selectOption('writing');
   assert.equal(await page.locator('#answer-form').isVisible(),true);
 
-  // Piloto de composición con evidencias DLE, no todos los 201 derivados.
+  // Banco cerrado de descomposición: comprobar la cantidad aprobada, no todo el glosario.
   await page.locator('#activity-type').selectOption('decomposition');
   assert.equal(await page.locator('#decomposition-section').isVisible(),true);
   assert.equal(await page.locator('#answer-form').isHidden(),true);
   assert.equal(await page.locator('#etymon-field').isHidden(),true);
-  assert.ok((await page.locator('#pool-size').textContent()).includes('16 palabras'));
+  const decompositionCatalog=JSON.parse(await readFile(join(root,'apps/etymologicon/data/gr1-decomposition.json'),'utf8'));
+  assert.equal(decompositionCatalog.entries.length,decompositionCatalog.audit.approvedForPractice);
+  assert.equal(decompositionCatalog.entries.length,106);
+  assert.equal((await page.locator('#pool-size').textContent()).trim(),
+    decompositionCatalog.entries.length+' palabras descomponibles en esta selección');
   const firstCompound=await page.evaluate(async()=>{
     const audit=await fetch('./data/gr1-decomposition.json').then(r=>r.json());
     const selected=document.querySelector('#decomposition-word').textContent;
@@ -556,8 +567,10 @@ try{
   assert.ok((await page.locator('#decomposition-meaning').textContent()).trim().length>10);
   assert.equal((await page.locator('#stats-decomposition').textContent()).trim(),'1');
   assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
+  assert.equal((await page.locator('#decomposition-etymological-sense').textContent()),firstCompound.etymologicalSense);
   assert.ok((await page.locator('#decomposition-route').textContent()).length>20);
-  assert.ok((await page.locator('#decomposition-source').getAttribute('href')).startsWith('https://dle.rae.es/'));
+  assert.equal(await page.locator('#decomposition-source').getAttribute('href'),firstCompound.evidence.url);
+  assert.equal(await page.locator('#decomposition-source').textContent(),firstCompound.evidence.authority);
   await page.getByRole('button',{name:'Otra palabra'}).click();
   assert.notEqual((await page.locator('#decomposition-word').textContent()),firstCompound.form);
   const secondCompound=await page.evaluate(async()=>{
@@ -574,7 +587,10 @@ try{
   assert.equal((await page.locator('#stats-decomposition-perfect').textContent()).trim(),'1');
   await page.locator('#practice-mode').selectOption('unit');
   await page.locator('#unit-select').selectOption('UD12');
-  assert.ok((await page.locator('#pool-size').textContent()).includes('16 palabras'));
+  const finalUnitCount=decompositionCatalog.entries.filter(e=>Number(e.introducedAtUnit.slice(2))<=12).length;
+  assert.equal(finalUnitCount,decompositionCatalog.entries.length);
+  assert.equal((await page.locator('#pool-size').textContent()).trim(),
+    finalUnitCount+' palabras descomponibles en esta selección');
   await page.locator('#practice-mode').selectOption('general');
   await page.locator('details.virtual-keyboard').last().locator('summary').click();
   await page.locator('#decomposition-first').focus();

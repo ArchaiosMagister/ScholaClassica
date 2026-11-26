@@ -19,7 +19,7 @@ export function createStudyBank(catalog){
   const relations=new Map(),owners=new Map();
   for(const e of catalog.etymons){
     if(e.editorialStatus==='approved_for_documented_derivatives'){
-      check(e.teacherApprovedDerivatives?.length>=2,'faltan dos derivados para '+e.id);
+      check(Array.isArray(e.teacherApprovedDerivatives),'faltan las respuestas de '+e.id);
       relations.set(e.id,new Set());
     }
   }

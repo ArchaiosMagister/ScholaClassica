@@ -115,7 +115,7 @@ const messages={
   excluded:'El derivado está excluido de los ejercicios por decisión docente.',
   other_etymon:'El derivado está catalogado, pero no está autorizado para este étimo.',
   duplicate:'Ya se ha puntuado este mismo derivado, aunque esté escrito con otra variante o con erratas.',
-  not_eligible:'Este étimo está reservado para consulta y no permite el ejercicio de dos derivados.'
+  not_eligible:'Este étimo no dispone de dos derivados aptos para esta actividad.'
 };
 
 export function createWriteTwoCorrector(catalog){
@@ -144,7 +144,6 @@ export function createWriteTwoCorrector(catalog){
   }
   for(const e of catalog.etymons){
     if(e.editorialStatus==='approved_for_documented_derivatives'){
-      if(allowed.get(e.id).size<2)throw new Error('Faltan dos derivados autorizados: '+e.id);
       const teacher=new Set(e.teacherApprovedDerivatives);
       if(teacher.size!==allowed.get(e.id).size||
          [...teacher].some(id=>!allowed.get(e.id).has(id)))
@@ -209,12 +208,12 @@ export function createWriteTwoCorrector(catalog){
       message:'El derivado autorizado se reconoce por una errata inequívoca. Grafía correcta: '+corrected+'.'};
   }
 
+  const isEligible=id=>(allowed.get(id)?.size||0)>=2;
   function grade(etymonId,responses){
     if(typeof etymonId!=='string'||!etyma.has(etymonId))throw new Error('Étimo desconocido: '+etymonId);
     if(!Array.isArray(responses)||responses.length!==2||responses.some(v=>typeof v!=='string'))
       throw new TypeError('Se exigen exactamente dos respuestas de texto.');
-    const etymon=etyma.get(etymonId);
-    if(etymon.editorialStatus!=='approved_for_documented_derivatives')
+    if(!isEligible(etymonId))
       return {etymonId,status:'not_eligible',answers:responses.map(s=>badAnswer(s,'not_eligible',messages.not_eligible)),
         total:ZERO,maximum:2};
     const answers=responses.map(s=>recognize(etymonId,s));
@@ -235,5 +234,5 @@ export function createWriteTwoCorrector(catalog){
     }
     return {etymonId,status:'evaluated',answers,total:answers.reduce((sum,a)=>sum+a.points,0),maximum:2};
   }
-  return Object.freeze({grade,isEligible:id=>etyma.get(id)?.editorialStatus==='approved_for_documented_derivatives'});
+  return Object.freeze({grade,isEligible});
 }
