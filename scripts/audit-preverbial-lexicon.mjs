@@ -3,7 +3,7 @@
 // acredita una forma, no su etimología, significado ni preverbio.
 import {createReadStream} from 'node:fs';
 import {createInterface} from 'node:readline';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import assert from 'node:assert/strict';
 import {families,rounds} from '../public/apps/modificacion-preverbial/banco.mjs';
@@ -43,10 +43,12 @@ export function makeMatcher(targets) {
     report(){return targets.map((t,i)=>({...t,...hits[i],status:hits[i].exact.length?'coincidencia-lema-forma':hits[i].alternative.length?'forma-otro-lema':hits[i].lemmaSeen?'lema-sin-forma':'sin-evidencia'}));}
   };
 }
-export function derivativeQueue(bank=families) {
+export function derivativeQueue(bank=families, evidence=[]) {
+  const evidenceByKey=new Map(evidence.map(e=>[JSON.stringify([e.family,e.origin,e.word]),e]));
   return Object.entries(bank).flatMap(([family,f])=>f.derivatives.flatMap(([origin,category,es,val])=>{
     assert.ok(validClasses.has(category),category);
-    return [{family,origin,category,language:'es',word:es,lookup:'https://dle.rae.es/'+enc(es),status:'pendiente-cotejo-individual'},
+    const proof=evidenceByKey.get(JSON.stringify([family,origin,es]));
+    return [{family,origin,category,language:'es',word:es,lookup:'https://dle.rae.es/'+enc(es),status:proof?'cotejo-dle-documentado':'pendiente-cotejo-individual',...(proof?{evidence:proof}:{})},
       ...(val?[{family,origin,category,language:'val',word:val,lookup:'https://www.avl.gva.es/lexicval/',status:'pendiente-cotejo-individual'}]:[])];
   }));
 }
@@ -57,14 +59,16 @@ export async function runAudit(path=resolve('.sources/unimorph-latin/lat'),out=r
   const lines=createInterface({input,crlfDelay:Infinity});
   for await(const line of lines){const row=parseUniMorphRow(line);if(row){rows++;matcher.ingest(row);}}
   assert.ok(rows>=900000,'Corpus UniMorph incompleto');
-  const latin=matcher.report(),romance=derivativeQueue();
+  const {entries:evidence}=JSON.parse(await readFile(new URL('../shared/academic/preverbial/dle-evidence-20261126.json',import.meta.url),'utf8'));
+  const latin=matcher.report(),romance=derivativeQueue(families,evidence);
+  assert.equal(romance.filter(r=>r.status==='cotejo-dle-documentado').length,evidence.length,'Evidencia sin registro vigente');
   const reserved=Object.entries(families).flatMap(([family,f])=>(f.reservedCompounds??[]).map(([lemma,note])=>({family,lemma,note})));
   assert.equal(targets.length,987);
   assert.equal(reserved.length,15);
   assert.equal(Object.values(teacherInventory).flat().length,882);
   for(const r of rounds)assert.equal(correctRound(r,r.prompts.map(p=>p.model),r.words).points,10,r.label);
   const byStatus={};for(const r of latin)byStatus[r.status]=(byStatus[r.status]??0)+1;
-  const summary={source:'UniMorph Latin',revision:'050924c9f013e6aba4d7c87be243a1d79b6c5b10',sourceRows:rows,families:Object.keys(families).length,latinTargets:latin.length,byStatus,reserved:reserved.length,derivativeRecords:Object.values(families).reduce((n,f)=>n+f.derivatives.length,0),spanish:romance.filter(r=>r.language==='es').length,valencian:romance.filter(r=>r.language==='val').length,rounds:rounds.length,verifiedRomanceByThisScript:0};
+  const summary={source:'UniMorph Latin',revision:'050924c9f013e6aba4d7c87be243a1d79b6c5b10',sourceRows:rows,families:Object.keys(families).length,latinTargets:latin.length,byStatus,reserved:reserved.length,derivativeRecords:Object.values(families).reduce((n,f)=>n+f.derivatives.length,0),spanish:romance.filter(r=>r.language==='es').length,valencian:romance.filter(r=>r.language==='val').length,rounds:rounds.length,verifiedRomanceByThisScript:0,documentedDleInThisBatch:evidence.length};
   await mkdir(out,{recursive:true});
   await Promise.all([['resumen',summary],['infinitivos',latin],['reservas',reserved],['derivados-pendientes',romance]].map(([name,data])=>writeFile(join(out,name+'.json'),JSON.stringify(data,null,2)+'\n')));
   console.log('AUDITORÍA PREVERBIAL '+JSON.stringify(summary));
