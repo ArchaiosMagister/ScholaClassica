@@ -1,6 +1,10 @@
+import { additionalFamilies, latin1Units } from './ampliacion-lat1.mjs';
+export { latin1Units };
+
 // Cada compuesto registra su forma de diccionario, infinitivo, preverbio y glosa.
 // Los derivados llevan clase gramatical y grafías equivalentes (es / ca-valencia).
 export const families = {
+  ...additionalFamilies,
   fero: {
     entry: 'fero, ferre, tuli, latum', meaning: 'llevar',
     compounds: [
