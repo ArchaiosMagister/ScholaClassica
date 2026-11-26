@@ -1,3 +1,4 @@
+import { latin2Families, latin2Models } from './ampliacion-lat2.mjs';
 import { additionalFamilies, latin1Units } from './ampliacion-lat1.mjs';
 export { latin1Units };
 
@@ -5,6 +6,7 @@ export { latin1Units };
 // Los derivados llevan clase gramatical y grafías equivalentes (es / ca-valencia).
 export const families = {
   ...additionalFamilies,
+  ...latin2Families,
   fero: {
     entry: 'fero, ferre, tuli, latum', meaning: 'llevar',
     compounds: [
@@ -403,3 +405,12 @@ rounds.push(
     words:[...introductoryModels[0].words,'impugnar','repugnancia'],
   },
 );
+
+for (const [index,[base,form,lemma,model,words]] of latin2Models.entries()) {
+  const first = introductoryModels[index % introductoryModels.length];
+  rounds.push({
+    label:'Práctica · Latín II · '+first.prompt.form+' y '+form,
+    prompts:[first.prompt,{base,form,lemma,model}],
+    words:[...first.words,...words],
+  });
+}
