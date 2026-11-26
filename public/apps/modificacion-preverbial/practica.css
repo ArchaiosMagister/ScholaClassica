@@ -204,3 +204,8 @@ html[data-theme="oled"].preverbial-theme {
   white-space: nowrap;
 }
 .preverbial .field-feedback.correct { color: var(--good); }
+
+.preverbial .preverbial-modes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .4rem; margin: 0 0 .75rem; }
+.preverbial .preverbial-modes a { display: block; text-align: center; border: 1px solid var(--line); border-radius: .55rem; background: var(--surface); color: var(--accent-strong); padding: .6rem; font-weight: 700; text-decoration: none; }
+.preverbial .preverbial-modes a[aria-current="page"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.preverbial .preverbial-modes a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }

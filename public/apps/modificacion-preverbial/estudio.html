@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es" class="preverbial-theme">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Consulta las familias de verbos latinos, sus compuestos y derivados.">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+  <script src="../../theme.js"></script>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="practica.css">
+  <link rel="stylesheet" href="estudio.css">
+  <script type="module" src="estudio.mjs"></script>
+  <title>Estudio · Modificación preverbial · ScholaClassica</title>
+</head>
+<body class="preverbial">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-head">
+  <div class="head-inner">
+    <a class="brand" href="../../#itinerario"><span class="brand-symbol" aria-hidden="true">Σ</span>ScholaClassica</a>
+    <label class="theme-choice" for="portal-theme"><span>Aspecto</span>
+      <select id="portal-theme" aria-label="Aspecto">
+        <option value="system">Automático</option><option value="light">Claro</option>
+        <option value="dark">Oscuro</option><option value="oled">OLED</option>
+      </select>
+    </label>
+  </div>
+</header>
+<main id="contenido" class="container">
+  <div class="module-heading">
+    <p class="context" id="module-context">Latín II · PAU valenciana</p>
+    <h1>Modificación preverbial</h1>
+  </div>
+  <nav class="preverbial-modes" aria-label="Modalidad">
+    <a href="./index.html" id="practice-link">Practicar</a>
+    <a href="./estudio.html" aria-current="page">Estudiar</a>
+  </nav>
+  <section class="practice-card study-tools" aria-label="Filtros del glosario">
+    <h2>Estudia las familias verbales</h2>
+    <p class="prompt">Consulta los verbos simples, sus compuestos con preverbio y sus derivados en castellano y valenciano. Esta consulta no puntúa.</p>
+    <div class="study-filters">
+      <label for="study-search">Buscar palabra, preverbio o significado
+        <input id="study-search" type="search" placeholder="Ej.: accipio, recepción, llevar…" autocomplete="off">
+      </label>
+      <label for="study-family">Familia verbal
+        <select id="study-family"><option value="all">Todas las familias</option></select>
+      </label>
+    </div>
+    <div class="actions">
+      <button type="button" class="secondary" id="study-expand">Desplegar visibles</button>
+      <button type="button" class="secondary" id="study-collapse">Contraer todos</button>
+    </div>
+    <p id="study-count" class="prompt" role="status"></p>
+  </section>
+  <noscript><p>Activa JavaScript para consultar el glosario.</p></noscript>
+  <section aria-label="Familias verbales">
+    <div id="study-entries" class="study-entries"></div>
+    <p id="study-empty" class="prompt" hidden>No se han encontrado familias. Prueba con otra palabra o cambia el filtro.</p>
+  </section>
+</main>
+</body>
+</html>

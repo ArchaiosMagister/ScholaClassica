@@ -1,0 +1,17 @@
+.preverbial .study-tools { margin-bottom: .75rem; }
+.preverbial .study-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: .65rem; }
+.preverbial .study-filters label { display: grid; align-content: start; gap: .25rem; font-size: .85rem; font-weight: 700; }
+.preverbial .study-filters select { width: 100%; margin-top: .17rem; min-height: 2.65rem; }
+.preverbial .study-tools #study-count { margin-bottom: 0; }
+.preverbial .study-entries { display: grid; gap: .55rem; }
+.preverbial .study-family { border: 1px solid var(--line); padding-block: .6rem; overflow-wrap: anywhere; }
+.preverbial .study-family > summary { font-size: 1rem; color: var(--accent-strong); }
+.preverbial .study-family > summary span { color: var(--muted); font-weight: 400; }
+.preverbial .study-origins { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; list-style: none; padding: 0; margin: .5rem 0; }
+.preverbial .study-origin { background: var(--wash); border-radius: .55rem; padding: .65rem; }
+.preverbial .study-origin h3 { margin: 0; font-size: 1.03rem; color: var(--accent-strong); }
+.preverbial .study-origin p { font-size: .88rem; margin: .25rem 0; }
+.preverbial .study-origin ul { font-size: .9rem; padding-inline-start: 1.1rem; margin: .35rem 0 0; }
+@media (max-width: 34rem) {
+  .preverbial .study-filters, .preverbial .study-origins { grid-template-columns: 1fr; }
+}
