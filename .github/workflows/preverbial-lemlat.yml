@@ -1,0 +1,63 @@
+name: Modificación preverbial - contraste LEMLAT3
+on:
+  pull_request:
+    paths:
+      - 'public/apps/modificacion-preverbial/**'
+      - 'scripts/audit-preverbial-*.mjs'
+      - 'scripts/lemlat3-latin2.mjs'
+      - 'tests/preverbial-lemlat.test.mjs'
+      - '.github/workflows/preverbial-lemlat.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contraste:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: LEMLAT3 fijado (CC BY-NC-SA 4.0, solo auditoría)
+        uses: actions/checkout@v4
+        with:
+          repository: CIRCSE/LEMLAT3
+          ref: e8328948fb4b9b73b625aeda3639137c5e49a1ff
+          path: .sources/lemlat3
+          persist-credentials: false
+      - name: Probar el cotejo
+        run: node --test tests/preverbial-lemlat.test.mjs tests/lemlat3-latin2.test.mjs
+      - name: Preparar infinitivos
+        run: node scripts/audit-preverbial-lemlat.mjs prepare
+      - name: Instalar biblioteca del ejecutable
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libmariadbd19
+      - name: Ejecutar analizador oficial sin publicar su diccionario
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$GITHUB_WORKSPACE/build/academic-audits/preverbial-lemlat"
+          mkdir -p "$d/runtime"
+          tar --no-same-owner -xzf .sources/lemlat3/bin/linux_embedded_64.tar.gz -C "$d/runtime"
+          cd "$d/runtime/linux_embedded"
+          chmod u+x ./lemlat
+          cp "$d/input.txt" ./input.txt
+          ./lemlat -s 0 -i input.txt -x result.xml
+          cp result.xml "$d/result.xml"
+      - name: Comparar los análisis de infinitivo presente con los lemas
+        run: node scripts/audit-preverbial-lemlat.mjs report
+      - name: Archivar evidencia y reservas (sin incorporar a Pages)
+        uses: actions/upload-artifact@v4
+        with:
+          name: preverbial-lemlat3
+          path: |
+            build/academic-audits/preverbial-lemlat/resumen.json
+            build/academic-audits/preverbial-lemlat/infinitivos.json
+            build/academic-audits/preverbial-lemlat/pendientes.tsv
+            build/academic-audits/preverbial-lemlat/manifest.json
+          if-no-files-found: error
+          retention-days: 30
