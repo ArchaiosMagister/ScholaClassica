@@ -124,7 +124,14 @@ export const latin2Final = {
         "extraer"
       ]
     ],
-    "derivatives": [],
+    "derivatives": [
+      [
+        "excerpo",
+        "sustantivo",
+        "excerpta",
+        ""
+      ]
+    ],
     "studyOnly": true
   },
   "cieo": {
@@ -144,8 +151,20 @@ export const latin2Final = {
         "conmover profundamente"
       ]
     ],
-    "derivatives": [],
-    "studyOnly": true
+    "derivatives": [
+      [
+        "cieo",
+        "verbo",
+        "citar",
+        ""
+      ],
+      [
+        "cieo",
+        "sustantivo",
+        "cita",
+        ""
+      ]
+    ]
   },
   "colo": {
     "entry": "colo, colere, colui, cultum",
@@ -680,9 +699,20 @@ export const latin2Final = {
         "sustantivo",
         "prefacio",
         ""
+      ],
+      [
+        "for",
+        "sustantivo",
+        "hado",
+        ""
+      ],
+      [
+        "for",
+        "adjetivo",
+        "fatal",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "gigno": {
     "entry": "gigno, gignere, genui, genitum",
@@ -707,9 +737,14 @@ export const latin2Final = {
         "sustantivo",
         "genitor",
         "genitor"
+      ],
+      [
+        "gigno",
+        "adjetivo",
+        "genital",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "labor": {
     "entry": "labor, labi, lapsus sum",
@@ -956,9 +991,14 @@ export const latin2Final = {
         "verbo",
         "demorar",
         "demorar"
+      ],
+      [
+        "demoror",
+        "sustantivo",
+        "demora",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "nuntio": {
     "entry": "nuntio, nuntiare, nuntiavi, nuntiatum",
@@ -1193,9 +1233,14 @@ export const latin2Final = {
         "adjetivo",
         "complejo",
         "complex"
+      ],
+      [
+        "complector",
+        "sustantivo",
+        "complexión",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "pleo": {
     "entry": "pleo, plere, plevi, pletum",
@@ -1883,6 +1928,12 @@ export const latin2Final = {
         "sustantivo",
         "estrato",
         "estrat"
+      ],
+      [
+        "sterno",
+        "sustantivo",
+        "estrado",
+        ""
       ]
     ],
     "studyOnly": true
@@ -2296,8 +2347,20 @@ export const latin2Final = {
         "recorrer errante"
       ]
     ],
-    "derivatives": [],
-    "studyOnly": true
+    "derivatives": [
+      [
+        "vagor",
+        "verbo",
+        "vagar",
+        ""
+      ],
+      [
+        "vagor",
+        "adjetivo",
+        "vagabundo",
+        ""
+      ]
+    ]
   },
   "vasto": {
     "entry": "vasto, vastare, vastavi, vastatum",
@@ -2420,9 +2483,14 @@ export const latin2Final = {
         "sustantivo",
         "invectiva",
         "invectiva"
+      ],
+      [
+        "veho",
+        "verbo",
+        "vehicular",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "vello": {
     "entry": "vello, vellere, velli, vulsum",
@@ -2922,6 +2990,97 @@ export const latin2FinalModels = [
     [
       "intuir",
       "intuición"
+    ]
+  ],
+  [
+    "cieo",
+    "ciet",
+    "cieo",
+    [
+      "concieo",
+      "percieo"
+    ],
+    [
+      "citar",
+      "cita"
+    ]
+  ],
+  [
+    "for",
+    "fatus est",
+    "for",
+    [
+      "affor",
+      "praefor"
+    ],
+    [
+      "fatal",
+      "prefacio"
+    ]
+  ],
+  [
+    "gigno",
+    "genuit",
+    "gigno",
+    [
+      "ingigno",
+      "progigno"
+    ],
+    [
+      "genitor",
+      "genital"
+    ]
+  ],
+  [
+    "moror",
+    "demoratus est",
+    "demoror",
+    [
+      "demoror",
+      "remoror"
+    ],
+    [
+      "demorar",
+      "demora"
+    ]
+  ],
+  [
+    "plecto",
+    "complexus est",
+    "complector",
+    [
+      "complector",
+      "amplector"
+    ],
+    [
+      "complejo",
+      "complexión"
+    ]
+  ],
+  [
+    "vagor",
+    "vagatus est",
+    "vagor",
+    [
+      "evagor",
+      "pervagor"
+    ],
+    [
+      "vagar",
+      "vagabundo"
+    ]
+  ],
+  [
+    "veho",
+    "vexit",
+    "veho",
+    [
+      "inveho",
+      "proveho"
+    ],
+    [
+      "vehicular",
+      "vector"
     ]
   ]
 ];

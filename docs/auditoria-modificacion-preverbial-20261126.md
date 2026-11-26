@@ -62,3 +62,39 @@ Consulta individual realizada el 26/11/2026. Se registra la forma latina inmedia
 | [intuir](https://dle.rae.es/intuir) | intueri | tueor / intueor | añadir |
 
 Ocho nuevos registros castellanos y siete ejercicios modelo; 106 rondas, 105 familias practicables, 15 solo de consulta. Comprobación de 680 registros de derivados sin grafías duplicadas (ES/VAL). No se incorporan equivalencias valencianas nuevas sin cotejo. Este bloque no certifica los demás registros ni resuelve las 15 relaciones especiales latinas.
+
+## Tercer cotejo lexicográfico: familias de consulta
+
+Consulta del 26/11/2026. Los étimos inmediatos no se identifican automáticamente con el verbo de la familia: se distingue la formación nominal, participial o romance posterior.
+
+| Voz | Fuente y étimo inmediato | Adscripción o decisión |
+|---|---|---|
+| [excerpta](https://dle.rae.es/excerpta) | excerpta, plural neutro de excerptus | excerpo; voz poco usada, solo estudio |
+| [citar](https://dle.rae.es/citar) | citare | cieo, a través del frecuentativo latino cito |
+| [cita](https://dle.rae.es/cita) | de citar | cieo, derivación romance secundaria |
+| [concitar](https://dle.rae.es/concitar) | concitare | no se añade a concieo sin justificar la conexión específica |
+| [excitar](https://dle.rae.es/excitar) | excitare | reserva hasta cotejar la conexión con excio/excieo |
+| [hado](https://dle.rae.es/hado) | fatum | for, formación participial |
+| [fatal](https://dle.rae.es/fatal) | fatalis | for, a través de fatum |
+| [genitor](https://dle.rae.es/genitor) | genitor | gigno; se conserva su uso sustantivo |
+| [genital](https://dle.rae.es/genital) | genitalis | gigno; uso adjetivo |
+| [demorar](https://dle.rae.es/demorar) | demorari | demoror; se conserva |
+| [demora](https://dle.rae.es/demora) | de demorar | demoror, derivación romance secundaria |
+| [moroso](https://dle.rae.es/moroso) | morosus | no se añade automáticamente |
+| [complejo](https://dle.rae.es/complejo) | complexus, de complecti | complector; se conserva |
+| [complexión](https://dle.rae.es/complexi%C3%B3n) | complexio | complector |
+| [estrado](https://dle.rae.es/estrado) | stratum | sterno, sustantivo de formación participial |
+| [prosternarse](https://dle.rae.es/prosternarse) | etimología discutida | no incorporar |
+| [postrar](https://dle.rae.es/postrar) | latín tardío prostrare | no atribuir directamente a prosterno sin cotejar la relación |
+| [vagar](https://dle.rae.es/vagar) | vagari (segunda entrada); vacare (primera) | vagor, solo el significado de andar errante |
+| [vagabundo](https://dle.rae.es/vagabundo) | vagabundus | vagor |
+| [vehículo](https://dle.rae.es/veh%C3%ADculo) | vehiculum | veho; se conserva |
+| [vector](https://dle.rae.es/vector) | vector | veho; se conserva como sustantivo |
+| [vehicular](https://dle.rae.es/vehicular) | verbo definido por su relación con vehículo | veho, derivación romance secundaria |
+| [invectiva](https://dle.rae.es/invectiva) | invectiva | inveho; se conserva |
+| [fábula](https://dle.rae.es/f%C3%A1bula) | fabula | no añadir en este bloque |
+| [nefasto](https://dle.rae.es/nefasto) | nefastus | no añadir en este bloque |
+
+Contrastes latinos adicionales: Lewis & Short, [cito frecuentativo de cieo](https://www.alatius.com/ls/index.php?l=citantur), [genitalis de gigno](https://www.alatius.com/ls/index.php?l=genitales), [complexio de complector](https://cld.bbaw.de/lemma/lat/complexio), [vagabundus de vagor](https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n50092/). El DLE documenta los étimos inmediatos; la agrupación posterior se basa en la relación morfológica o semántica indicada, no en una afirmación de que todos sean descendientes directos.
+
+Se añaden 12 registros castellanos y siete rondas, sin inventar equivalencias valencianas. Quedan ocho familias solo de consulta: carpo, sino, sterno, tollo y los dos sero y dos volo. No se cambia la cobertura de los 882 registros docentes ni el currículo de Latín I. No constituye un cotejo exhaustivo del banco.
