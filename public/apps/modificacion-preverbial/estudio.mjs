@@ -10,6 +10,7 @@ const latinI = new URLSearchParams(location.search).get('subject') === 'lat1';
 if (latinI) {
   byId('module-context').textContent = 'Latín I · Formación de palabras';
   byId('practice-link').href = './index.html?subject=lat1';
+  document.querySelector('.preverbial-modes [aria-current="page"]').href = './estudio.html?subject=lat1';
 }
 
 function el(tag, text, lang) {
