@@ -359,6 +359,13 @@ for (const [base, rows] of Object.entries(reservedCompounds)) {
   families[base].reservedCompounds = rows;
 }
 
+// Cotejo individual DLE de las siguientes relaciones nominales y verbales.
+// No se añade equivalente valenciano hasta verificarlo.
+families.carpo.derivatives.push(['carpo','verbo','carpir','']);
+families.caedo.derivatives.push(['praecido','adjetivo','preciso','']);
+families.tego.derivatives.push(['tego','sustantivo','techo','']);
+families.iungo.derivatives.push(['subiungo','sustantivo','subjuntivo','']);
+
 const introductoryModels = [
   { prompt: { form:'attulerunt', lemma:'affero', base:'fero', model:['confero','differo','praefero'] },
     words:['conferir','diferencia','preferente'] },
