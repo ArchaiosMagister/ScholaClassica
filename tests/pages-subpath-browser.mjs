@@ -92,7 +92,8 @@ try{
  assert.match(await page.locator('#round option:checked').textContent(),/^Práctica ·/);
  assert.equal(await page.getByRole('link',{name:/Enunciado PAU/}).isVisible(),false);
  await page.locator('#practice-unit').selectOption('2');
- assert.equal(await page.locator('#round option').count(),1);
+ assert.equal(await page.locator('#round option').count(),4);
+ await page.locator('#round').selectOption({label:'Práctica · UD2 · deduxit y emisit'});
  assert.match(await page.locator('#round option:checked').textContent(),/UD2/);
  await page.getByRole('link',{name:'Estudiar',exact:true}).click();
  await page.waitForURL(/\/modificacion-preverbial\/estudio\.html\?subject=lat1$/);
