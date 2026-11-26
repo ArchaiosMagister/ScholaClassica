@@ -384,3 +384,22 @@ rounds.push({
   ],
   words:['deducir','deducción','deductivo','emitir','permiso'],
 });
+
+rounds.push(
+  {
+    label:'Práctica · UD3 · perfecit y accepit',
+    prompts:[
+      {form:'perfecit',lemma:'perficio',base:'facio',model:['perficio','conficio','efficio']},
+      {form:'accepit',lemma:'accipio',base:'capio',model:['accipio','recipio']},
+    ],
+    words:['perfeccionar','perfección','perfecto','aceptar','recepción'],
+  },
+  {
+    label:'Práctica · UD6 · attulerunt y repugnavit',
+    prompts:[
+      introductoryModels[0].prompt,
+      {form:'repugnavit',lemma:'repugno',base:'pugno',model:['impugno','repugno']},
+    ],
+    words:[...introductoryModels[0].words,'impugnar','repugnancia'],
+  },
+);
