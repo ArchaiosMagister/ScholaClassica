@@ -27,14 +27,16 @@ export function checkBase(prompt, answer) {
 }
 
 export function correctRound(round, compoundAnswers, wordAnswers) {
-  const proposed = new Set();
+  const proposedByBase = new Map();
   const compounds = round.prompts.map(({ base }, index) => {
     const seen = new Set();
+    if (!proposedByBase.has(base)) proposedByBase.set(base, new Set());
+    const proposed = proposedByBase.get(base);
     const family = families[base];
     return compoundAnswers[index].map(answer => {
       const key = normalizeLatin(answer);
       if (!key) return { status: 'empty' };
-      if (key === base || key === family.entry.split(', ')[1]) return { status: 'base' };
+      if (key === normalizeLatin(base) || key === normalizeLatin(family.entry.split(', ')[1])) return { status: 'base' };
       const entry = family.compounds.find(([lemma, infinitive]) =>
         key === normalizeLatin(lemma) || key === normalizeLatin(infinitive));
       if (!entry) return { status: 'unknown' };
@@ -59,7 +61,7 @@ export function correctRound(round, compoundAnswers, wordAnswers) {
     const { base, entry } = match;
     const [origin, wordClass] = entry;
     if (countedWords.has(entry)) return { ...match, status: 'duplicate' };
-    if (origin !== base && !proposed.has(origin)) return { ...match, status: 'origin' };
+    if (origin !== base && !proposedByBase.get(base)?.has(origin)) return { ...match, status: 'origin' };
     if (!countedClassesByBase.has(base)) countedClassesByBase.set(base, new Set());
     const countedClasses = countedClassesByBase.get(base);
     if (countedClasses.has(wordClass)) return { ...match, status: 'class' };

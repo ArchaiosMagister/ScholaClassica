@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "family": "carpo",
+      "origin": "carpo",
+      "word": "carpir",
+      "etymon": "carpere",
+      "note": "Confirmado; regional o poco habitual en el uso escolar.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/carpir",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "caedo",
+      "origin": "praecido",
+      "word": "preciso",
+      "etymon": "praecisus",
+      "note": "Confirmado: participio de praecido.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/preciso",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "tego",
+      "origin": "tego",
+      "word": "techo",
+      "etymon": "tectum, de tegere",
+      "note": "Confirmado explícitamente por el DLE.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/techo",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "iungo",
+      "origin": "subiungo",
+      "word": "subjuntivo",
+      "etymon": "subiunctivus",
+      "note": "Confirmado como sustantivo gramatical.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/subjuntivo",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "sterno",
+      "origin": "sterno",
+      "word": "estrato",
+      "etymon": "stratum",
+      "note": "Conservar.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/estrato",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "sterno",
+      "origin": "sterno",
+      "word": "estrado",
+      "etymon": "stratum",
+      "note": "Conservar.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/estrado",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "carpo",
+      "origin": "excerpo",
+      "word": "excerpta",
+      "etymon": "excerpta, plural de excerptus",
+      "note": "Conservar como voz poco usada.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/excerpta",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "verto",
+      "origin": "verto",
+      "word": "verter",
+      "etymon": "vertere",
+      "note": "Conservar.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/verter",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "gradior",
+      "origin": "egredior",
+      "word": "egreso",
+      "etymon": "egressus",
+      "note": "Conservar.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/egreso",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "scando",
+      "origin": "descendo",
+      "word": "descenso",
+      "etymon": "descensus",
+      "note": "Conservar.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/descenso",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "gero",
+      "origin": "suggero",
+      "word": "sugestión",
+      "etymon": "suggestio",
+      "note": "Conservar.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/sugesti%C3%B3n",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "rapio",
+      "origin": "rapio",
+      "word": "rapaz",
+      "etymon": "rapax, rapacis",
+      "note": "Conservar la acepción adjetiva.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/rapaz",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "sumo",
+      "origin": "consumo",
+      "word": "consumo",
+      "etymon": "acción y efecto de consumir",
+      "note": "Conservar como derivado secundario.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/consumo",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "lego",
+      "origin": "diligo",
+      "word": "diligente",
+      "etymon": "diligens, -entis",
+      "note": "Conservar: participio de diligo.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/diligente",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "sequor",
+      "origin": "consequor",
+      "word": "consecuencia",
+      "etymon": "consequentia",
+      "note": "Conservar: sustantivo de la familia de consequor.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/consecuencia",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "specio",
+      "origin": "conspicio",
+      "word": "conspicuo",
+      "etymon": "conspicuus",
+      "note": "Conservar como adjetivo.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/conspicuo",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "capio",
+      "origin": "accipio",
+      "word": "aceptar",
+      "etymon": "acceptare",
+      "note": "Conservar: frecuentativo de accipio.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/aceptar",
+      "date": "2026-11-26"
+    },
+    {
+      "family": "video",
+      "origin": "invideo",
+      "word": "envidia",
+      "etymon": "invidia",
+      "note": "Conservar: sustantivo de la familia de invideo.",
+      "source": "DLE",
+      "url": "https://dle.rae.es/envidia",
+      "date": "2026-11-26"
+    }
+  ]
+}
