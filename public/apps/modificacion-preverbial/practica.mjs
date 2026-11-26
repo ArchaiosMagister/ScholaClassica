@@ -307,6 +307,8 @@ function showResult() {
 
 for (const { label } of rounds) roundPicker.append(element('option', label));
 if (isLatinI) {
+  byId('study-link').href = './estudio.html?subject=lat1';
+  byId('practice-mode-link').href = './index.html?subject=lat1';
   byId('module-context').textContent = 'Latín I · Formación de palabras';
   roundPicker.selectedIndex = rounds.findIndex(({ source }) => !source);
 }
