@@ -19,11 +19,25 @@ export function matchLemlat(targets,evidence) {
     if(!byForm.has(key))byForm.set(key,[]);
     byForm.get(key).push(row);
   }
+  const pairKey=t=>JSON.stringify([normalize(t.lemma),normalize(t.infinitive)]);
+  const pairCounts=new Map();
+  for(const target of targets) {
+    const key=pairKey(target);
+    pairCounts.set(key,(pairCounts.get(key)??0)+1);
+  }
   return targets.map(t=>{
     const all=byForm.get(normalize(t.infinitive))??[];
-    const exact=all.filter(r=>[normalize(t.lemma),normalize(t.infinitive)].includes(normalize(r.lemma)));
-    const other=all.filter(r=>!exact.includes(r));
-    return {...t,status:exact.length?'lema-infinitivo-presente':other.length?'infinitivo-otro-lema':'sin-evidencia',evidence:exact,alternative:other};
+    const exact=all.filter(r=>normalize(r.lemma)===normalize(t.lemma));
+    const formOnly=all.filter(r=>!exact.includes(r)&&normalize(r.lemma)===normalize(t.infinitive));
+    const other=all.filter(r=>!exact.includes(r)&&!formOnly.includes(r));
+    // El identificador del léxico precede a los índices de análisis y forma.
+    const lexemes=new Set(exact.map(r=>r.reference?.split(':')[1]).filter(Boolean));
+    let status='sin-evidencia';
+    if(other.length)status='infinitivo-otro-lema';
+    if(formOnly.length)status='solo-forma-infinitiva';
+    if(exact.length)status='lema-infinitivo-presente';
+    if(all.length&&(pairCounts.get(pairKey(t))>1||lexemes.size>1))status='homografo-sin-resolver';
+    return {...t,status,evidence:exact,formOnly,alternative:other};
   });
 }
 async function prepare(){

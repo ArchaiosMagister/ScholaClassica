@@ -123,3 +123,20 @@ Cotejo individual adicional:
 - interpello: primera conjugación según https://thrax.mpiwg-berlin.mpg.de/mpiwg-mpdl-cms-web/lt/GetDictionaryEntries?dictionary=ls&inputType=lemma&language=lat&outputFormat=html&outputType=dictFull&query=interpello ; mantener reserva sobre su adscripción a pello.
 
 Cinco nuevas entradas de evidencia DLE estructurada: diligente, consecuencia, conspicuo, aceptar y envidia. Se mantienen los derivados sin modificar su familia ni dar por verificado el conjunto. El DLE especifica el étimo inmediato (p. ej. acceptare), no implica descendencia directa del lema escolar. Sigue pendiente el informe de LEMLAT3, el contraste de sus incidencias y el cotejo exhaustivo de glosas y derivados romances.
+
+## Revisión del primer contraste LEMLAT3
+
+[Job 140121770429](https://github.com/ArchaiosMagister/ScholaClassica/actions/runs/45881522881/job/140121770429), head 11e114c00ed2221fd6ff479b47e41f713edcf85f. El cálculo inicial dio 943 coincidencias, 42 formas con otro lema y 2 sin evidencia, para 987 objetivos, 977 consultas y 3686 filas morfológicas. La regla inicial admitía como lema la cabecera igual al infinitivo. El matcher revisado deja esas filas como evidencia de forma y marca como pendientes las coincidencias de pares compartidos o con varios identificadores léxicos. Una coincidencia restante acredita la grafía del lema y del infinitivo en el analizador. La adscripción filológica requiere evidencia individual.
+
+| Familia y lema | Decisión | Entrada consultada |
+|---|---|---|
+| cado / incĭdo | Conservar el verbo de caída, con incasum. | [Lewis & Short](https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n22337/) |
+| caedo / incīdo | Conservar el verbo de corte, con incisum. | [Lewis & Short](https://cld.bbaw.de/lemma/lat/incido) |
+| caedo / concīdo | La entrada de corte identifica cum + caedo. Se conserva su ficha separada de la de cado. | [Gaffiot, p. 370](https://fr.wikisource.org/wiki/Page%3AGaffiot_-_Dictionnaire_illustr%C3%A9_Latin-Fran%C3%A7ais.djvu/378) |
+| cano / occino | Conservar occinere, de ob + cano; tercera conjugación, con ejemplos de Livio. | [Lewis & Short](https://alatius.com/ls/index.php?l=occino) |
+| quatio / concutio | Conservar concutere; tercera conjugación y relación explícita con quatio. | [Lewis & Short](https://www.alatius.com/ls/index.php?l=concute) |
+| cado / incido → incidir¹ | El DLE deriva la entrada intransitiva de in + cadere. | [DLE, incidir¹](https://dle.rae.es/incidir) |
+| caedo / incido → incidir² | El DLE deriva la entrada transitiva de in + caedere. | [DLE, incidir²](https://dle.rae.es/incidir) |
+| caedo / incido → incisión | Se conserva el registro. El DLE da incisio, -onis como étimo inmediato. | [DLE, incisión](https://dle.rae.es/incisi%C3%B3n) |
+
+Se conservan las 120 familias, las 867 entradas ordinarias y las 15 relaciones especiales. La revisión valenciana queda pendiente.
