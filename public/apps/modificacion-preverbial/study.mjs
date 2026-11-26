@@ -18,10 +18,11 @@ export function studyFamilies(query = '', base = 'all', { latinI = false, unit =
 
 export function familyOrigins(base, family) {
   return [
-    { lemma: base, infinitive: '', prefix: '', meaning: family.meaning },
+    { lemma: family.lemma ?? base, infinitive: '', prefix: '', meaning: family.meaning },
     ...family.compounds.map(([lemma, infinitive, prefix, meaning]) => ({ lemma, infinitive, prefix, meaning })),
   ].map(origin => ({
     ...origin,
+    compositionLabel: family.compositionLabel ?? 'Preverbio',
     derivatives: family.derivatives.filter(([lemma]) => lemma === origin.lemma),
   }));
 }

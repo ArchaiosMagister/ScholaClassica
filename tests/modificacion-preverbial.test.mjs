@@ -18,7 +18,7 @@ test('cada ronda ofrece una solución válida de 3 + 2 compuestos y cinco deriva
 test('el banco atribuye cada grafía a una sola familia y a un lema registrado', () => {
   const spellings = new Set();
   for (const [base, family] of Object.entries(families)) {
-    const lemmas = new Set([base, ...family.compounds.map(([lemma]) => lemma)]);
+    const lemmas = new Set([family.lemma ?? base, ...family.compounds.map(([lemma]) => lemma)]);
     for (const [lemma, wordClass, es, val] of family.derivatives) {
       assert.ok(lemmas.has(lemma), lemma);
       assert.ok(['sustantivo', 'verbo', 'adjetivo'].includes(wordClass), wordClass);
