@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { families, rounds, latin1Units } from '../public/apps/modificacion-preverbial/banco.mjs';
+import { teacherInventory } from '../public/apps/modificacion-preverbial/cobertura-docente.mjs';
 import { studyFamilies, familyOrigins } from '../public/apps/modificacion-preverbial/study.mjs';
 
 test('el estudio consulta todas las familias del mismo banco de práctica, en orden alfabético', () => {
@@ -126,4 +127,22 @@ test('las 120 familias corresponden exactamente al inventario docente fijado, in
   assert.equal(studyFamilies('desinencia')[0][0],'sino');
   assert.ok(studyFamilies('praefigere').some(([key])=>key==='figo'));
   assert.ok(studyFamilies('constitución').some(([key])=>key==='statuo'));
+});
+
+test('el inventario docente de 882 relaciones se conserva exactamente, con reservas no evaluables', () => {
+  let ordinary = 0, reserved = 0;
+  for (const [base, expected] of Object.entries(teacherInventory)) {
+    const family = families[base];
+    const compounds = family.compounds.map(([lemma])=>lemma);
+    const exceptions = (family.reservedCompounds ?? []).map(([lemma])=>lemma);
+    assert.deepEqual([...compounds,...exceptions].sort(),[...expected].sort(),base);
+    assert.ok(exceptions.every(lemma=>!compounds.includes(lemma)),base);
+    ordinary += compounds.length;
+    reserved += exceptions.length;
+  }
+  assert.equal(ordinary,867);
+  assert.equal(reserved,15);
+  assert.equal(ordinary+reserved,882);
+  assert.ok(studyFamilies('possum','sum').length);
+  assert.ok(studyFamilies('dedico','dico').length);
 });
