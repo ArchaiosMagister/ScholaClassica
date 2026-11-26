@@ -15,3 +15,6 @@
 @media (max-width: 34rem) {
   .preverbial .study-filters, .preverbial .study-origins { grid-template-columns: 1fr; }
 }
+
+.preverbial #study-unit-wrap { margin-top: .65rem; }
+.preverbial #study-unit-wrap[hidden] { display: none; }
