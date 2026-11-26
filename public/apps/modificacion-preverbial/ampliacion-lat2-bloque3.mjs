@@ -601,7 +601,7 @@ export const latin2Block3 = {
       [
         "amputo",
         "amputare",
-        "am",
+        "amb",
         "cortar, amputar"
       ],
       [
@@ -1307,10 +1307,10 @@ export const latin2Block3 = {
         "conviure"
       ],
       [
-        "vivo",
-        "adjetivo",
-        "vivo",
-        "viu"
+        "convivo",
+        "sustantivo",
+        "convivencia",
+        "convivència"
       ]
     ]
   },
@@ -1742,8 +1742,8 @@ export const latin2Block3Models = [
       "revivisco"
     ],
     [
-      "convivir",
-      "vivo"
+      "vivir",
+      "convivencia"
     ]
   ],
   [
