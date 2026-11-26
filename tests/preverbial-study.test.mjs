@@ -42,7 +42,7 @@ test('la navegación enlaza estudio y práctica y conserva Latín I', async () =
 
 test('el estudio de Latín I respeta la programación acumulativa y no incorpora fligo sin ficha', () => {
   assert.equal(Object.keys(latin1Units).length, 27);
-  assert.equal(Object.keys(families).length, 38);
+  assert.equal(Object.keys(families).length, 51);
   assert.equal(studyFamilies('', 'all', { latinI:true }).length, 27);
   for (const [unit, count] of [[2,4],[3,8],[4,12],[5,16],[6,20],[7,24],[8,24],[9,27],[10,27]]) {
     const entries = studyFamilies('', 'all', { latinI:true, unit });
@@ -75,5 +75,15 @@ test('Latín II ofrece las nueve familias nuevas sin adelantar contenidos de Lat
     assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)),base);
   }
   assert.equal(studyFamilies('occidere').filter(([key])=>['caedo','cado'].includes(key)).length,2);
-  assert.equal(rounds.length,39);
+  assert.equal(rounds.length,52);
+});
+
+test('el segundo bloque de Latín II tiene cobertura de estudio y práctica y no se adelanta a Latín I', () => {
+  for (const base of ['moveo','pello','rapio','rego','rumpo','sto','struo','solvo','premo','quaero','iungo','fundo','frango']) {
+    assert.equal(studyFamilies('',base).length,1);
+    assert.equal(studyFamilies('',base,{latinI:true}).length,0);
+    assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)),base);
+  }
+  assert.ok(studyFamilies('compresion').some(([base])=>base==='premo'));
+  assert.ok(studyFamilies('transfundere').some(([base])=>base==='fundo'));
 });
