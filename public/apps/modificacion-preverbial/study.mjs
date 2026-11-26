@@ -10,7 +10,7 @@ export function studyFamilies(query = '', base = 'all', { latinI = false, unit =
       if (base !== 'all' && key !== base) return false;
       if (latinI && (!latin1Units[key] || (unit !== 'all' && latin1Units[key] > Number(unit)))) return false;
       const corpus = normalize([key, family.entry, family.meaning,
-        ...family.compounds.flat(), ...family.derivatives.flat()].join(' '));
+        ...family.compounds.flat(), ...family.derivatives.flat(), ...(family.reservedCompounds ?? []).flat()].join(' '));
       return terms.every(term => corpus.includes(term));
     })
     .sort(([a], [b]) => a.localeCompare(b, 'la'));
