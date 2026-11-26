@@ -1,3 +1,4 @@
+import { additionalCompounds, reservedCompounds } from './cobertura-docente.mjs';
 import { latin2Final, latin2FinalModels } from './ampliacion-lat2-final.mjs';
 import { latin2Block3, latin2Block3Models } from './ampliacion-lat2-bloque3.mjs';
 import { homographFamilies } from './homografos.mjs';
@@ -350,6 +351,14 @@ export const rounds = [
 
 // Rondas didácticas propias, no atribuidas a convocatorias de PAU.
 // Se alterna una familia inicial de UD2 con cada nueva familia de la programación.
+// Incorporación del inventario docente: cada reserva queda separada del corrector.
+for (const [base, rows] of Object.entries(additionalCompounds)) {
+  families[base].compounds.push(...rows);
+}
+for (const [base, rows] of Object.entries(reservedCompounds)) {
+  families[base].reservedCompounds = rows;
+}
+
 const introductoryModels = [
   { prompt: { form:'attulerunt', lemma:'affero', base:'fero', model:['confero','differo','praefero'] },
     words:['conferir','diferencia','preferente'] },

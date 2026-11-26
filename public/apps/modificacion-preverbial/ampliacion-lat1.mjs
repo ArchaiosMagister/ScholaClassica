@@ -111,7 +111,6 @@ export const additionalFamilies = {
     derivatives:[
       ['iacio','verbo','echar',''],
       ['abicio','adjetivo','abyecto','abjecte'],
-      ['adicio','sustantivo','adición','addició'],
       ['conicio','sustantivo','conjetura','conjectura'],
       ['obicio','sustantivo','objeción','objecció'],
       ['proicio','sustantivo','proyecto','projecte'],
@@ -394,6 +393,7 @@ export const additionalFamilies = {
     derivatives:[
       ['do','verbo','dar',''],
       ['do','sustantivo','dato',''],
+      ['addo','sustantivo','adición',''],
       ['edo','sustantivo','edición','edició'],
       ['perdo','verbo','perder','perdre'],
       ['trado','sustantivo','tradición','tradició'],

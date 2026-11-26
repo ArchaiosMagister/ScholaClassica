@@ -382,6 +382,12 @@ export const latin2Final = {
         "sustantivo",
         "disciplina",
         "disciplina"
+      ],
+      [
+        "disco",
+        "adjetivo",
+        "discente",
+        ""
       ]
     ],
     "studyOnly": true
@@ -1322,9 +1328,14 @@ export const latin2Final = {
         "sustantivo",
         "imprecación",
         "imprecació"
+      ],
+      [
+        "imprecor",
+        "verbo",
+        "imprecar",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "quatio": {
     "entry": "quatio, quatere, quassum",
@@ -2417,9 +2428,14 @@ export const latin2Final = {
         "sustantivo",
         "convulsión",
         "convulsió"
+      ],
+      [
+        "convello",
+        "adjetivo",
+        "convulso",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   }
 };
 export const latin2FinalModels = [
@@ -2746,6 +2762,32 @@ export const latin2FinalModels = [
     [
       "devastar",
       "devastación"
+    ]
+  ],
+  [
+    "precor",
+    "imprecatus est",
+    "imprecor",
+    [
+      "imprecor",
+      "deprecor"
+    ],
+    [
+      "imprecar",
+      "deprecación"
+    ]
+  ],
+  [
+    "vello",
+    "convellit",
+    "convello",
+    [
+      "convello",
+      "avello"
+    ],
+    [
+      "convulso",
+      "convulsión"
     ]
   ]
 ];

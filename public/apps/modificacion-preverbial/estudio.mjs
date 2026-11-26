@@ -63,6 +63,19 @@ function familyCard(base, family) {
   origins.className = 'study-origins';
   origins.append(...familyOrigins(base, family).map(originCard));
   details.append(summary, origins);
+  if (family.reservedCompounds?.length) {
+    const section = el('section');
+    section.className = 'study-reservations';
+    section.append(el('h3', 'Otros registros docentes · solo consulta'));
+    const list = el('ul');
+    for (const [lemma, note] of family.reservedCompounds) {
+      const item = el('li');
+      item.append(el('i', lemma, 'la'), ' — ' + note);
+      list.append(item);
+    }
+    section.append(list);
+    details.append(section);
+  }
   return details;
 }
 
