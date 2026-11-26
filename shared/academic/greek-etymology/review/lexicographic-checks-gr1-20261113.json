@@ -674,22 +674,16 @@
       "edition": "dle2026",
       "sourceUrl": "https://dle.rae.es/neumolog%C3%ADa",
       "checkedAt": "2026-11-26",
-      "note": "El DLE analiza neumo- y -logía. El primer formante remite a πνεύμων, pulmón. El étimo no tiene ficha curricular, por lo que la asociación histórica se conserva solo en la documentación docente.",
-      "secondarySource": "https://dle.rae.es/neumo-",
-      "excludedEtymonIds": [
-        "grc:πνευμα"
-      ]
+      "note": "El DLE analiza neumo- y -logía. El primer formante remite a πνεύμων, pulmón. Por decisión docente de 2026-11-26 se admite como derivado de la familia de πνεῦμα, -ατος en la práctica de Selectividad; se conserva el étimo inmediato.",
+      "secondarySource": "https://dle.rae.es/neumo-"
     },
     "neumonía": {
       "status": "dle_individual_contrastado",
       "edition": "dle2026",
       "sourceUrl": "https://dle.rae.es/neumon%C3%ADa",
       "checkedAt": "2026-11-26",
-      "note": "El DLE remonta neumonía a πνευμονία, derivado de πνεύμων, pulmón. El étimo no tiene ficha curricular, por lo que la asociación histórica se conserva solo en la documentación docente.",
-      "secondarySource": "https://dicciomed.usal.es/palabra/neumonia",
-      "excludedEtymonIds": [
-        "grc:πνευμα"
-      ]
+      "note": "El DLE remonta neumonía a πνευμονία, derivado de πνεύμων, pulmón. Por decisión docente de 2026-11-26 se admite como derivado de la familia de πνεῦμα, -ατος en la práctica de Selectividad; se conserva el étimo inmediato.",
+      "secondarySource": "https://dicciomed.usal.es/palabra/neumonia"
     },
     "neumotórax": {
       "status": "dle_individual_contrastado",

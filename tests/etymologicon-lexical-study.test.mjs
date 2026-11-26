@@ -172,7 +172,7 @@ test('la práctica conserva las aprobaciones aplicables y los 108 IDs de progres
 test('la admisión DLE rige las fichas, las relaciones y la puntuación',()=>{
   const corrector=createWriteTwoCorrector(practice);
   const allowed=new Set(practice.derivatives.map(d=>d.id));
-  assert.equal(allowed.size,482);
+  assert.equal(allowed.size,484);
   for(const etymon of practice.etymons){
     assert.ok(etymon.teacherApprovedDerivatives.every(id=>allowed.has(id)),etymon.id);
     assert.deepEqual(new Set(etymon.teacherApprovedDerivatives),
@@ -186,7 +186,7 @@ test('la admisión DLE rige las fichas, las relaciones y la puntuación',()=>{
     assert.ok(word.admission.reason&&word.admission.sourceUrl,form);
     assert.ok(extended.derivatives.some(d=>d.id===word.id),form);
   }
-  for(const form of ['seudociencia','pseudociencia','hemofobia','teocentrismo','neumología','neumonía'])
+  for(const form of ['seudociencia','pseudociencia','hemofobia','teocentrismo'])
     assert.equal(corrector.grade('grc:φοβοσ',[form,'']).answers[0].status,'excluded',form);
   for(const form of ['geniogloso','genioplastia','proctitis','dendrología','atelocardia','hemoterapia']){
     const word=lookup(form);
@@ -202,15 +202,18 @@ test('la admisión DLE rige las fichas, las relaciones y la puntuación',()=>{
   assert.equal(corrector.grade(biotopo.etymonIds[0],['biotopo','']).total,1);
   assert.equal(corrector.grade(biotopo.etymonIds[0],['biótopo','']).total,0.5);
 });
-test('πνεύμων se conserva como componente de consulta sin introducir un étimo curricular',()=>{
+test('πνεύμων se conserva como étimo inmediato y su familia se admite bajo πνεῦμα por decisión docente',()=>{
   assert.deepEqual(lookup('neumología').components.map(c=>c.greek),['πνεύμων','λόγος']);
   for(const form of ['neumología','neumonía']){
     const word=lookup(form);
     assert.equal(word.components[0].external,true);
-    assert.deepEqual(word.etymonIds,[]);
+    assert.deepEqual(word.etymonIds,['grc:πνευμα']);
+    assert.equal(word.admission.practiceEligible,true);
+    assert.match(word.editorialNote,/decisión docente/);
     assert.ok(extended.etymons.find(e=>e.id==='grc:πνευμα').teacherApprovedDerivatives.includes(word.id));
-    assert.ok(study.etymons.every(e=>!e.wordIds.includes(word.id)));
+    assert.ok(study.etymons.find(e=>e.id==='grc:πνευμα').wordIds.includes(word.id));
   }
   assert.ok(practice.etymons.every(e=>!e.lemma.includes('πνεύμων')));
   assert.equal(createWriteTwoCorrector(practice).grade('grc:πνευμα',['neumático','neumotórax']).total,2);
+  assert.equal(createWriteTwoCorrector(practice).grade('grc:πνευμα',['neumología','neumonía']).total,2);
 });
