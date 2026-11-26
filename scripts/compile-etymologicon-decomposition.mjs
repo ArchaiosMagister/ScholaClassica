@@ -93,7 +93,7 @@ export function createDecompositionCatalog(catalog){
  * No se infieren ejercicios a partir de una coincidencia textual o de un PDF.
  */
 export function createExpandedDecompositionCatalog(base,catalog,study,
-  batch=JSON.parse(readFileSync(join(root,'shared/academic/greek-etymology/decomposition/gr1-review-batch-20261126.json'),'utf8')))){
+  batch=JSON.parse(readFileSync(join(root,'shared/academic/greek-etymology/decomposition/gr1-review-batch-20261126.json'),'utf8'))){
   const pilot=createDecompositionCatalog(base);
   assert.equal(catalog.schema,base.schema);
   assert.equal(catalog.course,'gr1');
