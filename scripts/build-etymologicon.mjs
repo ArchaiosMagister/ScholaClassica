@@ -5,7 +5,7 @@ import {join} from 'node:path';
 import {compileTeacherAudit} from './compile-etymologicon-gr1.mjs';
 import {expandGreekI} from './expand-etymologicon-gr1.mjs';
 import {createStudyCatalog} from './compile-etymologicon-study.mjs';
-import {createDecompositionCatalog} from './compile-etymologicon-decomposition.mjs';
+import {createExpandedDecompositionCatalog} from './compile-etymologicon-decomposition.mjs';
 
 /**
  * Exportación mínima para el navegador: solo campos necesarios para practicar.
@@ -52,8 +52,7 @@ export async function buildEtymologicon({root,out}){
   await mkdir(join(destination,'corrector'),{recursive:true});
   await cp(join(root,'shared/academic/greek-etymology/corrector/write-two.mjs'),
     join(destination,'corrector/write-two.mjs'));
-  // La auditoría docente fijada permanece intacta. La ampliación solo afecta
-  // al catálogo de práctica; las 16 descomposiciones mantienen su base cerrada.
+  // La auditoría docente y el piloto permanecen intactos; se habilitan solo lotes explícitamente revisados.
   const academicSource=compileTeacherAudit();
   const baseCatalog=createLearnerCatalog(academicSource);
   const catalog=expandGreekI(baseCatalog);
@@ -61,7 +60,7 @@ export async function buildEtymologicon({root,out}){
   await writeFile(join(destination,'data/gr1.json'),JSON.stringify(catalog)+'\n','utf8');
   const studyCatalog=createStudyCatalog(academicSource,catalog);
   await writeFile(join(destination,'data/gr1-study.json'),JSON.stringify(studyCatalog)+'\n','utf8');
-  const decomposition=createDecompositionCatalog(baseCatalog);
+  const decomposition=createExpandedDecompositionCatalog(baseCatalog,catalog,studyCatalog);
   await writeFile(join(destination,'data/gr1-decomposition.json'),
     JSON.stringify(decomposition)+'\n','utf8');
   // Generación de SW con versión de caché derivada de TODO el contenido.
@@ -85,5 +84,5 @@ export async function buildEtymologicon({root,out}){
   await writeFile(join(destination,'sw.js'),worker,'utf8');
 
   console.log('ScholaClassica: Etymologicon con '+catalog.etymons.length+' étimos y '+catalog.derivatives.length+
-    ' derivados ('+catalog.extension.newDerivatives+' nuevos); descomposición piloto intacta');
+    ' derivados ('+catalog.extension.newDerivatives+' nuevos); '+decomposition.entries.length+' descomposiciones aprobadas');
 }

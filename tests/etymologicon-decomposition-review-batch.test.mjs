@@ -5,29 +5,42 @@ import {compileTeacherAudit} from '../scripts/compile-etymologicon-gr1.mjs';
 import {createLearnerCatalog} from '../scripts/build-etymologicon.mjs';
 import {expandGreekI} from '../scripts/expand-etymologicon-gr1.mjs';
 import {createStudyCatalog} from '../scripts/compile-etymologicon-study.mjs';
-import {createDecompositionCatalog} from '../scripts/compile-etymologicon-decomposition.mjs';
-const base=compileTeacherAudit(), learners=createLearnerCatalog(base), expanded=expandGreekI(learners), study=createStudyCatalog(base,expanded);
+import {createDecompositionCatalog,createExpandedDecompositionCatalog} from '../scripts/compile-etymologicon-decomposition.mjs';
+import {createDecompositionBank} from '../apps/etymologicon/decomposition.mjs';
+const base=compileTeacherAudit(),learners=createLearnerCatalog(base),expanded=expandGreekI(learners),study=createStudyCatalog(base,expanded);
 const batch=JSON.parse(readFileSync(new URL('../shared/academic/greek-etymology/decomposition/gr1-review-batch-20261126.json',import.meta.url),'utf8'));
 const pilot=createDecompositionCatalog(learners);
-const key=s=>s.normalize('NFD').replace(/\p{M}/gu,'').replace(/ς/g,'σ').toLowerCase();
-test('primer lote cotejado permanece separado del piloto y mantiene progresión curricular',()=>{
-  assert.equal(batch.items.length,9);
-  assert.equal(new Set(batch.items.map(w=>w.form)).size,9);
-  assert.equal(batch.publicationAllowed,false);
-  for(const row of batch.items){
-    const word=study.words.find(w=>w.form===row.form);
-    assert.ok(word,row.form);
-    assert.equal(word.lexicographicStatus,'dle_consultado_individualmente',row.form);
-    assert.equal(word.components.length,2,row.form);
-    assert.deepEqual(word.components.map(c=>key(c.greek)),row.components.map(c=>key(c.greek)),row.form);
-    const etymons=row.components.map(c=>expanded.etymons.find(e=>e.lemma.split('|').some(part=>key(part.split(',')[0].replace(/\s*\(.*/, '').trim())===key(c.greek))));
-    assert.ok(etymons.every(e=>e?.editorialStatus==='approved_for_documented_derivatives'),row.form);
-    const first=Math.max(...etymons.map(e=>Math.min(...e.units.map(u=>Number(u.slice(2))))));
-    assert.equal(row.introducedAtUnit,'UD'+first,row.form);
-    assert.equal(row.enabledForPractice,false);
-    assert.equal(row.enabledForExams,false);
-    assert.ok(!pilot.entries.some(e=>e.form===row.form),row.form);
-    assert.ok(row.evidence.url.startsWith('https://dle.rae.es/'));
+const result=createExpandedDecompositionCatalog(learners,expanded,study);
+const engine=createDecompositionBank(result);
+test('25 ejercicios; se conservan los 16 originales exactamente y se incorporan nueve revisados',()=>{
+  assert.equal(result.entries.length,25);
+  assert.deepEqual(result.entries.slice(0,16),pilot.entries);
+  assert.equal(result.audit.catalogDerivatives,487);
+  assert.equal(result.audit.awaitingIndividualDecompositionReview,462);
+  assert.equal(engine.size,25);
+  assert.equal(result.publicationAllowed,false);
+  for(const item of result.entries){
+    assert.equal(item.enabledForExams,false);
+    assert.equal(engine.grade(item.id,item.parts.map(p=>p.greek)).total,2,item.form);
+    assert.equal(engine.grade(item.id,item.parts.map(p=>p.latinAccepted[0])).total,2,item.form);
+    assert.equal(engine.grade(item.id,item.parts.map(p=>p.greek).reverse()).total,0,item.form);
+    for(let n=1;n<=12;n++)assert.equal(engine.available({mode:'unit',unit:'UD'+n}).some(x=>x.id===item.id),n>=Number(item.introducedAtUnit.slice(2)),item.form+' UD'+n);
   }
-  assert.equal(pilot.entries.length,16);
+  assert.equal(engine.grade('decomp:gr1:talasocracia',['θάλασσα','κράτος']).total,2);
+  assert.equal(engine.grade('decomp:gr1:talasocracia',['thalassa','kratos']).total,2);
+});
+test('el compilador rechaza candidatos sin autorización, duplicados o con unidades/componente incorrectos',()=>{
+  for(const change of [
+    x=>x.items[0].enabledForPractice=false,
+    x=>x.items.push(structuredClone(x.items[0])),
+    x=>x.items[0].introducedAtUnit='UD1',
+    x=>x.items[0].components[0].etymonId='grc:θεοσ',
+    x=>x.items[0].enabledForExams=true,
+    x=>x.items[0].form='no_catalogada'
+  ]){
+    const copy=structuredClone(batch);change(copy);
+    assert.throws(()=>createExpandedDecompositionCatalog(learners,expanded,study,copy));
+  }
+  const invalid=structuredClone(result);invalid.audit.approvedForPractice=16;
+  assert.throws(()=>createDecompositionBank(invalid));
 });

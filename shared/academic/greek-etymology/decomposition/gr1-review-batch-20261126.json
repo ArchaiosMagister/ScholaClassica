@@ -2,20 +2,30 @@
   "schema": "etymologicon-decomposition-review-batch/v1",
   "course": "gr1",
   "reviewDate": "2026-11-26",
-  "status": "reviewed_candidates_not_enabled",
+  "status": "approved_for_guided_practice_not_exam",
   "publicationAllowed": false,
-  "policy": "Cotejo individual del artículo español y segmentación didáctica. Los candidatos no se añaden a ejercicios ni sustituyen el piloto hasta adaptar el compilador al catálogo ampliado y verificar las pruebas. La unidad es la primera en la que se han introducido ambos componentes.",
+  "policy": "Cotejo individual del artículo español y segmentación didáctica. Incorporación explícita únicamente a práctica guiada; no habilita exámenes ni autoriza automáticamente otros derivados. Unidad de introducción: primera en que se han estudiado ambos componentes.",
   "items": [
     {
       "form": "cacofonía",
       "components": [
         {
           "greek": "κακός",
-          "combiningForm": "caco-"
+          "combiningForm": "caco-",
+          "etymonId": "grc:κακοσ",
+          "latinAccepted": [
+            "kakos",
+            "cacos"
+          ]
         },
         {
           "greek": "φωνή",
-          "combiningForm": "-fonía"
+          "combiningForm": "-fonía",
+          "etymonId": "grc:φωνη",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
         }
       ],
       "introducedAtUnit": "UD5",
@@ -26,7 +36,7 @@
         "checkedAt": "2026-11-26",
         "note": "Del griego κακοφωνία; las dos bases explican la acepción."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -34,11 +44,20 @@
       "components": [
         {
           "greek": "ἀμφί",
-          "combiningForm": "anfi-"
+          "combiningForm": "anfi-",
+          "etymonId": "grc:αμφι",
+          "latinAccepted": [
+            "amphi",
+            "amfi"
+          ]
         },
         {
           "greek": "βίος",
-          "combiningForm": "-bio"
+          "combiningForm": "-bio",
+          "etymonId": "grc:βιοσ",
+          "latinAccepted": [
+            "bios"
+          ]
         }
       ],
       "introducedAtUnit": "UD4",
@@ -49,7 +68,7 @@
         "checkedAt": "2026-11-26",
         "note": "Del latín amphibion, procedente de ἀμφίβιος; el significado zoológico se ha especializado."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -57,11 +76,19 @@
       "components": [
         {
           "greek": "ἀπό",
-          "combiningForm": "apo-"
+          "combiningForm": "apo-",
+          "etymonId": "grc:απο",
+          "latinAccepted": [
+            "apo"
+          ]
         },
         {
           "greek": "γῆ",
-          "combiningForm": "-geo"
+          "combiningForm": "-geo",
+          "etymonId": "grc:γη",
+          "latinAccepted": [
+            "ge"
+          ]
         }
       ],
       "introducedAtUnit": "UD6",
@@ -72,7 +99,7 @@
         "checkedAt": "2026-11-26",
         "note": "Vía latín apogeum, del griego ἀπόγειον; distinguir la acepción astronómica de la figurada."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -80,11 +107,20 @@
       "components": [
         {
           "greek": "αὐτός",
-          "combiningForm": "auto-"
+          "combiningForm": "auto-",
+          "etymonId": "grc:αυτοσ",
+          "latinAccepted": [
+            "autos"
+          ]
         },
         {
           "greek": "κράτος",
-          "combiningForm": "-cracia"
+          "combiningForm": "-cracia",
+          "etymonId": "grc:κρατοσ",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
         }
       ],
       "introducedAtUnit": "UD7",
@@ -95,7 +131,7 @@
         "checkedAt": "2026-11-26",
         "note": "Vía francés autocratie, del griego αὐτοκράτεια; -cracia se vincula a κράτος."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -103,11 +139,19 @@
       "components": [
         {
           "greek": "ἀνά",
-          "combiningForm": "ana-"
+          "combiningForm": "ana-",
+          "etymonId": "grc:ανα",
+          "latinAccepted": [
+            "ana"
+          ]
         },
         {
           "greek": "τομή",
-          "combiningForm": "-tomía"
+          "combiningForm": "-tomía",
+          "etymonId": "grc:τομη",
+          "latinAccepted": [
+            "tome"
+          ]
         }
       ],
       "introducedAtUnit": "UD10",
@@ -118,7 +162,7 @@
         "checkedAt": "2026-11-26",
         "note": "Vía latín tardío anatomia, del griego ἀνατομία, disección; el prefijo se interpreta en el compuesto histórico."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -126,11 +170,20 @@
       "components": [
         {
           "greek": "καρδία",
-          "combiningForm": "cardio-"
+          "combiningForm": "cardio-",
+          "etymonId": "grc:καρδια",
+          "latinAccepted": [
+            "kardia",
+            "cardia"
+          ]
         },
         {
           "greek": "λόγος",
-          "combiningForm": "-logía"
+          "combiningForm": "-logía",
+          "etymonId": "grc:λογοσ",
+          "latinAccepted": [
+            "logos"
+          ]
         }
       ],
       "introducedAtUnit": "UD9",
@@ -145,7 +198,7 @@
           "https://dle.rae.es/-log%C3%ADa"
         ]
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -153,11 +206,21 @@
       "components": [
         {
           "greek": "κακός",
-          "combiningForm": "caco-"
+          "combiningForm": "caco-",
+          "etymonId": "grc:κακοσ",
+          "latinAccepted": [
+            "kakos",
+            "cacos"
+          ]
         },
         {
           "greek": "γράφω",
-          "combiningForm": "-grafía"
+          "combiningForm": "-grafía",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
         }
       ],
       "introducedAtUnit": "UD5",
@@ -168,7 +231,7 @@
         "checkedAt": "2026-11-26",
         "note": "El DLE señala κακός y -grafía; γράφω es la base escolar, no el segundo étimo inmediato del sustantivo."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -176,22 +239,31 @@
       "components": [
         {
           "greek": "αὐτός",
-          "combiningForm": "auto-"
+          "combiningForm": "auto-",
+          "etymonId": "grc:αυτοσ",
+          "latinAccepted": [
+            "autos"
+          ]
         },
         {
           "greek": "γράφω",
-          "combiningForm": "-grafo"
+          "combiningForm": "-grafo",
+          "etymonId": "grc:γραφω",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
         }
       ],
       "introducedAtUnit": "UD7",
-      "meaning": "Escrito de la propia mano de su autor; también su firma.",
+      "meaning": "Firma de una persona conocida; también, escrito realizado de propia mano por su autor.",
       "evidence": {
         "authority": "RAE-ASALE · DLE 24.ª",
         "url": "https://dle.rae.es/aut%C3%B3grafo",
         "checkedAt": "2026-11-26",
         "note": "Del latín autographus, procedente de αὐτόγραφος; distinguir las dos acepciones."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     },
     {
@@ -199,11 +271,26 @@
       "components": [
         {
           "greek": "θάλαττα",
-          "combiningForm": "talaso-"
+          "combiningForm": "talaso-",
+          "etymonId": "grc:θαλαττα",
+          "latinAccepted": [
+            "thalatta",
+            "talatta",
+            "thalassa",
+            "talassa"
+          ],
+          "greekAccepted": [
+            "θάλασσα"
+          ]
         },
         {
           "greek": "κράτος",
-          "combiningForm": "-cracia"
+          "combiningForm": "-cracia",
+          "etymonId": "grc:κρατοσ",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
         }
       ],
       "introducedAtUnit": "UD7",
@@ -214,7 +301,7 @@
         "checkedAt": "2026-11-26",
         "note": "El DLE registra θάλασσα y -cracia; θάλαττα es la variante ática curricular."
       },
-      "enabledForPractice": false,
+      "enabledForPractice": true,
       "enabledForExams": false
     }
   ]

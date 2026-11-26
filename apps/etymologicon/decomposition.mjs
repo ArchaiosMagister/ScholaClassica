@@ -11,8 +11,8 @@ const LATIN_INPUT=/^[a-zA-ZÀ-ÿ\s-]+$/u;
  */
 export function createDecompositionBank(data){
   if(data?.schema!=='etymologicon-decomposition-learners/v1'||
-     data?.course!=='gr1'||data.status!=='closed_pilot_for_guided_practice_not_exam'||
-     data.publicationAllowed!==false||!Array.isArray(data.entries)||data.entries.length!==16)
+     data?.course!=='gr1'||!['closed_pilot_for_guided_practice_not_exam','expanded_guided_practice_not_exam'].includes(data.status)||
+     data.publicationAllowed!==false||!Array.isArray(data.entries)||data.entries.length<16||data.audit?.approvedForPractice!==data.entries.length)
     throw new Error('Se necesita el banco cerrado y contrastado de descomposición de Griego I.');
   const byId=new Map();
   const indices={greek:new Map(),latin:new Map()};
@@ -25,7 +25,8 @@ export function createDecompositionBank(data){
     for(const part of item.parts){
       const old=all.get(part.etymonId);
       if(old&&old.greek!==part.greek)throw new Error('Mismo étimo con grafías contradictorias');
-      all.set(part.etymonId,part);
+      all.set(part.etymonId,{...part,latinAccepted:[...new Set([...(old?.latinAccepted||[]),...part.latinAccepted])],
+        greekAccepted:[...new Set([...(old?.greekAccepted||[]),...(part.greekAccepted||[])])]});
     }
   }
   function add(index,key,id){
@@ -35,6 +36,7 @@ export function createDecompositionBank(data){
   }
   for(const [id,part] of all){
     add(indices.greek,greekKey(part.greek),id);
+    for(const value of part.greekAccepted||[])add(indices.greek,greekKey(value),id);
     for(const value of part.latinAccepted)
       add(indices.latin,latinKey(value),id);
   }
