@@ -108,3 +108,18 @@ La evidencia de este bloque (13 registros castellanos, cuatro nuevos) reside en 
 El script scripts/audit-preverbial-lexicon.mjs, incorporado a CI, procesa las 987 relaciones de lema e infinitivo (120 simples y 867 compuestos) contra UniMorph Latin completo, revisión fijada 050924c9f013e6aba4d7c87be243a1d79b6c5b10. Distingue coincidencia de lema+forma verbal, forma con otro lema, lema sin forma y ausencia de evidencia; ninguna coincidencia acredita por sí sola la etimología, el preverbio o la glosa. Los 15 casos especiales quedan en informe separado. Produce resumen, matriz latina y cola de cotejo romance individual (696 ES y 639 VAL), con enlace de consulta y evidencia estructurada cuando existe. La cola no declara como verificados los registros que no tienen evidencia estructurada en este bloque. El DNV sigue sin ofrecer resultados individuales recuperables de forma fiable por las búsquedas disponibles; no se sustituye por una equivalencia semántica ni se acredita con una consulta fallida. Queda pendiente el examen individual de las discrepancias y de las glosas, y el cotejo exhaustivo DLE/DNV; la ejecución contra el corpus completo se verificará en Actions, no se afirma completada localmente.
 
 No se publica ni se fusiona hasta superar las validaciones.
+
+## Resultado de UniMorph y segunda fuente independiente
+
+Actions, ejecución 45877869079, job 140109436158, commit 8870ff0f8a66fecc5e8306f4ddc83a1715ed42a7: 976489 filas de UniMorph; 987 objetivos, 65 coincidencias de lema y forma verbal, 9 coincidencias de forma bajo otro lema, 7 lemas sin la forma, 906 sin evidencia. No son 922 errores: faltan incluso clamo, porto y habeo. Tampoco son 65 certificaciones filológicas de la familia: una coincidencia de forma no determina el significado ni distingue homógrafos con el mismo infinitivo.
+
+Se incorpora el contraste independiente de los 987 objetivos con LEMLAT3 (revisión e8328948fb4b9b73b625aeda3639137c5e49a1ff), mediante el CLI y parser XML existentes. Se exige análisis de infinitivo presente, no solo categoría verbal. Los informes quedan fuera de la web publicada. La coincidencia de grafía de lema e infinitivo no desambigua por sí sola dos verbos homógrafos; los identificadores de análisis se conservan para revisión posterior.
+
+Cotejo individual adicional:
+- portendo: variante antigua de protendo según Lewis & Short, https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n37131/ ; normalizar por- como variante histórica de pro-.
+- ostendo: obs-tendo según https://cld.bbaw.de/lemma/lat/ostendo ; conservar ob- como base del preverbio.
+- dego: de-ago según https://cld.bbaw.de/lemma/lat/dego ; conservar.
+- praebeo: contracción de praehibeo (prae + habeo), https://www.alatius.com/ls/index.php?l=praebitis ; conservar.
+- interpello: primera conjugación según https://thrax.mpiwg-berlin.mpg.de/mpiwg-mpdl-cms-web/lt/GetDictionaryEntries?dictionary=ls&inputType=lemma&language=lat&outputFormat=html&outputType=dictFull&query=interpello ; mantener reserva sobre su adscripción a pello.
+
+Cinco nuevas entradas de evidencia DLE estructurada: diligente, consecuencia, conspicuo, aceptar y envidia. Se mantienen los derivados sin modificar su familia ni dar por verificado el conjunto. El DLE especifica el étimo inmediato (p. ej. acceptare), no implica descendencia directa del lema escolar. Sigue pendiente el informe de LEMLAT3, el contraste de sus incidencias y el cotejo exhaustivo de glosas y derivados romances.
