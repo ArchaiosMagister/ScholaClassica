@@ -91,6 +91,28 @@ try{
  assert.match(await page.locator('#module-context').textContent(),/Latín I · Formación de palabras/);
  assert.match(await page.locator('#round option:checked').textContent(),/^Práctica ·/);
  assert.equal(await page.getByRole('link',{name:/Enunciado PAU/}).isVisible(),false);
+ await page.locator('#practice-unit').selectOption('2');
+ assert.equal(await page.locator('#round option').count(),1);
+ assert.match(await page.locator('#round option:checked').textContent(),/UD2/);
+ await page.getByRole('link',{name:'Estudiar',exact:true}).click();
+ await page.waitForURL(/\/modificacion-preverbial\/estudio\.html\?subject=lat1$/);
+ await page.waitForFunction(()=>document.querySelector('#study-entries').children.length===27);
+ await page.locator('#study-unit').selectOption('2');
+ assert.equal(await page.locator('#study-entries details').count(),4);
+ await page.locator('#study-search').fill('recepción');
+ assert.equal(await page.locator('#study-empty').isVisible(),true);
+ await page.locator('#study-unit').selectOption('3');
+ assert.equal(await page.locator('#study-entries details').count(),1);
+ assert.match(await page.locator('#study-entries details').textContent(),/capio/);
+ assert.equal(await page.locator('#study-entries details').first().getAttribute('open'),'');
+ for(const width of [320,390,768]){
+   await page.setViewportSize({width,height:900});
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),
+     'El glosario preverbial desborda a '+width+' px');
+ }
+ await page.setViewportSize({width:1280,height:900});
+ await page.getByRole('link',{name:'Practicar',exact:true}).click();
+ await page.waitForURL(/\/modificacion-preverbial\/index\.html\?subject=lat1$/);
  await page.getByRole('link',{name:'ScholaClassica',exact:true}).click();
  assert.equal(await page.locator('#study-course').inputValue(),'lat1');
  assert.match(await page.locator('#study-resume').getAttribute('href'),/subject=lat1$/);
