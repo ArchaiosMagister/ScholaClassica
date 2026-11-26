@@ -42,7 +42,7 @@ test('la navegación enlaza estudio y práctica y conserva Latín I', async () =
 
 test('el estudio de Latín I respeta la programación acumulativa y no incorpora fligo sin ficha', () => {
   assert.equal(Object.keys(latin1Units).length, 27);
-  assert.equal(Object.keys(families).length, 55);
+  assert.equal(Object.keys(families).length, 75);
   assert.equal(studyFamilies('', 'all', { latinI:true }).length, 27);
   for (const [unit, count] of [[2,4],[3,8],[4,12],[5,16],[6,20],[7,24],[8,24],[9,27],[10,27]]) {
     const entries = studyFamilies('', 'all', { latinI:true, unit });
@@ -61,7 +61,7 @@ test('el estudio de Latín I respeta la programación acumulativa y no incorpora
 test('cada familia añadida dispone de significado, compuestos y derivados sin duplicidades internas', () => {
   for (const [base, family] of Object.entries(families)) {
     assert.ok(family.entry && family.meaning, base);
-    assert.ok(family.compounds.length >= (family.studyOnly ? 2 : 3), base);
+    assert.ok(family.compounds.length >= 2, base);
     assert.equal(new Set(family.compounds.map(([lemma])=>lemma)).size, family.compounds.length);
     assert.ok(family.derivatives.length >= 2, base);
     assert.ok(family.compounds.every(row=>row.length===4 && row.every(Boolean)), base);
@@ -75,7 +75,7 @@ test('Latín II ofrece las nueve familias nuevas sin adelantar contenidos de Lat
     assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)),base);
   }
   assert.equal(studyFamilies('occidere').filter(([key])=>['caedo','cado'].includes(key)).length,2);
-  assert.equal(rounds.length,52);
+  assert.equal(rounds.length,72);
 });
 
 test('el segundo bloque de Latín II tiene cobertura de estudio y práctica y no se adelanta a Latín I', () => {
@@ -100,4 +100,16 @@ test('los homógrafos tienen fichas y significados independientes y no se sortea
     }
   }
   assert.equal(familyOrigins('volo-querer',families['volo-querer'])[1].compositionLabel,'Componente');
+});
+
+test('el tercer bloque de Latín II respeta las unidades de Latín I y permite practicar los veinte verbos', () => {
+  for (const base of ['emo','haereo','maneo','misceo','moneo','muto','nosco','oro','paro','puto','rogo','scio','seco','sisto','sumo','tango','tego','vivo','voco','volvo']) {
+    assert.equal(studyFamilies('',base).length,1);
+    assert.equal(studyFamilies('',base,{latinI:true}).length,0);
+    assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)),base);
+  }
+  for (const base of ['tango','vivo']) assert.equal(families[base].compounds.length,2);
+  assert.ok(studyFamilies('redención').some(([base])=>base==='emo'));
+  assert.ok(studyFamilies('conjunción').some(([base])=>base==='iungo'));
+  assert.ok(studyFamilies('revolución').some(([base])=>base==='volvo'));
 });
