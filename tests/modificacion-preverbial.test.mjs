@@ -67,3 +67,17 @@ test('la forma prefijada y conjugada exige el verbo simple en primera persona', 
   assert.equal(checkBase(unprefixed, 'pugnatum'), 'inflected');
   assert.equal(checkBase(unprefixed, 'pugno'), 'correct');
 });
+
+test('los compuestos homógrafos no acreditan un derivado de otra familia', () => {
+  const round = {prompts:[{base:'cado'},{base:'caedo'}]};
+  const result = correctRound(round,[['incido','accido','recido'],['decido','circumcido']],['incisión','incidencia']);
+  assert.equal(result.words[0].status,'origin');
+  assert.equal(result.words[1].status,'correct');
+  const valid = correctRound(round,[['accido','recido','concido'],['incido','decido']],['incisión','incidencia']);
+  assert.equal(valid.words[0].status,'correct');
+  assert.equal(valid.words[1].status,'origin');
+});
+test('acepta nuevos compuestos y no puntúa registros reservados', () => {
+  const r=correctRound({prompts:[{base:'sum'},{base:'duco'}]},[['possum','absum','praesum'],['introducere','educere']],[]);
+  assert.deepEqual(r.compounds.map(group=>group.map(x=>x.status)),[['unknown','correct','correct'],['correct','correct']]);
+});
