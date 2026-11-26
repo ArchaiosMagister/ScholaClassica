@@ -643,7 +643,7 @@ export const additionalCompounds = {
     [
       "portendo",
       "portendere",
-      "por",
+      "pro",
       "presagiar"
     ],
     [
