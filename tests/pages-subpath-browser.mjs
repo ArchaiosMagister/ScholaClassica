@@ -175,6 +175,16 @@ try{
  assert.equal(await page.locator('#solution-content details').nth(1)
    .getByText('profugerunt → profugio → fugio',{exact:true}).isVisible(),true);
  await page.getByRole('button',{name:'Siguiente ejercicio',exact:true}).click();
+ assert.match(await page.locator('#round option:checked').textContent(),/Práctica · UD3 · attulerunt y exclamavit/);
+ // El último ejercicio, y solo el último, vuelve al primero.
+ const lastRound=await page.locator('#round option').count()-1;
+ await page.locator('#round').selectOption({index:lastRound});
+ const lastModel=await page.evaluate(async()=> (await import('./banco.mjs')).rounds.at(-1).prompts);
+ for(const [index,prompt] of lastModel.entries()) await page.locator('#base-'+index).fill(prompt.base);
+ await page.getByRole('button',{name:'Comprobar bases',exact:true}).click();
+ await page.getByRole('button',{name:'Ir a derivados',exact:true}).click();
+ await page.getByRole('button',{name:'Corregir ejercicio',exact:true}).click();
+ await page.getByRole('button',{name:'Siguiente ejercicio',exact:true}).click();
  assert.match(await page.locator('#round option:checked').textContent(),/Junio 2025/);
  await page.setViewportSize({width:1280,height:900});
  await page.getByRole('link',{name:'ScholaClassica',exact:true}).click();
