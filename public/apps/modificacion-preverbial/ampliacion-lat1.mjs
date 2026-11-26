@@ -115,7 +115,7 @@ export const additionalFamilies = {
       ['conicio','sustantivo','conjetura','conjectura'],
       ['obicio','sustantivo','objeción','objecció'],
       ['proicio','sustantivo','proyecto','projecte'],
-      ['subicio','adjetivo','sujeto','subjecte'],
+      ['subicio','sustantivo','sujeto','subjecte'],
     ],
   },
   cado: {
@@ -174,7 +174,6 @@ export const additionalFamilies = {
     ],
     derivatives:[
       ['dico','verbo','decir','dir'],
-      ['dico','sustantivo','dicho','dit'],
       ['addico','adjetivo','adicto','addicte'],
       ['contradico','verbo','contradecir','contradir'],
       ['edico','sustantivo','edicto','edicte'],
@@ -394,8 +393,7 @@ export const additionalFamilies = {
     ],
     derivatives:[
       ['do','verbo','dar',''],
-      ['do','sustantivo','dato','dada'],
-      ['addo','verbo','añadir',''],
+      ['do','sustantivo','dato',''],
       ['edo','sustantivo','edición','edició'],
       ['perdo','verbo','perder','perdre'],
       ['trado','sustantivo','tradición','tradició'],
