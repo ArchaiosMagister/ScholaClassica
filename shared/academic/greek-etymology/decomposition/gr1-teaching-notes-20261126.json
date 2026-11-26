@@ -522,6 +522,78 @@
       "source": "DLE RAE-ASALE",
       "evidenceDate": "2026-11-26",
       "definitionType": "glosa_didactica_contrastada"
+    },
+    "monoteísmo": {
+      "definition": "Creencia religiosa que reconoce la existencia de un único dios.",
+      "etymologicalSense": "μόνος aporta la idea de unicidad y θεός la referencia a la divinidad. La palabra se forma sobre teísmo.",
+      "sourceUrl": "https://dle.rae.es/monote%C3%ADsmo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "macrocéfalo": {
+      "definition": "Que presenta una cabeza de tamaño excesivo en relación con el cuerpo.",
+      "etymologicalSense": "La idea de tamaño grande o largo se aplica a la cabeza; el adjetivo describe una proporción corporal.",
+      "sourceUrl": "https://dle.rae.es/macroc%C3%A9falo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "microcosmos": {
+      "definition": "Mundo reducido o entidad que reproduce a pequeña escala la organización del universo.",
+      "etymologicalSense": "La oposición entre pequeño y universo permite representar una totalidad organizada a escala reducida.",
+      "sourceUrl": "https://dle.rae.es/microcosmos",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "macrocosmos": {
+      "definition": "Universo concebido como un conjunto ordenado y armónico.",
+      "etymologicalSense": "El formante macro- contrapone el universo en su conjunto al mundo reducido del microcosmos.",
+      "sourceUrl": "https://dle.rae.es/macrocosmos",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "monografía": {
+      "definition": "Trabajo escrito especializado que desarrolla un tema concreto.",
+      "etymologicalSense": "La idea de unidad se aplica al asunto de un estudio escrito; no significa que el trabajo tenga un único autor.",
+      "sourceUrl": "https://dle.rae.es/monograf%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "polícromo": {
+      "definition": "Que presenta una diversidad de colores en su superficie o composición.",
+      "etymologicalSense": "πολύς indica multiplicidad y χρῶμα aporta la noción de color: se aplica a objetos con varios colores.",
+      "sourceUrl": "https://dle.rae.es/pol%C3%ADcromo",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "bibliomanía": {
+      "definition": "Afición desmedida por reunir y coleccionar libros.",
+      "etymologicalSense": "La inclinación excesiva expresada por -manía se dirige hacia los libros y su acumulación.",
+      "sourceUrl": "https://dle.rae.es/biblioman%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "gastralgia": {
+      "definition": "Dolor localizado en la zona del estómago.",
+      "etymologicalSense": "El tema de γαστήρ identifica la parte del cuerpo afectada; ἄλγος expresa la sensación dolorosa.",
+      "sourceUrl": "https://dle.rae.es/gastralgia",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
+    },
+    "laringología": {
+      "definition": "Rama médica especializada en el estudio de las afecciones de la laringe.",
+      "etymologicalSense": "El tema λαρυγγ- identifica la laringe y -logía indica una disciplina dedicada a su estudio.",
+      "sourceUrl": "https://dle.rae.es/laringolog%C3%ADa",
+      "source": "DLE RAE-ASALE",
+      "evidenceDate": "2026-11-26",
+      "definitionType": "glosa_didactica_contrastada"
     }
   }
 }

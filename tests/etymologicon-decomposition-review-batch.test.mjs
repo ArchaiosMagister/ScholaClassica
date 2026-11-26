@@ -12,19 +12,21 @@ const batch=JSON.parse(readFileSync(new URL('../shared/academic/greek-etymology/
 const pilot=createDecompositionCatalog(learners);
 const result=createExpandedDecompositionCatalog(learners,expanded,study);
 const engine=createDecompositionBank(result);
-test('65 ejercicios con definición y sentido etimológico, conservando las 16 fichas originales',()=>{
-  assert.equal(result.entries.length,65);
+test('74 ejercicios con definición y sentido etimológico, conservando las 16 fichas originales',()=>{
+  assert.equal(result.entries.length,74);
   assert.deepEqual(result.entries.slice(0,16).map(({etymologicalSense,definitionType,...entry})=>entry),pilot.entries);
   assert.equal(result.audit.catalogDerivatives,487);
-  assert.equal(result.audit.awaitingIndividualDecompositionReview,422);
-  assert.equal(engine.size,65);
+  assert.equal(result.audit.awaitingIndividualDecompositionReview,413);
+  assert.equal(engine.size,74);
   assert.equal(result.publicationAllowed,false);
   const expected={teocracia:'UD1','biografía':'UD2','cronología':'UD2','xilófono':'UD3','prólogo':'UD4','caligrafía':'UD5','polifonía':'UD5','geología':'UD6','dermatología':'UD8','monólogo':'UD12'};
   assert.deepEqual(Object.fromEntries(result.entries.slice(25,35).map(e=>[e.form,e.introducedAtUnit])),expected);
   const latest={"fonología":"UD3","diálogo":"UD4","politeísmo":"UD5","demagogo":"UD6","hidrografía":"UD6","autodidacta":"UD7","iconografía":"UD8","hipodérmico":"UD8","plutocracia":"UD8","cosmopolita":"UD12","xilografía":"UD2","paradoja":"UD4","megafonía":"UD5","anáfora":"UD6","hipogeo":"UD6","hidrofobia":"UD6","bibliófilo":"UD6","andrógino":"UD8","encéfalo":"UD9","cefalópodo":"UD9"};
   assert.deepEqual(Object.fromEntries(result.entries.slice(35,55).map(e=>[e.form,e.introducedAtUnit])),latest);
   const fifth={"fonógrafo":"UD3","ergonomía":"UD3","doxología":"UD3","anacronismo":"UD4","autónomo":"UD7","ginecología":"UD8","oftalmología":"UD9","podología":"UD9","cefalalgia":"UD12","otalgia":"UD12"};
-  assert.deepEqual(Object.fromEntries(result.entries.slice(55).map(e=>[e.form,e.introducedAtUnit])),fifth);
+  assert.deepEqual(Object.fromEntries(result.entries.slice(55,65).map(e=>[e.form,e.introducedAtUnit])),fifth);
+  assert.deepEqual(Object.fromEntries(result.entries.slice(65).map(e=>[e.form,e.introducedAtUnit])),{"monoteísmo":"UD12","macrocéfalo":"UD9","microcosmos":"UD12","macrocosmos":"UD12","monografía":"UD12","polícromo":"UD12","bibliomanía":"UD11","gastralgia":"UD12","laringología":"UD9"});
+  assert.ok(!result.entries.some(e=>e.form==='neumología'||e.form==='hemofobia'));
   assert.match(study.words.find(w=>w.form==='doxología').connection,/gloria o alabanza/);
   for(const item of result.entries){
     assert.equal(item.definitionType,'glosa_didactica_contrastada',item.form);

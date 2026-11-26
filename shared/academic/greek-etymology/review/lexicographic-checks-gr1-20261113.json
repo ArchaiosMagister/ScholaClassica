@@ -486,6 +486,69 @@
       "sourceUrl": "https://dle.rae.es/otalgia",
       "checkedAt": "2026-11-26",
       "note": "El DLE registra latín científico otalgia, del griego ὠταλγία, de οὖς, ὠτός y -αλγία."
+    },
+    "monoteísmo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/monote%C3%ADsmo",
+      "checkedAt": "2026-11-26",
+      "note": "Formado por mono- y teísmo; teísmo contiene teo- e -ismo."
+    },
+    "macrocéfalo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/macroc%C3%A9falo",
+      "checkedAt": "2026-11-26",
+      "note": "Del griego μακροκέφαλος; el segundo componente remite a κεφαλή."
+    },
+    "microcosmos": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/microcosmos",
+      "checkedAt": "2026-11-26",
+      "note": "Del bajo latín microcosmos, del griego bizantino μικρόκοσμος."
+    },
+    "macrocosmos": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/macrocosmos",
+      "checkedAt": "2026-11-26",
+      "note": "Del latín medieval macrocosmus, formación opuesta a microcosmos."
+    },
+    "monografía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/monograf%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "Formado por mono- y -grafía, de la raíz de γράφειν."
+    },
+    "polícromo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/pol%C3%ADcromo",
+      "checkedAt": "2026-11-26",
+      "note": "Del griego πολύχρωμος. El DLE registra policromo como lema y polícromo como variante."
+    },
+    "bibliomanía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/biblioman%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "Formado por biblio- y -manía; no equivale necesariamente a una afición por la lectura."
+    },
+    "gastralgia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/gastralgia",
+      "checkedAt": "2026-11-26",
+      "note": "Del latín científico gastralgia, de γαστρο- y -αλγία. El genitivo γαστρός explica gastr-."
+    },
+    "laringología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/laringolog%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "Del francés laryngologie, con λάρυγξ, -υγγος y -logie."
     }
   },
   "lastSupplementAt": "2026-11-26"

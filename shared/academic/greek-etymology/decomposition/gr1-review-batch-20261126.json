@@ -1601,6 +1601,318 @@
       },
       "enabledForPractice": true,
       "enabledForExams": false
+    },
+    {
+      "form": "monoteísmo",
+      "components": [
+        {
+          "greek": "μόνος",
+          "etymonId": "grc:μονοσ",
+          "combiningForm": "mono-",
+          "latinAccepted": [
+            "monos"
+          ]
+        },
+        {
+          "greek": "θεός",
+          "etymonId": "grc:θεοσ",
+          "combiningForm": "teo-",
+          "latinAccepted": [
+            "theos",
+            "teos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Creencia religiosa que reconoce la existencia de un único dios.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/monote%C3%ADsmo",
+        "checkedAt": "2026-11-26",
+        "note": "Formado por mono- y teísmo; teísmo contiene teo- e -ismo.",
+        "additionalUrls": [
+          "https://dle.rae.es/mono-",
+          "https://dle.rae.es/te%C3%ADsmo"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "macrocéfalo",
+      "components": [
+        {
+          "greek": "μακρός",
+          "etymonId": "grc:μακροσ",
+          "combiningForm": "macro-",
+          "latinAccepted": [
+            "makros",
+            "macros"
+          ]
+        },
+        {
+          "greek": "κεφαλή",
+          "etymonId": "grc:κεφαλη",
+          "combiningForm": "-céfalo",
+          "latinAccepted": [
+            "kephale",
+            "cephale",
+            "kefale",
+            "cefale"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Que presenta una cabeza de tamaño excesivo en relación con el cuerpo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/macroc%C3%A9falo",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego μακροκέφαλος; el segundo componente remite a κεφαλή."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "microcosmos",
+      "components": [
+        {
+          "greek": "μικρός",
+          "etymonId": "grc:μικροσ",
+          "combiningForm": "micro-",
+          "latinAccepted": [
+            "mikros",
+            "micros"
+          ]
+        },
+        {
+          "greek": "κόσμος",
+          "etymonId": "grc:κοσμοσ",
+          "combiningForm": "-cosmos",
+          "latinAccepted": [
+            "kosmos",
+            "cosmos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Mundo reducido o entidad que reproduce a pequeña escala la organización del universo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/microcosmos",
+        "checkedAt": "2026-11-26",
+        "note": "Del bajo latín microcosmos, del griego bizantino μικρόκοσμος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "macrocosmos",
+      "components": [
+        {
+          "greek": "μακρός",
+          "etymonId": "grc:μακροσ",
+          "combiningForm": "macro-",
+          "latinAccepted": [
+            "makros",
+            "macros"
+          ]
+        },
+        {
+          "greek": "κόσμος",
+          "etymonId": "grc:κοσμοσ",
+          "combiningForm": "-cosmos",
+          "latinAccepted": [
+            "kosmos",
+            "cosmos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Universo concebido como un conjunto ordenado y armónico.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/macrocosmos",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín medieval macrocosmus, formación opuesta a microcosmos."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "monografía",
+      "components": [
+        {
+          "greek": "μόνος",
+          "etymonId": "grc:μονοσ",
+          "combiningForm": "mono-",
+          "latinAccepted": [
+            "monos"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "etymonId": "grc:γραφω",
+          "combiningForm": "-grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Trabajo escrito especializado que desarrolla un tema concreto.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/monograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Formado por mono- y -grafía, de la raíz de γράφειν.",
+        "additionalUrls": [
+          "https://dle.rae.es/mono-",
+          "https://dle.rae.es/-graf%C3%ADa"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "polícromo",
+      "components": [
+        {
+          "greek": "πολύς",
+          "etymonId": "grc:πολυσ",
+          "combiningForm": "poli-",
+          "latinAccepted": [
+            "polys",
+            "polus"
+          ]
+        },
+        {
+          "greek": "χρῶμα",
+          "etymonId": "grc:χρωμα",
+          "combiningForm": "-cromo",
+          "latinAccepted": [
+            "chroma",
+            "croma"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Que presenta una diversidad de colores en su superficie o composición.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/pol%C3%ADcromo",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego πολύχρωμος. El DLE registra policromo como lema y polícromo como variante."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "bibliomanía",
+      "components": [
+        {
+          "greek": "βιβλίον",
+          "etymonId": "grc:βιβλιον",
+          "combiningForm": "biblio-",
+          "latinAccepted": [
+            "biblion"
+          ]
+        },
+        {
+          "greek": "μανία",
+          "etymonId": "grc:μανια",
+          "combiningForm": "-manía",
+          "latinAccepted": [
+            "mania"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD11",
+      "meaning": "Afición desmedida por reunir y coleccionar libros.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/biblioman%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Formado por biblio- y -manía; no equivale necesariamente a una afición por la lectura.",
+        "additionalUrls": [
+          "https://dle.rae.es/biblio-",
+          "https://dle.rae.es/-man%C3%ADa"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "gastralgia",
+      "components": [
+        {
+          "greek": "γαστήρ",
+          "etymonId": "grc:γαστηρ",
+          "combiningForm": "gastr-",
+          "latinAccepted": [
+            "gaster"
+          ]
+        },
+        {
+          "greek": "ἄλγος",
+          "etymonId": "grc:αλγοσ",
+          "combiningForm": "-algia",
+          "latinAccepted": [
+            "algos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Dolor localizado en la zona del estómago.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/gastralgia",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín científico gastralgia, de γαστρο- y -αλγία. El genitivo γαστρός explica gastr-.",
+        "additionalUrls": [
+          "https://dle.rae.es/gastro-",
+          "https://dle.rae.es/-algia"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "laringología",
+      "components": [
+        {
+          "greek": "λάρυγξ",
+          "etymonId": "grc:λαρυγξ",
+          "combiningForm": "laringo-",
+          "latinAccepted": [
+            "larynx",
+            "larunx",
+            "larinx"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Rama médica especializada en el estudio de las afecciones de la laringe.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/laringolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del francés laryngologie, con λάρυγξ, -υγγος y -logie.",
+        "additionalUrls": [
+          "https://dle.rae.es/-log%C3%ADa"
+        ]
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
     }
   ]
 }
