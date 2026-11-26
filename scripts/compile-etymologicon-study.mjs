@@ -165,7 +165,7 @@ export function readLexicographicChecks(){
   const data=JSON.parse(readFileSync(checksFile,'utf8'));
   assert.equal(data.schema,'etymologicon-lexicographic-checks/v1');
   assert.equal(data.course,'gr1');
-  assert.equal(Object.keys(data.records).length,24);
+  assert.equal(Object.keys(data.records).length,32);
   return data;
 }
 export function createStudyCatalog(source,learners,lexicon=readStudyGlosses(),

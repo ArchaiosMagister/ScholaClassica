@@ -150,6 +150,63 @@
       "sourceUrl": "https://dicciomed.usal.es/palabra/proctitis",
       "edition": null,
       "note": "Dicciomed, Universidad de Salamanca: inflamación del ano y recto; πρωκτός + -ῖτις."
+    },
+    "cacofonía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cacofon%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "Del griego κακοφωνία; las dos bases explican la acepción. Disonancia en la combinación de sonidos del habla."
+    },
+    "anfibio": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/anfibio",
+      "checkedAt": "2026-11-26",
+      "note": "Del latín amphibion, procedente de ἀμφίβιος; el significado zoológico se ha especializado. Vertebrado que, típicamente, pasa de una fase larvaria acuática a la adulta terrestre o semiacuática."
+    },
+    "apogeo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/apogeo",
+      "checkedAt": "2026-11-26",
+      "note": "Vía latín apogeum, del griego ἀπόγειον; distinguir la acepción astronómica de la figurada. Punto de una órbita terrestre más alejado del centro de la Tierra; figuradamente, culminación."
+    },
+    "anatomía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/anatom%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "Vía latín tardío anatomia, del griego ἀνατομία, disección; el prefijo se interpreta en el compuesto histórico. Disciplina que estudia la estructura de los seres vivos."
+    },
+    "cardiología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cardiolog%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE identifica cardio- y -logía; ambos elementos tienen artículos propios. λόγος es la base léxica escolar de -logía. Estudio médico del corazón, su funcionamiento y sus enfermedades."
+    },
+    "cacografía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cacograf%C3%ADa",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE señala κακός y -grafía; γράφω es la base escolar, no el segundo étimo inmediato del sustantivo. Escritura que infringe las convenciones ortográficas."
+    },
+    "autógrafo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/aut%C3%B3grafo",
+      "checkedAt": "2026-11-26",
+      "note": "Del latín autographus, procedente de αὐτόγραφος; distinguir las dos acepciones. Escrito de la propia mano de su autor; también su firma."
+    },
+    "talasocracia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/talasocracia",
+      "checkedAt": "2026-11-26",
+      "note": "El DLE registra θάλασσα y -cracia; θάλαττα es la variante ática curricular. Predominio político basado en el control marítimo."
     }
-  }
+  },
+  "lastSupplementAt": "2026-11-26"
 }

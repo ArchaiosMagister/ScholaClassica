@@ -1,0 +1,221 @@
+{
+  "schema": "etymologicon-decomposition-review-batch/v1",
+  "course": "gr1",
+  "reviewDate": "2026-11-26",
+  "status": "reviewed_candidates_not_enabled",
+  "publicationAllowed": false,
+  "policy": "Cotejo individual del artículo español y segmentación didáctica. Los candidatos no se añaden a ejercicios ni sustituyen el piloto hasta adaptar el compilador al catálogo ampliado y verificar las pruebas. La unidad es la primera en la que se han introducido ambos componentes.",
+  "items": [
+    {
+      "form": "cacofonía",
+      "components": [
+        {
+          "greek": "κακός",
+          "combiningForm": "caco-"
+        },
+        {
+          "greek": "φωνή",
+          "combiningForm": "-fonía"
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Disonancia en la combinación de sonidos del habla.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cacofon%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Del griego κακοφωνία; las dos bases explican la acepción."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "anfibio",
+      "components": [
+        {
+          "greek": "ἀμφί",
+          "combiningForm": "anfi-"
+        },
+        {
+          "greek": "βίος",
+          "combiningForm": "-bio"
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Vertebrado que, típicamente, pasa de una fase larvaria acuática a la adulta terrestre o semiacuática.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/anfibio",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín amphibion, procedente de ἀμφίβιος; el significado zoológico se ha especializado."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "apogeo",
+      "components": [
+        {
+          "greek": "ἀπό",
+          "combiningForm": "apo-"
+        },
+        {
+          "greek": "γῆ",
+          "combiningForm": "-geo"
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Punto de una órbita terrestre más alejado del centro de la Tierra; figuradamente, culminación.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/apogeo",
+        "checkedAt": "2026-11-26",
+        "note": "Vía latín apogeum, del griego ἀπόγειον; distinguir la acepción astronómica de la figurada."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "autocracia",
+      "components": [
+        {
+          "greek": "αὐτός",
+          "combiningForm": "auto-"
+        },
+        {
+          "greek": "κράτος",
+          "combiningForm": "-cracia"
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Régimen en que una persona concentra el poder supremo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/autocracia",
+        "checkedAt": "2026-11-26",
+        "note": "Vía francés autocratie, del griego αὐτοκράτεια; -cracia se vincula a κράτος."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "anatomía",
+      "components": [
+        {
+          "greek": "ἀνά",
+          "combiningForm": "ana-"
+        },
+        {
+          "greek": "τομή",
+          "combiningForm": "-tomía"
+        }
+      ],
+      "introducedAtUnit": "UD10",
+      "meaning": "Disciplina que estudia la estructura de los seres vivos.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/anatom%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "Vía latín tardío anatomia, del griego ἀνατομία, disección; el prefijo se interpreta en el compuesto histórico."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "cardiología",
+      "components": [
+        {
+          "greek": "καρδία",
+          "combiningForm": "cardio-"
+        },
+        {
+          "greek": "λόγος",
+          "combiningForm": "-logía"
+        }
+      ],
+      "introducedAtUnit": "UD9",
+      "meaning": "Estudio médico del corazón, su funcionamiento y sus enfermedades.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cardiolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica cardio- y -logía; ambos elementos tienen artículos propios. λόγος es la base léxica escolar de -logía.",
+        "additionalUrls": [
+          "https://dle.rae.es/cardio-",
+          "https://dle.rae.es/-log%C3%ADa"
+        ]
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "cacografía",
+      "components": [
+        {
+          "greek": "κακός",
+          "combiningForm": "caco-"
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafía"
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Escritura que infringe las convenciones ortográficas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cacograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE señala κακός y -grafía; γράφω es la base escolar, no el segundo étimo inmediato del sustantivo."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "autógrafo",
+      "components": [
+        {
+          "greek": "αὐτός",
+          "combiningForm": "auto-"
+        },
+        {
+          "greek": "γράφω",
+          "combiningForm": "-grafo"
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Escrito de la propia mano de su autor; también su firma.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/aut%C3%B3grafo",
+        "checkedAt": "2026-11-26",
+        "note": "Del latín autographus, procedente de αὐτόγραφος; distinguir las dos acepciones."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    },
+    {
+      "form": "talasocracia",
+      "components": [
+        {
+          "greek": "θάλαττα",
+          "combiningForm": "talaso-"
+        },
+        {
+          "greek": "κράτος",
+          "combiningForm": "-cracia"
+        }
+      ],
+      "introducedAtUnit": "UD7",
+      "meaning": "Predominio político basado en el control marítimo.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/talasocracia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra θάλασσα y -cracia; θάλαττα es la variante ática curricular."
+      },
+      "enabledForPractice": false,
+      "enabledForExams": false
+    }
+  ]
+}
