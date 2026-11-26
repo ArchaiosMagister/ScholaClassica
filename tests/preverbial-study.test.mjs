@@ -42,7 +42,7 @@ test('la navegación enlaza estudio y práctica y conserva Latín I', async () =
 
 test('el estudio de Latín I respeta la programación acumulativa y no incorpora fligo sin ficha', () => {
   assert.equal(Object.keys(latin1Units).length, 27);
-  assert.equal(Object.keys(families).length, 29);
+  assert.equal(Object.keys(families).length, 38);
   assert.equal(studyFamilies('', 'all', { latinI:true }).length, 27);
   for (const [unit, count] of [[2,4],[3,8],[4,12],[5,16],[6,20],[7,24],[8,24],[9,27],[10,27]]) {
     const entries = studyFamilies('', 'all', { latinI:true, unit });
@@ -66,4 +66,14 @@ test('cada familia añadida dispone de significado, compuestos y derivados sin d
     assert.ok(family.derivatives.length >= 2, base);
     assert.ok(family.compounds.every(row=>row.length===4 && row.every(Boolean)), base);
   }
+});
+
+test('Latín II ofrece las nueve familias nuevas sin adelantar contenidos de Latín I', () => {
+  for (const base of ['ago','caedo','cedo','claudo','lego','scribo','sum','teneo','venio']) {
+    assert.equal(studyFamilies('',base).length,1);
+    assert.equal(studyFamilies('',base,{latinI:true}).length,0);
+    assert.ok(rounds.some(round=>round.prompts.some(prompt=>prompt.base===base)),base);
+  }
+  assert.equal(studyFamilies('occidere').filter(([key])=>['caedo','cado'].includes(key)).length,2);
+  assert.equal(rounds.length,39);
 });
