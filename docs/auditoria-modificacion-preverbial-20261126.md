@@ -28,3 +28,37 @@ Se habilitan precor y vello con modelos de dos clases gramaticales; nuevas forma
 ## Corrector
 
 Cada compuesto propuesto se registra por familia, no globalmente. Las pruebas reproducen el caso de incido en cado/caedo, verifican el inventario congelado y excluyen los registros especiales de la puntuación ordinaria.
+
+## Segundo cotejo DLE
+
+Consulta individual realizada el 26/11/2026. Se registra la forma latina inmediata indicada por el DLE; la adscripción al verbo incluye derivados nominales y participiales, no solo descendientes directos del infinitivo.
+
+| Voz | Étimo documentado | Familia | Decisión |
+|---|---|---|---|
+| [colegir](https://dle.rae.es/colegir) | colligere | lego / colligo | conservar |
+| [subvención](https://dle.rae.es/subvención) | subventio | venio / subvenio | conservar |
+| [conjetura](https://dle.rae.es/conjetura) | coniectura | iacio / conicio | conservar |
+| [presentir](https://dle.rae.es/presentir) | praesentire | sentio / praesentio | conservar |
+| [presencia](https://dle.rae.es/presencia) | praesentia | sum / praesum | conservar |
+| [secreción](https://dle.rae.es/secreción) | secretio | cerno / secerno | conservar |
+| [provisión](https://dle.rae.es/provisión) | provisio | video / provideo | conservar |
+| [éxito](https://dle.rae.es/éxito) | exitus | eo / exeo | conservar |
+| [culto](https://dle.rae.es/culto) | cultus | colo | añadir como adjetivo; el DLE registra también el sustantivo |
+| [cultor](https://dle.rae.es/cultor) | cultor | colo | añadir como sustantivo, uso admitido por el DLE |
+| [discípulo](https://dle.rae.es/discípulo) | discipulus | disco | añadir |
+| [disciplina](https://dle.rae.es/disciplina) | disciplina | disco | conservar |
+| [discente](https://dle.rae.es/discente) | discens | disco | conservar |
+| [prefacio](https://dle.rae.es/prefacio) | praefatio | for / praefor | añadir; sigue en solo estudio |
+| [lábil](https://dle.rae.es/lábil) | labilis, de labi | labor | añadir |
+| [lapso](https://dle.rae.es/lapso) | lapsus | labor | conservar sustantivo |
+| [colapso](https://dle.rae.es/colapso) | collapsus, de collabi | labor / collabor | conservar |
+| [oriundo](https://dle.rae.es/oriundo) | oriundus | orior | añadir |
+| [origen](https://dle.rae.es/origen) | origo | orior | conservar |
+| [salto](https://dle.rae.es/salto) | saltus | salio | añadir |
+| [salir](https://dle.rae.es/salir) | salire | salio | conservar |
+| [sapiente](https://dle.rae.es/sapiente) | sapiens | sapio | conservar |
+| [saber](https://dle.rae.es/saber) | sapere | sapio | conservar |
+| [intuición](https://dle.rae.es/intuición) | intuitio | tueor / intueor | conservar |
+| [intuir](https://dle.rae.es/intuir) | intueri | tueor / intueor | añadir |
+
+Ocho nuevos registros castellanos y siete ejercicios modelo; 106 rondas, 105 familias practicables, 15 solo de consulta. Comprobación de 680 registros de derivados sin grafías duplicadas (ES/VAL). No se incorporan equivalencias valencianas nuevas sin cotejo. Este bloque no certifica los demás registros ni resuelve las 15 relaciones especiales latinas.

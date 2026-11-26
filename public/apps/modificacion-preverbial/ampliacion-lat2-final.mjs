@@ -182,8 +182,20 @@ export const latin2Final = {
         "volver a cultivar"
       ]
     ],
-    "derivatives": [],
-    "studyOnly": true
+    "derivatives": [
+      [
+        "colo",
+        "adjetivo",
+        "culto",
+        ""
+      ],
+      [
+        "colo",
+        "sustantivo",
+        "cultor",
+        ""
+      ]
+    ]
   },
   "creo": {
     "entry": "creo, creare, creavi, creatum",
@@ -388,9 +400,14 @@ export const latin2Final = {
         "adjetivo",
         "discente",
         ""
+      ],
+      [
+        "disco",
+        "sustantivo",
+        "discípulo",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "doceo": {
     "entry": "doceo, docere, docui, doctum",
@@ -657,7 +674,14 @@ export const latin2Final = {
         "pronunciar"
       ]
     ],
-    "derivatives": [],
+    "derivatives": [
+      [
+        "praefor",
+        "sustantivo",
+        "prefacio",
+        ""
+      ]
+    ],
     "studyOnly": true
   },
   "gigno": {
@@ -752,9 +776,14 @@ export const latin2Final = {
         "sustantivo",
         "colapso",
         "col·lapse"
+      ],
+      [
+        "labor",
+        "adjetivo",
+        "lábil",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "levo": {
     "entry": "levo, levare, levavi, levatum",
@@ -1058,9 +1087,14 @@ export const latin2Final = {
         "sustantivo",
         "origen",
         "origen"
+      ],
+      [
+        "orior",
+        "adjetivo",
+        "oriundo",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "pendo": {
     "entry": "pendo, pendere, pependi, pensum",
@@ -1500,9 +1534,14 @@ export const latin2Final = {
         "verbo",
         "salir",
         ""
+      ],
+      [
+        "salio",
+        "sustantivo",
+        "salto",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "sapio": {
     "entry": "sapio, sapere, sapui",
@@ -1534,8 +1573,7 @@ export const latin2Final = {
         "sapiente",
         "sapient"
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "scando": {
     "entry": "scando, scandere, scandi, scansum",
@@ -2064,9 +2102,14 @@ export const latin2Final = {
         "adjetivo",
         "intuitivo",
         "intuïtiu"
+      ],
+      [
+        "intueor",
+        "verbo",
+        "intuir",
+        ""
       ]
-    ],
-    "studyOnly": true
+    ]
   },
   "turbo": {
     "entry": "turbo, turbare, turbavi, turbatum",
@@ -2788,6 +2831,97 @@ export const latin2FinalModels = [
     [
       "convulso",
       "convulsión"
+    ]
+  ],
+  [
+    "colo",
+    "coluit",
+    "colo",
+    [
+      "excolo",
+      "recolo"
+    ],
+    [
+      "culto",
+      "cultor"
+    ]
+  ],
+  [
+    "disco",
+    "didicit",
+    "disco",
+    [
+      "addisco",
+      "perdisco"
+    ],
+    [
+      "discente",
+      "discípulo"
+    ]
+  ],
+  [
+    "labor",
+    "collapsus est",
+    "collabor",
+    [
+      "collabor",
+      "delabor"
+    ],
+    [
+      "lábil",
+      "colapso"
+    ]
+  ],
+  [
+    "orior",
+    "ortus est",
+    "orior",
+    [
+      "coorior",
+      "exorior"
+    ],
+    [
+      "origen",
+      "oriundo"
+    ]
+  ],
+  [
+    "salio",
+    "salit",
+    "salio",
+    [
+      "desilio",
+      "resilio"
+    ],
+    [
+      "salir",
+      "salto"
+    ]
+  ],
+  [
+    "sapio",
+    "sapit",
+    "sapio",
+    [
+      "desipio",
+      "resipio"
+    ],
+    [
+      "saber",
+      "sapiente"
+    ]
+  ],
+  [
+    "tueor",
+    "intuitus est",
+    "intueor",
+    [
+      "contueor",
+      "intueor"
+    ],
+    [
+      "intuir",
+      "intuición"
     ]
   ]
 ];
