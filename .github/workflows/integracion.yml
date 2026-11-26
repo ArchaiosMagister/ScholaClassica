@@ -235,6 +235,15 @@ jobs:
           path: build/academic-audits/transversal/filologia-transversal-v1.json
           if-no-files-found: error
           retention-days: 30
+      - name: Cotejar infinitivos del banco preverbial con UniMorph y generar cola romance
+        run: node scripts/audit-preverbial-lexicon.mjs
+      - name: Archivar auditoría docente de modificación preverbial
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholaclassica-auditoria-preverbial
+          path: build/academic-audits/preverbial/
+          if-no-files-found: error
+          retention-days: 30
       - name: Archivar informe privado de verificación léxica de Latín II
         uses: actions/upload-artifact@v4
         with:
