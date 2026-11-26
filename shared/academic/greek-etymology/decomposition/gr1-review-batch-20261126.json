@@ -303,6 +303,329 @@
       },
       "enabledForPractice": true,
       "enabledForExams": false
+    },
+    {
+      "form": "teocracia",
+      "components": [
+        {
+          "greek": "θεός",
+          "etymonId": "grc:θεοσ",
+          "combiningForm": "teo-",
+          "latinAccepted": [
+            "theos",
+            "teos"
+          ]
+        },
+        {
+          "greek": "κράτος",
+          "etymonId": "grc:κρατοσ",
+          "combiningForm": "-cracia",
+          "latinAccepted": [
+            "kratos",
+            "cratos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD1",
+      "meaning": "Sistema de gobierno que fundamenta la autoridad política en un poder divino o religioso.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/teocracia",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE señala una posible mediación francesa (théocratie), a partir de θεοκρατία. No se afirma como segura esa vía."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "biografía",
+      "components": [
+        {
+          "greek": "βίος",
+          "etymonId": "grc:βιοσ",
+          "combiningForm": "bio-",
+          "latinAccepted": [
+            "bios"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "etymonId": "grc:γραφω",
+          "combiningForm": "-grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD2",
+      "meaning": "Relato de la trayectoria vital de una persona.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/biograf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra el griego bizantino βιογραφία; γράφω se utiliza como base léxica escolar de -grafía."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "cronología",
+      "components": [
+        {
+          "greek": "χρόνος",
+          "etymonId": "grc:χρονοσ",
+          "combiningForm": "crono-",
+          "latinAccepted": [
+            "chronos",
+            "khronos",
+            "cronos"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD2",
+      "meaning": "Ordenación temporal de acontecimientos y disciplina que determina sus fechas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/cronolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego χρονολογία. Se explica el compuesto mediante χρόνος y la familia de λόγος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "xilófono",
+      "components": [
+        {
+          "greek": "ξύλον",
+          "etymonId": "grc:ξυλον",
+          "combiningForm": "xilo-",
+          "latinAccepted": [
+            "xylon",
+            "xulon",
+            "xilon"
+          ]
+        },
+        {
+          "greek": "φωνή",
+          "etymonId": "grc:φωνη",
+          "combiningForm": "-fono",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD3",
+      "meaning": "Instrumento de percusión con láminas de distinto tono que se golpean con baquetas.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/xil%C3%B3fono",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE lo analiza como xilo- y -fono; las bases griegas son ξύλον y φωνή."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "prólogo",
+      "components": [
+        {
+          "greek": "πρό",
+          "etymonId": "grc:προ",
+          "combiningForm": "pro-",
+          "latinAccepted": [
+            "pro"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logo",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD4",
+      "meaning": "Texto que precede a una obra y sirve de introducción a su lectura.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/pr%C3%B3logo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego πρόλογος, compuesto histórico de πρό y λόγος."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "caligrafía",
+      "components": [
+        {
+          "greek": "καλός",
+          "etymonId": "grc:καλοσ",
+          "combiningForm": "cali-",
+          "latinAccepted": [
+            "kalos",
+            "calos"
+          ]
+        },
+        {
+          "greek": "γράφω",
+          "etymonId": "grc:γραφω",
+          "combiningForm": "-grafía",
+          "latinAccepted": [
+            "grapho",
+            "grafo"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Arte de escribir con letra cuidada; también los rasgos particulares de una escritura.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/caligraf%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra la mediación francesa calligraphie desde καλλιγραφία, derivado de καλλιγράφος. El primer formante refleja καλλι-."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "polifonía",
+      "components": [
+        {
+          "greek": "πολύς",
+          "etymonId": "grc:πολυσ",
+          "combiningForm": "poli-",
+          "latinAccepted": [
+            "polys",
+            "polus",
+            "polis"
+          ]
+        },
+        {
+          "greek": "φωνή",
+          "etymonId": "grc:φωνη",
+          "combiningForm": "-fonía",
+          "latinAccepted": [
+            "phone",
+            "fone"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD5",
+      "meaning": "Organización musical que combina simultáneamente varias líneas sonoras con identidad propia.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/polifon%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE remite al griego πολυφωνία; las bases escolares explican la pluralidad de voces."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "geología",
+      "components": [
+        {
+          "greek": "γῆ",
+          "etymonId": "grc:γη",
+          "combiningForm": "geo-",
+          "latinAccepted": [
+            "ge"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD6",
+      "meaning": "Ciencia que estudia la composición, la estructura y la historia de la Tierra.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/geolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica geo- y -logía. Se distinguen estos formantes modernos de sus bases griegas."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "dermatología",
+      "components": [
+        {
+          "greek": "δέρμα",
+          "etymonId": "grc:δερμα",
+          "combiningForm": "dermato-",
+          "latinAccepted": [
+            "derma"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logía",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD8",
+      "meaning": "Especialidad médica dedicada a la piel y sus enfermedades.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/dermatolog%C3%ADa",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE identifica dermato- y -logía. δέρμα, δέρματος explica el tema dermat-."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
+    },
+    {
+      "form": "monólogo",
+      "components": [
+        {
+          "greek": "μόνος",
+          "etymonId": "grc:μονοσ",
+          "combiningForm": "mono-",
+          "latinAccepted": [
+            "monos"
+          ]
+        },
+        {
+          "greek": "λόγος",
+          "etymonId": "grc:λογοσ",
+          "combiningForm": "-logo",
+          "latinAccepted": [
+            "logos"
+          ]
+        }
+      ],
+      "introducedAtUnit": "UD12",
+      "meaning": "Discurso de una persona sin intervención verbal de un interlocutor.",
+      "evidence": {
+        "authority": "RAE-ASALE · DLE 24.ª",
+        "url": "https://dle.rae.es/mon%C3%B3logo",
+        "checkedAt": "2026-11-26",
+        "note": "El DLE registra la mediación del francés monologue, compuesto mediante mono- y -logue."
+      },
+      "enabledForPractice": true,
+      "enabledForExams": false
     }
   ]
 }

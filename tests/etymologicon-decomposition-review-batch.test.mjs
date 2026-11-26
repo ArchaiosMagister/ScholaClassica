@@ -12,13 +12,15 @@ const batch=JSON.parse(readFileSync(new URL('../shared/academic/greek-etymology/
 const pilot=createDecompositionCatalog(learners);
 const result=createExpandedDecompositionCatalog(learners,expanded,study);
 const engine=createDecompositionBank(result);
-test('25 ejercicios; se conservan los 16 originales exactamente y se incorporan nueve revisados',()=>{
-  assert.equal(result.entries.length,25);
+test('35 ejercicios; se conservan los 16 originales exactamente y se incorporan 19 revisados',()=>{
+  assert.equal(result.entries.length,35);
   assert.deepEqual(result.entries.slice(0,16),pilot.entries);
   assert.equal(result.audit.catalogDerivatives,487);
-  assert.equal(result.audit.awaitingIndividualDecompositionReview,462);
-  assert.equal(engine.size,25);
+  assert.equal(result.audit.awaitingIndividualDecompositionReview,452);
+  assert.equal(engine.size,35);
   assert.equal(result.publicationAllowed,false);
+  const expected={teocracia:'UD1','biografía':'UD2','cronología':'UD2','xilófono':'UD3','prólogo':'UD4','caligrafía':'UD5','polifonía':'UD5','geología':'UD6','dermatología':'UD8','monólogo':'UD12'};
+  assert.deepEqual(Object.fromEntries(result.entries.slice(25).map(e=>[e.form,e.introducedAtUnit])),expected);
   for(const item of result.entries){
     assert.equal(item.enabledForExams,false);
     assert.equal(engine.grade(item.id,item.parts.map(p=>p.greek)).total,2,item.form);
