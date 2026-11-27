@@ -42,7 +42,7 @@ const RAW=`
 224|pacem|paz|C3=∅,P2=z
 229|pariētem|pared|C6=∅,I3=∅,S5=d
 230|patrem|padre|S2=d
-232|pectus|pecho|P2-4=ch,A4=o,C5=∅
+232|pectus|pecho|P2-4=ch,A4=o
 233|perdicem|perdiz|C6=∅,P5=z
 236|petram|piedra|D1=ie,S2=d
 237|pineam|piña|P2-4=ñ
@@ -50,10 +50,10 @@ const RAW=`
 256|radicem|raíz|C5=∅,P4=z,I2=∅
 260|rancidum|rancio|A6=o,P3-5=ci,I5=∅
 264|recipere|recibir|S4=b,C7=∅
-265|regem|rey|P2-4=y
+265|regem|rey|I2=∅
 269|sacratum|sagrado|A6=o,S2=g,S5=d
 276|scutarium|escudero|A7=o,R0-0=e,S3=d,Q4-7=er
-292|sitim|sed|A1=e,S2=d,C3=∅,A3=e
+292|sitim|sed|A1=e,S2=d,A3=e,C3=∅
 295|sŏlet|suele|D1=ue,C4=∅
 310|super|sobre|A1=o,S2=b,T3-5=re
 317|tegŭlam|teja|P2-5=j,I3=∅
@@ -189,6 +189,9 @@ function rowToWord(line){
  };
 }
 const ADDITION_NOTES=Object.freeze({
+  "232": "Palatalización de ct y abertura de u final. El neutro latino dio el antiguo singular pechos; pecho se creó por analogía al reinterpretarse -s como plural. No se evalúa esa adaptación morfológica como apócope.",
+  "265": "Síncopa de g intervocálica tras la pérdida fija de -m: rege > ree > rey. La e final del hiato pasa a semivocal escrita y; no se exige una palatalización del grupo ge.",
+  "564": "Diptongación de e tónica y sonorización de qu en gu. La semiconsonante inicial del diptongo pasa a consonante palatal escrita y; no se trata de consonantización de una i latina inicial.",
   "961": "El DLE remite al latín tardío eremīta, con el significado de ermitaño: hubo cambio semántico hacia el lugar habitado. La norma evaluable es la síncopa de e.",
   "276": "El DLE confirma scutarius como étimo de escudero; scutarium es su acusativo masculino.",
   "490": "Asimilación de m en n ante la dental tras la síncopa de i y la sonorización; no se trata de disimilación.",
@@ -204,7 +207,7 @@ const ADDITION_NOTES=Object.freeze({
   "168": "La yod de -ct- explica a > e en lechuga; este cierre vocálico no corresponde a N01.",
   "195": "Tras síncopa, el grupo secundario -scl- desemboca en ch con pérdida de s integrada en la evolución del grupo; se señala el grupo original completo.",
   "200": "La yod asociada a x provoca el cierre de la a pretónica en e; no es abertura.",
-  "254": "La secuencia vocálica -uo- se reduce a -o- (quattuor > *quattor) y la metátesis desplaza la r final: castellano medieval quatro, después cuatro. La reducción de hiato no se puntúa aparte.",
+  "254": "Simplificación de tt y metátesis de la r final. La u de la secuencia -uo- no se conserva; el resultado medieval quatro precede a cuatro. No se exige una etapa intermedia reconstruida ni se clasifica automáticamente esta reducción como monoptongación.",
   "264": "El resultado del infinitivo en -ir supone un reajuste de la conjugación; no se presenta e > i como abertura.",
   "292": "Tras la pérdida fija de -m, la abertura de i final en e precede a la apócope de esa e después de d (sed).",
   "324": "La palatalización del grupo -ng- ante i da ñ; la abertura de i final en e sigue a la apócope de t.",
@@ -701,6 +704,15 @@ const HISTORICAL_REVIEW=Object.freeze({
   "ge-EVF-1184": {
     "latin": "æschylum",
     "explanation": "æschylum > Esquilo: adaptación culta de æ en e (monoptongación), ch en qu y y en i (evolución de grafías griegas), abertura final de u en o según el criterio docente y pérdida fija de -m. La e inicial procede de æ, no de prótesis."
+  },
+  "xl-72": {
+    "latin": "cŏrpus",
+    "explanation": "cŏrpus > cuerpo: diptongación de ŏ tónica y abertura de u final. El neutro latino dio el antiguo singular cuerpos; cuerpo se creó por analogía al reinterpretarse -s como plural. No se evalúa esa adaptación morfológica como apócope.",
+    "patches": {
+      "t2": {
+        "note": "Abertura de u en o; la desaparición de s en el nuevo singular es analógica, no apócope."
+      }
+    }
   }
 });
 function reviewHistoricalWords(words){
@@ -840,6 +852,15 @@ export function assertCastilianSyncopeSpans(words){
  }
 }
 
+export function assertCastilianOpeningSpans(words){
+ for(const word of words){
+  for(const c of word.changes.filter(c=>c.rule==='ABER')){
+   const input=comparable(c.spans.map(([a,b])=>[...word.latin].slice(a,b).join('')).join(''));
+   if(c.spans.length!==1||!((input==='i'&&c.output==='e')||(input==='u'&&c.output==='o')))
+    throw Error('Evolutio: abertura ajena a i/u '+word.latin);
+  }
+ }
+}
 export function assertCastilianPositionSpans(words){
  for(const word of words){
   const letters=[...word.latin.normalize('NFC')];
@@ -877,5 +898,6 @@ export function integrateCastilianAdditions(base){
  assertCastilianSyncopeSpans(words);
  assertCastilianPositionSpans(words);
  assertCastilianSpecificRules(words);
+ assertCastilianOpeningSpans(words);
  return {...base,words};
 }

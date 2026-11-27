@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
-import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules} from '../scripts/evolutio-castellano-lote100.mjs';
+import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules,assertCastilianOpeningSpans} from '../scripts/evolutio-castellano-lote100.mjs';
 import {
  resultSpellingDistance,resultDifficultyComponents,resultDifficultyScore,
  resultDifficultyLevel,curatedDifficultyLevel,curatedDifficultyIds,RESULT_DIFFICULTY_METHOD
@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,221);
+ assert.equal(reviewed.length,222);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -353,7 +353,7 @@ test('Metátesis, asimilación y simplificación: fragmentos y explicaciones',as
  }
  assert.equal(word('committere').changes.filter(c=>c.rule==='SIMPL').length,2);
  assert.match(word('committere').explanation,/ambas geminadas/);
- assert.match(word('quattuor').explanation,/castellano medieval quatro/);
+ assert.match(word('quattuor').explanation,/medieval quatro/);
 });
 
 test('Cantidad vocálica y acento: no se confunde vocal breve con sílaba breve',()=>{
@@ -393,4 +393,21 @@ test('Helenismos: étimos DLE, adaptación culta y precisión de las explicacion
  assert.match(word('æschylum').explanation,/no de prótesis/);
  assert.ok(!word('æschylum').changes.some(c=>c.rule==='PROT'));
  assert.match(word('fœtidum').explanation,/foetibundus/);
+});
+
+test('Neutros en -us, síncopa de g y coherencia de la abertura',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ for(const latin of ['cŏrpus','pectus']){
+  const w=word(latin);
+  assert.ok(!w.changes.some(c=>c.rule==='APOC'));
+  assert.match(w.explanation,/singular.*analogía/);
+ }
+ const rey=word('regem');
+ assert.equal(gradeChange(rey,{rule:'SINC',spans:[[2,3]]}).correct,true);
+ assert.equal(gradeChange(rey,{rule:'PALAT',spans:[[2,4]]}).correct,false);
+ assert.match(rey.explanation,/rege > ree > rey/);
+ const sed=word('sitim');
+ assert.ok(sed.changes.findIndex(c=>c.rule==='ABER'&&c.spans[0][0]===3)<sed.changes.findIndex(c=>c.rule==='APOC'));
+ assert.doesNotThrow(()=>assertCastilianOpeningSpans(bank.words));
+ assert.throws(()=>assertCastilianOpeningSpans([{latin:'factum',changes:[{rule:'ABER',spans:[[1,2]],output:'e'}]}]),/abertura ajena a i\/u/);
 });
