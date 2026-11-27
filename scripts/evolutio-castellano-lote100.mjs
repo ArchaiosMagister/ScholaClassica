@@ -641,6 +641,66 @@ const HISTORICAL_REVIEW=Object.freeze({
   "xl-862": {
     "latin": "scrinium",
     "explanation": "scrinium > escriño: el DLE confirma scrinium como étimo de la cesta o cofre. Prótesis de e, palatalización de ni en ñ, abertura de u final y pérdida fija de -m."
+  },
+  "ge-EVF-1179": {
+    "latin": "crystallinum",
+    "explanation": "crystallinum > cristalino: adaptación culta de y griega en i, simplificación de ll en l, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE remite al latín crystallĭnus, del griego κρυστάλλινος; la acentuación castellana se explica por analogía con los adjetivos en -ino, no por evolución regular del acento latino."
+  },
+  "ge-EVF-1102": {
+    "latin": "hypogeum",
+    "explanation": "hypogeum > hipogeo: adaptación de y en i, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE registra hypogaeum, del griego ὑπόγαιον. Se conserva provisionalmente la grafía del banco, sin exigir monoptongación de un diptongo que no aparece en ella."
+  },
+  "ge-EVF-1091": {
+    "latin": "epithetum",
+    "explanation": "epithetum > epíteto: adaptación de th en t, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE registra epithĕton, del griego ἐπίθετον. Se conserva provisionalmente la forma latinizada del banco; no se presenta como la forma citada por el DLE."
+  },
+  "ge-EVF-1103": {
+    "latin": "hypotenusam",
+    "explanation": "hypotenusam > hipotenusa: adaptación culta de y griega en i y pérdida fija de -m. El DLE documenta el latín tardío hypotenūsa, procedente del griego ὑποτείνουσα."
+  },
+  "ge-EVF-1195": {
+    "latin": "chirurgicum",
+    "explanation": "chirurgicum > quirúrgico: adaptación culta de ch en qu ante i, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE confirma chirurgĭcus, del griego χειρουργικός."
+  },
+  "ge-EVF-1101": {
+    "latin": "hypnoticum",
+    "explanation": "hypnoticum > hipnótico: adaptación culta de y en i, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE recoge hypnotĭcus, del latín tardío, a partir del griego ὑπνωτικός."
+  },
+  "ge-EVF-1139": {
+    "latin": "theurgum",
+    "explanation": "theurgum > teúrgo: adaptación culta de th en t, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE confirma el latín tardío theurgus, del griego θεουργός."
+  },
+  "ge-EVF-1084": {
+    "latin": "citharistam",
+    "explanation": "citharistam > citarista: adaptación culta de th en t y pérdida fija de -m. El DLE confirma citharista, del griego κιθαριστής."
+  },
+  "ge-EVF-1105": {
+    "latin": "myopem",
+    "explanation": "myopem > miope: adaptación culta de y en i y pérdida fija de -m, sin apócope de e. El DLE recoge el latín tardío myops, myōpis, del griego μύωψ, -ωπος."
+  },
+  "ge-EVF-1089": {
+    "latin": "dyspepsiam",
+    "explanation": "dyspepsiam > dispepsia: adaptación culta de y en i y pérdida fija de -m. El DLE confirma dyspepsĭa, del griego δυσπεψία."
+  },
+  "ge-EVF-1112": {
+    "latin": "pharmacum",
+    "explanation": "pharmacum > fármaco: adaptación culta de ph en f, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE confirma pharmăcum, del griego φάρμακον."
+  },
+  "ge-EVF-1093": {
+    "latin": "gryphum",
+    "explanation": "gryphum > grifo: adaptación de y en i y ph en f, abertura final de u en o según el criterio docente y pérdida fija de -m. El DLE documenta el latín tardío gryphus, del latín gryps, gryphis y del griego γρύψ. El mismo artículo incluye la llave de las cañerías y el animal fabuloso."
+  },
+  "ge-EVF-1197": {
+    "latin": "chorographiam",
+    "explanation": "chorographiam > corografía: adaptación culta de ch en c y ph en f, y pérdida fija de -m. El DLE confirma chorographĭa, del griego χωρογραφία; se refiere a la descripción de una región, no a la coreografía."
+  },
+  "ge-EVF-1162": {
+    "latin": "fœtidum",
+    "explanation": "fœtidum > fétido: monoptongación gráfica de œ en e, abertura final de u en o según el criterio docente y pérdida fija de -m. Se conservan f y t en esta voz culta. Hediondo procede del latín vulgar reconstruido *foetibundus, según el DLE; no es doblete directo."
+  },
+  "ge-EVF-1184": {
+    "latin": "æschylum",
+    "explanation": "æschylum > Esquilo: adaptación culta de æ en e (monoptongación), ch en qu y y en i (evolución de grafías griegas), abertura final de u en o según el criterio docente y pérdida fija de -m. La e inicial procede de æ, no de prótesis."
   }
 });
 function reviewHistoricalWords(words){

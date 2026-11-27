@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,206);
+ assert.equal(reviewed.length,221);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -382,4 +382,15 @@ test('Cotejo DLE: étimos discutidos, homónimos y reconstrucciones',()=>{
  assert.match(word('uinciculum').explanation,/ave vencejo procede de oncejo/);
  assert.match(word('stylum').explanation,/no como étimo preferente/);
  assert.match(word('eremitam').explanation,/eremīta/);
+});
+
+test('Helenismos: étimos DLE, adaptación culta y precisión de las explicaciones',()=>{
+ assert.match(word('crystallinum').explanation,/crystallĭnus.*analogía/);
+ assert.match(word('hypogeum').explanation,/hypogaeum/);
+ assert.match(word('epithetum').explanation,/epithĕton/);
+ assert.match(word('myopem').explanation,/myops, myōpis/);
+ assert.match(word('gryphum').explanation,/llave de las cañerías/);
+ assert.match(word('æschylum').explanation,/no de prótesis/);
+ assert.ok(!word('æschylum').changes.some(c=>c.rule==='PROT'));
+ assert.match(word('fœtidum').explanation,/foetibundus/);
 });
