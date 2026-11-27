@@ -438,4 +438,11 @@ html[data-theme="oled"]:has(body.portal) {
   .portal .site-head nav { gap: .25rem .5rem; }
   .portal .site-head nav a { font-size: .85rem; }
   .portal .site-head nav .teacher-access { padding-inline: .45rem; }
+  .portal .hero {
+    grid-template-rows: auto 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .portal .hero-copy { padding: 1rem; }
+  .portal .hero-image { height: 100%; }
+  .portal .resource-links a { min-height: 3.5rem; }
 }
