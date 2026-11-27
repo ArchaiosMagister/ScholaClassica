@@ -282,9 +282,47 @@ function clarifyConsonantization(word){
  return {...word,changes:word.changes.map(c=>c.rule==='CONS'?{...c,note:ruleName('CONS')+': marca la i latina que da '+c.output+' en castellano, aunque ya tenía valor consonántico en latín.'}:c),
   explanation:word.explanation+' Debe seleccionarse la norma de consonantización sobre la i correspondiente, aunque ya tuviera valor consonántico en latín.'};
 }
+// Criterio uniforme de selección: metátesis en contacto de dos segmentos, disimilación de ambas líquidas.
+const LIQUID_REVIEW=Object.freeze({
+  "xl-64": "La síncopa de i pone en contacto la nasal y la dental; m se acomoda al punto de articulación de d. Se marca solo la m que cambia.",
+  "xl-502": "En el modelo docente, pt se asimila regresivamente en tt y después se simplifica en t; ambas normas recaen sobre el mismo grupo original.",
+  "xl-605": "Se seleccionan ambas vibrantes originales: la primera se conserva y la segunda cambia a l. No hay intercambio de posiciones.",
+  "xl-606": "Se seleccionan las dos r originales; la segunda pasa a l. La síncopa de o da lugar al grupo secundario br, no a una metátesis.",
+  "xl-602": "La disimilación afecta a las dos vibrantes originales: se conserva la primera y cambia la segunda en l.",
+  "xl-608": "La primera r cambia a l y la segunda permanece r: se señalan ambas. No es metátesis porque las líquidas no intercambian posiciones.",
+  "xl-722": "Metátesis simple a distancia: la r inicial se desplaza detrás de la t, que sirve de referencia; no se trata de intercambio de dos líquidas.",
+  "xl-726": "Metátesis en contacto: se marcan e y r por separado (er > re).",
+  "xl-732": "Metátesis en contacto: se marcan e y r por separado (er > re).",
+  "xl-727": "Metátesis recíproca de r y l: ambas líquidas intercambian posiciones en la etapa romance miraglo.",
+  "xl-234": "Metátesis recíproca de r y l: ambas líquidas intercambian posiciones; se mantiene g, resultado de la sonorización.",
+  "xl-728": "La síncopa de o da lugar a parabla; después se intercambian las líquidas r y l: palabra.",
+  "xl-733": "La síncopa de la segunda i forma el grupo secundario bl, que se reordena en lb por metátesis.",
+  "xl-611": "En la etapa antigua hojalde se reordenan d y l; la r de hojaldre es una adición posterior, no una de las consonantes de la metátesis.",
+  "xl-716": "La c y la r, separadas en latín por la e que se pierde, se reordenan; se señalan ambos fragmentos originales.",
+  "xl-720": "La metátesis se produce en el grupo secundario dn, no en tn latino: la t original ya se ha sonorizado en d.",
+  "xl-724": "Se señala el bloque eg y la r que se desplaza ante él; no se omite la g intermedia.",
+  "xl-731": "Pro > por: metátesis en contacto, se seleccionan r y o por separado. Pro se conserva también como latinismo.",
+  "xl-736": "Metátesis en contacto: se señalan d y u por separado (du > ud), sin confundir la u que se desplaza con la u consonántica inicial.",
+  "xl-197": "La metátesis de r e i da lugar a la etapa romance madeira; la reducción posterior de ei no se evalúa como monoptongación de un diptongo latino.",
+  "xl-254": "Se seleccionan o y r por separado para la metátesis; se mantiene como norma independiente la simplificación de tt.",
+  "xl-276": "En el sufijo -arium se marca el fragmento ari completo: la yod se desplaza (ari > air) y el resultado romance se reduce a er.",
+  "xl-310": "Se seleccionan e y r por separado: er > re, independientemente de la sonorización p > b.",
+  "xl-318": "La síncopa crea el grupo secundario nr, que se reordena en rn; se marcan n y r originales.",
+  "xl-490": "Se marca la m que se asimila ante la dental sonora tras la síncopa; no se marca n como una segunda norma.",
+  "xl-506": "La m se asimila a la dental sonora tras la síncopa; se marca solo m.",
+  "xl-149": "Las dentales que se simplifican proceden de d y t originales, tras sonorización y síncopa; no eran una geminada latina.",
+  "xl-1034": "El fragmento ari de -aria se evalúa como metátesis y reducción posterior a er, sin duplicar la norma específica -MIN- → -MBR-."
+});
+function clarifyLiquidChanges(word){
+ const note=LIQUID_REVIEW[word.id];
+ if(!note)return word;
+ const contact=word.id==='xl-731'?[[1,2],[2,3]]:word.id==='xl-736'?[[2,3],[3,4]]:null;
+ const changes=word.changes.map(c=>contact&&c.rule==='METAT'?{...c,spans:contact,note}:c).map(nameChange);
+ return {...word,changes,explanation:word.explanation+' '+note};
+}
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
- return clarifyConsonantization(clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word));
+ return clarifyLiquidChanges(clarifyConsonantization(clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word)));
 }));
 if(CASTILIAN_ADDITIONS.length!==100)throw Error('Lote castellano: deben constar 100 fichas exactas.');
 
@@ -976,7 +1014,7 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization);
+ }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges);
 }
 
 // Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.

@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,262);
+ assert.equal(reviewed.length,265);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -481,4 +481,31 @@ test('Consonantización de i latina en j/y: obligatoria también cuando i ya era
  assert.equal(gradeChange(juventud,{rule:'CONS',spans:[[2,3]]}).correct,false);
  for(const id of ['xl-243','xl-544','xl-122','xl-257','xl-564','xl-265'])
   assert.ok(!bank.words.find(w=>w.id===id).changes.some(c=>c.rule==='CONS'),id);
+});
+
+
+test('Asimilación, disimilación y metátesis: selección de fragmentos originales',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const cases=[
+  ['xl-731','METAT',[[1,2],[2,3]]],['xl-736','METAT',[[2,3],[3,4]]],
+  ['xl-726','METAT',[[3,4],[4,5]]],['xl-732','METAT',[[4,5],[5,6]]],
+  ['xl-722','METAT',[[1,2],[4,5]]],['xl-724','METAT',[[3,5],[5,6]]],
+  ['xl-728','METAT',[[2,3],[6,7]]],['xl-727','METAT',[[2,3],[6,7]]],
+  ['xl-234','METAT',[[2,3],[6,7]]],['xl-733','METAT',[[2,3],[4,5]]],
+  ['xl-720','METAT',[[2,3],[4,5]]],['xl-318','METAT',[[2,3],[4,5]]],
+  ['xl-602','DISIMIL',[[2,3],[5,6]]],['xl-605','DISIMIL',[[2,3],[5,6]]],
+  ['xl-606','DISIMIL',[[0,1],[4,5]]],['xl-608','DISIMIL',[[5,6],[7,8]]],
+  ['xl-64','ASMIL',[[2,3]]],['xl-490','ASMIL',[[2,3]]],['xl-506','ASMIL',[[2,3]]],
+  ['xl-502','ASMIL',[[2,4]]],['xl-502','SIMPL',[[2,4]]]
+ ];
+ for(const [id,rule,spans] of cases){
+  const w=bank.words.find(w=>w.id===id);
+  assert.ok(w,id);
+  assert.equal(gradeChange(w,{rule,spans}).correct,true,id+' '+rule);
+  if(spans.length===2)assert.equal(gradeChange(w,{rule,spans:[spans[0]]}).correct,false,id);
+ }
+ for(const id of ['xl-602','xl-605','xl-606','xl-608']){
+  const w=bank.words.find(w=>w.id===id),c=w.changes.find(c=>c.rule==='DISIMIL');
+  assert.equal(gradeChange(w,{rule:'METAT',spans:c.spans}).correct,false,id);
+ }
 });
