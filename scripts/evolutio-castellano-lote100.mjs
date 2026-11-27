@@ -208,7 +208,7 @@ const ADDITION_NOTES=Object.freeze({
   "324": "La palatalización del grupo -ng- ante i da ñ; la abertura de i final en e sigue a la apócope de t.",
   "336": "La síncopa de ĭ deja el grupo -dc-; se produce asimismo la síncopa de d interior y la sonorización c > g. La pérdida de e final es apócope.",
   "348": "La reducción de au a a en augustum se distingue del resultado habitual au > o; interviene la disimilación vocálica ante la u de la sílaba siguiente.",
-  "135": "Síncopa de g y d interiores y reducción de la vocal postónica; se conserva la i tónica. No se impone un orden cronológico único a las síncopas.",
+  "135": "En frīgĭdum, la primera i es larga y tónica, y se conserva. La segunda ĭ es breve y postónica. Síncopa de g, de ĭ postónica y de d; abertura de u final en o. No se impone un orden cronológico único a las síncopas.",
   "317": "Síncopa de ŭ postónica y palatalización del grupo secundario -gl-, que desemboca en j. La norma específica -CUL- no se aplica a -GUL-.",
   "426": "Abertura de i átona en e, síncopa de d intervocálica y apócope de e final del infinitivo."
 });
@@ -418,7 +418,12 @@ const HISTORICAL_REVIEW=Object.freeze({
   },
   "xl-502": {
     "latin": "rupturam",
-    "explanation": "rupturam > rotura: abertura de u en o, asimilación de pt en tt y simplificación de tt en t, conforme al modelo oficial. Pérdida fija de -m. Ruptura es el doblete culto."
+    "explanation": "rupturam > rotura: abertura de la primera u pretónica en o, asimilación de pt en tt y simplificación de tt en t, conforme al modelo oficial. La sílaba tónica es -tū-. Pérdida fija de -m. Ruptura es el doblete culto.",
+    "patches": {
+      "t1": {
+        "note": "Abertura de la primera u pretónica en o; la u de -tū- es tónica y se conserva."
+      }
+    }
   },
   "xl-64": {
     "latin": "comitem",
@@ -499,6 +504,67 @@ const HISTORICAL_REVIEW=Object.freeze({
   "ge-EVF-0936": {
     "latin": "translatum",
     "explanation": "translatum > traslado: simplificación de ns en s, sonorización de t en d, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-33": {
+    "latin": "autumnum",
+    "explanation": "autumnum > otoño: monoptongación de au en o, abertura de u tónica en o, palatalización de mn en ñ, abertura de u final en o y pérdida fija de -m. La sílaba penúltima -tum- es larga por posición (mn), por lo que lleva el acento.",
+    "patches": {
+      "t2": {
+        "note": "Abertura de la u tónica de la penúltima sílaba en o, no de una vocal postónica."
+      }
+    }
+  },
+  "ge-EVF-0367": {
+    "latin": "cuminum",
+    "explanation": "cuminum > comino: abertura de la primera u pretónica en o y de la u final en o; pérdida fija de -m. La i de cumīnum es larga y tónica, y se conserva. No hay evolución de -MIN- → -MBR-."
+  },
+  "xl-70": {
+    "latin": "cŏrium",
+    "explanation": "cŏrium > cuero: diptongación de ŏ tónica en ue, abertura de u final en o y pérdida fija de -m. La i breve de la penúltima sílaba da lugar a una yod que se reestructura; no se exige una síncopa vocálica independiente."
+  },
+  "xl-134": {
+    "latin": "fricāre",
+    "explanation": "fricāre > fregar: abertura de i pretónica en e, sonorización de c intervocálica en g y apócope de e final. El acento latino recae en la ā de -āre."
+  },
+  "xl-65": {
+    "latin": "compărāre",
+    "explanation": "compărāre > comprar: síncopa de ă pretónica (com-pa-rā-re → com-prā-re) y apócope de e final. La ā larga de la penúltima sílaba es tónica. No hay sonorización de p."
+  },
+  "xl-106": {
+    "latin": "fabŭlam",
+    "explanation": "fabŭlam > habla: síncopa de ŭ postónica, aspiración de f inicial y pérdida fija de -m. La penúltima sílaba abierta con ŭ breve es átona. Fábula es el doblete culto."
+  },
+  "xl-182": {
+    "latin": "littĕram",
+    "explanation": "littĕram > letra: abertura de i tónica en e, simplificación de tt, síncopa de ĕ postónica y pérdida fija de -m. La ĕ breve en sílaba abierta no lleva el acento."
+  },
+  "xl-213": {
+    "latin": "nĕbŭlam",
+    "explanation": "nĕbŭlam > niebla: diptongación de ĕ tónica en ie, síncopa de ŭ postónica y pérdida fija de -m. La penúltima sílaba abierta con vocal breve desplaza el acento a la antepenúltima."
+  },
+  "xl-307": {
+    "latin": "stabĭlem",
+    "explanation": "stabĭlem > estable: prótesis de e, síncopa de ĭ postónica del grupo -bĭl- y pérdida fija de -m. La penúltima sílaba abierta con ĭ breve es átona."
+  },
+  "xl-950": {
+    "latin": "calidum",
+    "explanation": "calidum > caldo: síncopa de i postónica, abertura de u final en o y pérdida fija de -m. La i de calĭdum es breve en sílaba abierta. Cálido es el doblete culto."
+  },
+  "ge-EVF-0211": {
+    "latin": "mutabĭlem",
+    "explanation": "mutabĭlem > mudable: sonorización de t intervocálica en d, síncopa de ĭ postónica del sufijo -bĭl- y pérdida fija de -m. La tónica corresponde a la ā de mutābĭlem."
+  },
+  "ge-EVF-0221": {
+    "latin": "opĕram",
+    "explanation": "opĕram > obra: sonorización de p en b, síncopa de ĕ postónica y pérdida fija de -m. La ĕ breve no es tónica y no diptonga."
+  },
+  "ge-EVF-0295": {
+    "latin": "sŏlĭdum",
+    "explanation": "sŏlĭdum > sueldo: diptongación de ŏ tónica en ue, síncopa de ĭ postónica, abertura de u final en o y pérdida fija de -m."
+  },
+  "ge-EVF-0310": {
+    "latin": "supĕrāre",
+    "explanation": "supĕrāre > sobrar: abertura de u pretónica en o, sonorización de p en b, síncopa de ĕ pretónica y apócope de e final. El acento latino recae en ā."
   }
 });
 function reviewHistoricalWords(words){

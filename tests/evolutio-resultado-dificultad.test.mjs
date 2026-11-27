@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,181);
+ assert.equal(reviewed.length,195);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -354,4 +354,19 @@ test('Metátesis, asimilación y simplificación: fragmentos y explicaciones',as
  assert.equal(word('committere').changes.filter(c=>c.rule==='SIMPL').length,2);
  assert.match(word('committere').explanation,/ambas geminadas/);
  assert.match(word('quattuor').explanation,/castellano medieval quatro/);
+});
+
+test('Cantidad vocálica y acento: no se confunde vocal breve con sílaba breve',()=>{
+ const autumnum=word('autumnum'),rupturam=word('rupturam'),cuminum=word('cuminum');
+ assert.match(autumnum.changes.find(c=>c.id==='t2').note,/u tónica/);
+ assert.match(autumnum.explanation,/larga por posición/);
+ assert.match(rupturam.changes.find(c=>c.id==='t1').note,/u pretónica/);
+ assert.match(rupturam.explanation,/-tū-/);
+ assert.match(cuminum.explanation,/cumīnum es larga y tónica/);
+ assert.ok(!cuminum.changes.some(c=>c.rule==='MIN_MBR'));
+ assert.match(word('frigĭdum').explanation,/frīgĭdum.*segunda ĭ es breve y postónica/);
+ for(const latin of ['compărāre','fricāre','supĕrāre'])
+  assert.match(word(latin).explanation,/pretónica/);
+ for(const latin of ['fabŭlam','littĕram','nĕbŭlam','stabĭlem','calidum','mutabĭlem','opĕram','sŏlĭdum'])
+  assert.match(word(latin).explanation,/postónica/);
 });
