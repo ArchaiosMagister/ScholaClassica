@@ -532,6 +532,130 @@ function clarifyDirectResult(word){
  const note=DIRECT_RESULT_REVIEW[word.id];
  return note?{...word,changes:word.changes.map(nameChange),explanation:word.latin+' > '+word.answers[0]+': '+note}:word;
 }
+// Último bloque: correspondencia directa, sin postular estadios intermedios.
+const FINAL_DIRECT_IDS=new Set(["xl-748","xl-807","xl-812","xl-912","xl-919","ge-EVF-0009","ge-EVF-0016","ge-EVF-0187","ge-EVF-0188","ge-EVF-0201","ge-EVF-0234","ge-EVF-0240","ge-EVF-0258","ge-EVF-0261","ge-EVF-0285","ge-EVF-0320","ge-EVF-0322","ge-EVF-0324","ge-EVF-0326","ge-EVF-0328","ge-EVF-0331","ge-EVF-0332","ge-EVF-0334","ge-EVF-0337","ge-EVF-0338","ge-EVF-0339","ge-EVF-0343","ge-EVF-0345","ge-EVF-0350","ge-EVF-0351","ge-EVF-0359","ge-EVF-0360","ge-EVF-0363","ge-EVF-0365","ge-EVF-0370","ge-EVF-0371","ge-EVF-0372","ge-EVF-0380","ge-EVF-0382","ge-EVF-0383","ge-EVF-0385","ge-EVF-0390","ge-EVF-0391","ge-EVF-0395","ge-EVF-0403","ge-EVF-0404","ge-EVF-0405","ge-EVF-0406","ge-EVF-0408","ge-EVF-0411","ge-EVF-0416","ge-EVF-0443","ge-EVF-0449","ge-EVF-0450","ge-EVF-0452","ge-EVF-0545","ge-EVF-0548","ge-EVF-0556","ge-EVF-0565","ge-EVF-0589","ge-EVF-0596","ge-EVF-0757","ge-EVF-0812","ge-EVF-0814","ge-EVF-0860","ge-EVF-0869","ge-EVF-0882","ge-EVF-0884","ge-EVF-1009","ge-EVF-1010","ge-EVF-1022","ge-EVF-1024","ge-EVF-1025","ge-EVF-0311","ge-EVF-0800","ge-EVF-0818","ge-EVF-0834","ge-EVF-0868","ge-EVF-0278","ge-EVF-0352","ge-EVF-0364","ge-EVF-0379","ge-EVF-0393","ge-EVF-0423","ge-EVF-0437","ge-EVF-0503","ge-EVF-0550","ge-EVF-0837","ge-EVF-1011","ge-EVF-1058","ge-EVF-1060","ge-EVF-1073","ge-EVF-1144","ge-EVF-1145","ge-EVF-1146","ge-EVF-1147","ge-EVF-1148","ge-EVF-1149","ge-EVF-1150","ge-EVF-1151","ge-EVF-1153","ge-EVF-1154","ge-EVF-1155","ge-EVF-1156","ge-EVF-1157","ge-EVF-1158","ge-EVF-1159","ge-EVF-1160","ge-EVF-1161","ge-EVF-1163","ge-EVF-1164","ge-EVF-1165","ge-EVF-1166","ge-EVF-1167","ge-EVF-1168","ge-EVF-1169","ge-EVF-1170","ge-EVF-1173","ge-EVF-1174","ge-EVF-1175","ge-EVF-1176","ge-EVF-1177","ge-EVF-1180","ge-EVF-1201"]);
+const FINAL_CULT_IDS=new Set(["ge-EVF-1144","ge-EVF-1145","ge-EVF-1146","ge-EVF-1147","ge-EVF-1148","ge-EVF-1149","ge-EVF-1150","ge-EVF-1151","ge-EVF-1153","ge-EVF-1154","ge-EVF-1155","ge-EVF-1156","ge-EVF-1157","ge-EVF-1158","ge-EVF-1159","ge-EVF-1160","ge-EVF-1161","ge-EVF-1163","ge-EVF-1164","ge-EVF-1165","ge-EVF-1166","ge-EVF-1167","ge-EVF-1168","ge-EVF-1169","ge-EVF-1170","ge-EVF-1173","ge-EVF-1174","ge-EVF-1175","ge-EVF-1176","ge-EVF-1177","ge-EVF-1180"]);
+const FINAL_DIRECT_NOTES=Object.freeze({
+  "xl-748": "Se conserva la variante aullam del banco docente; no debe confundirse con aula, voz de otro significado.",
+  "xl-807": "La ligadura æ representa ae; ll se palataliza, no se simplifica en l.",
+  "xl-812": "A diferencia de cepullam, este étimo presenta la ligadura æ y exige monoptongación.",
+  "xl-912": "No se elimina la n por síncopa independiente: la norma del catálogo es simplificación de ns.",
+  "xl-919": "La geminada ss se simplifica sin sonorización. Se conserva la p inicial.",
+  "ge-EVF-0009": "Se selecciona li completo, no la i aislada como consonantización.",
+  "ge-EVF-0016": "Se selecciona ns completo, no una síncopa aislada de n.",
+  "ge-EVF-0187": "Se conserva el hiato ae del resultado maestra; no se marca monoptongación de un diptongo latino.",
+  "ge-EVF-0188": "Se conserva el hiato ae del resultado maestro. No se monoptonga un diptongo latino.",
+  "ge-EVF-0201": "La d ya es sonora en latín y se mantiene; la sonorización afecta a c.",
+  "ge-EVF-0234": "La sílaba con r es larga por posición, pero su vocal ĕ es breve.",
+  "ge-EVF-0240": "Se conserva la g como resultado de c; plegar no comparte exactamente estas marcas.",
+  "ge-EVF-0258": "Se trata de rallo, sustantivo; ll no se reduce a l.",
+  "ge-EVF-0261": "La p intervocálica da b; la r inicial permanece.",
+  "ge-EVF-0285": "La u es consonántica y se escribe v; la diptongación afecta a ĕ.",
+  "ge-EVF-0320": "La ĕ es breve aunque la sílaba sea larga por posición ante st.",
+  "ge-EVF-0322": "La apócope afecta a la última e del imperativo plural, no a ē tónica.",
+  "ge-EVF-0324": "La t inicial no se sonoriza: solo la segunda t.",
+  "ge-EVF-0326": "La c es intervocálica; r y t permanecen.",
+  "ge-EVF-0328": "La u inicial consonántica se escribe v; la secuencia ai resultante no es diptongación de una vocal breve.",
+  "ge-EVF-0331": "La u inicial es consonántica; la e final se conserva.",
+  "ge-EVF-0332": "Se conserva la e de la primera sílaba y se pierde solo la última e.",
+  "ge-EVF-0334": "La primera u es consonántica; se marca i interior y u final.",
+  "ge-EVF-0337": "La u inicial se escribe v; se mantienen i y u vocálicas.",
+  "ge-EVF-0338": "Se conserva i tónica; la u inicial se representa con v sin otra norma seleccionable.",
+  "ge-EVF-0339": "La e final sufre apócope; la u inicial es consonántica.",
+  "ge-EVF-0343": "La primera t se conserva después de n; se sonoriza la segunda t intervocálica.",
+  "ge-EVF-0350": "Ambas b ya eran sonoras. La e final del infinitivo desaparece, no la interior.",
+  "ge-EVF-0351": "La abertura de i y u se marca en dos lugares; t se sonoriza.",
+  "ge-EVF-0359": "Se conservan ambas c; no hay sonorización.",
+  "ge-EVF-0360": "El grupo st se conserva y no necesita prótesis.",
+  "ge-EVF-0363": "La abertura afecta a i medial, no a o inicial.",
+  "ge-EVF-0365": "Se conserva mp: p no era intervocálica.",
+  "ge-EVF-0370": "Se mantiene rr; no se señala simplificación de la vibrante.",
+  "ge-EVF-0371": "Rt permanece; no se sonoriza t tras r.",
+  "ge-EVF-0380": "La b latina no procede de sonorización.",
+  "ge-EVF-0382": "Se marca la primera u y la final; la o del sufijo -osum ya estaba presente.",
+  "ge-EVF-0385": "Se conserva mp y se sonoriza t intervocálica.",
+  "ge-EVF-0390": "Las dos i iniciales cambian a e; la tercera i permanece.",
+  "ge-EVF-0391": "El grupo tr se conserva.",
+  "ge-EVF-0395": "El grupo ngu se conserva; la u de gu ante a se pronuncia.",
+  "ge-EVF-0403": "Se conserva n y o; la e final se pierde tras r.",
+  "ge-EVF-0404": "La u interior se conserva y la u final se abre.",
+  "ge-EVF-0405": "El grupo sc interior permanece; no hay prótesis.",
+  "ge-EVF-0408": "La u consonántica se escribe v; g se conserva sin sonorización.",
+  "ge-EVF-0411": "El grupo gr ya estaba en latín.",
+  "ge-EVF-0416": "La i pretónica se abre; se conserva d.",
+  "ge-EVF-0443": "La e final sufre apócope tras r.",
+  "ge-EVF-0449": "La p permanece tras r; no hay sonorización.",
+  "ge-EVF-0450": "La rr permanece como vibrante múltiple.",
+  "ge-EVF-0452": "El grupo lm se conserva; no confundir la m interior con la final fija.",
+  "ge-EVF-0545": "La u inicial es consonántica, la u interior vocálica permanece y rr se conserva.",
+  "ge-EVF-0548": "La u inicial se escribe v y la u final se abre; se marca e tónica para diptongación.",
+  "ge-EVF-0565": "Se conserva f inicial pese a la diptongación.",
+  "ge-EVF-0589": "Se conserva rt; no se sonoriza t después de r.",
+  "ge-EVF-0596": "Se conserva rt y e final.",
+  "ge-EVF-0757": "Coto en el sentido de terreno delimitado; la t posterior a au se mantiene.",
+  "ge-EVF-0812": "Ll se marca completo como palatalización.",
+  "ge-EVF-0814": "Cilia es plural neutro latino; no lleva m final.",
+  "ge-EVF-0860": "Se selecciona nn completo; no hay simplificación en n.",
+  "ge-EVF-0869": "Se distingue ll de t intervocálica y de u final.",
+  "ge-EVF-0882": "La e inicial se añade por prótesis, no por abertura.",
+  "ge-EVF-0884": "La u tónica se conserva; la e inicial es protética.",
+  "ge-EVF-1009": "Se marcan c y t por separado; la primera u permanece.",
+  "ge-EVF-1010": "La e final se conserva; no hay apócope.",
+  "ge-EVF-1022": "La u interior se conserva; solo se abre la final.",
+  "ge-EVF-1024": "La t de st inicial se conserva; solo se sonoriza la intervocálica.",
+  "ge-EVF-1025": "La t del grupo str inicial se conserva; solo se sonoriza la intervocálica.",
+  "ge-EVF-0311": "La p intervocálica se sonoriza; la b de rb ya era sonora.",
+  "ge-EVF-0800": "Se selecciona li completo, no una i aislada; la u final se abre.",
+  "ge-EVF-0818": "La primera i se abre; la segunda pertenece al grupo li.",
+  "ge-EVF-0834": "Se conserva i tónica; ll se palataliza.",
+  "ge-EVF-0868": "El grupo ct da ch; la u permanece.",
+  "ge-EVF-0278": "Las dos t y la c son intervocálicas; la u interior y la i se conservan.",
+  "ge-EVF-0352": "La u consonántica se escribe v; las dos t se sonorizan.",
+  "ge-EVF-0364": "La u consonántica se escribe v y se conserva nc.",
+  "ge-EVF-0379": "La u consonántica se escribe v; ambas t intervocálicas dan d.",
+  "ge-EVF-0393": "La u consonántica se escribe v; ambas t intervocálicas dan d.",
+  "ge-EVF-0423": "Se conserva sc interior; no hay prótesis.",
+  "ge-EVF-0437": "Se conserva b latina y el grupo rn.",
+  "ge-EVF-0503": "Se marca pt completo como simplificación; la e inicial es protética.",
+  "ge-EVF-0550": "La u consonántica se escribe v; se selecciona ll completo.",
+  "ge-EVF-0837": "El grupo gr inicial permanece; ll se palataliza.",
+  "ge-EVF-1011": "La r y t se conservan; solo p se sonoriza.",
+  "ge-EVF-1058": "Se señala g interior como síncopa, i como abertura y tt como simplificación.",
+  "ge-EVF-1060": "Trébede es el resultado indicado, relacionado con tripes, tripedis; se conserva d latina y e final.",
+  "ge-EVF-1073": "Uirilia es plural neutro latino; verija designa la región inguinal o púbica.",
+  "ge-EVF-1154": "Cesura es un cultismo de terminología métrica.",
+  "ge-EVF-1173": "Se conserva ct en prefecto; no hay palatalización.",
+  "ge-EVF-1176": "Escena exige también prótesis ante sc-.",
+  "ge-EVF-1180": "Se marca ss entero para simplificación, y la e final para apócope.",
+  "ge-EVF-1201": "Adaptación culta: se conserva l y se simplifica pt en t; no se supone transmisión patrimonial continua."
+});
+function clarifyFinalDirect(word){
+ if(!FINAL_DIRECT_IDS.has(word.id))return word;
+ const letters=[...word.latin];
+ const marked=word.changes.filter(c=>c.rule!=='FIX_M');
+ const changes=word.changes.map(c=>{
+  if(c.rule==='FIX_M')return c;
+  const fragment=c.spans.map(([a,b])=>letters.slice(a,b).join('')).join(' + ');
+  const location=c.spans.length?' (posición '+(c.spans[0][0]+1)+(c.spans[0][1]-c.spans[0][0]>1?'–'+c.spans[0][1]:'')+')':'';
+  const desc=c.rule==='PROT'?'e inicial ante s + consonante':fragment+' → '+(c.output||'∅')+location;
+  return {...c,note:ruleName(c.rule)+': '+desc+'.'};
+ });
+ const summary=changes.filter(c=>c.rule!=='FIX_M').map(c=>c.note).join(' ');
+ const final=word.changes.some(c=>c.rule==='FIX_M')?' Pérdida fija de -m.':'';
+ const cult=FINAL_CULT_IDS.has(word.id)?' Adaptación culta o de tradición escrita: la monoptongación del diptongo representado por la ligadura se evalúa según el catálogo, sin presuponer transmisión patrimonial.':'';
+ const detail=FINAL_DIRECT_NOTES[word.id]?' '+FINAL_DIRECT_NOTES[word.id]:'';
+ return {...word,changes,explanation:word.latin+' > '+word.answers[0]+': '+summary+final+cult+detail};
+}
+// En este bloque todas las anotaciones son independientes y reconstruyen el resultado moderno.
+export function assertFinalDirectResults(words){
+ const normalize=value=>value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/v/g,'u');
+ for(const w of words.filter(w=>FINAL_DIRECT_IDS.has(w.id))){
+  const letters=[...w.latin];
+  const edits=w.changes.flatMap(c=>c.spans.length?c.spans.map(([a,b])=>[a,b,c.output==='∅'?'':c.output]):[[c.anchor,c.anchor,c.output]]).sort((a,b)=>b[0]-a[0]);
+  for(const [a,b,value] of edits)letters.splice(a,b-a,value);
+  if(!w.answers.some(answer=>normalize(answer)===normalize(letters.join(''))))throw Error('Evolutio: resultado directo incoherente '+w.latin);
+ }
+}
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
  return clarifyLiquidChanges(clarifyConsonantization(clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word)));
@@ -1212,7 +1336,7 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges).map(clarifyGreekAndPalatal).map(clarifyVocalism).map(clarifyDirectResult);
+ }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges).map(clarifyGreekAndPalatal).map(clarifyVocalism).map(clarifyDirectResult).map(clarifyFinalDirect);
 }
 
 // Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.
@@ -1362,5 +1486,6 @@ export function integrateCastilianAdditions(base){
  assertCastilianInitialRules(words);
  assertCastilianSonorizationSpans(words);
  assertCastilianGreekGraphs(words);
+ assertFinalDirectResults(words);
  return {...base,words};
 }
