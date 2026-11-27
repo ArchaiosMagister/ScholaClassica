@@ -72,13 +72,32 @@ try{
  assert.equal(await page.locator('.lexicon-unit-section').count(),0);
  assert.equal(await page.locator('#study-entries details.lexicon-group').count(),111);
  await page.locator('#study-sort').selectOption('curriculum');
- // Comprobar que las fichas abiertas caben también en una pantalla de móvil.
+ // Comprobar la cuadrícula real de derivados en móvil, tableta y ordenador.
  const originalViewport=page.viewportSize();
- await page.setViewportSize({width:375,height:812});
- await page.locator('#study-entries details summary').first().click();
- assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),
-   'El glosario compacto no debe producir desplazamiento horizontal');
- await page.locator('#study-entries details summary').first().click();
+ const familyIndex=await page.locator('#study-entries details.lexicon-group').evaluateAll(groups=>
+   groups.findIndex(group=>group.querySelectorAll('.lexical-word-list > .lexical-word').length>=3));
+ assert.ok(familyIndex>=0,'Debe existir una familia con al menos tres derivados');
+ const gridFamily=page.locator('#study-entries details.lexicon-group').nth(familyIndex);
+ await gridFamily.locator('summary').click();
+ const wordList=gridFamily.locator('.lexicon-word-list');
+ for(const [width,columns] of [[375,1],[768,2],[1024,3],[1280,3]]){
+   await page.setViewportSize({width,height:900});
+   const layout=await wordList.evaluate(el=>{
+     const cards=[...el.querySelectorAll(':scope > .lexical-word')];
+     const rects=cards.map(card=>card.getBoundingClientRect());
+     return {
+       columns:getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length,
+       firstRow:rects.filter(rect=>Math.abs(rect.top-rects[0].top)<1).length,
+       withinCards:cards.every(card=>card.scrollWidth<=card.clientWidth+1),
+       pageFits:document.documentElement.scrollWidth<=window.innerWidth
+     };
+   });
+   assert.equal(layout.columns,columns,'Columnas a '+width+' px');
+   assert.equal(layout.firstRow,columns,'Tarjetas en la primera fila a '+width+' px');
+   assert.ok(layout.withinCards,'Contenido íntegro sin desbordamiento a '+width+' px');
+   assert.ok(layout.pageFits,'Sin desplazamiento horizontal a '+width+' px');
+ }
+ await gridFamily.locator('summary').click();
  if(originalViewport)await page.setViewportSize(originalViewport);
 
  // Filtros y búsqueda normalizada, sin escrituras en el historial.
