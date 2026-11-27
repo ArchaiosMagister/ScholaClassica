@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
-import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules,assertCastilianOpeningSpans} from '../scripts/evolutio-castellano-lote100.mjs';
+import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules,assertCastilianOpeningSpans,assertCastilianInitialRules} from '../scripts/evolutio-castellano-lote100.mjs';
 import {
  resultSpellingDistance,resultDifficultyComponents,resultDifficultyScore,
  resultDifficultyLevel,curatedDifficultyLevel,curatedDifficultyIds,RESULT_DIFFICULTY_METHOD
@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,235);
+ assert.equal(reviewed.length,254);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -425,4 +425,17 @@ test('Yod: metátesis de materia y distinción entre inflexión y abertura',asyn
  }
  for(const latin of ['fŏrtia','sŏmnum'])assert.ok(word(latin).changes.some(c=>c.rule==='DIPT'));
  for(const latin of ['multum','pugnum'])assert.equal(gradeChange(word(latin),{rule:'ABER',spans:[[1,2]]}).correct,false,latin);
+});
+
+test('Aspiración, aféresis, prótesis y consonantización no se confunden con grafías',()=>{
+ assert.doesNotThrow(()=>assertCastilianInitialRules(bank.words));
+ assert.throws(()=>assertCastilianInitialRules([{latin:'germanum',changes:[{rule:'ASPIR',spans:[[0,1]],output:'h'}]}]),/aspiración ajena/);
+ assert.throws(()=>assertCastilianInitialRules([{latin:'clauem',changes:[{rule:'CONS',spans:[[3,4]],output:'v'}]}]),/consonantización ajena/);
+ assert.throws(()=>assertCastilianInitialRules([{latin:'æschylum',changes:[{rule:'PROT',spans:[],anchor:0,output:'e'}]}]),/prótesis incoherente/);
+ for(const latin of ['iurare','maiorem','maium','iocum','iuncum','iacere','iuuentutem','iam'])
+  assert.match(word(latin).explanation,/ya tenía valor consonántico|ya era consonántica/);
+ assert.ok(word('germanum').changes.some(c=>c.rule==='AFER'));
+ assert.ok(!word('germanum').changes.some(c=>c.rule==='ASPIR'));
+ assert.ok(word('stellam').changes.some(c=>c.rule==='EPENT'));
+ assert.ok(word('stellam').changes.some(c=>c.rule==='PROT'));
 });

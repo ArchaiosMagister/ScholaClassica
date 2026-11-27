@@ -189,6 +189,9 @@ function rowToWord(line){
  };
 }
 const ADDITION_NOTES=Object.freeze({
+  "529": "Consonantización es la denominación del catálogo docente para i inicial > y; la i de iam ya tenía valor consonántico en latín.",
+  "544": "La u consonántica latina (grafía escolar) se escribe v en castellano. No se evalúa como consonantización: la única norma seleccionable aquí es la abertura de u final en o.",
+  "545": "Las dos u consonánticas latinas se escriben v en castellano. No se evalúan como consonantización; se evalúa la abertura de u final.",
   "197": "Tras la sonorización de t en d, la yod cambia de posición por metátesis: maderia > madeira. El diptongo romance ei se reduce a e; no se evalúa como monoptongación de un diptongo latino ni como síncopa de i.",
   "833": "La yod del grupo li favorece el mantenimiento de o sin diptongación en ue. Se evalúan aspiración de f y palatalización de li; no se añade una norma vocálica hipotética.",
   "378": "El grupo x latino (/ks/) da lugar a la fricativa palatal medieval que termina en j; la abertura de u en o se evalúa donde está registrada.",
@@ -768,6 +771,82 @@ const HISTORICAL_REVIEW=Object.freeze({
   "xl-205": {
     "latin": "milium",
     "explanation": "milium > mijo: palatalización de li ante vocal en j, abertura de u final en o y pérdida fija de -m. La primera i tónica se conserva; no se presupone abertura por el solo hecho de aparecer una i latina."
+  },
+  "xl-105": {
+    "latin": "fabam",
+    "explanation": "fabam > haba: aspiración de f inicial, posteriormente enmudecida en castellano estándar, y pérdida fija de -m. La b intervocálica ya existía en latín: no es sonorización."
+  },
+  "xl-111": {
+    "latin": "farinam",
+    "explanation": "farinam > harina: aspiración de f inicial, posteriormente enmudecida en castellano estándar, y pérdida fija de -m. La h escrita refleja la historia de la consonante, no una prótesis."
+  },
+  "xl-143": {
+    "latin": "germanum",
+    "explanation": "germanum > hermano: aféresis del sonido inicial procedente de g ante e, abertura de u final en o y pérdida fija de -m. La h moderna es gráfica, no procede de la aspiración de f."
+  },
+  "xl-161": {
+    "latin": "iurare",
+    "explanation": "iurare > jurar: consonantización (denominación del catálogo docente) de i inicial en j y apócope de e final. La i inicial ya tenía valor consonántico en latín; el resultado j moderno refleja además la evolución de la consonante palatal medieval."
+  },
+  "xl-190": {
+    "latin": "maiorem",
+    "explanation": "maiorem > mayor: consonantización (denominación del catálogo docente) de i intervocálica en y, apócope de e final y pérdida fija de -m. La i latina ya tenía valor consonántico."
+  },
+  "xl-191": {
+    "latin": "maium",
+    "explanation": "maium > mayo: consonantización (denominación del catálogo docente) de i intervocálica en y, abertura de u final en o y pérdida fija de -m. La i latina ya tenía valor consonántico."
+  },
+  "xl-533": {
+    "latin": "iocum",
+    "explanation": "iocum > juego: consonantización (denominación del catálogo docente) de i inicial en j, diptongación de ŏ tónica, sonorización de c, abertura de u final en o y pérdida fija de -m. La i inicial ya tenía valor consonántico en latín."
+  },
+  "xl-539": {
+    "latin": "iuncum",
+    "explanation": "iuncum > junco: consonantización (denominación del catálogo docente) de i inicial en j, abertura de u final en o y pérdida fija de -m. Se conserva el grupo nc; la i latina ya era consonántica."
+  },
+  "xl-527": {
+    "latin": "iacere",
+    "explanation": "iacere > yacer: consonantización (denominación del catálogo docente) de i inicial en y, palatalización histórica de c ante e y apócope de e final. La i latina ya era consonántica."
+  },
+  "xl-164": {
+    "latin": "iuuentutem",
+    "explanation": "iuuentutem > juventud: consonantización (denominación del catálogo docente) de i inicial en j, sonorización de la t final del tema, apócope de e y pérdida fija de -m. La u consonántica latina se escribe v en castellano; no se contabiliza como una segunda consonantización. La forma castellana presenta asimismo un reajuste morfológico."
+  },
+  "xl-274": {
+    "latin": "scamnum",
+    "explanation": "scamnum > escaño: prótesis de e ante sc-, palatalización de mn en ñ, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-277": {
+    "latin": "scutum",
+    "explanation": "scutum > escudo: prótesis de e ante sc-, sonorización de t en d, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-298": {
+    "latin": "spartum",
+    "explanation": "spartum > esparto: prótesis de e ante sp-, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-300": {
+    "latin": "spatium",
+    "explanation": "spatium > espacio: prótesis de e ante sp-, palatalización histórica de ti ante vocal, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-302": {
+    "latin": "spicam",
+    "explanation": "spicam > espiga: prótesis de e ante sp-, sonorización de c en g y pérdida fija de -m. La ī tónica se conserva."
+  },
+  "xl-592": {
+    "latin": "scholam",
+    "explanation": "scholam > escuela: evolución de grafías griegas (ch > c), prótesis de e ante /sk/, diptongación de ŏ tónica y pérdida fija de -m. La e inicial es protética; la u del diptongo ue no es una epéntesis."
+  },
+  "xl-614": {
+    "latin": "stellam",
+    "explanation": "stellam > estrella: prótesis de e ante st-, epéntesis de r, palatalización de ll y pérdida fija de -m. La r es una adición interior, distinta de la prótesis inicial."
+  },
+  "xl-129": {
+    "latin": "formam",
+    "explanation": "formam > horma: aspiración de f inicial, posteriormente enmudecida, y pérdida fija de -m. La ausencia de diptongación no permite deducir por sí sola la cantidad de la o latina: no se añade una regla vocálica hipotética."
+  },
+  "xl-115": {
+    "latin": "fĕrrum",
+    "explanation": "fĕrrum > hierro: diptongación de ĕ tónica, aspiración de f inicial y abertura de u final en o, además de la pérdida fija de -m. Fierro documenta la conservación de f en otra variante. La rr se conserva, no se simplifica."
   }
 });
 function reviewHistoricalWords(words){
@@ -907,6 +986,22 @@ export function assertCastilianSyncopeSpans(words){
  }
 }
 
+export function assertCastilianInitialRules(words){
+ for(const word of words){
+  const letters=[...word.latin];
+  for(const c of word.changes){
+   const fragment=comparable(c.spans.map(([a,b])=>letters.slice(a,b).join('')).join(''));
+   if(c.rule==='ASPIR'&&(fragment!=='f'||JSON.stringify(c.spans)!=='[[0,1]]'||c.output!=='h'))
+    throw Error('Evolutio: aspiración ajena a f inicial '+word.latin);
+   if(c.rule==='AFER'&&(!c.spans.length||c.spans[0][0]!==0))
+    throw Error('Evolutio: aféresis no inicial '+word.latin);
+   if(c.rule==='PROT'&&(c.output!=='e'||c.anchor!==0||!/^s[^aeiouæœ]/i.test(comparable(word.latin))))
+    throw Error('Evolutio: prótesis incoherente '+word.latin);
+   if(c.rule==='CONS'&&(fragment!=='i'||!['j','y'].includes(c.output)))
+    throw Error('Evolutio: consonantización ajena a i '+word.latin);
+  }
+ }
+}
 export function assertCastilianOpeningSpans(words){
  for(const word of words){
   for(const c of word.changes.filter(c=>c.rule==='ABER')){
@@ -954,5 +1049,6 @@ export function integrateCastilianAdditions(base){
  assertCastilianPositionSpans(words);
  assertCastilianSpecificRules(words);
  assertCastilianOpeningSpans(words);
+ assertCastilianInitialRules(words);
  return {...base,words};
 }
