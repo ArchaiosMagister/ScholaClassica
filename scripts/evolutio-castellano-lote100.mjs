@@ -388,6 +388,67 @@ export function assertCastilianGreekGraphs(words){
   }
  }
 }
+// Vocalismo: correcciones de etapas y de la selección de vocales originales.
+const VOCALIC_REVIEW=Object.freeze({
+  "xl-26": "La monoptongación afecta al diptongo au completo; la c posterior al diptongo permanece sorda, no se marca sonorización.",
+  "xl-40": "La ligadura æ representa ae: primero monoptongación en e abierta, luego diptongación en ie por su carácter tónico. Ambas normas se señalan sobre æ.",
+  "xl-245": "La ligadura œ representa oe, cuyo resultado es e cerrada; no se deduce diptongación por el mero acento tónico.",
+  "xl-248": "La ŏ es breve aunque la sílaba por sea larga por posición. La coda r no impide la diptongación.",
+  "xl-320": "La ĕ es breve aunque la sílaba ter sea larga por posición ante rr. La vibrante geminada se conserva como vibrante múltiple.",
+  "xl-567": "La primera o diptonga y la segunda vocal, u final, se abre: se señalan fragmentos distintos. La f se conserva ante ue.",
+  "xl-30": "La u de au no se pierde por síncopa: se marca au completo y, por separado, la abertura de u final.",
+  "xl-42": "Æ representa ae; la e abierta resultante de la monoptongación tónica diptonga posteriormente. Ambas normas recaen sobre la misma ligadura.",
+  "xl-44": "La segunda e es tónica: la sílaba len es larga por posición ante nt, aunque su vocal sea breve.",
+  "xl-54": "La u integrada en au no es una vocal postónica independiente; la monoptongación se señala sobre au completo.",
+  "xl-110": "El DLE remite a fēnum; faenum es variante latina. El resultado e no diptonga en este caso y la u final se abre en o.",
+  "xl-113": "La ĕ tónica es breve y diptonga; la f se conserva ante el diptongo, al igual que en fiesta.",
+  "xl-118": "La sílaba fes es larga por posición, pero la ĕ es breve; se evalúa diptongación y no aspiración.",
+  "xl-126": "La monoptongación de œ y la síncopa de d son independientes; se conserva el hiato eo resultante y se abre u final.",
+  "xl-147": "La h etimológica no se añade por prótesis ni procede de f; se marca solo la ĕ tónica.",
+  "xl-151": "Se distingue la diptongación de ŏ tónica de la abertura de u final. La h es etimológica.",
+  "xl-175": "La d intervocálica desaparece por síncopa; la e final por apócope. La reducción au > o se marca sobre el diptongo completo.",
+  "xl-199": "Se marcan au completo y u final por separado; la terminación -um no se trata como una única abertura.",
+  "xl-268": "La t era intervocálica antes de su sonorización; diptongación y sonorización son independientes.",
+  "xl-757": "La e final desaparece por apócope después de l; la u de au pertenece al diptongo, no es síncopa.",
+  "xl-71": "Cornu es forma de neutro sin -m; se marcan dos cambios vocálicos distintos, no una pérdida fija inexistente.",
+  "xl-132": "La primera o tónica diptonga; la u final se abre. Foro no presenta diptongación.",
+  "xl-278": "Además de la diptongación y sonorización, se evalúa la apócope de t final de la tercera persona.",
+  "xl-313": "La secuencia resultante ee no se presupone: ae > e, síncopa de d y conservación del hiato ea en tea.",
+  "xl-315": "La primera u forma parte de au; la segunda es final y se abre en o.",
+  "xl-503": "Saeptum presenta ae > e sin diptongación; se evalúan además simplificación de pt y abertura de u final. La variante latina septum ayuda a explicar el resultado.",
+  "xl-514": "La f no se conserva en este caso pese a la diptongación; hiel conserva h gráfica de la aspiración histórica. No generalizar la conservación de f ante ie.",
+  "xl-576": "El grupo mbr ya existe en latín; no se aplica la norma específica -MIN- → -MBR-. Se distingue la abertura final de la diptongación tónica.",
+  "xl-577": "La e final se pierde por apócope tras s; ss se simplifica, no se sonoriza.",
+  "xl-582": "La u consonántica latina se escribe v en castellano; no se marca consonantización. La diptongación afecta a o.",
+  "xl-747": "Au se monoptonga, d intervocálica se pierde por síncopa y e final por apócope. La tilde de oír señala el hiato oi.",
+  "xl-520": "Se evalúa aspiración pese a la diptongación; la conservación de f ante ue no es absoluta. Ss se simplifica.",
+  "xl-750": "El infinitivo frecuentativo latino ausare da osar; se evalúan monoptongación y apócope, no abertura de u.",
+  "xl-785": "La u de au no es independiente; se marca el diptongo completo y la apócope de e final.",
+  "ge-EVF-0008": "Ae es pretónico en aetātem, por lo que no se añade diptongación. Las dos t intervocálicas se sonorizan; la e final sufre apócope.",
+  "ge-EVF-0203": "Se marcan ĕ tónica, t intervocálica y u final por separado; no se omite la abertura.",
+  "ge-EVF-0230": "La c permanece sorda tras el diptongo au; la monoptongación no implica una sonorización posterior obligatoria.",
+  "ge-EVF-0246": "La ŏ tónica diptonga pese a estar en sílaba cerrada; el grupo rc se conserva y u final se abre.",
+  "ge-EVF-0562": "Se marca la segunda e (tónica), no la inicial del prefijo des-. La u final se abre.",
+  "ge-EVF-0555": "La primera e diptonga y la segunda e, final, sufre apócope; no se marcan ambas como diptongación.",
+  "ge-EVF-0572": "La h es etimológica; no representa aspiración de f. La diptongación no exige prótesis.",
+  "ge-EVF-0592": "La rr latina se conserva como vibrante múltiple; no hay simplificación ni sonorización.",
+  "ge-EVF-1067": "La e tónica diptonga y u final se abre; la a postónica permanece. No toda palabra esdrújula presenta síncopa.",
+  "ge-EVF-1074": "La acepción de cuento aquí es contera o puntal; no se deben aplicar al étimo contum las transformaciones de computum."
+});
+const VOCALIC_SPECIAL=Object.freeze({
+  "xl-32": "aut > o: monoptongación de au en o y apócope de t final. La conjunción pierde la consonante final; no es la pérdida fija de -m.",
+  "xl-583": "pedem > pie: diptongación de ĕ tónica, síncopa de d intervocálica y reducción posterior del hiato ee (cf. plural medieval piees). La reducción del hiato no se evalúa como apócope independiente ni como monoptongación de un diptongo latino. Pérdida fija de -m.",
+  "xl-585": "pellem > piel: diptongación de ĕ tónica, palatalización de ll (medieval pielle), apócope de e final y despalatalización de la lateral en posición final. La última etapa no se evalúa como simplificación directa de la geminada latina. Pérdida fija de -m."
+});
+function clarifyVocalism(word){
+ const special=VOCALIC_SPECIAL[word.id],note=VOCALIC_REVIEW[word.id];
+ if(!special&&!note)return word;
+ let changes=word.changes;
+ if(word.id==='xl-32')changes=[...changes.map(c=>c.rule==='MONOP'?{...c,note:'El diptongo au se monoptonga en o.'}:c),{id:'t2',rule:'APOC',spans:[[2,3]],output:'∅',note:'Se pierde la t final de la conjunción.'}];
+ if(word.id==='xl-583')changes=changes.filter(c=>c.id!=='t3');
+ if(word.id==='xl-585')changes=changes.map(c=>c.id==='t2'?{...c,rule:'PALAT',output:'ll',subtype:'-ll- > -ll-',note:'La geminada ll se palataliza; la forma medieval pielle lo documenta. Tras la apócope se despalataliza en posición final.'}:c);
+ return {...word,changes:changes.map(nameChange),explanation:special??word.explanation+' '+note};
+}
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
  return clarifyLiquidChanges(clarifyConsonantization(clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word)));
@@ -1082,7 +1143,7 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges).map(clarifyGreekAndPalatal);
+ }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges).map(clarifyGreekAndPalatal).map(clarifyVocalism);
 }
 
 // Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.

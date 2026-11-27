@@ -103,7 +103,7 @@ test('Los resultados opacos no quedan catalogados como fáciles por su grafía',
   assert.equal(resultDifficultyLevel(word(latin)),level,latin);
   assert.equal(updated.assignments[word(latin).id].level,level,'Datos publicados: '+latin);
  }
- assert.equal(resultDifficultyLevel(word('aut')),3);
+ assert.equal(resultDifficultyLevel(word('aut')),4);
  assert.equal(resultDifficultyLevel(word('bŏnam')),1);
 });
 
@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,374);
+ assert.equal(reviewed.length,421);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -532,4 +532,26 @@ test('Grafías griegas y palatalización: correspondencias, fragmentos y evaluac
  assert.equal(gradeChange(tronar,{rule:'PROT',spans:[],anchor:0}).correct,false);
  assert.match(word('clamare').explanation,/apócope/);
  assert.throws(()=>assertCastilianGreekGraphs([{latin:'chartam',changes:[{rule:'GRIE',spans:[[1,2]],output:'c'}]}]),/grafía griega incoherente/);
+});
+
+
+test('Vocalismo: diptongos latinos, hiatos secundarios y apócope',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const a=word('aut');
+ assert.equal(gradeChange(a,{rule:'MONOP',spans:[[0,2]]}).correct,true);
+ assert.equal(gradeChange(a,{rule:'APOC',spans:[[2,3]]}).correct,true);
+ assert.equal(gradeChange(a,{rule:'SINC',spans:[[2,3]]}).correct,false);
+ for(const latin of ['cælum','cænum']){
+  const w=word(latin);
+  assert.equal(gradeChange(w,{rule:'MONOP',spans:[[1,2]]}).correct,true);
+  assert.equal(gradeChange(w,{rule:'DIPT',spans:[[1,2]]}).correct,true);
+ }
+ const pie=word('pedem');
+ assert.ok(!pie.changes.some(c=>c.rule==='APOC'));
+ assert.match(pie.explanation,/hiato ee/);
+ const piel=word('pellem');
+ assert.equal(gradeChange(piel,{rule:'PALAT',spans:[[2,4]]}).correct,true);
+ assert.equal(gradeChange(piel,{rule:'SIMPL',spans:[[2,4]]}).correct,false);
+ assert.match(piel.explanation,/pielle/);
+ assert.match(word('sĕcat').explanation,/apócope/);
 });
