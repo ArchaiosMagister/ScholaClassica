@@ -261,12 +261,18 @@ function appendComponentList(target,parts){
   });
   target.append(line,feedback);
 }
+// Solo mostrar la explicación cuando la ficha tiene sentido etimológico revisado.
+function appendReviewedConnection(target,word){
+  if(!word.reviewedDefinition||!word.connection)return;
+  target.append(element('p','Sentido etimológico','lexical-small-label'),
+    element('p',word.connection,'lexical-connection'));
+}
 function renderWord(word){
   const card=element('article',null,'lexical-word');
+  card.dataset.wordId=word.id;
   const heading=element('h3',word.form,'lexical-word-title');
   const meaning=element('p',word.reviewedDefinition||word.definition,'lexical-definition');
   const componentsTitle=element('p',word.components.length>1?'Componentes etimológicos':'Étimo relacionado','lexical-small-label');
-  const explanation=element('p',word.connection,'lexical-connection');
   const meta=element('div',null,'lexical-word-meta');
   const check=word.lexicographicCheck;
   const link=element('a','Consultar en el DLE (RAE-ASALE)');
@@ -278,8 +284,8 @@ function renderWord(word){
   if(word.reviewedDefinition)card.append(element('p','Definición contrastada','lexical-small-label'));
   card.append(meaning,componentsTitle);
   appendComponentList(card,word.components);
-  if(word.reviewedDefinition)card.append(element('p','Sentido etimológico','lexical-small-label'));
-  card.append(explanation,meta);
+  appendReviewedConnection(card,word);
+  card.append(meta);
   const references=check?.scientificSources||[];
   for(const {authority,url} of references){
     const sourceLink=element('a',authority,'lexical-evidence-link');
@@ -443,7 +449,7 @@ function revealInverse(){
   }
   inverse.answer.append(parts);
   if(other.length)inverse.answer.append(element('p','Otros componentes: '+other.map(p=>p.greek+' («'+p.gloss+'»)').join(' · '),'lexical-note'));
-  inverse.answer.append(element('p',word.connection,'lexical-connection'));
+  appendReviewedConnection(inverse.answer,word);
   if(word.editorialNote)inverse.answer.append(element('p',word.editorialNote,'lexical-alert'));
   inverse.answer.hidden=false;
   inverse.reveal.setAttribute('aria-expanded','true');
