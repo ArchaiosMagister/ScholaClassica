@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,159);
+ assert.equal(reviewed.length,181);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -335,4 +335,23 @@ test('Normas específicas: 19 casos de -CUL-, diez de -MIN- y tres de vocalizaci
  }
  for(const w of [...byRule('CUL'),...byRule('MIN_MBR'),...byRule('VOC')])
   assert.match(w.explanation,/Criterio de corrección:/);
+});
+
+test('Metátesis, asimilación y simplificación: fragmentos y explicaciones',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const entregar=word('integrare');
+ assert.deepEqual(entregar.changes.find(c=>c.rule==='METAT').spans,[[3,5],[5,6]]);
+ assert.equal(gradeChange(entregar,{rule:'METAT',spans:[[3,5],[5,6]]}).correct,true);
+ const rotura=word('rupturam');
+ assert.ok(rotura.changes.some(c=>c.rule==='ASMIL'&&c.output==='tt'));
+ assert.ok(rotura.changes.some(c=>c.rule==='SIMPL'&&c.output==='t'));
+ assert.match(rotura.explanation,/asimilación de pt en tt y simplificación/);
+ for(const latin of ['comitem','comitatum','semitam']){
+  const w=word(latin);
+  assert.ok(w.changes.some(c=>c.rule==='ASMIL'&&c.output==='n'));
+  assert.match(w.explanation,/asimilación/i);
+ }
+ assert.equal(word('committere').changes.filter(c=>c.rule==='SIMPL').length,2);
+ assert.match(word('committere').explanation,/ambas geminadas/);
+ assert.match(word('quattuor').explanation,/castellano medieval quatro/);
 });

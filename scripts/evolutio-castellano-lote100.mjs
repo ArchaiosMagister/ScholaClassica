@@ -189,6 +189,9 @@ function rowToWord(line){
  };
 }
 const ADDITION_NOTES=Object.freeze({
+  "490": "Asimilación de m en n ante la dental tras la síncopa de i y la sonorización; no se trata de disimilación.",
+  "506": "Asimilación de m en n ante la dental tras la síncopa de i y la sonorización.",
+  "955": "Simplificación de ns en s y síncopa de la primera u de -suturam; no se pierde la u tónica de costura.",
   "79": "El castellano medieval cuchiello documenta la diptongación de ĕ; el diptongo -ie- se reduce después a -i- ante la lateral palatal.",
   "95": "Apócope de -t final. La terminación -o de dixo (medieval) y dijo se explica por analogía con los perfectos débiles; no se exige una abertura hipotética de la i de la desinencia.",
   "107": "La yod originada por -ct- cierra la a en e (factu > faito > feito > fecho > hecho); no es la abertura i/u de N01.",
@@ -199,7 +202,7 @@ const ADDITION_NOTES=Object.freeze({
   "168": "La yod de -ct- explica a > e en lechuga; este cierre vocálico no corresponde a N01.",
   "195": "Tras síncopa, el grupo secundario -scl- desemboca en ch con pérdida de s integrada en la evolución del grupo; se señala el grupo original completo.",
   "200": "La yod asociada a x provoca el cierre de la a pretónica en e; no es abertura.",
-  "254": "La secuencia vocálica -uo- se reduce a -o- (quattuor > *quattor) y la metátesis desplaza la r final: quattro / quatro, después cuatro. La reducción de hiato no se puntúa aparte.",
+  "254": "La secuencia vocálica -uo- se reduce a -o- (quattuor > *quattor) y la metátesis desplaza la r final: castellano medieval quatro, después cuatro. La reducción de hiato no se puntúa aparte.",
   "264": "El resultado del infinitivo en -ir supone un reajuste de la conjugación; no se presenta e > i como abertura.",
   "292": "Tras la pérdida fija de -m, la abertura de i final en e precede a la apócope de esa e después de d (sed).",
   "324": "La palatalización del grupo -ng- ante i da ñ; la abertura de i final en e sigue a la apócope de t.",
@@ -392,6 +395,110 @@ const HISTORICAL_REVIEW=Object.freeze({
   "xl-267": {
     "latin": "rodēre",
     "explanation": "rodēre > roer: síncopa de d intervocálica y apócope de e final del infinitivo. No se trata de sonorización."
+  },
+  "xl-724": {
+    "latin": "integrare",
+    "explanation": "integrare > entregar: abertura de i inicial en e, metátesis de r (egr → reg) y apócope de e final. No confundir con el cultismo integrar.",
+    "patches": {
+      "t2": {
+        "spans": [
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "output": "reg",
+        "note": "Metátesis de r, que pasa delante del grupo eg: egr → reg."
+      }
+    }
+  },
+  "xl-502": {
+    "latin": "rupturam",
+    "explanation": "rupturam > rotura: abertura de u en o, asimilación de pt en tt y simplificación de tt en t, conforme al modelo oficial. Pérdida fija de -m. Ruptura es el doblete culto."
+  },
+  "xl-64": {
+    "latin": "comitem",
+    "explanation": "comitem > conde: síncopa de i postónica, sonorización de t en d y asimilación de m en n ante la dental. Pérdida fija de -m."
+  },
+  "xl-203": {
+    "latin": "mensem",
+    "explanation": "mensem > mes: simplificación de ns en s, apócope de e final y pérdida fija de -m."
+  },
+  "xl-605": {
+    "latin": "marmorem",
+    "explanation": "marmorem > mármol: disimilación de las dos r (la segunda pasa a l), apócope de e final y pérdida fija de -m."
+  },
+  "xl-606": {
+    "latin": "roborem",
+    "explanation": "roborem > roble: síncopa de la segunda o postónica, disimilación de las dos r (la segunda pasa a l) y pérdida fija de -m."
+  },
+  "xl-722": {
+    "latin": "crustam",
+    "explanation": "crustam > costra: abertura de u en o, metátesis de r desde el grupo inicial cr- hasta detrás de t y pérdida fija de -m."
+  },
+  "xl-726": {
+    "latin": "inter",
+    "explanation": "inter > entre: abertura de i inicial en e y metátesis de r final (er → re)."
+  },
+  "xl-732": {
+    "latin": "semper",
+    "explanation": "semper > siempre: diptongación de e tónica en ie y metátesis de r final (er → re)."
+  },
+  "xl-304": {
+    "latin": "sponsam",
+    "explanation": "sponsam > esposa: prótesis de e, simplificación de ns en s y pérdida fija de -m."
+  },
+  "xl-305": {
+    "latin": "sponsum",
+    "explanation": "sponsum > esposo: prótesis de e, simplificación de ns en s, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-284": {
+    "latin": "sensum",
+    "explanation": "sensum > seso: simplificación de ns en s, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-239": {
+    "latin": "planctum",
+    "explanation": "planctum > llanto: palatalización de pl- inicial en ll-, simplificación de nct en nt, abertura de u final en o y pérdida fija de -m. No corresponde la palatalización ct → ch."
+  },
+  "xl-716": {
+    "latin": "acerem",
+    "explanation": "acerem > arce: síncopa de la primera e, metátesis de c y r y pérdida fija de -m. No confundir con acre."
+  },
+  "xl-720": {
+    "latin": "catenatum",
+    "explanation": "catenatum > candado: sonorización de ambas t en d, síncopa de e pretónica, metátesis del grupo secundario dn → nd, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-736": {
+    "latin": "uiduam",
+    "explanation": "uiduam > viuda: metátesis de d y u (du → ud) y pérdida fija de -m."
+  },
+  "xl-917": {
+    "latin": "monstrare",
+    "explanation": "monstrare > mostrar: simplificación de ns en s y apócope de e final."
+  },
+  "xl-922": {
+    "latin": "pinsare",
+    "explanation": "pinsare > pisar: simplificación de ns en s y apócope de e final. La base popular puede reconstruirse como *pinsare."
+  },
+  "xl-927": {
+    "latin": "trans",
+    "explanation": "trans > tras: simplificación de ns en s. Se conserva también trans- como prefijo culto."
+  },
+  "ge-EVF-0362": {
+    "latin": "committere",
+    "explanation": "committere > cometer: simplificación de ambas geminadas mm y tt, abertura de i en e y apócope de e final."
+  },
+  "ge-EVF-0441": {
+    "latin": "supportare",
+    "explanation": "supportare > soportar: abertura de u en o, simplificación de pp en p y apócope de e final. No hay sonorización."
+  },
+  "ge-EVF-0936": {
+    "latin": "translatum",
+    "explanation": "translatum > traslado: simplificación de ns en s, sonorización de t en d, abertura de u final en o y pérdida fija de -m."
   }
 });
 function reviewHistoricalWords(words){
