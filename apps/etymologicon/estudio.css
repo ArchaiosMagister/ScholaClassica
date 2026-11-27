@@ -68,3 +68,46 @@
 .inverse-word{font-size:clamp(1.45rem,4vw,2rem);margin:0 0 12px;color:var(--ink);overflow-wrap:anywhere}
 .inverse-answer{border-top:1px solid var(--line);padding-top:16px}
 .inverse-study .lexicon-actions{margin-bottom:0}
+
+/* Glosario compacto: jerarquía curricular y fichas de lectura continua. */
+.lexicon-groups{gap:9px}
+.lexicon-unit-section{display:grid;gap:7px;min-width:0}
+.lexicon-unit-section+.lexicon-unit-section{margin-top:15px}
+.lexicon-unit-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin:0 0 2px;padding:9px 12px;border-left:4px solid var(--accent);
+  border-bottom:1px solid var(--line);border-radius:6px 6px 0 0;
+  color:var(--accent);background:var(--panel);font-size:1.06rem;line-height:1.35}
+.lexicon-unit-count{font-size:.78rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.lexicon-group{border-radius:10px;box-shadow:none}
+.lexicon-group-summary{padding:10px 14px;column-gap:14px;row-gap:1px;min-height:44px}
+.lexicon-greek{color:var(--accent);overflow-wrap:anywhere}
+.lexicon-group-count{padding:2px 8px}
+.lexicon-word-list{padding:8px;gap:7px}
+.lexicon-word-list>.lexical-word{min-width:0;padding:10px 13px;border-radius:8px;overflow-wrap:anywhere}
+.lexical-word-title{font-size:1.06rem;margin:0 0 3px}
+.lexical-definition{margin:0 0 7px;line-height:1.45}
+.lexical-small-label{margin:4px 0 2px;font-size:.71rem}
+.lexical-components{gap:5px;margin:3px 0 6px}
+.lexical-component{padding:2px 7px;gap:5px}
+.component-greek{font-size:1.08rem}
+.component-greek-link{min-height:32px}
+.lexical-component-feedback{margin:0 0 6px}
+.lexical-connection{margin:5px 0 7px;padding-left:9px;line-height:1.45}
+.lexical-word-meta{gap:3px 12px}
+.lexical-note,.lexical-evidence{margin:5px 0 0}
+.lexical-evidence-link{margin-top:4px}
+.lexical-alert{padding:6px 9px;margin:7px 0 0;line-height:1.4}
+.lexicon-tools{padding:18px;margin-bottom:16px}
+.lexicon-actions{gap:8px;margin-top:12px}
+.lexicon-tools .counter{margin-top:10px}
+.inverse-study{padding:18px}
+.inverse-study .lexical-word{min-height:0;padding:12px 14px}
+.inverse-word{margin-bottom:6px}
+.inverse-answer{padding-top:8px}
+@media(max-width:600px){
+  .lexicon-group-summary{padding:9px 10px;gap:2px 8px}
+  .lexicon-word-list{padding:6px;gap:6px}
+  .lexicon-word-list>.lexical-word{padding:9px 10px}
+  .lexicon-tools,.inverse-study{padding:12px}
+  .lexicon-unit-heading{padding:8px 10px}
+}
