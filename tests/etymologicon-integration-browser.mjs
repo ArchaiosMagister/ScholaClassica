@@ -75,7 +75,7 @@ try{
  // Comprobar la cuadrícula real de derivados en móvil, tableta y ordenador.
  const originalViewport=page.viewportSize();
  const familyIndex=await page.locator('#study-entries details.lexicon-group').evaluateAll(groups=>
-   groups.findIndex(group=>group.querySelectorAll('.lexical-word-list > .lexical-word').length>=3));
+   groups.findIndex(group=>group.querySelectorAll('.lexicon-word-list > .lexical-word').length>=3));
  assert.ok(familyIndex>=0,'Debe existir una familia con al menos tres derivados');
  const gridFamily=page.locator('#study-entries details.lexicon-group').nth(familyIndex);
  await gridFamily.locator('summary').click();
