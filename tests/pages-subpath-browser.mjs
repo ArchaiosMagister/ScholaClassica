@@ -303,6 +303,23 @@ try{
    });
  });
  assert.equal(styles,true);
+ const classical=await page.locator('#cards .entry h2 i.latin-term').first().evaluate(e=>getComputedStyle(e).fontFamily);
+ assert.match(classical,/Palatino/);
+ // Verificar los tres temas y tamaños con el banco completo, no solo una ficha.
+ for(const theme of ['light','dark','oled']){
+   await page.locator('#portal-theme').selectOption(theme);
+   assert.equal(await page.locator('html').getAttribute('data-theme'),theme);
+   if(theme==='oled'){
+     assert.equal(await page.locator('html').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(0, 0, 0)');
+     assert.equal(await page.locator('#cards .entry').first().evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(0, 0, 0)');
+   }
+   for(const width of [320,390,768,1280]){
+     await page.setViewportSize({width,height:844});
+     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Latinismos '+theme+' desborda a '+width+' px');
+   }
+ }
+ await page.locator('#portal-theme').selectOption('light');
+ await page.setViewportSize({width:1280,height:900});
  assert.equal(await page.locator('#cards .entry').nth(48).locator('p i').count(),4);
 
  await page.locator('#filter').selectOption('even');
