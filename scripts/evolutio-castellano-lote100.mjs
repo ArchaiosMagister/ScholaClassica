@@ -189,6 +189,8 @@ function rowToWord(line){
  };
 }
 const ADDITION_NOTES=Object.freeze({
+  "961": "El DLE remite al latín tardío eremīta, con el significado de ermitaño: hubo cambio semántico hacia el lugar habitado. La norma evaluable es la síncopa de e.",
+  "276": "El DLE confirma scutarius como étimo de escudero; scutarium es su acusativo masculino.",
   "490": "Asimilación de m en n ante la dental tras la síncopa de i y la sonorización; no se trata de disimilación.",
   "506": "Asimilación de m en n ante la dental tras la síncopa de i y la sonorización.",
   "955": "Simplificación de ns en s y síncopa de la primera u de -suturam; no se pierde la u tónica de costura.",
@@ -565,6 +567,80 @@ const HISTORICAL_REVIEW=Object.freeze({
   "ge-EVF-0310": {
     "latin": "supĕrāre",
     "explanation": "supĕrāre > sobrar: abertura de u pretónica en o, sonorización de p en b, síncopa de ĕ pretónica y apócope de e final. El acento latino recae en ā."
+  },
+  "xl-96": {
+    "latin": "doctum",
+    "explanation": "doctum > ducho: hipótesis etimológica, no derivación segura. El DLE califica el origen de ducho de discutido y remite tanto a doctus como a ductus. Si se parte de doctum, se explica la palatalización de ct, el cierre de o por yod (no abertura ni diptongación), la abertura de u final y la pérdida fija de -m.",
+    "patches": {
+      "t1": {
+        "note": "Palatalización de ct en ch en la hipótesis de doctum; etimología discutida (DLE)."
+      }
+    }
+  },
+  "xl-830": {
+    "latin": "ductum",
+    "explanation": "ductum > ducho: hipótesis etimológica, no derivación segura. El DLE remite tanto a ductus como a doctus. Si se parte de ductum, se explica la palatalización de ct en ch, la abertura de u final y la pérdida fija de -m.",
+    "patches": {
+      "t1": {
+        "note": "Palatalización de ct en ch en la hipótesis de ductum; etimología discutida (DLE)."
+      }
+    }
+  },
+  "ge-EVF-0400": {
+    "latin": "lutum",
+    "explanation": "lutum > lodo: abertura de ambas u en o, sonorización de t en d y pérdida fija de -m. El DLE distingue lodo, de lutum, de luto, de luctus: no son dobletes."
+  },
+  "ge-EVF-0413": {
+    "latin": "nucalem",
+    "explanation": "nucalem > nogal: abertura de u en o, sonorización de c en g, apócope de e y pérdida fija de -m. El DLE recoge el étimo tardío nucālis, derivado de nux, nucis; el acusativo nucalem no debe presentarse como mera reconstrucción."
+  },
+  "xl-82": {
+    "latin": "cuppam",
+    "explanation": "cuppam > copa: abertura de u en o, simplificación de pp y pérdida fija de -m. El DLE recoge cuppa, distinto de cupa, étimo de cuba."
+  },
+  "xl-81": {
+    "latin": "cupam",
+    "explanation": "cupam > cuba: sonorización de p en b y pérdida fija de -m. El DLE distingue cupa de cuppa, étimo de copa."
+  },
+  "xl-820": {
+    "latin": "coxum",
+    "explanation": "coxum > cojo: acusativo del latín vulgar coxus, que el DLE relaciona con coxa de manera tentativa. Palatalización histórica de x en j, abertura de u final y pérdida fija de -m."
+  },
+  "ge-EVF-1200": {
+    "latin": "gulam",
+    "explanation": "gulam > gola: abertura de u en o y pérdida fija de -m. El DLE recoge gola, incluida la acepción de garganta, a partir del latín gula. No confundir con gula en el sentido de glotonería."
+  },
+  "xl-309": {
+    "latin": "stylum",
+    "explanation": "stylum > estilo: adaptación gráfica de y en i a partir de una variante latina de stilus; prótesis de e, abertura final y pérdida fija de -m. El DLE remite a stilus, no a stylus. Se conserva la variante como ejercicio de grafías, no como étimo preferente."
+  },
+  "ge-EVF-1075": {
+    "latin": "stilum",
+    "explanation": "stilum > estilo: el DLE recoge stilus como étimo de estilo. Prótesis de e ante st-, adaptación de u final en o y pérdida fija de -m. Tratamiento didáctico de una voz de transmisión culta; no se afirma evolución patrimonial completa."
+  },
+  "xl-1039": {
+    "latin": "acuculam",
+    "explanation": "acuculam > aguja: acusativo del latín vulgar acucŭla, diminutivo de acus según el DLE. Sonorización de la primera c, síncopa de u postónica, evolución de -CUL- > -J- y pérdida fija de -m."
+  },
+  "xl-1031": {
+    "latin": "faminem",
+    "explanation": "faminem > hambre: acusativo del latín vulgar reconstruido *famen, -ĭnis, a partir de fames (DLE). Aspiración de f, evolución específica de -MIN- → -MBR- y pérdida fija de -m."
+  },
+  "xl-1032": {
+    "latin": "ferruminem",
+    "explanation": "ferruminem > herrumbre: acusativo de ferrūmen, -ĭnis, documentado en el DLE. Aspiración de f, evolución específica de -MIN- → -MBR- y pérdida fija de -m."
+  },
+  "xl-1040": {
+    "latin": "annuculum",
+    "explanation": "annuculum > añojo: acusativo del latín vulgar annucŭlus, variante de annicŭlus según el DLE. Palatalización de nn, abertura de la primera u, síncopa de u postónica, evolución de -CUL- > -J-, abertura final y pérdida fija de -m. Añejo procede de annicŭlus."
+  },
+  "xl-1055": {
+    "latin": "uinciculum",
+    "explanation": "uinciculum > vencejo (ligadura): acusativo del latín reconstruido *vincicŭlum, de vincīre, según el DLE. Abertura de ambas i, síncopa de u postónica, evolución de -CUL- > -J-, abertura de u final y pérdida fija de -m. El ave vencejo procede de oncejo por confusión con el homónimo."
+  },
+  "xl-862": {
+    "latin": "scrinium",
+    "explanation": "scrinium > escriño: el DLE confirma scrinium como étimo de la cesta o cofre. Prótesis de e, palatalización de ni en ñ, abertura de u final y pérdida fija de -m."
   }
 });
 function reviewHistoricalWords(words){

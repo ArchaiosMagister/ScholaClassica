@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,195);
+ assert.equal(reviewed.length,206);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -369,4 +369,17 @@ test('Cantidad vocálica y acento: no se confunde vocal breve con sílaba breve'
   assert.match(word(latin).explanation,/pretónica/);
  for(const latin of ['fabŭlam','littĕram','nĕbŭlam','stabĭlem','calidum','mutabĭlem','opĕram','sŏlĭdum'])
   assert.match(word(latin).explanation,/postónica/);
+});
+
+test('Cotejo DLE: étimos discutidos, homónimos y reconstrucciones',()=>{
+ for(const latin of ['doctum','ductum'])assert.match(word(latin).explanation,/etimológic[a-z]*, no derivación segura/);
+ assert.match(word('lutum').explanation,/luto, de luctus: no son dobletes/);
+ assert.match(word('nucalem').explanation,/tardío nucālis/);
+ assert.match(word('cuppam').explanation,/cuppa, distinto de cupa/);
+ assert.match(word('cupam').explanation,/distingue cupa de cuppa/);
+ assert.match(word('faminem').explanation,/\*famen, -ĭnis/);
+ assert.match(word('annuculum').explanation,/Añejo procede de annicŭlus/);
+ assert.match(word('uinciculum').explanation,/ave vencejo procede de oncejo/);
+ assert.match(word('stylum').explanation,/no como étimo preferente/);
+ assert.match(word('eremitam').explanation,/eremīta/);
 });
