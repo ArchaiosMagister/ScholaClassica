@@ -50,6 +50,10 @@ export async function buildGlobalUpdates(out){
    const pattern=/(const (?:VERSION|CACHE)\s*=\s*)([^;\n]+);/;
    if(!pattern.test(worker))throw Error('No se reconoce la versión de '+item.name);
    worker=worker.replace(pattern,(_all,start,value)=>start+value+'+'+JSON.stringify('-'+revision)+';');
+   // La instalación debe revalidar el contenido HTTP, no reutilizar una copia vieja.
+   const list=item.name==='evolucion-fonetica'?'CORE':'ASSETS';
+   const old='addAll('+list+')';
+   if(worker.includes(old))worker=worker.replace(old,'addAll('+list+".map(p=>new Request(new URL(p,self.registration.scope),{cache:'reload'})))");
   }
   const revision=digest(worker);
   worker+= '\n'+
