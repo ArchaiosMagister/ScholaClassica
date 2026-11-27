@@ -433,3 +433,9 @@ html[data-theme="oled"]:has(body.portal) {
 }
 .portal .card.greek { border-top-color: var(--accent); background: var(--wash); }
 .portal .resource-links .greek { background: var(--wash); }
+
+@media (max-width: 31rem) {
+  .portal .site-head nav { gap: .25rem .5rem; }
+  .portal .site-head nav a { font-size: .85rem; }
+  .portal .site-head nav .teacher-access { padding-inline: .45rem; }
+}
