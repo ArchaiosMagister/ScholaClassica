@@ -362,3 +362,74 @@ h2 { margin: 0; font-size: clamp(1.75rem, 3.3vw, 2.55rem); letter-spacing: -.035
   .hero-copy { padding-block: 1rem; }
   .hero-image { height: 4rem; }
 }
+
+/* Portada */
+html:has(body.portal) {
+  --page: #f4f7f2;
+  --ink: #182d26;
+  --muted: #465e54;
+  --surface: #fffdfa;
+  --wash: #e7efe6;
+  --line: #bdcec2;
+  --accent: #265545;
+  --accent-strong: #173f33;
+  --on-accent: #fffdf5;
+  --focus: #27755e;
+  --greek-accent: #285e79;
+  --greek-strong: #174861;
+  --greek-wash: #e5eff5;
+  --greek-line: #b5cbd8;
+}
+html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
+  --page: #14221e;
+  --ink: #edf6ef;
+  --muted: #b9cec3;
+  --surface: #1c3028;
+  --wash: #233c31;
+  --line: #496458;
+  --accent: #a5dcc3;
+  --accent-strong: #d0f4e2;
+  --on-accent: #102c21;
+  --focus: #b7f3d8;
+  --greek-accent: #abd7f0;
+  --greek-strong: #d7efff;
+  --greek-wash: #192e3b;
+  --greek-line: #4a6a7d;
+}
+html[data-theme="oled"]:has(body.portal) {
+  --page: #000;
+  --surface: #0c1813;
+  --wash: #13251d;
+}
+.portal .site-head { background: var(--surface); }
+.portal .site-head nav { gap: .25rem clamp(.65rem, 2vw, 1.5rem); }
+.portal .site-head nav .teacher-access {
+  padding-inline: .75rem;
+  border: 1px solid var(--line);
+  border-radius: .45rem;
+  color: var(--accent);
+}
+.portal .site-head nav .teacher-access:hover { background: var(--wash); }
+.portal .hero {
+  min-width: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1d4136, #315b4a);
+  color: #f7faf1;
+  border-radius: 1rem;
+}
+.portal .hero-copy > p { color: #e1eee4; }
+.portal .hero-image { border-radius: 0; }
+.portal .cta { background: #e9f3e5; color: #193f32; }
+.portal .cta:hover { background: #fffdf5; }
+.portal .hero :focus-visible { outline-color: #c9f0d4; outline-offset: 3px; }
+.portal :is(.study-path, .card, .resource-links a) { border-radius: .75rem; }
+.portal .card.latin { border-top-color: var(--accent); }
+.portal :is(.greek, .study-path:has(option:is([value="gr1"], [value="gr2"]):checked)) {
+  --accent: var(--greek-accent);
+  --accent-strong: var(--greek-strong);
+  --focus: var(--greek-accent);
+  --line: var(--greek-line);
+  --wash: var(--greek-wash);
+}
+.portal .card.greek { border-top-color: var(--accent); background: var(--wash); }
+.portal .resource-links .greek { background: var(--wash); }
