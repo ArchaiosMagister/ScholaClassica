@@ -8,6 +8,7 @@ import {reconcileLatin4ExamUd8,LATIN4_UD8_EXAM_REVIEW}
   from '../scripts/latin4-ud8-reconciliation.mjs';
 import {applyGreek1KindynosUd5,GREEK1_KINDYNOS_GENERAL_ID}
   from '../scripts/greek1-kindynos-ud5-decision.mjs';
+import {integrateReviewedTeacherWords} from '../scripts/migrate-vocabula-teacher-words.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const fromJs=readFileSync(join(root,'vendor/vocabula/data.js'),'utf8');
@@ -38,9 +39,9 @@ test('Las 17 palabras de Examen UD8–9 tienen una pareja explícita en General 
 });
 test('La copia solo reasigna 17 fichas Examen UD8 y κίνδυνος General UD5 por decisión',()=>{
  assert.equal(original.length,2055);
- assert.equal(built.length,original.length);
+ assert.equal(built.length,original.length+2);
  assert.deepEqual(built,
-   applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(original))));
+   integrateReviewedTeacherWords(applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(original)))));
  const altered=built.filter((e,i)=>e.subject==='lat4'&&
    e.units.join('|')!==original[i].units.join('|'));
  assert.equal(altered.length,17);
@@ -64,7 +65,7 @@ test('La copia solo reasigna 17 fichas Examen UD8 y κίνδυνος General UD5
  const sourceCounts=Object.fromEntries(['lat1','lat2','lat4','gr1'].map(key=>
    [key,original.filter(e=>e.subject===key).length]));
  assert.deepEqual(Object.fromEntries(['lat1','lat2','lat4','gr1'].map(key=>
-   [key,built.filter(e=>e.subject===key).length])),sourceCounts);
+   [key,built.filter(e=>e.subject===key).length])),{...sourceCounts,lat1:sourceCounts.lat1+1,lat2:sourceCounts.lat2+1});
 });
 test('Filtro Examen UD8 muestra las 17 fichas, sin filtrar General ni alterar UD10',()=>{
  assert.equal(scope(original,['UD 8']).length,0);

@@ -27,6 +27,7 @@ import {buildVocabulaPwa} from './build-vocabula-pwa.mjs';
 import {buildGrammarReview} from './build-repaso-gramatica.mjs';
 import {buildGrammarReviewPwa} from './build-repaso-gramatica-pwa.mjs';
 import {verifyVendoredVocabula} from './verify-vendored-vocabula.mjs';
+import {integrateReviewedTeacherWords} from './migrate-vocabula-teacher-words.mjs';
 import {verifyVendoredEvolutio} from './verify-vendored-evolutio.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'vendor/appendix');
@@ -163,8 +164,11 @@ if(!Array.isArray(originalWords)||originalWords.length<1000)
 // Enmiendas filológicas reproducibles: la fuente inmovilizada y sus originales
 // siguen intactos; ambas vistas integradas muestran los mismos lemas.
 const studentWords=applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(originalWords)));
+// La fuente y el catálogo histórico permanecen intactos; el alumnado recibe además
+// las dos altas docentes contrastadas, con sus IDs de progreso locales originales.
+const studentWordsWithTeacher=integrateReviewedTeacherWords(studentWords);
 await writeFile(join(vocabulaDestination,'data.js'),
-  'window.VOCAB='+JSON.stringify(studentWords)+';\n');
+  'window.VOCAB='+JSON.stringify(studentWordsWithTeacher)+';\n');
 const docenteWords=studentWords.map(({id,subject,mode,form,meaning,answers,units})=>
   ({id,subject,mode,form,meaning,answers,units}));
 await writeFile(join(out,'docente/vocabula-catalog.json'),JSON.stringify({

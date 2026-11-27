@@ -14,6 +14,7 @@ import {auditLatinAdditionalBilingualSemantics} from './audit-latin-bilingual-ex
 import {LATIN4_LEXICAL_CORRECTIONS} from './latin4-lexical-editorial.mjs';
 import {LATIN4_UD8_EXAM_REVIEW} from './latin4-ud8-reconciliation.mjs';
 import {GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_ID} from './greek1-kindynos-ud5-decision.mjs';
+import {APPROVED_TEACHER_WORDS} from './migrate-vocabula-teacher-words.mjs';
 
 export const TRANSVERSAL_COURSES=Object.freeze([
   {key:'latin1',subject:'lat1',language:'latin',grammar:'latin',
@@ -64,9 +65,14 @@ function tables(topic){
 }
 function assertLexicalIntegrity(original,adapted){
   assert.equal(original.length,2055,'El banco fuente de vocabulario cambió');
-  assert.equal(adapted.length,original.length,'La integración eliminó fichas');
+  assert.equal(adapted.length,original.length+APPROVED_TEACHER_WORDS.length,
+    'La integración debe preservar el banco y las dos altas docentes contrastadas');
   const byId=new Map(adapted.map(x=>[x.id,x]));
   assert.equal(byId.size,adapted.length,'IDs duplicados en la integración');
+  for(const extra of APPROVED_TEACHER_WORDS){
+    assert.deepEqual(byId.get(extra.id),extra,
+      'La aportación docente ha cambiado o ha perdido su ID: '+extra.id);
+  }
   const editedForms=new Map(LATIN4_LEXICAL_CORRECTIONS.map(x=>[x.id,x.form]));
   const revisedUnits=new Set(LATIN4_UD8_EXAM_REVIEW.map(x=>x.examId));
   const intentional=[];

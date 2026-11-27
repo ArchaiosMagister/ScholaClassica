@@ -8,6 +8,7 @@ import {correctLatin4Vocabula,LATIN4_LEXICAL_CORRECTIONS} from '../scripts/latin
 import {reconcileLatin4ExamUd8,LATIN4_UD8_EXAM_REVIEW} from '../scripts/latin4-ud8-reconciliation.mjs';
 import {applyGreek1KindynosUd5,GREEK1_KINDYNOS_GENERAL_ID,GREEK1_KINDYNOS_EXAM_ID} from '../scripts/greek1-kindynos-ud5-decision.mjs';
 import {adaptVocabulaAllHtml,adaptVocabulaAllApp,adaptVocabulaAllReport} from '../scripts/adapt-vocabula-all.mjs';
+import {integrateReviewedTeacherWords} from '../scripts/migrate-vocabula-teacher-words.mjs';
 import {adaptVocabulaOfflineHtml,adaptVocabulaOfflineTeacher} from '../scripts/adapt-vocabula-offline.mjs';
 const root=resolve(import.meta.dirname,'..');
 const source=join(root,'vendor/vocabula'),target=join(root,'dist/apps/vocabulario');
@@ -81,10 +82,10 @@ test('Cuatro enmiendas de 4.º se corrigen en la copia, preservando el origen co
  const to=JSON.parse(readFileSync(join(target,'data.js'),'utf8')
    .replace(/^window\.VOCAB\s*=\s*/,'').replace(/;\s*$/,''));
  assert.equal(from.length,2055);
- assert.equal(to.length,from.length);
- assert.deepEqual(to,applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(from))));
- const changes=to.filter((e,i)=>e.form!==from[i].form);
- const allUnitChanges=to.filter((e,i)=>e.units.join('|')!==from[i].units.join('|'));
+ assert.equal(to.length,from.length+2);
+ assert.deepEqual(to,integrateReviewedTeacherWords(applyGreek1KindynosUd5(reconcileLatin4ExamUd8(correctLatin4Vocabula(from)))));
+ const changes=to.slice(0,from.length).filter((e,i)=>e.form!==from[i].form);
+ const allUnitChanges=to.slice(0,from.length).filter((e,i)=>e.units.join('|')!==from[i].units.join('|'));
  assert.equal(allUnitChanges.length,18,'17 Latín 4.º y una Griego I');
  const curriculumChanges=allUnitChanges.filter(e=>e.subject==='lat4');
  assert.equal(curriculumChanges.length,17);

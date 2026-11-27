@@ -20,7 +20,7 @@ const key=s=>String(s).split(':')[0].split(/[,+(]/u)[0]
 
 test('No se modifican las fichas salvo decisiones de 4.º y κίνδυνος General UD5',()=>{
  assert.equal(origin.length,2055);
- assert.equal(current.length,2055);
+ assert.equal(current.length,2057);
  for(let i=0;i<origin.length;i++){
   assert.equal(origin[i].id,current[i].id);
   if(['lat1','gr1'].includes(origin[i].subject)&&
@@ -133,7 +133,7 @@ test('Fichas de examen, procedencia y progreso conservan sus valores anteriores'
  };
  assert.deepEqual(JSON.parse(JSON.stringify(originalProgress)),originalProgress);
  // No se crean identificadores nuevos y el etiquetado no toca progreso.
- assert.deepEqual(new Set(current.map(e=>e.id)).size,2055);
+ assert.deepEqual(new Set(current.map(e=>e.id)).size,2057);
  const markup=readFileSync(join(root,'dist/apps/vocabulario/app.js'),'utf8');
  assert.match(markup,/value="\$\{esc\(u\)\}"/u,
   'Las casillas deben conservar sus claves técnicas, no las etiquetas');

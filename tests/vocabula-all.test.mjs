@@ -26,9 +26,9 @@ const canonical=e=>JSON.stringify(e);
 
 test('Vista Todo solo en el artefacto: conserva las 2055 fichas, los IDs y sus unidades',()=>{
  assert.equal(source.length,2055);
- assert.equal(actual.length,2055);
- assert.deepEqual(actual.map(e=>e.id),source.map(e=>e.id));
- assert.equal(new Set(actual.map(e=>e.id)).size,2055);
+ assert.equal(actual.length,2057);
+ assert.deepEqual(actual.slice(0,source.length).map(e=>e.id),source.map(e=>e.id));
+ assert.equal(new Set(actual.map(e=>e.id)).size,2057);
  for(let i=0;i<source.length;i++)if(source[i].subject!=='lat4'&&
    source[i].id!==GREEK1_KINDYNOS_GENERAL_ID)
    assert.deepEqual(actual[i],source[i],'Fichas alteradas de '+source[i].subject);
@@ -61,7 +61,7 @@ test('Vista Todo solo en el artefacto: conserva las 2055 fichas, los IDs y sus u
 });
 
 test('Deduplicación conservadora: todos los cursos, fuentes, acepciones y originalidad',()=>{
- const expectations={lat1:745,gr1:385,lat4:447,lat2:126};
+ const expectations={lat1:746,gr1:385,lat4:447,lat2:127};
  for(const [subject,expected] of Object.entries(expectations)){
   const cohort=actual.filter(e=>e.subject===subject);
   const initial=JSON.stringify(cohort);
