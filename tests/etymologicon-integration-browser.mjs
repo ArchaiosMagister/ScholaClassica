@@ -75,6 +75,34 @@ try{
  await page.locator('#study-search').fill('');
 
 
+ // Solo las fichas con explicación marcada conservan el sentido etimológico.
+ const connectionAudit=await page.evaluate(async()=>{
+   const catalog=await (await fetch('./data/gr1-study.json')).json();
+   const byId=new Map(catalog.words.map(word=>[word.id,word]));
+   const cards=[...document.querySelectorAll('#study-entries .lexical-word')];
+   const errors=[];
+   let retained=0,omitted=0;
+   for(const card of cards){
+     const word=byId.get(card.dataset.wordId);
+     if(!word){errors.push('Ficha sin correspondencia');continue;}
+     const connection=card.querySelector('.lexical-connection');
+     const label=[...card.querySelectorAll('.lexical-small-label')].some(el=>el.textContent==='Sentido etimológico');
+     const expected=Boolean(word.reviewedDefinition&&word.connection);
+     if(expected)retained++;else omitted++;
+     if(Boolean(connection)!==expected||label!==expected||
+       (expected&&connection.textContent!==word.connection))errors.push(word.form+': sentido etimológico');
+     if(card.querySelector('.lexical-definition')?.textContent!==(word.reviewedDefinition||word.definition))
+       errors.push(word.form+': definición');
+     if(card.querySelectorAll('.lexical-component').length!==word.components.length)
+       errors.push(word.form+': componentes');
+     if(word.editorialNote&&card.querySelector('.lexical-alert')?.textContent!==word.editorialNote)
+       errors.push(word.form+': nota editorial');
+   }
+   return {retained,omitted,errors};
+ });
+ assert.ok(connectionAudit.retained>0&&connectionAudit.omitted>0);
+ assert.deepEqual(connectionAudit.errors,[],'Conservar solo sentidos marcados y toda la información restante');
+
  // Jerarquía curricular: cada étimo aparece una sola vez, en su primera unidad.
  const grouped=await page.locator('.lexicon-unit-section').evaluateAll(sections=>sections.map(section=>({
    unit:section.dataset.unit,
@@ -198,6 +226,20 @@ try{
  await page.locator('#inverse-reveal').click();
  assert.equal(await page.locator('#inverse-answer').isVisible(),true);
  assert.ok(await page.locator('#inverse-answer [lang="grc"]').count()>0);
+ const inverseConnectionAudit=await page.evaluate(async()=>{
+   const catalog=await (await fetch('./data/gr1-study.json')).json();
+   const form=document.querySelector('#inverse-word').textContent;
+   const definition=document.querySelector('#inverse-definition').textContent;
+   const word=catalog.words.find(w=>w.admission?.practiceEligible&&w.form===form&&
+     (w.reviewedDefinition||w.definition)===definition);
+   const answer=document.querySelector('#inverse-answer');
+   const connection=answer.querySelector('.lexical-connection');
+   const label=[...answer.querySelectorAll('.lexical-small-label')].some(el=>el.textContent==='Sentido etimológico');
+   return Boolean(word)&&Boolean(connection)===Boolean(word.reviewedDefinition&&word.connection)&&
+     label===Boolean(connection)&&(!connection||connection.textContent===word.connection)&&
+     (!word.editorialNote||answer.querySelector('.lexical-alert')?.textContent===word.editorialNote);
+ });
+ assert.ok(inverseConnectionAudit,'Estudio inverso: mismo criterio de presentación y notas conservadas');
  await page.locator('#inverse-next').click();
  assert.notEqual(await page.locator('#inverse-word').textContent(),firstInverse);
  assert.equal(await page.locator('#inverse-answer').textContent(),'');
