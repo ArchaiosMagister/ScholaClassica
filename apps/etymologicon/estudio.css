@@ -111,3 +111,12 @@
   .lexicon-tools,.inverse-study{padding:12px}
   .lexicon-unit-heading{padding:8px 10px}
 }
+
+/* El marcador nativo no se muestra con display:grid: indicador explícito. */
+.lexicon-group-summary{position:relative;padding-left:32px;list-style:none}
+.lexicon-group-summary::-webkit-details-marker{display:none}
+.lexicon-group-summary::before{content:"";position:absolute;left:13px;top:50%;
+  width:7px;height:7px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:translateY(-50%) rotate(-45deg)}
+.lexicon-group[open]>.lexicon-group-summary::before{transform:translateY(-70%) rotate(45deg)}
+@media(max-width:600px){.lexicon-group-summary{padding-left:26px}.lexicon-group-summary::before{left:10px}}
