@@ -147,7 +147,31 @@ function render(){
       a.etymon.lemma.localeCompare(b.etymon.lemma,'el'));
   const fragment=document.createDocumentFragment();
   let shownWords=0;
+  let unitSection=null,currentUnit=null;
+  const byCurriculum=ui.sort.value==='curriculum';
+  const unitCounts=new Map();
+  if(byCurriculum){
+    for(const item of matches){
+      const key=unit==='all'?minimumUnit(item.etymon):Number(unit.replace('UD',''));
+      unitCounts.set(key,(unitCounts.get(key)||0)+1);
+    }
+  }
   for(const item of matches){
+    if(byCurriculum){
+      const key=unit==='all'?minimumUnit(item.etymon):Number(unit.replace('UD',''));
+      if(currentUnit!==key){
+        currentUnit=key;
+        unitSection=element('section',null,'lexicon-unit-section');
+        unitSection.dataset.unit=key===99?'unassigned':'UD'+key;
+        const heading=element('h2',null,'lexicon-unit-heading');
+        heading.id='study-unit-heading-'+key;
+        heading.append(element('span',key===99?'Sin unidad asignada':'Unidad '+key),
+          element('span',unitCounts.get(key)+' étimos','lexicon-unit-count'));
+        unitSection.setAttribute('aria-labelledby',heading.id);
+        unitSection.append(heading);
+        fragment.append(unitSection);
+      }
+    }
     const group=element('details',null,'lexicon-group');
     if(focusedEtymon===item.etymon.id)group.classList.add('lexicon-group--target');
     const title=element('summary',null,'lexicon-group-summary');
@@ -173,7 +197,7 @@ function render(){
       else openGroups.delete(item.etymon.id);
     });
     group.dataset.etymonId=item.etymon.id;
-    fragment.append(group);
+    (byCurriculum?unitSection:fragment).append(group);
   }
   const standalone=unit==='all'?data.words.filter(w=>!w.etymonIds.length&&matchesWord(w)):[];
   if(standalone.length){
