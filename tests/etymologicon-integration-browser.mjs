@@ -54,6 +54,27 @@ try{
   'Los 111 étimos del glosario deben poder consultarse');
  assert.match(await page.locator('#study-count').textContent(),/^111 étimos · /);
 
+ // Glosas de estudio abreviadas: no se modifica el significado académico ni la búsqueda.
+ const headerMeaning=id=>page.locator('details[data-etymon-id="'+id+'"] .lexicon-meaning');
+ assert.equal(await headerMeaning('grc:φερω').textContent(),'llevar');
+ assert.equal(await headerMeaning('grc:θεοσ').textContent(),'dios');
+ assert.equal(await headerMeaning('grc:λογοσ').textContent(),'palabra; discurso; razón');
+ const academicMeanings=await page.evaluate(async()=>{
+   const [practice,study]=await Promise.all(['gr1.json','gr1-study.json'].map(async name=>
+     (await fetch('./data/'+name)).json()));
+   return [practice,study].map(catalog=>catalog.etymons.find(e=>e.id==='grc:φερω').meaning);
+ });
+ for(const meaning of academicMeanings)assert.match(meaning,/transportar/);
+ await page.locator('#study-search').fill('transportar');
+ assert.equal(await headerMeaning('grc:φερω').textContent(),'llevar');
+ await page.locator('#study-search').fill('antropología');
+ const anthropology=page.locator('.lexical-word').filter({
+   has:page.locator('.lexical-word-title',{hasText:/^antropología$/})
+ }).first();
+ assert.match(await anthropology.locator('.lexical-component').filter({hasText:'λόγος'}).textContent(),/estudio/);
+ await page.locator('#study-search').fill('');
+
+
  // Jerarquía curricular: cada étimo aparece una sola vez, en su primera unidad.
  const grouped=await page.locator('.lexicon-unit-section').evaluateAll(sections=>sections.map(section=>({
    unit:section.dataset.unit,
