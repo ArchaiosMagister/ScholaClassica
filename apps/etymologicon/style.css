@@ -1,15 +1,15 @@
 :root{
-  color-scheme:light;--bg:#f3f6fb;--panel:#fff;--ink:#213148;--muted:#586a7e;--line:#d5dfeb;
-  --accent:#285c95;--accent-hover:#1a4778;--accent-contrast:#fff;--highlight:#fff0a6;
+  color-scheme:light;--bg:#f2f7fc;--panel:#fff;--ink:#16334f;--muted:#536b80;--line:#cbdfee;
+  --accent:#1259a5;--accent-hover:#10467f;--accent-contrast:#fff;--highlight:#fff0a6;
   --success:#176148;--success-bg:#e8f6ee;--warning:#8b4a11;--warning-bg:#fff2db;
-  --error:#9d3040;--error-bg:#fff0f2;--field:#fff;--field-border:#9cabbc;--top:#172e49;
+  --error:#9d3040;--error-bg:#fff0f2;--field:#fff;--field-border:#8da9c2;--top:#124b85;
   --shadow:0 10px 30px rgba(17,36,64,.06)
 }
 :root:is([data-theme="dark"],[data-theme="oled"]){
-  color-scheme:dark;--bg:#101a27;--panel:#1a2939;--ink:#e8eff6;--muted:#b3c4d3;--line:#41536a;
-  --accent:#80b6f1;--accent-hover:#a3cefa;--accent-contrast:#102037;--highlight:#655323;
+  color-scheme:dark;--bg:#0c1827;--panel:#14283d;--ink:#eaf3ff;--muted:#b4c9df;--line:#365675;
+  --accent:#80c4ff;--accent-hover:#b4ddff;--accent-contrast:#08243d;--highlight:#655323;
   --success:#9adfc3;--success-bg:#193c32;--warning:#f3c687;--warning-bg:#48341f;
-  --error:#f6a7b2;--error-bg:#4b2831;--field:#172538;--field-border:#8495aa;--top:#0b1420;
+  --error:#f6a7b2;--error-bg:#4b2831;--field:#13283e;--field-border:#7796b7;--top:#0a2039;
   --shadow:0 10px 30px rgba(0,0,0,.20)
 }
 :root[data-theme="oled"]{
@@ -18,10 +18,10 @@
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme]){
-    color-scheme:dark;--bg:#101a27;--panel:#1a2939;--ink:#e8eff6;--muted:#b3c4d3;--line:#41536a;
-    --accent:#80b6f1;--accent-hover:#a3cefa;--accent-contrast:#102037;--highlight:#655323;
+    color-scheme:dark;--bg:#0c1827;--panel:#14283d;--ink:#eaf3ff;--muted:#b4c9df;--line:#365675;
+    --accent:#80c4ff;--accent-hover:#b4ddff;--accent-contrast:#08243d;--highlight:#655323;
     --success:#9adfc3;--success-bg:#193c32;--warning:#f3c687;--warning-bg:#48341f;
-    --error:#f6a7b2;--error-bg:#4b2831;--field:#172538;--field-border:#8495aa;--top:#0b1420;
+    --error:#f6a7b2;--error-bg:#4b2831;--field:#13283e;--field-border:#7796b7;--top:#0a2039;
     --shadow:0 10px 30px rgba(0,0,0,.20)
   }
 }
@@ -38,14 +38,14 @@ button:disabled,select:disabled{cursor:not-allowed;opacity:.6}
 .site-header{background:var(--top);color:#fff}
 .header-inner{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 24px;min-height:88px}
 .brand-lockup{display:flex;align-items:center;gap:12px}
-.brand-mark{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#e6f2ff;color:#214c80;font:700 2rem Georgia,serif}
+.brand-mark{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#e6f2ff;color:#1259a5;font:700 2rem Georgia,serif}
 .brand-type{display:block;font-size:1.24rem;font-weight:750;letter-spacing:-.02em}
 .brand-type small{display:block;font-size:.75rem;font-weight:500;letter-spacing:.06em;color:#cedbeb}
 /* Navegación táctil consistente en portada, práctica y estudio. */
 .site-header .header-nav{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
 .site-header .header-nav .header-link,.site-header .header-nav .header-update{
   appearance:none;display:inline-flex;align-items:center;justify-content:center;min-height:42px;
-  padding:9px 13px;border:1px solid #759ac2;border-radius:10px;
+  padding:9px 13px;border:1px solid #86b8e6;border-radius:10px;
   color:#f4f8ff;background:#ffffff13;text-decoration:none;
   font:650 .85rem/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;
   white-space:nowrap;cursor:pointer;box-sizing:border-box
@@ -57,8 +57,8 @@ button:disabled,select:disabled{cursor:not-allowed;opacity:.6}
   outline:3px solid #e0f0ff;outline-offset:3px
 }
 .site-header .header-nav .header-link--external{background:#ffffff08}
-.site-header .header-nav .header-update{background:#e4f2ff;color:#183c66;border-color:#d2e8ff;font-weight:800}
-.site-header .header-nav .header-update:hover{background:#fff;color:#173454}
+.site-header .header-nav .header-update{background:#e4f2ff;color:#124b85;border-color:#d2e8ff;font-weight:800}
+.site-header .header-nav .header-update:hover{background:#fff;color:#10467f}
 .site-header .header-nav .header-update--ready{background:#b1e8cf;color:#10382c;border-color:#b1e8cf}
 .site-header .header-nav .header-update:disabled{opacity:.7;cursor:wait}
 .site-header .header-nav [hidden]{display:none}

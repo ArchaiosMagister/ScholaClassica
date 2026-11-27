@@ -54,6 +54,33 @@ try{
   'Los 111 étimos del glosario deben poder consultarse');
  assert.match(await page.locator('#study-count').textContent(),/^111 étimos · /);
 
+ // Jerarquía curricular: cada étimo aparece una sola vez, en su primera unidad.
+ const grouped=await page.locator('.lexicon-unit-section').evaluateAll(sections=>sections.map(section=>({
+   unit:section.dataset.unit,
+   ids:[...section.querySelectorAll('details')].map(group=>group.dataset.etymonId),
+   expected:[...section.querySelectorAll('.lexicon-units')].map(el=>{
+     const units=[...el.textContent.matchAll(/UD(\d+)/g)].map(match=>Number(match[1]));
+     return units.length?'UD'+Math.min(...units):'unassigned';
+   })
+ })));
+ assert.ok(grouped.length>1,'Debe haber separación visual entre unidades');
+ const groupedIds=grouped.flatMap(section=>section.ids);
+ assert.equal(groupedIds.length,111);
+ assert.equal(new Set(groupedIds).size,111);
+ for(const section of grouped)assert.ok(section.expected.every(unit=>unit===section.unit));
+ await page.locator('#study-sort').selectOption('alphabetical');
+ assert.equal(await page.locator('.lexicon-unit-section').count(),0);
+ assert.equal(await page.locator('#study-entries details.lexicon-group').count(),111);
+ await page.locator('#study-sort').selectOption('curriculum');
+ // Comprobar que las fichas abiertas caben también en una pantalla de móvil.
+ const originalViewport=page.viewportSize();
+ await page.setViewportSize({width:375,height:812});
+ await page.locator('#study-entries details summary').first().click();
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),
+   'El glosario compacto no debe producir desplazamiento horizontal');
+ await page.locator('#study-entries details summary').first().click();
+ if(originalViewport)await page.setViewportSize(originalViewport);
+
  // Filtros y búsqueda normalizada, sin escrituras en el historial.
  const sampleWord=(await page.locator('#study-entries .lexical-word-title').first().textContent()).trim();
  assert.ok(sampleWord.length>1,'Debe existir un derivado consultable');
@@ -95,6 +122,9 @@ try{
  await page.locator('#study-unit').selectOption({index:1});
  assert.ok((await page.locator('#study-entries details.lexicon-group').count())>0,
   'La primera unidad debe ofrecer entradas');
+ assert.equal(await page.locator('.lexicon-unit-section').count(),1);
+ assert.equal(await page.locator('.lexicon-unit-section').getAttribute('data-unit'),
+   await page.locator('#study-unit').inputValue());
  await page.locator('#study-unit').selectOption('all');
  await page.locator('#study-expand').click();
  assert.equal(await page.locator('#study-entries details[open]').count(),111);
