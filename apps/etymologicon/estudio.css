@@ -126,7 +126,12 @@
    No afecta a los encabezados de familia, ni al estudio inverso. */
 .lexicon-word-list{
   grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));
-  align-items:start;
+  /* Todas las filas de una familia toman la altura de su ficha más alta.
+     Sin alturas fijas, recortes ni límites de líneas: el contenido manda. */
+  grid-auto-rows:1fr;
+  align-items:stretch;
 }
+/* El título de las fichas sin étimo curricular no debe adquirir la altura de una tarjeta. */
+section.lexicon-word-list{grid-template-rows:auto}
 .lexicon-word-list>h2,.lexicon-word-list>.lexicon-empty{grid-column:1/-1}
-.lexicon-word-list>.lexical-word{align-self:start}
+.lexicon-word-list>.lexical-word{align-self:stretch}
