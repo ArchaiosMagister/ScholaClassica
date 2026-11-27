@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
-import {correctCastilianSourceWords,assertCastilianSyncopeSpans} from '../scripts/evolutio-castellano-lote100.mjs';
+import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans} from '../scripts/evolutio-castellano-lote100.mjs';
 import {
  resultSpellingDistance,resultDifficultyComponents,resultDifficultyScore,
  resultDifficultyLevel,curatedDifficultyLevel,curatedDifficultyIds,RESULT_DIFFICULTY_METHOD
@@ -213,4 +213,17 @@ test('Auditoría de fragmentos: segunda c de crucem y fenómenos omitidos del lo
   assert.ok(w.changes.some(c=>c.rule===rule&&JSON.stringify(c.spans)===JSON.stringify(spans)&&c.output===output),latin);
   assert.equal(gradeChange(w,{rule,spans}).correct,true,latin);
  }
+});
+
+test('Apócopes finales y sonorizaciones interiores: nueve intervalos corregidos',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ for(const [id,latin,changeId,rule,oldPos,newPos] of [["xl-36","cæcare","t2","SONOR",0,2],["xl-37","cæcum","t3","SONOR",0,2],["xl-78","cucullum","t2","SONOR",0,2],["xl-246","pŏpŭlum","t2","SONOR",0,2],["xl-87","decollare","t3","APOC",1,8],["xl-201","meliorem","t2","APOC",1,6],["xl-921","pensare","t2","APOC",1,6],["xl-509","temptare","t2","APOC",1,7],["xl-825","despoliare","t2","APOC",1,9]]){
+  const w=word(latin),old=unchanged.words.find(w=>w.id===id);
+  assert.equal(w.id,id);
+  assert.deepEqual(w.changes.find(c=>c.id===changeId).spans,[[newPos,newPos+1]]);
+  assert.equal(gradeChange(w,{rule,spans:[[oldPos,oldPos+1]]}).correct,false,latin);
+  assert.equal(gradeChange(w,{rule,spans:[[newPos,newPos+1]]}).correct,true,latin);
+  assert.throws(()=>assertCastilianPositionSpans([old]),/apócope no final|sonorización asignada/);
+ }
+ assert.doesNotThrow(()=>assertCastilianPositionSpans(bank.words));
 });

@@ -180,10 +180,21 @@ const SYNCOPE_FIXES=Object.freeze({
  'xl-29':'auricŭlam',
  'xl-80':'cunicŭlum'
 });
+// Intervalos documentados por la propia explicación de cada ficha.
+const POSITION_FIXES=new Map([["xl-36",["cæcare","t2","SONOR",0,2]],["xl-37",["cæcum","t3","SONOR",0,2]],["xl-78",["cucullum","t2","SONOR",0,2]],["xl-246",["pŏpŭlum","t2","SONOR",0,2]],["xl-87",["decollare","t3","APOC",1,8]],["xl-201",["meliorem","t2","APOC",1,6]],["xl-921",["pensare","t2","APOC",1,6]],["xl-509",["temptare","t2","APOC",1,7]],["xl-825",["despoliare","t2","APOC",1,9]]]);
 export function correctCastilianSourceWords(words){
  const seen=new Set();
  let crucemFound=false;
+ const positionSeen=new Set();
  const corrected=words.map(word=>{
+  if(POSITION_FIXES.has(word.id)){
+   const [latin,id,rule,oldPos,newPos]=POSITION_FIXES.get(word.id);
+   const change=word.changes.find(c=>c.id===id);
+   if(word.latin!==latin||change?.rule!==rule||JSON.stringify(change.spans)!==JSON.stringify([[oldPos,oldPos+1]])||[...latin][oldPos]!==[...latin][newPos])
+    throw Error('Evolutio: cambió el intervalo fuente '+word.id);
+   positionSeen.add(word.id);
+   return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[newPos,newPos+1]]}:c)};
+  }
   if(word.id==='xl-75'){
    const change=word.changes.find(c=>c.id==='t1');
    if(word.latin!=='crucem'||change?.rule!=='PALAT'||JSON.stringify(change.spans)!=='[[0,1]]')
@@ -199,7 +210,7 @@ export function correctCastilianSourceWords(words){
   seen.add(word.id);
   return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[5,6]]}:c)};
  });
- if(!crucemFound||seen.size!==Object.keys(SYNCOPE_FIXES).length)throw Error('Evolutio: faltan fichas de corrección');
+ if(!crucemFound||positionSeen.size!==POSITION_FIXES.size||seen.size!==Object.keys(SYNCOPE_FIXES).length)throw Error('Evolutio: faltan fichas de corrección');
  return corrected;
 }
 
@@ -220,6 +231,18 @@ export function assertCastilianSyncopeSpans(words){
  }
 }
 
+export function assertCastilianPositionSpans(words){
+ for(const word of words){
+  const letters=[...word.latin.normalize('NFC')];
+  const end=letters.length-(letters.at(-1)?.toLowerCase()==='m'?1:0);
+  for(const change of word.changes){
+   if(change.rule==='APOC'&&!change.spans.some(([,b])=>b===end))
+    throw Error('Evolutio: apócope no final '+word.latin);
+   if(change.rule==='SONOR'&&change.spans.some(([a])=>a===0))
+    throw Error('Evolutio: sonorización asignada a consonante inicial '+word.latin);
+  }
+ }
+}
 export function integrateCastilianAdditions(base){
  if(base?.version!==1||base?.words?.length!==522)
   throw Error('Lote 100: cambió el banco fuente fijado de Evolutio');
@@ -241,5 +264,6 @@ export function integrateCastilianAdditions(base){
  }
  const words=[...correctCastilianSourceWords(base.words),...additions];
  assertCastilianSyncopeSpans(words);
+ assertCastilianPositionSpans(words);
  return {...base,words};
 }
