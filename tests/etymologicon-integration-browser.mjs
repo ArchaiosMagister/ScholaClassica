@@ -99,17 +99,23 @@ try{
    groups.findIndex(group=>group.querySelectorAll('.lexicon-word-list > .lexical-word').length>=3));
  assert.ok(familyIndex>=0,'Debe existir una familia con al menos tres derivados');
  const gridFamily=page.locator('#study-entries details.lexicon-group').nth(familyIndex);
- await gridFamily.locator('summary').click();
+ // La búsqueda anterior puede haber abierto esta familia. No invertir a ciegas.
+ if(await gridFamily.getAttribute('open')===null)await gridFamily.locator('summary').click();
+ assert.equal(await gridFamily.getAttribute('open'),'','Familia abierta antes de medir');
  const wordList=gridFamily.locator('.lexicon-word-list');
+ await wordList.waitFor({state:'visible'});
  for(const [width,columns] of [[375,1],[768,2],[1024,3],[1280,3]]){
    await page.setViewportSize({width,height:900});
-   const layout=await wordList.evaluate(el=>{
+   const layout=await wordList.evaluate(async el=>{
+     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+     if(!el.closest('details').open)throw Error('Familia cerrada antes de medir');
      const cards=[...el.querySelectorAll(':scope > .lexical-word')];
      const rects=cards.map(card=>card.getBoundingClientRect());
      return {
        columns:getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length,
        firstRow:rects.filter(rect=>Math.abs(rect.top-rects[0].top)<1).length,
-       withinCards:cards.every(card=>card.scrollWidth<=card.clientWidth+1),
+       withinCards:cards.every(card=>card.getBoundingClientRect().width>0&&
+         card.getBoundingClientRect().height>0&&card.scrollWidth<=card.clientWidth+1),
        pageFits:document.documentElement.scrollWidth<=window.innerWidth
      };
    });
