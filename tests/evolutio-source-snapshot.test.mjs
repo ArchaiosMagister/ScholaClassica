@@ -32,6 +32,6 @@ test('El banco original no incorpora ni altera las 100 palabras adicionales de S
  const integrated=JSON.parse(readFileSync(join(root,'dist/apps/evolucion-fonetica/data/pilot.json'),'utf8'));
  assert.equal(integrated.words.length,622);
  assert.deepEqual(integrated.words.slice(0,522),correctCastilianSourceWords(original.words));
- assert.deepEqual(original.words.filter((w,i)=>JSON.stringify(w)!==JSON.stringify(integrated.words[i])).map(w=>w.id).sort(),['xl-29','xl-80']);
+ assert.deepEqual(original.words.filter((w,i)=>JSON.stringify(w)!==JSON.stringify(integrated.words[i])).map(w=>w.id).sort(),['xl-29','xl-75','xl-80']);
  assert.equal(new Set(integrated.words.map(w=>w.id)).size,622);
 });

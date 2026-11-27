@@ -191,3 +191,26 @@ test('Síncopa de auricŭlam y cunicŭlum: se evalúa la segunda u, no la primer
  assert.throws(()=>assertCastilianSyncopeSpans([unchanged.words.find(w=>w.id==='xl-29')]),/síncopa sobre monoptongación/);
  assert.throws(()=>assertCastilianSyncopeSpans([unchanged.words.find(w=>w.id==='xl-80')]),/síncopa de -cul- mal ubicada/);
 });
+
+test('Auditoría de fragmentos: segunda c de crucem y fenómenos omitidos del lote 100',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const c=word('crucem');
+ assert.equal(gradeChange(c,{rule:'PALAT',spans:[[0,1]]}).correct,false);
+ assert.equal(gradeChange(c,{rule:'PALAT',spans:[[3,4]]}).correct,true);
+ for(const [latin,rule,spans,output] of [
+  ['super','METAT',[[3,4],[4,5]],'re'],
+  ['duplare','SONOR',[[2,3]],'b'],
+  ['duplare','APOC',[[6,7]],'∅'],
+  ['lucrum','SONOR',[[2,3]],'g'],
+  ['comitatum','ASMIL',[[2,3]],'n'],
+  ['semitam','ASMIL',[[2,3]],'n'],
+  ['consuturam','SINC',[[4,5]],'∅'],
+  ['cultellum','PALAT',[[5,7]],'ll'],
+  ['maxillam','PALAT',[[4,6]],'ll'],
+  ['recipere','APOC',[[7,8]],'∅']
+ ]){
+  const w=word(latin);
+  assert.ok(w.changes.some(c=>c.rule===rule&&JSON.stringify(c.spans)===JSON.stringify(spans)&&c.output===output),latin);
+  assert.equal(gradeChange(w,{rule,spans}).correct,true,latin);
+ }
+});

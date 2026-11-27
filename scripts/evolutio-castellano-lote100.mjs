@@ -13,7 +13,7 @@ const RAW=`
 49|capram|cabra|S2=b
 55|cĕntum|ciento|A4=o,D1=ie,P0=c
 57|cĕrvum|ciervo|A4=o,D1=ie,P0=c
-79|cultellum|cuchillo|A7=o,P2-4=ch
+79|cultellum|cuchillo|A7=o,P2-4=ch,P5-7=ll
 85|dĕcem|diez|C3=∅,D1=ie,P2=z
 94|dixi|dije|A3=e,P2=j
 95|dixit|dijo|P2=j
@@ -36,7 +36,7 @@ const RAW=`
 187|macrum|magro|A4=o,S2=g
 195|mascŭlum|macho|A6=o,P2-4=ch,I4=∅
 197|materiam|madera|I5=∅,S2=d
-200|maxillam|mejilla|P2=j
+200|maxillam|mejilla|P2=j,P4-6=ll
 224|pacem|paz|C3=∅,P2=z
 229|pariētem|pared|C6=∅,I3=∅,S5=d
 230|patrem|padre|S2=d
@@ -47,13 +47,13 @@ const RAW=`
 254|quattuor|cuatro|L3-5=t
 256|radicem|raíz|C5=∅,P4=z,I2=∅
 260|rancidum|rancio|A6=o,P3-5=ci,I5=∅
-264|recipere|recibir|S4=b
+264|recipere|recibir|S4=b,C7=∅
 265|regem|rey|P2-4=y
 269|sacratum|sagrado|A6=o,S2=g,S5=d
 276|scutarium|escudero|A7=o,R0-0=e,S3=d
 292|sitim|sed|A1=e,S2=d,I3=∅
 295|sŏlet|suele|D1=ue
-310|super|sobre|A1=o,S2=b
+310|super|sobre|A1=o,S2=b,T3-5=re
 317|tegŭlam|teja|P2-5=j,I3=∅
 318|tĕnĕrum|tierno|A5=o,D1=ie,I3=∅
 324|tingit|tiñe|P2-5=ñ,C5=∅
@@ -63,15 +63,15 @@ const RAW=`
 336|vindĭcāre|vengar|A1=e,I4=∅,S5=g,C8=∅
 337|vineam|viña|P2-4=ñ
 348|augustum|agosto|A3=o,M0-2=a,A6=o
-375|duplare|doblar|A1=o
+375|duplare|doblar|A1=o,S2=b,C6=∅
 376|duritiam|dureza|A3=e,P4-6=z
 378|fluxum|flojo|A2=o,P3=j,A4=o
-399|lucrum|logro|A1=o,A4=o
+399|lucrum|logro|A1=o,A4=o,S2=g
 413|novitatem|novedad|A3=e,S4=d,S6=d,C7=∅
 426|providere|proveer|I5=∅,C8=∅
 428|puteum|pozo|A1=o,A4=o,P2-4=z
-490|comitatum|condado|A7=o,I3=∅,S4=d,S6=d
-506|semitam|senda|I3=∅,S4=d
+490|comitatum|condado|A7=o,I3=∅,S4=d,S6=d,B2=n
+506|semitam|senda|I3=∅,S4=d,B2=n
 511|facere|hacer|H0=h,P2=c,C5=∅
 512|falconem|halcón|H0=h,C6=∅
 513|farturam|hartura|H0=h
@@ -95,7 +95,7 @@ const RAW=`
 946|aperire|abrir|C6=∅,I2=∅,S1=b
 949|bonitatem|bondad|I3=∅,S4=d,S6=d,C7=∅
 953|collocare|colgar|L2-4=l,I4=∅,S5=g,C8=∅
-955|consuturam|costura|L2-4=s
+955|consuturam|costura|L2-4=s,I4=∅
 959|diabolum|diablo|A6=o,I4=∅
 961|eremitam|ermita|I2=∅
 965|honorare|honrar|I3=∅,C7=∅
@@ -116,7 +116,8 @@ const RULES=Object.freeze({
  A:['ABER','abertura'],D:['DIPT','diptongación'],P:['PALAT','palatalización'],
  S:['SONOR','sonorización'],I:['SINC','síncopa'],C:['APOC','apócope'],
  H:['ASPIR','aspiración'],M:['MONOP','monoptongación'],R:['PROT','prótesis'],
- L:['SIMPL','simplificación'],N:['CONS','consonantización']
+ L:['SIMPL','simplificación'],N:['CONS','consonantización'],
+ T:['METAT','metátesis'],B:['ASMIL','asimilación']
 });
 export const ADDITION_SOURCE=Object.freeze({
  file:'banco_evolucion_fonetica_PAU_2026_actualizado.xlsx',
@@ -145,7 +146,7 @@ function rowToWord(line){
   const insertion=match[1]==='R';
   return {
    id:'t'+(i+1),rule,
-   ...(insertion?{spans:[],anchor:a}:{spans:[[a,b]]}),
+   ...(insertion?{spans:[],anchor:a}:match[1]==='T'?{spans:[[a,a+1],[a+1,b]]}:{spans:[[a,b]]}),
    output,
    note:insertion
     ? 'Prótesis: se añade «'+output+'» al principio de la palabra.'
@@ -181,7 +182,15 @@ const SYNCOPE_FIXES=Object.freeze({
 });
 export function correctCastilianSourceWords(words){
  const seen=new Set();
+ let crucemFound=false;
  const corrected=words.map(word=>{
+  if(word.id==='xl-75'){
+   const change=word.changes.find(c=>c.id==='t1');
+   if(word.latin!=='crucem'||change?.rule!=='PALAT'||JSON.stringify(change.spans)!=='[[0,1]]')
+    throw Error('Evolutio: cambió la ficha fuente de crucem');
+   crucemFound=true;
+   return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[3,4]]}:c)};
+  }
   if(!Object.hasOwn(SYNCOPE_FIXES,word.id))return word;
   const change=word.changes.find(c=>c.id==='t3');
   if(word.latin!==SYNCOPE_FIXES[word.id]||change?.rule!=='SINC'||
@@ -190,7 +199,7 @@ export function correctCastilianSourceWords(words){
   seen.add(word.id);
   return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[5,6]]}:c)};
  });
- if(seen.size!==Object.keys(SYNCOPE_FIXES).length)throw Error('Evolutio: faltan fichas de corrección');
+ if(!crucemFound||seen.size!==Object.keys(SYNCOPE_FIXES).length)throw Error('Evolutio: faltan fichas de corrección');
  return corrected;
 }
 

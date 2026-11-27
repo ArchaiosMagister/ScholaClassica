@@ -1,3 +1,4 @@
+import {correctCastilianSourceWords} from '../scripts/evolutio-castellano-lote100.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync,readdirSync,statSync} from 'node:fs';
@@ -76,13 +77,13 @@ test('Evolutio conserva el banco y el motor; ajusta dificultad solo en copia y m
   const integratedBank=JSON.parse(readFileSync(join(target,'data/pilot.json'),'utf8'));
   assert.equal(originalBank.words.length,522);
   assert.equal(integratedBank.words.length,622);
-  assert.deepEqual(integratedBank.words.slice(0,522),originalBank.words,'El banco original ha sido alterado');
+  assert.deepEqual(integratedBank.words.slice(0,522),correctCastilianSourceWords(originalBank.words),'Cambios no autorizados en las fichas integradas');
   assert.equal(new Set(integratedBank.words.map(w=>w.id)).size,622);
   const sw=readFileSync(join(target,'sw.js'),'utf8');
   assert.match(sw,/const CACHE_PREFIX='schola-evolutio-';/);
   assert.match(sw,/keys\.filter\(key=>key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION\)/);
   assert.match(sw,/src\/result-difficulty\.mjs/);
-  assert.match(sw,/lote100-v6/);
+  assert.match(sw,/lote100-v7/);
   const original=JSON.parse(readFileSync(join(source,'data/difficulty.json'),'utf8'));
   const reclassified=JSON.parse(readFileSync(join(target,'data/difficulty.json'),'utf8'));
   assert.equal(original.method,'criterio-didactico-v1');
