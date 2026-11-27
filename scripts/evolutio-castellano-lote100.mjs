@@ -273,11 +273,18 @@ function clarifySonorization(word){
  const explanation=word.id==='xl-172'
   ? 'latrare > ladrar: sonorización de t en el grupo original tr > dr y apócope de e final del infinitivo.'
   : word.explanation+' '+note;
- return {...word,explanation};
+ return {...word,explanation,changes:word.changes.map(nameChange)};
+}
+// La consonantización se exige también cuando la i latina ya tenía valor consonántico.
+function clarifyConsonantization(word){
+ const cons=word.changes.filter(c=>c.rule==='CONS');
+ if(!cons.length)return word;
+ return {...word,changes:word.changes.map(c=>c.rule==='CONS'?{...c,note:ruleName('CONS')+': marca la i latina que da '+c.output+' en castellano, aunque ya tenía valor consonántico en latín.'}:c),
+  explanation:word.explanation+' Debe seleccionarse la norma de consonantización sobre la i correspondiente, aunque ya tuviera valor consonántico en latín.'};
 }
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
- return clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word);
+ return clarifyConsonantization(clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word));
 }));
 if(CASTILIAN_ADDITIONS.length!==100)throw Error('Lote castellano: deben constar 100 fichas exactas.');
 
@@ -969,7 +976,7 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- }).map(explainSpecificRules).map(clarifySonorization);
+ }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization);
 }
 
 // Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.

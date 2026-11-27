@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,254);
+ assert.equal(reviewed.length,262);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -451,11 +451,34 @@ test('Sonorización: oclusiva simple, líquidas y grupos secundarios',async()=>{
  }
  for(const latin of ['cuppam','buccam','siccum','guttam','littĕram','fabŭlam','nĕbŭlam','regŭlam','compărāre'])
   assert.ok(!word(latin).changes.some(c=>c.rule==='SONOR'),latin);
- for(const latin of ['manicam','collocare','bonitatem','veritatem','comitem','pŏpŭlum'])
-  assert.match(word(latin).explanation,/intervocálica/i,latin);
+ for(const id of ['xl-980','xl-953','xl-949','xl-1008','xl-64','xl-246']){
+  const w=bank.words.find(w=>w.id===id);
+  assert.ok(w,id);
+  assert.match(w.explanation,/intervocálica/i,id);
+ }
  assert.match(word('latrare').explanation,/apócope/i);
  assert.throws(()=>assertCastilianSonorizationSpans([{latin:'cuppam',changes:[{rule:'SONOR',spans:[[2,3]],output:'b'}]}]),/oclusiva simple/);
  assert.throws(()=>assertCastilianSonorizationSpans([{latin:'fabam',changes:[{rule:'SONOR',spans:[[2,3]],output:'b'}]}]),/oclusiva simple/);
  assert.throws(()=>assertCastilianSonorizationSpans([{latin:'campum',changes:[{rule:'SONOR',spans:[[3,4]],output:'b'}]}]),/oclusiva simple/);
  assert.throws(()=>assertCastilianSonorizationSpans([{latin:'capram',changes:[{rule:'SONOR',spans:[[2,4]],output:'br'}]}]),/oclusiva simple/);
+});
+
+
+test('Consonantización de i latina en j/y: obligatoria también cuando i ya era consonántica',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const expected=[['xl-161',0,'j'],['xl-190',2,'y'],['xl-191',2,'y'],['xl-533',0,'j'],['xl-539',0,'j'],['xl-527',0,'y'],['xl-164',0,'j'],['xl-529',0,'y']];
+ assert.deepEqual(bank.words.filter(w=>w.changes.some(c=>c.rule==='CONS')).map(w=>w.id).sort(),expected.map(e=>e[0]).sort());
+ for(const [id,a,output] of expected){
+  const w=bank.words.find(w=>w.id===id),cs=w.changes.filter(c=>c.rule==='CONS');
+  assert.equal(cs.length,1,id);
+  assert.deepEqual(cs[0].spans,[[a,a+1]],id);
+  assert.equal(cs[0].output,output,id);
+  assert.equal(gradeChange(w,{rule:'CONS',spans:[[a,a+1]]}).correct,true,id);
+  assert.match(w.explanation,/Debe seleccionarse la norma de consonantización/,id);
+  assert.match(cs[0].note,/aunque ya tenía valor consonántico/,id);
+ }
+ const juventud=word('iuuentutem');
+ assert.equal(gradeChange(juventud,{rule:'CONS',spans:[[2,3]]}).correct,false);
+ for(const id of ['xl-243','xl-544','xl-122','xl-257','xl-564','xl-265'])
+  assert.ok(!bank.words.find(w=>w.id===id).changes.some(c=>c.rule==='CONS'),id);
 });
