@@ -282,3 +282,22 @@ test('Correcciones filológicas del nuevo bloque: fragmentos y fenómenos contra
  assert.match(word('dixit').explanation,/analogía/);
  assert.match(word('recipere').explanation,/conjugación/);
 });
+
+test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',async()=>{
+ const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
+ const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
+  JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
+ assert.equal(reviewed.length,117);
+ for(const w of reviewed)for(const c of w.changes){
+  if(c.rule==='FIX_M')continue;
+  assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
+ }
+ const solet=word('sŏlet'),vindicare=word('uindĭcāre');
+ assert.equal(solet.changes.find(c=>c.rule==='APOC').note,'Apócope: «t» → «∅».');
+ assert.equal(vindicare.changes.find(c=>c.rule==='SINC'&&c.spans[0][0]===3).note,'Síncopa: «d» → «∅».');
+ assert.match(vindicare.explanation,/síncopa de d interior/);
+ assert.match(word('crucem').explanation,/apócope de e final/);
+ assert.match(word('auricŭlam').explanation,/monoptongación de au/);
+ assert.throws(()=>assertCastilianPositionSpans([{...solet,changes:[{rule:'SINC',spans:[[4,5]]}]}]),/síncopa no interior/);
+ assert.throws(()=>assertCastilianPositionSpans([{...vindicare,changes:[{rule:'APOC',spans:[[3,4]]}]}]),/apócope no final/);
+});

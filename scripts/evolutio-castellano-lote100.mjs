@@ -9,6 +9,8 @@
 // FIX_M se añade automáticamente exclusivamente al acabar en -m.
 // -um→-o requiere A en la u final, separado de FIX_M.
 // La fuente Excel NO constituye verificación etimológica externa individual.
+import {ruleName} from '../vendor/evolutio/src/rules.mjs';
+
 const RAW=`
 49|capram|cabra|S2=b
 55|cĕntum|ciento|A4=o,D1=ie,P0=c
@@ -128,6 +130,14 @@ const comparable=text=>String(text).toLocaleLowerCase('es')
  .replace(/æ/g,'ae').replace(/œ/g,'oe').replace(/v/g,'u')
  .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 
+// Toda anotación revisada explicita el nombre de la norma del catálogo,
+ // sin confundir la pérdida fija de -m con la apócope seleccionable.
+function nameChange(change){
+ if(change.rule==='FIX_M')return change;
+ const name=ruleName(change.rule);
+ if(change.note.startsWith(name+':'))return change;
+ return {...change,note:name+': '+change.note};
+}
 function rowToWord(line){
  const [rowText,latinOriginal,answer,annotated,...rest]=line.split('|');
  const row=Number(rowText);
@@ -158,7 +168,7 @@ function rowToWord(line){
     ? 'Prótesis: se añade «'+output+'» al principio de la palabra.'
     : description.charAt(0).toUpperCase()+description.slice(1)+': «'+fragment+'» → «'+output+'».'
   };
- });
+ }).map(nameChange);
  if(latin.endsWith('m')){
   changes.push({id:'t'+(changes.length+1),rule:'FIX_M',
    spans:[[letters.length-1,letters.length]],output:'∅',
@@ -180,20 +190,20 @@ function rowToWord(line){
 }
 const ADDITION_NOTES=Object.freeze({
   "79": "El castellano medieval cuchiello documenta la diptongación de ĕ; el diptongo -ie- se reduce después a -i- ante la lateral palatal.",
-  "95": "La -i final se abre en -e, tras la pérdida de -t; la terminación moderna -o se explica por analogía con otras terceras personas del perfecto, no por abertura i > o.",
+  "95": "La abertura de la -i final en -e sigue a la apócope de -t; la terminación moderna -o se explica por analogía con otras terceras personas del perfecto, no por abertura i > o.",
   "107": "La yod originada por -ct- cierra la a en e (factu > faito > feito > fecho > hecho); no es la abertura i/u de N01.",
   "108": "La yod del grupo -ct- explica el cambio a > e, además de la palatalización; no es abertura.",
-  "141": "La g ante ĕ se palataliza y confluye con la semiconsonante de la diptongación; la h de hielo es gráfica, no resultado de f inicial.",
+  "141": "La palatalización de g ante ĕ confluye con la semiconsonante de la diptongación; la h de hielo es gráfica, no resultado de f inicial.",
   "149": "La secuencia hered(i)dade se reduce por síncopa y simplificación de las dos dentales sonoras contiguas; no se exige una pérdida independiente de d.",
   "167": "La yod de -ct- provoca el cierre de a > e (lacte > laite > leite > leche); no se etiqueta como abertura.",
   "168": "La yod de -ct- explica a > e en lechuga; este cierre vocálico no corresponde a N01.",
-  "195": "Tras síncopa, el grupo secundario -scl- desemboca en ch con pérdida de s; se señala el grupo original completo.",
+  "195": "Tras síncopa, el grupo secundario -scl- desemboca en ch con pérdida de s integrada en la evolución del grupo; se señala el grupo original completo.",
   "200": "La yod asociada a x provoca el cierre de la a pretónica en e; no es abertura.",
-  "254": "La secuencia vocálica -uo- se reduce a -o- (quattuor > *quattor) y la r final cambia de posición: quattro / quatro, después cuatro. La reducción de hiato no se puntúa aparte.",
+  "254": "La secuencia vocálica -uo- se reduce a -o- (quattuor > *quattor) y la metátesis desplaza la r final: quattro / quatro, después cuatro. La reducción de hiato no se puntúa aparte.",
   "264": "El resultado del infinitivo en -ir supone un reajuste de la conjugación; no se presenta e > i como abertura.",
-  "292": "Tras la caída de -m, la i final se abre a e y esta e se pierde después de d (sed); la pérdida es apócope, no síncopa.",
-  "324": "El grupo -ng- ante i da ñ; la i final se abre a e tras la pérdida de la dental final.",
-  "336": "La síncopa de ĭ deja el grupo -dc-; se reduce el grupo y desaparece d, además de la evolución c > g.",
+  "292": "Tras la pérdida fija de -m, la abertura de i final en e precede a la apócope de esa e después de d (sed).",
+  "324": "La palatalización del grupo -ng- ante i da ñ; la abertura de i final en e sigue a la apócope de t.",
+  "336": "La síncopa de ĭ deja el grupo -dc-; se produce asimismo la síncopa de d interior y la sonorización c > g. La pérdida de e final es apócope.",
   "348": "La reducción de au a a en augustum se distingue del resultado habitual au > o; interviene la disimilación vocálica ante la u de la sílaba siguiente."
 });
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
@@ -229,7 +239,7 @@ const EDITORIAL_COMPLETIONS=Object.freeze({
     },
     "replace": {
       "id": "t2",
-      "note": "Cae la -e final de calce en la forma castellana coz."
+      "note": "Apócope: cae la -e final de calce en la forma castellana coz."
     },
     "explanation": "Calcem > coz: vocalización de -al- > au > o, palatalización histórica de la segunda c ante e (z actual), apócope de e y pérdida fija de m. No confundir con cauce (< calicem)."
   },
@@ -315,7 +325,29 @@ export function correctCastilianSourceWords(words){
   return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[5,6]]}:c)};
  });
  if(!crucemFound||positionSeen.size!==POSITION_FIXES.size||seen.size!==Object.keys(SYNCOPE_FIXES).length)throw Error('Evolutio: faltan fichas de corrección');
- return completeCastilianSourceWords(corrected);
+ const explanations=Object.freeze({
+  "xl-29": "auricŭlam > oreja: monoptongación de au en o; abertura de i breve tónica en e; síncopa de la segunda u (ŭ postónica) y evolución de -CUL- > -J-. La -m del acusativo se pierde por la norma fija.",
+  "xl-75": "crucem > cruz: palatalización histórica de la segunda c (ante e), que da z; apócope de e final y pérdida fija de -m.",
+  "xl-36": "cæcare > cegar: monoptongación de æ en e; sonorización de la segunda c en g y apócope de e final del infinitivo.",
+  "xl-37": "cæcum > ciego: monoptongación de æ en e seguida de diptongación en ie; sonorización de la segunda c en g, abertura de u final en o y pérdida fija de -m.",
+  "xl-78": "cucullum > cogollo: abertura de las tres u en o; sonorización de la segunda c en g; palatalización de ll y pérdida fija de -m. El cambio de sentido se apoya en el de «capucho» a «parte interior o extrema».",
+  "xl-80": "cunicŭlum > conejo: abertura de la primera u en o y de i en e; síncopa de la ŭ postónica, evolución de -CUL- > -J-, abertura de u final en o y pérdida fija de -m.",
+  "xl-87": "decollare > degollar: sonorización de c en g, palatalización de ll y apócope de e final del infinitivo.",
+  "xl-201": "meliorem > mejor: palatalización de li ante vocal en j; apócope de e final y pérdida fija de -m.",
+  "xl-246": "pŏpŭlum > pueblo: diptongación de ŏ en ue, sonorización de la segunda p en b, síncopa de ŭ postónica, abertura de u final en o y pérdida fija de -m.",
+  "xl-285": "serpĕntem > serpiente: diptongación de la segunda e (ĕ tónica) en ie y pérdida fija de -m.",
+  "xl-509": "temptare > tentar: simplificación del grupo -mpt- > -nt- y apócope de e final del infinitivo.",
+  "xl-825": "despoliare > despojar: palatalización de li ante vocal en j y apócope de e final del infinitivo. Distinto del cultismo expoliar.",
+  "xl-921": "pensare > pesar: simplificación de -ns- en s y apócope de e final del infinitivo. Pensar es un doblete conservador de la misma familia.",
+  "xl-196": "mataxam > madeja: sonorización de t intervocálica en d, palatalización de x (/ks/) en la antigua fricativa que hoy se escribe j y pérdida fija de -m. La yod del grupo x favorece el cierre de a pretónica en e; no es una abertura de i/u.",
+  "xl-1027": "Calcem > coz: vocalización de -al- > au > o (una sola norma específica), palatalización histórica de la segunda c ante e (z actual), apócope de e y pérdida fija de -m. No confundir con cauce (< calicem).",
+  "xl-1028": "Falcem > hoz: aspiración de f inicial, vocalización de -al- > au > o (una sola norma específica), palatalización histórica de c ante e (z actual), apócope de e y pérdida fija de -m.",
+  "xl-1034": "Luminaria (plural neutro) > lumbrera: evolución de -MIN- → -MBR- (una norma específica) y metátesis de -aria > -aira > -era. «Luminaria» es el doblete culto."
+});
+ return completeCastilianSourceWords(corrected).map(word=>{
+  const explanation=explanations[word.id];
+  return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
+ });
 }
 
 export function assertCastilianSyncopeSpans(words){
@@ -344,6 +376,8 @@ export function assertCastilianPositionSpans(words){
   for(const change of word.changes){
    if(change.rule==='APOC'&&!change.spans.some(([,b])=>b===end))
     throw Error('Evolutio: apócope no final '+word.latin);
+   if(change.rule==='SINC'&&change.spans.some(([a,b])=>a===0||b>=end))
+    throw Error('Evolutio: síncopa no interior '+word.latin);
    if(change.rule==='SONOR'&&change.spans.some(([a])=>a===0))
     throw Error('Evolutio: sonorización asignada a consonante inicial '+word.latin);
   }
