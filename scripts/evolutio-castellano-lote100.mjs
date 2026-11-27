@@ -215,7 +215,7 @@ const ADDITION_NOTES=Object.freeze({
   "200": "La yod asociada a x provoca el cierre de la a pretónica en e; no es abertura.",
   "254": "Simplificación de tt y metátesis de la r final. La u de la secuencia -uo- no se conserva; el resultado medieval quatro precede a cuatro. No se exige una etapa intermedia reconstruida ni se clasifica automáticamente esta reducción como monoptongación.",
   "264": "El resultado del infinitivo en -ir supone un reajuste de la conjugación; no se presenta e > i como abertura.",
-  "292": "Tras la pérdida fija de -m, la abertura de i final en e precede a la apócope de esa e después de d (sed).",
+  "292": "Abertura de la primera i, sonorización de t y apócope de la segunda i según el resultado castellano actual; pérdida fija de -m.",
   "324": "La palatalización del grupo -ng- ante i da ñ; la abertura de i final en e sigue a la apócope de t.",
   "336": "La síncopa de ĭ deja el grupo -dc-; se produce asimismo la síncopa de d interior y la sonorización c > g. La pérdida de e final es apócope.",
   "348": "La reducción de au a a en augustum se distingue del resultado habitual au > o; interviene la disimilación vocálica ante la u de la sílaba siguiente.",
@@ -447,6 +447,90 @@ function clarifyVocalism(word){
  if(word.id==='xl-32')changes=[...changes.map(c=>c.rule==='MONOP'?{...c,note:'El diptongo au se monoptonga en o.'}:c),{id:'t2',rule:'APOC',spans:[[2,3]],output:'∅',note:'Se pierde la t final de la conjunción.'}];
 
  return {...word,changes:changes.map(nameChange),explanation:special??word.explanation+' '+note};
+}
+// Explicaciones directas del resultado castellano actual, sin etapas intermedias evaluables.
+const DIRECT_RESULT_REVIEW=Object.freeze({
+  "xl-35": "Síncopa de d interior y apócope de e final del infinitivo. La a y la e que quedan en contacto forman el hiato de caer.",
+  "xl-52": "Sonorización de t intervocálica en d. La e y las dos a permanecen; pérdida fija de -m.",
+  "xl-184": "Dos aberturas distintas: la ŭ tónica y la u final pasan a o. Sonorización de p intervocálica en b y pérdida fija de -m.",
+  "xl-342": "Abertura de i en e y simplificación de la geminada tt en t; no se sonoriza esa t. La u consonántica se escribe v. Pérdida fija de -m.",
+  "xl-359": "Abertura de ĭ tónica en e y de u final en o. La b ya es sonora en latín; pérdida fija de -m.",
+  "xl-915": "Simplificación de ns en s; no se marca síncopa aislada de n. Pérdida fija de -m.",
+  "xl-34": "Diptongación de ŏ tónica en ue; se conserva la a final. Pérdida fija de -m.",
+  "xl-47": "Sonorización de p intervocálica en b y apócope de la última e, no de la e interior.",
+  "xl-74": "Síncopa de d intervocálica y apócope de la última e; las dos e interiores del resultado se conservan en hiato.",
+  "xl-84": "Sonorización de t intervocálica en d y abertura de u final en o. La d inicial ya es sonora. Pérdida fija de -m.",
+  "xl-99": "Sonorización de c intervocálica en g y apócope de e final tras n. Pérdida fija de -m.",
+  "xl-112": "Aspiración de f inicial, sonorización de t intervocálica en d y abertura de u final en o. Pérdida fija de -m.",
+  "xl-119": "Aspiración de f inicial, sonorización de c intervocálica en g y abertura de u final en o. La i tónica se conserva. Pérdida fija de -m.",
+  "xl-123": "Aspiración de f inicial y abertura de u final en o; se conserva la i tónica. Pérdida fija de -m.",
+  "xl-128": "Diptongación de ŏ tónica en ue pese a la sílaba cerrada; se conserva f inicial. Pérdida fija de -m.",
+  "xl-169": "Sonorización de c intervocálica en g y abertura de u final en o; la a tónica permanece. Pérdida fija de -m.",
+  "xl-177": "Síncopa de g interior y apócope de e final. La secuencia ee de leer no constituye un diptongo latino ni se monoptonga.",
+  "xl-180": "Síncopa de g interior y apócope de e final. La i se conserva y no hay consonantización.",
+  "xl-181": "Sonorización de t intervocálica en d, apócope de e final y pérdida fija de -m. No se modifica la i.",
+  "xl-226": "Abertura de u tónica en o y simplificación de mb en m; la b no se marca como síncopa separada. Pérdida fija de -m.",
+  "xl-271": "Sonorización de t intervocálica en d y apócope de e final. La u tónica se conserva. Pérdida fija de -m.",
+  "xl-272": "Sonorización de p intervocálica en b y apócope de e final tras r; pérdida fija de -m.",
+  "xl-282": "Sonorización de t intervocálica en d y abertura de u final en o. Pérdida fija de -m.",
+  "xl-303": "Prótesis de e ante sp- y apócope de e final. Se conserva la i pretónica; no confundir espirar con expirar.",
+  "xl-306": "Prótesis de e ante s + consonante y simplificación de qu en c por pérdida de la labialización. Se marca qu completo. Pérdida fija de -m.",
+  "xl-422": "Abertura de i tónica en e y de u final en o; se marcan las dos vocales por separado. Pérdida fija de -m.",
+  "xl-427": "Abertura de u pretónica en o, sonorización de t intervocálica en d y apócope de e final.",
+  "xl-434": "Abertura de i tónica en e y de u final en o. Se conserva n. Pérdida fija de -m.",
+  "xl-436": "Prótesis de e ante sp-, abertura de i en e, simplificación de ss en s y abertura de u final en o. Pérdida fija de -m.",
+  "xl-443": "Abertura de las dos u en o, tónica y final; se conserva rd. Pérdida fija de -m.",
+  "xl-519": "Aspiración de f inicial y sonorización de c intervocálica en g; la i tónica permanece. Pérdida fija de -m.",
+  "xl-579": "Diptongación de ŏ tónica en ue; no hay abertura de u ni pérdida de vocal interior. Pérdida fija de -m.",
+  "xl-587": "Diptongación de ŏ tónica en ue pese a la coda n; se conserva nt y e final. Pérdida fija de -m.",
+  "xl-874": "Prótesis de e ante sc-; no se modifica la c ni se elimina la s. Pérdida fija de -m.",
+  "xl-916": "Simplificación de ns en s; la u tónica permanece. Pérdida fija de -m.",
+  "xl-50": "Sonorización de p intervocálica en b, abertura de u final del tema en o y apócope de t final. Caput es neutro y no lleva -m.",
+  "xl-56": "Sonorización de p en b, abertura de u tónica en o y palatalización de ll en ll. No hay diptongo ae en este étimo; pérdida fija de -m.",
+  "xl-83": "Sonorización de t intervocálica en d y apócope de e final del imperativo plural. La d inicial no experimenta sonorización.",
+  "xl-117": "Aspiración de f inicial y apócope de e final tras r. La u consonántica se escribe v; pérdida fija de -m.",
+  "xl-130": "Diptongación de ŏ tónica en ue en sílaba cerrada; se conserva f inicial y rt. Pérdida fija de -m.",
+  "xl-136": "Aspiración de f inicial y abertura de u final en o; la primera u tónica permanece. Pérdida fija de -m.",
+  "xl-137": "Aspiración de f inicial y abertura de ambas u en o; se conserva nd. Pérdida fija de -m.",
+  "xl-138": "Aspiración de f inicial y abertura de u tónica en o. Se conserva rc, sin sonorización de c. Pérdida fija de -m.",
+  "xl-140": "Palatalización de nn en ñ, sonorización de t intervocálica en d y abertura de u final en o. La i tónica permanece. Pérdida fija de -m.",
+  "xl-206": "Diptongación de ŏ tónica en ue y palatalización de ll. Se conserva e final; pérdida fija de -m.",
+  "xl-214": "Abertura de i tónica en e; gr se conserva y g ya es sonora. Pérdida fija de -m.",
+  "xl-217": "Palatalización de ct en ch y abertura de u final en o. La otra u es consonántica y se escribe v. Pérdida fija de -m.",
+  "xl-221": "Palatalización de ll en ll, no simplificación en l; pérdida fija de -m.",
+  "xl-238": "Abertura de i tónica en e y palatalización de nn en ñ; se señalan i y nn por separado. Pérdida fija de -m.",
+  "xl-243": "Palatalización de pl- en ll-. Se conserva la u vocálica y la u consonántica se escribe v. Pérdida fija de -m.",
+  "xl-253": "Abertura de ambas u en o y palatalización de ll; tres fragmentos distintos. Pérdida fija de -m.",
+  "xl-270": "Síncopa de g interior, abertura de i en e y simplificación de tt en t. Sagitta no contiene -m final.",
+  "xl-290": "Abertura de i tónica en e y palatalización de gn en ñ. Signa no contiene -m final.",
+  "xl-291": "Abertura de las dos primeras i en e, palatalización de li en j y apócope de e final. La tercera i pertenece al grupo li.",
+  "xl-308": "Prótesis de e ante st-, palatalización de gn en ñ y abertura de u final en o. Pérdida fija de -m.",
+  "xl-316": "Palatalización de ct en ch y abertura de u final en o; no hay diptongación de e. Pérdida fija de -m.",
+  "xl-322": "Palatalización de x en j y apócope de e final. Se marca la x latina completa, que representa /ks/.",
+  "xl-341": "Palatalización de ti ante vocal en ci y abertura de u final en o. La u inicial consonántica se escribe v; pérdida fija de -m.",
+  "xl-420": "Abertura de i pretónica en e, sonorización de c intervocálica en g y apócope de e final.",
+  "xl-433": "Abertura de i tónica en e; la u consonántica se escribe v y no se abre. Pérdida fija de -m.",
+  "xl-449": "Abertura de ambas u en o; nc se conserva y no se sonoriza c tras n. Pérdida fija de -m.",
+  "xl-452": "Abertura de u en o, simplificación de ss en s y apócope de e final. Pérdida fija de -m.",
+  "xl-455": "Abertura de u tónica en o; se conserva nd. Pérdida fija de -m.",
+  "xl-489": "Simplificación de pt en t y apócope de e final; se marca pt completo según el catálogo.",
+  "xl-517": "Aspiración de f inicial y abertura de i en e; br ya está presente en latín. Pérdida fija de -m.",
+  "xl-548": "Palatalización de ll en ll; la u inicial consonántica se escribe v. Pérdida fija de -m.",
+  "xl-581": "Diptongación de o tónica en ue y abertura de u final en o; se conservan str. Pérdida fija de -m.",
+  "xl-575": "Diptongación de e tónica en ie; la m es inicial y no existe -m final ni vocal final que se pierda.",
+  "xl-810": "Palatalización de ll y abertura de u final en o; la b latina permanece. Pérdida fija de -m.",
+  "xl-796": "Sonorización de c intervocálica en g, palatalización de ti ante vocal en z y apócope de e final. No se abre la u.",
+  "xl-802": "Palatalización de li en j y abertura de u final en o. La i se selecciona con l, no como consonantización. Pérdida fija de -m.",
+  "xl-823": "Palatalización de mn en ñ y abertura de u final en o. No hay i entre m y n ni evolución -MIN- a -MBR-. Pérdida fija de -m.",
+  "xl-855": "Palatalización de ni en ñ y apócope de e final; se conserva qu inicial. Pérdida fija de -m.",
+  "xl-864": "Prótesis de e ante st-, palatalización de nn en ñ y abertura de u final en o. Pérdida fija de -m.",
+  "xl-865": "Prótesis de e ante str-, abertura de i tónica en e, palatalización de ct en ch y abertura de u final en o. Pérdida fija de -m.",
+  "xl-343": "Sonorización de t intervocálica en d y apócope de e final del imperativo plural. Las dos u consonánticas se escriben v.",
+  "ge-EVF-0366": "Abertura de u tónica en o; se conserva mb, a diferencia de palumbam > paloma. Pérdida fija de -m."
+});
+function clarifyDirectResult(word){
+ const note=DIRECT_RESULT_REVIEW[word.id];
+ return note?{...word,changes:word.changes.map(nameChange),explanation:word.latin+' > '+word.answers[0]+': '+note}:word;
 }
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
@@ -1128,7 +1212,7 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges).map(clarifyGreekAndPalatal).map(clarifyVocalism);
+ }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges).map(clarifyGreekAndPalatal).map(clarifyVocalism).map(clarifyDirectResult);
 }
 
 // Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.

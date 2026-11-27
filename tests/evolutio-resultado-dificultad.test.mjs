@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,421);
+ assert.equal(reviewed.length,498);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -407,7 +407,8 @@ test('Neutros en -us, síncopa de g y coherencia de la abertura',async()=>{
  assert.equal(gradeChange(rey,{rule:'PALAT',spans:[[2,4]]}).correct,false);
  assert.match(rey.explanation,/rege > ree > rey/);
  const sed=word('sitim');
- assert.ok(sed.changes.findIndex(c=>c.rule==='ABER'&&c.spans[0][0]===3)<sed.changes.findIndex(c=>c.rule==='APOC'));
+ assert.ok(!sed.changes.some(c=>c.rule==='ABER'&&c.spans[0][0]===3));
+ assert.ok(sed.changes.some(c=>c.rule==='APOC'&&c.spans[0][0]===3));
  assert.doesNotThrow(()=>assertCastilianOpeningSpans(bank.words));
  assert.throws(()=>assertCastilianOpeningSpans([{latin:'factum',changes:[{rule:'ABER',spans:[[1,2]],output:'e'}]}]),/abertura ajena a i\/u/);
 });
@@ -556,4 +557,19 @@ test('Vocalismo: diptongos latinos, hiatos secundarios y apócope',async()=>{
  assert.ok(!word('cultellum').changes.some(c=>c.rule==='DIPT'));
  assert.equal(gradeChange(word('sitim'),{rule:'ABER',spans:[[3,4]]}).correct,false);
  assert.match(word('sĕcat').explanation,/apócope/);
+});
+
+
+test('Resultado castellano actual: 77 fichas con correspondencias y fragmentos explícitos',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const cases=[["xl-35",[["SINC",[[2,3]],null,""],["APOC",[[5,6]],null,""]]],["xl-52",[["SONOR",[[2,3]],null,"d"]]],["xl-184",[["ABER",[[1,2]],null,"o"],["SONOR",[[2,3]],null,"b"],["ABER",[[3,4]],null,"o"]]],["xl-342",[["ABER",[[1,2]],null,"e"],["SIMPL",[[2,4]],null,"t"]]],["xl-359",[["ABER",[[1,2]],null,"e"],["ABER",[[3,4]],null,"o"]]],["xl-915",[["SIMPL",[[2,4]],null,"s"]]],["xl-34",[["DIPT",[[1,2]],null,"ue"]]],["xl-47",[["SONOR",[[2,3]],null,"b"],["APOC",[[5,6]],null,""]]],["xl-74",[["SINC",[[3,4]],null,""],["APOC",[[6,7]],null,""]]],["xl-84",[["SONOR",[[2,3]],null,"d"],["ABER",[[3,4]],null,"o"]]],["xl-99",[["SONOR",[[3,4]],null,"g"],["APOC",[[6,7]],null,""]]],["xl-112",[["ASPIR",[[0,1]],null,"h"],["SONOR",[[2,3]],null,"d"],["ABER",[[3,4]],null,"o"]]],["xl-119",[["ASPIR",[[0,1]],null,"h"],["SONOR",[[2,3]],null,"g"],["ABER",[[3,4]],null,"o"]]],["xl-123",[["ASPIR",[[0,1]],null,"h"],["ABER",[[3,4]],null,"o"]]],["xl-128",[["DIPT",[[1,2]],null,"ue"]]],["xl-169",[["SONOR",[[2,3]],null,"g"],["ABER",[[3,4]],null,"o"]]],["xl-177",[["SINC",[[2,3]],null,""],["APOC",[[5,6]],null,""]]],["xl-180",[["SINC",[[2,3]],null,""],["APOC",[[5,6]],null,""]]],["xl-181",[["SONOR",[[2,3]],null,"d"],["APOC",[[3,4]],null,""]]],["xl-226",[["ABER",[[3,4]],null,"o"],["SIMPL",[[4,6]],null,"m"]]],["xl-271",[["SONOR",[[4,5]],null,"d"],["APOC",[[5,6]],null,""]]],["xl-272",[["SONOR",[[2,3]],null,"b"],["APOC",[[5,6]],null,""]]],["xl-282",[["SONOR",[[4,5]],null,"d"],["ABER",[[5,6]],null,"o"]]],["xl-303",[["PROT",[],0,"e"],["APOC",[[6,7]],null,""]]],["xl-306",[["PROT",[],0,"e"],["SIMPL",[[1,3]],null,"c"]]],["xl-422",[["ABER",[[1,2]],null,"e"],["ABER",[[3,4]],null,"o"]]],["xl-427",[["ABER",[[1,2]],null,"o"],["SONOR",[[2,3]],null,"d"],["APOC",[[5,6]],null,""]]],["xl-434",[["ABER",[[1,2]],null,"e"],["ABER",[[3,4]],null,"o"]]],["xl-436",[["PROT",[],0,"e"],["ABER",[[2,3]],null,"e"],["SIMPL",[[3,5]],null,"s"],["ABER",[[5,6]],null,"o"]]],["xl-443",[["ABER",[[1,2]],null,"o"],["ABER",[[4,5]],null,"o"]]],["xl-519",[["ASPIR",[[0,1]],null,"h"],["SONOR",[[5,6]],null,"g"]]],["xl-579",[["DIPT",[[1,2]],null,"ue"]]],["xl-587",[["DIPT",[[1,2]],null,"ue"]]],["xl-874",[["PROT",[],0,"e"]]],["xl-916",[["SIMPL",[[2,4]],null,"s"]]],["xl-50",[["SONOR",[[2,3]],null,"b"],["ABER",[[3,4]],null,"o"],["APOC",[[4,5]],null,""]]],["xl-56",[["SONOR",[[2,3]],null,"b"],["ABER",[[3,4]],null,"o"],["PALAT",[[4,6]],null,"ll"]]],["xl-83",[["SONOR",[[2,3]],null,"d"],["APOC",[[3,4]],null,""]]],["xl-117",[["ASPIR",[[0,1]],null,"h"],["APOC",[[6,7]],null,""]]],["xl-130",[["DIPT",[[1,2]],null,"ue"]]],["xl-136",[["ASPIR",[[0,1]],null,"h"],["ABER",[[3,4]],null,"o"]]],["xl-137",[["ASPIR",[[0,1]],null,"h"],["ABER",[[1,2]],null,"o"],["ABER",[[4,5]],null,"o"]]],["xl-138",[["ASPIR",[[0,1]],null,"h"],["ABER",[[1,2]],null,"o"]]],["xl-140",[["PALAT",[[2,4]],null,"ñ"],["SONOR",[[5,6]],null,"d"],["ABER",[[6,7]],null,"o"]]],["xl-206",[["DIPT",[[1,2]],null,"ue"],["PALAT",[[2,4]],null,"ll"]]],["xl-214",[["ABER",[[1,2]],null,"e"]]],["xl-217",[["PALAT",[[1,3]],null,"ch"],["ABER",[[5,6]],null,"o"]]],["xl-221",[["PALAT",[[1,3]],null,"ll"]]],["xl-238",[["ABER",[[1,2]],null,"e"],["PALAT",[[2,4]],null,"ñ"]]],["xl-243",[["PALAT",[[0,2]],null,"ll"]]],["xl-253",[["ABER",[[1,2]],null,"o"],["PALAT",[[2,4]],null,"ll"],["ABER",[[4,5]],null,"o"]]],["xl-270",[["SINC",[[2,3]],null,""],["ABER",[[3,4]],null,"e"],["SIMPL",[[4,6]],null,"t"]]],["xl-290",[["ABER",[[1,2]],null,"e"],["PALAT",[[2,4]],null,"ñ"]]],["xl-291",[["ABER",[[1,2]],null,"e"],["ABER",[[3,4]],null,"e"],["PALAT",[[4,6]],null,"j"],["APOC",[[8,9]],null,""]]],["xl-308",[["PROT",[],0,"e"],["PALAT",[[3,5]],null,"ñ"],["ABER",[[5,6]],null,"o"]]],["xl-316",[["PALAT",[[2,4]],null,"ch"],["ABER",[[4,5]],null,"o"]]],["xl-322",[["PALAT",[[2,3]],null,"j"],["APOC",[[5,6]],null,""]]],["xl-341",[["PALAT",[[2,4]],null,"ci"],["ABER",[[4,5]],null,"o"]]],["xl-420",[["ABER",[[1,2]],null,"e"],["SONOR",[[2,3]],null,"g"],["APOC",[[5,6]],null,""]]],["xl-433",[["ABER",[[1,2]],null,"e"]]],["xl-449",[["ABER",[[2,3]],null,"o"],["ABER",[[5,6]],null,"o"]]],["xl-452",[["ABER",[[1,2]],null,"o"],["SIMPL",[[2,4]],null,"s"],["APOC",[[4,5]],null,""]]],["xl-455",[["ABER",[[0,1]],null,"o"]]],["xl-489",[["SIMPL",[[1,3]],null,"t"],["APOC",[[5,6]],null,""]]],["xl-517",[["ASPIR",[[0,1]],null,"h"],["ABER",[[1,2]],null,"e"]]],["xl-548",[["PALAT",[[2,4]],null,"ll"]]],["xl-581",[["DIPT",[[1,2]],null,"ue"],["ABER",[[5,6]],null,"o"]]],["xl-575",[["DIPT",[[1,2]],null,"ie"]]],["xl-810",[["PALAT",[[4,6]],null,"ll"],["ABER",[[6,7]],null,"o"]]],["xl-796",[["SONOR",[[1,2]],null,"g"],["PALAT",[[3,5]],null,"z"],["APOC",[[7,8]],null,""]]],["xl-802",[["PALAT",[[1,3]],null,"j"],["ABER",[[3,4]],null,"o"]]],["xl-823",[["PALAT",[[2,4]],null,"ñ"],["ABER",[[4,5]],null,"o"]]],["xl-855",[["PALAT",[[3,5]],null,"ñ"],["APOC",[[7,8]],null,""]]],["xl-864",[["PROT",[],0,"e"],["PALAT",[[3,5]],null,"ñ"],["ABER",[[5,6]],null,"o"]]],["xl-865",[["PROT",[],0,"e"],["ABER",[[3,4]],null,"e"],["PALAT",[[4,6]],null,"ch"],["ABER",[[6,7]],null,"o"]]],["xl-343",[["SONOR",[[4,5]],null,"d"],["APOC",[[5,6]],null,""]]],["ge-EVF-0366",[["ABER",[[1,2]],null,"o"]]]];
+ for(const [id,changes] of cases){
+  const w=bank.words.find(w=>w.id===id);
+  assert.ok(w,id);
+  assert.deepEqual(w.changes.filter(c=>c.rule!=='FIX_M').map(c=>[c.rule,c.spans,c.anchor??null,c.output]),changes,id);
+  assert.ok(w.explanation.startsWith(w.latin+' > '+w.answers[0]+': '),id);
+  for(const [rule,spans,anchor] of changes)assert.equal(gradeChange(w,{rule,spans,...(anchor===null?{}:{anchor})}).correct,true,id+' '+rule);
+ }
+ for(const [latin,rule,spans] of [['palumbam','SINC',[[5,6]]],['cumbam','SIMPL',[[2,4]]],['fumum','ABER',[[1,2]]],['truncum','SONOR',[[4,5]]],['uitium','CONS',[[3,4]]]])
+  assert.equal(gradeChange(word(latin),{rule,spans}).correct,false,latin);
 });
