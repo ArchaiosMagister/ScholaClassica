@@ -11,7 +11,14 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  assert.match(html,/class="card latin">\s*<p class="overline">Evolución fonética/);
  assert.match(html,/class="card greek">\s*<p class="overline">Etimología/);
  assert.ok(css.includes('linear-gradient(90deg, var(--mixed-green), var(--mixed-blue))'));
- assert.ok(css.includes('--mixed-blue-surface: #101b23'));
+ for (const [green,blue] of [['#cce7d5','#cce2f5'],['#234b37','#213f5e'],['#102b1e','#10283f']]) {
+  assert.ok(css.includes('--mixed-green-surface: '+green+';'));
+  assert.ok(css.includes('--mixed-blue-surface: '+blue+';'));
+ }
+ const mixedRule=css.split('.portal :is(.card.mixed, .resource-links a.mixed) {')[1]?.split('}')[0];
+ assert.ok(mixedRule?.includes('var(--mixed-green-surface) 25%, var(--mixed-blue-surface) 75%'));
+ assert.ok(mixedRule?.includes('border: 1px solid transparent'));
+
 });
 test('Las portadas de Appendix comparten paleta sin cambiar capítulos',()=>{
  const css=read('apps/gramatica/assets/language-colors.css');

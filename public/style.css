@@ -460,24 +460,28 @@ html[data-theme="oled"]:has(body.portal) {
 html:has(body.portal) {
   --mixed-green: #265545;
   --mixed-blue: #285e79;
-  --mixed-blue-surface: #edf4f8;
+  --mixed-green-surface: #cce7d5;
+  --mixed-blue-surface: #cce2f5;
   --mixed-ink: #244b50;
 }
 html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
   --mixed-green: #a5dcc3;
   --mixed-blue: #abd7f0;
-  --mixed-blue-surface: #192e3b;
+  --mixed-green-surface: #234b37;
+  --mixed-blue-surface: #213f5e;
   --mixed-ink: #c4e5e7;
 }
 html[data-theme="oled"]:has(body.portal) {
-  --mixed-blue-surface: #101b23;
+  --mixed-green-surface: #102b1e;
+  --mixed-blue-surface: #10283f;
 }
 .portal .hero {
   background: linear-gradient(125deg, #1d4136, #234b59 70%, #174861);
 }
 .portal :is(.card.mixed, .resource-links a.mixed) {
-  border-top: 3px solid transparent;
-  background: linear-gradient(115deg, var(--wash), var(--mixed-blue-surface)) padding-box,
+  border: 1px solid transparent;
+  border-top-width: 3px;
+  background: linear-gradient(110deg, var(--mixed-green-surface) 0%, var(--mixed-green-surface) 25%, var(--mixed-blue-surface) 75%, var(--mixed-blue-surface) 100%) padding-box,
               linear-gradient(90deg, var(--mixed-green), var(--mixed-blue)) border-box;
 }
 .portal .card.mixed .overline, .portal .resource-links a.mixed strong {
