@@ -63,18 +63,21 @@ html.latinismos-theme[data-theme=oled]{
   letter-spacing:0;color:var(--accent);margin:0 0 .5rem;padding-bottom:.55rem;border-bottom:1px solid var(--line);
 }
 .latinismos .number{font:600 .73rem/1.3 system-ui,sans-serif;letter-spacing:.03em;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
-.latinismos .entry p{margin:.25rem 0;line-height:1.5;font-size:.94rem}
-.latinismos .entry ol{font-family:var(--serif);font-size:1rem;line-height:1.52;padding-left:1.3rem;margin:.65rem 0 .9rem}
+.latinismos .entry p{margin:.25rem 0;line-height:1.5;font-family:var(--serif);font-size:1.06rem}
+.latinismos .entry>.check+p{font-family:system-ui,sans-serif;font-size:.83rem;color:var(--muted)}
+.latinismos .entry ol{font-family:var(--serif);font-size:1.06rem;line-height:1.52;padding-left:1.3rem;margin:.65rem 0 .9rem}
 .latinismos .entry li{padding-left:.12rem;margin:.35rem 0}
 .latinismos .entry li::marker{font-family:system-ui,sans-serif;font-size:.75em;color:var(--muted)}
-.latinismos .entry>.check{display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.55rem;border-top:1px solid var(--line);font-size:.83rem;color:var(--muted);min-height:36px}
-.latinismos .latin-term{font-family:var(--serif);font-style:italic}
+.latinismos .entry>.check{font-family:system-ui,sans-serif;display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.55rem;border-top:1px solid var(--line);font-size:.83rem;color:var(--muted);min-height:36px}
+.latinismos .latin-term{font-family:inherit;font-style:italic}
+.latinismos :is(.entry h2,.entry p,.entry ol,.choice,#question,#feedback,#explanation) .latin-term{font-family:var(--serif)}
 .latinismos .entry h2 .latin-term{font-size:inherit}
-.latinismos .choice{display:flex;align-items:center;gap:.65rem;border:1px solid var(--line);border-radius:.65rem;padding:.7rem .8rem;margin:.5rem 0;min-height:44px;cursor:pointer;overflow-wrap:anywhere}
+.latinismos .choice{font-family:var(--serif);font-size:1.06rem;display:flex;align-items:center;gap:.65rem;border:1px solid var(--line);border-radius:.65rem;padding:.7rem .8rem;margin:.5rem 0;min-height:44px;cursor:pointer;overflow-wrap:anywhere}
 .latinismos .choice:has(input:checked){border-color:var(--accent);background:var(--wash)}
 .latinismos input[type=radio],.latinismos input[type=checkbox]{accent-color:var(--accent);flex-shrink:0}
 .latinismos #kind{margin-bottom:.6rem}
-.latinismos #feedback{font-weight:700}
+.latinismos #feedback{font-family:var(--serif);font-size:1.06rem;font-weight:700}
+.latinismos #explanation,.latinismos #self-review>p{font-family:var(--serif);font-size:1.06rem}
 .latinismos #options input[type=text]{width:100%;margin-bottom:.6rem}
 .latinismos #question{font:500 clamp(1.35rem,2.5vw,1.8rem)/1.35 var(--serif);letter-spacing:0;margin:.4rem 0 1rem;overflow-wrap:anywhere}
 .latinismos #round{max-width:52rem;margin-inline:auto}
