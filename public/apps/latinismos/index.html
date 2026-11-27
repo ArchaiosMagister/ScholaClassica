@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f7f2"><title>Latinismos · ScholaClassica</title>
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml"><script src="../../theme.js"></script>
+<link rel="stylesheet" href="../../style.css"><link rel="stylesheet" href="latinismos.css"><script type="module" src="app.mjs"></script></head>
+<body class="latinismos"><a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-head"><div class="head-inner"><a class="brand" href="../../#itinerario"><span class="brand-symbol" aria-hidden="true">Σ</span>ScholaClassica</a><label class="theme-choice" for="portal-theme"><span>Aspecto</span><select id="portal-theme"><option value="system">Automático</option><option value="light">Claro</option><option value="dark">Oscuro</option><option value="oled">OLED</option></select></label></div></header>
+<main class="container" id="contenido"><p class="eyebrow">Latín I y II · PAU</p><h1>Latinismos</h1><p>87 latinismos numerados y tres ejemplos por expresión.</p>
+<nav class="mode-nav" aria-label="Modalidad"><button id="study-tab" type="button" aria-pressed="true">Estudiar</button><button id="practice-tab" type="button" aria-pressed="false">Practicar</button></nav>
+<section class="panel" aria-label="Selección de latinismos"><div class="settings"><label>Selección <select id="filter"><option value="all">Todos (87)</option><option value="even">Pares (43)</option><option value="odd">Impares (44)</option><option value="range">Intervalo personalizado</option></select></label>
+<div id="range" hidden><label>Desde <input type="number" id="from" min="1" max="87"></label><label>Hasta <input type="number" id="to" min="1" max="87"></label></div>
+<label class="check"><input type="checkbox" id="errors"> Solo errores pendientes</label></div><p id="selection" role="status"></p></section>
+<section class="panel" id="stats-panel" aria-label="Progreso"><p id="stats"></p><p id="storage-status" role="status">El progreso se guarda en este navegador.</p><button type="button" id="reset">Reiniciar progreso</button></section>
+<section id="study"><label>Buscar latinismo o significado <input id="search" type="search" placeholder="Buscar…"></label><p id="study-count" role="status"></p><div id="cards" class="study-grid"></div></section>
+<section id="practice" hidden><div class="panel"><label>Tipo de ejercicio <select id="kind"><option value="mixed">Mixto</option><option value="meaning">Reconocer significado</option><option value="term">Reconocer latinismo</option><option value="context">Completar oración</option><option value="write">Escribir latinismo</option></select></label><button type="button" id="start">Comenzar / nueva ronda</button></div>
+<section id="round" class="panel" hidden><p id="round-count"></p><h2 id="question" tabindex="-1"></h2><form id="answer" autocomplete="off"><div id="options"></div><button id="submit" type="submit">Comprobar</button></form><p id="feedback" role="status"></p><div id="explanation"></div><button id="next" type="button" hidden>Siguiente</button></section><p id="round-status" role="status"></p></section>
+<noscript><p>Activa JavaScript para estudiar y practicar.</p></noscript>
+</main></body></html>
