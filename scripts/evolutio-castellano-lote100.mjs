@@ -462,9 +462,56 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- });
+ }).map(explainSpecificRules);
 }
 
+// Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.
+function explainSpecificRules(word){
+ const special=word.changes.find(c=>['CUL','MIN_MBR','VOC'].includes(c.rule));
+ if(!special)return word;
+ const policy=special.rule==='MIN_MBR'
+  ? 'Criterio de corrección: -MIN- → -MBR- se evalúa como una sola norma específica; la síncopa y la epéntesis internas no se cuentan por separado.'
+  : special.rule==='VOC'
+  ? 'Criterio de corrección: vocalización al → au → o; no se evalúa una monoptongación adicional del mismo grupo.'
+  : special.subtype==='-CUL- > -G-'
+  ? 'Criterio de corrección: evolución de -CUL- > -G-, con síncopa, sonorización y metátesis de las líquidas como etapas evaluables según el criterio docente vigente.'
+  : 'Criterio de corrección: síncopa de la u postónica y evolución de -CUL- > -J-; no se añade palatalización general del mismo grupo.';
+ return {...word,explanation:word.explanation+' '+policy,changes:word.changes.map(nameChange)};
+}
+
+export function assertCastilianSpecificRules(words){
+ const overlap=(a,b)=>a.spans.some(([i,j])=>b.spans.some(([k,l])=>i<l&&k<j));
+ for(const word of words){
+  for(const change of word.changes){
+   if(!['CUL','MIN_MBR','VOC'].includes(change.rule))continue;
+   const [a,b]=change.spans[0]??[];
+   const fragment=comparable([...word.latin].slice(a,b).join(''));
+   const expected=change.rule==='CUL'?'cul':change.rule==='MIN_MBR'?'min':'al';
+   if(change.spans.length!==1||fragment!==expected)
+    throw Error('Evolutio: fragmento de norma específica incorrecto '+word.latin);
+   if(word.changes.some(c=>c!==change&&c.rule===change.rule&&overlap(c,change)))
+    throw Error('Evolutio: norma específica duplicada '+word.latin);
+   if(change.rule==='MIN_MBR'){
+    if(change.output!=='mbr'||word.changes.some(c=>c!==change&&(
+      (['SINC','EPENT','PALAT','ASMIL','DISIMIL','SIMPL'].includes(c.rule)&&overlap(c,change))||
+      (c.rule==='EPENT'&&Number.isInteger(c.anchor)&&c.anchor>a&&c.anchor<b))))
+     throw Error('Evolutio: duplicación de -MIN- → -MBR- '+word.latin);
+   }else if(change.rule==='VOC'){
+    if(change.output!=='o'||word.changes.some(c=>c.rule==='MONOP'&&overlap(c,change)))
+     throw Error('Evolutio: duplicación de vocalización '+word.latin);
+   }else{
+    if(word.changes.some(c=>c.rule==='PALAT'&&overlap(c,change)))
+     throw Error('Evolutio: duplicación de palatalización y -CUL- '+word.latin);
+    const isJ=change.subtype==='-CUL- > -J-'&&change.output==='j';
+    const isG=change.subtype==='-CUL- > -G-'&&/^g(?:$| )/.test(change.output);
+    if(!isJ&&!isG)throw Error('Evolutio: subtipo de -CUL- incoherente '+word.latin);
+    if(isG&&(!word.changes.some(c=>c.rule==='SONOR'&&c.output==='g'&&JSON.stringify(c.spans)===JSON.stringify([[a,a+1]]))||
+      !word.changes.some(c=>c.rule==='METAT'&&c.spans.some(([i,j])=>i===b-1&&j===b))))
+     throw Error('Evolutio: faltan etapas del subtipo -CUL- > -G- '+word.latin);
+   }
+  }
+ }
+}
 export function assertCastilianSyncopeSpans(words){
  const overlap=(a,b)=>a.spans.some(([i,j])=>b.spans.some(([k,l])=>i<l&&k<j));
  for(const word of words){
@@ -520,5 +567,6 @@ export function integrateCastilianAdditions(base){
  const words=[...correctCastilianSourceWords(base.words),...additions];
  assertCastilianSyncopeSpans(words);
  assertCastilianPositionSpans(words);
+ assertCastilianSpecificRules(words);
  return {...base,words};
 }

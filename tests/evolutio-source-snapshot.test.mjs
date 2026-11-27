@@ -32,6 +32,6 @@ test('El banco original no incorpora ni altera las 100 palabras adicionales de S
  const integrated=JSON.parse(readFileSync(join(root,'dist/apps/evolucion-fonetica/data/pilot.json'),'utf8'));
  assert.equal(integrated.words.length,622);
  assert.deepEqual(integrated.words.slice(0,522),correctCastilianSourceWords(original.words));
- assert.deepEqual(original.words.filter((w,i)=>JSON.stringify(w)!==JSON.stringify(integrated.words[i])).map(w=>w.id).sort(),["xl-1027","xl-1028","xl-1034","xl-125","xl-145","xl-156","xl-165","xl-196","xl-201","xl-246","xl-25","xl-266","xl-267","xl-285","xl-289","xl-29","xl-36","xl-37","xl-458","xl-508","xl-509","xl-570","xl-608","xl-728","xl-733","xl-75","xl-78","xl-80","xl-825","xl-87","xl-88","xl-921"]);
+ assert.deepEqual(original.words.filter((w,i)=>JSON.stringify(w)!==JSON.stringify(integrated.words[i])).map(w=>w.id).sort(),["xl-1027","xl-1028","xl-1029","xl-1031","xl-1032","xl-1033","xl-1034","xl-1035","xl-1037","xl-1038","xl-1039","xl-1040","xl-1041","xl-1042","xl-1044","xl-1048","xl-1050","xl-1052","xl-1053","xl-1055","xl-114","xl-125","xl-144","xl-145","xl-150","xl-156","xl-165","xl-196","xl-201","xl-216","xl-219","xl-220","xl-223","xl-234","xl-246","xl-25","xl-266","xl-267","xl-285","xl-289","xl-29","xl-301","xl-36","xl-37","xl-458","xl-508","xl-509","xl-570","xl-608","xl-727","xl-728","xl-733","xl-75","xl-78","xl-80","xl-825","xl-87","xl-88","xl-921"]);
  assert.equal(new Set(integrated.words.map(w=>w.id)).size,622);
 });

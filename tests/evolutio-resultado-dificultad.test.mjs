@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
-import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans} from '../scripts/evolutio-castellano-lote100.mjs';
+import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules} from '../scripts/evolutio-castellano-lote100.mjs';
 import {
  resultSpellingDistance,resultDifficultyComponents,resultDifficultyScore,
  resultDifficultyLevel,curatedDifficultyLevel,curatedDifficultyIds,RESULT_DIFFICULTY_METHOD
@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,132);
+ assert.equal(reviewed.length,159);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -313,4 +313,26 @@ test('Etapas acreditadas: sello, analogía de dijo y abertura de proveer',async(
  assert.match(word('dixit').explanation,/analogía/);
  assert.equal(gradeChange(word('prouidere'),{rule:'ABER',spans:[[4,5]]}).correct,true);
  assert.match(word('tegŭlam').explanation,/norma específica -CUL-/);
+});
+
+test('Normas específicas: 19 casos de -CUL-, diez de -MIN- y tres de vocalización sin duplicaciones',()=>{
+ const byRule=rule=>bank.words.filter(w=>w.changes.some(c=>c.rule===rule));
+ assert.equal(byRule('CUL').length,19);
+ assert.equal(byRule('MIN_MBR').length,10);
+ assert.equal(byRule('VOC').length,3);
+ assert.doesNotThrow(()=>assertCastilianSpecificRules(bank.words));
+ const withChange=(latin,c)=>{const w=word(latin);return [{...w,changes:[...w.changes,c]}]};
+ assert.throws(()=>assertCastilianSpecificRules(withChange('homĭnem',{rule:'SINC',spans:[[3,4]]})),/duplicación de -MIN-/);
+ assert.throws(()=>assertCastilianSpecificRules(withChange('homĭnem',{rule:'EPENT',spans:[],anchor:4})),/duplicación de -MIN-/);
+ assert.throws(()=>assertCastilianSpecificRules(withChange('ocŭlum',{rule:'PALAT',spans:[[1,4]]})),/duplicación de palatalización/);
+ assert.throws(()=>assertCastilianSpecificRules(withChange('saltum',{rule:'MONOP',spans:[[1,3]]})),/duplicación de vocalización/);
+ for(const latin of ['miraculum','pericŭlum']){
+  const w=word(latin);
+  assert.throws(()=>assertCastilianSpecificRules([{...w,changes:w.changes.filter(c=>c.rule!=='METAT')}]),/faltan etapas/);
+ }
+ for(const latin of ['dŏmĭnam','dŏmĭnum','cuminum','cucullum']){
+  assert.ok(!word(latin).changes.some(c=>['CUL','MIN_MBR'].includes(c.rule)));
+ }
+ for(const w of [...byRule('CUL'),...byRule('MIN_MBR'),...byRule('VOC')])
+  assert.match(w.explanation,/Criterio de corrección:/);
 });
