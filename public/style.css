@@ -446,3 +446,12 @@ html[data-theme="oled"]:has(body.portal) {
   .portal .hero-image { height: 100%; }
   .portal .resource-links a { min-height: 3.5rem; }
 }
+
+@media (max-width: 24rem) {
+  .portal .hero { grid-template-rows: auto; }
+  .portal .hero-image { display: none; }
+  .portal .hero h1 { font-size: 2rem; }
+  .portal .hero-copy > p { margin-bottom: .7rem; }
+  .portal .pwa-controls { margin-top: .5rem; }
+  .portal .resource-heading { margin-bottom: .35rem; }
+}
