@@ -59,3 +59,12 @@
 .lexical-evidence{font-size:.79rem;line-height:1.45;color:var(--muted);margin:10px 0 0}
 .lexical-evidence-link{display:inline-block;font-size:.82rem;font-weight:700;color:var(--accent);margin-top:8px}
 .lexical-alert{border-left:3px solid var(--warning);background:var(--panel);color:var(--ink);padding:9px 12px;margin:12px 0 0;border-radius:0 7px 7px 0;font-size:.85rem;line-height:1.5}
+
+/* Tarjetas inversas: recuperación activa, mismas unidades y temas del glosario. */
+.inverse-study{margin-bottom:22px}
+.inverse-study h2{margin:0 0 10px;font-size:1.3rem}
+.inverse-study .counter{margin:12px 0}
+.inverse-study .lexical-word{min-height:150px}
+.inverse-word{font-size:clamp(1.45rem,4vw,2rem);margin:0 0 12px;color:var(--ink);overflow-wrap:anywhere}
+.inverse-answer{border-top:1px solid var(--line);padding-top:16px}
+.inverse-study .lexicon-actions{margin-bottom:0}

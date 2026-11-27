@@ -17,8 +17,8 @@ test('106 ejercicios con definición y sentido etimológico, conservando las 16 
   assert.equal(result.entries.length,106);
   assert.deepEqual(result.entries.slice(0,16).map(({etymologicalSense,definitionType,...entry})=>entry),pilot.entries);
   assert.equal(result.audit.catalogDerivatives,487);
-  assert.equal(result.audit.eligibleDerivatives,482);
-  assert.equal(result.audit.awaitingIndividualDecompositionReview,376);
+  assert.equal(result.audit.eligibleDerivatives,484);
+  assert.equal(result.audit.awaitingIndividualDecompositionReview,378);
   assert.equal(engine.size,106);
   assert.equal(result.publicationAllowed,false);
   const expected={teocracia:'UD1','biografía':'UD2','cronología':'UD2','xilófono':'UD3','prólogo':'UD4','caligrafía':'UD5','polifonía':'UD5','geología':'UD6','dermatología':'UD8','monólogo':'UD12'};

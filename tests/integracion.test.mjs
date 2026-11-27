@@ -110,7 +110,12 @@ test('Etymologicon se construye con su pantalla, corrector y banco ampliado y ce
   assert.equal(study.schema,'etymologicon-study-catalog/v1');
   assert.equal(study.words.length,487);
   assert.equal(study.words.length,201+learner.extension.newDerivatives);
-  assert.equal(learner.derivatives.length,482);
+  assert.equal(learner.derivatives.length,484);
+  for(const form of ['neumonía','neumología']){
+    const word=study.words.find(w=>w.form===form);
+    assert.ok(word?.admission.practiceEligible,form);
+    assert.ok(learner.relations.some(rel=>rel.etymonId==='grc:πνευμα'&&rel.derivativeId===word.id),form);
+  }
   assert.deepEqual(learner.derivatives.map(d=>d.id),
     study.words.filter(w=>w.admission.practiceEligible).map(w=>w.id));
   assert.equal(learner.relations.length,study.words.filter(w=>w.admission.practiceEligible)

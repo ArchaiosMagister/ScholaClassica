@@ -105,6 +105,31 @@ try{
  assert.equal(await page.evaluate(()=>localStorage.getItem('scholaclassica-etymologicon-progress-v1')),null,
   'Estudio no debe escribir en el progreso');
 
+ // Tarjetas inversas: el étimo permanece oculto hasta descubrirlo; no se repiten en una ronda.
+ await page.locator('#study-inverse-toggle').click();
+ assert.equal(await page.locator('#study-inverse').isVisible(),true);
+ assert.equal(await page.locator('#lista-etimos').isHidden(),true);
+ assert.match(await page.locator('#inverse-count').textContent(),/^1 de 484 palabras$/);
+ const firstInverse=await page.locator('#inverse-word').textContent();
+ assert.ok(firstInverse&&await page.locator('#inverse-definition').textContent());
+ assert.equal(await page.locator('#inverse-answer').isHidden(),true);
+ assert.equal(await page.locator('#inverse-answer').textContent(),'');
+ assert.equal(await page.locator('#inverse-next').isDisabled(),true);
+ await page.locator('#inverse-reveal').click();
+ assert.equal(await page.locator('#inverse-answer').isVisible(),true);
+ assert.ok(await page.locator('#inverse-answer [lang="grc"]').count()>0);
+ await page.locator('#inverse-next').click();
+ assert.notEqual(await page.locator('#inverse-word').textContent(),firstInverse);
+ assert.equal(await page.locator('#inverse-answer').textContent(),'');
+ assert.equal(await page.locator('#inverse-answer').isHidden(),true);
+ await page.locator('#study-unit').selectOption({index:1});
+ assert.match(await page.locator('#inverse-count').textContent(),/^1 de /);
+ await page.locator('#study-inverse-toggle').click();
+ assert.equal(await page.locator('#study-inverse').isHidden(),true);
+ assert.equal(await page.locator('#lista-etimos').isVisible(),true);
+ await page.locator('#study-unit').selectOption('all');
+ assert.equal(await page.evaluate(()=>localStorage.getItem('scholaclassica-etymologicon-progress-v1')),null);
+ 
  // Anteriormente el acceso «Ir a practicar» conducía a la portada por error.
  assert.equal(await page.locator('a.lexicon-practice-link').getAttribute('href'),'./practicar.html');
  await page.locator('a.lexicon-practice-link').click();

@@ -275,40 +275,54 @@ try{
   assert.equal(await page.locator('.header-nav #study-check-update').count(),1);
   await page.locator('#study-search').fill('filología');
   await page.locator('.lexicon-group').first().locator('summary').click();
-  assert.ok(await page.locator('.lexical-word').count()>0);
-  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('φίλος'));
-  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('λόγος'));
+  assert.ok(await page.locator('#study-entries .lexical-word').count()>0);
+  assert.ok((await page.locator('#study-entries .lexical-components').first().textContent()).includes('φίλος'));
+  assert.ok((await page.locator('#study-entries .lexical-components').first().textContent()).includes('λόγος'));
   await page.locator('#study-search').fill('antropomorfismo');
-  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('μορφή'),
+  assert.ok((await page.locator('#study-entries .lexical-components').first().textContent()).includes('μορφή'),
     'Debe mostrarse también μορφή, no solo ἄνθρωπος');
   await page.locator('#study-search').fill('telegrama');
-  const telegramParts=await page.locator('.lexical-components').first().textContent();
+  const telegramParts=await page.locator('#study-entries .lexical-components').first().textContent();
   assert.ok(telegramParts.includes('τῆλε')&&telegramParts.includes('γράμμα'),
     'Telegrama debe presentar τῆλε y γράμμα');
-  const greekTypeface=await page.locator('.component-greek').first()
+  const greekTypeface=await page.locator('#study-entries .component-greek').first()
     .evaluate(el=>getComputedStyle(el).fontFamily);
   assert.ok(greekTypeface.includes('Times New Roman'),'Fuente politónica coherente: '+greekTypeface);
   // Las distinciones lingüísticas se conservan; los metadatos docentes no se exhiben.
   await page.locator('#study-search').fill('autarquía');
-  assert.ok((await page.locator('.lexical-alert').first().textContent()).includes('autarquía²'));
-  assert.ok((await page.locator('.lexical-definition').first().textContent()).includes('autosuficiencia'));
+  assert.ok((await page.locator('#study-entries .lexical-alert').first().textContent()).includes('autarquía²'));
+  // La tarjeta inversa también tiene una definición, aunque esté oculta.
+  const autarquiaCards=page.locator('#study-entries .lexical-word').filter({has:page.getByRole('heading',{name:'autarquía',exact:true})});
+  assert.ok(await autarquiaCards.count()>0,'El glosario debe contener autarquía');
+  for(const card of await autarquiaCards.all()){
+    assert.match(await card.locator('.lexical-definition').textContent(),/autosuficiencia/,
+      'Cada ficha de autarquía debe conservar la acepción de αὐτάρκεια');
+  }
   await page.locator('#study-search').fill('plastilina');
-  assert.ok((await page.locator('.lexical-alert').first().textContent()).includes('marca registrada'));
+  assert.ok((await page.locator('#study-entries .lexical-alert').first().textContent()).includes('marca registrada'));
   await page.locator('#study-search').fill('seudociencia');
-  assert.ok((await page.locator('.lexical-alert').first().textContent())
+  assert.ok((await page.locator('#study-entries .lexical-alert').first().textContent())
     .includes('No figura como entrada independiente en el DLE'));
-  assert.ok((await page.locator('.lexical-word').first().textContent()).includes('Solo consulta'));
+  const seudocienciaCards=page.locator('#study-entries .lexical-word').filter({has:page.getByRole('heading',{name:'seudociencia',exact:true})});
+  assert.ok(await seudocienciaCards.count()>0,'El glosario conserva seudociencia');
+  for(const card of await seudocienciaCards.all()){
+    assert.match(await card.textContent(),/Solo consulta/,'Seudociencia no debe admitirse en la práctica');
+  }
   await page.locator('#study-search').fill('neumología');
-  assert.match(await page.locator('.lexical-components').first().textContent(),/πνεύμων/);
-  assert.ok(await page.getByRole('heading',{name:'Fichas sin étimo curricular'}).isVisible());
+  const pneuma=page.locator('#study-entries details[data-etymon-id="grc:πνευμα"]');
+  const neumologia=pneuma.locator('.lexical-word').filter({has:page.getByRole('heading',{name:'neumología',exact:true})});
+  assert.equal(await neumologia.count(),1,'Neumología se admite en la familia curricular de πνεῦμα por decisión docente');
+  assert.match(await neumologia.locator('.lexical-components').textContent(),/πνεύμων/);
+  assert.match(await neumologia.locator('.lexical-alert').textContent(),/decisión docente/);
+  assert.doesNotMatch(await neumologia.textContent(),/Solo consulta/);
   await page.locator('#study-search').fill('dendrología');
   assert.ok(await page.getByRole('link',{name:/Universidad de Huelva/}).isVisible());
   await page.locator('#study-search').fill('biología');
   assert.equal(await page.locator('.lexical-evidence, .lexical-source').count(),0);
   await page.locator('#study-search').fill('filosofía');
-  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('σοφία'));
+  assert.ok((await page.locator('#study-entries .lexical-components').first().textContent()).includes('σοφία'));
   await page.locator('#study-search').fill('misoginia');
-  assert.ok((await page.locator('.lexical-components').first().textContent()).includes('γυνή'));
+  assert.ok((await page.locator('#study-entries .lexical-components').first().textContent()).includes('γυνή'));
   await page.locator('#study-search').fill('');
   await page.locator('#study-unit').selectOption('UD1');
   assert.ok((await page.locator('.lexicon-group').count())<111);

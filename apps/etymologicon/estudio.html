@@ -67,11 +67,28 @@
       </div>
     </div>
     <div class="lexicon-actions">
+      <button type="button" id="study-inverse-toggle" class="primary-button" aria-pressed="false" aria-controls="study-inverse" disabled>Tarjetas inversas</button>
       <button type="button" id="study-expand" class="secondary-button">Desplegar visibles</button>
       <button type="button" id="study-collapse" class="secondary-button">Contraer todos</button>
       <a class="lexicon-practice-link" href="./practicar.html">Ir a practicar</a>
     </div>
     <p id="study-count" class="counter" role="status" aria-live="polite">Preparando el glosario…</p>
+  </section>
+  <section class="panel inverse-study" id="study-inverse" aria-labelledby="inverse-title" hidden>
+    <h2 id="inverse-title">Castellano → raíces griegas</h2>
+    <p>Lee la palabra y su significado. Intenta recordar sus étimos griegos antes de descubrirlos.</p>
+    <p id="inverse-count" class="counter" role="status" aria-live="polite"></p>
+    <article id="inverse-card" class="lexical-word" aria-live="polite">
+      <h3 id="inverse-word" class="inverse-word"></h3>
+      <p id="inverse-definition" class="lexical-definition"></p>
+      <div id="inverse-answer" class="inverse-answer" hidden></div>
+    </article>
+    <p id="inverse-empty" role="status" hidden></p>
+    <div class="lexicon-actions">
+      <button type="button" id="inverse-reveal" class="primary-button" aria-expanded="false" aria-controls="inverse-answer">Mostrar raíces griegas</button>
+      <button type="button" id="inverse-next" class="secondary-button" disabled>Siguiente palabra</button>
+      <button type="button" id="inverse-restart" class="secondary-button">Barajar de nuevo</button>
+    </div>
   </section>
   <section class="lexicon-results" id="lista-etimos" aria-label="Étimos griegos y derivados castellanos">
     <p id="study-loading" role="status">Cargando el glosario…</p>
