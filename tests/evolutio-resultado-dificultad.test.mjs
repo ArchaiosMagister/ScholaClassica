@@ -238,7 +238,7 @@ test('Diptongación tónica, metátesis y pérdidas interiores omitidas',async()
   ['scutarium','METAT',[[4,7]],'er'],
   ['frigĭdum','SINC',[[3,4]],'∅'],
   ['frigĭdum','SINC',[[5,6]],'∅'],
-  ['heredĭtātem','SINC',[[4,5]],'∅'],
+  ['heredĭtātem','SIMPL',[[4,5],[6,7]],'d'],
   ['heredĭtātem','SONOR',[[8,9]],'d'],
   ['heredĭtātem','APOC',[[9,10]],'∅']
  ]){
@@ -250,4 +250,35 @@ test('Diptongación tónica, metátesis y pérdidas interiores omitidas',async()
  assert.throws(()=>assertCastilianSyncopeSpans([{
   ...old,changes:old.changes.filter(c=>c.rule!=='CUL')
  }]),/síncopa sobre abertura/);
+});
+
+test('Correcciones filológicas del nuevo bloque: fragmentos y fenómenos contrastados',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ for(const [latin,rule,spans,output] of [
+  ['calcem','PALAT',[[3,4]],'z'],
+  ['falcem','PALAT',[[3,4]],'z'],
+  ['luminaria','METAT',[[5,8]],'er'],
+  ['cultellum','DIPT',[[4,5]],'ie'],
+  ['dixit','ABER',[[3,4]],'e'],
+  ['dixit','APOC',[[4,5]],'∅'],
+  ['filictum','ABER',[[3,4]],'e'],
+  ['gemmam','PALAT',[[0,1]],'y'],
+  ['mascŭlum','PALAT',[[2,6]],'ch'],
+  ['quattuor','METAT',[[6,7],[7,8]],'ro'],
+  ['sitim','APOC',[[3,4]],'∅'],
+  ['sitim','ABER',[[3,4]],'e'],
+  ['sŏlet','APOC',[[4,5]],'∅'],
+  ['tingit','PALAT',[[2,4]],'ñ'],
+  ['tingit','ABER',[[4,5]],'e'],
+  ['uindĭcāre','SINC',[[3,4]],'∅']
+ ]){
+  const w=word(latin);
+  assert.ok(w.changes.some(c=>c.rule===rule&&JSON.stringify(c.spans)===JSON.stringify(spans)&&c.output===output),latin);
+  assert.equal(gradeChange(w,{rule,spans}).correct,true,latin);
+ }
+ for(const latin of ['factum','facturam','lactem','lactucam','maxillam','mataxam'])
+  assert.match(word(latin).explanation,/yod/i,latin);
+ assert.equal(word('sitim').changes.some(c=>c.rule==='SINC'),false);
+ assert.match(word('dixit').explanation,/analogía/);
+ assert.match(word('recipere').explanation,/conjugación/);
 });

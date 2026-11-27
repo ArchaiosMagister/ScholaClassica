@@ -13,28 +13,28 @@ const RAW=`
 49|capram|cabra|S2=b
 55|cĕntum|ciento|A4=o,D1=ie,P0=c
 57|cĕrvum|ciervo|A4=o,D1=ie,P0=c
-79|cultellum|cuchillo|A7=o,P2-4=ch,P5-7=ll
+79|cultellum|cuchillo|A7=o,P2-4=ch,P5-7=ll,D4=ie
 85|dĕcem|diez|C3=∅,D1=ie,P2=z
 94|dixi|dije|A3=e,P2=j
-95|dixit|dijo|P2=j
+95|dixit|dijo|P2=j,A3=e,C4=∅
 100|dubĭtare|dudar|I2-4=∅,S4=d,C7=∅
 103|exercere|ejercer|P1=j,C7=∅
 107|factum|hecho|A4=o,H0=h,P2-4=ch
 108|facturam|hechura|H0=h,P2-4=ch
 120|filiam|hija|H0=h,P2-4=j
-121|filictum|helecho|A1=e,H0=h,P4-6=ch,A6=o
+121|filictum|helecho|A1=e,H0=h,P4-6=ch,A6=o,A3=e
 135|frigĭdum|frío|A6=o,I4=∅,I3=∅,I5=∅
 139|fustigare|hostigar|A1=o,H0=h,C8=∅
 141|gĕlum|hielo|A3=o,D1=ie
-142|gemmam|yema|P0-2=ye,L2-4=m
-149|heredĭtātem|heredad|I5=∅,S6=d,I4=∅,S8=d,C9=∅
+142|gemmam|yema|P0=y,L2-4=m
+149|heredĭtātem|heredad|I5=∅,S6=d,J4-7=d,S8=d,C9=∅
 157|integrum|entero|A0=e,I4=∅,A6=o
 166|lacrimam|lágrima|S2=g
 167|lactem|leche|P2-4=ch
 168|lactucam|lechuga|P2-4=ch,S5=g
 178|lego|leo|I2=∅
 187|macrum|magro|A4=o,S2=g
-195|mascŭlum|macho|A6=o,P2-4=ch,I4=∅
+195|mascŭlum|macho|A6=o,P2-6=ch,I4=∅
 197|materiam|madera|I5=∅,S2=d
 200|maxillam|mejilla|P2=j,P4-6=ll
 224|pacem|paz|C3=∅,P2=z
@@ -44,23 +44,23 @@ const RAW=`
 233|perdicem|perdiz|C6=∅,P5=z
 236|petram|piedra|D1=ie,S2=d
 237|pineam|piña|P2-4=ñ
-254|quattuor|cuatro|L3-5=t
+254|quattuor|cuatro|L3-5=t,T6-8=ro
 256|radicem|raíz|C5=∅,P4=z,I2=∅
 260|rancidum|rancio|A6=o,P3-5=ci,I5=∅
 264|recipere|recibir|S4=b,C7=∅
 265|regem|rey|P2-4=y
 269|sacratum|sagrado|A6=o,S2=g,S5=d
 276|scutarium|escudero|A7=o,R0-0=e,S3=d,Q4-7=er
-292|sitim|sed|A1=e,S2=d,I3=∅
-295|sŏlet|suele|D1=ue
+292|sitim|sed|A1=e,S2=d,C3=∅,A3=e
+295|sŏlet|suele|D1=ue,C4=∅
 310|super|sobre|A1=o,S2=b,T3-5=re
 317|tegŭlam|teja|P2-5=j,I3=∅
 318|tĕnĕrum|tierno|A5=o,D1=ie,I3=∅,T2-5=rn
-324|tingit|tiñe|P2-5=ñ,C5=∅
+324|tingit|tiñe|P2-4=ñ,C5=∅,A4=e
 326|tristitiam|tristeza|A5=e,P6-8=z
 328|vadeam|vaya|P2-4=y
 334|vexare|vejar|P2=j,C5=∅
-336|vindĭcāre|vengar|A1=e,I4=∅,S5=g,C8=∅
+336|vindĭcāre|vengar|A1=e,I4=∅,S5=g,C8=∅,I3=∅
 337|vineam|viña|P2-4=ñ
 348|augustum|agosto|A3=o,M0-2=a,A6=o
 375|duplare|doblar|A1=o,S2=b,C6=∅
@@ -117,7 +117,7 @@ const RULES=Object.freeze({
  S:['SONOR','sonorización'],I:['SINC','síncopa'],C:['APOC','apócope'],
  H:['ASPIR','aspiración'],M:['MONOP','monoptongación'],R:['PROT','prótesis'],
  L:['SIMPL','simplificación'],N:['CONS','consonantización'],
- T:['METAT','metátesis'],Q:['METAT','metátesis'],B:['ASMIL','asimilación']
+ T:['METAT','metátesis'],Q:['METAT','metátesis'],B:['ASMIL','asimilación'],J:['SIMPL','simplificación']
 });
 export const ADDITION_SOURCE=Object.freeze({
  file:'banco_evolucion_fonetica_PAU_2026_actualizado.xlsx',
@@ -146,9 +146,11 @@ function rowToWord(line){
   const insertion=match[1]==='R';
   return {
    id:'t'+(i+1),rule,
-   ...(insertion?{spans:[],anchor:a}:match[1]==='T'?{spans:[[a,a+1],[b-1,b]]}:{spans:[[a,b]]}),
+   ...(insertion?{spans:[],anchor:a}:['T','J'].includes(match[1])?{spans:[[a,a+1],[b-1,b]]}:{spans:[[a,b]]}),
    output,
-   note:match[1]==='Q'
+   note:match[1]==='J'
+    ? 'Tras la sonorización y la síncopa, d y d quedan en contacto y se reducen a una sola d.'
+    : match[1]==='Q'
     ? 'El sufijo -arium pasa a -airum por metátesis; tras la evolución de -um, -airo se reduce a -ero. La abertura final se evalúa por separado.'
     : match[1]==='T'&&row===318
     ? 'Tras la síncopa de la e postónica, el grupo -nr- se reordena en -rn-.'
@@ -176,7 +178,28 @@ function rowToWord(line){
     (latin.endsWith('m')?' La -m final se pierde como regla fija.':'')
  };
 }
-export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord));
+const ADDITION_NOTES=Object.freeze({
+  "79": "El castellano medieval cuchiello documenta la diptongación de ĕ; el diptongo -ie- se reduce después a -i- ante la lateral palatal.",
+  "95": "La -i final se abre en -e, tras la pérdida de -t; la terminación moderna -o se explica por analogía con otras terceras personas del perfecto, no por abertura i > o.",
+  "107": "La yod originada por -ct- cierra la a en e (factu > faito > feito > fecho > hecho); no es la abertura i/u de N01.",
+  "108": "La yod del grupo -ct- explica el cambio a > e, además de la palatalización; no es abertura.",
+  "141": "La g ante ĕ se palataliza y confluye con la semiconsonante de la diptongación; la h de hielo es gráfica, no resultado de f inicial.",
+  "149": "La secuencia hered(i)dade se reduce por síncopa y simplificación de las dos dentales sonoras contiguas; no se exige una pérdida independiente de d.",
+  "167": "La yod de -ct- provoca el cierre de a > e (lacte > laite > leite > leche); no se etiqueta como abertura.",
+  "168": "La yod de -ct- explica a > e en lechuga; este cierre vocálico no corresponde a N01.",
+  "195": "Tras síncopa, el grupo secundario -scl- desemboca en ch con pérdida de s; se señala el grupo original completo.",
+  "200": "La yod asociada a x provoca el cierre de la a pretónica en e; no es abertura.",
+  "254": "La secuencia vocálica -uo- se reduce a -o- (quattuor > *quattor) y la r final cambia de posición: quattro / quatro, después cuatro. La reducción de hiato no se puntúa aparte.",
+  "264": "El resultado del infinitivo en -ir supone un reajuste de la conjugación; no se presenta e > i como abertura.",
+  "292": "Tras la caída de -m, la i final se abre a e y esta e se pierde después de d (sed); la pérdida es apócope, no síncopa.",
+  "324": "El grupo -ng- ante i da ñ; la i final se abre a e tras la pérdida de la dental final.",
+  "336": "La síncopa de ĭ deja el grupo -dc-; se reduce el grupo y desaparece d, además de la evolución c > g.",
+  "348": "La reducción de au a a en augustum se distingue del resultado habitual au > o; interviene la disimilación vocálica ante la u de la sílaba siguiente."
+});
+export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
+ const note=ADDITION_NOTES[word.source.row];
+ return note?{...word,explanation:word.explanation+' '+note}:word;
+}));
 if(CASTILIAN_ADDITIONS.length!==100)throw Error('Lote castellano: deben constar 100 fichas exactas.');
 
 // Correcciones filológicas por ID y cambio; la fuente vendorizada permanece intacta.
@@ -186,6 +209,83 @@ const SYNCOPE_FIXES=Object.freeze({
 });
 // Intervalos documentados por la propia explicación de cada ficha.
 const POSITION_FIXES=new Map([["xl-36",["cæcare","t2","SONOR",0,2]],["xl-37",["cæcum","t3","SONOR",0,2]],["xl-78",["cucullum","t2","SONOR",0,2]],["xl-246",["pŏpŭlum","t2","SONOR",0,2]],["xl-87",["decollare","t3","APOC",1,8]],["xl-201",["meliorem","t2","APOC",1,6]],["xl-921",["pensare","t2","APOC",1,6]],["xl-509",["temptare","t2","APOC",1,7]],["xl-825",["despoliare","t2","APOC",1,9]],["xl-285",["serpĕntem","t1","DIPT",1,4]]]);
+const EDITORIAL_COMPLETIONS=Object.freeze({
+  "xl-196": {
+    "latin": "mataxam",
+    "note": "La yod del grupo x favorece además el cierre de a pretónica en e. No es una abertura de i/u."
+  },
+  "xl-1027": {
+    "latin": "calcem",
+    "change": {
+      "rule": "PALAT",
+      "spans": [
+        [
+          3,
+          4
+        ]
+      ],
+      "output": "z",
+      "note": "La segunda c, ante e, se palataliza históricamente y acaba en la sibilante escrita z."
+    },
+    "replace": {
+      "id": "t2",
+      "note": "Cae la -e final de calce en la forma castellana coz."
+    },
+    "explanation": "Calcem > coz: vocalización de -al- > au > o, palatalización histórica de la segunda c ante e (z actual), apócope de e y pérdida fija de m. No confundir con cauce (< calicem)."
+  },
+  "xl-1028": {
+    "latin": "falcem",
+    "change": {
+      "rule": "PALAT",
+      "spans": [
+        [
+          3,
+          4
+        ]
+      ],
+      "output": "z",
+      "note": "La c ante e se palataliza históricamente y acaba en z."
+    },
+    "explanation": "Falcem > hoz: aspiración de f inicial, vocalización de -al- > au > o, palatalización histórica de c ante e (z actual), apócope de e y pérdida fija de m."
+  },
+  "xl-1034": {
+    "latin": "luminaria",
+    "change": {
+      "rule": "METAT",
+      "spans": [
+        [
+          5,
+          8
+        ]
+      ],
+      "output": "er",
+      "note": "-aria evoluciona por metátesis a -aira y después a -era, según el mismo criterio didáctico que -arium > -ero."
+    },
+    "replace": {
+      "id": "t1",
+      "note": "El grupo -min- pasa a -mbr- en lumbrera."
+    },
+    "explanation": "Luminaria (plural neutro) > lumbrera: transformación -min- > -mbr- y metátesis de -aria > -aira > -era. «Luminaria» es el doblete culto."
+  }
+});
+function completeCastilianSourceWords(words){
+ const found=new Set();
+ const result=words.map(word=>{
+  const entry=EDITORIAL_COMPLETIONS[word.id];
+  if(!entry)return word;
+  if(word.latin!==entry.latin)throw Error('Evolutio: étimo editorial alterado '+word.id);
+  found.add(word.id);
+  let changes=word.changes.map(c=>c.id===entry.replace?.id?{...c,note:entry.replace.note}:c);
+  if(entry.change){
+   const id='t'+(changes.length+1);
+   if(changes.some(c=>c.id===id||c.rule===entry.change.rule))throw Error('Evolutio: cambio editorial duplicado '+word.id);
+   changes=[...changes,{id,...entry.change}];
+  }
+  return {...word,changes,explanation:entry.explanation??word.explanation+' '+entry.note};
+ });
+ if(found.size!==Object.keys(EDITORIAL_COMPLETIONS).length)throw Error('Evolutio: faltan fichas editoriales');
+ return result;
+}
 export function correctCastilianSourceWords(words){
  const seen=new Set();
  let crucemFound=false;
@@ -215,7 +315,7 @@ export function correctCastilianSourceWords(words){
   return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[5,6]]}:c)};
  });
  if(!crucemFound||positionSeen.size!==POSITION_FIXES.size||seen.size!==Object.keys(SYNCOPE_FIXES).length)throw Error('Evolutio: faltan fichas de corrección');
- return corrected;
+ return completeCastilianSourceWords(corrected);
 }
 
 export function assertCastilianSyncopeSpans(words){
