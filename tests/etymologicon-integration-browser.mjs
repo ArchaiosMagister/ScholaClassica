@@ -54,6 +54,27 @@ try{
   'Los 111 étimos del glosario deben poder consultarse');
  assert.match(await page.locator('#study-count').textContent(),/^111 étimos · /);
 
+ // Glosas de estudio abreviadas: no se modifica el significado académico ni la búsqueda.
+ const headerMeaning=id=>page.locator('details[data-etymon-id="'+id+'"] .lexicon-meaning');
+ assert.equal(await headerMeaning('grc:φερω').textContent(),'llevar');
+ assert.equal(await headerMeaning('grc:θεοσ').textContent(),'dios');
+ assert.equal(await headerMeaning('grc:λογοσ').textContent(),'palabra; discurso; razón');
+ const academicMeanings=await page.evaluate(async()=>{
+   const [practice,study]=await Promise.all(['gr1.json','gr1-study.json'].map(async name=>
+     (await fetch('./data/'+name)).json()));
+   return [practice,study].map(catalog=>catalog.etymons.find(e=>e.id==='grc:φερω').meaning);
+ });
+ for(const meaning of academicMeanings)assert.match(meaning,/transportar/);
+ await page.locator('#study-search').fill('transportar');
+ assert.equal(await headerMeaning('grc:φερω').textContent(),'llevar');
+ await page.locator('#study-search').fill('antropología');
+ const anthropology=page.locator('.lexical-word').filter({
+   has:page.locator('.lexical-word-title',{hasText:/^antropología$/})
+ }).first();
+ assert.match(await anthropology.locator('.lexical-component').filter({hasText:'λόγος'}).textContent(),/estudio/);
+ await page.locator('#study-search').fill('');
+
+
  // Jerarquía curricular: cada étimo aparece una sola vez, en su primera unidad.
  const grouped=await page.locator('.lexicon-unit-section').evaluateAll(sections=>sections.map(section=>({
    unit:section.dataset.unit,
@@ -75,25 +96,35 @@ try{
  // Comprobar la cuadrícula real de derivados en móvil, tableta y ordenador.
  const originalViewport=page.viewportSize();
  const familyIndex=await page.locator('#study-entries details.lexicon-group').evaluateAll(groups=>
-   groups.findIndex(group=>group.querySelectorAll('.lexicon-word-list > .lexical-word').length>=3));
- assert.ok(familyIndex>=0,'Debe existir una familia con al menos tres derivados');
+   groups.findIndex(group=>group.querySelectorAll('.lexicon-word-list > .lexical-word').length>=4));
+ assert.ok(familyIndex>=0,'Debe existir una familia con al menos cuatro derivados para probar varias filas');
  const gridFamily=page.locator('#study-entries details.lexicon-group').nth(familyIndex);
- await gridFamily.locator('summary').click();
+ // La búsqueda anterior puede haber abierto esta familia. No invertir a ciegas.
+ if(await gridFamily.getAttribute('open')===null)await gridFamily.locator('summary').click();
+ assert.equal(await gridFamily.getAttribute('open'),'','Familia abierta antes de medir');
  const wordList=gridFamily.locator('.lexicon-word-list');
+ await wordList.waitFor({state:'visible'});
  for(const [width,columns] of [[375,1],[768,2],[1024,3],[1280,3]]){
    await page.setViewportSize({width,height:900});
-   const layout=await wordList.evaluate(el=>{
+   const layout=await wordList.evaluate(async el=>{
+     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+     if(!el.closest('details').open)throw Error('Familia cerrada antes de medir');
      const cards=[...el.querySelectorAll(':scope > .lexical-word')];
      const rects=cards.map(card=>card.getBoundingClientRect());
      return {
        columns:getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length,
        firstRow:rects.filter(rect=>Math.abs(rect.top-rects[0].top)<1).length,
-       withinCards:cards.every(card=>card.scrollWidth<=card.clientWidth+1),
+       sameSize:rects.every(rect=>Math.abs(rect.width-rects[0].width)<1&&
+         Math.abs(rect.height-rects[0].height)<1),
+       withinCards:cards.every(card=>card.getBoundingClientRect().width>0&&
+         card.getBoundingClientRect().height>0&&card.scrollWidth<=card.clientWidth+1&&
+         card.scrollHeight<=card.clientHeight+1),
        pageFits:document.documentElement.scrollWidth<=window.innerWidth
      };
    });
    assert.equal(layout.columns,columns,'Columnas a '+width+' px');
    assert.equal(layout.firstRow,columns,'Tarjetas en la primera fila a '+width+' px');
+   assert.ok(layout.sameSize,'Todas las tarjetas de la familia tienen el mismo tamaño a '+width+' px');
    assert.ok(layout.withinCards,'Contenido íntegro sin desbordamiento a '+width+' px');
    assert.ok(layout.pageFits,'Sin desplazamiento horizontal a '+width+' px');
  }
