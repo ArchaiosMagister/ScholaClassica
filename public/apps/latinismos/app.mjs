@@ -11,7 +11,7 @@ const term=(i,initial=false)=>latinText(initial?i.latinism.charAt(0).toLocaleUpp
 function meaning(i){
  const fragment=document.createDocumentFragment();
  const forms=[i.latinism,...i.variants].sort((a,b)=>b.length-a.length);
- const escaped=forms.map(s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\const term=(i,initial=false)=>el(i.italic?'i':'span',initial?i.latinism.charAt(0).toLocaleUpperCase('es')+i.latinism.slice(1):i.latinism);'));
+ const escaped=forms.map(s=>[...s].map(ch=>['.', '*', '+', '?', '^', '$', '{', '}', '(', ')', '|', '[', ']', String.fromCharCode(92)].includes(ch)?String.fromCharCode(92)+ch:ch).join(''));
  const pattern=new RegExp('(?<![\\p{L}\\p{N}])(?:'+escaped.join('|')+')(?![\\p{L}\\p{N}])','giu');
  let last=0;
  for(const match of i.meaning.matchAll(pattern)){fragment.append(i.meaning.slice(last,match.index),latinText(match[0]));last=match.index+match[0].length;}
