@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
-import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules,assertCastilianOpeningSpans,assertCastilianInitialRules,assertCastilianSonorizationSpans} from '../scripts/evolutio-castellano-lote100.mjs';
+import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules,assertCastilianOpeningSpans,assertCastilianInitialRules,assertCastilianSonorizationSpans,assertCastilianGreekGraphs} from '../scripts/evolutio-castellano-lote100.mjs';
 import {
  resultSpellingDistance,resultDifficultyComponents,resultDifficultyScore,
  resultDifficultyLevel,curatedDifficultyLevel,curatedDifficultyIds,RESULT_DIFFICULTY_METHOD
@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,265);
+ assert.equal(reviewed.length,374);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -508,4 +508,28 @@ test('Asimilación, disimilación y metátesis: selección de fragmentos origina
   const w=bank.words.find(w=>w.id===id),c=w.changes.find(c=>c.rule==='DISIMIL');
   assert.equal(gradeChange(w,{rule:'METAT',spans:c.spans}).correct,false,id);
  }
+});
+
+
+test('Grafías griegas y palatalización: correspondencias, fragmentos y evaluación',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ assert.doesNotThrow(()=>assertCastilianGreekGraphs(bank.words));
+ const ids=["xl-633","xl-794","xl-58","xl-711","ge-EVF-1076","ge-EVF-1077","ge-EVF-1078","ge-EVF-1079","ge-EVF-1080","ge-EVF-1081","ge-EVF-1082","ge-EVF-1083","ge-EVF-1085","ge-EVF-1086","ge-EVF-1087","ge-EVF-1088","ge-EVF-1090","ge-EVF-1092","ge-EVF-1094","ge-EVF-1095","ge-EVF-1096","ge-EVF-1097","ge-EVF-1098","ge-EVF-1099","ge-EVF-1100","ge-EVF-1104","ge-EVF-1106","ge-EVF-1107","ge-EVF-1108","ge-EVF-1109","ge-EVF-1110","ge-EVF-1111","ge-EVF-1113","ge-EVF-1114","ge-EVF-1115","ge-EVF-1116","ge-EVF-1117","ge-EVF-1118","ge-EVF-1119","ge-EVF-1120","ge-EVF-1121","ge-EVF-1122","ge-EVF-1123","ge-EVF-1124","ge-EVF-1125","ge-EVF-1126","ge-EVF-1127","ge-EVF-1128","ge-EVF-1129","ge-EVF-1130","ge-EVF-1131","ge-EVF-1132","ge-EVF-1133","ge-EVF-1134","ge-EVF-1135","ge-EVF-1136","ge-EVF-1137","ge-EVF-1138","ge-EVF-1140","ge-EVF-1141","ge-EVF-1142","ge-EVF-1143","ge-EVF-1171","ge-EVF-1172","ge-EVF-1181","ge-EVF-1182","ge-EVF-1183","ge-EVF-1185","ge-EVF-1186","ge-EVF-1187","ge-EVF-1188","ge-EVF-1189","ge-EVF-1190","ge-EVF-1191","ge-EVF-1192","ge-EVF-1193","ge-EVF-1194","ge-EVF-1196","ge-EVF-1198","ge-EVF-1199"];
+ for(const id of ids){
+  const w=bank.words.find(w=>w.id===id);
+  assert.match(w.explanation,/Grafías que se seleccionan por separado/);
+  for(const c of w.changes.filter(c=>c.rule==='GRIE')){
+   assert.equal(gradeChange(w,{rule:'GRIE',spans:c.spans}).correct,true,id);
+   assert.equal(gradeChange(w,{rule:'ASPIR',spans:c.spans}).correct,false,id);
+  }
+ }
+ for(const id of ["xl-61","xl-122","xl-257","xl-804","xl-842","xl-851","xl-46","xl-48","xl-60","xl-63","xl-69","xl-127","xl-183","xl-227","xl-827","xl-97","xl-98","xl-146","xl-192","xl-194","xl-209","xl-255","xl-273","xl-283","ge-EVF-0813","ge-EVF-0817","ge-EVF-0852","ge-EVF-0239"]){
+  const w=bank.words.find(w=>w.id===id);
+  for(const c of w.changes.filter(c=>c.rule==='PALAT'))assert.equal(gradeChange(w,{rule:'PALAT',spans:c.spans}).correct,true,id);
+ }
+ const tronar=bank.words.find(w=>w.id==='xl-616');
+ assert.equal(gradeChange(tronar,{rule:'EPENT',spans:[],anchor:1}).correct,true);
+ assert.equal(gradeChange(tronar,{rule:'PROT',spans:[],anchor:0}).correct,false);
+ assert.match(word('clamare').explanation,/apócope/);
+ assert.throws(()=>assertCastilianGreekGraphs([{latin:'chartam',changes:[{rule:'GRIE',spans:[[1,2]],output:'c'}]}]),/grafía griega incoherente/);
 });

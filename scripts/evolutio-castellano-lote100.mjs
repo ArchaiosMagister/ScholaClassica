@@ -320,6 +320,74 @@ function clarifyLiquidChanges(word){
  const changes=word.changes.map(c=>contact&&c.rule==='METAT'?{...c,spans:contact,note}:c).map(nameChange);
  return {...word,changes,explanation:word.explanation+' '+note};
 }
+// Revisión de los helenismos: la grafía de origen y las adaptaciones evaluables son independientes.
+const GREEK_GRAPH_REVIEW=new Set(["xl-633","xl-794","xl-58","xl-711","ge-EVF-1076","ge-EVF-1077","ge-EVF-1078","ge-EVF-1079","ge-EVF-1080","ge-EVF-1081","ge-EVF-1082","ge-EVF-1083","ge-EVF-1085","ge-EVF-1086","ge-EVF-1087","ge-EVF-1088","ge-EVF-1090","ge-EVF-1092","ge-EVF-1094","ge-EVF-1095","ge-EVF-1096","ge-EVF-1097","ge-EVF-1098","ge-EVF-1099","ge-EVF-1100","ge-EVF-1104","ge-EVF-1106","ge-EVF-1107","ge-EVF-1108","ge-EVF-1109","ge-EVF-1110","ge-EVF-1111","ge-EVF-1113","ge-EVF-1114","ge-EVF-1115","ge-EVF-1116","ge-EVF-1117","ge-EVF-1118","ge-EVF-1119","ge-EVF-1120","ge-EVF-1121","ge-EVF-1122","ge-EVF-1123","ge-EVF-1124","ge-EVF-1125","ge-EVF-1126","ge-EVF-1127","ge-EVF-1128","ge-EVF-1129","ge-EVF-1130","ge-EVF-1131","ge-EVF-1132","ge-EVF-1133","ge-EVF-1134","ge-EVF-1135","ge-EVF-1136","ge-EVF-1137","ge-EVF-1138","ge-EVF-1140","ge-EVF-1141","ge-EVF-1142","ge-EVF-1143","ge-EVF-1171","ge-EVF-1172","ge-EVF-1181","ge-EVF-1182","ge-EVF-1183","ge-EVF-1185","ge-EVF-1186","ge-EVF-1187","ge-EVF-1188","ge-EVF-1189","ge-EVF-1190","ge-EVF-1191","ge-EVF-1192","ge-EVF-1193","ge-EVF-1194","ge-EVF-1196","ge-EVF-1198","ge-EVF-1199"]);
+const PALATAL_REVIEW=Object.freeze({
+  "xl-61": "Se marca cl- completo: la lateral palatal histórica /ʎ/ no es la suma de dos l; la u consonántica escrita v no es otra norma.",
+  "xl-122": "Se marca li ante u, no una i aislada: la yod participa en la palatalización de l. La consonante medieval palatal acaba en la j moderna.",
+  "xl-257": "Se marca di ante u: la yod palataliza la dental, que acaba en y; no se marca consonantización independiente de i.",
+  "xl-804": "Se marca nn completo; su resultado es la nasal palatal /ɲ/, no una n simple.",
+  "xl-842": "El grupo gn da la nasal palatal /ɲ/. Se señala gn completo y se diferencia de la abertura de i.",
+  "xl-851": "Se marca pl- completo; la g latina ya era sonora y permanece, sin sonorización.",
+  "xl-46": "La geminada nn da /ɲ/ y no n; se evalúa palatalización, no simplificación.",
+  "xl-48": "La grafía ll se conserva, pero el sonido cambia de lateral geminada a lateral palatal histórica; p intervocálica > b es otra norma.",
+  "xl-60": "Palatalización de cl- en ll- y apócope de e final del infinitivo; esta última es también seleccionable.",
+  "xl-63": "La geminada ll se convierte en una lateral palatal histórica /ʎ/; se marcan también la diptongación de ŏ y la abertura de u final.",
+  "xl-69": "Se selecciona li, no la i tónica precedente: esta última experimenta abertura independiente. La j moderna procede de una consonante palatal medieval.",
+  "xl-127": "La geminada ll se convierte en /ʎ/ histórica aunque la escritura no cambie; la diptongación es independiente.",
+  "xl-183": "El grupo ct desarrolla una yod en su evolución a ch; no se presupone abertura de u tónica ante este grupo.",
+  "xl-227": "La geminada nn se palataliza en /ɲ/; no se evalúa además simplificación de nn.",
+  "xl-827": "Se señala ct completo: la yod de este grupo favorece la conservación de i; se evalúa también la abertura de u final.",
+  "xl-97": "Se marcan m y n por separado porque la i latina se pierde por síncopa. El grupo secundario mn da ñ, no mbr.",
+  "xl-98": "Se marcan m y n por separado porque la i latina se pierde por síncopa. El grupo secundario mn da ñ, no mbr.",
+  "xl-146": "Se marca nn completo para palatalización y e final del infinitivo para apócope.",
+  "xl-192": "Se marca ti ante vocal: la yod origina una sibilante medieval, escrita z en el resultado moderno, no una consonantización independiente.",
+  "xl-194": "Ti ante vocal se transforma en una sibilante medieval; la z actual no se interpreta como consonante palatal sincrónica.",
+  "xl-209": "Se marca li ante vocal y se evalúa además la apócope de e final, distinta de la pérdida fija de m.",
+  "xl-255": "Se marca di ante vocal para palatalización; la i no se evalúa por separado. La e final del infinitivo se pierde por apócope.",
+  "xl-273": "Se marca ti, no toda la secuencia tion: su evolución histórica produce una sibilante; apócope de e final tras n.",
+  "xl-283": "Se marca ni ante vocal para obtener la nasal palatal ñ; la e final se pierde por apócope.",
+  "ge-EVF-0813": "Se marca ll geminada: su resultado es /ʎ/ histórica, no una geminada en castellano. Abertura de u final y pérdida fija de m.",
+  "ge-EVF-0817": "Se marca ll para palatalización y e final para apócope; collar no conserva una lateral geminada latina.",
+  "ge-EVF-0852": "La ligadura æ representa el diptongo latino ae; su monoptongación se evalúa aparte de gn > ñ y de la apócope de e final.",
+  "ge-EVF-0239": "Se marca pl- completo, no solo l; la ā tónica se conserva y la u final se abre en o."
+});
+const GREEK_GRAPH_NOTES=Object.freeze({ph:'El dígrafo latino ph representa la letra griega φ; en castellano se escribe f. No es aspiración de f.',th:'El dígrafo latino th representa θ; en castellano se escribe t. No es pérdida aislada de h.',ch:'El dígrafo latino ch representa χ; en esta adaptación representa una velar, no la africada castellana ch.',y:'La grafía latina y representa υ griega; se adapta como i, no como consonantización.'});
+function clarifyGreekAndPalatal(word){
+ if(GREEK_GRAPH_REVIEW.has(word.id)){
+  const letters=[...word.latin];
+  const changes=word.changes.map(c=>{
+   if(c.rule!=='GRIE')return nameChange(c);
+   const [a,b]=c.spans[0],fragment=letters.slice(a,b).join('').toLowerCase();
+   const note=GREEK_GRAPH_NOTES[fragment]+(fragment==='ch'?' Se escribe '+c.output+' en este contexto.':'');
+   return {...c,note:ruleName('GRIE')+': '+note};
+  });
+  const graphs=changes.filter(c=>c.rule==='GRIE').map(c=>letters.slice(...c.spans[0]).join('')+' → '+c.output);
+  const additional=changes.filter(c=>!['GRIE','FIX_M'].includes(c.rule)).map(c=>ruleName(c.rule)+' ('+(c.spans.length?letters.slice(...c.spans[0]).join(''):'inserción')+' → '+c.output+')');
+  const final=changes.some(c=>c.rule==='FIX_M')?' Se aplica también la pérdida fija de -m.':'';
+  const context=word.explanation.replace(/\s*\(Importación automática con correspondencia ortográfica comprobada; no constituye certificación filológica adicional\.\)$/u,'')
+   .replace(/; solo se analiza N10\./u,'.').replace(/Sin cambios populares adicionales exigibles: solo adaptación gráfica N10\./u,'').replace(/; solo se examina y > i\./u,'.');
+  return {...word,changes,explanation:context+' Grafías que se seleccionan por separado: '+graphs.join('; ')+'. '+(additional.length?'Otras normas evaluables según el catálogo docente: '+additional.join('; ')+'. ':'')+final+' La adaptación culta, cuando corresponde, no demuestra una transmisión patrimonial continua.'};
+ }
+ const note=PALATAL_REVIEW[word.id];
+ if(note){
+  const explanation=word.id==='xl-60'?'clamare > llamar: '+note:word.explanation+' '+note;
+  return {...word,changes:word.changes.map(nameChange),explanation};
+ }
+ if(word.id==='xl-616')return {...word,changes:word.changes.map(nameChange),explanation:'tonare > tronar: epéntesis de r después de t inicial (no prótesis) y apócope de e final del infinitivo. La o pretónica no diptonga.'};
+ return word;
+}
+export function assertCastilianGreekGraphs(words){
+ for(const w of words){
+  const letters=[...w.latin];
+  for(const c of w.changes.filter(c=>c.rule==='GRIE')){
+   const [a,b]=c.spans[0]??[];
+   const fragment=letters.slice(a,b).join('').toLowerCase();
+   const expected={ph:['f'],th:['t'],ch:['c','qu'],y:['i']}[fragment];
+   if(c.spans.length!==1||!expected?.includes(c.output))throw Error('Evolutio: grafía griega incoherente '+w.latin);
+  }
+ }
+}
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
  return clarifyLiquidChanges(clarifyConsonantization(clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word)));
@@ -1014,7 +1082,7 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges);
+ }).map(explainSpecificRules).map(clarifySonorization).map(clarifyConsonantization).map(clarifyLiquidChanges).map(clarifyGreekAndPalatal);
 }
 
 // Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.
@@ -1163,5 +1231,6 @@ export function integrateCastilianAdditions(base){
  assertCastilianOpeningSpans(words);
  assertCastilianInitialRules(words);
  assertCastilianSonorizationSpans(words);
+ assertCastilianGreekGraphs(words);
  return {...base,words};
 }
