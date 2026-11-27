@@ -223,9 +223,61 @@ const ADDITION_NOTES=Object.freeze({
   "317": "Síncopa de ŭ postónica y palatalización del grupo secundario -gl-, que desemboca en j. La norma específica -CUL- no se aplica a -GUL-.",
   "426": "Abertura de i átona en e, síncopa de d intervocálica y apócope de e final del infinitivo."
 });
+// Sonorización: contexto latino original, no el grupo secundario resultante.
+const SONORIZATION_NOTES=Object.freeze({
+  "xl-49": "La p simple del grupo interior pr, precedido de vocal, se sonoriza en b: pr > br; la r se conserva.",
+  "xl-166": "La c simple del grupo interior cr, precedido de vocal, se sonoriza en g: cr > gr; la r se conserva.",
+  "xl-187": "La c simple del grupo interior cr, precedido de vocal, se sonoriza en g: cr > gr; la r se conserva.",
+  "xl-399": "La c simple del grupo interior cr, precedido de vocal, se sonoriza en g: cr > gr; la r se conserva.",
+  "xl-230": "La t simple del grupo interior tr se sonoriza en d: tr > dr; no era estrictamente intervocálica.",
+  "xl-236": "La t simple del grupo interior tr se sonoriza en d: tr > dr; no era estrictamente intervocálica.",
+  "xl-173": "La t simple del grupo interior tr se sonoriza en d: tr > dr; no era estrictamente intervocálica.",
+  "xl-198": "La t simple del grupo interior tr se sonoriza en d: tr > dr; no era estrictamente intervocálica.",
+  "xl-269": "La primera sonorización afecta a c en el grupo cr > gr; la segunda, a t intervocálica > d.",
+  "xl-375": "La p simple del grupo interior pl se sonoriza en b: pl > bl. No es la palatalización de pl inicial.",
+  "xl-100": "La t era intervocálica en latín; se distingue su sonorización de la síncopa de b e ĭ.",
+  "xl-149": "Las dos t simples eran intervocálicas. La síncopa de ĭ permite el contacto de las dentales sonoras y su simplificación; no se trata de una geminada tt latina.",
+  "xl-490": "La dental que queda junto a la nasal era intervocálica en latín; la asimilación nasal explica nd, sin postular una regla general nt > nd.",
+  "xl-506": "La dental que queda junto a la nasal era intervocálica en latín; la asimilación nasal explica nd, sin postular una regla general nt > nd.",
+  "xl-64": "La dental que queda junto a la nasal era intervocálica en latín; la asimilación nasal explica nd, sin postular una regla general nt > nd.",
+  "xl-945": "La c era intervocálica en latín; la síncopa de i da lugar al grupo secundario con g junto a la líquida.",
+  "xl-88": "La c era intervocálica en latín; la síncopa de i da lugar al grupo secundario con g junto a la líquida.",
+  "xl-946": "La p era intervocálica en latín; la síncopa vocálica origina el grupo secundario br, no un grupo pr originario.",
+  "xl-985": "La p era intervocálica en latín; la síncopa vocálica origina el grupo secundario br, no un grupo pr originario.",
+  "ge-EVF-0221": "La p era intervocálica en latín; la síncopa vocálica origina el grupo secundario br, no un grupo pr originario.",
+  "ge-EVF-0310": "La p era intervocálica en latín; la síncopa vocálica origina el grupo secundario br, no un grupo pr originario.",
+  "xl-949": "Las dos t eran intervocálicas en latín; la síncopa de i origina un grupo secundario con dental sonora.",
+  "xl-1008": "Las dos t eran intervocálicas en latín; la síncopa de i origina un grupo secundario con dental sonora.",
+  "xl-953": "Se distinguen la simplificación de ll, la sonorización de c originalmente intervocálica y la síncopa de o que origina lg.",
+  "xl-980": "La c era intervocálica en latín; la síncopa de i origina el grupo secundario ng. No es una sonorización general de nc.",
+  "xl-336": "La c era intervocálica en latín; la evolución incluye dos síncopas y no justifica una ley general nc > ng. No se impone un orden único a las etapas.",
+  "xl-564": "La sonorización afecta a la labiovelar sorda qu (/kʷ/), cuyo resultado se escribe gu ante a; se selecciona qu completo.",
+  "xl-172": "La t del grupo original tr se sonoriza en d; apócope de e final del infinitivo.",
+  "xl-246": "La p que se sonoriza es la segunda, originalmente intervocálica; la síncopa de ŭ origina el grupo secundario bl.",
+  "xl-720": "Las dos t eran intervocálicas; la primera dental sonora participa después en la metátesis dn > nd.",
+  "xl-106": "La b latina ya era sonora; bl es un grupo secundario formado por síncopa, no por sonorización.",
+  "xl-213": "La b latina ya era sonora; bl es un grupo secundario formado por síncopa, no por sonorización.",
+  "xl-266": "La g latina ya era sonora; el grupo secundario gl no implica sonorización.",
+  "xl-182": "La geminada tt se simplifica conservando su carácter sordo; tr se forma tras la síncopa.",
+  "xl-920": "La geminada cc se simplifica en c sorda; únicamente la t simple se sonoriza.",
+  "xl-354": "La geminada cc pierde la geminación, no se convierte en g.",
+  "xl-432": "La geminada cc pierde la geminación, no se convierte en g.",
+  "xl-385": "La geminada tt se simplifica en t sorda, no en d.",
+  "xl-82": "La geminada pp se simplifica en p sorda; contrástese cupam > cuba.",
+  "xl-81": "La p simple intervocálica se sonoriza; contrástese cuppam > copa.",
+  "ge-EVF-0001": "La bb geminada ya era sonora y se simplifica; la t simple es la única sonorización."
+});
+function clarifySonorization(word){
+ const note=SONORIZATION_NOTES[word.id];
+ if(!note)return word;
+ const explanation=word.id==='xl-172'
+  ? 'latrare > ladrar: sonorización de t en el grupo original tr > dr y apócope de e final del infinitivo.'
+  : word.explanation+' '+note;
+ return {...word,explanation};
+}
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
- return note?{...word,explanation:word.explanation+' '+note}:word;
+ return clarifySonorization(note?{...word,explanation:word.explanation+' '+note}:word);
 }));
 if(CASTILIAN_ADDITIONS.length!==100)throw Error('Lote castellano: deben constar 100 fichas exactas.');
 
@@ -810,7 +862,7 @@ const HISTORICAL_REVIEW=Object.freeze({
   },
   "xl-164": {
     "latin": "iuuentutem",
-    "explanation": "iuuentutem > juventud: consonantización (denominación del catálogo docente) de i inicial en j, sonorización de la t final del tema, apócope de e y pérdida fija de -m. La u consonántica latina se escribe v en castellano; no se contabiliza como una segunda consonantización. La forma castellana presenta asimismo un reajuste morfológico."
+    "explanation": "iuuentutem > juventud: consonantización (denominación del catálogo docente) de i inicial en j, sonorización de la t final del tema, apócope de e y pérdida fija de -m. La i inicial ya tenía valor consonántico en latín. La u consonántica latina se escribe v en castellano; no se contabiliza como una segunda consonantización. La forma castellana presenta asimismo un reajuste morfológico."
   },
   "xl-274": {
     "latin": "scamnum",
@@ -917,7 +969,7 @@ export function correctCastilianSourceWords(words){
  return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
- }).map(explainSpecificRules);
+ }).map(explainSpecificRules).map(clarifySonorization);
 }
 
 // Las normas específicas no sustituyen indiscriminadamente los fenómenos generales.
@@ -1011,6 +1063,21 @@ export function assertCastilianOpeningSpans(words){
   }
  }
 }
+export function assertCastilianSonorizationSpans(words){
+ for(const word of words){
+  const letters=[...word.latin];
+  for(const c of word.changes.filter(c=>c.rule==='SONOR')){
+   const [a,b]=c.spans[0]??[];
+   const fragment=comparable(letters.slice(a,b).join(''));
+   const before=comparable(letters[a-1]??'');
+   const after=comparable(letters[b]??'');
+   const expected={p:'b',t:'d',c:'g',qu:'gu'}[fragment];
+   if(c.spans.length!==1||!expected||c.output!==expected||
+     !/^(?:[aeiou]|ae|oe)$/.test(before)||!/^(?:[aeioulr]|ae|oe)$/.test(after))
+    throw Error('Evolutio: sonorización ajena a oclusiva simple en contexto latino '+word.latin);
+  }
+ }
+}
 export function assertCastilianPositionSpans(words){
  for(const word of words){
   const letters=[...word.latin.normalize('NFC')];
@@ -1050,5 +1117,6 @@ export function integrateCastilianAdditions(base){
  assertCastilianSpecificRules(words);
  assertCastilianOpeningSpans(words);
  assertCastilianInitialRules(words);
+ assertCastilianSonorizationSpans(words);
  return {...base,words};
 }

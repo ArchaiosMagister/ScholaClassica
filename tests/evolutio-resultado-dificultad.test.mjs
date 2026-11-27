@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
-import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules,assertCastilianOpeningSpans,assertCastilianInitialRules} from '../scripts/evolutio-castellano-lote100.mjs';
+import {correctCastilianSourceWords,assertCastilianSyncopeSpans,assertCastilianPositionSpans,assertCastilianSpecificRules,assertCastilianOpeningSpans,assertCastilianInitialRules,assertCastilianSonorizationSpans} from '../scripts/evolutio-castellano-lote100.mjs';
 import {
  resultSpellingDistance,resultDifficultyComponents,resultDifficultyScore,
  resultDifficultyLevel,curatedDifficultyLevel,curatedDifficultyIds,RESULT_DIFFICULTY_METHOD
@@ -438,4 +438,24 @@ test('Aspiración, aféresis, prótesis y consonantización no se confunden con 
  assert.ok(!word('germanum').changes.some(c=>c.rule==='ASPIR'));
  assert.ok(word('stellam').changes.some(c=>c.rule==='EPENT'));
  assert.ok(word('stellam').changes.some(c=>c.rule==='PROT'));
+});
+
+
+test('Sonorización: oclusiva simple, líquidas y grupos secundarios',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ assert.doesNotThrow(()=>assertCastilianSonorizationSpans(bank.words));
+ for(const latin of ['capram','lacrimam','patrem','petram','duplare','lucrum','latrare']){
+  const w=word(latin),c=w.changes.find(c=>c.rule==='SONOR');
+  assert.equal(gradeChange(w,{rule:'SONOR',spans:c.spans}).correct,true,latin);
+  assert.match(w.explanation,/grupo/i,latin);
+ }
+ for(const latin of ['cuppam','buccam','siccum','guttam','littĕram','fabŭlam','nĕbŭlam','regŭlam','compărāre'])
+  assert.ok(!word(latin).changes.some(c=>c.rule==='SONOR'),latin);
+ for(const latin of ['manicam','collocare','bonitatem','veritatem','comitem','pŏpŭlum'])
+  assert.match(word(latin).explanation,/intervocálica/i,latin);
+ assert.match(word('latrare').explanation,/apócope/i);
+ assert.throws(()=>assertCastilianSonorizationSpans([{latin:'cuppam',changes:[{rule:'SONOR',spans:[[2,3]],output:'b'}]}]),/oclusiva simple/);
+ assert.throws(()=>assertCastilianSonorizationSpans([{latin:'fabam',changes:[{rule:'SONOR',spans:[[2,3]],output:'b'}]}]),/oclusiva simple/);
+ assert.throws(()=>assertCastilianSonorizationSpans([{latin:'campum',changes:[{rule:'SONOR',spans:[[3,4]],output:'b'}]}]),/oclusiva simple/);
+ assert.throws(()=>assertCastilianSonorizationSpans([{latin:'capram',changes:[{rule:'SONOR',spans:[[2,4]],output:'br'}]}]),/oclusiva simple/);
 });
