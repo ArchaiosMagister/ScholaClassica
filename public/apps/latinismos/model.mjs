@@ -3,8 +3,9 @@ export const KEY='scholaclassica-latinismos-v1';
 export const MODES=['meaning','term','context','write','mixed'];
 export const DEFAULT={filter:'all',from:1,to:87,mode:'mixed',errors:false};
 export function normalize(s){return String(s??'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/æ/g,'ae').replace(/œ/g,'oe').trim().replace(/\s+/g,' ');}
-const aliases={4:['accésit'],20:['currículum','curriculum vitae','currículum vítae'],23:['déficit'],27:['et cetera','etc.'],30:['exlibris'],31:['exprofeso'],35:['hábitat'],38:['ídem'],41:['in flagranti'],50:['maremágnum','maremagno'],52:['memorándum','memorando'],60:['per cápita'],71:['cuórum'],73:['referéndum','referendo'],74:['réquiem'],82:['superávit'],83:['ultimátum'],84:['vade mecum']};
-export function matches(item,answer){return [item.latinism,...(aliases[item.number]??[])].some(v=>normalize(v)===normalize(answer));}
+// La búsqueda tolera tildes; la escritura exige una grafía admitida.
+export function normalizeAnswer(s){return String(s??'').normalize('NFC').toLowerCase().replace(/æ/g,'ae').replace(/œ/g,'oe').trim().replace(/\s+/g,' ');}
+export function matches(item,answer){return [item.latinism,...(item.variants??[])].some(v=>normalizeAnswer(v)===normalizeAnswer(answer));}
 export function fresh(){return {config:{...DEFAULT},stats:{}};}
 export function cleanState(input){
  const s=fresh();if(!input||typeof input!=='object')return s;
@@ -26,11 +27,21 @@ export function select(config,stats={}){
 export function record(state,number,correct){const r=state.stats[number]??(state.stats[number]={correct:0,wrong:0,streak:0,studied:false,lastWrong:false});if(correct){r.correct++;r.streak++;}else{r.wrong++;r.streak=0;}r.lastWrong=!correct;return r;}
 export function mastered(r){return (r?.streak??0)>=3;}
 export function shuffled(array,rng=Math.random){const a=[...array];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-const overlapping=[[1,2],[5,31],[6,8],[7,77],[21,22],[28,48],[36,19],[39,43],[40,48],[53,54],[61,80],[70,29],[72,81]];
+// Los adverbiales son potencialmente compatibles en una misma oración.
+const adverbial=new Set([1,2,3,5,6,7,8,13,21,22,28,29,31,32,33,34,39,40,41,42,43,44,45,46,47,48,55,56,60,61,66,67,77,80,86]);
+const nominal=new Set([4,9,10,11,12,14,15,16,17,18,20,23,24,25,26,30,35,37,38,49,50,51,52,53,54,57,58,59,62,63,64,65,68,69,70,71,72,73,74,75,76,79,82,83,84,87]);
+const adjectival=new Set([19,36,78,81]);
+const family=n=>adverbial.has(n)?'adv':nominal.has(n)?'noun':adjectival.has(n)?'adj':'other';
+const overlapping=[[1,2],[5,31],[6,8],[7,77],[21,22],[28,48],[36,19],[39,43],[40,48],[53,54],[61,80],[70,29],[72,81],[16,85],[27,38,86],[11,15],[4,14,19,36],[5,46,60,67,78,81],[14,38,85],[25,52,84],[51,85],[62,72,87],[43,74],[47,85],[68,72,81,87],[10,12],[18,25,50],[23,82]];
+export function compatibleDistractor(target,other,kind){
+ if(target.number===other.number||overlapping.some(group=>group.includes(target.number)&&group.includes(other.number)))return false;
+ if(kind!=='context')return true;
+ return family(target.number)!==family(other.number)&&family(other.number)!=='other';
+}
 export function question(item,pool,mode,rng=Math.random){
  let kind=mode==='mixed'?['meaning','term','context','write'][Math.floor(rng()*4)]:mode;
  const context=item.contexts[Math.floor(rng()*item.contexts.length)];
- const other=shuffled(pool.filter(x=>x.number!==item.number&&!overlapping.some(pair=>pair.includes(x.number)&&pair.includes(item.number))),rng);
+ const other=shuffled(pool.filter(x=>compatibleDistractor(item,x,kind)),rng);
  // With a singleton, definition-only MC is not a real question: use free recall instead.
  if(kind!=='write'&&!other.length)kind='write';
  const options=kind==='write'?[]:shuffled([item,...other.slice(0,3)],rng).map(x=>({id:x.number,label:kind==='meaning'?x.meaning:x.latinism}));
