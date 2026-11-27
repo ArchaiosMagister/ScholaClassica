@@ -288,7 +288,13 @@ try{
   // Las distinciones lingüísticas se conservan; los metadatos docentes no se exhiben.
   await page.locator('#study-search').fill('autarquía');
   assert.ok((await page.locator('.lexical-alert').first().textContent()).includes('autarquía²'));
-  assert.ok((await page.locator('.lexical-definition').first().textContent()).includes('autosuficiencia'));
+  // La tarjeta inversa también tiene una definición, aunque esté oculta.
+  const autarquiaCards=page.locator('#study-entries .lexical-word').filter({has:page.getByRole('heading',{name:'autarquía',exact:true})});
+  assert.ok(await autarquiaCards.count()>0,'El glosario debe contener autarquía');
+  for(const card of await autarquiaCards.all()){
+    assert.match(await card.locator('.lexical-definition').textContent(),/autosuficiencia/,
+      'Cada ficha de autarquía debe conservar la acepción de αὐτάρκεια');
+  }
   await page.locator('#study-search').fill('plastilina');
   assert.ok((await page.locator('.lexical-alert').first().textContent()).includes('marca registrada'));
   await page.locator('#study-search').fill('seudociencia');
