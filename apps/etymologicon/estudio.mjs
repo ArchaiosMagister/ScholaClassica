@@ -3,7 +3,7 @@
 // En las familias compuestas y polisémicas se mantienen los valores necesarios para explicar sus derivados.
 const STUDY_MEANINGS=Object.freeze({
   "−ιτισ": "inflamación (sufijo médico)",
-  "αγγελλω": "anunciar; mensajero",
+  "αγγελλω": "anunciar / mensajero",
   "αγω": "conducir",
   "αιμα": "sangre",
   "αλγοσ": "dolor",
@@ -13,7 +13,7 @@ const STUDY_MEANINGS=Object.freeze({
   "ανθρωποσ": "ser humano",
   "αντι": "contra; en lugar de",
   "απο": "de; lejos de",
-  "αρχη": "principio; mando; comenzar; gobernar",
+  "αρχη": "principio; mando / comenzar; gobernar",
   "ατελησ": "incompleto",
   "αυτοσ": "mismo",
   "βιβλιον": "libro",
@@ -24,7 +24,7 @@ const STUDY_MEANINGS=Object.freeze({
   "γερων": "anciano",
   "γη": "tierra",
   "γλωττα": "lengua",
-  "γραφω": "escribir; letra",
+  "γραφω": "escribir / letra",
   "γυνη": "mujer",
   "δενδρον": "árbol",
   "δερμα": "piel",
@@ -57,9 +57,9 @@ const STUDY_MEANINGS=Object.freeze({
   "κρατοσ": "poder",
   "κρυπτω": "ocultar",
   "λαρυγξ": "laringe",
-  "λεγω": "decir; palabra; razón",
+  "λεγω": "decir / palabra; razón",
   "λογοσ": "palabra; discurso; razón",
-  "μακροσ": "largo",
+  "μακροσ": "largo; grande",
   "μανια": "locura",
   "μεγασ": "grande",
   "μετα": "con; después de; cambio",
@@ -73,7 +73,7 @@ const STUDY_MEANINGS=Object.freeze({
   "ομοιοσ": "semejante",
   "οροσ": "límite",
   "οστεον": "hueso",
-  "ουσ": "oído",
+  "ουσ": "oreja; oído",
   "οφθαλμοσ": "ojo",
   "παιδιον": "niño pequeño",
   "παισ": "niño; hijo",
@@ -85,7 +85,7 @@ const STUDY_MEANINGS=Object.freeze({
   "πολισ": "ciudad",
   "πολυσ": "mucho",
   "πουσ": "pie",
-  "πραττω": "hacer; acción",
+  "πραττω": "hacer / acción",
   "προ": "antes de; delante de",
   "προσ": "hacia; junto a",
   "πρωκτοσ": "ano",
@@ -94,7 +94,7 @@ const STUDY_MEANINGS=Object.freeze({
   "ρητωρ": "orador",
   "ρισ": "nariz",
   "σκοπεω": "observar",
-  "σοφοσ": "sabio; sabiduría",
+  "σοφοσ": "sabio / sabiduría",
   "στρατηγοσ": "general",
   "σωμα": "cuerpo",
   "ταχυσ": "rápido",
@@ -112,7 +112,7 @@ const STUDY_MEANINGS=Object.freeze({
   "χρονοσ": "tiempo",
   "χρωμα": "color",
   "ψευδησ": "falso",
-  "ψυχη": "alma"
+  "ψυχη": "alma; mente"
 });
 // Solo se abrevian glosas contextuales equivalentes; no se sustituye el significado
 // de un componente por el del encabezado (p. ej., λόγος = estudio en antropología).
