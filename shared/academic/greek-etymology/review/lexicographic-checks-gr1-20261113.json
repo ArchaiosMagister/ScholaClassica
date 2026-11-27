@@ -608,11 +608,11 @@
       }
     },
     "hemoterapia": {
-      "status": "fuente_especializada_contrastada",
-      "sourceUrl": "https://www.cun.es/diccionario-medico/terminos/hemoterapia",
-      "edition": null,
-      "checkedAt": "2026-11-26",
-      "note": "Tecnicismo de la medicina transfusional, documentado por un diccionario médico y por la sociedad científica de la especialidad. El resultado negativo disponible del DLE es de una edición anterior.",
+      "status": "dle_individual_contrastado",
+      "sourceUrl": "https://dle.rae.es/hemoterapia",
+      "edition": "dle2026",
+      "checkedAt": "2026-11-27",
+      "note": "Formación con hemo- y -terapia; la 24.ª edición registra el uso terapéutico de la sangre o sus componentes. Se conservan las fuentes científicas complementarias.",
       "scientificSources": [
         {
           "authority": "Clínica Universidad de Navarra · Diccionario médico",
@@ -622,11 +622,7 @@
           "authority": "Sociedad Española de Hematología y Hemoterapia",
           "url": "https://www.sehh.es/especialidad/especialidad-de-hematologia-y-hemoterapia"
         }
-      ],
-      "dleQuery": {
-        "status": "consulta_pendiente",
-        "url": "https://dle.rae.es/hemoterapia"
-      }
+      ]
     },
     "dendrología": {
       "status": "dle_no_incluye_entrada_independiente",
@@ -913,9 +909,72 @@
       "sourceUrl": "https://dle.rae.es/piroman%C3%ADa",
       "checkedAt": "2026-11-26",
       "note": "Compuesto de piro-, de πῦρ, y -manía, del griego μανία."
+    },
+    "antroposofía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/antroposof%C3%ADa",
+      "checkedAt": "2026-11-27",
+      "note": "El artículo distingue el conocimiento del ser humano y la doctrina de Rudolf Steiner; formación con antropo- y σοφία."
+    },
+    "ortografía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/ortograf%C3%ADa",
+      "checkedAt": "2026-11-27",
+      "note": "Del latín orthographia, procedente del griego ὀρθογραφία; normas de escritura y su aplicación, además de una acepción geométrica."
+    },
+    "autoevaluación": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/autoevaluaci%C3%B3n",
+      "checkedAt": "2026-11-27",
+      "note": "Formación mixta de auto- y evaluación; valoración de uno mismo o de una actividad propia."
+    },
+    "bibliotecología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/bibliotecolog%C3%ADa",
+      "checkedAt": "2026-11-27",
+      "note": "Formada sobre biblioteca y -logía; disciplina dedicada a las bibliotecas."
+    },
+    "cacoquimia": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/cacoquimio",
+      "checkedAt": "2026-11-27",
+      "note": "Artículo conjunto cacoquimio, cacoquimia; la acepción nominal médica remite a caquexia y se marca como poco usada. Procedencia del griego κακοχυμία por el latín medieval."
+    },
+    "filología": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/filolog%C3%ADa",
+      "checkedAt": "2026-11-27",
+      "note": "Del latín philologia, del griego φιλολογία; estudio de culturas por su lengua y literatura, y técnicas de edición e interpretación textual."
+    },
+    "filosofía": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/filosof%C3%ADa",
+      "checkedAt": "2026-11-27",
+      "note": "Del latín philosophia, del griego φιλοσοφία; estudio racional de los principios generales de la realidad y la acción humana."
+    },
+    "antropocentrismo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/antropocentrismo",
+      "checkedAt": "2026-11-27",
+      "note": "Formación con antropo-, centro e -ismo; concepción que sitúa al ser humano en el centro del universo."
+    },
+    "misoneísmo": {
+      "status": "dle_individual_contrastado",
+      "edition": "dle2026",
+      "sourceUrl": "https://dle.rae.es/misone%C3%ADsmo",
+      "checkedAt": "2026-11-27",
+      "note": "Formación con μισεῖν, neo- e -ismo; rechazo de las novedades."
     }
   },
-  "lastSupplementAt": "2026-11-26",
+  "lastSupplementAt": "2026-11-27",
   "dleHeadwords": {
     "checkedAt": "2026-11-26",
     "note": "Cotejo de presencia del lema o de la variante en artículos del DLE. La verificación de presencia no acredita cada acepción ni autoriza la descomposición.",

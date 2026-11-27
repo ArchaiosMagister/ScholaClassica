@@ -58,7 +58,7 @@ test('no confundir una URL del diccionario con una comprobación individual',()=
   assert.ok(study.audit.individualDleChecks>0);
   assert.ok(study.audit.dleHeadwordChecks>study.audit.individualDleChecks);
   assert.equal(study.audit.pendingLexicalAdmission,0);
-  assert.equal(study.audit.pendingDleWithSpecialistEvidence,4);
+  assert.equal(study.audit.pendingDleWithSpecialistEvidence,3);
   for(const w of study.words){
     assert.ok(w.dleUrl.startsWith('https://dle.rae.es/'));
     assert.ok(['dle_consultado_individualmente','glosa_docente_no_cotejada_individualmente_dle']
@@ -120,11 +120,11 @@ test('cotejo por los tres PDF preserva trazabilidad real y no equivale al DLE',(
   const sources=readSourceConcordance();
   const checks=readLexicographicChecks();
   assert.equal(Object.keys(sources.firstPageByTerm).length,487);
-  assert.equal(Object.keys(checks.records).length,121);
+  assert.equal(Object.keys(checks.records).length,130);
   assert.equal(study.audit.pdfAttested,475);
   assert.equal(study.audit.pdfNoExactMatch,12);
-  assert.equal(study.audit.individuallyCheckedDleThisReview,112);
-  assert.equal(study.audit.individuallyCheckedSpecialistThisReview,6);
+  assert.equal(study.audit.individuallyCheckedDleThisReview,122);
+  assert.equal(study.audit.individuallyCheckedSpecialistThisReview,5);
   assert.equal(study.audit.confirmedNotIndependentDleThisReview,5);
   assert.ok(study.audit.individualDleChecks<487,
     'Una mención en PDF no certifica un artículo del DLE');
@@ -188,12 +188,21 @@ test('la admisión DLE rige las fichas, las relaciones y la puntuación',()=>{
   }
   for(const form of ['seudociencia','pseudociencia','hemofobia','teocentrismo'])
     assert.equal(corrector.grade('grc:φοβοσ',[form,'']).answers[0].status,'excluded',form);
-  for(const form of ['geniogloso','genioplastia','proctitis','dendrología','atelocardia','hemoterapia']){
+  for(const form of ['geniogloso','genioplastia','proctitis','dendrología','atelocardia']){
     const word=lookup(form);
     assert.equal(word.admission.status,'excepcion_cientifica',form);
     assert.ok(word.lexicographicCheck.scientificSources.length,form);
     assert.ok(practice.relations.filter(r=>r.derivativeId===word.id).every(r=>!r.eligibleFor.includes('exam')),form);
   }
+  for(const form of ["antroposofía","ortografía","autoevaluación","bibliotecología","cacoquimia","filología","filosofía","antropocentrismo","misoneísmo","hemoterapia"]){
+    const word=lookup(form);
+    assert.equal(word.admission.status,'dle',form);
+    assert.equal(word.lexicographicCheck.status,'dle_individual_contrastado',form);
+    assert.equal(word.lexicographicCheck.checkedAt,'2026-11-27',form);
+    assert.ok(word.admission.sourceUrl.startsWith('https://dle.rae.es/'),form);
+  }
+  assert.equal(lookup('cacoquimia').admission.sourceUrl,'https://dle.rae.es/cacoquimio');
+  assert.ok(lookup('hemoterapia').lexicographicCheck.scientificSources.length>=2);
   assert.equal(corrector.grade('grc:γενειον',['geniogloso','genioplastia']).total,2);
   assert.equal(corrector.grade('grc:περι',['periodo','']).total,1);
   const biotopo=lookup('biotopo');
