@@ -26,6 +26,9 @@ try{
   // Itinerario por curso: no genera contenidos ni modifica aplicaciones originales.
   const home=await page.goto(base+'/',{waitUntil:'networkidle'});
   assert.equal(home.status(),200);
+  const teacherAccess=page.locator('.site-head nav #profesorado');
+  assert.equal(await teacherAccess.isVisible(),true);
+  assert.equal(await teacherAccess.getAttribute('href'),'docente/index.html');
   // Aspecto persistente y control independiente del tema del dispositivo.
   const picker=page.locator('#portal-theme');
   assert.equal(await picker.inputValue(),'system');
@@ -42,7 +45,7 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light',
     'La opción claro debe prevalecer aunque el sistema esté oscuro');
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
-    'rgb(248, 250, 252)');
+    'rgb(244, 247, 242)');
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});

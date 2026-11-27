@@ -11,6 +11,7 @@
   }catch{/* Sin almacenamiento: mantener el aspecto automático. */}
   const resolved=mode=>mode==='system'?(media?.matches?'dark':'light'):mode;
   const background={light:'#f8fafc',dark:'#211b1c',oled:'#000000'};
+  const portalBackground={light:'#f4f7f2',dark:'#14221e',oled:'#000000'};
   function apply(){
     const theme=resolved(choice);
     const root=document.documentElement;
@@ -18,7 +19,10 @@
     root.dataset.themeChoice=choice;
     root.style.colorScheme=theme==='light'?'light':'dark';
     const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta)meta.setAttribute('content',background[theme]);
+    if(meta){
+      const palette=document.body?.classList.contains('portal')?portalBackground:background;
+      meta.setAttribute('content',palette[theme]);
+    }
     const picker=document.getElementById('portal-theme');
     if(picker&&picker.value!==choice)picker.value=choice;
   }
