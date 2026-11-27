@@ -189,7 +189,7 @@ test('Síncopa de auricŭlam y cunicŭlum: se evalúa la segunda u, no la primer
  assert.equal(gradeChange(word('cunicŭlum'),{rule:'ABER',spans:[[1,2]]}).correct,true);
  assert.doesNotThrow(()=>assertCastilianSyncopeSpans(bank.words));
  assert.throws(()=>assertCastilianSyncopeSpans([unchanged.words.find(w=>w.id==='xl-29')]),/síncopa sobre monoptongación/);
- assert.throws(()=>assertCastilianSyncopeSpans([unchanged.words.find(w=>w.id==='xl-80')]),/síncopa de -cul- mal ubicada/);
+ assert.throws(()=>assertCastilianSyncopeSpans([unchanged.words.find(w=>w.id==='xl-80')]),/síncopa sobre abertura|síncopa de -cul- mal ubicada/);
 });
 
 test('Auditoría de fragmentos: segunda c de crucem y fenómenos omitidos del lote 100',async()=>{
@@ -226,4 +226,28 @@ test('Apócopes finales y sonorizaciones interiores: nueve intervalos corregidos
   assert.throws(()=>assertCastilianPositionSpans([old]),/apócope no final|sonorización asignada/);
  }
  assert.doesNotThrow(()=>assertCastilianPositionSpans(bank.words));
+});
+
+test('Diptongación tónica, metátesis y pérdidas interiores omitidas',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const serp=word('serpĕntem');
+ assert.equal(gradeChange(serp,{rule:'DIPT',spans:[[1,2]]}).correct,false);
+ assert.equal(gradeChange(serp,{rule:'DIPT',spans:[[4,5]]}).correct,true);
+ for(const [latin,rule,spans,output] of [
+  ['tĕnĕrum','METAT',[[2,3],[4,5]],'rn'],
+  ['scutarium','METAT',[[4,7]],'er'],
+  ['frigĭdum','SINC',[[3,4]],'∅'],
+  ['frigĭdum','SINC',[[5,6]],'∅'],
+  ['heredĭtātem','SINC',[[4,5]],'∅'],
+  ['heredĭtātem','SONOR',[[8,9]],'d'],
+  ['heredĭtātem','APOC',[[9,10]],'∅']
+ ]){
+  const w=word(latin);
+  assert.ok(w.changes.some(c=>c.rule===rule&&JSON.stringify(c.spans)===JSON.stringify(spans)&&c.output===output),latin);
+  assert.equal(gradeChange(w,{rule,spans}).correct,true,latin);
+ }
+ const old=unchanged.words.find(w=>w.id==='xl-80');
+ assert.throws(()=>assertCastilianSyncopeSpans([{
+  ...old,changes:old.changes.filter(c=>c.rule!=='CUL')
+ }]),/síncopa sobre abertura/);
 });

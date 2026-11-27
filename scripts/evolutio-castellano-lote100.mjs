@@ -23,11 +23,11 @@ const RAW=`
 108|facturam|hechura|H0=h,P2-4=ch
 120|filiam|hija|H0=h,P2-4=j
 121|filictum|helecho|A1=e,H0=h,P4-6=ch,A6=o
-135|frigĭdum|frío|A6=o,I4=∅
+135|frigĭdum|frío|A6=o,I4=∅,I3=∅,I5=∅
 139|fustigare|hostigar|A1=o,H0=h,C8=∅
 141|gĕlum|hielo|A3=o,D1=ie
 142|gemmam|yema|P0-2=ye,L2-4=m
-149|heredĭtātem|heredad|I5=∅,S6=d
+149|heredĭtātem|heredad|I5=∅,S6=d,I4=∅,S8=d,C9=∅
 157|integrum|entero|A0=e,I4=∅,A6=o
 166|lacrimam|lágrima|S2=g
 167|lactem|leche|P2-4=ch
@@ -50,12 +50,12 @@ const RAW=`
 264|recipere|recibir|S4=b,C7=∅
 265|regem|rey|P2-4=y
 269|sacratum|sagrado|A6=o,S2=g,S5=d
-276|scutarium|escudero|A7=o,R0-0=e,S3=d
+276|scutarium|escudero|A7=o,R0-0=e,S3=d,Q4-7=er
 292|sitim|sed|A1=e,S2=d,I3=∅
 295|sŏlet|suele|D1=ue
 310|super|sobre|A1=o,S2=b,T3-5=re
 317|tegŭlam|teja|P2-5=j,I3=∅
-318|tĕnĕrum|tierno|A5=o,D1=ie,I3=∅
+318|tĕnĕrum|tierno|A5=o,D1=ie,I3=∅,T2-5=rn
 324|tingit|tiñe|P2-5=ñ,C5=∅
 326|tristitiam|tristeza|A5=e,P6-8=z
 328|vadeam|vaya|P2-4=y
@@ -117,7 +117,7 @@ const RULES=Object.freeze({
  S:['SONOR','sonorización'],I:['SINC','síncopa'],C:['APOC','apócope'],
  H:['ASPIR','aspiración'],M:['MONOP','monoptongación'],R:['PROT','prótesis'],
  L:['SIMPL','simplificación'],N:['CONS','consonantización'],
- T:['METAT','metátesis'],B:['ASMIL','asimilación']
+ T:['METAT','metátesis'],Q:['METAT','metátesis'],B:['ASMIL','asimilación']
 });
 export const ADDITION_SOURCE=Object.freeze({
  file:'banco_evolucion_fonetica_PAU_2026_actualizado.xlsx',
@@ -146,9 +146,13 @@ function rowToWord(line){
   const insertion=match[1]==='R';
   return {
    id:'t'+(i+1),rule,
-   ...(insertion?{spans:[],anchor:a}:match[1]==='T'?{spans:[[a,a+1],[a+1,b]]}:{spans:[[a,b]]}),
+   ...(insertion?{spans:[],anchor:a}:match[1]==='T'?{spans:[[a,a+1],[b-1,b]]}:{spans:[[a,b]]}),
    output,
-   note:insertion
+   note:match[1]==='Q'
+    ? 'El sufijo -arium pasa a -airum por metátesis; tras la evolución de -um, -airo se reduce a -ero. La abertura final se evalúa por separado.'
+    : match[1]==='T'&&row===318
+    ? 'Tras la síncopa de la e postónica, el grupo -nr- se reordena en -rn-.'
+    : insertion
     ? 'Prótesis: se añade «'+output+'» al principio de la palabra.'
     : description.charAt(0).toUpperCase()+description.slice(1)+': «'+fragment+'» → «'+output+'».'
   };
@@ -181,7 +185,7 @@ const SYNCOPE_FIXES=Object.freeze({
  'xl-80':'cunicŭlum'
 });
 // Intervalos documentados por la propia explicación de cada ficha.
-const POSITION_FIXES=new Map([["xl-36",["cæcare","t2","SONOR",0,2]],["xl-37",["cæcum","t3","SONOR",0,2]],["xl-78",["cucullum","t2","SONOR",0,2]],["xl-246",["pŏpŭlum","t2","SONOR",0,2]],["xl-87",["decollare","t3","APOC",1,8]],["xl-201",["meliorem","t2","APOC",1,6]],["xl-921",["pensare","t2","APOC",1,6]],["xl-509",["temptare","t2","APOC",1,7]],["xl-825",["despoliare","t2","APOC",1,9]]]);
+const POSITION_FIXES=new Map([["xl-36",["cæcare","t2","SONOR",0,2]],["xl-37",["cæcum","t3","SONOR",0,2]],["xl-78",["cucullum","t2","SONOR",0,2]],["xl-246",["pŏpŭlum","t2","SONOR",0,2]],["xl-87",["decollare","t3","APOC",1,8]],["xl-201",["meliorem","t2","APOC",1,6]],["xl-921",["pensare","t2","APOC",1,6]],["xl-509",["temptare","t2","APOC",1,7]],["xl-825",["despoliare","t2","APOC",1,9]],["xl-285",["serpĕntem","t1","DIPT",1,4]]]);
 export function correctCastilianSourceWords(words){
  const seen=new Set();
  let crucemFound=false;
@@ -190,7 +194,7 @@ export function correctCastilianSourceWords(words){
   if(POSITION_FIXES.has(word.id)){
    const [latin,id,rule,oldPos,newPos]=POSITION_FIXES.get(word.id);
    const change=word.changes.find(c=>c.id===id);
-   if(word.latin!==latin||change?.rule!==rule||JSON.stringify(change.spans)!==JSON.stringify([[oldPos,oldPos+1]])||[...latin][oldPos]!==[...latin][newPos])
+   if(word.latin!==latin||change?.rule!==rule||JSON.stringify(change.spans)!==JSON.stringify([[oldPos,oldPos+1]])||comparable([...latin][oldPos])!==comparable([...latin][newPos]))
     throw Error('Evolutio: cambió el intervalo fuente '+word.id);
    positionSeen.add(word.id);
    return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[newPos,newPos+1]]}:c)};
@@ -221,6 +225,8 @@ export function assertCastilianSyncopeSpans(words){
   for(const s of syncopes){
    if(word.changes.some(c=>c.rule==='MONOP'&&overlap(c,s)))
     throw Error('Evolutio: síncopa sobre monoptongación '+word.latin);
+   if(word.changes.some(c=>c.rule==='ABER'&&overlap(c,s)))
+    throw Error('Evolutio: síncopa sobre abertura '+word.latin);
   }
   for(const cul of word.changes.filter(c=>c.rule==='CUL')){
    const [a,b]=cul.spans[0]??[];
