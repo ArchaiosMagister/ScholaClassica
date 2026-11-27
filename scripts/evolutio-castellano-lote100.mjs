@@ -648,7 +648,7 @@ function clarifyFinalDirect(word){
 }
 // En este bloque todas las anotaciones son independientes y reconstruyen el resultado moderno.
 export function assertFinalDirectResults(words){
- const normalize=value=>value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/v/g,'u');
+ const normalize=value=>value.toLowerCase().normalize('NFD').replace(/[\u0301\u0304\u0306]/g,'').normalize('NFC').replace(/v/g,'u');
  for(const w of words.filter(w=>FINAL_DIRECT_IDS.has(w.id))){
   const letters=[...w.latin];
   const edits=w.changes.flatMap(c=>c.spans.length?c.spans.map(([a,b])=>[a,b,c.output==='∅'?'':c.output]):[[c.anchor,c.anchor,c.output]]).sort((a,b)=>b[0]-a[0]);

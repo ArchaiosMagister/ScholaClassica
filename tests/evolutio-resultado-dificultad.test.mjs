@@ -589,4 +589,8 @@ test('Últimas 124 fichas: correspondencia directa con el castellano actual',asy
  }
  const bad=word('uitam');
  assert.throws(()=>assertFinalDirectResults([{...bad,changes:bad.changes.filter(c=>c.rule!=='SONOR')}]),/resultado directo incoherente/);
+ const sierva=word('sĕruam');
+ assert.doesNotThrow(()=>assertFinalDirectResults([sierva]));
+ const sana=word('sannam');
+ assert.throws(()=>assertFinalDirectResults([{...sana,answers:['sana']}]),/resultado directo incoherente/);
 });
