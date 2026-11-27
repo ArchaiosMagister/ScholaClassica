@@ -259,7 +259,6 @@ test('Correcciones filológicas del nuevo bloque: fragmentos y fenómenos contra
   ['falcem','PALAT',[[3,4]],'z'],
   ['luminaria','METAT',[[5,8]],'er'],
   ['cultellum','DIPT',[[4,5]],'ie'],
-  ['dixit','ABER',[[3,4]],'e'],
   ['dixit','APOC',[[4,5]],'∅'],
   ['filictum','ABER',[[3,4]],'e'],
   ['gemmam','PALAT',[[0,1]],'y'],
@@ -287,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,117);
+ assert.equal(reviewed.length,132);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -300,4 +299,18 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  assert.match(word('auricŭlam').explanation,/monoptongación de au/);
  assert.throws(()=>assertCastilianPositionSpans([{...solet,changes:[{rule:'SINC',spans:[[4,5]]}]}]),/síncopa no interior/);
  assert.throws(()=>assertCastilianPositionSpans([{...vindicare,changes:[{rule:'APOC',spans:[[3,4]]}]}]),/apócope no final/);
+});
+
+test('Etapas acreditadas: sello, analogía de dijo y abertura de proveer',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const sello=word('sigĭllum');
+ assert.equal(gradeChange(sello,{rule:'SINC',spans:[[2,4]]}).correct,false);
+ assert.equal(gradeChange(sello,{rule:'SINC',spans:[[2,3]]}).correct,true);
+ assert.equal(gradeChange(sello,{rule:'ABER',spans:[[3,4]]}).correct,true);
+ assert.match(sello.explanation,/seello medieval/);
+ assert.match(word('temperare').changes.find(c=>c.rule==='SINC').note,/pretónica/);
+ assert.equal(word('dixit').changes.some(c=>c.rule==='ABER'),false);
+ assert.match(word('dixit').explanation,/analogía/);
+ assert.equal(gradeChange(word('prouidere'),{rule:'ABER',spans:[[4,5]]}).correct,true);
+ assert.match(word('tegŭlam').explanation,/norma específica -CUL-/);
 });

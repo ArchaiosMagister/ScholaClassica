@@ -18,7 +18,7 @@ const RAW=`
 79|cultellum|cuchillo|A7=o,P2-4=ch,P5-7=ll,D4=ie
 85|dĕcem|diez|C3=∅,D1=ie,P2=z
 94|dixi|dije|A3=e,P2=j
-95|dixit|dijo|P2=j,A3=e,C4=∅
+95|dixit|dijo|P2=j,C4=∅
 100|dubĭtare|dudar|I2-4=∅,S4=d,C7=∅
 103|exercere|ejercer|P1=j,C7=∅
 107|factum|hecho|A4=o,H0=h,P2-4=ch
@@ -70,7 +70,7 @@ const RAW=`
 378|fluxum|flojo|A2=o,P3=j,A4=o
 399|lucrum|logro|A1=o,A4=o,S2=g
 413|novitatem|novedad|A3=e,S4=d,S6=d,C7=∅
-426|providere|proveer|I5=∅,C8=∅
+426|providere|proveer|I5=∅,C8=∅,A4=e
 428|puteum|pozo|A1=o,A4=o,P2-4=z
 490|comitatum|condado|A7=o,I3=∅,S4=d,S6=d,B2=n
 506|semitam|senda|I3=∅,S4=d,B2=n
@@ -190,7 +190,7 @@ function rowToWord(line){
 }
 const ADDITION_NOTES=Object.freeze({
   "79": "El castellano medieval cuchiello documenta la diptongación de ĕ; el diptongo -ie- se reduce después a -i- ante la lateral palatal.",
-  "95": "La abertura de la -i final en -e sigue a la apócope de -t; la terminación moderna -o se explica por analogía con otras terceras personas del perfecto, no por abertura i > o.",
+  "95": "Apócope de -t final. La terminación -o de dixo (medieval) y dijo se explica por analogía con los perfectos débiles; no se exige una abertura hipotética de la i de la desinencia.",
   "107": "La yod originada por -ct- cierra la a en e (factu > faito > feito > fecho > hecho); no es la abertura i/u de N01.",
   "108": "La yod del grupo -ct- explica el cambio a > e, además de la palatalización; no es abertura.",
   "141": "La palatalización de g ante ĕ confluye con la semiconsonante de la diptongación; la h de hielo es gráfica, no resultado de f inicial.",
@@ -204,7 +204,10 @@ const ADDITION_NOTES=Object.freeze({
   "292": "Tras la pérdida fija de -m, la abertura de i final en e precede a la apócope de esa e después de d (sed).",
   "324": "La palatalización del grupo -ng- ante i da ñ; la abertura de i final en e sigue a la apócope de t.",
   "336": "La síncopa de ĭ deja el grupo -dc-; se produce asimismo la síncopa de d interior y la sonorización c > g. La pérdida de e final es apócope.",
-  "348": "La reducción de au a a en augustum se distingue del resultado habitual au > o; interviene la disimilación vocálica ante la u de la sílaba siguiente."
+  "348": "La reducción de au a a en augustum se distingue del resultado habitual au > o; interviene la disimilación vocálica ante la u de la sílaba siguiente.",
+  "135": "Síncopa de g y d interiores y reducción de la vocal postónica; se conserva la i tónica. No se impone un orden cronológico único a las síncopas.",
+  "317": "Síncopa de ŭ postónica y palatalización del grupo secundario -gl-, que desemboca en j. La norma específica -CUL- no se aplica a -GUL-.",
+  "426": "Abertura de i átona en e, síncopa de d intervocálica y apócope de e final del infinitivo."
 });
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
  const note=ADDITION_NOTES[word.source.row];
@@ -296,6 +299,118 @@ function completeCastilianSourceWords(words){
  if(found.size!==Object.keys(EDITORIAL_COMPLETIONS).length)throw Error('Evolutio: faltan fichas editoriales');
  return result;
 }
+// Revisión de explicaciones y de las etapas documentadas en el banco histórico.
+const HISTORICAL_REVIEW=Object.freeze({
+  "xl-289": {
+    "latin": "sigĭllum",
+    "explanation": "Sigĭllum > sello: abertura de ambas i en e, síncopa de g intervocálica, reducción del hiato ee (documentado en seello medieval), palatalización de ll, abertura de u final en o y pérdida fija de -m. La segunda i es tónica en latín; no se clasifica su reducción como síncopa postónica ni como monoptongación de un diptongo latino.",
+    "patches": {
+      "t2": {
+        "rule": "SINC",
+        "spans": [
+          [
+            2,
+            3
+          ]
+        ],
+        "output": "",
+        "note": "Síncopa de g intervocálica; el hiato resultante se reduce después."
+      }
+    },
+    "append": [
+      {
+        "id": "t6",
+        "rule": "ABER",
+        "spans": [
+          [
+            3,
+            4
+          ]
+        ],
+        "output": "e",
+        "note": "Abertura de ĭ tónica en e, antes de la reducción del hiato."
+      }
+    ]
+  },
+  "xl-608": {
+    "latin": "temperare",
+    "explanation": "Temperare > templar: síncopa de la segunda e (pretónica respecto a la a de -are), disimilación de las dos vibrantes (la primera pasa a l) y apócope de e final del infinitivo.",
+    "patches": {
+      "t1": {
+        "note": "Síncopa de la e pretónica intermedia (temperāre)."
+      }
+    }
+  },
+  "xl-145": {
+    "latin": "grŏssum",
+    "explanation": "grŏssum > grueso: diptongación de ŏ tónica en ue, simplificación de ss, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-125": {
+    "latin": "flammam",
+    "explanation": "flammam > llama: palatalización de fl- inicial en ll-, simplificación de mm y pérdida fija de -m. No hay aspiración de f aislada."
+  },
+  "xl-156": {
+    "latin": "insŭlam",
+    "explanation": "insŭlam > isla: simplificación de ns en s, síncopa de ŭ postónica y pérdida fija de -m. No hay diptongación."
+  },
+  "xl-165": {
+    "latin": "labŏrāre",
+    "explanation": "labŏrāre > labrar: síncopa de o pretónica y apócope de e final del infinitivo."
+  },
+  "xl-25": {
+    "latin": "asĭnum",
+    "explanation": "asĭnum > asno: síncopa de ĭ postónica, abertura de u final en o y pérdida fija de -m."
+  },
+  "xl-570": {
+    "latin": "hederam",
+    "explanation": "hederam > hiedra: diptongación de la primera e tónica en ie, síncopa de la segunda e postónica y pérdida fija de -m. La h es etimológica, no aspiración de f."
+  },
+  "xl-458": {
+    "latin": "uiridem",
+    "explanation": "uiridem > verde: abertura de la primera i en e, síncopa de la segunda i postónica y pérdida fija de -m."
+  },
+  "xl-88": {
+    "latin": "delĭcātum",
+    "explanation": "delĭcātum > delgado: sonorización de c y t en g y d, síncopa de ĭ pretónica, abertura de u final en o y pérdida fija de -m. Delicado es el doblete culto o semiculto."
+  },
+  "xl-508": {
+    "latin": "septem",
+    "explanation": "septem > siete: diptongación de e tónica en ie, simplificación de pt en t y pérdida fija de -m."
+  },
+  "xl-728": {
+    "latin": "parabolam",
+    "explanation": "parabolam > palabra: síncopa de o postónica, metátesis de r y l y pérdida fija de -m."
+  },
+  "xl-733": {
+    "latin": "sibilare",
+    "explanation": "sibilare > silbar: síncopa de la segunda i pretónica, metátesis de b y l y apócope de e final del infinitivo."
+  },
+  "xl-266": {
+    "latin": "regŭlam",
+    "explanation": "regŭlam > regla: síncopa de ŭ postónica y pérdida fija de -m; se conserva el grupo -gl- sin palatalización."
+  },
+  "xl-267": {
+    "latin": "rodēre",
+    "explanation": "rodēre > roer: síncopa de d intervocálica y apócope de e final del infinitivo. No se trata de sonorización."
+  }
+});
+function reviewHistoricalWords(words){
+ const seen=new Set();
+ const result=words.map(word=>{
+  const entry=HISTORICAL_REVIEW[word.id];
+  if(!entry)return word;
+  if(entry.latin!==word.latin)throw Error('Evolutio: cambió el étimo revisado '+word.id);
+  seen.add(word.id);
+  const changes=word.changes.map(c=>({...c,...entry.patches?.[c.id]}));
+  for(const c of entry.append??[]){
+   if(changes.some(old=>old.id===c.id))throw Error('Evolutio: cambio duplicado '+word.id);
+   changes.push(c);
+  }
+  return {...word,explanation:entry.explanation,changes:changes.map(nameChange)};
+ });
+ if(seen.size!==Object.keys(HISTORICAL_REVIEW).length)throw Error('Evolutio: faltan fichas históricas revisadas');
+ return result;
+}
 export function correctCastilianSourceWords(words){
  const seen=new Set();
  let crucemFound=false;
@@ -344,7 +459,7 @@ export function correctCastilianSourceWords(words){
   "xl-1028": "Falcem > hoz: aspiración de f inicial, vocalización de -al- > au > o (una sola norma específica), palatalización histórica de c ante e (z actual), apócope de e y pérdida fija de -m.",
   "xl-1034": "Luminaria (plural neutro) > lumbrera: evolución de -MIN- → -MBR- (una norma específica) y metátesis de -aria > -aira > -era. «Luminaria» es el doblete culto."
 });
- return completeCastilianSourceWords(corrected).map(word=>{
+ return reviewHistoricalWords(completeCastilianSourceWords(corrected)).map(word=>{
   const explanation=explanations[word.id];
   return explanation?{...word,explanation,changes:word.changes.map(nameChange)}:word;
  });
