@@ -77,11 +77,13 @@ try{
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín de 4.º de ESO'));
   assert.ok((await page.locator('.path-links').textContent()).includes('Vocabulario · Latín de 4.º de ESO'));
   await coursePicker.selectOption('lat2');
-  assert.equal(await page.locator('.path-links a').count(),4);
+  assert.equal(await page.locator('.path-links a').count(),5);
+  assert.equal(await page.locator('.path-links a[data-study-tool="latinismos"]').count(),1);
   assert.equal(await page.locator('[data-study-tool="modificacion-preverbial"]').count(),1);
   assert.ok((await page.locator('.path-links').textContent()).includes('Práctica de morfología · Latín II'));
   await coursePicker.selectOption('lat1');
-  assert.equal(await page.locator('.path-links a').count(),7);
+  assert.equal(await page.locator('.path-links a').count(),8);
+  assert.equal(await page.locator('.path-links a[data-study-tool="latinismos"]').count(),1);
   await page.locator('.path-links a[data-study-tool="gramatica"]').click();
   await page.waitForURL(/\/apps\/gramatica\/curso\.html\?lengua=latin/);
   await page.goto(base+'/',{waitUntil:'networkidle'});
