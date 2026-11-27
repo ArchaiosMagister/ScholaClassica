@@ -3,6 +3,7 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {generatePortalIcons} from './generate-portal-icons.mjs';
+import {buildGlobalUpdates} from './build-global-updates.mjs';
 const CORE=[
   'index.html','app.js','theme.js','style.css','manifest.webmanifest',
   'portal/epigrafia.webp',
@@ -11,6 +12,8 @@ const CORE=[
 ];
 export async function buildPortalPwa(out,root){
   await generatePortalIcons(out);
+  // El inventario se genera sobre el artefacto final, incluidos los módulos futuros.
+  await buildGlobalUpdates(out);
   const manifest=JSON.parse(await readFile(join(out,'manifest.webmanifest'),'utf8'));
   assert.equal(manifest.scope,'./');
   assert.equal(manifest.start_url,'./');
