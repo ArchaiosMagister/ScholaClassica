@@ -11,6 +11,10 @@ function once(s,from,to,label){
 }
 export function adaptVocabulaAllApp(js){
   js=once(js,
+    ".replace(/[‘’'“”.,;:!?¿¡]/g,'')",
+    ".replace(/…|\\.{3,}/g,' ').replace(/[‘’'“”.,;:!?¿¡]/g,'')",
+    'normalización de los puntos suspensivos');
+  js=once(js,
     "function entryNotesHTML(e){return (e.usage?",
     "function entryNotesHTML(e){const scholaNote=scholaVocabularyEditorialNote(e);return (scholaNote?`<p class=\\\"small\\\">${esc(scholaNote)}</p>`:'')+(e.usage?",
     'anotación filológica visible tras revelar respuesta');
