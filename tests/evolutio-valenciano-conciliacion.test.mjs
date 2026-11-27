@@ -1,3 +1,4 @@
+import {correctCastilianSourceWords} from '../scripts/evolutio-castellano-lote100.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
@@ -150,7 +151,7 @@ test('La matriz de trabajo no se publica ni sustituye los recursos originales',(
  assert.equal(existsSync(join(dist,'apps/evolucion-fonetica/data/valenciano.json')),false);
  const built=JSON.parse(readFileSync(join(dist,'apps/evolucion-fonetica/data/pilot.json'),'utf8'));
  assert.equal(built.words.length,622);
- assert.deepEqual(built.words.slice(0,bank.words.length),bank.words);
+ assert.deepEqual(built.words.slice(0,bank.words.length),correctCastilianSourceWords(bank.words));
  assert.equal(new Set(built.words.map(w=>w.id)).size,622);
  assert.deepEqual(built.words.slice(bank.words.length).map(w=>w.source.lot),Array(100).fill(21));
 });

@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync,statSync} from 'node:fs';
 import {resolve,join,sep} from 'node:path';
+import {integrateCastilianAdditions} from './evolutio-castellano-lote100.mjs';
 const root=resolve(import.meta.dirname,'..');
 const out=join(root,'dist');
 const args=process.argv.slice(2);
@@ -41,8 +42,8 @@ const pilotOrigin=JSON.parse(readFileSync(
   join(root,'vendor/evolutio/data/pilot.json'),'utf8'));
 assert.equal(pilotOrigin.words.length,522);
 assert.equal(pilotPublic.words.length,622);
-assert.deepEqual(pilotPublic.words.slice(0,522),pilotOrigin.words,
-  'No alterar fichas castellanas originales ni sustituirlas por propuestas valencianas');
+assert.deepEqual(pilotPublic,integrateCastilianAdditions(pilotOrigin),
+  'Solo se admiten las correcciones editoriales castellanas y el lote reproducible; no propuestas valencianas');
 assert.deepEqual({version:pilotPublic.version,source:pilotPublic.source},
   {version:pilotOrigin.version,source:pilotOrigin.source},
   'Conservar la identidad y procedencia del banco inmovilizado');

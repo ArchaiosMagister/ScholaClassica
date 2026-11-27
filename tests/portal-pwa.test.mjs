@@ -1,3 +1,4 @@
+import {correctCastilianSourceWords} from '../scripts/evolutio-castellano-lote100.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
@@ -38,7 +39,7 @@ test('Evolutio: 522 fichas originales y 100 nuevas, actualización y SW aislado'
  const data=JSON.parse(read('apps/evolucion-fonetica/data/pilot.json'));
  assert.equal(data.words.length,622);
  const original=JSON.parse(readFileSync(join(root,'vendor/evolutio/data/pilot.json'),'utf8'));
- assert.deepEqual(data.words.slice(0,522),original.words);
+ assert.deepEqual(data.words.slice(0,522),correctCastilianSourceWords(original.words));
  assert.ok(data.words.some(w=>w.latin==='uitam'));
  for(const p of ['src/difficulty.mjs','src/result-difficulty.mjs','src/latin.mjs','src/update.mjs','data/difficulty.json'])
    assert.ok(existsSync(join(out,'apps/evolucion-fonetica',p)),p);
@@ -48,7 +49,7 @@ test('Evolutio: 522 fichas originales y 100 nuevas, actualización y SW aislado'
  assert.match(sw,/key\.startsWith\(CACHE_PREFIX\)&&key!==VERSION/);
  assert.match(sw,/src\/difficulty\.mjs/);
  assert.match(sw,/src\/result-difficulty\.mjs/);
- assert.match(sw,/lote100-v6/);
+ assert.match(sw,/lote100-v7/);
  assert.match(sw,/data\/difficulty\.json/);
  assert.match(sw,/url\.pathname\.startsWith\(scope\.pathname\)/);
  assert.ok(!sw.includes('keys.filter(key=>key!==VERSION)'));
