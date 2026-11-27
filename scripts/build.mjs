@@ -25,6 +25,7 @@ import {adaptVocabulaAll} from './adapt-vocabula-all.mjs';
 import {buildVocabulaOffline} from './adapt-vocabula-offline.mjs';
 import {buildVocabulaPwa} from './build-vocabula-pwa.mjs';
 import {buildGrammarReview} from './build-repaso-gramatica.mjs';
+import {styleSharedAppendix,styleSharedPractice} from './shared-language-colors.mjs';
 import {buildGrammarReviewPwa} from './build-repaso-gramatica-pwa.mjs';
 import {verifyVendoredVocabula} from './verify-vendored-vocabula.mjs';
 import {verifyVendoredEvolutio} from './verify-vendored-evolutio.mjs';
@@ -180,6 +181,7 @@ await adaptAppendixGreek1({destination,source});
 await adaptAppendixLatin4UI(destination);
 await adaptAppendixLatin1UI(destination);
 await adaptAppendixGreek1UI(destination);
+await styleSharedAppendix(destination);
 await buildGrammarPwa(destination);
 
 await cp(join(vocabulaSource,'icons'),join(vocabulaDestination,'icons'),{recursive:true});
@@ -198,6 +200,7 @@ await adaptVocabulaStudentCopy(vocabulaDestination);
 await adaptVocabulaAll(vocabulaDestination,root);
 await cp(join(root,'scripts/vocabula-bridge.js'),join(vocabulaDestination,'schola-bridge.js'));
 await buildVocabulaOffline(vocabulaDestination,root);
+await styleSharedPractice(vocabulaDestination);
 await buildVocabulaPwa(vocabulaDestination);
 
 // El antiguo generador de sintaxis, conceptos y flexiones ocupa un módulo
@@ -207,6 +210,7 @@ await buildGrammarReview({
  source:vocabulaSource,destination:grammarReviewDestination,
  vocabulaDestination,root
 });
+await styleSharedPractice(grammarReviewDestination);
 await buildGrammarReviewPwa(grammarReviewDestination);
 
 // Nuevo módulo de práctica propio, separado del Vocabula original.

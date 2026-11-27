@@ -110,3 +110,11 @@ html[data-theme="oled"] .greek-keyboard{background:#090909}
 /* Enlazar ambas fuentes del sintagma, sin ocultar las unidades de origen. */
 .evidence-links{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin:6px 0 17px}
 .evidence-links .source-link{margin:0 0 5px}
+
+/* La cabecera pertenece a las dos lenguas; los ejercicios mantienen sus estados. */
+.site-header,.footer{background:linear-gradient(115deg,#1d4136,#174861)}
+html[data-theme="oled"] .site-header,html[data-theme="oled"] .footer{
+  background:#000;
+  border-bottom:3px solid transparent;
+  border-image:linear-gradient(90deg,#a5dcc3,#abd7f0) 1;
+}

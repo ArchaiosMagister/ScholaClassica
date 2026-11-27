@@ -455,3 +455,41 @@ html[data-theme="oled"]:has(body.portal) {
   .portal .pwa-controls { margin-top: .5rem; }
   .portal .resource-heading { margin-bottom: .35rem; }
 }
+
+/* Identidad grecolatina: dos acentos, texto sólido y superficies discretas. */
+html:has(body.portal) {
+  --mixed-green: #265545;
+  --mixed-blue: #285e79;
+  --mixed-blue-surface: #edf4f8;
+  --mixed-ink: #244b50;
+}
+html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
+  --mixed-green: #a5dcc3;
+  --mixed-blue: #abd7f0;
+  --mixed-blue-surface: #192e3b;
+  --mixed-ink: #c4e5e7;
+}
+html[data-theme="oled"]:has(body.portal) {
+  --mixed-blue-surface: #101b23;
+}
+.portal .hero {
+  background: linear-gradient(125deg, #1d4136, #234b59 70%, #174861);
+}
+.portal :is(.card.mixed, .resource-links a.mixed) {
+  border-top: 3px solid transparent;
+  background: linear-gradient(115deg, var(--wash), var(--mixed-blue-surface)) padding-box,
+              linear-gradient(90deg, var(--mixed-green), var(--mixed-blue)) border-box;
+}
+.portal .card.mixed .overline, .portal .resource-links a.mixed strong {
+  color: var(--mixed-ink);
+}
+.portal .resource-links a.mixed:hover {
+  text-decoration: underline;
+}
+.portal .card.mixed .linkgroup a.greek {
+  color: var(--greek-accent);
+  border-color: var(--greek-line);
+}
+.portal .card.mixed .linkgroup a.greek:hover {
+  color: var(--greek-strong);
+}
