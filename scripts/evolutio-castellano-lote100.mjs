@@ -15,7 +15,7 @@ const RAW=`
 49|capram|cabra|S2=b
 55|cĕntum|ciento|A4=o,D1=ie,P0=c
 57|cĕrvum|ciervo|A4=o,D1=ie,P0=c
-79|cultellum|cuchillo|A7=o,P2-4=ch,P5-7=ll,D4=ie
+79|cultellum|cuchillo|A7=o,P2-4=ch,P5-7=ll
 85|dĕcem|diez|C3=∅,D1=ie,P2=z
 94|dixi|dije|A3=e,P2=j
 95|dixit|dijo|P2=j,C4=∅
@@ -53,7 +53,7 @@ const RAW=`
 265|regem|rey|I2=∅
 269|sacratum|sagrado|A6=o,S2=g,S5=d
 276|scutarium|escudero|A7=o,R0-0=e,S3=d,Q4-7=er
-292|sitim|sed|A1=e,S2=d,A3=e,C3=∅
+292|sitim|sed|A1=e,S2=d,C3=∅
 295|sŏlet|suele|D1=ue,C4=∅
 310|super|sobre|A1=o,S2=b,T3-5=re
 317|tegŭlam|teja|P2-5=j,I3=∅
@@ -203,7 +203,7 @@ const ADDITION_NOTES=Object.freeze({
   "490": "Asimilación de m en n ante la dental tras la síncopa de i y la sonorización; no se trata de disimilación.",
   "506": "Asimilación de m en n ante la dental tras la síncopa de i y la sonorización.",
   "955": "Simplificación de ns en s y síncopa de la primera u de -suturam; no se pierde la u tónica de costura.",
-  "79": "El castellano medieval cuchiello documenta la diptongación de ĕ; el diptongo -ie- se reduce después a -i- ante la lateral palatal.",
+  "79": "En el resultado actual, e pasa a i ante ll. El cierre vocálico no figura como norma autónoma del catálogo; no se exige diptongación.",
   "95": "Apócope de -t final. La terminación -o de dixo (medieval) y dijo se explica por analogía con los perfectos débiles; no se exige una abertura hipotética de la i de la desinencia.",
   "107": "La yod originada por -ct- cierra la a en e (factu > faito > feito > fecho > hecho); no es la abertura i/u de N01.",
   "108": "La yod del grupo -ct- explica el cambio a > e, además de la palatalización; no es abertura.",
@@ -437,16 +437,15 @@ const VOCALIC_REVIEW=Object.freeze({
 });
 const VOCALIC_SPECIAL=Object.freeze({
   "xl-32": "aut > o: monoptongación de au en o y apócope de t final. La conjunción pierde la consonante final; no es la pérdida fija de -m.",
-  "xl-583": "pedem > pie: diptongación de ĕ tónica, síncopa de d intervocálica y reducción posterior del hiato ee (cf. plural medieval piees). La reducción del hiato no se evalúa como apócope independiente ni como monoptongación de un diptongo latino. Pérdida fija de -m.",
-  "xl-585": "pellem > piel: diptongación de ĕ tónica, palatalización de ll (medieval pielle), apócope de e final y despalatalización de la lateral en posición final. La última etapa no se evalúa como simplificación directa de la geminada latina. Pérdida fija de -m."
+  "xl-583": "pedem > pie: diptongación de ĕ tónica en ie, síncopa de d intervocálica y apócope de e final según la correspondencia con el resultado actual. Pérdida fija de -m.",
+  "xl-585": "pellem > piel: diptongación de ĕ tónica en ie, simplificación de ll en l y apócope de e final. Pérdida fija de -m. Se evalúa la correspondencia con el castellano actual."
 });
 function clarifyVocalism(word){
  const special=VOCALIC_SPECIAL[word.id],note=VOCALIC_REVIEW[word.id];
  if(!special&&!note)return word;
  let changes=word.changes;
  if(word.id==='xl-32')changes=[...changes.map(c=>c.rule==='MONOP'?{...c,note:'El diptongo au se monoptonga en o.'}:c),{id:'t2',rule:'APOC',spans:[[2,3]],output:'∅',note:'Se pierde la t final de la conjunción.'}];
- if(word.id==='xl-583')changes=changes.filter(c=>c.id!=='t3');
- if(word.id==='xl-585')changes=changes.map(c=>c.id==='t2'?{...c,rule:'PALAT',output:'ll',subtype:'-ll- > -ll-',note:'La geminada ll se palataliza; la forma medieval pielle lo documenta. Tras la apócope se despalataliza en posición final.'}:c);
+
  return {...word,changes:changes.map(nameChange),explanation:special??word.explanation+' '+note};
 }
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord).map(word=>{
@@ -543,34 +542,20 @@ function completeCastilianSourceWords(words){
 const HISTORICAL_REVIEW=Object.freeze({
   "xl-289": {
     "latin": "sigĭllum",
-    "explanation": "Sigĭllum > sello: abertura de ambas i en e, síncopa de g intervocálica, reducción del hiato ee (documentado en seello medieval), palatalización de ll, abertura de u final en o y pérdida fija de -m. La segunda i es tónica en latín; no se clasifica su reducción como síncopa postónica ni como monoptongación de un diptongo latino.",
+    "explanation": "sigĭllum > sello: abertura de i en e, síncopa del fragmento interior gĭ según la correspondencia con el resultado actual, palatalización de ll, abertura de u final y pérdida fija de -m. No se presupone una síncopa postónica.",
     "patches": {
       "t2": {
         "rule": "SINC",
         "spans": [
           [
             2,
-            3
-          ]
-        ],
-        "output": "",
-        "note": "Síncopa de g intervocálica; el hiato resultante se reduce después."
-      }
-    },
-    "append": [
-      {
-        "id": "t6",
-        "rule": "ABER",
-        "spans": [
-          [
-            3,
             4
           ]
         ],
-        "output": "e",
-        "note": "Abertura de ĭ tónica en e, antes de la reducción del hiato."
+        "output": "",
+        "note": "Desaparición del fragmento interior gĭ en el resultado actual; no se califica de postónico."
       }
-    ]
+    }
   },
   "xl-608": {
     "latin": "temperare",

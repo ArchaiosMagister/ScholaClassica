@@ -258,14 +258,14 @@ test('Correcciones filológicas del nuevo bloque: fragmentos y fenómenos contra
   ['calcem','PALAT',[[3,4]],'z'],
   ['falcem','PALAT',[[3,4]],'z'],
   ['luminaria','METAT',[[5,8]],'er'],
-  ['cultellum','DIPT',[[4,5]],'ie'],
+  ['cultellum','PALAT',[[2,4]],'ch'],
   ['dixit','APOC',[[4,5]],'∅'],
   ['filictum','ABER',[[3,4]],'e'],
   ['gemmam','PALAT',[[0,1]],'y'],
   ['mascŭlum','PALAT',[[2,6]],'ch'],
   ['quattuor','METAT',[[6,7],[7,8]],'ro'],
   ['sitim','APOC',[[3,4]],'∅'],
-  ['sitim','ABER',[[3,4]],'e'],
+  ['sitim','ABER',[[1,2]],'e'],
   ['sŏlet','APOC',[[4,5]],'∅'],
   ['tingit','PALAT',[[2,4]],'ñ'],
   ['tingit','ABER',[[4,5]],'e'],
@@ -304,10 +304,10 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
 test('Etapas acreditadas: sello, analogía de dijo y abertura de proveer',async()=>{
  const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
  const sello=word('sigĭllum');
- assert.equal(gradeChange(sello,{rule:'SINC',spans:[[2,4]]}).correct,false);
- assert.equal(gradeChange(sello,{rule:'SINC',spans:[[2,3]]}).correct,true);
- assert.equal(gradeChange(sello,{rule:'ABER',spans:[[3,4]]}).correct,true);
- assert.match(sello.explanation,/seello medieval/);
+ assert.equal(gradeChange(sello,{rule:'SINC',spans:[[2,4]]}).correct,true);
+ assert.equal(gradeChange(sello,{rule:'SINC',spans:[[2,3]]}).correct,false);
+ assert.equal(gradeChange(sello,{rule:'ABER',spans:[[3,4]]}).correct,false);
+ assert.match(sello.explanation,/resultado actual/);
  assert.match(word('temperare').changes.find(c=>c.rule==='SINC').note,/pretónica/);
  assert.equal(word('dixit').changes.some(c=>c.rule==='ABER'),false);
  assert.match(word('dixit').explanation,/analogía/);
@@ -547,11 +547,13 @@ test('Vocalismo: diptongos latinos, hiatos secundarios y apócope',async()=>{
   assert.equal(gradeChange(w,{rule:'DIPT',spans:[[1,2]]}).correct,true);
  }
  const pie=word('pedem');
- assert.ok(!pie.changes.some(c=>c.rule==='APOC'));
- assert.match(pie.explanation,/hiato ee/);
+ assert.equal(gradeChange(pie,{rule:'APOC',spans:[[3,4]]}).correct,true);
+ assert.match(pie.explanation,/resultado actual/);
  const piel=word('pellem');
- assert.equal(gradeChange(piel,{rule:'PALAT',spans:[[2,4]]}).correct,true);
- assert.equal(gradeChange(piel,{rule:'SIMPL',spans:[[2,4]]}).correct,false);
- assert.match(piel.explanation,/pielle/);
+ assert.equal(gradeChange(piel,{rule:'PALAT',spans:[[2,4]]}).correct,false);
+ assert.equal(gradeChange(piel,{rule:'SIMPL',spans:[[2,4]]}).correct,true);
+ assert.match(piel.explanation,/castellano actual/);
+ assert.ok(!word('cultellum').changes.some(c=>c.rule==='DIPT'));
+ assert.equal(gradeChange(word('sitim'),{rule:'ABER',spans:[[3,4]]}).correct,false);
  assert.match(word('sĕcat').explanation,/apócope/);
 });
