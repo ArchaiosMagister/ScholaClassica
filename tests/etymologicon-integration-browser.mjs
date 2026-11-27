@@ -96,8 +96,8 @@ try{
  // Comprobar la cuadrícula real de derivados en móvil, tableta y ordenador.
  const originalViewport=page.viewportSize();
  const familyIndex=await page.locator('#study-entries details.lexicon-group').evaluateAll(groups=>
-   groups.findIndex(group=>group.querySelectorAll('.lexicon-word-list > .lexical-word').length>=3));
- assert.ok(familyIndex>=0,'Debe existir una familia con al menos tres derivados');
+   groups.findIndex(group=>group.querySelectorAll('.lexicon-word-list > .lexical-word').length>=4));
+ assert.ok(familyIndex>=0,'Debe existir una familia con al menos cuatro derivados para probar varias filas');
  const gridFamily=page.locator('#study-entries details.lexicon-group').nth(familyIndex);
  // La búsqueda anterior puede haber abierto esta familia. No invertir a ciegas.
  if(await gridFamily.getAttribute('open')===null)await gridFamily.locator('summary').click();
@@ -114,13 +114,17 @@ try{
      return {
        columns:getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length,
        firstRow:rects.filter(rect=>Math.abs(rect.top-rects[0].top)<1).length,
+       sameSize:rects.every(rect=>Math.abs(rect.width-rects[0].width)<1&&
+         Math.abs(rect.height-rects[0].height)<1),
        withinCards:cards.every(card=>card.getBoundingClientRect().width>0&&
-         card.getBoundingClientRect().height>0&&card.scrollWidth<=card.clientWidth+1),
+         card.getBoundingClientRect().height>0&&card.scrollWidth<=card.clientWidth+1&&
+         card.scrollHeight<=card.clientHeight+1),
        pageFits:document.documentElement.scrollWidth<=window.innerWidth
      };
    });
    assert.equal(layout.columns,columns,'Columnas a '+width+' px');
    assert.equal(layout.firstRow,columns,'Tarjetas en la primera fila a '+width+' px');
+   assert.ok(layout.sameSize,'Todas las tarjetas de la familia tienen el mismo tamaño a '+width+' px');
    assert.ok(layout.withinCards,'Contenido íntegro sin desbordamiento a '+width+' px');
    assert.ok(layout.pageFits,'Sin desplazamiento horizontal a '+width+' px');
  }
