@@ -37,7 +37,7 @@ const RAW=`
 178|lego|leo|I2=∅
 187|macrum|magro|A4=o,S2=g
 195|mascŭlum|macho|A6=o,P2-6=ch,I4=∅
-197|materiam|madera|I5=∅,S2=d
+197|materiam|madera|S2=d,T4-6=ir
 200|maxillam|mejilla|P2=j,P4-6=ll
 224|pacem|paz|C3=∅,P2=z
 229|pariētem|pared|C6=∅,I3=∅,S5=d
@@ -189,6 +189,9 @@ function rowToWord(line){
  };
 }
 const ADDITION_NOTES=Object.freeze({
+  "197": "Tras la sonorización de t en d, la yod cambia de posición por metátesis: maderia > madeira. El diptongo romance ei se reduce a e; no se evalúa como monoptongación de un diptongo latino ni como síncopa de i.",
+  "833": "La yod del grupo li favorece el mantenimiento de o sin diptongación en ue. Se evalúan aspiración de f y palatalización de li; no se añade una norma vocálica hipotética.",
+  "378": "El grupo x latino (/ks/) da lugar a la fricativa palatal medieval que termina en j; la abertura de u en o se evalúa donde está registrada.",
   "232": "Palatalización de ct y abertura de u final. El neutro latino dio el antiguo singular pechos; pecho se creó por analogía al reinterpretarse -s como plural. No se evalúa esa adaptación morfológica como apócope.",
   "265": "Síncopa de g intervocálica tras la pérdida fija de -m: rege > ree > rey. La e final del hiato pasa a semivocal escrita y; no se exige una palatalización del grupo ge.",
   "564": "Diptongación de e tónica y sonorización de qu en gu. La semiconsonante inicial del diptongo pasa a consonante palatal escrita y; no se trata de consonantización de una i latina inicial.",
@@ -713,6 +716,58 @@ const HISTORICAL_REVIEW=Object.freeze({
         "note": "Abertura de u en o; la desaparición de s en el nuevo singular es analógica, no apócope."
       }
     }
+  },
+  "xl-210": {
+    "latin": "multum",
+    "explanation": "multum > mucho: palatalización de lt en ch mediante una etapa con yod (muito), abertura de u final en o y pérdida fija de -m. La yod favorece la conservación de la u tónica; no se añade abertura en esa vocal."
+  },
+  "xl-215": {
+    "latin": "noctem",
+    "explanation": "noctem > noche: palatalización de ct en ch mediante yod (noite) y pérdida fija de -m. La yod cierra la vocal tónica procedente de ŏ e impide la diptongación habitual en ue; no es abertura."
+  },
+  "xl-218": {
+    "latin": "octo",
+    "explanation": "octo > ocho: palatalización de ct en ch. La yod procedente del grupo ct favorece el cierre de la vocal tónica procedente de ŏ, que no presenta el diptongo ue. No hay abertura."
+  },
+  "xl-244": {
+    "latin": "podium",
+    "explanation": "podium > poyo: palatalización de di ante vocal en y, abertura de u final en o y pérdida fija de -m. La yod impide que la ŏ tónica diptongue en ue; no se exige abertura de esa o."
+  },
+  "xl-252": {
+    "latin": "pugnum",
+    "explanation": "pugnum > puño: palatalización de gn en ñ, abertura de u final en o y pérdida fija de -m. La yod asociada al grupo gn favorece la conservación de la u tónica. No se marca síncopa de g ni abertura de la primera u."
+  },
+  "xl-251": {
+    "latin": "proximum",
+    "explanation": "proximum > prójimo: palatalización histórica de x (/ks/) en la fricativa medieval escrita x y después j, abertura de u final en o y pérdida fija de -m. La yod del grupo x favorece que la vocal tónica no diptongue."
+  },
+  "xl-249": {
+    "latin": "pretium",
+    "explanation": "pretium > precio: palatalización histórica de ti ante vocal, con resultado sibilante escrito ci; abertura de u final en o y pérdida fija de -m. La ĕ tónica no presenta diptongación en este caso."
+  },
+  "xl-131": {
+    "latin": "fŏrtia",
+    "explanation": "fŏrtia > fuerza: diptongación de ŏ tónica en ue y palatalización histórica de ti ante vocal en la sibilante escrita z. En este caso la yod no impide la diptongación; no se marca sonorización de t."
+  },
+  "xl-297": {
+    "latin": "sŏmnum",
+    "explanation": "sŏmnum > sueño: diptongación de ŏ tónica en ue, palatalización de mn en ñ, abertura de u final en o y pérdida fija de -m. La palatalización no implica necesariamente que se bloquee la diptongación."
+  },
+  "ge-EVF-0840": {
+    "latin": "lectum",
+    "explanation": "lectum > lecho: palatalización de ct en ch, abertura de u final en o y pérdida fija de -m. La ĕ tónica no diptonga por el efecto de la yod procedente de ct."
+  },
+  "ge-EVF-0823": {
+    "latin": "despectum",
+    "explanation": "despectum > despecho: palatalización de ct en ch, abertura de u final en o y pérdida fija de -m. La yod del grupo ct impide la diptongación de ĕ tónica; hay especialización semántica."
+  },
+  "xl-185": {
+    "latin": "luxum",
+    "explanation": "luxum > lujo: palatalización histórica de x (/ks/) en la fricativa medieval escrita x y después j, abertura de u final en o y pérdida fija de -m. No corresponde a la evolución de grafías griegas."
+  },
+  "xl-205": {
+    "latin": "milium",
+    "explanation": "milium > mijo: palatalización de li ante vocal en j, abertura de u final en o y pérdida fija de -m. La primera i tónica se conserva; no se presupone abertura por el solo hecho de aparecer una i latina."
   }
 });
 function reviewHistoricalWords(words){

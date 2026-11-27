@@ -286,7 +286,7 @@ test('Las fichas revisadas nombran expresamente las normas del catálogo PAU',as
  const {ruleName}=await import('../dist/apps/evolucion-fonetica/src/rules.mjs');
  const reviewed=bank.words.filter((w,i)=>i>=unchanged.words.length||
   JSON.stringify(w)!==JSON.stringify(unchanged.words[i]));
- assert.equal(reviewed.length,222);
+ assert.equal(reviewed.length,235);
  for(const w of reviewed)for(const c of w.changes){
   if(c.rule==='FIX_M')continue;
   assert.ok(c.note.startsWith(ruleName(c.rule)+':'),w.latin+' '+c.rule+' '+c.note);
@@ -410,4 +410,19 @@ test('Neutros en -us, síncopa de g y coherencia de la abertura',async()=>{
  assert.ok(sed.changes.findIndex(c=>c.rule==='ABER'&&c.spans[0][0]===3)<sed.changes.findIndex(c=>c.rule==='APOC'));
  assert.doesNotThrow(()=>assertCastilianOpeningSpans(bank.words));
  assert.throws(()=>assertCastilianOpeningSpans([{latin:'factum',changes:[{rule:'ABER',spans:[[1,2]],output:'e'}]}]),/abertura ajena a i\/u/);
+});
+
+test('Yod: metátesis de materia y distinción entre inflexión y abertura',async()=>{
+ const {gradeChange}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ const madera=word('materiam');
+ assert.equal(gradeChange(madera,{rule:'METAT',spans:[[4,5],[5,6]]}).correct,true);
+ assert.ok(!madera.changes.some(c=>c.rule==='SINC'));
+ assert.match(madera.explanation,/maderia > madeira/);
+ for(const latin of ['noctem','octo','podium','proximum','lectum','despectum']){
+  const w=word(latin);
+  assert.ok(!w.changes.some(c=>c.rule==='DIPT'),latin);
+  assert.match(w.explanation,/yod/i,latin);
+ }
+ for(const latin of ['fŏrtia','sŏmnum'])assert.ok(word(latin).changes.some(c=>c.rule==='DIPT'));
+ for(const latin of ['multum','pugnum'])assert.equal(gradeChange(word(latin),{rule:'ABER',spans:[[1,2]]}).correct,false,latin);
 });
