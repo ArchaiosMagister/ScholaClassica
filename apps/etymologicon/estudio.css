@@ -120,3 +120,13 @@
   transform:translateY(-50%) rotate(-45deg)}
 .lexicon-group[open]>.lexicon-group-summary::before{transform:translateY(-70%) rotate(45deg)}
 @media(max-width:600px){.lexicon-group-summary{padding-left:26px}.lexicon-group-summary::before{left:10px}}
+
+/* Cuadrícula adaptable de derivados: una, dos o tres columnas según el
+   ancho real disponible. auto-fill evita que una ficha aislada se estire.
+   No afecta a los encabezados de familia, ni al estudio inverso. */
+.lexicon-word-list{
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));
+  align-items:start;
+}
+.lexicon-word-list>h2,.lexicon-word-list>.lexicon-empty{grid-column:1/-1}
+.lexicon-word-list>.lexical-word{align-self:start}
