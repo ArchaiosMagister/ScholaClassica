@@ -287,6 +287,41 @@ try{
  await page.goto(base+prefix+'apps/latinismos/index.html',{waitUntil:'networkidle'});
  await page.waitForFunction(()=>document.querySelectorAll('#cards .entry').length===87);
  assert.equal(await page.locator('#cards .entry li').count(),261);
+ // Convención docente: las 87 entradas, variantes y 261 ejemplos en cursiva,
+ // incluidas las voces adaptadas; el texto circundante debe quedar en redonda.
+ assert.equal(await page.locator('#cards .entry h2 i.latin-term').count(),87);
+ assert.equal(await page.locator('#cards .entry li i.latin-term').count(),261);
+ const styles=await page.evaluate(async()=>{
+   const {items}=await import('./banco.mjs');
+   const cards=[...document.querySelectorAll('#cards .entry')];
+   return cards.every((card,k)=>{
+     const variants=items[k].variants;
+     const styled=[...card.querySelectorAll('i.latin-term')];
+     return styled.every(e=>getComputedStyle(e).fontStyle==='italic')&&
+       getComputedStyle(card.querySelector('li')).fontStyle==='normal'&&
+       variants.every(v=>styled.some(e=>e.textContent===v));
+   });
+ });
+ assert.equal(styles,true);
+ const classical=await page.locator('#cards .entry h2 i.latin-term').first().evaluate(e=>getComputedStyle(e).fontFamily);
+ assert.match(classical,/Palatino/);
+ // Verificar los tres temas y tamaños con el banco completo, no solo una ficha.
+ for(const theme of ['light','dark','oled']){
+   await page.locator('#portal-theme').selectOption(theme);
+   assert.equal(await page.locator('html').getAttribute('data-theme'),theme);
+   if(theme==='oled'){
+     assert.equal(await page.locator('html').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(0, 0, 0)');
+     assert.equal(await page.locator('#cards .entry').first().evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(0, 0, 0)');
+   }
+   for(const width of [320,390,768,1280]){
+     await page.setViewportSize({width,height:844});
+     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Latinismos '+theme+' desborda a '+width+' px');
+   }
+ }
+ await page.locator('#portal-theme').selectOption('light');
+ await page.setViewportSize({width:1280,height:900});
+ assert.equal(await page.locator('#cards .entry').nth(48).locator('p i').count(),4);
+
  await page.locator('#filter').selectOption('even');
  assert.equal(await page.locator('#cards .entry').count(),43);
  await page.locator('#filter').selectOption('odd');
@@ -305,10 +340,12 @@ try{
  await page.locator('#next').click();
  await page.locator('#kind').selectOption('pau');
  await page.locator('#start').click();
+ assert.equal(await page.locator('#question i.latin-term').textContent(),'ad Kalendas Graecas');
  await page.locator('textarea[name=meaning]').fill('Nunca');
  await page.locator('textarea[name=sentence]').fill('El pago se aplazó ad Kalendas Graecas.');
  await page.locator('#submit').click();
  assert.equal(await page.locator('#explanation li').count(),3);
+ assert.equal(await page.locator('#explanation li i.latin-term').count(),3);
  await page.locator('#self-correct').click();
  await page.locator('#next').click();
  assert.match(await page.locator('#stats').textContent(),/Aciertos: 1 · Errores: 0.*Autoevaluación PAU: 1 bien/);

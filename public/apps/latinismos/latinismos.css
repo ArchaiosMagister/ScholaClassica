@@ -1,14 +1,94 @@
-.latinismos{--accent:#266c51;--panel:#fff;--line:#c8d8cf;--soft:#eef6f0;--fg:#152b21;background:#f4f7f2;color:var(--fg)}
-[data-theme=dark] .latinismos{--panel:#1c2922;--line:#405b4b;--soft:#25392d;--fg:#e5f1e8;--accent:#91d7af;background:#14221e}
-[data-theme=oled] .latinismos{--panel:#000;--line:#355540;--soft:#102018;--fg:#e5f1e8;--accent:#91d7af;background:#000}
-.latinismos [hidden]{display:none!important}.latinismos h1{margin:.25rem 0}.latinismos .eyebrow{color:var(--accent);font-weight:700;margin-bottom:0}
-.latinismos .panel,.latinismos .entry{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:1rem;margin:0 0 .8rem;color:var(--fg)}
-.latinismos .mode-nav,.latinismos .settings,.latinismos #range{display:flex;gap:.7rem;align-items:end;flex-wrap:wrap}
-.latinismos .mode-nav{margin:1rem 0}.latinismos label:not(.check):not(.choice):not(.theme-choice){display:grid;gap:.35rem}
-.latinismos input:not([type=checkbox]):not([type=radio]),.latinismos select,.latinismos button{font:inherit;color:var(--fg);border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:.6rem;min-height:44px}
-.latinismos input[type=number]{width:6rem}.latinismos input[type=search]{width:100%}.latinismos button{cursor:pointer;font-weight:600}.latinismos button[aria-pressed=true],.latinismos #submit,.latinismos #next,.latinismos #start{background:var(--soft);border-color:var(--accent);color:var(--accent)}.latinismos button:disabled{opacity:.55;cursor:default}
-.latinismos .study-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:.8rem;align-items:start}
-.latinismos .entry{margin:0;overflow-wrap:anywhere}.latinismos .entry h2{font-size:1.15rem;color:var(--accent);margin:0}.latinismos .entry p{margin:.35rem 0}.latinismos .entry ol{padding-left:1.3rem;margin:.5rem 0}.latinismos .entry li{margin:.3rem 0}
-.latinismos .number{font-size:.85rem;margin-right:.5rem}.latinismos .choice{display:flex;align-items:center;gap:.65rem;border:1px solid var(--line);border-radius:8px;padding:.7rem;margin:.5rem 0;min-height:44px;cursor:pointer}.latinismos input[type=radio],.latinismos input[type=checkbox]{accent-color:var(--accent)}.latinismos #kind{margin-bottom:.6rem}.latinismos #feedback{font-weight:700}.latinismos #options input[type=text]{width:100%;margin-bottom:.6rem}.latinismos #question{font-size:1.25rem}.latinismos button:focus-visible,.latinismos input:focus-visible,.latinismos select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-
-.latinismos textarea{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.6rem;width:100%;box-sizing:border-box;resize:vertical;margin-bottom:.8rem}.latinismos #self-review{margin:1rem 0}
+/* Latinismos: una presentación de lectura clásica, sin alterar el portal. */
+html.latinismos-theme{
+  --page:#f4f7f2;--ink:#1c3027;--muted:#50675b;--surface:#fffdfa;
+  --wash:#e9f1e9;--line:#c4d3c9;--accent:#266c51;--accent-strong:#1b533e;
+  --on-accent:#fffdfa;--focus:#287957;
+  --serif:"Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --rule:#7aab92;--shadow:0 3px 14px rgb(31 70 47 / .055);
+  background:var(--page);color:var(--ink);
+}
+html.latinismos-theme[data-theme=dark]{
+  --page:#14221e;--ink:#e5f1e8;--muted:#b8cdbf;--surface:#1c2922;
+  --wash:#25392d;--line:#405b4b;--accent:#91d7af;--accent-strong:#b8edcc;
+  --on-accent:#122b1e;--focus:#a9ebc3;--rule:#5c9474;--shadow:none;
+}
+html.latinismos-theme[data-theme=oled]{
+  --page:#000;--ink:#e5f1e8;--muted:#b8cdbf;--surface:#000;
+  --wash:#102018;--line:#355540;--accent:#91d7af;--accent-strong:#b8edcc;
+  --on-accent:#122b1e;--focus:#a9ebc3;--rule:#4e805f;--shadow:none;
+}
+.latinismos{background:var(--page);color:var(--ink);min-height:100vh}
+.latinismos .site-head{background:var(--surface)}
+.latinismos main.container{max-width:70rem;padding-block:clamp(1.15rem,3vw,2rem) 2.5rem}
+.latinismos [hidden]{display:none!important}
+.latinismos h1{font-family:var(--serif);font-size:clamp(2.5rem,5vw,3.6rem);letter-spacing:-.035em;line-height:1.08;margin:.2rem 0 .4rem;font-weight:500}
+.latinismos main>p:not(.eyebrow){margin:.35rem 0 .9rem;color:var(--muted)}
+.latinismos .eyebrow{color:var(--accent);font-size:.72rem;letter-spacing:.13em;font-weight:750;margin:0}
+.latinismos .panel,.latinismos .entry{
+  border:1px solid var(--line);border-radius:.8rem;background:var(--surface);
+  padding:clamp(.85rem,2vw,1.15rem);margin:0 0 .8rem;color:var(--ink);box-shadow:var(--shadow);
+}
+.latinismos .mode-nav,.latinismos .settings,.latinismos #range{display:flex;gap:.65rem;align-items:end;flex-wrap:wrap}
+.latinismos .mode-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:27rem;margin:1.1rem 0;background:var(--wash);border:1px solid var(--line);border-radius:.7rem;padding:.25rem;gap:.25rem}
+.latinismos .mode-nav button{border-color:transparent;background:transparent}
+.latinismos label:not(.check):not(.choice):not(.theme-choice){display:grid;gap:.35rem;font-size:.86rem;font-weight:650;min-width:0}
+.latinismos .settings>label,.latinismos #range>label{max-width:100%}
+.latinismos .settings .check{min-height:44px;display:flex;align-items:center;gap:.3rem}
+.latinismos input:not([type=checkbox]):not([type=radio]),.latinismos select,.latinismos button,.latinismos textarea{
+  font:inherit;color:var(--ink);border:1px solid var(--line);border-radius:.55rem;
+  background:var(--surface);padding:.6rem .8rem;min-height:44px;max-width:100%;min-width:0;
+}
+.latinismos .theme-choice select{appearance:none;padding-right:2rem}
+.latinismos input[type=number]{width:5.6rem}
+.latinismos input[type=search]{width:100%}
+.latinismos button{cursor:pointer;font-weight:650}
+.latinismos button[aria-pressed=true],.latinismos #submit,.latinismos #next,.latinismos #start{
+  background:var(--accent);border-color:var(--accent);color:var(--on-accent)
+}
+.latinismos button:disabled{opacity:.55;cursor:default}
+@media(hover:hover){.latinismos button:not(:disabled):hover,.latinismos .choice:hover{border-color:var(--accent)}
+.latinismos button[aria-pressed=true]:hover,.latinismos #submit:not(:disabled):hover,.latinismos #next:hover,.latinismos #start:hover{background:var(--accent-strong)}}
+.latinismos #selection,.latinismos #study-count,.latinismos #round-count,.latinismos #storage-status{color:var(--muted);font-size:.83rem;margin:.55rem 0 0}
+.latinismos #stats-panel{display:flex;align-items:center;flex-wrap:wrap;gap:.25rem .8rem}
+.latinismos #stats{font-size:.88rem;flex:1 1 100%;margin:0}
+.latinismos #storage-status{flex:1 1 12rem;margin:0}
+.latinismos #reset{font-size:.8rem;padding:.45rem .65rem}
+.latinismos .study-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19.5rem),1fr));
+  gap:.85rem;align-items:stretch;margin-top:.65rem;
+}
+.latinismos .entry{display:flex;flex-direction:column;margin:0;min-width:0;overflow-wrap:anywhere;border-top:2px solid var(--rule)}
+.latinismos .entry h2{
+  display:flex;align-items:baseline;gap:.6rem;font:500 clamp(1.4rem,2.1vw,1.68rem)/1.22 var(--serif);
+  letter-spacing:0;color:var(--accent);margin:0 0 .5rem;padding-bottom:.55rem;border-bottom:1px solid var(--line);
+}
+.latinismos .number{font:600 .73rem/1.3 system-ui,sans-serif;letter-spacing:.03em;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+.latinismos .entry p{margin:.25rem 0;line-height:1.5;font-size:.94rem}
+.latinismos .entry ol{font-family:var(--serif);font-size:1rem;line-height:1.52;padding-left:1.3rem;margin:.65rem 0 .9rem}
+.latinismos .entry li{padding-left:.12rem;margin:.35rem 0}
+.latinismos .entry li::marker{font-family:system-ui,sans-serif;font-size:.75em;color:var(--muted)}
+.latinismos .entry>.check{display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.55rem;border-top:1px solid var(--line);font-size:.83rem;color:var(--muted);min-height:36px}
+.latinismos .latin-term{font-family:var(--serif);font-style:italic}
+.latinismos .entry h2 .latin-term{font-size:inherit}
+.latinismos .choice{display:flex;align-items:center;gap:.65rem;border:1px solid var(--line);border-radius:.65rem;padding:.7rem .8rem;margin:.5rem 0;min-height:44px;cursor:pointer;overflow-wrap:anywhere}
+.latinismos .choice:has(input:checked){border-color:var(--accent);background:var(--wash)}
+.latinismos input[type=radio],.latinismos input[type=checkbox]{accent-color:var(--accent);flex-shrink:0}
+.latinismos #kind{margin-bottom:.6rem}
+.latinismos #feedback{font-weight:700}
+.latinismos #options input[type=text]{width:100%;margin-bottom:.6rem}
+.latinismos #question{font:500 clamp(1.35rem,2.5vw,1.8rem)/1.35 var(--serif);letter-spacing:0;margin:.4rem 0 1rem;overflow-wrap:anywhere}
+.latinismos #round{max-width:52rem;margin-inline:auto}
+.latinismos #explanation:not(:empty){border-top:1px solid var(--line);padding-top:.35rem;margin:.75rem 0}
+.latinismos #explanation ol{font-family:var(--serif);padding-left:1.4rem}
+.latinismos :is(button,input,select,textarea):focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.latinismos textarea{width:100%;resize:vertical;margin-bottom:.8rem}
+.latinismos #self-review{margin:1rem 0}
+@media(max-width:38rem){
+  .latinismos .study-grid{grid-template-columns:minmax(0,1fr)}
+  .latinismos .mode-nav{max-width:none}
+  .latinismos .head-inner{gap:.35rem .6rem;min-height:3.5rem}
+  .latinismos .brand{font-size:1.12rem;gap:.45rem}
+  .latinismos .theme-choice select{font-size:.8rem;min-height:40px;padding-inline:.5rem 1.6rem}
+  .latinismos .theme-choice::after{right:.65rem}
+  .latinismos .entry h2{font-size:1.48rem}
+}
