@@ -163,6 +163,7 @@ const portalPwaStatus=document.getElementById('portal-pwa-status');
 let portalRegistration=null;
 const setPortalStatus=value=>{if(portalPwaStatus)portalPwaStatus.textContent=value};
 function portalConnectivity(){
+  if(globalUpdating)return;
   if(!navigator.onLine)setPortalStatus('Sin conexión. La portada sigue disponible.');
   else if(portalRegistration)setPortalStatus('Portada disponible sin conexión.');
   else setPortalStatus('Conexión disponible. La instalación requiere HTTPS o localhost.');
@@ -187,36 +188,112 @@ function waitForPortalWorker(worker,timeout=15000){
     onChange();
   });
 }
+// Los registros hijos se actualizan sin tocar los almacenes de progreso ni
+// utilizar controllerchange de la portada (que solo describe su propio SW).
+function globalDeadline(promise,ms=60000){
+  let timer;
+  return Promise.race([promise,new Promise((_,reject)=>{
+    timer=setTimeout(()=>reject(Error('Tiempo de espera agotado.')),ms);
+  })]).finally(()=>clearTimeout(timer));
+}
+function askGlobalWorker(worker,type){
+  const channel=new MessageChannel();
+  return globalDeadline(new Promise((resolve,reject)=>{
+    channel.port1.onmessage=event=>resolve(event.data);
+    try{worker.postMessage({type},[channel.port2]);}catch(error){reject(error);}
+  }),8000).finally(()=>channel.port1.close());
+}
+async function updateGlobalModule(module,base){
+  const scope=new URL('apps/'+module.id+'/',base);
+  const reg=await globalDeadline(navigator.serviceWorker.register(new URL('sw.js',scope),{
+    scope:scope.href,updateViaCache:'none'
+  }));
+  if(reg.scope!==scope.href)throw Error('Ámbito de actualización incorrecto.');
+  if(reg.active||reg.waiting)await globalDeadline(reg.update());
+  const deadline=Date.now()+90000;
+  let requested=null;
+  while(Date.now()<deadline){
+    if(reg.installing?.state==='redundant')throw Error('No se ha instalado.');
+    if(reg.waiting&&reg.waiting!==requested){
+      requested=reg.waiting;
+      const status=await askGlobalWorker(requested,'SCHOLA_GLOBAL_ACTIVATE');
+      if(status==='busy')throw Error('Cierra las otras pestañas de este módulo.');
+      if(status!=='ok')throw Error('No se ha podido activar.');
+    }
+    if(!reg.installing&&!reg.waiting&&reg.active?.state==='activated'){
+      const revision=await askGlobalWorker(reg.active,'SCHOLA_GLOBAL_VERSION');
+      if(revision!==module.revision)throw Error('La versión activa no coincide con la publicación.');
+      return;
+    }
+    await new Promise(resolve=>setTimeout(resolve,100));
+  }
+  throw Error('No se ha completado la instalación.');
+}
+let globalUpdating=false;
 async function checkPortalUpdate(){
   if(!portalRegistration)throw Error('La portada no está instalada todavía.');
   if(!navigator.onLine)throw Error('Necesitas conexión para comprobar actualizaciones.');
-  await portalRegistration.update();
-  if(portalRegistration.installing)await waitForPortalWorker(portalRegistration.installing);
+  const base=new URL('./',location.href);
+  const response=await globalDeadline(fetch(new URL('global-updates.json',base),{cache:'no-store'}));
+  if(!response.ok)throw Error('No se ha podido consultar la versión publicada.');
+  const inventory=await response.json();
+  if(inventory.schema!==1||!Array.isArray(inventory.modules)||!inventory.modules.length||
+     inventory.modules.some(m=>!/^[a-z0-9-]+$/.test(m.id)||!/^[a-f0-9]{20}$/.test(m.revision))||
+     new Set(inventory.modules.map(m=>m.id)).size!==inventory.modules.length)
+    throw Error('Inventario de actualización no válido.');
+  const failures=[];
+  let completed=0;
+  // Limitar la concurrencia: cada instalación puede descargar un banco grande.
+  const queue=inventory.modules.slice();
+  await Promise.all(Array.from({length:Math.min(3,queue.length)},async()=>{
+    while(queue.length){
+      const module=queue.shift();
+      try{await updateGlobalModule(module,base);}
+      catch(error){failures.push(module.id+': '+(error?.message||'error de actualización'));}
+      finally{
+        completed++;
+        setPortalStatus('Comprobando módulos: '+completed+'/'+inventory.modules.length+'…');
+      }
+    }
+  }));
+  if(failures.length)throw Error('Actualización incompleta. '+failures.join(' · ')+' Vuelve a intentarlo.');
+  await globalDeadline(portalRegistration.update());
+  if(portalRegistration.installing)await waitForPortalWorker(portalRegistration.installing,90000);
   const waiting=portalRegistration.waiting;
-  if(!waiting){setPortalStatus('La portada ya tiene la última versión disponible.');return}
-  setPortalStatus('Hay una actualización preparada para la portada.');
-  if(!window.confirm('Hay una nueva versión de la portada. ¿Activarla y recargar ahora?'))return;
+  const success='ScholaClassica y sus '+inventory.modules.length+' módulos tienen la última versión disponible.';
+  if(!waiting){setPortalStatus(success);return;}
+  if(!window.confirm('Los módulos están actualizados. Hay una nueva versión de la portada. ¿Activarla y recargar ahora?')){
+    setPortalStatus('Módulos actualizados. La actualización de la portada está pendiente.');
+    return;
+  }
   await new Promise((resolve,reject)=>{
     let completed=false;
-    const timer=setTimeout(()=>finish(Error('No se ha activado la nueva versión.')),15000);
+    const timer=setTimeout(()=>finish(Error('No se ha activado la nueva versión de la portada.')),30000);
     const finish=error=>{
       if(completed)return;completed=true;clearTimeout(timer);
-      navigator.serviceWorker.removeEventListener('controllerchange',onController);
+      waiting.removeEventListener('statechange',onState);
       if(error)reject(error);else resolve();
     };
-    const onController=()=>finish();
-    navigator.serviceWorker.addEventListener('controllerchange',onController);
+    const onState=()=>{
+      if(waiting.state==='activated')finish();
+      else if(waiting.state==='redundant')finish(Error('No se ha activado la portada.'));
+    };
+    waiting.addEventListener('statechange',onState);
     waiting.postMessage({type:'SCHOLA_ACTIVATE_PORTAL_UPDATE'});
+    onState();
   });
+  // Solo estado visual de la operación, nunca datos académicos.
+  try{sessionStorage.setItem('schola-global-update-status',success);}catch{}
   window.location.reload();
 }
 if(portalUpdateButton){
   portalUpdateButton.addEventListener('click',async()=>{
     portalUpdateButton.disabled=true;
-    setPortalStatus('Buscando una actualización de la portada…');
+    globalUpdating=true;
+    setPortalStatus('Buscando actualizaciones de ScholaClassica…');
     try{await checkPortalUpdate()}
     catch(error){setPortalStatus(error?.message||'No se pudo comprobar la actualización.')}
-    finally{portalUpdateButton.disabled=false}
+    finally{globalUpdating=false;portalUpdateButton.disabled=false}
   });
 }
 async function registerPortalPwa(){
@@ -228,11 +305,14 @@ async function registerPortalPwa(){
   try{
     portalRegistration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
     if(portalRegistration.waiting)setPortalStatus('Hay una actualización de la portada lista para instalar.');
-    else portalConnectivity();
+    else {
+      portalConnectivity();
+      try{const status=sessionStorage.getItem('schola-global-update-status');if(status){sessionStorage.removeItem('schola-global-update-status');setPortalStatus(status);}}catch{}
+    }
     portalRegistration.addEventListener('updatefound',()=>{
       const worker=portalRegistration.installing;
       worker?.addEventListener('statechange',()=>{
-        if(worker.state==='installed'&&navigator.serviceWorker.controller){
+        if(!globalUpdating&&worker.state==='installed'&&navigator.serviceWorker.controller){
           setPortalStatus('Hay una actualización de la portada lista para instalar.');
         }
       });

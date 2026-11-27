@@ -36,7 +36,7 @@ try{
  assert.equal(await page.locator('#panel-herramientas .card').count(),8);
  const quickLinks=page.getByRole('navigation',{name:'Recursos de estudio'});
  const quickPreverbial=quickLinks.getByRole('link',{name:/Modificación preverbial/});
- const portalUpdate=page.getByRole('button',{name:'Actualizar portada',exact:true});
+ const portalUpdate=page.getByRole('button',{name:'Actualizar ScholaClassica',exact:true});
  assert.equal(await quickLinks.getByRole('link').count(),9);
  await page.locator('.hero-image').evaluate(image=>image.decode());
  for(const [width,height] of [[320,760],[390,844],[768,900]]){
@@ -47,7 +47,7 @@ try{
    const update=await portalUpdate.boundingBox();
    const hero=await page.locator('.hero').boundingBox();
    assert.ok(update&&hero&&update.y+update.height<=hero.y,
-     'Actualizar portada debe aparecer antes de la cabecera a '+width+' px');
+     'Actualizar ScholaClassica debe aparecer antes de la cabecera a '+width+' px');
    const shortcut=await quickPreverbial.boundingBox();
    assert.ok(shortcut&&shortcut.y+shortcut.height<=height,
      'El acceso a modificación preverbial queda fuera de la primera pantalla a '+width+' px');
@@ -66,9 +66,22 @@ try{
  assert.equal(await registration.jsonValue(),base+prefix,
    'El SW del portal no debe controlarse desde la raíz de github.io');
  await page.reload({waitUntil:'networkidle'});
+ await page.evaluate(()=>localStorage.setItem('schola-test-update-progress','conservar'));
  await portalUpdate.click();
  await page.waitForFunction(()=>document.querySelector('#portal-pwa-status').textContent
-   .includes('última versión disponible'));
+   .includes('última versión disponible'),null,{timeout:180000});
+ const globalCheck=await page.evaluate(async()=>{
+   const manifest=await fetch('global-updates.json',{cache:'no-store'}).then(r=>r.json());
+   const registrations=await navigator.serviceWorker.getRegistrations();
+   const base=new URL('./',location.href);
+   return {ids:manifest.modules.map(m=>m.id),active:manifest.modules.every(m=>
+     registrations.some(r=>r.scope===new URL('apps/'+m.id+'/',base).href&&r.active?.state==='activated')),
+     progress:localStorage.getItem('schola-test-update-progress')};
+ });
+ for(const id of ['gramatica','vocabulario','evolucion-fonetica','etymologicon','morfologia','repaso-gramatica','modificacion-preverbial','latinismos'])
+   assert.ok(globalCheck.ids.includes(id),'Falta módulo en actualización global: '+id);
+ assert.equal(globalCheck.active,true);
+ assert.equal(globalCheck.progress,'conservar');
  const cached=await page.evaluate(async()=>await caches.keys());
  assert.ok(cached.some(name=>name.startsWith('schola-portal-')));
  const teacher=await page.evaluate(async()=>await fetch('docente/auth-config.json').then(r=>r.json()));
