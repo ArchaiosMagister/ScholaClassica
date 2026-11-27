@@ -318,6 +318,16 @@ try{
  assert.equal(styles,true);
  const classical=await page.locator('#cards .entry h2 i.latin-term').first().evaluate(e=>getComputedStyle(e).fontFamily);
  assert.match(classical,/Palatino/);
+ // Todo el contenido didáctico usa la misma familia; los controles no.
+ for(const selector of ['#cards .entry h2','#cards .entry p','#cards .entry li']){
+   const fonts=await page.locator(selector).evaluateAll(es=>es.map(e=>getComputedStyle(e).fontFamily));
+   assert.ok(fonts.length>0);
+   assert.ok(fonts.every(font=>font===classical),selector+' debe compartir la fuente de los latinismos');
+ }
+ for(const selector of ['#cards .entry .number','#cards .entry .check','#stats','#filter','#search','#study-tab']){
+   const font=await page.locator(selector).first().evaluate(e=>getComputedStyle(e).fontFamily);
+   assert.doesNotMatch(font,/Palatino/,selector+' debe conservar la tipografía de interfaz');
+ }
  // Verificar los tres temas y tamaños con el banco completo, no solo una ficha.
  for(const theme of ['light','dark','oled']){
    await page.locator('#portal-theme').selectOption(theme);
@@ -345,11 +355,20 @@ try{
  assert.equal(await page.locator('#cards .entry').count(),1);
  await page.locator('#cards input[type=checkbox]').check();
  await page.locator('#practice-tab').click();
+ await page.locator('#filter').selectOption('all');
+ for(const mode of ['meaning','term','context']){
+   await page.locator('#kind').selectOption(mode);
+   await page.locator('#start').click();
+   assert.equal(await page.locator('#options .choice').count(),4);
+   assert.ok((await page.locator('#options .choice').evaluateAll(es=>es.map(e=>getComputedStyle(e).fontFamily))).every(font=>font===classical));
+ }
+ await page.locator('#filter').selectOption('range');
  await page.locator('#kind').selectOption('write');
  await page.locator('#start').click();
  await page.locator('#options input').fill('ad Kalendas Graecas');
  await page.locator('#submit').click();
  assert.equal(await page.locator('#feedback').textContent(),'Correcto.');
+ assert.equal(await page.locator('#explanation p').first().evaluate(e=>getComputedStyle(e).fontFamily),classical);
  await page.locator('#next').click();
  await page.locator('#kind').selectOption('pau');
  await page.locator('#start').click();
@@ -359,6 +378,7 @@ try{
  await page.locator('#submit').click();
  assert.equal(await page.locator('#explanation li').count(),3);
  assert.equal(await page.locator('#explanation li i.latin-term').count(),3);
+ assert.equal(await page.locator('#explanation li').first().evaluate(e=>getComputedStyle(e).fontFamily),classical);
  await page.locator('#self-correct').click();
  await page.locator('#next').click();
  assert.match(await page.locator('#stats').textContent(),/Aciertos: 1 · Errores: 0.*Autoevaluación PAU: 1 bien/);
