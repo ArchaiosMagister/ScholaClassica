@@ -38,13 +38,15 @@ const STUDY_CATALOG=Object.freeze({
     {id:'repaso-gramatica',label:'Repaso de sintaxis y conceptos · Latín I',href:'apps/repaso-gramatica/index.html?subject=lat1'},
     {id:'morfologia',label:'Práctica de morfología · Latín I',href:'apps/morfologia/index.html?subject=lat1'},
     {id:'modificacion-preverbial',label:'Modificación preverbial · Latín I',href:'apps/modificacion-preverbial/index.html?subject=lat1'},
+    {id:'latinismos',label:'Latinismos · Latín I',href:'apps/latinismos/index.html'},
     {id:'palabra-dia',label:'Palabra del día · 1.º Bachillerato (sitio externo)',href:'https://archaiosmagister.github.io/Palabra-del-dia/',external:true}
   ],
   lat2:[
     {id:'gramatica',label:'Gramática · Latín II',href:'apps/gramatica/curso.html?lengua=latin&curso=2'},
     {id:'vocabulario',label:'Vocabulario · Latín II',href:'apps/vocabulario/index.html?subject=lat2'},
     {id:'morfologia',label:'Práctica de morfología · Latín II',href:'apps/morfologia/index.html?subject=lat2'},
-    {id:'modificacion-preverbial',label:'Modificación preverbial · PAU',href:'apps/modificacion-preverbial/index.html'}
+    {id:'modificacion-preverbial',label:'Modificación preverbial · PAU',href:'apps/modificacion-preverbial/index.html'},
+    {id:'latinismos',label:'Latinismos · PAU',href:'apps/latinismos/index.html'}
   ],
   gr1:[
     {id:'gramatica',label:'Gramática · Griego I',href:'apps/gramatica/curso.html?lengua=griego&curso=1&unidad=1'},

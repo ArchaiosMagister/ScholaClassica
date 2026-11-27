@@ -33,11 +33,11 @@ try{
  const home=await page.goto(base+prefix,{waitUntil:'networkidle'});
  assert.equal(home.status(),200);
  assert.match(await page.title(),/ScholaClassica/);
- assert.equal(await page.locator('#panel-herramientas .card').count(),7);
+ assert.equal(await page.locator('#panel-herramientas .card').count(),8);
  const quickLinks=page.getByRole('navigation',{name:'Recursos de estudio'});
  const quickPreverbial=quickLinks.getByRole('link',{name:/Modificación preverbial/});
  const portalUpdate=page.getByRole('button',{name:'Actualizar portada',exact:true});
- assert.equal(await quickLinks.getByRole('link').count(),8);
+ assert.equal(await quickLinks.getByRole('link').count(),9);
  await page.locator('.hero-image').evaluate(image=>image.decode());
  for(const [width,height] of [[320,760],[390,844],[768,900]]){
    await page.setViewportSize({width,height});
@@ -77,7 +77,7 @@ try{
  const offline=await page.goto(base+prefix,{waitUntil:'load'});
  assert.equal(offline.status(),200,'Portada inaccesible sin red en subruta Pages');
  assert.equal(await page.locator('#study-course').count(),1);
- assert.equal(await quickLinks.getByRole('link').count(),8);
+ assert.equal(await quickLinks.getByRole('link').count(),9);
  const modes=page.locator('#portal-theme');
  await modes.selectOption('oled');
  assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
@@ -282,6 +282,47 @@ try{
   assert.ok(grammarKeys.some(key=>key.startsWith(cache)),
     'No se debe borrar la caché de '+cache);
  await page.context().setOffline(false);
+
+ // Latinismos: mismo prefijo de Pages, filtros, autocorrección, PAU y offline.
+ await page.goto(base+prefix+'apps/latinismos/index.html',{waitUntil:'networkidle'});
+ await page.waitForFunction(()=>document.querySelectorAll('#cards .entry').length===87);
+ assert.equal(await page.locator('#cards .entry li').count(),261);
+ await page.locator('#filter').selectOption('even');
+ assert.equal(await page.locator('#cards .entry').count(),43);
+ await page.locator('#filter').selectOption('odd');
+ assert.equal(await page.locator('#cards .entry').count(),44);
+ await page.locator('#filter').selectOption('range');
+ await page.locator('#from').fill('7');await page.locator('#from').press('Tab');
+ await page.locator('#to').fill('7');await page.locator('#to').press('Tab');
+ assert.equal(await page.locator('#cards .entry').count(),1);
+ await page.locator('#cards input[type=checkbox]').check();
+ await page.locator('#practice-tab').click();
+ await page.locator('#kind').selectOption('write');
+ await page.locator('#start').click();
+ await page.locator('#options input').fill('ad Kalendas Graecas');
+ await page.locator('#submit').click();
+ assert.equal(await page.locator('#feedback').textContent(),'Correcto.');
+ await page.locator('#next').click();
+ await page.locator('#kind').selectOption('pau');
+ await page.locator('#start').click();
+ await page.locator('textarea[name=meaning]').fill('Nunca');
+ await page.locator('textarea[name=sentence]').fill('El pago se aplazó ad Kalendas Graecas.');
+ await page.locator('#submit').click();
+ assert.equal(await page.locator('#explanation li').count(),3);
+ await page.locator('#self-correct').click();
+ await page.locator('#next').click();
+ assert.match(await page.locator('#stats').textContent(),/Aciertos: 1 · Errores: 0.*Autoevaluación PAU: 1 bien/);
+ await page.waitForFunction(async()=> (await navigator.serviceWorker.getRegistration())?.active?.state==='activated',null,{timeout:18000});
+ await page.reload({waitUntil:'networkidle'});
+ await page.waitForFunction(()=>navigator.serviceWorker.controller?.scriptURL.endsWith('/latinismos/sw.js'));
+ await page.context().setOffline(true);
+ await page.reload({waitUntil:'load'});
+ await page.waitForFunction(()=>document.querySelectorAll('#cards .entry').length===1);
+ assert.equal(await page.locator('#cards input[type=checkbox]').isChecked(),true);
+ assert.match(await page.locator('#stats').textContent(),/Autoevaluación PAU: 1 bien/);
+ await page.context().setOffline(false);
+ for(const width of [320,390,768]){await page.setViewportSize({width,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Latinismos desborda a '+width+' px');}
+ await page.setViewportSize({width:1280,height:900});
  assert.deepEqual(errors,[],'Errores de navegador en la subruta Pages');
  console.log('OK: subruta /ScholaClassica/, PWA raíz y Etymologicon/Evolutio aislados');
 }finally{

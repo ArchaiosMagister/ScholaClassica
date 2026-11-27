@@ -21,7 +21,8 @@ test('el portal presenta selección contextual para los cursos disponibles',()=>
 });
 test('los accesos contextuales apuntan exclusivamente a recursos integrados que existen',()=>{
   const links=[...app.matchAll(/href:'(apps\/[^']+)'/g)].map(([,url])=>url);
-  assert.equal(links.length,20);
+  assert.equal(links.length,22);
+  assert.equal(links.filter(x=>x==='apps/latinismos/index.html').length,2);
   assert.ok(links.includes('apps/modificacion-preverbial/index.html'));
   assert.ok(links.includes('apps/modificacion-preverbial/index.html?subject=lat1'));
   for(const href of links){
@@ -53,4 +54,12 @@ test('La portada conserva accesos reversibles a las webs históricas sin mezclar
  assert.match(portal,/práctica de morfología/);
  assert.match(portal,/Etymologicon/);
  assert.match(portal,/Conservar mi progreso/);
+});
+
+test('Latinismos solo está en los itinerarios de Bachillerato latino',()=>{
+ const catalog=app.slice(app.indexOf('const STUDY_CATALOG='),app.indexOf('const PATH_STORAGE_KEY='));
+ for(const id of ['lat4','lat1','lat2','gr1','gr2']){
+  const block=catalog.split(id+':[')[1].split(']')[0];
+  assert.equal(block.includes("id:'latinismos'"),['lat1','lat2'].includes(id),id);
+ }
 });

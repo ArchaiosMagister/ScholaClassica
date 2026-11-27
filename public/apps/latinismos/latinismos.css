@@ -1,0 +1,14 @@
+.latinismos{--accent:#266c51;--panel:#fff;--line:#c8d8cf;--soft:#eef6f0;--fg:#152b21;background:#f4f7f2;color:var(--fg)}
+[data-theme=dark] .latinismos{--panel:#1c2922;--line:#405b4b;--soft:#25392d;--fg:#e5f1e8;--accent:#91d7af;background:#14221e}
+[data-theme=oled] .latinismos{--panel:#000;--line:#355540;--soft:#102018;--fg:#e5f1e8;--accent:#91d7af;background:#000}
+.latinismos [hidden]{display:none!important}.latinismos h1{margin:.25rem 0}.latinismos .eyebrow{color:var(--accent);font-weight:700;margin-bottom:0}
+.latinismos .panel,.latinismos .entry{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:1rem;margin:0 0 .8rem;color:var(--fg)}
+.latinismos .mode-nav,.latinismos .settings,.latinismos #range{display:flex;gap:.7rem;align-items:end;flex-wrap:wrap}
+.latinismos .mode-nav{margin:1rem 0}.latinismos label:not(.check):not(.choice):not(.theme-choice){display:grid;gap:.35rem}
+.latinismos input:not([type=checkbox]):not([type=radio]),.latinismos select,.latinismos button{font:inherit;color:var(--fg);border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:.6rem;min-height:44px}
+.latinismos input[type=number]{width:6rem}.latinismos input[type=search]{width:100%}.latinismos button{cursor:pointer;font-weight:600}.latinismos button[aria-pressed=true],.latinismos #submit,.latinismos #next,.latinismos #start{background:var(--soft);border-color:var(--accent);color:var(--accent)}.latinismos button:disabled{opacity:.55;cursor:default}
+.latinismos .study-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:.8rem;align-items:start}
+.latinismos .entry{margin:0;overflow-wrap:anywhere}.latinismos .entry h2{font-size:1.15rem;color:var(--accent);margin:0}.latinismos .entry p{margin:.35rem 0}.latinismos .entry ol{padding-left:1.3rem;margin:.5rem 0}.latinismos .entry li{margin:.3rem 0}
+.latinismos .number{font-size:.85rem;margin-right:.5rem}.latinismos .choice{display:flex;align-items:center;gap:.65rem;border:1px solid var(--line);border-radius:8px;padding:.7rem;margin:.5rem 0;min-height:44px;cursor:pointer}.latinismos input[type=radio],.latinismos input[type=checkbox]{accent-color:var(--accent)}.latinismos #kind{margin-bottom:.6rem}.latinismos #feedback{font-weight:700}.latinismos #options input[type=text]{width:100%;margin-bottom:.6rem}.latinismos #question{font-size:1.25rem}.latinismos button:focus-visible,.latinismos input:focus-visible,.latinismos select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.latinismos textarea{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.6rem;width:100%;box-sizing:border-box;resize:vertical;margin-bottom:.8rem}.latinismos #self-review{margin:1rem 0}
