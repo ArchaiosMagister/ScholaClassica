@@ -128,13 +128,28 @@ export async function auditLegacyLiveRoutes(spec,{fetchImpl=fetch,timeoutMs=1200
   checks.push({id:entry.id,kind:'content-marker',ok:item.ok,resource:item});
  }
  const failures=checks.filter(x=>!x.ok);
+ // Informe por web antigua: permite comprobar por separado los proyectos archivados.
+ // La disponibilidad HTTP no demuestra que GitHub haya archivado un repositorio.
+ const legacyItems=[
+  ...spec.routes.map(entry=>({id:entry.id,path:entry.legacy})),
+  ...spec.checks.map(entry=>({id:entry.id,path:entry.path}))
+ ];
+ const byLegacySource=Object.fromEntries(
+  ['Appendix-grammaticae','EvolucionFonetica','VocabulaLatinaGraecaque'].map(source=>{
+   const ids=new Set(legacyItems.filter(entry=>entry.path.startsWith('/'+source+'/'))
+    .map(entry=>entry.id));
+   const relevant=checks.filter(check=>ids.has(check.id));
+   const failed=relevant.filter(check=>!check.ok).length;
+   return [source,{total:relevant.length,passed:relevant.length-failed,failed}];
+  })
+ );
  return {
   schema:'schola-retirement-live-report/v2',
   origin:spec.origin,
   checkedAt:new Date().toISOString(),
   summary:{total:checks.length,passed:checks.length-failures.length,failed:failures.length,
    paired:spec.routes.length,integratedOnly:spec.integratedOnly.length,
-   contentChecks:spec.checks.length},
+   contentChecks:spec.checks.length,byLegacySource},
   checks,
   autoPublish:false,repositoryArchived:false,repositoryDeleted:false,
   safeToArchive:false,safeToDelete:false,
@@ -156,6 +171,8 @@ async function main(){
  await mkdir(dirname(filename),{recursive:true});
  await writeFile(filename,JSON.stringify(report,null,2)+'\n');
  console.log('URLs públicas: '+report.summary.passed+'/'+report.summary.total+' verificaciones positivas');
+ for(const [source,counts] of Object.entries(report.summary.byLegacySource))
+  console.log('Origen '+source+': '+counts.passed+'/'+counts.total+' (fallos: '+counts.failed+')');
  for(const x of report.checks.filter(x=>!x.ok))
   console.error('Ruta no certificada: '+x.id+' '+JSON.stringify(x));
  console.log('La auditoría no archiva repositorios y no reemplaza las pruebas reales en iPad.');

@@ -39,7 +39,12 @@ test('La auditoría cubre rutas antiguas, módulos integrados y PWA sin declarar
  assert.deepEqual(report.summary,{
   total:spec.routes.length+spec.integratedOnly.length+spec.checks.length,
   passed:spec.routes.length+spec.integratedOnly.length+spec.checks.length,
-  failed:0,paired:18,integratedOnly:10,contentChecks:12
+  failed:0,paired:18,integratedOnly:10,contentChecks:12,
+  byLegacySource:{
+   'Appendix-grammaticae':{total:16,passed:16,failed:0},
+   'EvolucionFonetica':{total:3,passed:3,failed:0},
+   'VocabulaLatinaGraecaque':{total:4,passed:4,failed:0}
+  }
  });
  assert.equal(report.safeToArchive,false);
  assert.equal(report.safeToDelete,false);
@@ -68,10 +73,12 @@ test('Caídas HTTP, falta de script de progreso y redirecciones hostiles no se c
   fetchImpl:fakeFetch(paths,{missing:'/VocabulaLatinaGraecaque/gramatica-progreso.js'})
  });
  assert.equal(result.summary.failed,1);
+ assert.equal(result.summary.byLegacySource['VocabulaLatinaGraecaque'].failed,1);
  assert.equal(result.checks.find(x=>x.id==='vocabula-progreso-gramatical').ok,false);
  paths.set('/EvolucionFonetica/sw.js','sin aislamiento de caché');
  result=await auditLegacyLiveRoutes(spec,{fetchImpl:fakeFetch(paths)});
  assert.equal(result.summary.failed,1);
+ assert.equal(result.summary.byLegacySource.EvolucionFonetica.failed,1);
  assert.deepEqual(result.checks.find(x=>x.id==='evolutio-cache-legada-aislada')
   .resource.missingMarkers,spec.checks.find(x=>x.id==='evolutio-cache-legada-aislada').contains);
  result=await auditLegacyLiveRoutes(spec,{fetchImpl:fakeFetch(content(),
