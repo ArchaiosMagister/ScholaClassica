@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
+import {correctCastilianSourceWords,assertCastilianSyncopeSpans} from '../scripts/evolutio-castellano-lote100.mjs';
 import {
  resultSpellingDistance,resultDifficultyComponents,resultDifficultyScore,
  resultDifficultyLevel,curatedDifficultyLevel,curatedDifficultyIds,RESULT_DIFFICULTY_METHOD
@@ -25,7 +26,7 @@ const added=bank.words.slice(unchanged.words.length);
 test('Se conservan 522 fichas fuente y se añaden 100 castellanas sin romper IDs ni decisiones docentes',()=>{
  assert.equal(unchanged.words.length,522);
  assert.equal(bank.words.length,622);
- assert.deepEqual(bank.words.slice(0,522),unchanged.words);
+ assert.deepEqual(bank.words.slice(0,522),correctCastilianSourceWords(unchanged.words));
  assert.equal(added.length,100);
  assert.deepEqual(Object.keys(updated.assignments).slice(0,522),Object.keys(original.assignments));
  assert.ok(added.every(w=>w.id.startsWith('xl-')&&w.source.lot===21));
@@ -169,8 +170,24 @@ test('La web integrada precarga los nuevos módulos y el banco para uso offline'
  const js=readFileSync(join(moduleDir,'src/app.mjs'),'utf8');
  assert.match(sw,/src\/result-difficulty\.mjs/);
  assert.match(sw,/src\/practice-eligibility\.mjs/);
- assert.match(sw,/lote100-v6/);
+ assert.match(sw,/lote100-v7/);
  assert.match(sw,/CACHE_PREFIX='schola-evolutio-'/);
  assert.match(js,/dificultad valora si es sencillo deducir el resultado castellano/);
  assert.match(js,/Los nombres propios no aparecen en las prácticas/);
+});
+
+test('Síncopa de auricŭlam y cunicŭlum: se evalúa la segunda u, no la primera',async()=>{
+ const {gradeChange,chars}=await import('../dist/apps/evolucion-fonetica/src/engine.mjs');
+ for(const latin of ['auricŭlam','cunicŭlum']){
+  const w=word(latin),s=w.changes.find(c=>c.rule==='SINC');
+  assert.deepEqual(s.spans,[[5,6]]);
+  assert.equal(chars(latin).slice(5,6).join(''),'ŭ');
+  assert.equal(gradeChange(w,{rule:'SINC',spans:[[1,2]]}).correct,false);
+  assert.equal(gradeChange(w,{rule:'SINC',spans:[[5,6]]}).correct,true);
+ }
+ assert.equal(gradeChange(word('auricŭlam'),{rule:'MONOP',spans:[[0,2]]}).correct,true);
+ assert.equal(gradeChange(word('cunicŭlum'),{rule:'ABER',spans:[[1,2]]}).correct,true);
+ assert.doesNotThrow(()=>assertCastilianSyncopeSpans(bank.words));
+ assert.throws(()=>assertCastilianSyncopeSpans([unchanged.words.find(w=>w.id==='xl-29')]),/síncopa sobre monoptongación/);
+ assert.throws(()=>assertCastilianSyncopeSpans([unchanged.words.find(w=>w.id==='xl-80')]),/síncopa de -cul- mal ubicada/);
 });

@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
+import {correctCastilianSourceWords} from '../scripts/evolutio-castellano-lote100.mjs';
 import {verifyVendoredEvolutio,parseEvolutioGitTree,SOURCE_TREE}
  from '../scripts/verify-vendored-evolutio.mjs';
 const root=resolve(import.meta.dirname,'..');
@@ -30,6 +31,7 @@ test('El banco original no incorpora ni altera las 100 palabras adicionales de S
  assert.equal(new Set(original.words.map(w=>w.id)).size,522);
  const integrated=JSON.parse(readFileSync(join(root,'dist/apps/evolucion-fonetica/data/pilot.json'),'utf8'));
  assert.equal(integrated.words.length,622);
- assert.deepEqual(integrated.words.slice(0,522),original.words);
+ assert.deepEqual(integrated.words.slice(0,522),correctCastilianSourceWords(original.words));
+ assert.deepEqual(original.words.filter((w,i)=>JSON.stringify(w)!==JSON.stringify(integrated.words[i])).map(w=>w.id).sort(),['xl-29','xl-80']);
  assert.equal(new Set(integrated.words.map(w=>w.id)).size,622);
 });

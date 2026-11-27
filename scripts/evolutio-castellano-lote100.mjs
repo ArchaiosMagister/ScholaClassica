@@ -174,6 +174,43 @@ function rowToWord(line){
 export const CASTILIAN_ADDITIONS=Object.freeze(RAW.split('\n').map(rowToWord));
 if(CASTILIAN_ADDITIONS.length!==100)throw Error('Lote castellano: deben constar 100 fichas exactas.');
 
+// Correcciones filológicas por ID y cambio; la fuente vendorizada permanece intacta.
+const SYNCOPE_FIXES=Object.freeze({
+ 'xl-29':'auricŭlam',
+ 'xl-80':'cunicŭlum'
+});
+export function correctCastilianSourceWords(words){
+ const seen=new Set();
+ const corrected=words.map(word=>{
+  if(!Object.hasOwn(SYNCOPE_FIXES,word.id))return word;
+  const change=word.changes.find(c=>c.id==='t3');
+  if(word.latin!==SYNCOPE_FIXES[word.id]||change?.rule!=='SINC'||
+   JSON.stringify(change.spans)!=='[[1,2]]'||[...word.latin][5]!=='ŭ')
+   throw Error('Evolutio: cambió la ficha fuente de síncopa '+word.id);
+  seen.add(word.id);
+  return {...word,changes:word.changes.map(c=>c===change?{...c,spans:[[5,6]]}:c)};
+ });
+ if(seen.size!==Object.keys(SYNCOPE_FIXES).length)throw Error('Evolutio: faltan fichas de corrección');
+ return corrected;
+}
+
+export function assertCastilianSyncopeSpans(words){
+ const overlap=(a,b)=>a.spans.some(([i,j])=>b.spans.some(([k,l])=>i<l&&k<j));
+ for(const word of words){
+  const syncopes=word.changes.filter(c=>c.rule==='SINC');
+  for(const s of syncopes){
+   if(word.changes.some(c=>c.rule==='MONOP'&&overlap(c,s)))
+    throw Error('Evolutio: síncopa sobre monoptongación '+word.latin);
+  }
+  for(const cul of word.changes.filter(c=>c.rule==='CUL')){
+   const [a,b]=cul.spans[0]??[];
+   if(b-a===3&&/^c[uŭ]l$/iu.test([...word.latin].slice(a,b).join(''))&&
+    !syncopes.some(s=>JSON.stringify(s.spans)===JSON.stringify([[a+1,a+2]])))
+    throw Error('Evolutio: síncopa de -cul- mal ubicada '+word.latin);
+  }
+ }
+}
+
 export function integrateCastilianAdditions(base){
  if(base?.version!==1||base?.words?.length!==522)
   throw Error('Lote 100: cambió el banco fuente fijado de Evolutio');
@@ -193,5 +230,7 @@ export function integrateCastilianAdditions(base){
    throw Error('Lote 100: duplicado interno: '+word.latin);
   additions.push(word);
  }
- return {...base,words:[...base.words,...additions]};
+ const words=[...correctCastilianSourceWords(base.words),...additions];
+ assertCastilianSyncopeSpans(words);
+ return {...base,words};
 }
