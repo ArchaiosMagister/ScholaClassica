@@ -1,4 +1,184 @@
 /** Consulta de léxico castellano. No corrige ejercicios ni lee/escribe progreso. */
+// Glosas breves para el estudio; el repertorio académico y la práctica conservan sus significados originales.
+// En las familias compuestas y polisémicas se mantienen los valores necesarios para explicar sus derivados.
+const STUDY_MEANINGS=Object.freeze({
+  "−ιτισ": "inflamación (sufijo médico)",
+  "αγγελλω": "anunciar; mensajero",
+  "αγω": "conducir",
+  "αιμα": "sangre",
+  "αλγοσ": "dolor",
+  "αμφι": "a ambos lados; alrededor de",
+  "ανα": "hacia arriba; de nuevo",
+  "ανηρ": "varón",
+  "ανθρωποσ": "ser humano",
+  "αντι": "contra; en lugar de",
+  "απο": "de; lejos de",
+  "αρχη": "principio; mando; comenzar; gobernar",
+  "ατελησ": "incompleto",
+  "αυτοσ": "mismo",
+  "βιβλιον": "libro",
+  "βιοσ": "vida",
+  "βλεφαρον": "párpado",
+  "γαστηρ": "estómago",
+  "γενειον": "mentón",
+  "γερων": "anciano",
+  "γη": "tierra",
+  "γλωττα": "lengua",
+  "γραφω": "escribir; letra",
+  "γυνη": "mujer",
+  "δενδρον": "árbol",
+  "δερμα": "piel",
+  "δεσποτησ": "amo",
+  "δημοσ": "pueblo",
+  "δια": "a través de; a causa de",
+  "διδασκω": "enseñar",
+  "δικη": "justicia",
+  "δοξα": "opinión; fama",
+  "δωρον": "regalo",
+  "εικων": "imagen",
+  "εκ": "de; fuera de",
+  "εν": "en",
+  "εργον": "trabajo; obra",
+  "ζωον": "animal; ser vivo",
+  "ηλιοσ": "sol",
+  "ημερα": "día",
+  "ηπαρ": "hígado",
+  "θαλαττα": "mar",
+  "θανατοσ": "muerte",
+  "θεοσ": "dios",
+  "ιπποσ": "caballo",
+  "ισοσ": "igual",
+  "κακοσ": "malo",
+  "καλοσ": "bello; bueno",
+  "καρδια": "corazón",
+  "κατα": "hacia abajo; contra; según",
+  "κεφαλη": "cabeza",
+  "κοσμοσ": "orden; mundo",
+  "κρατοσ": "poder",
+  "κρυπτω": "ocultar",
+  "λαρυγξ": "laringe",
+  "λεγω": "decir; palabra; razón",
+  "λογοσ": "palabra; discurso; razón",
+  "μακροσ": "largo",
+  "μανια": "locura",
+  "μεγασ": "grande",
+  "μετα": "con; después de; cambio",
+  "μικροσ": "pequeño",
+  "μισεω": "odiar",
+  "μονοσ": "solo",
+  "νομοσ": "ley; norma",
+  "ξυλον": "madera",
+  "οδοσ": "camino",
+  "οικια": "casa",
+  "ομοιοσ": "semejante",
+  "οροσ": "límite",
+  "οστεον": "hueso",
+  "ουσ": "oído",
+  "οφθαλμοσ": "ojo",
+  "παιδιον": "niño pequeño",
+  "παισ": "niño; hijo",
+  "παρα": "junto a; al margen de",
+  "περι": "alrededor de",
+  "πλαστοσ": "modelado",
+  "πλουτοσ": "riqueza",
+  "πνευμα": "aire; aliento; espíritu",
+  "πολισ": "ciudad",
+  "πολυσ": "mucho",
+  "πουσ": "pie",
+  "πραττω": "hacer; acción",
+  "προ": "antes de; delante de",
+  "προσ": "hacia; junto a",
+  "πρωκτοσ": "ano",
+  "πρωτοσ": "primero",
+  "πυρ": "fuego",
+  "ρητωρ": "orador",
+  "ρισ": "nariz",
+  "σκοπεω": "observar",
+  "σοφοσ": "sabio; sabiduría",
+  "στρατηγοσ": "general",
+  "σωμα": "cuerpo",
+  "ταχυσ": "rápido",
+  "τομη": "corte",
+  "υδωρ": "agua",
+  "υπερ": "por encima de; exceso",
+  "υπο": "debajo de; por (agente)",
+  "φερω": "llevar",
+  "φιλια": "amistad; afición",
+  "φιλοσ": "amigo; amante",
+  "φοβοσ": "miedo",
+  "φωνη": "voz; sonido",
+  "χειρ": "mano",
+  "χρημα": "cosa; dinero",
+  "χρονοσ": "tiempo",
+  "χρωμα": "color",
+  "ψευδησ": "falso",
+  "ψυχη": "alma"
+});
+// Solo se abrevian glosas contextuales equivalentes; no se sustituye el significado
+// de un componente por el del encabezado (p. ej., λόγος = estudio en antropología).
+const SHORT_COMPONENT_GLOSSES=Object.freeze({
+  "ausencia, privación": "privación",
+  "sin, carente de": "sin",
+  "sin, privación": "sin",
+  "privación, ausencia": "privación",
+  "principio, origen": "principio",
+  "autoridad, gobierno": "gobierno",
+  "gobierno, mando": "mando",
+  "mando, gobierno": "mando",
+  "corte, sección": "corte",
+  "contra, frente a": "contra",
+  "enfrente, contra": "contra",
+  "forma, apariencia": "forma",
+  "poder, gobierno": "poder",
+  "ley, norma": "ley",
+  "propio, mismo": "mismo",
+  "moldeado, modelado": "modelado",
+  "miedo, aversión": "miedo, aversión",
+  "mundo, universo": "mundo",
+  "esconder, ocultar": "ocultar",
+  "ocultar, esconder": "ocultar",
+  "conducir, guiar": "conducir",
+  "conducir, dirigir": "conducir",
+  "dirigir, conducir": "conducir",
+  "a través, por medio de": "a través de",
+  "en, dentro": "en",
+  "opinión, creencia": "opinión",
+  "amigo, amante": "amigo, amante",
+  "depósito, receptáculo": "depósito",
+  "enfermedad, afección": "enfermedad",
+  "afección, padecimiento": "afección",
+  "estado, posición": "estado, posición",
+  "camino, vía": "camino",
+  "camino, recorrido": "camino",
+  "recto, correcto": "correcto",
+  "mostrar, hacer visible": "mostrar",
+  "mostrar, hacer aparecer": "mostrar",
+  "lejos, a distancia": "lejos",
+  "sabio, hábil": "sabio",
+  "arrojar, lanzar": "lanzar",
+  "otro, distinto": "otro",
+  "lucha, disputa": "lucha",
+  "bastarse, ser suficiente": "bastarse",
+  "afición, inclinación": "afición",
+  "aire, respiración": "aire, respiración",
+  "aire, aliento": "aire, aliento",
+  "decir, hablar": "decir",
+  "orden, disposición": "orden",
+  "extranjero, extraño": "extranjero",
+  "amo, señor": "amo",
+  "limitar, delimitar": "limitar",
+  "hecho, acción": "acción",
+  "escribir, registrar": "escribir",
+  "registrar, escribir": "escribir",
+  "físico, corporal": "corporal",
+  "llevar, transportar": "llevar",
+  "llevar; transportar; traer; soportar; producir": "llevar",
+  "dios, divinidad": "dios",
+  "dios; divinidad": "dios"
+});
+const studyMeaning=etymon=>STUDY_MEANINGS[etymon.id.slice(4)]||etymon.meaning;
+const componentGloss=part=>(!part.language||part.language==='grc')&&/\p{Script=Greek}/u.test(part.greek)
+  ?(SHORT_COMPONENT_GLOSSES[part.gloss]||part.gloss):part.gloss;
 const $=id=>document.getElementById(id);
 const ui={search:$('study-search'),unit:$('study-unit'),sort:$('study-sort'),
   theme:$('study-theme'),expand:$('study-expand'),collapse:$('study-collapse'),
@@ -75,7 +255,7 @@ function appendComponentList(target,parts){
       greek.setAttribute('aria-label','Consultar derivados del étimo '+part.greek);
       greek.addEventListener('click',()=>navigateToComponent(part,feedback));
     }
-    item.append(greek,element('span','«'+part.gloss+'»','component-gloss'));
+    item.append(greek,element('span','«'+componentGloss(part)+'»','component-gloss'));
     if(part.external)item.append(element('small','complementario','component-tag'));
     line.append(item);
   });
@@ -130,10 +310,10 @@ function render(){
   const byId=new Map(data.words.map(w=>[w.id,w]));
   const matches=[];
   const matchesWord=word=>normalize(word.form+' '+(word.reviewedDefinition||word.definition)+' '+
-    word.components.map(c=>c.greek+' '+c.gloss).join(' ')).includes(query);
+    word.components.map(c=>c.greek+' '+c.gloss+' '+componentGloss(c)).join(' ')).includes(query);
   for(const etymon of data.etymons){
     if(unit!=='all'&&!etymon.units.includes(unit))continue;
-    const headerMatch=normalize(etymon.lemma+' '+etymon.meaning).includes(query);
+    const headerMatch=normalize(etymon.lemma+' '+etymon.meaning+' '+studyMeaning(etymon)).includes(query);
     const words=etymon.wordIds.map(id=>byId.get(id)).filter(Boolean);
     const visible=query&&!headerMatch
       ?words.filter(matchesWord)
@@ -177,7 +357,7 @@ function render(){
     const title=element('summary',null,'lexicon-group-summary');
     const greek=element('strong',item.etymon.lemma,'lexicon-greek');
     greek.lang='grc';
-    const meaning=element('span',item.etymon.meaning,'lexicon-meaning');
+    const meaning=element('span',studyMeaning(item.etymon),'lexicon-meaning');
     const units=element('span',item.etymon.units.join(' · '),'lexicon-units');
     const count=element('span',item.words.length+' derivados','lexicon-group-count');
     title.append(greek,meaning,units,count);
@@ -258,7 +438,7 @@ function revealInverse(){
     const chip=element('span',null,'lexical-component');
     const greek=element('strong',part.greek,'component-greek');
     greek.lang='grc';
-    chip.append(greek,element('span','«'+part.gloss+'»','component-gloss'));
+    chip.append(greek,element('span','«'+componentGloss(part)+'»','component-gloss'));
     parts.append(chip);
   }
   inverse.answer.append(parts);
