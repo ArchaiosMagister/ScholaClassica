@@ -36,6 +36,28 @@ try{
   assert.equal(response.status(),200);
   await page.waitForFunction(()=>document.querySelector('#cloud-status')?.textContent.includes('Vocabulario actualizado'));
   assert.equal(await page.locator('#subject').inputValue(),'gr1');
+  await page.locator('#corpus').selectOption('examen');
+  await page.locator('#units input[value="Palabras básicas"]').check();
+  for(const [activity,entryId,answers] of [
+    ['write','a0e483c5e12851de',['por un lado… por otro','por un lado... por otro','por un lado...por otro','por un lado por otro']],
+    ['write','8163d61f6fbdfc03',['ni… ni','ni... ni','ni...ni','ni ni']],
+    ['inverse','8163d61f6fbdfc03',['οὔτε… οὔτε','ουτε...ουτε']]
+  ]){
+    await page.locator('#activity').selectOption(activity);
+    for(const answer of answers){
+      await page.evaluate(id=>start([VOCAB.find(entry=>entry.id===id)]),entryId);
+      await page.locator('#answer').fill(answer);
+      await page.getByRole('button',{name:'Comprobar',exact:true}).click();
+      assert.equal(await page.locator('#feedback b').textContent(),'Correcto',answer);
+    }
+  }
+  await page.locator('#activity').selectOption('write');
+  await page.evaluate(()=>start([VOCAB.find(entry=>entry.id==='a0e483c5e12851de')]));
+  await page.locator('#answer').fill('por un lado');
+  await page.getByRole('button',{name:'Comprobar',exact:true}).click();
+  assert.equal(await page.locator('#feedback b').textContent(),'Lo repasaremos');
+  await page.locator('#corpus').selectOption('general');
+  await page.locator('#none').click();
   const grComplement=page.locator('#units input[value="Sin unidad acreditada"]');
   assert.equal(await grComplement.count(),1);
   assert.match(await grComplement.locator('xpath=..').textContent(),
