@@ -46,6 +46,14 @@ try{
     'La opción claro debe prevalecer aunque el sistema esté oscuro');
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
     'rgb(245, 243, 238)');
+  // El cambio de aspecto actualiza los tokens inmediatamente, pero los enlaces
+  // interpolan color y fondo durante la transición. Esperar al resultado real.
+  await page.waitForFunction(()=>{
+    const style=selector=>getComputedStyle(document.querySelector(selector));
+    return style('.resource-links .latin').color==='rgb(38, 85, 69)' &&
+      style('.resource-links .greek').color==='rgb(40, 94, 121)' &&
+      style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 249)';
+  },null,{timeout:5000});
   const portalPalette=await page.evaluate(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
     return {
