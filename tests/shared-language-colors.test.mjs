@@ -57,6 +57,6 @@ test('Los módulos mixtos tienen cabeceras grecolatinas en sus CSS compilados',(
   assert.ok(css.includes('--shared-blue-wash:#101b23'));
  }
  const css=read('apps/morfologia/style.css');
- assert.ok(css.includes('linear-gradient(115deg,#1d4136,#1d3e80)'));
+ assert.ok(css.includes('linear-gradient(115deg,#1d4136,#174861)'));
  assert.ok(css.includes('html[data-theme="oled"] .site-header'));
 });
