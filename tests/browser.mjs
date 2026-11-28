@@ -34,8 +34,25 @@ try{
   assert.equal(await picker.inputValue(),'system');
   await picker.selectOption('dark');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  const verifyLanguageColors=async(expected)=>{
+    await page.waitForFunction(expected=>{
+      const style=selector=>getComputedStyle(document.querySelector(selector));
+      return style('.resource-links .latin').backgroundColor===expected.latinSurface &&
+        style('.resource-links .greek').backgroundColor===expected.greekSurface &&
+        style('#panel-herramientas .card.latin .linkgroup a').backgroundColor===expected.latinButton &&
+        style('#panel-herramientas .card.greek .linkgroup a').backgroundColor===expected.greekButton &&
+        style('#panel-herramientas .card.latin .linkgroup a').color===expected.latinInk &&
+        style('#panel-herramientas .card.greek .linkgroup a').color===expected.greekInk &&
+        style('.resource-links .mixed').backgroundImage==='none';
+    },expected,{timeout:5000});
+  };
+  const darkColors={latinSurface:'rgb(35, 60, 49)',greekSurface:'rgb(25, 46, 59)',
+    latinButton:'rgb(165, 220, 195)',greekButton:'rgb(171, 215, 240)',
+    latinInk:'rgb(16, 44, 33)',greekInk:'rgb(19, 45, 64)'};
+  await verifyLanguageColors(darkColors);
   await picker.selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
+  await verifyLanguageColors({...darkColors,latinSurface:'rgb(16, 37, 27)',greekSurface:'rgb(16, 31, 43)'});
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
     'rgb(0, 0, 0)','OLED debe usar negro puro');
   await page.reload({waitUntil:'networkidle'});
