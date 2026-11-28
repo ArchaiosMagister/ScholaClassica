@@ -13,8 +13,16 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  const portal=css.split('/* Portada: identidad editorial neutra;')[1];
  assert.ok(portal);
  assert.doesNotMatch(portal,/gradient\s*\(/i);
- for(const color of ['#f8f5e7','#fffdf3','#e4d28c','#756019','#1c1b16','#e8d58d','#265545','#285e79','#a5dcc3','#abd7f0'])
+ for(const color of ['#f8f5e7','#fffdf3','#e4d28c','#756019','#1c1b16','#e8d58d','#34752d','#2858a8','#a8dc84','#9fc3ff'])
   assert.ok(portal.includes(color));
+ // Contraste WCAG de los textos semánticos sobre sus superficies reales.
+ const luminance=hex=>[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255)
+  .map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4)
+  .reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+ for(const [fg,bg] of [["#34752d","#ffffff"],["#2858a8","#ffffff"],["#a8dc84","#28261e"],["#9fc3ff","#28261e"],["#a8dc84","#12110c"],["#9fc3ff","#12110c"],["#34752d","#fffdf3"],["#2858a8","#fffdf3"]]){
+  const [high,low]=[luminance(fg),luminance(bg)].sort((a,b)=>b-a);
+  assert.ok((high+.05)/(low+.05)>=4.5, fg+' sobre '+bg);
+ }
  assert.match(portal,/--page: #000;/);
  const manifest=JSON.parse(read('manifest.webmanifest'));
  assert.equal(manifest.background_color,'#f8f5e7');
@@ -31,8 +39,8 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  assert.ok(portal.includes('--language-button-surface: #fff;'));
  assert.ok(portal.includes('--language-button-surface: #28261e;'));
  assert.ok(portal.includes('--language-button-surface: #12110c;'));
- assert.ok(portal.includes('--latin-wash: #10251b;'));
- assert.ok(portal.includes('--greek-wash: #101f2b;'));
+ assert.ok(portal.includes('--latin-wash: #172611;'));
+ assert.ok(portal.includes('--greek-wash: #111d32;'));
  assert.ok(portal.includes('prefers-reduced-motion: reduce'));
 
 });

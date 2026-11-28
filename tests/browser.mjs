@@ -51,7 +51,7 @@ try{
   };
   const darkColors={latinSurface:'rgb(40, 38, 30)',greekSurface:'rgb(40, 38, 30)',
     latinButton:'rgb(40, 38, 30)',greekButton:'rgb(40, 38, 30)',
-    latinInk:'rgb(165, 220, 195)',greekInk:'rgb(171, 215, 240)',mixedSurface:'rgb(40, 38, 30)',header:'rgb(36, 33, 22)'};
+    latinInk:'rgb(168, 220, 132)',greekInk:'rgb(159, 195, 255)',mixedSurface:'rgb(40, 38, 30)',header:'rgb(36, 33, 22)'};
   await verifyLanguageColors(darkColors);
   await picker.selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
@@ -70,8 +70,8 @@ try{
   // interpolan color y fondo durante la transición. Esperar al resultado real.
   await page.waitForFunction(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
-    return style('.resource-links .latin').color==='rgb(38, 85, 69)' &&
-      style('.resource-links .greek').color==='rgb(40, 94, 121)' &&
+    return style('.resource-links .latin').color==='rgb(52, 117, 45)' &&
+      style('.resource-links .greek').color==='rgb(40, 88, 168)' &&
       style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 243)' &&
       style('.portal-update').backgroundColor==='rgb(228, 210, 140)' &&
       style('.portal-update').color==='rgb(48, 42, 29)' &&
@@ -79,8 +79,8 @@ try{
       style('.resource-links .greek').backgroundColor==='rgb(255, 255, 255)' &&
       style('#panel-herramientas .card.latin .linkgroup a').backgroundColor==='rgb(255, 255, 255)' &&
       style('#panel-herramientas .card.greek .linkgroup a').backgroundColor==='rgb(255, 255, 255)' &&
-      style('#panel-herramientas .card.latin .linkgroup a').color==='rgb(38, 85, 69)' &&
-      style('#panel-herramientas .card.greek .linkgroup a').color==='rgb(40, 94, 121)';
+      style('#panel-herramientas .card.latin .linkgroup a').color==='rgb(52, 117, 45)' &&
+      style('#panel-herramientas .card.greek .linkgroup a').color==='rgb(40, 88, 168)';
   },null,{timeout:5000});
   const portalPalette=await page.evaluate(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
@@ -102,10 +102,10 @@ try{
       latinMark:getComputedStyle(document.querySelector('.resource-links .mixed'),'::before').backgroundColor
     };
   });
-  assert.deepEqual(portalPalette,{header:'rgb(228, 210, 140)',updateButton:'rgb(228, 210, 140)',updateInk:'rgb(48, 42, 29)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 243)',latinSurface:'rgb(255, 255, 255)',greekSurface:'rgb(255, 255, 255)',latinButton:'rgb(255, 255, 255)',greekButton:'rgb(255, 255, 255)',latinButtonInk:'rgb(38, 85, 69)',greekButtonInk:'rgb(40, 94, 121)',latinMark:'rgb(38, 85, 69)'});
+  assert.deepEqual(portalPalette,{header:'rgb(228, 210, 140)',updateButton:'rgb(228, 210, 140)',updateInk:'rgb(48, 42, 29)',hero:'none',latin:'rgb(52, 117, 45)',greek:'rgb(40, 88, 168)',mixed:'none',mixedSurface:'rgb(255, 253, 243)',latinSurface:'rgb(255, 255, 255)',greekSurface:'rgb(255, 255, 255)',latinButton:'rgb(255, 255, 255)',greekButton:'rgb(255, 255, 255)',latinButtonInk:'rgb(52, 117, 45)',greekButtonInk:'rgb(40, 88, 168)',latinMark:'rgb(52, 117, 45)'});
   const languageCards=await page.locator('.portal .card.latin, .portal .card.greek').evaluateAll(cards=>cards.map(card=>({title:card.querySelector('h3').textContent,background:getComputedStyle(card).backgroundColor,accent:getComputedStyle(card).borderTopColor})));
-  assert.ok(languageCards.some(card=>card.title==='Evolutio' && card.accent==='rgb(38, 85, 69)'));
-  assert.ok(languageCards.some(card=>card.title==='Etymologicon' && card.accent==='rgb(40, 94, 121)'));
+  assert.ok(languageCards.some(card=>card.title==='Evolutio' && card.accent==='rgb(52, 117, 45)'));
+  assert.ok(languageCards.some(card=>card.title==='Etymologicon' && card.accent==='rgb(40, 88, 168)'));
   assert.ok(languageCards.every(card=>card.background==='rgb(255, 255, 255)'),'Todas las tarjetas de lengua deben tener fondo blanco');
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
