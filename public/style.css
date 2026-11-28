@@ -496,7 +496,7 @@ html[data-theme="oled"]:has(body.portal) {
 }
 .portal .card.mixed::before { margin-bottom: .55rem; }
 .portal .resource-links a.mixed::before { grid-column: 1; grid-row: 3; margin-top: .4rem; }
-.portal .resource-links a.mixed:hover { border-color: var(--accent); background: var(--wash); }
+.portal .resource-links a:hover { border-color: var(--accent); background: var(--wash); }
 .portal .linked-project { background: var(--surface); }
 .portal :is(.resource-links a, .linkgroup a, .path-links a, .tabs button, .portal-update, .cta) {
   transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
