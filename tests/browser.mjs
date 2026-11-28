@@ -48,13 +48,13 @@ try{
         style('.site-head').backgroundColor===expected.header;
     },expected,{timeout:5000});
   };
-  const darkColors={latinSurface:'rgb(35, 60, 49)',greekSurface:'rgb(25, 46, 59)',
-    latinButton:'rgb(165, 220, 195)',greekButton:'rgb(171, 215, 240)',
-    latinInk:'rgb(16, 44, 33)',greekInk:'rgb(19, 45, 64)',mixedSurface:'rgb(40, 38, 30)',header:'rgb(36, 33, 22)'};
+  const darkColors={latinSurface:'rgb(40, 38, 30)',greekSurface:'rgb(40, 38, 30)',
+    latinButton:'rgb(40, 38, 30)',greekButton:'rgb(40, 38, 30)',
+    latinInk:'rgb(165, 220, 195)',greekInk:'rgb(171, 215, 240)',mixedSurface:'rgb(40, 38, 30)',header:'rgb(36, 33, 22)'};
   await verifyLanguageColors(darkColors);
   await picker.selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
-  await verifyLanguageColors({...darkColors,latinSurface:'rgb(16, 37, 27)',greekSurface:'rgb(16, 31, 43)',mixedSurface:'rgb(18, 17, 12)',header:'rgb(0, 0, 0)'});
+  await verifyLanguageColors({...darkColors,latinSurface:'rgb(18, 17, 12)',greekSurface:'rgb(18, 17, 12)',latinButton:'rgb(18, 17, 12)',greekButton:'rgb(18, 17, 12)',mixedSurface:'rgb(18, 17, 12)',header:'rgb(0, 0, 0)'});
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
     'rgb(0, 0, 0)','OLED debe usar negro puro');
   await page.reload({waitUntil:'networkidle'});
@@ -74,10 +74,12 @@ try{
       style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 243)' &&
       style('.portal-update').backgroundColor==='rgb(228, 210, 140)' &&
       style('.portal-update').color==='rgb(48, 42, 29)' &&
-      style('.resource-links .latin').backgroundColor==='rgb(231, 239, 230)' &&
-      style('.resource-links .greek').backgroundColor==='rgb(229, 239, 245)' &&
-      style('#panel-herramientas .card.latin .linkgroup a').backgroundColor==='rgb(38, 85, 69)' &&
-      style('#panel-herramientas .card.greek .linkgroup a').backgroundColor==='rgb(40, 94, 121)';
+      style('.resource-links .latin').backgroundColor==='rgb(255, 255, 255)' &&
+      style('.resource-links .greek').backgroundColor==='rgb(255, 255, 255)' &&
+      style('#panel-herramientas .card.latin .linkgroup a').backgroundColor==='rgb(255, 255, 255)' &&
+      style('#panel-herramientas .card.greek .linkgroup a').backgroundColor==='rgb(255, 255, 255)' &&
+      style('#panel-herramientas .card.latin .linkgroup a').color==='rgb(38, 85, 69)' &&
+      style('#panel-herramientas .card.greek .linkgroup a').color==='rgb(40, 94, 121)';
   },null,{timeout:5000});
   const portalPalette=await page.evaluate(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
@@ -99,7 +101,7 @@ try{
       latinMark:getComputedStyle(document.querySelector('.resource-links .mixed'),'::before').backgroundColor
     };
   });
-  assert.deepEqual(portalPalette,{header:'rgb(228, 210, 140)',updateButton:'rgb(228, 210, 140)',updateInk:'rgb(48, 42, 29)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 243)',latinSurface:'rgb(231, 239, 230)',greekSurface:'rgb(229, 239, 245)',latinButton:'rgb(38, 85, 69)',greekButton:'rgb(40, 94, 121)',latinButtonInk:'rgb(255, 253, 249)',greekButtonInk:'rgb(255, 253, 249)',latinMark:'rgb(38, 85, 69)'});
+  assert.deepEqual(portalPalette,{header:'rgb(228, 210, 140)',updateButton:'rgb(228, 210, 140)',updateInk:'rgb(48, 42, 29)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 243)',latinSurface:'rgb(255, 255, 255)',greekSurface:'rgb(255, 255, 255)',latinButton:'rgb(255, 255, 255)',greekButton:'rgb(255, 255, 255)',latinButtonInk:'rgb(38, 85, 69)',greekButtonInk:'rgb(40, 94, 121)',latinMark:'rgb(38, 85, 69)'});
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});

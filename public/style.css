@@ -378,12 +378,11 @@ html:has(body.portal) {
   --latin-accent: #265545;
   --latin-strong: #173f33;
   --latin-wash: #e7efe6;
-  --latin-button-ink: #fffdf9;
+  --language-button-surface: #fff;
   --latin-line: #bdcec2;
   --greek-accent: #285e79;
   --greek-strong: #174861;
   --greek-wash: #e5eff5;
-  --greek-button-ink: #fffdf9;
   --greek-line: #b5cbd8;
   --head-bg: #e4d28c;
   --head-ink: #302a1d;
@@ -405,12 +404,11 @@ html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
   --latin-accent: #a5dcc3;
   --latin-strong: #d0f4e2;
   --latin-wash: #233c31;
-  --latin-button-ink: #102c21;
+  --language-button-surface: #28261e;
   --latin-line: #496458;
   --greek-accent: #abd7f0;
   --greek-strong: #d7efff;
   --greek-wash: #192e3b;
-  --greek-button-ink: #132d40;
   --greek-line: #4a6a7d;
   --head-bg: #242116;
   --head-ink: #f0ede5;
@@ -420,6 +418,7 @@ html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
 html[data-theme="oled"]:has(body.portal) {
   --page: #000;
   --surface: #12110c;
+  --language-button-surface: #12110c;
   --wash: #1b190f;
   --line: #3a3524;
   --head-bg: #000;
@@ -484,7 +483,6 @@ html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-sel
   --accent: var(--latin-accent);
   --accent-strong: var(--latin-strong);
   --focus: var(--latin-accent);
-  --language-button-ink: var(--latin-button-ink);
   --line: var(--latin-line);
   --wash: var(--latin-wash);
 }
@@ -493,7 +491,6 @@ html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-sel
   --accent: var(--greek-accent);
   --accent-strong: var(--greek-strong);
   --focus: var(--greek-accent);
-  --language-button-ink: var(--greek-button-ink);
   --line: var(--greek-line);
   --wash: var(--greek-wash);
 }
@@ -504,21 +501,22 @@ html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-sel
 .portal :is(.card.latin, .card.greek) h3 { color: var(--accent); }
 .portal :is(.resource-links a.latin, .resource-links a.greek) {
   border-inline-start: 4px solid var(--accent);
-  background: var(--wash);
+  background: var(--language-button-surface);
 }
 .portal :is(.card.latin .linkgroup a, .card.greek .linkgroup a,
   .card.mixed .linkgroup a.greek, .card.mixed .linkgroup a[href*="subject=lat"],
   .study-path:has(option:is([value="lat4"], [value="lat1"], [value="lat2"], [value="gr1"], [value="gr2"]):checked) .path-links a:not([target="_blank"])) {
-  background: var(--accent);
-  color: var(--language-button-ink);
+  background: var(--language-button-surface);
+  color: var(--accent);
   border-color: var(--accent);
 }
 .portal :is(.card.latin .linkgroup a, .card.greek .linkgroup a,
   .card.mixed .linkgroup a.greek, .card.mixed .linkgroup a[href*="subject=lat"],
   .study-path:has(option:is([value="lat4"], [value="lat1"], [value="lat2"], [value="gr1"], [value="gr2"]):checked) .path-links a:not([target="_blank"])):hover {
-  background: var(--accent-strong);
-  color: var(--language-button-ink);
+  background: var(--language-button-surface);
+  color: var(--accent-strong);
   border-color: var(--accent-strong);
+  text-decoration: underline;
 }
 .portal :is(.card.mixed, .resource-links a.mixed) {
   border: 1px solid var(--line);
@@ -538,8 +536,8 @@ html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-sel
 .portal .resource-links a.mixed::before { grid-column: 1; grid-row: 3; margin-top: .4rem; }
 .portal .resource-links a:hover { border-color: var(--accent); background: var(--wash); }
 .portal :is(.resource-links a.latin, .resource-links a.greek):hover {
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--wash) 85%, var(--accent));
+  border-color: var(--accent-strong);
+  background: var(--language-button-surface);
 }
 .portal .linked-project { background: var(--surface); }
 .portal :is(.resource-links a, .linkgroup a, .path-links a, .tabs button, .portal-update, .cta) {
