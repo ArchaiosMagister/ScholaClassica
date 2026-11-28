@@ -27,6 +27,7 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  assert.ok(portal.includes('box-shadow: 1.5rem 0 0 var(--greek-accent)'));
  assert.match(portal,/border-inline-start: 4px solid var\(--accent\);\s*background: var\(--language-button-surface\);/);
  assert.match(portal,/background: var\(--language-button-surface\);\s*color: var\(--accent\);\s*border-color: var\(--accent\);/);
+ assert.match(portal,/\.portal :is\(\.card\.latin, \.card\.greek\) \{\s*border-top: 4px solid var\(--accent\);\s*background: var\(--language-button-surface\);/);
  assert.ok(portal.includes('--language-button-surface: #fff;'));
  assert.ok(portal.includes('--language-button-surface: #28261e;'));
  assert.ok(portal.includes('--language-button-surface: #12110c;'));

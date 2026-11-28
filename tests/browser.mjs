@@ -44,6 +44,7 @@ try{
         style('#panel-herramientas .card.latin .linkgroup a').color===expected.latinInk &&
         style('#panel-herramientas .card.greek .linkgroup a').color===expected.greekInk &&
         style('.resource-links .mixed').backgroundImage==='none' &&
+        [...document.querySelectorAll('.portal .card.latin, .portal .card.greek')].every(card=>getComputedStyle(card).backgroundColor===expected.latinSurface) &&
         style('.resource-links .mixed').backgroundColor===expected.mixedSurface &&
         style('.site-head').backgroundColor===expected.header;
     },expected,{timeout:5000});
@@ -102,6 +103,10 @@ try{
     };
   });
   assert.deepEqual(portalPalette,{header:'rgb(228, 210, 140)',updateButton:'rgb(228, 210, 140)',updateInk:'rgb(48, 42, 29)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 243)',latinSurface:'rgb(255, 255, 255)',greekSurface:'rgb(255, 255, 255)',latinButton:'rgb(255, 255, 255)',greekButton:'rgb(255, 255, 255)',latinButtonInk:'rgb(38, 85, 69)',greekButtonInk:'rgb(40, 94, 121)',latinMark:'rgb(38, 85, 69)'});
+  const languageCards=await page.locator('.portal .card.latin, .portal .card.greek').evaluateAll(cards=>cards.map(card=>({title:card.querySelector('h3').textContent,background:getComputedStyle(card).backgroundColor,accent:getComputedStyle(card).borderTopColor})));
+  assert.ok(languageCards.some(card=>card.title==='Evolutio' && card.accent==='rgb(38, 85, 69)'));
+  assert.ok(languageCards.some(card=>card.title==='Etymologicon' && card.accent==='rgb(40, 94, 121)'));
+  assert.ok(languageCards.every(card=>card.background==='rgb(255, 255, 255)'),'Todas las tarjetas de lengua deben tener fondo blanco');
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});

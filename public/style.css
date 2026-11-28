@@ -496,7 +496,7 @@ html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-sel
 }
 .portal :is(.card.latin, .card.greek) {
   border-top: 4px solid var(--accent);
-  background: var(--wash);
+  background: var(--language-button-surface);
 }
 .portal :is(.card.latin, .card.greek) h3 { color: var(--accent); }
 .portal :is(.resource-links a.latin, .resource-links a.greek) {
