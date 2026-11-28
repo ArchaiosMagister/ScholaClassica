@@ -45,7 +45,20 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light',
     'La opción claro debe prevalecer aunque el sistema esté oscuro');
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
-    'rgb(244, 247, 242)');
+    'rgb(245, 243, 238)');
+  const portalPalette=await page.evaluate(()=>{
+    const style=selector=>getComputedStyle(document.querySelector(selector));
+    return {
+      header:style('.site-head').backgroundColor,
+      hero:style('.hero').backgroundImage,
+      latin:style('.resource-links .latin').color,
+      greek:style('.resource-links .greek').color,
+      mixed:style('.resource-links .mixed').backgroundImage,
+      mixedSurface:style('.resource-links .mixed').backgroundColor,
+      latinMark:getComputedStyle(document.querySelector('.resource-links .mixed'),'::before').backgroundColor
+    };
+  });
+  assert.deepEqual(portalPalette,{header:'rgb(41, 45, 46)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 249)',latinMark:'rgb(38, 85, 69)'});
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});

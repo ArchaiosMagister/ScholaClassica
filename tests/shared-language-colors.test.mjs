@@ -10,14 +10,18 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  assert.equal((html.match(/class="mixed" href=/g)||[]).length,4);
  assert.match(html,/class="card latin">\s*<p class="overline">Evolución fonética/);
  assert.match(html,/class="card greek">\s*<p class="overline">Etimología/);
- assert.ok(css.includes('linear-gradient(90deg, var(--mixed-green), var(--mixed-blue))'));
- for (const [green,blue] of [['#cce7d5','#cce2f5'],['#234b37','#213f5e'],['#102b1e','#10283f']]) {
-  assert.ok(css.includes('--mixed-green-surface: '+green+';'));
-  assert.ok(css.includes('--mixed-blue-surface: '+blue+';'));
- }
- const mixedRule=css.split('.portal :is(.card.mixed, .resource-links a.mixed) {')[1]?.split('}')[0];
- assert.ok(mixedRule?.includes('var(--mixed-green-surface) 25%, var(--mixed-blue-surface) 75%'));
- assert.ok(mixedRule?.includes('border: 1px solid transparent'));
+ const portal=css.split('/* Portada: identidad editorial neutra;')[1];
+ assert.ok(portal);
+ assert.doesNotMatch(portal,/gradient\\s*\\(/i);
+ for(const color of ['#f5f3ee','#292d2e','#191b1d','#265545','#285e79','#a5dcc3','#abd7f0'])
+  assert.ok(portal.includes(color));
+ assert.match(portal,/--page: #000;/);
+ const mixedRule=portal.split('.portal :is(.card.mixed, .resource-links a.mixed) {')[1]?.split('}')[0];
+ assert.ok(mixedRule?.includes('background: var(--surface)'));
+ assert.ok(mixedRule?.includes('border: 1px solid var(--line)'));
+ assert.ok(portal.includes('background: var(--latin-accent)'));
+ assert.ok(portal.includes('box-shadow: .85rem 0 0 var(--greek-accent)'));
+ assert.ok(portal.includes('prefers-reduced-motion: reduce'));
 
 });
 test('Las portadas de Appendix comparten paleta sin cambiar capítulos',()=>{
