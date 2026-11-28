@@ -378,10 +378,12 @@ html:has(body.portal) {
   --latin-accent: #265545;
   --latin-strong: #173f33;
   --latin-wash: #e7efe6;
+  --latin-button-ink: #fffdf9;
   --latin-line: #bdcec2;
   --greek-accent: #285e79;
   --greek-strong: #174861;
   --greek-wash: #e5eff5;
+  --greek-button-ink: #fffdf9;
   --greek-line: #b5cbd8;
   --head-bg: #292d2e;
   --head-ink: #fffdf9;
@@ -403,10 +405,12 @@ html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
   --latin-accent: #a5dcc3;
   --latin-strong: #d0f4e2;
   --latin-wash: #233c31;
+  --latin-button-ink: #102c21;
   --latin-line: #496458;
   --greek-accent: #abd7f0;
   --greek-strong: #d7efff;
   --greek-wash: #192e3b;
+  --greek-button-ink: #132d40;
   --greek-line: #4a6a7d;
   --head-bg: #191b1d;
   --head-ink: #f0ede5;
@@ -420,6 +424,8 @@ html[data-theme="oled"]:has(body.portal) {
   --line: #363839;
   --head-bg: #000;
   --head-wash: #18191a;
+  --latin-wash: #10251b;
+  --greek-wash: #101f2b;
 }
 .portal .site-head {
   background: var(--head-bg);
@@ -466,6 +472,7 @@ html[data-theme="oled"]:has(body.portal) {
   --accent: var(--latin-accent);
   --accent-strong: var(--latin-strong);
   --focus: var(--latin-accent);
+  --language-button-ink: var(--latin-button-ink);
   --line: var(--latin-line);
   --wash: var(--latin-wash);
 }
@@ -474,12 +481,33 @@ html[data-theme="oled"]:has(body.portal) {
   --accent: var(--greek-accent);
   --accent-strong: var(--greek-strong);
   --focus: var(--greek-accent);
+  --language-button-ink: var(--greek-button-ink);
   --line: var(--greek-line);
   --wash: var(--greek-wash);
 }
-.portal :is(.card.latin, .card.greek) { border-top: 3px solid var(--accent); }
+.portal :is(.card.latin, .card.greek) {
+  border-top: 4px solid var(--accent);
+  background: var(--wash);
+}
 .portal :is(.card.latin, .card.greek) h3 { color: var(--accent); }
-.portal :is(.resource-links a.latin, .resource-links a.greek) { border-inline-start: 3px solid var(--accent); }
+.portal :is(.resource-links a.latin, .resource-links a.greek) {
+  border-inline-start: 4px solid var(--accent);
+  background: var(--wash);
+}
+.portal :is(.card.latin .linkgroup a, .card.greek .linkgroup a,
+  .card.mixed .linkgroup a.greek, .card.mixed .linkgroup a[href*="subject=lat"],
+  .study-path:has(option:is([value="lat4"], [value="lat1"], [value="lat2"], [value="gr1"], [value="gr2"]):checked) .path-links a:not([target="_blank"])) {
+  background: var(--accent);
+  color: var(--language-button-ink);
+  border-color: var(--accent);
+}
+.portal :is(.card.latin .linkgroup a, .card.greek .linkgroup a,
+  .card.mixed .linkgroup a.greek, .card.mixed .linkgroup a[href*="subject=lat"],
+  .study-path:has(option:is([value="lat4"], [value="lat1"], [value="lat2"], [value="gr1"], [value="gr2"]):checked) .path-links a:not([target="_blank"])):hover {
+  background: var(--accent-strong);
+  color: var(--language-button-ink);
+  border-color: var(--accent-strong);
+}
 .portal :is(.card.mixed, .resource-links a.mixed) {
   border: 1px solid var(--line);
   background: var(--surface);
@@ -488,15 +516,19 @@ html[data-theme="oled"]:has(body.portal) {
 .portal :is(.card.mixed, .resource-links a.mixed)::before {
   content: "";
   display: block;
-  width: .55rem;
-  height: .55rem;
-  border-radius: 50%;
+  width: 1.25rem;
+  height: .3rem;
+  border-radius: .15rem;
   background: var(--latin-accent);
-  box-shadow: .85rem 0 0 var(--greek-accent);
+  box-shadow: 1.5rem 0 0 var(--greek-accent);
 }
 .portal .card.mixed::before { margin-bottom: .55rem; }
 .portal .resource-links a.mixed::before { grid-column: 1; grid-row: 3; margin-top: .4rem; }
 .portal .resource-links a:hover { border-color: var(--accent); background: var(--wash); }
+.portal :is(.resource-links a.latin, .resource-links a.greek):hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--wash) 85%, var(--accent));
+}
 .portal .linked-project { background: var(--surface); }
 .portal :is(.resource-links a, .linkgroup a, .path-links a, .tabs button, .portal-update, .cta) {
   transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;

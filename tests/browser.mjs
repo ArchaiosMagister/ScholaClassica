@@ -52,7 +52,11 @@ try{
     const style=selector=>getComputedStyle(document.querySelector(selector));
     return style('.resource-links .latin').color==='rgb(38, 85, 69)' &&
       style('.resource-links .greek').color==='rgb(40, 94, 121)' &&
-      style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 249)';
+      style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 249)' &&
+      style('.resource-links .latin').backgroundColor==='rgb(231, 239, 230)' &&
+      style('.resource-links .greek').backgroundColor==='rgb(229, 239, 245)' &&
+      style('#panel-herramientas .card.latin .linkgroup a').backgroundColor==='rgb(38, 85, 69)' &&
+      style('#panel-herramientas .card.greek .linkgroup a').backgroundColor==='rgb(40, 94, 121)';
   },null,{timeout:5000});
   const portalPalette=await page.evaluate(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
@@ -63,10 +67,16 @@ try{
       greek:style('.resource-links .greek').color,
       mixed:style('.resource-links .mixed').backgroundImage,
       mixedSurface:style('.resource-links .mixed').backgroundColor,
+      latinSurface:style('.resource-links .latin').backgroundColor,
+      greekSurface:style('.resource-links .greek').backgroundColor,
+      latinButton:style('#panel-herramientas .card.latin .linkgroup a').backgroundColor,
+      greekButton:style('#panel-herramientas .card.greek .linkgroup a').backgroundColor,
+      latinButtonInk:style('#panel-herramientas .card.latin .linkgroup a').color,
+      greekButtonInk:style('#panel-herramientas .card.greek .linkgroup a').color,
       latinMark:getComputedStyle(document.querySelector('.resource-links .mixed'),'::before').backgroundColor
     };
   });
-  assert.deepEqual(portalPalette,{header:'rgb(41, 45, 46)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 249)',latinMark:'rgb(38, 85, 69)'});
+  assert.deepEqual(portalPalette,{header:'rgb(41, 45, 46)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 249)',latinSurface:'rgb(231, 239, 230)',greekSurface:'rgb(229, 239, 245)',latinButton:'rgb(38, 85, 69)',greekButton:'rgb(40, 94, 121)',latinButtonInk:'rgb(255, 253, 249)',greekButtonInk:'rgb(255, 253, 249)',latinMark:'rgb(38, 85, 69)'});
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});

@@ -20,7 +20,11 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  assert.ok(mixedRule?.includes('background: var(--surface)'));
  assert.ok(mixedRule?.includes('border: 1px solid var(--line)'));
  assert.ok(portal.includes('background: var(--latin-accent)'));
- assert.ok(portal.includes('box-shadow: .85rem 0 0 var(--greek-accent)'));
+ assert.ok(portal.includes('box-shadow: 1.5rem 0 0 var(--greek-accent)'));
+ assert.match(portal,/border-inline-start: 4px solid var\(--accent\);\s*background: var\(--wash\);/);
+ assert.match(portal,/background: var\(--accent\);\s*color: var\(--language-button-ink\);/);
+ assert.ok(portal.includes('--latin-wash: #10251b;'));
+ assert.ok(portal.includes('--greek-wash: #101f2b;'));
  assert.ok(portal.includes('prefers-reduced-motion: reduce'));
 
 });
