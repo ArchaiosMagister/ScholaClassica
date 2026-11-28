@@ -365,61 +365,67 @@ h2 { margin: 0; font-size: clamp(1.75rem, 3.3vw, 2.55rem); letter-spacing: -.035
 
 /* Portada: identidad editorial neutra; los acentos identifican la lengua. */
 html:has(body.portal) {
-  --page: #f5f3ee;
-  --ink: #292d2e;
-  --muted: #62645f;
-  --surface: #fffdf9;
-  --wash: #eeebe4;
-  --line: #d6d2c9;
-  --accent: #414746;
-  --accent-strong: #292d2e;
-  --on-accent: #fffdf9;
-  --focus: #525b59;
+  --page: #f8f5e7;
+  --ink: #302a1d;
+  --muted: #625b45;
+  --surface: #fffdf3;
+  --wash: #f3eac7;
+  --line: #d9c98e;
+  --accent: #756019;
+  --accent-strong: #5d4b14;
+  --on-accent: #fffdf3;
+  --focus: #80671f;
   --latin-accent: #265545;
   --latin-strong: #173f33;
   --latin-wash: #e7efe6;
+  --language-button-surface: #fff;
   --latin-line: #bdcec2;
   --greek-accent: #285e79;
   --greek-strong: #174861;
   --greek-wash: #e5eff5;
   --greek-line: #b5cbd8;
-  --head-bg: #292d2e;
-  --head-ink: #fffdf9;
-  --head-line: #727977;
-  --head-wash: #414746;
+  --head-bg: #e4d28c;
+  --head-ink: #302a1d;
+  --head-line: #b29b57;
+  --head-wash: #f0e3ae;
   --serif: Palatino, "Palatino Linotype", "Noto Serif", Georgia, serif;
 }
 html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
-  --page: #191b1d;
+  --page: #1c1b16;
   --ink: #f0ede5;
-  --muted: #bfc0bc;
-  --surface: #242729;
-  --wash: #2d3031;
-  --line: #484c4d;
-  --accent: #d4d8d4;
-  --accent-strong: #f0ede5;
-  --on-accent: #191b1d;
-  --focus: #d4d8d4;
+  --muted: #c8c1aa;
+  --surface: #28261e;
+  --wash: #333024;
+  --line: #56513e;
+  --accent: #e8d58d;
+  --accent-strong: #f1e4ad;
+  --on-accent: #1c1b16;
+  --focus: #e8d58d;
   --latin-accent: #a5dcc3;
   --latin-strong: #d0f4e2;
   --latin-wash: #233c31;
+  --language-button-surface: #28261e;
   --latin-line: #496458;
   --greek-accent: #abd7f0;
   --greek-strong: #d7efff;
   --greek-wash: #192e3b;
   --greek-line: #4a6a7d;
-  --head-bg: #191b1d;
+  --head-bg: #242116;
   --head-ink: #f0ede5;
-  --head-line: #484c4d;
-  --head-wash: #2d3031;
+  --head-line: #56513e;
+  --head-wash: #393421;
 }
 html[data-theme="oled"]:has(body.portal) {
   --page: #000;
-  --surface: #101112;
-  --wash: #18191a;
-  --line: #363839;
+  --surface: #12110c;
+  --language-button-surface: #12110c;
+  --wash: #1b190f;
+  --line: #3a3524;
   --head-bg: #000;
-  --head-wash: #18191a;
+  --head-wash: #1b190f;
+  --latin-wash: #10251b;
+  --greek-wash: #101f2b;
+  --head-line: #3a3524;
 }
 .portal .site-head {
   background: var(--head-bg);
@@ -455,6 +461,17 @@ html[data-theme="oled"]:has(body.portal) {
 .portal .hero-image { border-radius: 0; filter: saturate(0); }
 .portal .cta { background: var(--accent); color: var(--on-accent); }
 .portal .cta:hover { background: var(--accent-strong); }
+/* Amarillo trigo mate en los controles generales; texto oscuro para mantener contraste. */
+html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-selected="true"]) {
+  background: #e4d28c;
+  color: #302a1d;
+  border-color: #b29b57;
+}
+html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-selected="true"]):hover:not(:disabled) {
+  background: #d8c274;
+  color: #302a1d;
+  border-color: #a18b49;
+}
 .portal .hero :focus-visible { outline-color: var(--focus); outline-offset: 3px; }
 .portal :is(.study-path, .card, .resource-links a) { border-radius: .65rem; }
 .portal :is(.study-path, .card, .resource-links a) { background: var(--surface); }
@@ -477,9 +494,30 @@ html[data-theme="oled"]:has(body.portal) {
   --line: var(--greek-line);
   --wash: var(--greek-wash);
 }
-.portal :is(.card.latin, .card.greek) { border-top: 3px solid var(--accent); }
+.portal :is(.card.latin, .card.greek) {
+  border-top: 4px solid var(--accent);
+  background: var(--language-button-surface);
+}
 .portal :is(.card.latin, .card.greek) h3 { color: var(--accent); }
-.portal :is(.resource-links a.latin, .resource-links a.greek) { border-inline-start: 3px solid var(--accent); }
+.portal :is(.resource-links a.latin, .resource-links a.greek) {
+  border-inline-start: 4px solid var(--accent);
+  background: var(--language-button-surface);
+}
+.portal :is(.card.latin .linkgroup a, .card.greek .linkgroup a,
+  .card.mixed .linkgroup a.greek, .card.mixed .linkgroup a[href*="subject=lat"],
+  .study-path:has(option:is([value="lat4"], [value="lat1"], [value="lat2"], [value="gr1"], [value="gr2"]):checked) .path-links a:not([target="_blank"])) {
+  background: var(--language-button-surface);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.portal :is(.card.latin .linkgroup a, .card.greek .linkgroup a,
+  .card.mixed .linkgroup a.greek, .card.mixed .linkgroup a[href*="subject=lat"],
+  .study-path:has(option:is([value="lat4"], [value="lat1"], [value="lat2"], [value="gr1"], [value="gr2"]):checked) .path-links a:not([target="_blank"])):hover {
+  background: var(--language-button-surface);
+  color: var(--accent-strong);
+  border-color: var(--accent-strong);
+  text-decoration: underline;
+}
 .portal :is(.card.mixed, .resource-links a.mixed) {
   border: 1px solid var(--line);
   background: var(--surface);
@@ -488,15 +526,19 @@ html[data-theme="oled"]:has(body.portal) {
 .portal :is(.card.mixed, .resource-links a.mixed)::before {
   content: "";
   display: block;
-  width: .55rem;
-  height: .55rem;
-  border-radius: 50%;
+  width: 1.25rem;
+  height: .3rem;
+  border-radius: .15rem;
   background: var(--latin-accent);
-  box-shadow: .85rem 0 0 var(--greek-accent);
+  box-shadow: 1.5rem 0 0 var(--greek-accent);
 }
 .portal .card.mixed::before { margin-bottom: .55rem; }
 .portal .resource-links a.mixed::before { grid-column: 1; grid-row: 3; margin-top: .4rem; }
 .portal .resource-links a:hover { border-color: var(--accent); background: var(--wash); }
+.portal :is(.resource-links a.latin, .resource-links a.greek):hover {
+  border-color: var(--accent-strong);
+  background: var(--language-button-surface);
+}
 .portal .linked-project { background: var(--surface); }
 .portal :is(.resource-links a, .linkgroup a, .path-links a, .tabs button, .portal-update, .cta) {
   transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;

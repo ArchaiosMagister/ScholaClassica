@@ -34,8 +34,28 @@ try{
   assert.equal(await picker.inputValue(),'system');
   await picker.selectOption('dark');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  const verifyLanguageColors=async(expected)=>{
+    await page.waitForFunction(expected=>{
+      const style=selector=>getComputedStyle(document.querySelector(selector));
+      return style('.resource-links .latin').backgroundColor===expected.latinSurface &&
+        style('.resource-links .greek').backgroundColor===expected.greekSurface &&
+        style('#panel-herramientas .card.latin .linkgroup a').backgroundColor===expected.latinButton &&
+        style('#panel-herramientas .card.greek .linkgroup a').backgroundColor===expected.greekButton &&
+        style('#panel-herramientas .card.latin .linkgroup a').color===expected.latinInk &&
+        style('#panel-herramientas .card.greek .linkgroup a').color===expected.greekInk &&
+        style('.resource-links .mixed').backgroundImage==='none' &&
+        [...document.querySelectorAll('.portal .card.latin, .portal .card.greek')].every(card=>getComputedStyle(card).backgroundColor===expected.latinSurface) &&
+        style('.resource-links .mixed').backgroundColor===expected.mixedSurface &&
+        style('.site-head').backgroundColor===expected.header;
+    },expected,{timeout:5000});
+  };
+  const darkColors={latinSurface:'rgb(40, 38, 30)',greekSurface:'rgb(40, 38, 30)',
+    latinButton:'rgb(40, 38, 30)',greekButton:'rgb(40, 38, 30)',
+    latinInk:'rgb(165, 220, 195)',greekInk:'rgb(171, 215, 240)',mixedSurface:'rgb(40, 38, 30)',header:'rgb(36, 33, 22)'};
+  await verifyLanguageColors(darkColors);
   await picker.selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
+  await verifyLanguageColors({...darkColors,latinSurface:'rgb(18, 17, 12)',greekSurface:'rgb(18, 17, 12)',latinButton:'rgb(18, 17, 12)',greekButton:'rgb(18, 17, 12)',mixedSurface:'rgb(18, 17, 12)',header:'rgb(0, 0, 0)'});
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
     'rgb(0, 0, 0)','OLED debe usar negro puro');
   await page.reload({waitUntil:'networkidle'});
@@ -45,28 +65,48 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light',
     'La opción claro debe prevalecer aunque el sistema esté oscuro');
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
-    'rgb(245, 243, 238)');
+    'rgb(248, 245, 231)');
   // El cambio de aspecto actualiza los tokens inmediatamente, pero los enlaces
   // interpolan color y fondo durante la transición. Esperar al resultado real.
   await page.waitForFunction(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
     return style('.resource-links .latin').color==='rgb(38, 85, 69)' &&
       style('.resource-links .greek').color==='rgb(40, 94, 121)' &&
-      style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 249)';
+      style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 243)' &&
+      style('.portal-update').backgroundColor==='rgb(228, 210, 140)' &&
+      style('.portal-update').color==='rgb(48, 42, 29)' &&
+      style('.resource-links .latin').backgroundColor==='rgb(255, 255, 255)' &&
+      style('.resource-links .greek').backgroundColor==='rgb(255, 255, 255)' &&
+      style('#panel-herramientas .card.latin .linkgroup a').backgroundColor==='rgb(255, 255, 255)' &&
+      style('#panel-herramientas .card.greek .linkgroup a').backgroundColor==='rgb(255, 255, 255)' &&
+      style('#panel-herramientas .card.latin .linkgroup a').color==='rgb(38, 85, 69)' &&
+      style('#panel-herramientas .card.greek .linkgroup a').color==='rgb(40, 94, 121)';
   },null,{timeout:5000});
   const portalPalette=await page.evaluate(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
     return {
       header:style('.site-head').backgroundColor,
+      updateButton:style('.portal-update').backgroundColor,
+      updateInk:style('.portal-update').color,
       hero:style('.hero').backgroundImage,
       latin:style('.resource-links .latin').color,
       greek:style('.resource-links .greek').color,
       mixed:style('.resource-links .mixed').backgroundImage,
       mixedSurface:style('.resource-links .mixed').backgroundColor,
+      latinSurface:style('.resource-links .latin').backgroundColor,
+      greekSurface:style('.resource-links .greek').backgroundColor,
+      latinButton:style('#panel-herramientas .card.latin .linkgroup a').backgroundColor,
+      greekButton:style('#panel-herramientas .card.greek .linkgroup a').backgroundColor,
+      latinButtonInk:style('#panel-herramientas .card.latin .linkgroup a').color,
+      greekButtonInk:style('#panel-herramientas .card.greek .linkgroup a').color,
       latinMark:getComputedStyle(document.querySelector('.resource-links .mixed'),'::before').backgroundColor
     };
   });
-  assert.deepEqual(portalPalette,{header:'rgb(41, 45, 46)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 249)',latinMark:'rgb(38, 85, 69)'});
+  assert.deepEqual(portalPalette,{header:'rgb(228, 210, 140)',updateButton:'rgb(228, 210, 140)',updateInk:'rgb(48, 42, 29)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 243)',latinSurface:'rgb(255, 255, 255)',greekSurface:'rgb(255, 255, 255)',latinButton:'rgb(255, 255, 255)',greekButton:'rgb(255, 255, 255)',latinButtonInk:'rgb(38, 85, 69)',greekButtonInk:'rgb(40, 94, 121)',latinMark:'rgb(38, 85, 69)'});
+  const languageCards=await page.locator('.portal .card.latin, .portal .card.greek').evaluateAll(cards=>cards.map(card=>({title:card.querySelector('h3').textContent,background:getComputedStyle(card).backgroundColor,accent:getComputedStyle(card).borderTopColor})));
+  assert.ok(languageCards.some(card=>card.title==='Evolutio' && card.accent==='rgb(38, 85, 69)'));
+  assert.ok(languageCards.some(card=>card.title==='Etymologicon' && card.accent==='rgb(40, 94, 121)'));
+  assert.ok(languageCards.every(card=>card.background==='rgb(255, 255, 255)'),'Todas las tarjetas de lengua deben tener fondo blanco');
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});

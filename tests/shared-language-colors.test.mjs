@@ -13,14 +13,26 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  const portal=css.split('/* Portada: identidad editorial neutra;')[1];
  assert.ok(portal);
  assert.doesNotMatch(portal,/gradient\s*\(/i);
- for(const color of ['#f5f3ee','#292d2e','#191b1d','#265545','#285e79','#a5dcc3','#abd7f0'])
+ for(const color of ['#f8f5e7','#fffdf3','#e4d28c','#756019','#1c1b16','#e8d58d','#265545','#285e79','#a5dcc3','#abd7f0'])
   assert.ok(portal.includes(color));
  assert.match(portal,/--page: #000;/);
+ const manifest=JSON.parse(read('manifest.webmanifest'));
+ assert.equal(manifest.background_color,'#f8f5e7');
+ assert.equal(manifest.theme_color,'#e4d28c');
+ assert.ok(html.includes('name="theme-color" content="#e4d28c"'));
  const mixedRule=portal.split('.portal :is(.card.mixed, .resource-links a.mixed) {')[1]?.split('}')[0];
  assert.ok(mixedRule?.includes('background: var(--surface)'));
  assert.ok(mixedRule?.includes('border: 1px solid var(--line)'));
  assert.ok(portal.includes('background: var(--latin-accent)'));
- assert.ok(portal.includes('box-shadow: .85rem 0 0 var(--greek-accent)'));
+ assert.ok(portal.includes('box-shadow: 1.5rem 0 0 var(--greek-accent)'));
+ assert.match(portal,/border-inline-start: 4px solid var\(--accent\);\s*background: var\(--language-button-surface\);/);
+ assert.match(portal,/background: var\(--language-button-surface\);\s*color: var\(--accent\);\s*border-color: var\(--accent\);/);
+ assert.match(portal,/\.portal :is\(\.card\.latin, \.card\.greek\) \{\s*border-top: 4px solid var\(--accent\);\s*background: var\(--language-button-surface\);/);
+ assert.ok(portal.includes('--language-button-surface: #fff;'));
+ assert.ok(portal.includes('--language-button-surface: #28261e;'));
+ assert.ok(portal.includes('--language-button-surface: #12110c;'));
+ assert.ok(portal.includes('--latin-wash: #10251b;'));
+ assert.ok(portal.includes('--greek-wash: #101f2b;'));
  assert.ok(portal.includes('prefers-reduced-motion: reduce'));
 
 });
