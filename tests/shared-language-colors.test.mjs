@@ -13,9 +13,13 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  const portal=css.split('/* Portada: identidad editorial neutra;')[1];
  assert.ok(portal);
  assert.doesNotMatch(portal,/gradient\s*\(/i);
- for(const color of ['#f5f3ee','#292d2e','#191b1d','#265545','#285e79','#a5dcc3','#abd7f0'])
+ for(const color of ['#f7f1e6','#fffaf2','#5e482e','#7a6140','#1d1a17','#e0c38f','#265545','#285e79','#a5dcc3','#abd7f0'])
   assert.ok(portal.includes(color));
  assert.match(portal,/--page: #000;/);
+ const manifest=JSON.parse(read('manifest.webmanifest'));
+ assert.equal(manifest.background_color,'#f7f1e6');
+ assert.equal(manifest.theme_color,'#5e482e');
+ assert.ok(html.includes('name="theme-color" content="#5e482e"'));
  const mixedRule=portal.split('.portal :is(.card.mixed, .resource-links a.mixed) {')[1]?.split('}')[0];
  assert.ok(mixedRule?.includes('background: var(--surface)'));
  assert.ok(mixedRule?.includes('border: 1px solid var(--line)'));

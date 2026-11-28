@@ -365,16 +365,16 @@ h2 { margin: 0; font-size: clamp(1.75rem, 3.3vw, 2.55rem); letter-spacing: -.035
 
 /* Portada: identidad editorial neutra; los acentos identifican la lengua. */
 html:has(body.portal) {
-  --page: #f5f3ee;
-  --ink: #292d2e;
-  --muted: #62645f;
-  --surface: #fffdf9;
-  --wash: #eeebe4;
-  --line: #d6d2c9;
-  --accent: #414746;
-  --accent-strong: #292d2e;
-  --on-accent: #fffdf9;
-  --focus: #525b59;
+  --page: #f7f1e6;
+  --ink: #33291f;
+  --muted: #6c5e4c;
+  --surface: #fffaf2;
+  --wash: #f3eadb;
+  --line: #dccdb8;
+  --accent: #7a6140;
+  --accent-strong: #5e482e;
+  --on-accent: #fffaf2;
+  --focus: #8a6c45;
   --latin-accent: #265545;
   --latin-strong: #173f33;
   --latin-wash: #e7efe6;
@@ -385,23 +385,23 @@ html:has(body.portal) {
   --greek-wash: #e5eff5;
   --greek-button-ink: #fffdf9;
   --greek-line: #b5cbd8;
-  --head-bg: #292d2e;
-  --head-ink: #fffdf9;
-  --head-line: #727977;
-  --head-wash: #414746;
+  --head-bg: #5e482e;
+  --head-ink: #fffaf2;
+  --head-line: #a18b68;
+  --head-wash: #7a6140;
   --serif: Palatino, "Palatino Linotype", "Noto Serif", Georgia, serif;
 }
 html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
-  --page: #191b1d;
+  --page: #1d1a17;
   --ink: #f0ede5;
-  --muted: #bfc0bc;
-  --surface: #242729;
-  --wash: #2d3031;
-  --line: #484c4d;
-  --accent: #d4d8d4;
-  --accent-strong: #f0ede5;
-  --on-accent: #191b1d;
-  --focus: #d4d8d4;
+  --muted: #c6baaa;
+  --surface: #2a2520;
+  --wash: #342d26;
+  --line: #5b5145;
+  --accent: #e0c38f;
+  --accent-strong: #f0d7a8;
+  --on-accent: #1d1a17;
+  --focus: #e8ca95;
   --latin-accent: #a5dcc3;
   --latin-strong: #d0f4e2;
   --latin-wash: #233c31;
@@ -412,20 +412,21 @@ html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
   --greek-wash: #192e3b;
   --greek-button-ink: #132d40;
   --greek-line: #4a6a7d;
-  --head-bg: #191b1d;
+  --head-bg: #241f1a;
   --head-ink: #f0ede5;
-  --head-line: #484c4d;
-  --head-wash: #2d3031;
+  --head-line: #5b5145;
+  --head-wash: #3a3026;
 }
 html[data-theme="oled"]:has(body.portal) {
   --page: #000;
-  --surface: #101112;
-  --wash: #18191a;
-  --line: #363839;
+  --surface: #12100d;
+  --wash: #1b1712;
+  --line: #3a3228;
   --head-bg: #000;
-  --head-wash: #18191a;
+  --head-wash: #1b1712;
   --latin-wash: #10251b;
   --greek-wash: #101f2b;
+  --head-line: #3a3228;
 }
 .portal .site-head {
   background: var(--head-bg);

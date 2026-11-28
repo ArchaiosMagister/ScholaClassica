@@ -43,16 +43,18 @@ try{
         style('#panel-herramientas .card.greek .linkgroup a').backgroundColor===expected.greekButton &&
         style('#panel-herramientas .card.latin .linkgroup a').color===expected.latinInk &&
         style('#panel-herramientas .card.greek .linkgroup a').color===expected.greekInk &&
-        style('.resource-links .mixed').backgroundImage==='none';
+        style('.resource-links .mixed').backgroundImage==='none' &&
+        style('.resource-links .mixed').backgroundColor===expected.mixedSurface &&
+        style('.site-head').backgroundColor===expected.header;
     },expected,{timeout:5000});
   };
   const darkColors={latinSurface:'rgb(35, 60, 49)',greekSurface:'rgb(25, 46, 59)',
     latinButton:'rgb(165, 220, 195)',greekButton:'rgb(171, 215, 240)',
-    latinInk:'rgb(16, 44, 33)',greekInk:'rgb(19, 45, 64)'};
+    latinInk:'rgb(16, 44, 33)',greekInk:'rgb(19, 45, 64)',mixedSurface:'rgb(42, 37, 32)',header:'rgb(36, 31, 26)'};
   await verifyLanguageColors(darkColors);
   await picker.selectOption('oled');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'oled');
-  await verifyLanguageColors({...darkColors,latinSurface:'rgb(16, 37, 27)',greekSurface:'rgb(16, 31, 43)'});
+  await verifyLanguageColors({...darkColors,latinSurface:'rgb(16, 37, 27)',greekSurface:'rgb(16, 31, 43)',mixedSurface:'rgb(18, 16, 13)',header:'rgb(0, 0, 0)'});
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
     'rgb(0, 0, 0)','OLED debe usar negro puro');
   await page.reload({waitUntil:'networkidle'});
@@ -62,14 +64,14 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light',
     'La opción claro debe prevalecer aunque el sistema esté oscuro');
   assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),
-    'rgb(245, 243, 238)');
+    'rgb(247, 241, 230)');
   // El cambio de aspecto actualiza los tokens inmediatamente, pero los enlaces
   // interpolan color y fondo durante la transición. Esperar al resultado real.
   await page.waitForFunction(()=>{
     const style=selector=>getComputedStyle(document.querySelector(selector));
     return style('.resource-links .latin').color==='rgb(38, 85, 69)' &&
       style('.resource-links .greek').color==='rgb(40, 94, 121)' &&
-      style('.resource-links .mixed').backgroundColor==='rgb(255, 253, 249)' &&
+      style('.resource-links .mixed').backgroundColor==='rgb(255, 250, 242)' &&
       style('.resource-links .latin').backgroundColor==='rgb(231, 239, 230)' &&
       style('.resource-links .greek').backgroundColor==='rgb(229, 239, 245)' &&
       style('#panel-herramientas .card.latin .linkgroup a').backgroundColor==='rgb(38, 85, 69)' &&
@@ -93,7 +95,7 @@ try{
       latinMark:getComputedStyle(document.querySelector('.resource-links .mixed'),'::before').backgroundColor
     };
   });
-  assert.deepEqual(portalPalette,{header:'rgb(41, 45, 46)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 253, 249)',latinSurface:'rgb(231, 239, 230)',greekSurface:'rgb(229, 239, 245)',latinButton:'rgb(38, 85, 69)',greekButton:'rgb(40, 94, 121)',latinButtonInk:'rgb(255, 253, 249)',greekButtonInk:'rgb(255, 253, 249)',latinMark:'rgb(38, 85, 69)'});
+  assert.deepEqual(portalPalette,{header:'rgb(94, 72, 46)',hero:'none',latin:'rgb(38, 85, 69)',greek:'rgb(40, 94, 121)',mixed:'none',mixedSurface:'rgb(255, 250, 242)',latinSurface:'rgb(231, 239, 230)',greekSurface:'rgb(229, 239, 245)',latinButton:'rgb(38, 85, 69)',greekButton:'rgb(40, 94, 121)',latinButtonInk:'rgb(255, 253, 249)',greekButtonInk:'rgb(255, 253, 249)',latinMark:'rgb(38, 85, 69)'});
   await picker.selectOption('system');
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
   await page.emulateMedia({colorScheme:'light'});
