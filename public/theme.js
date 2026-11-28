@@ -11,7 +11,7 @@
   }catch{/* Sin almacenamiento: mantener el aspecto automático. */}
   const resolved=mode=>mode==='system'?(media?.matches?'dark':'light'):mode;
   const background={light:'#f8fafc',dark:'#211b1c',oled:'#000000'};
-  const portalBackground={light:'#5e482e',dark:'#241f1a',oled:'#000000'};
+  const portalBackground={light:'#e4d28c',dark:'#242116',oled:'#000000'};
   function apply(){
     const theme=resolved(choice);
     const root=document.documentElement;

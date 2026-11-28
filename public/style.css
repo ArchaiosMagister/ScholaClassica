@@ -365,16 +365,16 @@ h2 { margin: 0; font-size: clamp(1.75rem, 3.3vw, 2.55rem); letter-spacing: -.035
 
 /* Portada: identidad editorial neutra; los acentos identifican la lengua. */
 html:has(body.portal) {
-  --page: #f7f1e6;
-  --ink: #33291f;
-  --muted: #6c5e4c;
-  --surface: #fffaf2;
-  --wash: #f3eadb;
-  --line: #dccdb8;
-  --accent: #7a6140;
-  --accent-strong: #5e482e;
-  --on-accent: #fffaf2;
-  --focus: #8a6c45;
+  --page: #f8f5e7;
+  --ink: #302a1d;
+  --muted: #625b45;
+  --surface: #fffdf3;
+  --wash: #f3eac7;
+  --line: #d9c98e;
+  --accent: #756019;
+  --accent-strong: #5d4b14;
+  --on-accent: #fffdf3;
+  --focus: #80671f;
   --latin-accent: #265545;
   --latin-strong: #173f33;
   --latin-wash: #e7efe6;
@@ -385,23 +385,23 @@ html:has(body.portal) {
   --greek-wash: #e5eff5;
   --greek-button-ink: #fffdf9;
   --greek-line: #b5cbd8;
-  --head-bg: #5e482e;
-  --head-ink: #fffaf2;
-  --head-line: #a18b68;
-  --head-wash: #7a6140;
+  --head-bg: #e4d28c;
+  --head-ink: #302a1d;
+  --head-line: #b29b57;
+  --head-wash: #f0e3ae;
   --serif: Palatino, "Palatino Linotype", "Noto Serif", Georgia, serif;
 }
 html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
-  --page: #1d1a17;
+  --page: #1c1b16;
   --ink: #f0ede5;
-  --muted: #c6baaa;
-  --surface: #2a2520;
-  --wash: #342d26;
-  --line: #5b5145;
-  --accent: #e0c38f;
-  --accent-strong: #f0d7a8;
-  --on-accent: #1d1a17;
-  --focus: #e8ca95;
+  --muted: #c8c1aa;
+  --surface: #28261e;
+  --wash: #333024;
+  --line: #56513e;
+  --accent: #e8d58d;
+  --accent-strong: #f1e4ad;
+  --on-accent: #1c1b16;
+  --focus: #e8d58d;
   --latin-accent: #a5dcc3;
   --latin-strong: #d0f4e2;
   --latin-wash: #233c31;
@@ -412,21 +412,21 @@ html:is([data-theme="dark"], [data-theme="oled"]):has(body.portal) {
   --greek-wash: #192e3b;
   --greek-button-ink: #132d40;
   --greek-line: #4a6a7d;
-  --head-bg: #241f1a;
+  --head-bg: #242116;
   --head-ink: #f0ede5;
-  --head-line: #5b5145;
-  --head-wash: #3a3026;
+  --head-line: #56513e;
+  --head-wash: #393421;
 }
 html[data-theme="oled"]:has(body.portal) {
   --page: #000;
-  --surface: #12100d;
-  --wash: #1b1712;
-  --line: #3a3228;
+  --surface: #12110c;
+  --wash: #1b190f;
+  --line: #3a3524;
   --head-bg: #000;
-  --head-wash: #1b1712;
+  --head-wash: #1b190f;
   --latin-wash: #10251b;
   --greek-wash: #101f2b;
-  --head-line: #3a3228;
+  --head-line: #3a3524;
 }
 .portal .site-head {
   background: var(--head-bg);
@@ -462,6 +462,17 @@ html[data-theme="oled"]:has(body.portal) {
 .portal .hero-image { border-radius: 0; filter: saturate(0); }
 .portal .cta { background: var(--accent); color: var(--on-accent); }
 .portal .cta:hover { background: var(--accent-strong); }
+/* Amarillo trigo mate en los controles generales; texto oscuro para mantener contraste. */
+html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-selected="true"]) {
+  background: #e4d28c;
+  color: #302a1d;
+  border-color: #b29b57;
+}
+html[data-theme="light"] .portal :is(.cta, .portal-update, .tabs button[aria-selected="true"]):hover:not(:disabled) {
+  background: #d8c274;
+  color: #302a1d;
+  border-color: #a18b49;
+}
 .portal .hero :focus-visible { outline-color: var(--focus); outline-offset: 3px; }
 .portal :is(.study-path, .card, .resource-links a) { border-radius: .65rem; }
 .portal :is(.study-path, .card, .resource-links a) { background: var(--surface); }
