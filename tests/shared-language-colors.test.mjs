@@ -12,7 +12,7 @@ test('Portada distingue recursos grecolatinos, latinos y griegos',()=>{
  assert.match(html,/class="card greek">\s*<p class="overline">Etimología/);
  const portal=css.split('/* Portada: identidad editorial neutra;')[1];
  assert.ok(portal);
- assert.doesNotMatch(portal,/gradient\\s*\\(/i);
+ assert.doesNotMatch(portal,/gradient\s*\(/i);
  for(const color of ['#f5f3ee','#292d2e','#191b1d','#265545','#285e79','#a5dcc3','#abd7f0'])
   assert.ok(portal.includes(color));
  assert.match(portal,/--page: #000;/);
